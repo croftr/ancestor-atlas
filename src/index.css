@@ -1,0 +1,31 @@
+body { margin: 0; background: #0b1020; color: #e8ecf4; font-family: system-ui, sans-serif; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.panel {
+  background: rgba(12,18,32,0.85); backdrop-filter: blur(6px); border-radius: 10px;
+  padding: 12px 14px; border: 1px solid rgba(255,255,255,0.08); box-sizing: border-box;
+}
+.muted { color: #8b95ab; font-size: 0.85em; }
+.legend { position: absolute; top: 12px; left: 12px; min-width: 260px; }
+.legend h1 { font-size: 1.1rem; margin: 0 0 8px; }
+.legend-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
+.legend-row .count { margin-left: auto; font-variant-numeric: tabular-nums; color: #b8c1d6; font-size: 0.85em; }
+.swatch { display: inline-block; width: 12px; height: 12px; flex: none; }
+.info-panel { position: absolute; top: 12px; right: 60px; width: 340px; max-height: calc(100vh - 260px); overflow-y: auto; }
+.info-panel h2 { margin: 8px 0 4px; font-size: 1.2rem; }
+.info-panel .close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 1rem; }
+.badge { display: inline-block; color: #111; font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+.also { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.time-slider { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: calc(100% - 24px); max-width: 1100px; }
+.year-readout { font-size: 1.8rem; font-weight: 600; }
+.controls { display: flex; gap: 8px; justify-content: center; margin: 6px 0; }
+.controls button { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 4px 12px; }
+.range { width: 100%; margin: 4px 0 0; }
+.ticks { position: relative; height: 18px; margin: 0 8px; }
+.tick { position: absolute; transform: translateX(-50%); font-size: 0.7rem; color: #8b95ab; white-space: nowrap; }
+.chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0 2px; }
+.chip { flex: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
+.chip:hover, .controls button:hover { background: rgba(255,255,255,0.18); }
+.empty-state {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+  background: rgba(12,18,32,0.7); padding: 12px 18px; border-radius: 10px; color: #cbd3e6;
+}
