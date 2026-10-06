@@ -13,6 +13,8 @@ export const FINGERPRINT_INPUTS = [
   "scripts/ingest",
   "scripts/lib/colors.ts",
   "scripts/lib/dates.ts",
+  "scripts/lib/calibrate.ts",
+  "data/reference",
 ];
 export const META_PATH = "public/data/build-meta.json";
 

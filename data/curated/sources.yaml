@@ -29,3 +29,8 @@
   url: https://www.wikidata.org/
   licence: CC0 1.0 (Wikidata coordinates); dates are facts reported in the cited paper
   citation: "Site coordinates from Wikidata (P625, CC0); ages as stated in the peer-reviewed paper given by each site's DOI (date_source)."
+- id: xronos
+  name: XRONOS (open chronometric data)
+  url: https://xronos.ch/
+  licence: CC BY 4.0
+  citation: "Radiocarbon dates from XRONOS (https://xronos.ch), CC BY 4.0; Roe, Hinz et al. 2025, doi:10.5334/jcaa.191. Dates calibrated here with IntCal20 (Reimer et al. 2020, doi:10.1017/RDC.2020.41); one point per site spanning its calibrated dates."

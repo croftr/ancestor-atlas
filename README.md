@@ -8,6 +8,10 @@
   <strong>An interactive journey through deep time — exploring human evolution, ancient fossil sites, and early civilizations across a 3D globe.</strong>
 </p>
 
+<p align="center">
+  <a href="https://ancestor-atlas-lilac.vercel.app/"><strong>🚀 Launch the Live Atlas: ancestor-atlas-lilac.vercel.app</strong></a>
+</p>
+
 ---
 
 ## 🌍 Welcome to Ancestor Atlas
@@ -45,7 +49,10 @@ While the app is designed to be accessible and fun to browse, accuracy matters. 
 
 ## 🚀 Running the Project Locally
 
-If you'd like to run Ancestor Atlas on your own computer:
+> **Want to explore immediately without installing anything?**  
+> Simply visit the live version at [**ancestor-atlas-lilac.vercel.app**](https://ancestor-atlas-lilac.vercel.app/).
+
+If you'd like to run or contribute to the project on your own computer:
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (version 18 or higher recommended)

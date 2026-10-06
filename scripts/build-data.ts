@@ -7,6 +7,8 @@ import { CATEGORIES, wikipediaUrl, type Category, type Entity, type FeatureProps
 import { civColors } from "./lib/colors.ts";
 import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
+import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
+import { distanceKm } from "./lib/qa.ts";
 
 const OUT = "public/data";
 const CURATED = "data/curated";
@@ -82,6 +84,22 @@ function loadSites(file: string, category: Category) {
 }
 loadSites("species-sites.csv", "species");
 loadSites("culture-sites.csv", "culture");
+
+// Culture sites from XRONOS radiocarbon dates (local copy only; see scripts/ingest/xronos.ts).
+// A XRONOS site within 2 km of a curated site of the same entity is skipped: the curated row wins.
+const xr = readXronosSites();
+if (!xr) console.warn("! data/raw/xronos/data.csv missing: no XRONOS sites (download https://xronos.ch/data.csv by hand)");
+else {
+  const curatedPts = features.map((f) => ({ e: f.props.entity_id, c: f.geometry.coordinates as number[] }));
+  let near = 0;
+  for (const f of xronosFeatures(xr.sites)) {
+    const [lon, lat] = f.geometry.coordinates;
+    if (curatedPts.some((p) => p.e === f.props.entity_id && distanceKm(lat, lon, p.c[1], p.c[0]) < 2)) { near++; continue; }
+    features.push(f);
+  }
+  const s = xr.stats;
+  console.log(`XRONOS: ${s.labelled} labelled dates (${s.conflicting} with conflicting labels, ${s.noCoords} without coordinates, ${s.uncalibrated} not calibratable, ${s.duplicates} duplicate lab numbers, ${s.outOfWindow} outside the culture's sourced range) -> ${s.sites} sites, ${near} skipped as curated duplicates`);
+}
 
 // Civilizations from Cliopatria.
 const wdPath = "data/raw/wikidata/descriptions.json";
@@ -190,6 +208,15 @@ for (const e of entities.values()) {
   const { color, line_color } = civColors(rootOf(e), e.id);
   e.color = color;
   for (const f of featuresOf.get(e.id) ?? []) Object.assign(f.props, { color, line_color });
+}
+
+// ---------- spans ----------
+// Species/culture spans must cover every site window (bulk sources can extend what the curated rows give).
+for (const f of features) {
+  const e = entities.get(f.props.entity_id);
+  if (!e || e.category === "civilization") continue;
+  e.start_year = Math.min(e.start_year, f.props.start_year);
+  e.end_year = Math.max(e.end_year, f.props.end_year);
 }
 
 // ---------- source ids ----------

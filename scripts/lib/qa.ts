@@ -97,5 +97,5 @@ export const normaliseLabel = (s: string) =>
     .trim();
 
 /** Evidence references look like "<scheme>:<value>". */
-export const EVIDENCE_REF = /^(wikidata|wikipedia|doi|pbdb|road|url):\S.*$/;
+export const EVIDENCE_REF = /^(wikidata|wikipedia|doi|pbdb|road|url|xronos):\S.*$/;
 export const QID = /^Q\d+$/;
