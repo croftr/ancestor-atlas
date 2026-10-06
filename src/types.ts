@@ -32,6 +32,7 @@ export interface FeatureProps {
   weight?: number; // culture heatmap intensity 0–1
   source_id: string;
   source_ref?: string;
+  refs?: string; // publications behind the dates (bulk sources), "; "-separated
   color?: string; // civilizations: fill colour
   line_color?: string; // civilizations: darker outline colour
   wikipedia_phrase?: string; // per-row Wikipedia page, when it differs from the entity's

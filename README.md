@@ -118,6 +118,8 @@ Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.
 exports are not fetched automatically, so download `https://xronos.ch/data.csv` by hand into `data/raw/xronos/data.csv`;
 `npm run data:build` only reads that local copy. Dates are calibrated with IntCal20, kept only if they fall within the
 culture's sourced date range, and grouped into one point per site.
+Dates on human remains (species *Homo sapiens*) also become *H. sapiens* site points (before 10,000 BCE only). Each
+XRONOS point links to an XRONOS record and lists the publications behind its dates.
 
 ### Provenance Rules
 

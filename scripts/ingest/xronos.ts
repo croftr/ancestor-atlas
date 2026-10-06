@@ -1,4 +1,4 @@
-// XRONOS (https://xronos.ch, CC BY 4.0) -> culture site points.
+// XRONOS (https://xronos.ch, CC BY 4.0) -> culture site points, plus H. sapiens points from directly dated human remains.
 // Reads ONLY the local copy data/raw/xronos/data.csv (downloaded by hand from https://xronos.ch/data.csv;
 // XRONOS's robots.txt disallows automated fetching of /data*, so this script never downloads).
 // Dates whose typochronological label maps to a culture in data/curated/culture-labels.csv are calibrated with
@@ -16,12 +16,16 @@ import { STEPS, segmentOfBce } from "../../src/time/scale.ts";
 
 export const XRONOS_CSV = "data/raw/xronos/data.csv";
 
+// Dates on human remains (species "Homo sapiens") are evidence for the H. sapiens layer, whatever their culture label.
+const HUMAN_SPECIES = /^homo sapiens/i;
+const HUMAN_ENTITY = "homo-sapiens";
+
 export interface XronosSite {
-  entity_id: string; range: [number, number]; // culture's sourced range, years BCE (oldest, youngest), no margin
+  entity_id: string; category: "culture" | "species"; range: [number, number]; // culture's sourced range, years BCE (oldest, youngest), no margin
   site: string; country: string; lat: number; lon: number;
-  dates: { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number }[];
+  dates: { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[] }[];
 }
-export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; countryMismatch: number; merged: number; sites: number }
+export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; sites: number }
 
 const units = (s: string): string[] => {
   try { return (JSON.parse(s || "[]") as Record<string, string>[]).map((d) => Object.values(d)[0]?.trim()).filter(Boolean); }
@@ -40,7 +44,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     ranges.set(r.entity_id, [Number(r.start_bce), Number(r.end_bce)]);
   }
   const curve = loadCurve();
-  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, countryMismatch: 0, merged: 0, sites: 0 };
+  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, coarse: 0, countryMismatch: 0, merged: 0, sites: 0 };
   const byCountry = new Map<string, [number, number][]>(); // all XRONOS coordinates per country, for a consistency check
   const seen = new Set<string>();
   const sites = new Map<string, XronosSite>();
@@ -61,37 +65,50 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   }
   const conflicted = (r: Record<string, string>) =>
     [r.labnr?.trim(), measKey(r)].some((k) => !!k && (labCultures.get(k)?.size ?? 0) > 1);
+  // Publication references for a date: keep entries that look like citations (contain a year), not the names of the
+  // aggregating databases (RADON, CalPal2022, p3k14c, ...).
+  const refsOf = (r: Record<string, string>) => units(r.reference).filter((x) => /\b(1[89]|20)\d{2}\b/.test(x));
   for (const r of rows) {
     stats.rows++;
     if (r.lat && r.lng && r.country) {
       const p: [number, number] = [Number(r.lat), Number(r.lng)];
       if (Number.isFinite(p[0]) && Number.isFinite(p[1])) (byCountry.get(r.country) ?? byCountry.set(r.country, []).get(r.country)!).push(p);
     }
+    // Which entities this date is evidence for: at most one culture (by label) and, if the dated material is human
+    // remains, Homo sapiens (by species) -- a directly dated burial can count for both.
+    const targets: string[] = [];
     const mapped = new Set(units(r.typochronological_units).map((u) => labels.get(u)).filter((x): x is string => !!x));
-    if (!mapped.size) continue;
-    if (mapped.size > 1) { stats.conflicting++; continue; }
+    if (mapped.size > 1 || (mapped.size === 1 && conflicted(r))) stats.conflicting++;
+    else if (mapped.size === 1) targets.push([...mapped][0]);
+    if (HUMAN_SPECIES.test(r.species?.trim() ?? "")) targets.push(HUMAN_ENTITY);
+    if (!targets.length) continue;
     stats.labelled++;
     const lat = Number(r.lat), lon = Number(r.lng);
     if (!r.lat || !r.lng || !Number.isFinite(lat) || !Number.isFinite(lon)) { stats.noCoords++; continue; }
-    const key = r.labnr?.trim();
-    if (conflicted(r)) { stats.conflicting++; continue; }
-    if (key && seen.has(key)) { stats.duplicates++; continue; }
-    if (key) seen.add(key);
+    if (Number.isInteger(lat) && Number.isInteger(lon)) { stats.coarse++; continue; } // whole-degree point: ~100 km
     const bp = Number(r.bp), std = Number(r.std);
     const c = Number.isFinite(bp) && Number.isFinite(std) ? calibrate(curve, bp, std) : undefined;
     if (!c) { stats.uncalibrated++; continue; }
-    const entity_id = [...mapped][0];
-    const w = windows.get(entity_id);
-    if (!w) continue; // only cultures with a sourced date range are imported
-    const bce = c.median - 1949; // cal BP -> years BCE (1950 - calBP = astronomical year; BCE = 1 - year)
-    if (bce > w[0] || bce < w[1]) { stats.outOfWindow++; continue; }
-    // The same measurement sometimes appears under two lab-number styles (ETH-4086 / UZ-4086) at a slightly different
-    // site point: same age and error within 5 km of an already-kept date of this culture is one measurement.
-    const twin = [...sites.values()].some((o) => o.entity_id === entity_id && o.dates.some((d) => d.bp === bp && d.std === std) && distanceKm(o.lat, o.lon, lat, lon) < 5);
-    if (twin) { stats.duplicates++; continue; }
-    const id = `${entity_id}|${r.site.trim()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
-    const s = sites.get(id) ?? sites.set(id, { entity_id, range: ranges.get(entity_id)!, site: r.site.trim(), country: r.country, lat, lon, dates: [] }).get(id)!;
-    s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to });
+    const key = r.labnr?.trim();
+    for (const entity_id of targets) {
+      const w = windows.get(entity_id);
+      if (!w) continue; // only entities with a sourced date range are imported
+      const dupKey = `${entity_id}|${key}`;
+      if (key && seen.has(dupKey)) { stats.duplicates++; continue; }
+      if (key) seen.add(dupKey);
+      const bce = c.median - 1949; // cal BP -> years BCE (1950 - calBP = astronomical year; BCE = 1 - year)
+      if (bce > w[0] || bce < w[1]) { stats.outOfWindow++; continue; }
+      // The same measurement sometimes appears under two lab-number styles (ETH-4086 / UZ-4086) at a slightly different
+      // site point: same age and error within 5 km of an already-kept date of this entity is one measurement.
+      const twin = [...sites.values()].some((o) => o.entity_id === entity_id && o.dates.some((d) => d.bp === bp && d.std === std) && distanceKm(o.lat, o.lon, lat, lon) < 5);
+      if (twin) { stats.duplicates++; continue; }
+      const id = `${entity_id}|${r.site.trim()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
+      const s = sites.get(id) ?? sites.set(id, {
+        entity_id, category: entity_id === HUMAN_ENTITY ? "species" : "culture", range: ranges.get(entity_id)!,
+        site: r.site.trim(), country: r.country, lat, lon, dates: [],
+      }).get(id)!;
+      s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to, refs: refsOf(r) });
+    }
   }
   // Drop sites whose coordinates are far from where the rest of their country's XRONOS dates lie: these are
   // source errors (flipped longitude signs, shifted grids, wrong country codes).
@@ -144,12 +161,18 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
     used.add(id);
     return {
       props: {
-        id, entity_id: s.entity_id, category: "culture", start_year: start, end_year: end,
+        id, entity_id: s.entity_id, category: s.category, start_year: start, end_year: end,
         label: s.site,
-        date_text: oldest === youngest ? `c. ${ka(oldest)} ka cal BP (1 date)` : `${ka(oldest)}–${ka(youngest)} ka cal BP (${n} dates)`,
+        date_text: (oldest === youngest ? `c. ${ka(oldest)} ka cal BP (1 date` : `${ka(oldest)}–${ka(youngest)} ka cal BP (${n} dates`) + (s.category === "species" ? ", human remains)" : ")"),
         confidence: n >= 5 ? "high" : n >= 2 ? "medium" : "low",
         weight: Math.round((Math.log(n + 1) / Math.log(maxN + 1)) * 1000) / 1000,
         source_id: "xronos",
+        refs: (() => {
+          const r = [...new Set(s.dates.flatMap((d) => d.refs.flatMap((x) => x.split(/;\s*/)).map((x) => x.trim()).filter(Boolean)))];
+          let out = "";
+          for (const x of r) { const next = out ? `${out}; ${x}` : x; if (next.length > 160) { out = out ? `${out}; …` : `${x.slice(0, 157)}…`; break; } out = next; }
+          return out || undefined;
+        })(),
         source_ref: `xronos:${s.dates.slice(0, 3).map((d) => d.labnr).join(",")}${n > 3 ? ",…" : ""}`,
         coord_source: `xronos:c14/${s.dates[0].recordId}`, date_source: `xronos:IntCal20:c14/${s.dates[0].recordId}`,
       },

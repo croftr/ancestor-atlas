@@ -98,6 +98,7 @@ export default function InfoPanel() {
                 </>
               )}
               {labs && <div className="muted">Lab nos. {labs}</div>}
+              {feature.refs && <div className="muted">Published: {feature.refs}</div>}
             </div>
           )}
           {!coordRef && !dateRef && featureSource && featureSource.id !== "recall" && (
