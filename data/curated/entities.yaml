@@ -27,8 +27,8 @@
 - id: ardipithecus-kadabba
   name: "Ardipithecus kadabba"
   category: species
-  start_year: -5798050
-  end_year: -5198050
+  start_year: -5768050
+  end_year: -5538050
   description: "Late Miocene hominin from the Middle Awash of Ethiopia, known from fragmentary remains. Often seen as an ancestor of Ardipithecus ramidus."
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus_kadabba
   source_ids: [recall]
@@ -125,8 +125,8 @@
 - id: paranthropus-robustus
   name: "Paranthropus robustus"
   category: species
-  start_year: -2093050
-  end_year: -998050
+  start_year: -2318050
+  end_year: -1598050
   description: "Robust australopith of South Africa, found in the Cradle of Humankind caves including Swartkrans, Kromdraai and Drimolen. Lived alongside early Homo."
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_robustus
   source_ids: [recall]
@@ -171,7 +171,7 @@
 - id: homo-heidelbergensis
   name: "Homo heidelbergensis"
   category: species
-  start_year: -618050
+  start_year: -647050
   end_year: -148050
   description: "Middle Pleistocene hominin known from sites in Europe and Africa, often seen as close to the ancestry of Neanderthals and modern humans. Which fossils belong to the species is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_heidelbergensis
