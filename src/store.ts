@@ -2,6 +2,19 @@ import { create } from "zustand";
 import { CATEGORIES, type Category, type FeatureProps } from "./types";
 import { snapYear, stepYear } from "./time/scale";
 import { getData } from "./map/data";
+import { BASEMAP_THEMES, DEFAULT_BASEMAP } from "./config";
+
+const BASEMAP_KEY = "history-globe.basemap";
+
+function loadBasemap(): string {
+  try {
+    const v = localStorage.getItem(BASEMAP_KEY);
+    if (v && BASEMAP_THEMES[v]) return v;
+  } catch {
+    /* storage unavailable */
+  }
+  return DEFAULT_BASEMAP;
+}
 
 interface AppState {
   year: number;
@@ -11,6 +24,7 @@ interface AppState {
   /** Entity whose group view is open (a group has no feature to select). */
   groupId: string | null;
   playing: boolean;
+  basemap: string;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -18,6 +32,7 @@ interface AppState {
   /** Set the slider to the entity's start and select its earliest feature. */
   jumpTo(entityId: string): void;
   setPlaying(p: boolean): void;
+  setBasemap(name: string): void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -27,6 +42,7 @@ export const useStore = create<AppState>((set) => ({
   hits: [],
   groupId: null,
   playing: false,
+  basemap: loadBasemap(),
   setYear: (y) => set({ year: snapYear(y) }),
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
   select: (id, hits) =>
@@ -47,4 +63,13 @@ export const useStore = create<AppState>((set) => ({
     }));
   },
   setPlaying: (p) => set({ playing: p }),
+  setBasemap: (name) => {
+    if (!BASEMAP_THEMES[name]) return;
+    try {
+      localStorage.setItem(BASEMAP_KEY, name);
+    } catch {
+      /* storage unavailable */
+    }
+    set({ basemap: name });
+  },
 }));

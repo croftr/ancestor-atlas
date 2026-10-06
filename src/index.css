@@ -212,3 +212,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .conf-high { color: #5fd38d; }
 .conf-medium { color: #e0c050; }
 .conf-low { color: #ee7b6b; }
+
+.settings { position: absolute; top: 12px; right: 56px; z-index: 5; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.settings-toggle { width: 36px; height: 36px; padding: 0; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.settings-panel { width: 240px; }
+.settings-panel h2 { margin: 0 0 10px; font-size: 1rem; }
+.settings-label { font-size: 0.8em; color: #8b95ab; margin-bottom: 6px; }
+.theme-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.theme-option { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; }
+.theme-option.active { border-color: #7aa7ff; background: rgba(122,167,255,0.15); }
+.swatch { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.swatch span { width: 12px; height: 12px; border-radius: 50%; border: 1px solid; }

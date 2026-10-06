@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
+import { BASEMAP_THEMES } from "../config";
 import { type FeatureProps } from "../types";
 import { INTERACTIVE_LAYERS, LAYER_DEFS, SOURCE_ID, timeFilter } from "./layers";
 import { isActive, loadData, useFeatures } from "./data";
@@ -15,31 +16,32 @@ export default function MapView() {
     const container = containerRef.current;
     if (!container) return;
 
+    const theme = BASEMAP_THEMES[useStore.getState().basemap];
     const map = new maplibregl.Map({
       container,
       center: [30, 20],
       zoom: 1.6,
+      maxZoom: 6, // no point zooming into detail the basemap (and the data) doesn't have
       style: {
         version: 8,
         projection: { type: "globe" },
         sources: {
-          basemap: {
-            type: "raster",
-            tileSize: 256,
-            maxzoom: 17,
-            tiles: [
-              "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-            ],
-            attribution: "Imagery © Esri, Maxar, Earthstar Geographics",
+          // Stylised, undated basemap: modern coastlines only, no imagery. Terrain, vegetation,
+          // farmland and coastlines all differed hugely over 10 million years.
+          land: {
+            type: "geojson",
+            data: "/data/basemap/land.geojson",
+            attribution: "Land outlines: Natural Earth (public domain)",
           },
         },
         layers: [
-          { id: "bg", type: "background", paint: { "background-color": "#0b1020" } },
+          { id: "bg", type: "background", paint: { "background-color": theme.bg } },
+          { id: "land-fill", type: "fill", source: "land", paint: { "fill-color": theme.fill } },
           {
-            id: "basemap",
-            type: "raster",
-            source: "basemap",
-            paint: { "raster-saturation": -0.3, "raster-brightness-max": 0.8 },
+            id: "land-line",
+            type: "line",
+            source: "land",
+            paint: { "line-color": theme.line, "line-width": 0.8 },
           },
         ],
       },
@@ -104,6 +106,12 @@ export default function MapView() {
     }
 
     const unsubscribe = useStore.subscribe((state, prev) => {
+      if (state.basemap !== prev.basemap) {
+        const t = BASEMAP_THEMES[state.basemap];
+        map.setPaintProperty("bg", "background-color", t.bg);
+        map.setPaintProperty("land-fill", "fill-color", t.fill);
+        map.setPaintProperty("land-line", "line-color", t.line);
+      }
       if (state.year !== prev.year || state.enabled !== prev.enabled) {
         // Auto-deselect if the selected entity is no longer visible.
         if (state.selectedId) {
