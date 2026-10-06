@@ -3,6 +3,7 @@ import Legend from "./ui/Legend";
 import InfoPanel from "./ui/InfoPanel";
 import TimeSlider from "./ui/TimeSlider";
 import SettingsPanel from "./ui/SettingsPanel";
+import SearchBox from "./ui/SearchBox";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <InfoPanel />
       <TimeSlider />
       <SettingsPanel />
+      <SearchBox />
     </div>
   );
 }

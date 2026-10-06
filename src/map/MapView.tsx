@@ -77,6 +77,30 @@ export default function MapView() {
       prevSelected = selectedId;
     };
 
+    const flyTo = ([w, s, e, n]: [number, number, number, number]) => {
+      // Keep the target clear of the legend (left), info card (right) and time slider (bottom).
+      const { clientWidth: cw, clientHeight: ch } = map.getContainer();
+      const wide = cw > 900;
+      const padding = {
+        top: Math.min(70, ch * 0.1),
+        bottom: Math.min(230, ch * 0.3),
+        left: wide ? 340 : 20,
+        right: wide ? 420 : 20,
+      };
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      try {
+        map.fitBounds(
+          [
+            [w, s],
+            [e, n],
+          ],
+          { padding, maxZoom: 4, duration: reduceMotion ? 0 : 1600, essential: true },
+        );
+      } catch {
+        map.flyTo({ center: [(w + e) / 2, (s + n) / 2], zoom: 2 });
+      }
+    };
+
     map.on("load", () => {
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
@@ -121,6 +145,7 @@ export default function MapView() {
           }
         }
       }
+      if (state.flyTo && state.flyTo !== prev.flyTo) flyTo(state.flyTo.bbox);
       if (!loaded) return;
       if (state.year !== prev.year) {
         cancelAnimationFrame(raf);

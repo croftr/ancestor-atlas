@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import { useStore } from "../store";
-import { ERA_PRESETS } from "../config";
+import { CATEGORY_STYLE, ERA_PRESETS } from "../config";
+import { useData } from "../map/data";
 import {
   MAX_YEAR,
   MIN_YEAR,
   POS_BREAKS,
   STEPS,
+  formatRange,
   formatYear,
   posToYear,
   segmentOfBce,
@@ -20,6 +22,16 @@ export default function TimeSlider() {
   const playing = useStore((s) => s.playing);
   const setYear = useStore((s) => s.setYear);
   const setPlaying = useStore((s) => s.setPlaying);
+
+  // Lifespan of whatever is selected, drawn as a band under the slider.
+  const data = useData();
+  const selectedId = useStore((s) => s.selectedId);
+  const groupId = useStore((s) => s.groupId);
+  const hits = useStore((s) => s.hits);
+  const entityId = groupId ?? hits.find((h) => h.id === selectedId)?.entity_id;
+  const spanEntity = entityId ? data?.entityById.get(entityId) : undefined;
+  const spanLeft = spanEntity ? yearToPos(spanEntity.start_year) : 0;
+  const spanRight = spanEntity ? yearToPos(spanEntity.end_year) : 0;
 
   const resolution = STEPS[segmentOfBce(1 - year)];
 
@@ -105,6 +117,19 @@ export default function TimeSlider() {
         value={Math.round(yearToPos(year) * 10000)}
         onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
       />
+      <div className="span-track">
+        {spanEntity && (
+          <div
+            className="span-band"
+            title={`${spanEntity.name}: ${formatRange(spanEntity.start_year, spanEntity.end_year)}`}
+            style={{
+              left: `${spanLeft * 100}%`,
+              width: `${(spanRight - spanLeft) * 100}%`,
+              background: spanEntity.color ?? CATEGORY_STYLE[spanEntity.category].color,
+            }}
+          />
+        )}
+      </div>
       <div className="ticks">
         {POS_BREAKS.map((p, i) => (
           <span key={i} className="tick" style={{ left: `${p * 100}%` }}>

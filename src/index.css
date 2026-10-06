@@ -17,7 +17,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .legend-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 8px;
 }
 .legend-brand-logo {
@@ -26,14 +26,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
   object-fit: contain;
   flex: none;
   margin-left: -8px;
-  margin-right: -4px;
   margin-bottom: -6px;
   padding: 0;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
 }
 .legend-brand h1 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
   margin: 0;
+  white-space: nowrap;
 }
 .legend-category { margin-bottom: 2px; }
 .legend-row { display: flex; align-items: center; gap: 4px; padding: 1px 0; }
@@ -243,3 +244,25 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .theme-option.active { border-color: #7aa7ff; background: rgba(122,167,255,0.15); }
 .swatch { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .swatch span { width: 12px; height: 12px; border-radius: 50%; border: 1px solid; }
+
+/* Global search */
+.search { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: clamp(240px, calc(100vw - 780px), 380px); z-index: 6; }
+.search-field { display: flex; align-items: center; gap: 8px; padding: 0 12px; height: 40px; }
+.search-field:focus-within { border-color: rgba(142, 197, 255, 0.55); }
+.search-icon { font-size: 1.2rem; color: #8b95ab; line-height: 1; transform: translateY(-1px); }
+.search-field input { flex: 1; min-width: 0; background: none; border: none; outline: none; color: inherit; font: inherit; font-size: 0.95rem; }
+.search-field input::placeholder { color: #8b95ab; }
+.search-field input::-webkit-search-cancel-button { filter: invert(0.7); cursor: pointer; }
+.search-kbd { font: inherit; font-size: 0.75rem; color: #8b95ab; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; padding: 0 6px; }
+.search-results { list-style: none; margin: 6px 0 0; padding: 4px; max-height: min(60vh, 420px); overflow-y: auto; }
+.search-result { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; padding: 6px 8px; border-radius: 6px; cursor: pointer; }
+.search-result.active { background: rgba(122, 167, 255, 0.18); }
+.search-dot { width: 10px; height: 10px; grid-row: span 2; }
+.search-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-name mark { background: none; color: #fff; font-weight: 700; }
+.search-meta { font-size: 0.78em; }
+.search-empty { padding: 6px 8px; }
+
+/* Lifespan of the selected entity under the time slider */
+.span-track { position: relative; height: 4px; margin: 2px 8px 2px; }
+.span-band { position: absolute; top: 0; height: 4px; min-width: 3px; border-radius: 2px; opacity: 0.85; }

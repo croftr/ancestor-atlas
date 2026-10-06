@@ -47,8 +47,8 @@
 - id: australopithecus-anamensis
   name: "Australopithecus anamensis"
   category: species
-  start_year: -4248050
-  end_year: -3898050
+  start_year: -4198050
+  end_year: -3788050
   description: "Early australopith from the Turkana basin of Kenya and Ethiopia, around 4.2 to 3.8 million years ago, often regarded as ancestral to A. afarensis. One of the earliest clearly bipedal hominins."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_anamensis
   source_ids: [recall]
@@ -77,7 +77,7 @@
 - id: australopithecus-africanus
   name: "Australopithecus africanus"
   category: species
-  start_year: -2998050
+  start_year: -2898050
   end_year: -1998050
   description: "Gracile australopith of South Africa, first recognised from the Taung Child in 1924. Found at cave sites such as Sterkfontein and Makapansgat; dating of these deposits is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_africanus
@@ -87,8 +87,8 @@
 - id: australopithecus-garhi
   name: "Australopithecus garhi"
   category: species
-  start_year: -2598050
-  end_year: -2398050
+  start_year: -2648050
+  end_year: -2448050
   description: "Australopith from Bouri in Ethiopia's Middle Awash, about 2.5 million years old. Found near animal bones with cut marks, which fed debate on early stone-tool use."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_garhi
   source_ids: [recall]
@@ -117,7 +117,7 @@
   name: "Paranthropus boisei"
   category: species
   start_year: -2298050
-  end_year: -1298050
+  end_year: -1098050
   description: "Robust East African hominin with massive jaws and chewing teeth, nicknamed 'Nutcracker Man'. Found at Olduvai Gorge, Koobi Fora and other sites; its diet was probably mostly tough plant matter."
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_boisei
   source_ids: [recall]
@@ -125,7 +125,7 @@
 - id: paranthropus-robustus
   name: "Paranthropus robustus"
   category: species
-  start_year: -1998050
+  start_year: -2093050
   end_year: -998050
   description: "Robust australopith of South Africa, found in the Cradle of Humankind caves including Swartkrans, Kromdraai and Drimolen. Lived alongside early Homo."
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_robustus
@@ -134,8 +134,8 @@
 - id: homo-habilis
   name: "Homo habilis"
   category: species
-  start_year: -2413050
-  end_year: -1648050
+  start_year: -2598050
+  end_year: -1673050
   description: "Early member of the genus Homo from East Africa, long associated with the first stone tools. Its status as a distinct species is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_habilis
   source_ids: [recall]
@@ -181,7 +181,7 @@
   name: "Homo neanderthalensis (Neanderthal)"
   category: species
   start_year: -438050
-  end_year: -27050
+  end_year: -33050
   description: "Cold-adapted hominins of Europe and western Asia who made sophisticated stone tools and buried their dead. They interbred with modern humans and disappeared about 40,000 years ago. The oldest site here, Sima de los Huesos, is usually treated as an early member of the Neanderthal line."
   wikipedia_url: https://en.wikipedia.org/wiki/Neanderthal
   source_ids: [recall]
@@ -243,8 +243,8 @@
 - id: oldowan
   name: "Oldowan"
   category: culture
-  start_year: -2673050
-  end_year: -1498050
+  start_year: -2698050
+  end_year: -1098050
   description: "Earliest widespread stone tool industry, made of simple flakes and choppers struck from cobbles. Found from about 2.6 million years ago across Africa and into western Asia."
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
   source_ids: [recall]
@@ -253,7 +253,7 @@
   name: "Acheulean"
   category: culture
   start_year: -1848050
-  end_year: -298050
+  end_year: -338050
   description: "Stone tool tradition best known for large, shaped hand axes, associated mainly with Homo erectus and later hominins. It lasted well over a million years across Africa, Europe and South Asia."
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   source_ids: [recall]
@@ -270,7 +270,7 @@
 - id: middle-stone-age
   name: "Middle Stone Age (Africa)"
   category: culture
-  start_year: -315550
+  start_year: -347050
   end_year: -36050
   description: "African counterpart of the Middle Palaeolithic, beginning about 300,000 years ago. Sites such as Blombos Cave have early evidence of ochre use, engraving and bead-making."
   wikipedia_url: https://en.wikipedia.org/wiki/Middle_Stone_Age
@@ -288,7 +288,7 @@
 - id: gravettian
   name: "Gravettian"
   category: culture
-  start_year: -32050
+  start_year: -35050
   end_year: -20050
   description: "Upper Palaeolithic culture across Europe, known for small 'Venus' figurines, mammoth-bone dwellings and pointed blades."
   wikipedia_url: https://en.wikipedia.org/wiki/Gravettian
@@ -307,7 +307,7 @@
   name: "Magdalenian"
   category: culture
   start_year: -15050
-  end_year: -10050
+  end_year: -9050
   description: "Late Upper Palaeolithic culture of western Europe known for cave art, such as Altamira, and for carved bone and antler tools."
   wikipedia_url: https://en.wikipedia.org/wiki/Magdalenian
   source_ids: [recall]
@@ -316,7 +316,7 @@
   name: "Natufian"
   category: culture
   start_year: -12550
-  end_year: -9300
+  end_year: -9050
   description: "Late Epipalaeolithic culture of the Levant, with some of the earliest semi-permanent villages and intensive wild-cereal harvesting just before farming began."
   wikipedia_url: https://en.wikipedia.org/wiki/Natufian_culture
   source_ids: [recall]

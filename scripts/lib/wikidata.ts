@@ -23,7 +23,11 @@ export async function getJson<T = any>(url: string, { cache = true } = {}): Prom
     }
     if (res.ok) {
       const json = await res.json();
-      if (json?.error?.code === "maxlag" && attempt < 5) { await sleep(5000); continue; }
+      if (json?.error) {
+        // Never cache an error response. maxlag = Wikidata asking clients to back off while it catches up.
+        if (json.error.code === "maxlag" && attempt < 8) { await sleep(Math.max(5, Number(json.error.lag) || 5) * 1000 + 2000 * attempt); continue; }
+        throw new Error(`Wikidata API error ${json.error.code}: ${json.error.info} (${url.slice(0, 120)})`);
+      }
       mkdirSync(CACHE, { recursive: true });
       writeFileSync(file, JSON.stringify(json));
       await sleep(150); // be polite
@@ -38,7 +42,7 @@ export async function getJson<T = any>(url: string, { cache = true } = {}): Prom
 }
 
 export const api = (params: Record<string, string>) =>
-  getJson(`${API}?${new URLSearchParams({ format: "json", maxlag: "5", ...params })}`);
+  getJson(`${API}?${new URLSearchParams({ format: "json", ...params })}`); // read-only, so no maxlag (that is for edits)
 
 export const sparql = (query: string) =>
   getJson<{ results: { bindings: Record<string, { value: string }>[] } }>(`${SPARQL}?${new URLSearchParams({ query, format: "json" })}`);
