@@ -1,0 +1,7 @@
+# Store and check out text as LF on every OS, so scripted edits behave the same everywhere.
+* text=auto eol=lf
+
+*.webp binary
+*.ico binary
+*.png binary
+*.zip binary
