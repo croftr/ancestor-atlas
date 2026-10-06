@@ -12,7 +12,9 @@
     "data:fetch": "tsx scripts/fetch/cliopatria.ts && tsx scripts/fetch/wikidata.ts",
     "data:fetch:pbdb": "tsx scripts/fetch/pbdb.ts",
     "data:build": "tsx scripts/build-data.ts && tsx scripts/validate-data.ts && tsx scripts/report-data.ts",
-    "data:report": "tsx scripts/report-data.ts"
+    "data:report": "tsx scripts/report-data.ts",
+    "sites:candidates": "tsx scripts/fetch/site-candidates.ts",
+    "sites:sync": "tsx scripts/sync-site-coords.ts"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",

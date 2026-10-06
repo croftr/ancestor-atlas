@@ -1,82 +1,82 @@
 entity_id,label,lat,lon,start_year,end_year,date_text,confidence,weight,source_id,source_ref,wikidata,coord_source,date_source,checked,notes
-sahelanthropus,Toros-Menalla,16.2,17.5,-7198050,-6798050,7.2–6.8 Ma (approx.),medium,,recall,recall:sahelanthropus:toros-menalla,,,,,
-orrorin-tugenensis,Tugen Hills (Lukeino Formation),0.8,35.85,-6098050,-5698050,6.1–5.7 Ma (approx.),medium,,recall,recall:orrorin-tugenensis:tugen-hills-lukeino-formation,,,,,
-ardipithecus-kadabba,Middle Awash (Asa Koma area),10.45,40.6,-5798050,-5198050,5.8–5.2 Ma (approx.),medium,,recall,recall:ardipithecus-kadabba:middle-awash-asa-koma-area,,,,,
-ardipithecus-ramidus,Aramis (Middle Awash),10.5,40.5,-4498050,-4298050,4.5–4.3 Ma (approx.),medium,,recall,recall:ardipithecus-ramidus:aramis-middle-awash,,,,,
-australopithecus-anamensis,Kanapoi,2.4,36.0,-4248050,-4048050,4.2–4.1 Ma (approx.),medium,,recall,recall:australopithecus-anamensis:kanapoi,,,,,
-australopithecus-anamensis,Allia Bay (Koobi Fora),3.6,36.2,-4098050,-3898050,4.1–3.9 Ma (approx.),low,,recall,recall:australopithecus-anamensis:allia-bay-koobi-fora,,,,,
-australopithecus-afarensis,Laetoli,-3.22,35.17,-3798050,-3598050,3.8–3.6 Ma (approx.),medium,,recall,recall:australopithecus-afarensis:laetoli,,,,,
-australopithecus-afarensis,Dikika,11.15,40.6,-3448050,-3248050,3.4–3.3 Ma (approx.),low,,recall,recall:australopithecus-afarensis:dikika,,,,,
-australopithecus-afarensis,Hadar,11.13,40.58,-3398050,-2948050,3.4–2.95 Ma (approx.),high,,recall,recall:australopithecus-afarensis:hadar,,,,,
-kenyanthropus-platyops,Lomekwi (West Turkana),4.2,35.85,-3498050,-3298050,3.5–3.3 Ma (approx.),low,,recall,recall:kenyanthropus-platyops:lomekwi-west-turkana,,,,,
-australopithecus-africanus,Makapansgat,-24.13,29.19,-2998050,-2598050,3–2.6 Ma (approx.),low,,recall,recall:australopithecus-africanus:makapansgat,,,,,
-australopithecus-africanus,Taung,-27.55,24.65,-2798050,-2298050,2.8–2.3 Ma (approx.),low,,recall,recall:australopithecus-africanus:taung,,,,,
-australopithecus-africanus,Sterkfontein,-26.02,27.74,-2598050,-1998050,2.6–2 Ma (approx.),low,,recall,recall:australopithecus-africanus:sterkfontein,,,,,
-australopithecus-garhi,Bouri (Middle Awash),10.3,40.5,-2598050,-2398050,2.6–2.4 Ma (approx.),medium,,recall,recall:australopithecus-garhi:bouri-middle-awash,,,,,
-australopithecus-sediba,Malapa,-25.88,27.79,-2073050,-1873050,1.99–1.96 Ma (approx.),medium,,recall,recall:australopithecus-sediba:malapa,,,,,
-paranthropus-aethiopicus,Omo (Shungura Formation),4.8,36.0,-2698050,-2298050,2.7–2.3 Ma (approx.),low,,recall,recall:paranthropus-aethiopicus:omo-shungura-formation,,,,,
-paranthropus-aethiopicus,West Turkana (Nachukui),4.25,35.8,-2598050,-2298050,2.6–2.3 Ma (approx.),medium,,recall,recall:paranthropus-aethiopicus:west-turkana-nachukui,,,,,
-paranthropus-boisei,Koobi Fora,3.95,36.19,-2298050,-1398050,2.3–1.4 Ma (approx.),medium,,recall,recall:paranthropus-boisei:koobi-fora,,,,,
-paranthropus-boisei,Olduvai Gorge,-2.98,35.35,-1898050,-1698050,1.9–1.7 Ma (approx.),medium,,recall,recall:paranthropus-boisei:olduvai-gorge,,,,,
-paranthropus-boisei,Peninj (Lake Natron),-2.4,36.0,-1548050,-1348050,1.5–1.4 Ma (approx.),low,,recall,recall:paranthropus-boisei:peninj-lake-natron,,,,,
-paranthropus-boisei,Konso,5.3,37.4,-1498050,-1298050,1.45–1.35 Ma (approx.),medium,,recall,recall:paranthropus-boisei:konso,,,,,
-paranthropus-robustus,Swartkrans,-26.0,27.78,-1998050,-998050,2–1 Ma (approx.),low,,recall,recall:paranthropus-robustus:swartkrans,,,,,
-paranthropus-robustus,Drimolen,-25.97,27.8,-1998050,-1498050,2–1.5 Ma (approx.),low,,recall,recall:paranthropus-robustus:drimolen,,,,,
-paranthropus-robustus,Kromdraai,-26.01,27.77,-1898050,-1598050,1.9–1.6 Ma (approx.),low,,recall,recall:paranthropus-robustus:kromdraai,,,,,
-homo-habilis,Hadar (A.L. 666),11.13,40.58,-2413050,-2213050,2.33–2.3 Ma (approx.),low,,recall,recall:homo-habilis:hadar-a-l-666,,,,,
-homo-habilis,Olduvai Gorge,-2.98,35.35,-1898050,-1698050,1.9–1.7 Ma (approx.),medium,,recall,recall:homo-habilis:olduvai-gorge,,,,,
-homo-habilis,Koobi Fora,3.95,36.19,-1898050,-1648050,1.9–1.65 Ma (approx.),medium,,recall,recall:homo-habilis:koobi-fora,,,,,
-homo-rudolfensis,Koobi Fora (KNM-ER 1470),3.95,36.19,-1963050,-1763050,1.95–1.78 Ma (approx.),low,,recall,recall:homo-rudolfensis:koobi-fora-knm-er-1470,,,,,
-homo-erectus,Dmanisi,41.34,44.34,-1908050,-1708050,1.85–1.77 Ma (approx.),high,,recall,recall:homo-erectus:dmanisi,,,,,
-homo-erectus,Koobi Fora (East Turkana),3.95,36.19,-1898050,-1398050,1.9–1.4 Ma (approx.),medium,,recall,recall:homo-erectus:koobi-fora-east-turkana,,,,,
-homo-erectus,Lantian (Gongwangling),34.2,109.4,-1718050,-1518050,1.65–1.59 Ma (approx.),low,,recall,recall:homo-erectus:lantian-gongwangling,,,,,
-homo-erectus,Melka Kunture (Gombore),8.7,38.61,-1698050,-798050,1.7 Ma–800 ka (approx.),low,,recall,recall:homo-erectus:melka-kunture-gombore,,,,,
-homo-erectus,West Turkana (Nariokotome),4.25,35.79,-1598050,-1398050,1.6–1.4 Ma (approx.),medium,,recall,recall:homo-erectus:west-turkana-nariokotome,,,,,
-homo-erectus,Olduvai Gorge,-2.98,35.35,-1498050,-1198050,1.5–1.2 Ma (approx.),medium,,recall,recall:homo-erectus:olduvai-gorge,,,,,
-homo-erectus,Konso,5.3,37.4,-1498050,-1298050,1.5–1.3 Ma (approx.),medium,,recall,recall:homo-erectus:konso,,,,,
-homo-erectus,Sangiran,-7.45,110.83,-1498050,-398050,1.5 Ma–400 ka (approx.),low,,recall,recall:homo-erectus:sangiran,,,,,
-homo-erectus,"Daka (Bouri, Middle Awash)",10.3,40.5,-1098050,-898050,1.1 Ma–900 ka (approx.),medium,,recall,recall:homo-erectus:daka-bouri-middle-awash,,,,,
-homo-erectus,Trinil,-7.37,111.36,-998050,-398050,1 Ma–400 ka (approx.),low,,recall,recall:homo-erectus:trinil,,,,,
-homo-erectus,Tighennif (Ternifine),35.42,0.33,-798050,-598050,800–600 ka (approx.),medium,,recall,recall:homo-erectus:tighennif-ternifine,,,,,
-homo-erectus,Zhoukoudian (Locality 1),39.69,115.92,-768050,-398050,770–400 ka (approx.),medium,,recall,recall:homo-erectus:zhoukoudian-locality-1,,,,,
-homo-erectus,Hexian (Longtan Cave),31.74,118.35,-428050,-148050,430–150 ka (approx.),low,,recall,recall:homo-erectus:hexian-longtan-cave,,,,,
-homo-erectus,Ngandong,-7.38,111.55,-120550,-100550,117–108 ka (approx.),medium,,recall,recall:homo-erectus:ngandong,,,,,
-homo-antecessor,Gran Dolina (Atapuerca),42.35,-3.52,-858050,-778050,860–780 ka (approx.),medium,,recall,recall:homo-antecessor:gran-dolina-atapuerca,,,,,
-homo-heidelbergensis,Bodo (Middle Awash),10.2,40.55,-638050,-598050,640–600 ka (approx.),low,,recall,recall:homo-heidelbergensis:bodo-middle-awash,,,,,
-homo-heidelbergensis,Mauer,49.33,8.82,-618050,-548050,620–550 ka (approx.),medium,,recall,recall:homo-heidelbergensis:mauer,,,,,
-homo-heidelbergensis,Boxgrove,50.86,-0.69,-508050,-478050,510–480 ka (approx.),medium,,recall,recall:homo-heidelbergensis:boxgrove,,,,,
-homo-heidelbergensis,Tautavel (Arago Cave),42.83,2.75,-448050,-398050,450–400 ka (approx.),medium,,recall,recall:homo-heidelbergensis:tautavel-arago-cave,,,,,
-homo-heidelbergensis,Petralona,40.37,23.16,-348050,-148050,350–150 ka (approx.),low,,recall,recall:homo-heidelbergensis:petralona,,,,,
-homo-heidelbergensis,Kabwe (Broken Hill),-14.43,28.45,-323050,-273050,325–275 ka (approx.),medium,,recall,recall:homo-heidelbergensis:kabwe-broken-hill,,,,,
-neanderthal,Sima de los Huesos,42.35,-3.52,-448050,-408050,450–410 ka (approx.),medium,,recall,recall:neanderthal:sima-de-los-huesos,,,,,
-neanderthal,Krapina,46.16,15.88,-133050,-113050,130–120 ka (approx.),medium,,recall,recall:neanderthal:krapina,,,,,
-neanderthal,Tabun,32.67,34.99,-128050,-88050,130–90 ka (approx.),low,,recall,recall:neanderthal:tabun,,,,,
-neanderthal,Shanidar,36.83,44.23,-73050,-43050,75–45 ka (approx.),medium,,recall,recall:neanderthal:shanidar,,,,,
-neanderthal,Kebara,32.55,34.97,-62050,-46050,64–48 ka (approx.),medium,,recall,recall:neanderthal:kebara,,,,,
-neanderthal,Amud,32.87,35.52,-59050,-51050,61–53 ka (approx.),low,,recall,recall:neanderthal:amud,,,,,
-neanderthal,La Chapelle-aux-Saints,45.0,1.7,-54050,-45050,56–47 ka (approx.),medium,,recall,recall:neanderthal:la-chapelle-aux-saints,,,,,
-neanderthal,La Ferrassie,44.95,0.93,-52050,-38050,54–40 ka (approx.),low,,recall,recall:neanderthal:la-ferrassie,,,,,
-neanderthal,El Sidron,43.4,-5.33,-48050,-46050,50–48 ka (approx.),medium,,recall,recall:neanderthal:el-sidron,,,,,
-neanderthal,Vindija,46.3,16.08,-46050,-36050,48–38 ka (approx.),medium,,recall,recall:neanderthal:vindija,,,,,
-neanderthal,Spy,50.48,4.67,-42050,-38050,44–40 ka (approx.),medium,,recall,recall:neanderthal:spy,,,,,
-neanderthal,Neander Valley,51.23,6.95,-42050,-38050,44–40 ka (approx.),low,,recall,recall:neanderthal:neander-valley,,,,,
-neanderthal,Gorham's Cave,36.12,-5.34,-39050,-27050,41–29 ka (approx.),low,,recall,recall:neanderthal:gorham-s-cave,,,,,
-denisovan,Denisova Cave,51.4,84.68,-198050,-48050,200–50 ka (approx.),low,,recall,recall:denisovan:denisova-cave,,,,,
-denisovan,Baishiya Karst Cave (Xiahe),35.35,102.4,-167550,-147550,164–155 ka (approx.),low,,recall,recall:denisovan:baishiya-karst-cave-xiahe,,,,,
-homo-floresiensis,Liang Bua,-8.53,120.44,-98050,-58050,100–60 ka (approx.),medium,,recall,recall:homo-floresiensis:liang-bua,,,,,
-homo-luzonensis,Callao Cave,17.72,121.18,-68050,-48050,70–50 ka (approx.),low,,recall,recall:homo-luzonensis:callao-cave,,,,,
-homo-naledi,Rising Star Cave,-26.02,27.73,-333050,-234050,335–236 ka (approx.),medium,,recall,recall:homo-naledi:rising-star-cave,,,,,
-homo-sapiens,Jebel Irhoud,31.85,-8.87,-348050,-278050,350–280 ka (approx.),medium,,recall,recall:homo-sapiens:jebel-irhoud,,,,,
-homo-sapiens,Omo Kibish,5.4,35.95,-231050,-198050,233–200 ka (approx.),low,,recall,recall:homo-sapiens:omo-kibish,,,,,
-homo-sapiens,Misliya Cave,32.73,35.0,-189050,-169050,185–177 ka (approx.),medium,,recall,recall:homo-sapiens:misliya-cave,,,,,
-homo-sapiens,Herto (Middle Awash),10.3,40.5,-165050,-145050,160–154 ka (approx.),medium,,recall,recall:homo-sapiens:herto-middle-awash,,,,,
-homo-sapiens,Skhul,32.67,34.97,-128050,-88050,130–90 ka (approx.),low,,recall,recall:homo-sapiens:skhul,,,,,
-homo-sapiens,Klasies River,-34.1,24.4,-108050,-88050,110–90 ka (approx.),low,,recall,recall:homo-sapiens:klasies-river,,,,,
-homo-sapiens,Qafzeh,32.69,35.3,-98050,-88050,100–90 ka (approx.),medium,,recall,recall:homo-sapiens:qafzeh,,,,,
-homo-sapiens,Lake Mungo,-33.73,143.07,-40050,-38050,42–40 ka (approx.),medium,,recall,recall:homo-sapiens:lake-mungo,,,,,
-homo-sapiens,Pestera cu Oase,45.03,21.85,-40050,-35050,42–37 ka (approx.),medium,,recall,recall:homo-sapiens:pestera-cu-oase,,,,,
-homo-sapiens,Tianyuan Cave,39.63,115.9,-38050,-36050,40–38 ka (approx.),low,,recall,recall:homo-sapiens:tianyuan-cave,,,,,
-homo-sapiens,Niah Cave,3.82,113.78,-38050,-33050,40–35 ka (approx.),low,,recall,recall:homo-sapiens:niah-cave,,,,,
-homo-sapiens,Cro-Magnon (Les Eyzies),44.93,1.02,-28050,-25050,30–27 ka (approx.),low,,recall,recall:homo-sapiens:cro-magnon-les-eyzies,,,,,
-homo-sapiens,White Sands footprints,32.78,-106.17,-21050,-19050,23–21 ka (approx.),low,,recall,recall:homo-sapiens:white-sands-footprints,,,,,
-homo-sapiens,Monte Verde,-41.5,-73.2,-13550,-11550,14.8–14.2 ka (approx.),medium,,recall,recall:homo-sapiens:monte-verde,,,,,
+sahelanthropus,Toros-Menalla,16.2,17.5,-7198050,-6798050,7.2–6.8 Ma (approx.),medium,,recall,recall:sahelanthropus:toros-menalla,Q2802613,,,,TM 266 is the Toumai locality in the Toros-Menalla area
+orrorin-tugenensis,Tugen Hills (Lukeino Formation),0.75292,35.87497,-6098050,-5698050,6.1–5.7 Ma (approx.),medium,,recall,recall:orrorin-tugenensis:tugen-hills-lukeino-formation,Q108936339,wikidata:Q108936339#P625,,,recalled coords were 5.9 km off
+ardipithecus-kadabba,Middle Awash (Asa Koma area),10.45,40.6,-5798050,-5198050,5.8–5.2 Ma (approx.),medium,,recall,recall:ardipithecus-kadabba:middle-awash-asa-koma-area,,,,,"review: only the Middle Awash umbrella item (80 km off) found; Wikidata ""Asa Koma"" is a Djibouti Neolithic site, not this locality"
+ardipithecus-ramidus,Aramis (Middle Awash),10.5,40.5,-4498050,-4298050,4.5–4.3 Ma (approx.),medium,,recall,recall:ardipithecus-ramidus:aramis-middle-awash,,,,,review: no Aramis item found; Middle Awash umbrella is 78 km off
+australopithecus-anamensis,Kanapoi,2.31667,36.06667,-4248050,-4048050,4.2–4.1 Ma (approx.),medium,,recall,recall:australopithecus-anamensis:kanapoi,Q24236261,wikidata:Q24236261#P625,,,recalled coords were 11.9 km off
+australopithecus-anamensis,Allia Bay (Koobi Fora),3.75269,36.26951,-4098050,-3898050,4.1–3.9 Ma (approx.),low,,recall,recall:australopithecus-anamensis:allia-bay-koobi-fora,Q27199068,wikidata:Q27199068#P625,,,recalled coords were 18.6 km off
+australopithecus-afarensis,Laetoli,-2.99622,35.3524,-3798050,-3598050,3.8–3.6 Ma (approx.),medium,,recall,recall:australopithecus-afarensis:laetoli,Q672146,wikidata:Q672146#P625,,,recalled coords were 32.1 km off
+australopithecus-afarensis,Dikika,11.15,40.6,-3448050,-3248050,3.4–3.3 Ma (approx.),low,,recall,recall:australopithecus-afarensis:dikika,,,,,review: Dikika item is the settlement; Selam fossil item has no coords
+australopithecus-afarensis,Hadar,11.13,40.58,-3398050,-2948050,3.4–2.95 Ma (approx.),high,,recall,recall:australopithecus-afarensis:hadar,,,,,review: Hadar item is the village; need the Hadar Formation / site
+kenyanthropus-platyops,Lomekwi (West Turkana),3.91083,35.8503,-3498050,-3298050,3.5–3.3 Ma (approx.),low,,recall,recall:kenyanthropus-platyops:lomekwi-west-turkana,Q19833854,wikidata:Q19833854#P625,,,recalled coords were 32.2 km off
+australopithecus-africanus,Makapansgat,-24.15861,29.17694,-2998050,-2598050,3–2.6 Ma (approx.),low,,recall,recall:australopithecus-africanus:makapansgat,Q2071706,wikidata:Q2071706#P625,,,recalled coords were 3.4 km off
+australopithecus-africanus,Taung,-27.6194,24.6331,-2798050,-2298050,2.8–2.3 Ma (approx.),low,,recall,recall:australopithecus-africanus:taung,Q17134054,wikidata:Q17134054#P625,,,recalled coords were 7.9 km off
+australopithecus-africanus,Sterkfontein,-26.01604,27.73456,-2598050,-1998050,2.6–2 Ma (approx.),low,,recall,recall:australopithecus-africanus:sterkfontein,Q1476862,wikidata:Q1476862#P625,,,recalled coords were 0.7 km off
+australopithecus-garhi,Bouri (Middle Awash),10.28705,40.52988,-2598050,-2398050,2.6–2.4 Ma (approx.),medium,,recall,recall:australopithecus-garhi:bouri-middle-awash,Q3643194,wikidata:Q3643194#P625,,,recalled coords were 3.6 km off
+australopithecus-sediba,Malapa,-25.89515,27.80132,-2073050,-1873050,1.99–1.96 Ma (approx.),medium,,recall,recall:australopithecus-sediba:malapa,Q1167179,wikidata:Q1167179#P625,,,recalled coords were 2.0 km off
+paranthropus-aethiopicus,Omo (Shungura Formation),5.1,36,-2698050,-2298050,2.7–2.3 Ma (approx.),low,,recall,recall:paranthropus-aethiopicus:omo-shungura-formation,Q16909696,wikidata:Q16909696#P625,,,Shungura Formation item: formation-level coords; recalled coords were 33.4 km off
+paranthropus-aethiopicus,West Turkana (Nachukui),4.25,35.8,-2598050,-2298050,2.6–2.3 Ma (approx.),medium,,recall,recall:paranthropus-aethiopicus:west-turkana-nachukui,,,,,review: no Nachukui site item found
+paranthropus-boisei,Koobi Fora,3.94778,36.18722,-2298050,-1398050,2.3–1.4 Ma (approx.),medium,,recall,recall:paranthropus-boisei:koobi-fora,Q1968136,wikidata:Q1968136#P625,,,recalled coords were 0.4 km off
+paranthropus-boisei,Olduvai Gorge,-2.98333,35.35,-1898050,-1698050,1.9–1.7 Ma (approx.),medium,,recall,recall:paranthropus-boisei:olduvai-gorge,Q217043,wikidata:Q217043#P625,,,recalled coords were 0.4 km off
+paranthropus-boisei,Peninj (Lake Natron),-2.33333,35.96667,-1548050,-1348050,1.5–1.4 Ma (approx.),low,,recall,recall:paranthropus-boisei:peninj-lake-natron,Q113554912,wikidata:Q113554912#P625,,,recalled coords were 8.3 km off
+paranthropus-boisei,Konso,5.3,37.4,-1498050,-1298050,1.45–1.35 Ma (approx.),medium,,recall,recall:paranthropus-boisei:konso,,,,,"review: candidate Q124427592 (unlabelled archaeological site, 4 km) may be Konso-Gardula; confirm"
+paranthropus-robustus,Swartkrans,-26.0,27.78,-1998050,-998050,2–1 Ma (approx.),low,,recall,recall:paranthropus-robustus:swartkrans,Q1887011,,,,"review keep-coords: Wikidata/Wikipedia give only a generic Cradle of Humankind point (Swartkrans = Kromdraai Conservancy coords; Kromdraai site -26, 27.75). Needs coords from a paper"
+paranthropus-robustus,Drimolen,-25.96889,27.75583,-1998050,-1498050,2–1.5 Ma (approx.),low,,recall,recall:paranthropus-robustus:drimolen,Q1259042,wikidata:Q1259042#P625,,,recalled coords were 4.4 km off
+paranthropus-robustus,Kromdraai,-26.01,27.77,-1898050,-1598050,1.9–1.6 Ma (approx.),low,,recall,recall:paranthropus-robustus:kromdraai,Q653322,,,,"review keep-coords: Wikidata/Wikipedia give only a generic Cradle of Humankind point (Swartkrans = Kromdraai Conservancy coords; Kromdraai site -26, 27.75). Needs coords from a paper"
+homo-habilis,Hadar (A.L. 666),11.13,40.58,-2413050,-2213050,2.33–2.3 Ma (approx.),low,,recall,recall:homo-habilis:hadar-a-l-666,,,,,review: Hadar item is the village; need the Hadar Formation / site
+homo-habilis,Olduvai Gorge,-2.98333,35.35,-1898050,-1698050,1.9–1.7 Ma (approx.),medium,,recall,recall:homo-habilis:olduvai-gorge,Q217043,wikidata:Q217043#P625,,,recalled coords were 0.4 km off
+homo-habilis,Koobi Fora,3.94778,36.18722,-1898050,-1648050,1.9–1.65 Ma (approx.),medium,,recall,recall:homo-habilis:koobi-fora,Q1968136,wikidata:Q1968136#P625,,,recalled coords were 0.4 km off
+homo-rudolfensis,Koobi Fora (KNM-ER 1470),3.94778,36.18722,-1963050,-1763050,1.95–1.78 Ma (approx.),low,,recall,recall:homo-rudolfensis:koobi-fora-knm-er-1470,Q1968136,wikidata:Q1968136#P625,,,recalled coords were 0.4 km off
+homo-erectus,Dmanisi,41.336,44.338,-1908050,-1708050,1.85–1.77 Ma (approx.),high,,recall,recall:homo-erectus:dmanisi,Q64446966,wikidata:Q64446966#P625,,,recalled coords were 0.5 km off
+homo-erectus,Koobi Fora (East Turkana),3.94778,36.18722,-1898050,-1398050,1.9–1.4 Ma (approx.),medium,,recall,recall:homo-erectus:koobi-fora-east-turkana,Q1968136,wikidata:Q1968136#P625,,,recalled coords were 0.4 km off
+homo-erectus,Lantian (Gongwangling),34.18353,109.49415,-1718050,-1518050,1.65–1.59 Ma (approx.),low,,recall,recall:homo-erectus:lantian-gongwangling,Q1537174,wikidata:Q1537174#P625,,,recalled coords were 8.9 km off
+homo-erectus,Melka Kunture (Gombore),8.7025,38.60833,-1698050,-798050,1.7 Ma–800 ka (approx.),low,,recall,recall:homo-erectus:melka-kunture-gombore,Q3063392,wikidata:Q3063392#P625,,,recalled coords were 0.3 km off
+homo-erectus,West Turkana (Nariokotome),4.25,35.79,-1598050,-1398050,1.6–1.4 Ma (approx.),medium,,recall,recall:homo-erectus:west-turkana-nariokotome,,,,,review: no Nariokotome site item; Turkana Boy item has no coords
+homo-erectus,Olduvai Gorge,-2.98333,35.35,-1498050,-1198050,1.5–1.2 Ma (approx.),medium,,recall,recall:homo-erectus:olduvai-gorge,Q217043,wikidata:Q217043#P625,,,recalled coords were 0.4 km off
+homo-erectus,Konso,5.3,37.4,-1498050,-1298050,1.5–1.3 Ma (approx.),medium,,recall,recall:homo-erectus:konso,,,,,"review: candidate Q124427592 (unlabelled archaeological site, 4 km) may be Konso-Gardula; confirm"
+homo-erectus,Sangiran,-7.45,110.85,-1498050,-398050,1.5 Ma–400 ka (approx.),low,,recall,recall:homo-erectus:sangiran,Q842328,wikidata:Q842328#P625,,,recalled coords were 2.2 km off
+homo-erectus,"Daka (Bouri, Middle Awash)",10.3,40.5,-1098050,-898050,1.1 Ma–900 ka (approx.),medium,,recall,recall:homo-erectus:daka-bouri-middle-awash,,,,,"Bouri Formation used: Daka is a member of it, so coords are formation-level"
+homo-erectus,Trinil,-7.3743,111.3578,-998050,-398050,1 Ma–400 ka (approx.),low,,recall,recall:homo-erectus:trinil,Q1318724,wikidata:Q1318724#P625,,,recalled coords were 0.5 km off
+homo-erectus,Tighennif (Ternifine),35.41528,0.32139,-798050,-598050,800–600 ka (approx.),medium,,recall,recall:homo-erectus:tighennif-ternifine,Q7801608,wikidata:Q7801608#P625,,,recalled coords were 0.9 km off
+homo-erectus,Zhoukoudian (Locality 1),39.68896,115.92483,-768050,-398050,770–400 ka (approx.),medium,,recall,recall:homo-erectus:zhoukoudian-locality-1,Q499552,wikidata:Q499552#P625,,,recalled coords were 0.4 km off
+homo-erectus,Hexian (Longtan Cave),31.74,118.35,-428050,-148050,430–150 ka (approx.),low,,recall,recall:homo-erectus:hexian-longtan-cave,,,,,"review: candidate Q25451198 (unlabelled archaeological site, 2 km) may be Longtan Cave; confirm"
+homo-erectus,Ngandong,-7.38,111.55,-120550,-100550,117–108 ka (approx.),medium,,recall,recall:homo-erectus:ngandong,,,,,review: Ngandong items are villages; Solo Man item is the fossil
+homo-antecessor,Gran Dolina (Atapuerca),42.3525,-3.51833,-858050,-778050,860–780 ka (approx.),medium,,recall,recall:homo-antecessor:gran-dolina-atapuerca,Q5884310,wikidata:Q5884310#P625,,,recalled coords were 0.3 km off
+homo-heidelbergensis,Bodo (Middle Awash),10.2,40.55,-638050,-598050,640–600 ka (approx.),low,,recall,recall:homo-heidelbergensis:bodo-middle-awash,,,,,review: no Bodo item found; Bouri Formation is 10 km off
+homo-heidelbergensis,Mauer,49.33,8.82,-618050,-548050,620–550 ka (approx.),medium,,recall,recall:homo-heidelbergensis:mauer,,,,,review: Mauer item is the municipality; need the Grafenrain sand pit
+homo-heidelbergensis,Boxgrove,50.8703,-0.68741,-508050,-478050,510–480 ka (approx.),medium,,recall,recall:homo-heidelbergensis:boxgrove,Q2600371,wikidata:Q2600371#P625,,,recalled coords were 1.2 km off
+homo-heidelbergensis,Tautavel (Arago Cave),42.83944,2.755,-448050,-398050,450–400 ka (approx.),medium,,recall,recall:homo-heidelbergensis:tautavel-arago-cave,Q1643777,wikidata:Q1643777#P625,,,recalled coords were 1.1 km off
+homo-heidelbergensis,Petralona,40.3697,23.15915,-348050,-148050,350–150 ka (approx.),low,,recall,recall:homo-heidelbergensis:petralona,Q2302464,wikidata:Q2302464#P625,,,recalled coords were 0.1 km off
+homo-heidelbergensis,Kabwe (Broken Hill),-14.43,28.45,-323050,-273050,325–275 ka (approx.),medium,,recall,recall:homo-heidelbergensis:kabwe-broken-hill,,,,,review: Kabwe items are the city and aerodrome; need the Broken Hill mine
+neanderthal,Sima de los Huesos,42.35,-3.5,-448050,-408050,450–410 ka (approx.),medium,,recall,recall:neanderthal:sima-de-los-huesos,Q28952348,wikidata:Q28952348#P625,,,recalled coords were 1.6 km off
+neanderthal,Krapina,46.16544,15.86319,-133050,-113050,130–120 ka (approx.),medium,,recall,recall:neanderthal:krapina,Q12632775,wikidata:Q12632775#P625,,,recalled coords were 1.4 km off
+neanderthal,Tabun,32.6705,34.9655,-128050,-88050,130–90 ka (approx.),low,,recall,recall:neanderthal:tabun,Q2906739,wikidata:Q2906739#P625,,,recalled coords were 2.3 km off
+neanderthal,Shanidar,36.8006,44.2433,-73050,-43050,75–45 ka (approx.),medium,,recall,recall:neanderthal:shanidar,Q909799,wikidata:Q909799#P625,,,recalled coords were 3.5 km off
+neanderthal,Kebara,32.55772,34.93667,-62050,-46050,64–48 ka (approx.),medium,,recall,recall:neanderthal:kebara,Q1737670,wikidata:Q1737670#P625,,,recalled coords were 3.2 km off
+neanderthal,Amud,32.94588,35.29633,-59050,-51050,61–53 ka (approx.),low,,recall,recall:neanderthal:amud,Q481397,wikidata:Q481397#P625,,,recalled coords were 22.5 km off
+neanderthal,La Chapelle-aux-Saints,45.0,1.7,-54050,-45050,56–47 ka (approx.),medium,,recall,recall:neanderthal:la-chapelle-aux-saints,,,,,"review: candidate Q22950972 Bouffia Bonneval cave (archaeological site, 2 km) is likely the find cave; confirm"
+neanderthal,La Ferrassie,44.95181,0.93806,-52050,-38050,54–40 ka (approx.),low,,recall,recall:neanderthal:la-ferrassie,Q39656,wikidata:Q39656#P625,,,recalled coords were 0.7 km off
+neanderthal,El Sidron,43.38361,-5.32889,-48050,-46050,50–48 ka (approx.),medium,,recall,recall:neanderthal:el-sidron,Q1323820,wikidata:Q1323820#P625,,,recalled coords were 1.8 km off
+neanderthal,Vindija,46.29944,16.07056,-46050,-36050,48–38 ka (approx.),medium,,recall,recall:neanderthal:vindija,Q1571803,wikidata:Q1571803#P625,,,recalled coords were 0.7 km off
+neanderthal,Spy,50.48019,4.6745,-42050,-38050,44–40 ka (approx.),medium,,recall,recall:neanderthal:spy,Q2672127,wikidata:Q2672127#P625,,,recalled coords were 0.3 km off
+neanderthal,Neander Valley,51.2275,6.94556,-42050,-38050,44–40 ka (approx.),low,,recall,recall:neanderthal:neander-valley,Q6420219,wikidata:Q6420219#P625,,,recalled coords were 0.4 km off
+neanderthal,Gorham's Cave,36.12077,-5.34239,-39050,-27050,41–29 ka (approx.),low,,recall,recall:neanderthal:gorham-s-cave,Q1355749,wikidata:Q1355749#P625,,,recalled coords were 0.2 km off
+denisovan,Denisova Cave,51.39758,84.67621,-198050,-48050,200–50 ka (approx.),low,,recall,recall:denisovan:denisova-cave,Q1029322,wikidata:Q1029322#P625,,,recalled coords were 0.4 km off
+denisovan,Baishiya Karst Cave (Xiahe),35.44806,102.57139,-167550,-147550,164–155 ka (approx.),low,,recall,recall:denisovan:baishiya-karst-cave-xiahe,Q63435825,wikidata:Q63435825#P625,,,recalled coords were 19.0 km off
+homo-floresiensis,Liang Bua,-8.53417,120.46028,-98050,-58050,100–60 ka (approx.),medium,,recall,recall:homo-floresiensis:liang-bua,Q1822737,wikidata:Q1822737#P625,,,recalled coords were 2.3 km off
+homo-luzonensis,Callao Cave,17.70326,121.82375,-68050,-48050,70–50 ka (approx.),low,,recall,recall:homo-luzonensis:callao-cave,Q5021779,wikidata:Q5021779#P625,,,recalled coords were 68.2 km off
+homo-naledi,Rising Star Cave,-26.02036,27.70923,-333050,-234050,335–236 ka (approx.),medium,,recall,recall:homo-naledi:rising-star-cave,Q16899337,wikidata:Q16899337#P625,,,recalled coords were 2.1 km off
+homo-sapiens,Jebel Irhoud,31.85498,-8.87251,-348050,-278050,350–280 ka (approx.),medium,,recall,recall:homo-sapiens:jebel-irhoud,Q846913,wikidata:Q846913#P625,,,recalled coords were 0.6 km off
+homo-sapiens,Omo Kibish,4.80035,35.9671,-231050,-198050,233–200 ka (approx.),low,,recall,recall:homo-sapiens:omo-kibish,Q3882284,wikidata:Q3882284#P625,,,Omo Kibish Formation item: formation-level coords; recalled coords were 66.7 km off
+homo-sapiens,Misliya Cave,32.74134,34.97244,-189050,-169050,185–177 ka (approx.),medium,,recall,recall:homo-sapiens:misliya-cave,Q12409386,wikidata:Q12409386#P625,,,recalled coords were 2.9 km off
+homo-sapiens,Herto (Middle Awash),10.3,40.5,-165050,-145050,160–154 ka (approx.),medium,,recall,recall:homo-sapiens:herto-middle-awash,,,,,review: no Herto item found; Bouri Formation is 4 km off
+homo-sapiens,Skhul,32.62586,34.95852,-128050,-88050,130–90 ka (approx.),low,,recall,recall:homo-sapiens:skhul,Q287341,wikidata:Q287341#P625,,,recalled coords were 5.0 km off
+homo-sapiens,Klasies River,-34.1081,24.3901,-108050,-88050,110–90 ka (approx.),low,,recall,recall:homo-sapiens:klasies-river,Q3815801,wikidata:Q3815801#P625,,,recalled coords were 1.3 km off
+homo-sapiens,Qafzeh,32.68852,35.318,-98050,-88050,100–90 ka (approx.),medium,,recall,recall:homo-sapiens:qafzeh,Q2121357,wikidata:Q2121357#P625,,,recalled coords were 1.7 km off
+homo-sapiens,Lake Mungo,-33.75,143.08333,-40050,-38050,42–40 ka (approx.),medium,,recall,recall:homo-sapiens:lake-mungo,Q452812,wikidata:Q452812#P625,,,Lake Mungo lake item: the finds are on its lunette; recalled coords were 2.5 km off
+homo-sapiens,Pestera cu Oase,45.01673,21.83335,-40050,-35050,42–37 ka (approx.),medium,,recall,recall:homo-sapiens:pestera-cu-oase,Q946978,wikidata:Q946978#P625,,,recalled coords were 2.0 km off
+homo-sapiens,Tianyuan Cave,39.65778,115.87139,-38050,-36050,40–38 ka (approx.),low,,recall,recall:homo-sapiens:tianyuan-cave,Q2431206,wikidata:Q2431206#P625,,,recalled coords were 3.9 km off
+homo-sapiens,Niah Cave,3.82,113.78,-38050,-33050,40–35 ka (approx.),low,,recall,recall:homo-sapiens:niah-cave,,,,,"review: only Niah National Park found, not the Great Cave itself"
+homo-sapiens,Cro-Magnon (Les Eyzies),44.94028,1.00972,-28050,-25050,30–27 ka (approx.),low,,recall,recall:homo-sapiens:cro-magnon-les-eyzies,Q331409,wikidata:Q331409#P625,,,recalled coords were 1.4 km off
+homo-sapiens,White Sands footprints,32.78,-106.17,-21050,-19050,23–21 ka (approx.),low,,recall,recall:homo-sapiens:white-sands-footprints,,,,,review: only White Sands National Park found; need the footprint locality
+homo-sapiens,Monte Verde,-41.50472,-73.20444,-13550,-11550,14.8–14.2 ka (approx.),medium,,recall,recall:homo-sapiens:monte-verde,Q975775,wikidata:Q975775#P625,,,recalled coords were 0.6 km off
