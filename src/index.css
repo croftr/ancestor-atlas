@@ -21,12 +21,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
   margin-bottom: 8px;
 }
 .legend-brand-logo {
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  object-fit: cover;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
   flex: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  margin-left: -8px;
+  margin-right: -4px;
+  margin-bottom: -6px;
+  padding: 0;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
 }
 .legend-brand h1 {
   font-size: 1.1rem;

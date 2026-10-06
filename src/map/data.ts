@@ -9,8 +9,55 @@ export interface Data {
   /** Features of each entity, ordered by start year. */
   featuresOf: Map<string, FeatureProps[]>;
   features: FeatureProps[];
+  /** [west, south, east, north] of each feature's geometry, by feature id. */
+  bboxOf: Map<string, BBox>;
   sources: Source[];
   sourceById: Map<string, Source>;
+}
+
+export type BBox = [number, number, number, number];
+
+interface GeoFeature {
+  properties: FeatureProps;
+  geometry: { type: string; coordinates: unknown } | null;
+}
+
+/** Bounding box of a GeoJSON geometry; wraps across the antimeridian when that is narrower. */
+export function geometryBBox(geometry: GeoFeature["geometry"]): BBox | null {
+  if (!geometry) return null;
+  const boxes: BBox[] = [];
+  const walk = (c: unknown) => {
+    if (!Array.isArray(c)) return;
+    if (typeof c[0] === "number") boxes.push([c[0], c[1], c[0], c[1]] as BBox);
+    else for (const x of c) walk(x);
+  };
+  walk(geometry.coordinates);
+  return unionBBox(boxes);
+}
+
+/**
+ * Union of boxes. East may exceed 180 when the narrowest covering box crosses the antimeridian
+ * (MapLibre's fitBounds accepts that).
+ */
+export function unionBBox(boxes: BBox[]): BBox | null {
+  if (boxes.length === 0) return null;
+  // Normalise each box to west in [-180, 180), then take the union both as-is and with
+  // western-hemisphere boxes moved east by 360; keep whichever is narrower.
+  let s = Infinity, n = -Infinity;
+  let aw = Infinity, ae = -Infinity, bw = Infinity, be = -Infinity;
+  for (const box of boxes) {
+    s = Math.min(s, box[1]);
+    n = Math.max(n, box[3]);
+    const w = ((((box[0] + 180) % 360) + 360) % 360) - 180;
+    const e = w + (box[2] - box[0]);
+    aw = Math.min(aw, w);
+    ae = Math.max(ae, e);
+    const k = w < 0 ? 360 : 0;
+    bw = Math.min(bw, w + k);
+    be = Math.max(be, e + k);
+  }
+  if (be - bw < ae - aw) return bw >= 180 ? [bw - 360, s, be - 360, n] : [bw, s, be, n];
+  return [aw, s, ae, n];
 }
 
 let data: Data | null = null;
@@ -29,11 +76,16 @@ const group = <T>(items: T[], key: (t: T) => string | undefined) => {
 export function loadData(): Promise<Data | null> {
   promise ??= Promise.all([
     fetch("/data/entities.json").then((r) => r.json() as Promise<Entity[]>),
-    fetch("/data/features.geojson").then((r) => r.json() as Promise<{ features: { properties: FeatureProps }[] }>),
+    fetch("/data/features.geojson").then((r) => r.json() as Promise<{ features: GeoFeature[] }>),
     fetch("/data/sources.json").then((r) => r.json() as Promise<Source[]>),
   ])
     .then(([entities, gj, sources]) => {
       const features = gj.features.map((f) => f.properties);
+      const bboxOf = new Map<string, BBox>();
+      for (const f of gj.features) {
+        const b = geometryBBox(f.geometry);
+        if (b) bboxOf.set(f.properties.id, b);
+      }
       const byStart = (a: { start_year: number }, b: { start_year: number }) => a.start_year - b.start_year;
       const childrenOf = group(entities, (e) => e.parent_id);
       const featuresOf = group(features, (f) => f.entity_id);
@@ -45,6 +97,7 @@ export function loadData(): Promise<Data | null> {
         childrenOf,
         featuresOf,
         features,
+        bboxOf,
         sources,
         sourceById: new Map(sources.map((s) => [s.id, s])),
       };
