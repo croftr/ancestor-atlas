@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://ancestor-atlas-lilac.vercel.app/"><strong>🚀 Launch the Live Atlas: ancestor-atlas-lilac.vercel.app</strong></a>
+  <a href="https://ancestor-atlas-lilac.vercel.app/"><strong>🚀 Launch Ancestor Atlas</strong></a>
 </p>
 
 ---
