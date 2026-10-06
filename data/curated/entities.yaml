@@ -171,7 +171,7 @@
 - id: homo-heidelbergensis
   name: "Homo heidelbergensis"
   category: species
-  start_year: -638050
+  start_year: -618050
   end_year: -148050
   description: "Middle Pleistocene hominin known from sites in Europe and Africa, often seen as close to the ancestry of Neanderthals and modern humans. Which fossils belong to the species is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_heidelbergensis
@@ -261,7 +261,7 @@
 - id: levallois-mousterian
   name: "Levallois / Mousterian"
   category: culture
-  start_year: -238050
+  start_year: -248050
   end_year: -38050
   description: "Middle Palaeolithic tool tradition built on prepared-core (Levallois) flake technology, linked mainly with Neanderthals in Europe and western Asia and also with early modern humans in the Levant."
   wikipedia_url: https://en.wikipedia.org/wiki/Mousterian
