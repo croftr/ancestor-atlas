@@ -421,3 +421,45 @@
 - id: roman-empire
   category: civilization
   description: "The Roman state under Augustus and his successors, which grew from the Roman Republic into a Mediterranean-wide empire."
+
+# ---- Later Neolithic / early Bronze Age cultures filled from XRONOS (added 2026-10-06). Spans are the sourced ranges in culture-windows.csv. ----
+
+- id: cardial
+  name: "Cardial culture"
+  category: culture
+  start_year: -5849
+  end_year: -4499
+  description: "Early Neolithic culture of the western Mediterranean, named after pottery decorated by pressing cockle shells (Cardium) into the clay. Cardial communities spread farming rapidly along the coasts from Italy to Portugal."
+  wikipedia_url: https://en.wikipedia.org/wiki/Cardium_pottery
+  wikidata: Q1035710
+  source_ids: []
+
+- id: funnelbeaker
+  name: "Funnelbeaker culture"
+  category: culture
+  start_year: -4099
+  end_year: -2799
+  description: "Neolithic farming culture of north-central Europe and southern Scandinavia (TRB), named after its funnel-necked beakers. It was succeeded in the north by the Single Grave culture around 2800 BCE."
+  wikipedia_url: https://en.wikipedia.org/wiki/Funnelbeaker_culture
+  wikidata: Q875115
+  source_ids: []
+
+- id: corded-ware
+  name: "Corded Ware culture"
+  category: culture
+  start_year: -2899
+  end_year: -2299
+  description: "Broad Late Neolithic to early Bronze Age horizon across northern and central Europe, named after pottery decorated with cord impressions and known for single burials under mounds. Includes the Single Grave culture of southern Scandinavia, northern Germany and the Low Countries."
+  wikipedia_url: https://en.wikipedia.org/wiki/Corded_Ware_culture
+  wikidata: Q933996
+  source_ids: []
+
+- id: bell-beaker
+  name: "Bell Beaker culture"
+  category: culture
+  start_year: -2799
+  end_year: -1649
+  description: "Archaeological culture of western and central Europe at the start of the Bronze Age, named after its inverted-bell drinking vessels. It varied strongly by region and lasted until between about 2300 and 1650 BCE depending on the area."
+  wikipedia_url: https://en.wikipedia.org/wiki/Bell_Beaker_culture
+  wikidata: Q470867
+  source_ids: []

@@ -21,7 +21,7 @@ export interface XronosSite {
   site: string; country: string; lat: number; lon: number;
   dates: { labnr: string; bp: number; std: number; median: number; from: number; to: number }[];
 }
-export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; countryMismatch: number; sites: number }
+export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; countryMismatch: number; merged: number; sites: number }
 
 const units = (s: string): string[] => {
   try { return (JSON.parse(s || "[]") as Record<string, string>[]).map((d) => Object.values(d)[0]?.trim()).filter(Boolean); }
@@ -40,7 +40,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     ranges.set(r.entity_id, [Number(r.start_bce), Number(r.end_bce)]);
   }
   const curve = loadCurve();
-  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, countryMismatch: 0, sites: 0 };
+  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, countryMismatch: 0, merged: 0, sites: 0 };
   const byCountry = new Map<string, [number, number][]>(); // all XRONOS coordinates per country, for a consistency check
   const seen = new Set<string>();
   const sites = new Map<string, XronosSite>();
@@ -86,8 +86,16 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     if (c && distanceKm(c.lat, c.lon, s.lat, s.lon) > c.limit) { stats.countryMismatch++; return false; }
     return true;
   });
-  stats.sites = kept.length;
-  return { sites: kept, stats };
+  // Merge same-culture sites within 1 km: XRONOS often spells one site several ways ("Lubcze" / "Lubcze site 37").
+  // The merged site keeps the name and coordinates of the variant with the most dates.
+  kept.sort((a, b) => b.dates.length - a.dates.length);
+  const merged: XronosSite[] = [];
+  for (const s of kept) {
+    const m = merged.find((x) => x.entity_id === s.entity_id && distanceKm(x.lat, x.lon, s.lat, s.lon) < 1);
+    if (m) { m.dates.push(...s.dates); stats.merged++; } else merged.push(s);
+  }
+  stats.sites = merged.length;
+  return { sites: merged, stats };
 }
 
 const slug = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
