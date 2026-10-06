@@ -1,4 +1,4 @@
-# Implementation plan: History Globe MVP
+# Implementation plan: Ancestor Atlas MVP
 
 > **For the implementing agent:** this document is self-contained. Build exactly what is described here. Where something is unspecified, choose the simplest option that meets the acceptance checklist (section 9). **Do not add features beyond this scope.**
 
@@ -293,7 +293,7 @@ Also:
 - **Play**: a `requestAnimationFrame` loop that advances *position* by `dt / 60000` (the full timeline in about 60 s) and calls `setYear(posToYear(pos))`. Keep a fractional position in a ref so that snapping doesn't stall progress. Stop at the end. Pressing play when at `MAX_YEAR` restarts from `MIN_YEAR`.
 
 ### 4.8 `src/ui/Legend.tsx`
-A top-left panel titled **"History Globe"**, with one row per category:
+A top-left panel titled **"Ancestor Atlas"**, with one row per category:
 - Checkbox (calls `toggleCategory`)
 - Colour swatch: a circle for species, a soft blurred circle for culture, a square for civilization
 - Label, with the shape description in muted text

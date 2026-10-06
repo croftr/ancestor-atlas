@@ -170,9 +170,10 @@ export function simplifyGeometry(features: CliopatriaIngest["features"]): Map<st
   };
   writeFileSync(inFile, JSON.stringify(fc));
   // No -clean: all time slices share one layer, so "fixing" overlaps would destroy real data.
+  // Run mapshaper's script via node: node_modules/.bin/mapshaper is a .cmd shim on Windows and can't be spawned directly.
   execFileSync(
-    "node_modules/.bin/mapshaper",
-    [inFile, "-simplify", "dp", SIMPLIFY_PERCENT, "keep-shapes", "-o", outFile, `precision=${COORD_PRECISION}`, "format=geojson"],
+    process.execPath,
+    ["node_modules/mapshaper/bin/mapshaper", inFile, "-simplify", "dp", SIMPLIFY_PERCENT, "keep-shapes", "-o", outFile, `precision=${COORD_PRECISION}`, "format=geojson"],
     { stdio: ["ignore", "ignore", "inherit"], maxBuffer: 1 << 28 },
   );
   const out = JSON.parse(readFileSync(outFile, "utf8")) as { features: { properties: { id: string }; geometry: RawFeature["geometry"] }[] };

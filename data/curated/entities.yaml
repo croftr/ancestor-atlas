@@ -29,10 +29,10 @@
 - id: homo-erectus
   name: "Homo erectus"
   category: species
-  start_year: -1899999
-  end_year: -109999
+  start_year: -1898050
+  end_year: -106050
   description: "Long-legged, larger-brained hominin and the first to spread widely beyond Africa, reaching the Caucasus (Dmanisi), China (Zhoukoudian) and Java (Sangiran, Ngandong)."
-  source_ids: [mock]
+  source_ids: [recall]
 
 - id: neanderthal
   name: "Homo neanderthalensis (Neanderthal)"

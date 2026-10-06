@@ -6,11 +6,20 @@ australopithecus-afarensis,,4.0,36.0,-3899999,-2899999,,,,mock,mock:illustrative
 homo-habilis,,-2.99,35.35,-2399999,-1399999,,,,mock,mock:illustrative
 homo-habilis,,3.9,36.4,-2399999,-1399999,,,,mock,mock:illustrative
 homo-habilis,,11.0,40.0,-2399999,-1399999,,,,mock,mock:illustrative
-homo-erectus,,3.9,36.0,-1899999,-109999,,,,mock,mock:illustrative
-homo-erectus,,41.3,44.3,-1899999,-109999,,,,mock,mock:illustrative
-homo-erectus,,-7.4,110.8,-1899999,-109999,,,,mock,mock:illustrative
-homo-erectus,,39.7,115.9,-1899999,-109999,,,,mock,mock:illustrative
-homo-erectus,,-7.3,111.4,-1899999,-109999,,,,mock,mock:illustrative
+homo-erectus,"Dmanisi",41.34,44.34,-1848050,-1768050,1.85–1.77 Ma,high,,recall,recall:dmanisi
+homo-erectus,"Koobi Fora (East Turkana)",3.95,36.19,-1898050,-1398050,1.9–1.4 Ma,medium,,recall,recall:koobi-fora-east-turkana
+homo-erectus,"West Turkana (Nariokotome)",4.25,35.79,-1598050,-1398050,1.6–1.4 Ma,medium,,recall,recall:west-turkana-nariokotome
+homo-erectus,"Olduvai Gorge",-2.98,35.35,-1498050,-1198050,1.5–1.2 Ma,medium,,recall,recall:olduvai-gorge
+homo-erectus,"Melka Kunture (Gombore)",8.7,38.61,-1698050,-798050,1.7–0.8 Ma,low,,recall,recall:melka-kunture-gombore
+homo-erectus,"Konso",5.3,37.4,-1498050,-1298050,1.5–1.3 Ma,medium,,recall,recall:konso
+homo-erectus,"Daka (Bouri, Middle Awash)",10.3,40.5,-1098050,-898050,1.1–0.9 Ma,medium,,recall,recall:daka-bouri-middle-awash
+homo-erectus,"Tighennif (Ternifine)",35.42,0.33,-798050,-598050,0.8–0.6 Ma,medium,,recall,recall:tighennif-ternifine
+homo-erectus,"Sangiran",-7.45,110.83,-1498050,-398050,1.5–0.4 Ma,low,,recall,recall:sangiran
+homo-erectus,"Trinil",-7.37,111.36,-998050,-398050,1.0–0.4 Ma,low,,recall,recall:trinil
+homo-erectus,"Ngandong",-7.38,111.55,-115050,-106050,0.117–0.108 Ma,medium,,recall,recall:ngandong
+homo-erectus,"Zhoukoudian (Locality 1)",39.69,115.92,-768050,-398050,0.77–0.4 Ma,medium,,recall,recall:zhoukoudian-locality-1
+homo-erectus,"Lantian (Gongwangling)",34.2,109.4,-1648050,-1588050,1.65–1.59 Ma,low,,recall,recall:lantian-gongwangling
+homo-erectus,"Hexian (Longtan Cave)",31.74,118.35,-428050,-148050,0.43–0.15 Ma,low,,recall,recall:hexian-longtan-cave
 neanderthal,,51.23,6.95,-399999,-39999,,,,mock,mock:illustrative
 neanderthal,,36.8,44.2,-399999,-39999,,,,mock,mock:illustrative
 neanderthal,,36.13,-5.35,-399999,-39999,,,,mock,mock:illustrative

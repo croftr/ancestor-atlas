@@ -1,5 +1,5 @@
 {
-  "name": "history-globe",
+  "name": "ancestor-atlas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "test": "vitest run",
     "validate-data": "tsx scripts/validate-data.ts",
     "data:fetch": "tsx scripts/fetch/cliopatria.ts && tsx scripts/fetch/wikidata.ts",
+    "data:fetch:pbdb": "tsx scripts/fetch/pbdb.ts",
     "data:build": "tsx scripts/build-data.ts && tsx scripts/validate-data.ts"
   },
   "dependencies": {
