@@ -16,7 +16,8 @@ import { STEPS, segmentOfBce } from "../../src/time/scale.ts";
 export const XRONOS_CSV = "data/raw/xronos/data.csv";
 
 export interface XronosSite {
-  entity_id: string; site: string; country: string; lat: number; lon: number;
+  entity_id: string; range: [number, number]; // culture's sourced range, years BCE (oldest, youngest), no margin
+  site: string; country: string; lat: number; lon: number;
   dates: { labnr: string; bp: number; std: number; median: number; from: number; to: number }[];
 }
 export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; sites: number }
@@ -32,8 +33,11 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   for (const r of parse(readFileSync(labelsPath, "utf8"), { columns: true }) as Record<string, string>[])
     if (r.source === "xronos") labels.set(r.label, r.entity_id);
   const windows = new Map<string, [number, number]>(); // entity -> [oldest, youngest] years BCE incl. margin
-  for (const r of parse(readFileSync(windowsPath, "utf8"), { columns: true }) as Record<string, string>[])
+  const ranges = new Map<string, [number, number]>(); // entity -> sourced range, no margin
+  for (const r of parse(readFileSync(windowsPath, "utf8"), { columns: true }) as Record<string, string>[]) {
     windows.set(r.entity_id, [Number(r.start_bce) + Number(r.margin_years), Number(r.end_bce) - Number(r.margin_years)]);
+    ranges.set(r.entity_id, [Number(r.start_bce), Number(r.end_bce)]);
+  }
   const curve = loadCurve();
   const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, sites: 0 };
   const seen = new Set<string>();
@@ -59,7 +63,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     const bce = c.median - 1949; // cal BP -> years BCE (1950 - calBP = astronomical year; BCE = 1 - year)
     if (bce > w[0] || bce < w[1]) { stats.outOfWindow++; continue; }
     const id = `${entity_id}|${r.site.trim()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
-    const s = sites.get(id) ?? sites.set(id, { entity_id, site: r.site.trim(), country: r.country, lat, lon, dates: [] }).get(id)!;
+    const s = sites.get(id) ?? sites.set(id, { entity_id, range: ranges.get(entity_id)!, site: r.site.trim(), country: r.country, lat, lon, dates: [] }).get(id)!;
     s.dates.push({ labnr: key, bp, std, median: c.median, from: c.from, to: c.to });
   }
   stats.sites = sites.size;
@@ -75,8 +79,15 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
   return sites.map((s) => {
     const meds = s.dates.map((d) => d.median);
     const oldest = Math.max(...meds), youngest = Math.min(...meds); // cal BP
-    const a = 1950 - oldest, b = 1950 - youngest; // astronomical years
-    const [start, end] = minWindow(a, b, 2 * STEPS[segmentOfBce(1 - (a + b) / 2)]);
+    // Astronomical years, clipped to the culture's sourced range: the margin only decides which dates are kept,
+    // it never stretches a site beyond what the culture's dating supports.
+    const lo = 1 - s.range[0], hi = 1 - s.range[1];
+    let a = Math.max(1950 - oldest, lo), b = Math.min(1950 - youngest, hi);
+    if (a > b) a = b = Math.min(Math.max(1950 - oldest, lo), hi); // all dates in the margin: pin to the nearest bound
+    let [start, end] = minWindow(a, b, 2 * STEPS[segmentOfBce(1 - (a + b) / 2)]);
+    // Keep the widened window inside the culture's range by sliding it, not stretching past the range.
+    if (start < lo) [start, end] = [lo, Math.min(hi, lo + (end - start))];
+    if (end > hi) [start, end] = [Math.max(lo, hi - (end - start)), hi];
     const n = s.dates.length;
     const ka = (x: number) => (x / 1000).toFixed(x >= 10000 ? 1 : 2).replace(/\.?0+$/, "");
     let id = `${s.entity_id}@x:${slug(s.site) || "site"}`;
