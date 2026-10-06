@@ -109,6 +109,15 @@ npm test                  # Run automated test suites (Vitest)
   - `entities.yaml`: Descriptions, parent-child relationships, color schemes.
   - `sources.yaml`: Attribution records and licensing metadata.
   - `*-sites.csv`: Discovery sites with provenance coordinates and dating sources.
+  - `culture-labels.csv` / `culture-windows.csv`: Which XRONOS labels map to which culture, and each culture's sourced date range.
+- **Reference data (`data/reference/`)**: `intcal20.14c`, the IntCal20 radiocarbon calibration curve (Reimer et al. 2020).
+
+### Bulk Culture Data (XRONOS)
+
+Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.ch) (CC BY 4.0). XRONOS asks that its
+exports are not fetched automatically, so download `https://xronos.ch/data.csv` by hand into `data/raw/xronos/data.csv`;
+`npm run data:build` only reads that local copy. Dates are calibrated with IntCal20, kept only if they fall within the
+culture's sourced date range, and grouped into one point per site.
 
 ### Provenance Rules
 
