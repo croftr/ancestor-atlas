@@ -7,6 +7,13 @@
   "citation": "Seshat Global History Databank, Cliopatria v0.2.1 (doi:10.5281/zenodo.23128623). Paper: doi:10.1038/s41597-025-04516-9. Polity extents are scholarly approximations. Geometry simplified for display."
  },
  {
+  "id": "literature",
+  "name": "Wikidata coordinates and dates from published papers",
+  "url": "https://www.wikidata.org/",
+  "licence": "CC0 1.0 (Wikidata coordinates); dates are facts reported in the cited paper",
+  "citation": "Site coordinates from Wikidata (P625, CC0); ages as stated in the peer-reviewed paper given by each site's DOI (date_source)."
+ },
+ {
   "id": "recall",
   "name": "Author-compiled approximate sites (unverified)",
   "url": "https://github.com/croftr/ancestor-atlas#provenance-rules",

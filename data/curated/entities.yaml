@@ -189,8 +189,8 @@
 - id: denisovan
   name: "Denisovans"
   category: species
-  start_year: -198050
-  end_year: -48050
+  start_year: -193050
+  end_year: -50050
   description: "Archaic human group known mainly from DNA and a few fossils from Denisova Cave in Siberia and Baishiya Karst Cave on the Tibetan Plateau. They interbred with both Neanderthals and modern humans."
   wikipedia_url: https://en.wikipedia.org/wiki/Denisovans
   source_ids: [recall]
@@ -271,7 +271,7 @@
   name: "Middle Stone Age (Africa)"
   category: culture
   start_year: -347050
-  end_year: -36050
+  end_year: -36650
   description: "African counterpart of the Middle Palaeolithic, beginning about 300,000 years ago. Sites such as Blombos Cave have early evidence of ochre use, engraving and bead-making."
   wikipedia_url: https://en.wikipedia.org/wiki/Middle_Stone_Age
   source_ids: [recall]
@@ -325,7 +325,7 @@
   name: "Clovis"
   category: culture
   start_year: -12050
-  end_year: -9700
+  end_year: -9681
   description: "Widespread North American stone tool tradition around 13,000 years ago, characterised by fluted spear points."
   wikipedia_url: https://en.wikipedia.org/wiki/Clovis_culture
   source_ids: [recall]

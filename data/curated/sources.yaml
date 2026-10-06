@@ -24,3 +24,8 @@
   url: https://www.wikidata.org/
   licence: CC0 1.0 (Wikidata) / CC BY-SA 4.0 (Wikipedia)
   citation: "Site coordinates from Wikidata (P625, CC0); age ranges as stated in English Wikipedia articles. Each site records its Wikidata item and the exact Wikipedia page revision used."
+- id: literature
+  name: Wikidata coordinates and dates from published papers
+  url: https://www.wikidata.org/
+  licence: CC0 1.0 (Wikidata coordinates); dates are facts reported in the cited paper
+  citation: "Site coordinates from Wikidata (P625, CC0); ages as stated in the peer-reviewed paper given by each site's DOI (date_source)."
