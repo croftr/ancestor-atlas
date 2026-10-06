@@ -25,10 +25,14 @@ export function refLink(ref: string | undefined): RefLink | undefined {
     }
     case "doi":
       return { label: `doi:${value}`, href: `https://doi.org/${value}` };
-    case "xronos":
-      return value === "IntCal20"
-        ? { label: "XRONOS radiocarbon dates, calibrated with IntCal20", href: "https://xronos.ch/" }
-        : { label: "XRONOS", href: "https://xronos.ch/" };
+    case "xronos": {
+      // xronos:c14/<record id> (location) or xronos:IntCal20:c14/<record id> (dates); links to that XRONOS record
+      const rec = value.match(/c14\/(\d+)/)?.[1];
+      const href = rec ? `https://xronos.ch/c14s/${rec}` : "https://xronos.ch/";
+      return value.startsWith("IntCal20")
+        ? { label: "XRONOS radiocarbon dates, calibrated with IntCal20", href }
+        : { label: rec ? `XRONOS record ${rec}` : "XRONOS", href };
+    }
     case "url":
       return { label: value.replace(/^https?:\/\//, ""), href: value };
     default:

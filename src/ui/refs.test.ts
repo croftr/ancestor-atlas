@@ -15,6 +15,8 @@ describe("refLink", () => {
   it("links DOIs and XRONOS", () => {
     expect(refLink("doi:10.1038/nature13025")?.href).toBe("https://doi.org/10.1038/nature13025");
     expect(refLink("xronos:IntCal20")?.label).toMatch(/IntCal20/);
+    expect(refLink("xronos:c14/34612")).toEqual({ label: "XRONOS record 34612", href: "https://xronos.ch/c14s/34612" });
+    expect(refLink("xronos:IntCal20:c14/34612")?.href).toBe("https://xronos.ch/c14s/34612");
   });
   it("handles titles with colons-free parentheses and missing refs", () => {
     expect(refLink("wikipedia:Selam_(Australopithecus)@1354128849")?.label).toBe("Wikipedia: Selam (Australopithecus)");

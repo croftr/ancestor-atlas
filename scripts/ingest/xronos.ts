@@ -19,7 +19,7 @@ export const XRONOS_CSV = "data/raw/xronos/data.csv";
 export interface XronosSite {
   entity_id: string; range: [number, number]; // culture's sourced range, years BCE (oldest, youngest), no margin
   site: string; country: string; lat: number; lon: number;
-  dates: { labnr: string; bp: number; std: number; median: number; from: number; to: number }[];
+  dates: { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number }[];
 }
 export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; countryMismatch: number; merged: number; sites: number }
 
@@ -45,6 +45,22 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   const seen = new Set<string>();
   const sites = new Map<string, XronosSite>();
   const rows = parse(readFileSync(XRONOS_CSV, "utf8"), { columns: true, relax_quotes: true }) as Record<string, string>[];
+  // XRONOS merges several source databases, so one lab number can appear in several records with different culture
+  // labels. Collect every culture each lab number maps to; a date claimed by two of our cultures is dropped.
+  // The same measurement can also carry different lab-number spellings (ETH-4122 / UZ-4122), so cultures are
+  // collected both per lab number and per measurement (same age, error and ~0.1 degree location).
+  const labCultures = new Map<string, Set<string>>();
+  const measKey = (r: Record<string, string>) =>
+    r.bp && r.std && r.lat && r.lng ? `m|${r.bp}|${r.std}|${Number(r.lat).toFixed(1)}|${Number(r.lng).toFixed(1)}` : undefined;
+  for (const r of rows) {
+    const keys = [r.labnr?.trim(), measKey(r)].filter((k): k is string => !!k);
+    for (const u of units(r.typochronological_units)) {
+      const e = labels.get(u);
+      if (e) for (const k of keys) (labCultures.get(k) ?? labCultures.set(k, new Set()).get(k)!).add(e);
+    }
+  }
+  const conflicted = (r: Record<string, string>) =>
+    [r.labnr?.trim(), measKey(r)].some((k) => !!k && (labCultures.get(k)?.size ?? 0) > 1);
   for (const r of rows) {
     stats.rows++;
     if (r.lat && r.lng && r.country) {
@@ -58,6 +74,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     const lat = Number(r.lat), lon = Number(r.lng);
     if (!r.lat || !r.lng || !Number.isFinite(lat) || !Number.isFinite(lon)) { stats.noCoords++; continue; }
     const key = r.labnr?.trim();
+    if (conflicted(r)) { stats.conflicting++; continue; }
     if (key && seen.has(key)) { stats.duplicates++; continue; }
     if (key) seen.add(key);
     const bp = Number(r.bp), std = Number(r.std);
@@ -68,9 +85,13 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     if (!w) continue; // only cultures with a sourced date range are imported
     const bce = c.median - 1949; // cal BP -> years BCE (1950 - calBP = astronomical year; BCE = 1 - year)
     if (bce > w[0] || bce < w[1]) { stats.outOfWindow++; continue; }
+    // The same measurement sometimes appears under two lab-number styles (ETH-4086 / UZ-4086) at a slightly different
+    // site point: same age and error within 5 km of an already-kept date of this culture is one measurement.
+    const twin = [...sites.values()].some((o) => o.entity_id === entity_id && o.dates.some((d) => d.bp === bp && d.std === std) && distanceKm(o.lat, o.lon, lat, lon) < 5);
+    if (twin) { stats.duplicates++; continue; }
     const id = `${entity_id}|${r.site.trim()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
     const s = sites.get(id) ?? sites.set(id, { entity_id, range: ranges.get(entity_id)!, site: r.site.trim(), country: r.country, lat, lon, dates: [] }).get(id)!;
-    s.dates.push({ labnr: key, bp, std, median: c.median, from: c.from, to: c.to });
+    s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to });
   }
   // Drop sites whose coordinates are far from where the rest of their country's XRONOS dates lie: these are
   // source errors (flipped longitude signs, shifted grids, wrong country codes).
@@ -81,7 +102,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     const lat = med(ps.map((p) => p[0])), lon = med(ps.map((p) => p[1]));
     centre.set(c, { lat, lon, limit: Math.max(600, 4 * med(ps.map((p) => distanceKm(lat, lon, p[0], p[1])))) });
   }
-  const kept = [...sites.values()].filter((s) => {
+  const kept = [...sites.values()].filter((s) => s.dates.length > 0).filter((s) => {
     const c = centre.get(s.country);
     if (c && distanceKm(c.lat, c.lon, s.lat, s.lon) > c.limit) { stats.countryMismatch++; return false; }
     return true;
@@ -130,7 +151,7 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
         weight: Math.round((Math.log(n + 1) / Math.log(maxN + 1)) * 1000) / 1000,
         source_id: "xronos",
         source_ref: `xronos:${s.dates.slice(0, 3).map((d) => d.labnr).join(",")}${n > 3 ? ",…" : ""}`,
-        coord_source: "xronos:site", date_source: "xronos:IntCal20",
+        coord_source: `xronos:c14/${s.dates[0].recordId}`, date_source: `xronos:IntCal20:c14/${s.dates[0].recordId}`,
       },
       geometry: { type: "Point", coordinates: [s.lon, s.lat] },
     };
