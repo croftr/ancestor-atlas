@@ -45,7 +45,8 @@ const uniq = (xs: string[]): string | undefined => {
     const m = x.match(/^(.*\b(?:1[89]|20)\d{2}[a-z]?),\s*((?:pp?\.\s*)?\d[\d\s–-]*f{0,2}\.?)$/);
     const [work, page] = m ? [m[1], m[2]] : [x, ""];
     const ps = pages.get(work) ?? pages.set(work, []).get(work)!;
-    if (page) ps.push(page);
+    const pg = page.replace(/\.$/, ""); // "42." and "42" are the same page
+    if (pg && !ps.includes(pg)) ps.push(pg);
   }
   const out = [...pages].map(([work, ps]) => (ps.length ? `${work}, ${ps.join(", ")}` : work));
   return out.length ? out.join("; ") : undefined;
