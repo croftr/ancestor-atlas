@@ -1,0 +1,169 @@
+# Curated registry: the editorial source of truth for entity names, descriptions and groups.
+# Years are astronomical (1 CE = 1, 1 BCE = 0). See data_plan.md.
+
+# ---- Mock species and cultures (illustrative; replaced category by category as real data lands) ----
+- id: sahelanthropus
+  name: "Sahelanthropus tchadensis"
+  category: species
+  start_year: -6999999
+  end_year: -5999999
+  description: "One of the oldest known species in the human lineage, known from a cranium ('Toumaï') found in the Djurab Desert of Chad. Possibly near the split between hominins and chimpanzees."
+  source_ids: [mock]
+
+- id: australopithecus-afarensis
+  name: "Australopithecus afarensis"
+  category: species
+  start_year: -3899999
+  end_year: -2899999
+  description: "Small-brained, habitually bipedal hominin of East Africa, famous for the 'Lucy' skeleton (Hadar, Ethiopia) and the Laetoli footprints (Tanzania)."
+  source_ids: [mock]
+
+- id: homo-habilis
+  name: "Homo habilis"
+  category: species
+  start_year: -2399999
+  end_year: -1399999
+  description: "Early member of the genus Homo from East Africa, long associated with the first stone tools of the Oldowan industry."
+  source_ids: [mock]
+
+- id: homo-erectus
+  name: "Homo erectus"
+  category: species
+  start_year: -1899999
+  end_year: -109999
+  description: "Long-legged, larger-brained hominin and the first to spread widely beyond Africa, reaching the Caucasus (Dmanisi), China (Zhoukoudian) and Java (Sangiran, Ngandong)."
+  source_ids: [mock]
+
+- id: neanderthal
+  name: "Homo neanderthalensis (Neanderthal)"
+  category: species
+  start_year: -399999
+  end_year: -39999
+  description: "Cold-adapted hominins of Europe and western Asia who buried their dead, made sophisticated Levallois/Mousterian tools and interbred with Homo sapiens."
+  source_ids: [mock]
+
+- id: homo-sapiens
+  name: "Homo sapiens"
+  category: species
+  start_year: -299999
+  end_year: 1
+  description: "Anatomically modern humans, first known from Jebel Irhoud (Morocco) about 300,000 years ago, later spreading across every continent except Antarctica."
+  source_ids: [mock]
+
+- id: oldowan
+  name: "Oldowan"
+  category: culture
+  start_year: -2599999
+  end_year: -1699999
+  description: "The oldest widespread stone-tool industry: simple flakes and choppers struck from cobbles, first documented at Gona (Ethiopia) and named after Olduvai Gorge."
+  source_ids: [mock]
+
+- id: acheulean
+  name: "Acheulean"
+  category: culture
+  start_year: -1759999
+  end_year: -129999
+  description: "Industry defined by symmetrical bifacial handaxes, made for well over a million years across Africa, western Eurasia and South Asia."
+  source_ids: [mock]
+
+- id: levallois-mousterian
+  name: "Levallois / Mousterian"
+  category: culture
+  start_year: -299999
+  end_year: -39999
+  description: "Middle Palaeolithic technology using the Levallois prepared-core technique to produce standardised flakes; strongly associated with Neanderthals but also used by early Homo sapiens."
+  source_ids: [mock]
+
+- id: aurignacian
+  name: "Aurignacian"
+  category: culture
+  start_year: -42999
+  end_year: -25999
+  description: "Early Upper Palaeolithic culture of Homo sapiens in Europe, linked to the earliest figurative art (Chauvet Cave, Hohle Fels figurines) and bone flutes."
+  source_ids: [mock]
+
+- id: gravettian
+  name: "Gravettian"
+  category: culture
+  start_year: -32999
+  end_year: -20999
+  description: "Pan-European Upper Palaeolithic culture known for 'Venus' figurines (Willendorf, Dolní Věstonice), mammoth-bone dwellings and elaborate burials."
+  source_ids: [mock]
+
+- id: natufian
+  name: "Natufian"
+  category: culture
+  start_year: -14999
+  end_year: -11499
+  description: "Late Epipalaeolithic culture of the Levant whose semi-sedentary villages and wild-cereal harvesting set the stage for the invention of agriculture."
+  source_ids: [mock]
+
+- id: linear-pottery
+  name: "Linear Pottery (LBK)"
+  category: culture
+  start_year: -5499
+  end_year: -4499
+  description: "Early Neolithic farming culture that spread rapidly across central Europe, named for its band-decorated pottery and known for large timber longhouses."
+  source_ids: [mock]
+# ---- Civilization groups (umbrella entities; children are matched from Cliopatria rows) ----
+# Group spans are derived from their children. Geometry lives only on the Cliopatria leaves.
+# Rules: names | cliopatria_name_regex | wikidata | cliopatria_member_of (composite polity name).
+
+- id: ancient-egypt
+  name: Ancient Egypt
+  category: civilization
+  group: true
+  description: "Pharaonic civilisation along the Nile, from the unification of Upper and Lower Egypt through the Old, Middle and New Kingdoms and the intermediate periods between them, with foreign rule by Hyksos and Assyrians in places."
+  wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
+  match_children:
+    cliopatria_name_regex: "(Dynasty of Egypt|Kingdom of Egypt|Period of Egypt|^(Upper|Lower|Assyrian) Egypt)$"
+    names: [Hyksos, Ankhwennefer]
+  candidate_keywords: [Egypt, Nile, Pharaoh]
+
+- id: mesopotamia
+  name: Mesopotamia
+  category: civilization
+  group: true
+  description: "The land between the Tigris and Euphrates, home to the earliest cities and a succession of Sumerian, Akkadian, Babylonian and Assyrian states."
+  wikipedia_url: https://en.wikipedia.org/wiki/Mesopotamia
+  match_children:
+    names: [Sumerian City-States, Akkadian Empire, Gutian Dynasty, First Sealand Dynasty, Babylonia, Assyria, Neo-Assyrian Empire, Neo-Babylonian Empire]
+  candidate_keywords: [Sumer, Akkad, Babylon, Assyria, Mesopotamia, Sealand, Gutian]
+
+- id: ancient-china
+  name: Ancient China
+  category: civilization
+  group: true
+  description: "The early dynasties and states of China: Shang and Zhou, the many states of the Spring and Autumn and Warring States periods, then the Qin and Han unifications."
+  wikipedia_url: https://en.wikipedia.org/wiki/History_of_China
+  match_children:
+    names: [Shang Dynasty, Zhou Dynasty, Later Zhou, Qin Dynasty, Han Dynasty]
+    cliopatria_member_of: ["(Spring and Autumn States)", "(Warring States China)", "(Eighteen Kingdoms)"]
+  candidate_keywords: [Zhou, Shang, Qin, Han, Chu, Yue, Xiongnu]
+
+- id: persia
+  name: Persia
+  category: civilization
+  group: true
+  description: "The great Iranian empires of antiquity, from the Achaemenids, who ruled from Anatolia and Egypt to the Indus, to the Parthians who followed Alexander's successors."
+  wikipedia_url: https://en.wikipedia.org/wiki/History_of_Iran
+  match_children:
+    names: [Achaemenid Empire, Parthian Empire]
+  candidate_keywords: [Persia, Iran, Achaemenid, Parthia, Median]
+
+- id: ancient-greece
+  name: Ancient Greece
+  category: civilization
+  group: true
+  description: "The Bronze Age Mycenaeans, the Dark Age that followed, and the city-states and leagues of the Archaic and Classical Greek world."
+  wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Greece
+  match_children:
+    names: [Mycenaean Greece, Greek Dark Ages, Greek City-States, Athenian Coalition, Second Athenian League, Peloponnesian League, Achaean League, Aetolian League, Thebans]
+  candidate_keywords: [Greek, Greece, Athen, Sparta, Theb, Achaean, Macedon]
+
+# ---- Overrides of auto-created Cliopatria entities ----
+# Cliopatria links "Roman Empire" to Wikidata Q12544 (the Byzantine Empire), so the
+# Wikidata short description is wrong for the Augustan era. Hand-written instead.
+- id: roman-empire
+  category: civilization
+  description: "The Roman state under Augustus and his successors, which grew from the Roman Republic into a Mediterranean-wide empire."

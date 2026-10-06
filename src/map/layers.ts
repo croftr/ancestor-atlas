@@ -1,7 +1,7 @@
 import type { ExpressionSpecification, LayerSpecification } from "maplibre-gl";
 import type { Category } from "../types";
 
-export const SOURCE_ID = "entities";
+export const SOURCE_ID = "features";
 
 export function timeFilter(category: Category, year: number): ExpressionSpecification {
   return [
@@ -27,7 +27,7 @@ export const LAYER_DEFS: LayerDef[] = [
       id: "civ-fill",
       type: "fill",
       source: SOURCE_ID,
-      paint: { "fill-color": "#ef476f", "fill-opacity": ["case", selected, 0.6, 0.3] },
+      paint: { "fill-color": ["coalesce", ["get", "color"], "#ef476f"], "fill-opacity": ["case", selected, 0.6, 0.3] },
     },
   },
   {
@@ -36,7 +36,7 @@ export const LAYER_DEFS: LayerDef[] = [
       id: "civ-line",
       type: "line",
       source: SOURCE_ID,
-      paint: { "line-color": "#ef476f", "line-width": 1.5 },
+      paint: { "line-color": ["coalesce", ["get", "line_color"], "#ef476f"], "line-width": 1.5 },
     },
   },
   {

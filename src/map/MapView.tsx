@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
-import { type EntityProps } from "../types";
+import { type FeatureProps } from "../types";
 import { INTERACTIVE_LAYERS, LAYER_DEFS, SOURCE_ID, timeFilter } from "./layers";
-import { isActive, loadEntities, useEntities } from "./data";
+import { isActive, loadData, useFeatures } from "./data";
 
 export default function MapView() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const entities = useEntities();
+  const features = useFeatures();
   const year = useStore((s) => s.year);
   const enabled = useStore((s) => s.enabled);
 
@@ -76,7 +76,7 @@ export default function MapView() {
     };
 
     map.on("load", () => {
-      map.addSource(SOURCE_ID, { type: "geojson", data: "/data/entities.geojson", promoteId: "id" });
+      map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
       loaded = true;
       applyFilters();
@@ -87,9 +87,9 @@ export default function MapView() {
     map.on("click", (e) => {
       if (!loaded) return;
       const feats = map.queryRenderedFeatures(e.point, { layers: INTERACTIVE_LAYERS });
-      const seen = new Map<string, { props: EntityProps; rank: number }>();
+      const seen = new Map<string, { props: FeatureProps; rank: number }>();
       for (const f of feats) {
-        const props = f.properties as unknown as EntityProps;
+        const props = f.properties as unknown as FeatureProps;
         if (seen.has(props.id)) continue;
         seen.set(props.id, { props, rank: INTERACTIVE_LAYERS.indexOf(f.layer.id) });
       }
@@ -131,11 +131,11 @@ export default function MapView() {
 
   // Make sure the data is fetched even if the map fails to start.
   useEffect(() => {
-    loadEntities();
+    loadData();
   }, []);
 
-  const anyActive = entities.some((e) => enabled[e.category] && isActive(e, year));
-  const showEmpty = entities.length > 0 && !anyActive;
+  const anyActive = features.some((f) => enabled[f.category] && isActive(f, year));
+  const showEmpty = features.length > 0 && !anyActive;
 
   return (
     <>

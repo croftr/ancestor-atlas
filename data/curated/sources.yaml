@@ -1,0 +1,16 @@
+# Data sources. The build copies the ones actually used into public/data/sources.json.
+- id: cliopatria
+  name: Cliopatria (Seshat Global History Databank)
+  url: https://github.com/Seshat-Global-History-Databank/cliopatria
+  licence: CC BY 4.0
+  citation: "Seshat Global History Databank, Cliopatria v0.2.1 (doi:10.5281/zenodo.23128623). Paper: doi:10.1038/s41597-025-04516-9. Polity extents are scholarly approximations. Geometry simplified for display."
+- id: wikidata
+  name: Wikidata
+  url: https://www.wikidata.org/
+  licence: CC0 1.0
+  citation: "Short descriptions and identifiers from Wikidata."
+- id: mock
+  name: Illustrative placeholder data
+  url: https://en.wikipedia.org/wiki/Prehistory
+  licence: n/a
+  citation: "Illustrative, approximate placeholder locations and dates. Not real data; being replaced."

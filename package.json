@@ -8,7 +8,9 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "validate-data": "tsx scripts/validate-data.ts"
+    "validate-data": "tsx scripts/validate-data.ts",
+    "data:fetch": "tsx scripts/fetch/cliopatria.ts && tsx scripts/fetch/wikidata.ts",
+    "data:build": "tsx scripts/build-data.ts && tsx scripts/validate-data.ts"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",
@@ -23,9 +25,12 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "csv-parse": "^7.0.3",
+    "mapshaper": "^0.7.78",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.3",
-    "vitest": "^5.0.3"
+    "vitest": "^5.0.3",
+    "yaml": "^2.9.1"
   }
 }
