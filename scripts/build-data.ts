@@ -220,6 +220,8 @@ for (const f of features) {
 }
 
 // ---------- source ids ----------
+// Species/culture sources come only from their sites (entities.yaml's source_ids would go stale as rows are sourced).
+for (const e of entities.values()) if (e.category !== "civilization" && !e.group) e.source_ids = [];
 for (const f of features) {
   const e = entities.get(f.props.entity_id);
   if (!e) fail(`feature ${f.props.id}: unknown entity ${f.props.entity_id}`);
