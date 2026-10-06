@@ -1,3 +1,8 @@
 entity_id,start_bce,end_bce,margin_years,source
 linear-pottery,5600,4100,500,wikipedia:Linear_Pottery_culture@1376833640
 natufian,12500,9500,500,wikipedia:Natufian_culture@1376030690
+aurignacian,41050,24050,1000,wikipedia:Aurignacian@1378625229
+gravettian,31050,20050,1000,wikipedia:Gravettian@1373673253
+solutrean,20050,15050,1000,wikipedia:Solutrean@1376352333
+magdalenian,19050,11050,1000,wikipedia:Magdalenian@1378423583
+pre-pottery-neolithic,10000,6500,500,wikipedia:Pre-Pottery_Neolithic@1360754480

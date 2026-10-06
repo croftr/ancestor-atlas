@@ -11,6 +11,7 @@ import { parse } from "csv-parse/sync";
 import type { FeatureProps } from "../../src/types.ts";
 import { calibrate, loadCurve } from "../lib/calibrate.ts";
 import { minWindow } from "../lib/dates.ts";
+import { distanceKm } from "../lib/qa.ts";
 import { STEPS, segmentOfBce } from "../../src/time/scale.ts";
 
 export const XRONOS_CSV = "data/raw/xronos/data.csv";
@@ -20,7 +21,7 @@ export interface XronosSite {
   site: string; country: string; lat: number; lon: number;
   dates: { labnr: string; bp: number; std: number; median: number; from: number; to: number }[];
 }
-export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; sites: number }
+export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; countryMismatch: number; sites: number }
 
 const units = (s: string): string[] => {
   try { return (JSON.parse(s || "[]") as Record<string, string>[]).map((d) => Object.values(d)[0]?.trim()).filter(Boolean); }
@@ -39,12 +40,17 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     ranges.set(r.entity_id, [Number(r.start_bce), Number(r.end_bce)]);
   }
   const curve = loadCurve();
-  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, sites: 0 };
+  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, countryMismatch: 0, sites: 0 };
+  const byCountry = new Map<string, [number, number][]>(); // all XRONOS coordinates per country, for a consistency check
   const seen = new Set<string>();
   const sites = new Map<string, XronosSite>();
   const rows = parse(readFileSync(XRONOS_CSV, "utf8"), { columns: true, relax_quotes: true }) as Record<string, string>[];
   for (const r of rows) {
     stats.rows++;
+    if (r.lat && r.lng && r.country) {
+      const p: [number, number] = [Number(r.lat), Number(r.lng)];
+      if (Number.isFinite(p[0]) && Number.isFinite(p[1])) (byCountry.get(r.country) ?? byCountry.set(r.country, []).get(r.country)!).push(p);
+    }
     const mapped = new Set(units(r.typochronological_units).map((u) => labels.get(u)).filter((x): x is string => !!x));
     if (!mapped.size) continue;
     if (mapped.size > 1) { stats.conflicting++; continue; }
@@ -66,8 +72,22 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     const s = sites.get(id) ?? sites.set(id, { entity_id, range: ranges.get(entity_id)!, site: r.site.trim(), country: r.country, lat, lon, dates: [] }).get(id)!;
     s.dates.push({ labnr: key, bp, std, median: c.median, from: c.from, to: c.to });
   }
-  stats.sites = sites.size;
-  return { sites: [...sites.values()], stats };
+  // Drop sites whose coordinates are far from where the rest of their country's XRONOS dates lie: these are
+  // source errors (flipped longitude signs, shifted grids, wrong country codes).
+  const med = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
+  const centre = new Map<string, { lat: number; lon: number; limit: number }>();
+  for (const [c, ps] of byCountry) {
+    if (ps.length < 10) continue;
+    const lat = med(ps.map((p) => p[0])), lon = med(ps.map((p) => p[1]));
+    centre.set(c, { lat, lon, limit: Math.max(600, 4 * med(ps.map((p) => distanceKm(lat, lon, p[0], p[1])))) });
+  }
+  const kept = [...sites.values()].filter((s) => {
+    const c = centre.get(s.country);
+    if (c && distanceKm(c.lat, c.lon, s.lat, s.lon) > c.limit) { stats.countryMismatch++; return false; }
+    return true;
+  });
+  stats.sites = kept.length;
+  return { sites: kept, stats };
 }
 
 const slug = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

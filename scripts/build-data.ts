@@ -98,7 +98,7 @@ else {
     features.push(f);
   }
   const s = xr.stats;
-  console.log(`XRONOS: ${s.labelled} labelled dates (${s.conflicting} with conflicting labels, ${s.noCoords} without coordinates, ${s.uncalibrated} not calibratable, ${s.duplicates} duplicate lab numbers, ${s.outOfWindow} outside the culture's sourced range) -> ${s.sites} sites, ${near} skipped as curated duplicates`);
+  console.log(`XRONOS: ${s.labelled} labelled dates (${s.conflicting} with conflicting labels, ${s.noCoords} without coordinates, ${s.uncalibrated} not calibratable, ${s.duplicates} duplicate lab numbers, ${s.outOfWindow} outside the culture's sourced range; ${s.countryMismatch} sites dropped for coordinates inconsistent with their country) -> ${s.sites} sites, ${near} skipped as curated duplicates`);
 }
 
 // Civilizations from Cliopatria.
