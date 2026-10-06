@@ -116,7 +116,7 @@
 - id: paranthropus-boisei
   name: "Paranthropus boisei"
   category: species
-  start_year: -2298050
+  start_year: -1998050
   end_year: -1098050
   description: "Robust East African hominin with massive jaws and chewing teeth, nicknamed 'Nutcracker Man'. Found at Olduvai Gorge, Koobi Fora and other sites; its diet was probably mostly tough plant matter."
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_boisei
@@ -315,7 +315,7 @@
 - id: natufian
   name: "Natufian"
   category: culture
-  start_year: -12550
+  start_year: -13050
   end_year: -9050
   description: "Late Epipalaeolithic culture of the Levant, with some of the earliest semi-permanent villages and intensive wild-cereal harvesting just before farming began."
   wikipedia_url: https://en.wikipedia.org/wiki/Natufian_culture
