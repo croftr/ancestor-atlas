@@ -1,6 +1,6 @@
 # Plan: populating Ancestor Atlas with real data
 
-Project: [`/home/rob/projects/ancestor-atlas`](file:///home/rob/projects/ancestor-atlas). The current schema is in [types.ts](file:///home/rob/projects/ancestor-atlas/src/types.ts) and the validator in [validate-data.ts](file:///home/rob/projects/ancestor-atlas/scripts/validate-data.ts).
+Project: `C:\Users\rob\projects\ancestor-atlas`. The current schema is in [types.ts](src/types.ts) and the validator in [validate-data.ts](scripts/validate-data.ts).
 
 ## TL;DR
 1. **Phase 0: prepare the schema and pipeline** before importing anything. Split the data into an *entity registry* plus *features*, add source and licence tracking, and build a reproducible `raw → curated → build` pipeline.
@@ -20,6 +20,20 @@ Phases 0 and 1 are specified in enough detail to hand to an implementing agent. 
 | D3 | *H. sapiens* in the Holocene | **Hide** *H. sapiens* site points after **10,000 BCE** | The ingest clips `end_year` to `-9_999`, and the registry span stays to 1 CE. |
 | D4 | Egypt and its dynasties | Keep **separate entities, plus parent groupings** | Add an optional `parent_id` to the registry (see "Entity hierarchy" below). |
 | D5 | Interim recalled site data (agreed 2026-10-06) | **Temporary exception** to the "no LLM coordinates or dates" rule (Phase 4): species and culture sites may be compiled from AI recall as `source_id: recall` with a confidence tag, until sourced data (ROAD, PBDB, papers) replaces them | Every such row is tagged `recall`, shown as approximate, and listed for replacement. Does not apply to civilizations (Cliopatria) or anything else. Every `recall` window is widened to at least 2 slider steps so it can show at all. |
+
+### Replacing `recall` rows (added 2026-10-06)
+
+Recalled rows are treated as **a list of sites to look up, not values to check**: comparing a recalled coordinate with a source the model may have seen proves little. Each row in `species-sites.csv` / `culture-sites.csv` carries evidence columns:
+
+| Column | Example | Meaning |
+|---|---|---|
+| `wikidata` | `Q20573231` | QID of the *site* (check it's the site, not the nearby town) |
+| `coord_source` | `wikidata:Q20573231#P625`, `doi:10.…`, `pbdb:col:12345` | Where lat/lon came from (fetched, never typed from memory) |
+| `date_source` | `doi:10.1038/…`, `wikipedia:Dmanisi_hominins@1378502810` | Where the age range came from (a paper for key sites) |
+| `checked` | `2026-10-07` | When a human accepted the row |
+| `notes` | | Anything a reviewer should know |
+
+A row may switch `source_id` away from `recall` only when both `coord_source` and `date_source` are filled; `validate-data.ts` enforces this. `npm run data:report` (also run by `data:build`) writes `data/build/qa-report.md` and `data/build/recall-queue.csv`, the work list ordered worst-first.
 
 ## Entity hierarchy (parent/child)
 
@@ -113,7 +127,7 @@ interface FeatureProps {
 **`sources.json`**: entries of the form `{ id, name, url, licence, citation }`.
 
 ### 0.2 App changes (small)
-- [data.ts](file:///home/rob/projects/ancestor-atlas/src/map/data.ts): load `entities.json` and `sources.json`. The map source points at `features.geojson`.
+- [data.ts](src/map/data.ts): load `entities.json` and `sources.json`. The map source points at `features.geojson`.
 - `InfoPanel`:
   - Shows the entity's name, span, category and description from the registry.
   - Adds a **site block** for the clicked feature: `label`, `date_text`, confidence.

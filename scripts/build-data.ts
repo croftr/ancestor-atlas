@@ -75,6 +75,7 @@ function loadSites(file: string, category: Category) {
     if (r.confidence) props.confidence = r.confidence as FeatureProps["confidence"];
     if (num(r.weight) !== undefined) props.weight = num(r.weight);
     if (r.source_ref) props.source_ref = r.source_ref;
+    for (const k of ["wikidata", "coord_source", "date_source"] as const) if (r[k]) props[k] = r[k];
     features.push({ props, geometry: { type: "Point", coordinates: [lon, lat] } });
   }
 }

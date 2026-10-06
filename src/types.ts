@@ -33,6 +33,10 @@ export interface FeatureProps {
   color?: string; // civilizations: fill colour
   line_color?: string; // civilizations: darker outline colour
   wikipedia_phrase?: string; // per-row Wikipedia page, when it differs from the entity's
+  // Evidence for curated point sites (species/culture). Empty on a `recall` row until it is checked.
+  wikidata?: string; // site QID, e.g. "Q20573231"
+  coord_source?: string; // where lat/lon came from, e.g. "wikidata:Q20573231#P625", "doi:10.1126/…"
+  date_source?: string; // where the dates came from, e.g. "doi:10.1038/…", "wikipedia:Dmanisi_hominins@1378502810"
 }
 
 /** Entry of public/data/sources.json. */

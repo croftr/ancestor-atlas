@@ -1,6 +1,7 @@
 // Validates public/data/{entities.json, features.geojson, sources.json}.
 import { readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
+import { EVIDENCE_REF, QID } from "./lib/qa.ts";
 
 const CATS = ["species", "culture", "civilization"];
 const CONFIDENCE = ["high", "medium", "low"];
@@ -98,6 +99,12 @@ for (const [i, f] of (gj.features ?? []).entries()) {
   for (const k of ["color", "line_color"]) if (p[k] !== undefined && !HEX.test(p[k])) err(`${id}: bad ${k} ${p[k]}`);
   for (const [k, v] of Object.entries(p)) if (v !== null && typeof v === "object") err(`${id}: property ${k} is nested`);
   if (!sources.has(p.source_id)) err(`${id}: unknown source_id ${p.source_id}`);
+  // Evidence on curated point sites: well-formed when present, required once a row leaves `recall`.
+  if (p.wikidata !== undefined && !QID.test(p.wikidata)) err(`${id}: bad wikidata id ${p.wikidata}`);
+  for (const k of ["coord_source", "date_source"])
+    if (p[k] !== undefined && !EVIDENCE_REF.test(p[k])) err(`${id}: ${k} "${p[k]}" should look like wikidata:/doi:/pbdb:/wikipedia:/road:/url:...`);
+  if (p.category !== "civilization" && p.source_id !== "recall" && p.source_id !== "mock" && !(p.coord_source && p.date_source))
+    err(`${id}: source_id ${p.source_id} needs both coord_source and date_source`);
 
   const e = entities.get(p.entity_id);
   if (!e) err(`${id}: unknown entity_id ${p.entity_id}`);
