@@ -5,6 +5,7 @@ import { formatRange } from "../time/scale";
 import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
+import { navOrder } from "../search/search";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -34,10 +35,15 @@ export default function InfoPanel() {
   const select = useStore((s) => s.select);
   const openGroup = useStore((s) => s.openGroup);
   const jumpTo = useStore((s) => s.jumpTo);
+  const stepFeature = useStore((s) => s.stepFeature);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") useStore.getState().select(null);
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+      if (e.key === "[") useStore.getState().stepFeature(-1);
+      if (e.key === "]") useStore.getState().stepFeature(1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -66,6 +72,10 @@ export default function InfoPanel() {
   const labs = labNumbers(feature?.source_ref);
   const featureSource = feature ? data.sourceById.get(feature.source_id) : undefined;
   const showLabel = feature?.label && feature.label !== entity.name;
+  // Prev/next through every feature of this entity (sites, or territory periods for civilizations).
+  const siblings = feature ? navOrder(data.featuresOf.get(feature.entity_id) ?? [], data.bboxOf) : [];
+  const position = feature ? siblings.findIndex((f) => f.id === feature.id) + 1 : 0;
+  const noun = entity.category === "civilization" ? "Period" : "Site";
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
@@ -80,6 +90,35 @@ export default function InfoPanel() {
       )}
       <h2>{entity.name}</h2>
       <div className="muted">{formatRange(entity.start_year, entity.end_year)}</div>
+      {feature && siblings.length > 1 && (
+        <div className="feature-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>
+          <button
+            className="feature-nav-btn"
+            onClick={() => stepFeature(-1)}
+            aria-label={`Previous ${noun.toLowerCase()}`}
+            title={`Previous ${noun.toLowerCase()} ( [ )`}
+          >
+            ‹
+          </button>
+          <div className="feature-nav-mid" aria-live="polite">
+            <div className="feature-nav-count">
+              {noun} {position} of {siblings.length}
+            </div>
+            <div className="feature-nav-label">
+              {showLabel ? `${feature.label} · ` : ""}
+              {formatRange(feature.start_year, feature.end_year)}
+            </div>
+          </div>
+          <button
+            className="feature-nav-btn"
+            onClick={() => stepFeature(1)}
+            aria-label={`Next ${noun.toLowerCase()}`}
+            title={`Next ${noun.toLowerCase()} ( ] )`}
+          >
+            ›
+          </button>
+        </div>
+      )}
       {entity.image_url && (
         <div className="info-media">
           <img src={entity.image_url} alt={entity.name} className="info-image" loading="lazy" />

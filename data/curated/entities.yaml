@@ -561,6 +561,10 @@
     - Theb
     - Achaean
     - Macedon
+- id: roman-republic
+  category: civilization
+  # Cliopatria links Q175881, the Roman Republic of 1798-1799.
+  wikidata: Q17167
 - id: roman-empire
   category: civilization
   description: The Roman state under Augustus and his successors, which grew from

@@ -62,3 +62,22 @@ export function bestYear(features: FeatureProps[]): { year: number; active: Feat
   }
   return best;
 }
+
+const orderCache = new WeakMap<FeatureProps[], FeatureProps[]>();
+
+/**
+ * The order prev/next steps through an entity's features: chronological, then west to east so
+ * same-dated sites sweep across the map instead of hopping around. Cached per features array.
+ */
+export function navOrder(
+  features: FeatureProps[],
+  bboxOf: Map<string, [number, number, number, number]>,
+): FeatureProps[] {
+  let order = orderCache.get(features);
+  if (!order) {
+    const lon = (f: FeatureProps) => bboxOf.get(f.id)?.[0] ?? 0;
+    order = [...features].sort((a, b) => a.start_year - b.start_year || lon(a) - lon(b) || a.id.localeCompare(b.id));
+    orderCache.set(features, order);
+  }
+  return order;
+}

@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { CATEGORIES, type Category, type FeatureProps } from "./types";
 import { snapYear } from "./time/scale";
 import { getData, unionBBox, type BBox } from "./map/data";
-import { bestYear, sliderYearFor } from "./search/search";
+import { bestYear, navOrder, sliderYearFor } from "./search/search";
 import { BASEMAP_THEMES, DEFAULT_BASEMAP } from "./config";
 
 const BASEMAP_KEY = "history-globe.basemap";
@@ -27,7 +27,8 @@ interface AppState {
   playing: boolean;
   basemap: string;
   /** Camera request for the map; a new object each time so repeated requests still fire. */
-  flyTo: { bbox: BBox } | null;
+  /** `gentle`: pan there without zooming out (stepping through sites). */
+  flyTo: { bbox: BBox; gentle?: boolean } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -39,11 +40,13 @@ interface AppState {
    * on the map, and fly the globe to it.
    */
   focusEntity(entityId: string): void;
+  /** Select the next/previous feature of the selected entity (moving the slider if needed). */
+  stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
   setBasemap(name: string): void;
 }
 
-export const useStore = create<AppState>((set) => ({
+export const useStore = create<AppState>((set, get) => ({
   year: -1_799_999,
   enabled: Object.fromEntries(CATEGORIES.map((c) => [c, true])) as Record<Category, boolean>,
   selectedId: null,
@@ -98,6 +101,27 @@ export const useStore = create<AppState>((set) => ({
         : { selectedId: best.active[0].id, hits: best.active, groupId: null }),
       flyTo: bbox ? { bbox } : s.flyTo,
     }));
+  },
+  stepFeature: (dir) => {
+    const d = getData();
+    const s = get();
+    const cur = s.hits.find((h) => h.id === s.selectedId);
+    const all = cur && d?.featuresOf.get(cur.entity_id);
+    if (!d || !cur || !all || all.length < 2) return;
+    const order = navOrder(all, d.bboxOf);
+    const i = order.findIndex((f) => f.id === cur.id);
+    const next = order[(i + dir + order.length) % order.length];
+    const bbox = d.bboxOf.get(next.id);
+    const onNow = next.start_year <= s.year && s.year <= next.end_year;
+    set({
+      playing: false,
+      year: onNow ? s.year : sliderYearFor(next),
+      enabled: { ...s.enabled, [next.category]: true },
+      selectedId: next.id,
+      groupId: null,
+      hits: [next],
+      flyTo: bbox ? { bbox, gentle: true } : s.flyTo,
+    });
   },
   setPlaying: (p) => set({ playing: p }),
   setBasemap: (name) => {

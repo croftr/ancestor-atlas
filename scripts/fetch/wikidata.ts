@@ -1,10 +1,15 @@
 // Fetches English short descriptions (CC0) for every Wikidata ID used by the Cliopatria polities
-// we import. Output: data/raw/wikidata/descriptions.json  { "Q123": "ancient empire", ... }
-import { mkdirSync, writeFileSync } from "node:fs";
+// we import, plus the corrected IDs set in data/curated/entities.yaml.
+// Output: data/raw/wikidata/descriptions.json  { "Q123": "ancient empire", ... }
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { parse as parseYaml } from "yaml";
 import { readCliopatriaRows } from "../ingest/cliopatria.ts";
 
 const OUT = "data/raw/wikidata/descriptions.json";
-const ids = [...new Set(readCliopatriaRows().map((r) => r.Wikidata).filter(Boolean))].sort();
+const curated = (parseYaml(readFileSync("data/curated/entities.yaml", "utf8")) as { wikidata?: string }[]) ?? [];
+const ids = [
+  ...new Set([...readCliopatriaRows().map((r) => r.Wikidata), ...curated.map((c) => c.wikidata)].filter(Boolean)),
+].sort() as string[];
 console.log(`Fetching descriptions for ${ids.length} Wikidata IDs ...`);
 
 const out: Record<string, string> = {};

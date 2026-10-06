@@ -77,7 +77,7 @@ export default function MapView() {
       prevSelected = selectedId;
     };
 
-    const flyTo = ([w, s, e, n]: [number, number, number, number]) => {
+    const flyTo = ([w, s, e, n]: [number, number, number, number], gentle = false) => {
       // Keep the target clear of the legend (left), info card (right) and time slider (bottom).
       const { clientWidth: cw, clientHeight: ch } = map.getContainer();
       const wide = cw > 900;
@@ -89,6 +89,25 @@ export default function MapView() {
       };
       const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       try {
+        if (gentle) {
+          // Stepping through sites: glide to the next one and keep the user's zoom (at least 3).
+          const cam = map.cameraForBounds(
+            [
+              [w, s],
+              [e, n],
+            ],
+            { padding, maxZoom: Math.max(map.getZoom(), 3) },
+          );
+          if (cam?.center) {
+            map.easeTo({
+              center: cam.center,
+              zoom: Math.min(cam.zoom ?? map.getZoom(), Math.max(map.getZoom(), 3)),
+              duration: reduceMotion ? 0 : 900,
+              essential: true,
+            });
+            return;
+          }
+        }
         map.fitBounds(
           [
             [w, s],
@@ -145,7 +164,7 @@ export default function MapView() {
           }
         }
       }
-      if (state.flyTo && state.flyTo !== prev.flyTo) flyTo(state.flyTo.bbox);
+      if (state.flyTo && state.flyTo !== prev.flyTo) flyTo(state.flyTo.bbox, state.flyTo.gentle);
       if (!loaded) return;
       if (state.year !== prev.year) {
         cancelAnimationFrame(raf);

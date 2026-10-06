@@ -164,6 +164,18 @@ for (const c of curated) {
   } else if (existing) {
     Object.assign(existing, fields);
     descriptionFromWikidata.delete(c.id);
+    // A curated `wikidata` corrects a wrong Cliopatria link: take the description from the
+    // corrected item unless one is written out here.
+    if (c.wikidata && !c.description) {
+      const wd = wdDescriptions[c.wikidata];
+      if (wd) {
+        existing.description = wd[0].toUpperCase() + wd.slice(1) + ".";
+        descriptionFromWikidata.add(c.id);
+      } else {
+        existing.description = "A polity recorded in the Cliopatria historical-geography database.";
+        console.warn(`! entities.yaml: ${c.id} -> ${c.wikidata} has no fetched description (run npm run data:fetch)`);
+      }
+    }
   } else if (c.category === "civilization") {
     console.warn(`! entities.yaml: ${c.id} overrides no Cliopatria entity (typo, or no longer present)`);
   } else {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bestYear, buildIndex, normalize, searchEntities } from "./search";
+import { bestYear, buildIndex, navOrder, normalize, searchEntities } from "./search";
 import { unionBBox } from "../map/data";
 import type { Entity, FeatureProps } from "../types";
 
@@ -59,5 +59,17 @@ describe("unionBBox", () => {
   });
   it("keeps ordinary boxes as they are", () => {
     expect(unionBBox([[10, 0, 20, 5], [-5, -2, 0, 1]])).toEqual([-5, -2, 20, 5]);
+  });
+});
+
+describe("navOrder", () => {
+  it("orders by date, then west to east", () => {
+    const fs = [feat("east", -5_600, -5_000), feat("late", -5_000, -4_500), feat("west", -5_600, -5_100)];
+    const boxes = new Map<string, [number, number, number, number]>([
+      ["east", [20, 50, 20, 50]],
+      ["late", [-5, 50, -5, 50]],
+      ["west", [2, 50, 2, 50]],
+    ]);
+    expect(navOrder(fs, boxes).map((f) => f.id)).toEqual(["west", "east", "late"]);
   });
 });
