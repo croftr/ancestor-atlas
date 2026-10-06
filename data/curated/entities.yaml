@@ -12,6 +12,7 @@
   description: "One of the oldest known members of the human lineage, known mainly from a cranium ('Toumaï') found in the Djurab Desert of Chad. Its age is around 7 million years, near the time hominins and chimpanzees diverged, and whether it walked upright is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Sahelanthropus
   source_ids: [recall]
+  image_url: /images/species/sahelanthropus.webp
 
 - id: orrorin-tugenensis
   name: "Orrorin tugenensis"
@@ -21,6 +22,7 @@
   description: "Early hominin from the Tugen Hills of Kenya, about 6 million years old. Thigh-bone fossils have been argued to show upright walking, though this is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Orrorin
   source_ids: [recall]
+  image_url: /images/species/orrorin-tugenensis.webp
 
 - id: ardipithecus-kadabba
   name: "Ardipithecus kadabba"
@@ -30,6 +32,7 @@
   description: "Late Miocene hominin from the Middle Awash of Ethiopia, known from fragmentary remains. Often seen as an ancestor of Ardipithecus ramidus."
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus_kadabba
   source_ids: [recall]
+  image_url: /images/species/ardipithecus-kadabba.webp
 
 - id: ardipithecus-ramidus
   name: "Ardipithecus ramidus"
@@ -39,6 +42,7 @@
   description: "Early hominin from Aramis, Ethiopia, about 4.4 million years old, known from the partial skeleton 'Ardi'. It combined tree-climbing adaptations with a pelvis suited to upright walking."
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus
   source_ids: [recall]
+  image_url: /images/species/ardipithecus-ramidus.webp
 
 - id: australopithecus-anamensis
   name: "Australopithecus anamensis"
@@ -48,6 +52,7 @@
   description: "Early australopith from the Turkana basin of Kenya and Ethiopia, around 4.2 to 3.8 million years ago, often regarded as ancestral to A. afarensis. One of the earliest clearly bipedal hominins."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_anamensis
   source_ids: [recall]
+  image_url: /images/species/australopithecus-anamensis.webp
 
 - id: australopithecus-afarensis
   name: "Australopithecus afarensis"
@@ -57,6 +62,7 @@
   description: "Small-brained, habitually bipedal hominin of East Africa, known from the 'Lucy' skeleton (Hadar, Ethiopia) and the Laetoli footprints (Tanzania)."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_afarensis
   source_ids: [recall]
+  image_url: /images/species/australopithecus-afarensis.webp
 
 - id: kenyanthropus-platyops
   name: "Kenyanthropus platyops"
@@ -66,6 +72,7 @@
   description: "Hominin known from a flat-faced skull found near Lake Turkana in Kenya, about 3.5 million years old. Whether it is a distinct genus or a variant of another australopith is disputed."
   wikipedia_url: https://en.wikipedia.org/wiki/Kenyanthropus
   source_ids: [recall]
+  image_url: /images/species/kenyanthropus-platyops.webp
 
 - id: australopithecus-africanus
   name: "Australopithecus africanus"
@@ -75,6 +82,7 @@
   description: "Gracile australopith of South Africa, first recognised from the Taung Child in 1924. Found at cave sites such as Sterkfontein and Makapansgat; dating of these deposits is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_africanus
   source_ids: [recall]
+  image_url: /images/species/australopithecus-africanus.webp
 
 - id: australopithecus-garhi
   name: "Australopithecus garhi"
@@ -84,6 +92,7 @@
   description: "Australopith from Bouri in Ethiopia's Middle Awash, about 2.5 million years old. Found near animal bones with cut marks, which fed debate on early stone-tool use."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_garhi
   source_ids: [recall]
+  image_url: /images/species/australopithecus-garhi.webp
 
 - id: australopithecus-sediba
   name: "Australopithecus sediba"
@@ -102,6 +111,7 @@
   description: "Early robust australopith known from the 'Black Skull' of West Turkana, Kenya, and remains in the Omo Valley. Probably ancestral to later robust forms."
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_aethiopicus
   source_ids: [recall]
+  image_url: /images/species/paranthropus-aethiopicus.webp
 
 - id: paranthropus-boisei
   name: "Paranthropus boisei"
@@ -147,6 +157,7 @@
   description: "Long-legged, larger-brained hominin and the first to spread widely beyond Africa, reaching the Caucasus (Dmanisi), China (Zhoukoudian) and Java (Sangiran, Ngandong)."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_erectus
   source_ids: [recall]
+  image_url: /images/species/homo-erectus.webp
 
 - id: homo-antecessor
   name: "Homo antecessor"

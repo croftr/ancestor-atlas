@@ -56,6 +56,11 @@ export default function InfoPanel() {
       )}
       <h2>{entity.name}</h2>
       <div className="muted">{formatRange(entity.start_year, entity.end_year)}</div>
+      {entity.image_url && (
+        <div className="info-media">
+          <img src={entity.image_url} alt={entity.name} className="info-image" loading="lazy" />
+        </div>
+      )}
       <p>{entity.description}</p>
       {approximate && (
         <div className="approx-note" role="note">
