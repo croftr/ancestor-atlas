@@ -44,7 +44,7 @@ export function parseAgeText(text: string): [number, number] | undefined {
   return undefined;
 }
 
-/** Slider-visible window for an age text: the parsed range widened to at least 2 slider steps (see data_plan.md D5). */
+/** Slider-visible window for an age text: the parsed range widened to at least 2 slider steps (see README.md, Provenance rules). */
 export function windowFromText(text: string): [number, number] | undefined {
   const r = parseAgeText(text);
   if (!r) return undefined;

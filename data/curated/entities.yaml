@@ -1,7 +1,7 @@
 # Curated registry: the editorial source of truth for entity names, descriptions and groups.
-# Years are astronomical (1 CE = 1, 1 BCE = 0). See data_plan.md.
+# Years are astronomical (1 CE = 1, 1 BCE = 0). See README.md (Data pipeline).
 
-# ---- Species and cultures: author-compiled approximate data (source_id: recall; see data_plan.md D5). ----
+# ---- Species and cultures: author-compiled approximate data (source_id: recall; see README.md, Provenance rules). ----
 # Replace with sourced data (ROAD, PBDB, papers) as it lands. Spans are the min/max of each entity's site windows.
 
 - id: sahelanthropus

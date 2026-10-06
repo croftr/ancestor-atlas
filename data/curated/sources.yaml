@@ -16,7 +16,7 @@
   citation: "Illustrative, approximate placeholder locations and dates. Not real data; being replaced."
 - id: recall
   name: Author-compiled approximate sites (unverified)
-  url: https://github.com/croftr/ancestor-atlas/blob/main/data_plan.md
+  url: https://github.com/croftr/ancestor-atlas#provenance-rules
   licence: n/a
   citation: "Approximate site locations and age windows compiled from general knowledge (AI-assisted), partly cross-checked against PBDB, Wikidata and Wikipedia. Not verified against primary sources; replaced as sourced data (e.g. ROAD, PBDB) lands."
 - id: wikimedia

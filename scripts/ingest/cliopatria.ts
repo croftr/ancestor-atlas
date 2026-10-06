@@ -33,7 +33,7 @@ interface RawFeature {
 /**
  * Year convention: Cliopatria contains a year 0 and its rows are contiguous across it
  * (e.g. Roman Empire ... (-14..0), (1..5)), so its numbering is already astronomical
- * (0 = 1 BCE) and needs no conversion. The data_plan assumed historical numbering
+ * (0 = 1 BCE) and needs no conversion. The original plan assumed historical numbering
  * (no year 0); the data disproves that. See cliopatria.test.ts.
  */
 export const fromCliopatriaYear = (y: number) => y;
