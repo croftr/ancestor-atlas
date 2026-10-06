@@ -47,6 +47,7 @@ for (const e of entityList) {
   if (!Array.isArray(e.source_ids)) err(`entity ${id}: source_ids must be an array`);
   else for (const s of e.source_ids) if (!sources.has(s)) err(`entity ${id}: unknown source ${s}`);
   if (e.color !== undefined && !HEX.test(e.color)) err(`entity ${id}: bad colour ${e.color}`);
+  if (e.image_url && !e.image_credit) err(`entity ${id}: image_url needs an image_credit (author/licence, or "AI-generated")`);
 }
 const kids = new Map<string, number>();
 for (const e of entityList) {

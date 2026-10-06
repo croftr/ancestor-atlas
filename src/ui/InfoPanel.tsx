@@ -69,6 +69,7 @@ export default function InfoPanel() {
       {entity.image_url && (
         <div className="info-media">
           <img src={entity.image_url} alt={entity.name} className="info-image" loading="lazy" />
+          {entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
         </div>
       )}
       <p>{entity.description}</p>

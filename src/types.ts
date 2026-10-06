@@ -16,6 +16,7 @@ export interface Entity {
   group?: boolean; // umbrella entity with no geometry of its own
   color?: string; // civilizations: build-time colour
   image_url?: string; // optional WebP image asset URL
+  image_credit?: string; // required with image_url: author/licence, or that it is AI-generated
 }
 
 /** Feature properties (public/data/features.geojson). Flat so MapLibre can filter on them. */

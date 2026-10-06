@@ -13,6 +13,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sahelanthropus
   source_ids: [recall]
   image_url: /images/species/sahelanthropus.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: orrorin-tugenensis
   name: "Orrorin tugenensis"
@@ -23,6 +24,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Orrorin
   source_ids: [recall]
   image_url: /images/species/orrorin-tugenensis.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: ardipithecus-kadabba
   name: "Ardipithecus kadabba"
@@ -33,6 +35,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus_kadabba
   source_ids: [recall]
   image_url: /images/species/ardipithecus-kadabba.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: ardipithecus-ramidus
   name: "Ardipithecus ramidus"
@@ -43,6 +46,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus
   source_ids: [recall]
   image_url: /images/species/ardipithecus-ramidus.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: australopithecus-anamensis
   name: "Australopithecus anamensis"
@@ -53,6 +57,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_anamensis
   source_ids: [recall]
   image_url: /images/species/australopithecus-anamensis.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: australopithecus-afarensis
   name: "Australopithecus afarensis"
@@ -63,6 +68,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_afarensis
   source_ids: [recall]
   image_url: /images/species/australopithecus-afarensis.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: kenyanthropus-platyops
   name: "Kenyanthropus platyops"
@@ -73,6 +79,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Kenyanthropus
   source_ids: [recall]
   image_url: /images/species/kenyanthropus-platyops.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: australopithecus-africanus
   name: "Australopithecus africanus"
@@ -83,6 +90,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_africanus
   source_ids: [recall]
   image_url: /images/species/australopithecus-africanus.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: australopithecus-garhi
   name: "Australopithecus garhi"
@@ -93,6 +101,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_garhi
   source_ids: [recall]
   image_url: /images/species/australopithecus-garhi.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: australopithecus-sediba
   name: "Australopithecus sediba"
@@ -112,6 +121,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_aethiopicus
   source_ids: [recall]
   image_url: /images/species/paranthropus-aethiopicus.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: paranthropus-boisei
   name: "Paranthropus boisei"
@@ -158,6 +168,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_erectus
   source_ids: [recall]
   image_url: /images/species/homo-erectus.webp
+  image_credit: "AI-generated illustration, not a scientific reconstruction"
 
 - id: homo-antecessor
   name: "Homo antecessor"
