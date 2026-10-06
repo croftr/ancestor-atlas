@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsx scripts/check-data-fresh.ts && tsx scripts/validate-data.ts && tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "validate-data": "tsx scripts/validate-data.ts",
@@ -14,7 +14,8 @@
     "data:build": "tsx scripts/build-data.ts && tsx scripts/validate-data.ts && tsx scripts/report-data.ts",
     "data:report": "tsx scripts/report-data.ts",
     "sites:candidates": "tsx scripts/fetch/site-candidates.ts",
-    "sites:sync": "tsx scripts/sync-site-coords.ts"
+    "sites:sync": "tsx scripts/sync-site-coords.ts",
+    "data:check": "tsx scripts/check-data-fresh.ts"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",

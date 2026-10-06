@@ -5,6 +5,7 @@ import { parse as parseCsv } from "csv-parse/sync";
 import { parse as parseYaml } from "yaml";
 import { CATEGORIES, wikipediaUrl, type Category, type Entity, type FeatureProps, type Source } from "../src/types.ts";
 import { civColors } from "./lib/colors.ts";
+import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 
 const OUT = "public/data";
@@ -220,6 +221,7 @@ writeFileSync(
     features.map((f) => JSON.stringify({ type: "Feature", properties: f.props, geometry: f.geometry })).join(",\n") +
     "\n]}\n",
 );
+writeFileSync(`${META_PATH}`, JSON.stringify({ inputs_hash: fingerprint().hash }) + "\n");
 writeFileSync(`${OUT}/sources.json`, JSON.stringify([...usedSources].sort().map((id) => sources.get(id)), null, 1) + "\n");
 
 // ---------- report ----------
