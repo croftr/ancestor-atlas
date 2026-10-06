@@ -23,9 +23,11 @@ const HUMAN_ENTITY = "homo-sapiens";
 export interface XronosSite {
   entity_id: string; category: "culture" | "species"; range: [number, number]; // culture's sourced range, years BCE (oldest, youngest), no margin
   site: string; country: string; lat: number; lon: number;
-  dates: { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[]; via: string[] }[];
+  dates: XronosDate[];
+  setAside?: XronosDate[]; // isolated end dates left out of the window (see setAsideOutliers)
 }
-export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; sites: number }
+export interface XronosDate { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[]; via: string[] }
+export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; setAside: number; sites: number }
 
 // Distinct references as one "; "-separated string (feature properties must be flat for MapLibre).
 const YEAR_END = /\b(?:1[89]|20)\d{2}[a-z]?$/;
@@ -68,7 +70,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     ranges.set(r.entity_id, [Number(r.start_bce), Number(r.end_bce)]);
   }
   const curve = loadCurve();
-  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, coarse: 0, countryMismatch: 0, merged: 0, sites: 0 };
+  const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, coarse: 0, countryMismatch: 0, merged: 0, setAside: 0, sites: 0 };
   const byCountry = new Map<string, [number, number][]>(); // all XRONOS coordinates per country, for a consistency check
   const seen = new Set<string>();
   const sites = new Map<string, XronosSite>();
@@ -161,8 +163,35 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     const m = merged.find((x) => x.entity_id === s.entity_id && distanceKm(x.lat, x.lon, s.lat, s.lon) < 1);
     if (m) { m.dates.push(...s.dates); stats.merged++; } else merged.push(s);
   }
+  for (const s of merged) stats.setAside += setAsideOutliers(s);
   stats.sites = merged.length;
   return { sites: merged, stats };
+}
+
+// A site's oldest or youngest date is set aside when it stands apart from all the site's other dates: at least
+// OUTLIER_GAP years from the nearest one by calibrated median, and with no overlap between their 95% ranges (so
+// imprecise Palaeolithic dates, whose ranges overlap, are kept). Only culture sites with at least OUTLIER_MIN_DATES
+// dates, at most one date at each end and at most a quarter of the site's dates (when only one of two qualifying
+// ends may go, the one further from its neighbour): at a site with few dates the odd one out may be the right one.
+const OUTLIER_GAP = 500;
+const OUTLIER_MIN_DATES = 4;
+export function setAsideOutliers(s: XronosSite): number {
+  if (s.category !== "culture" || s.dates.length < OUTLIER_MIN_DATES) return 0;
+  const sorted = [...s.dates].sort((a, b) => a.median - b.median); // youngest first (cal BP)
+  const lo = (d: XronosDate) => Math.min(d.from, d.to), hi = (d: XronosDate) => Math.max(d.from, d.to);
+  const apart = (d: XronosDate, n: XronosDate) =>
+    Math.abs(d.median - n.median) >= OUTLIER_GAP && (hi(d) < lo(n) || hi(n) < lo(d));
+  const k = sorted.length - 1;
+  let ends = [
+    { d: sorted[0], gap: sorted[1].median - sorted[0].median, ok: apart(sorted[0], sorted[1]) },
+    { d: sorted[k], gap: sorted[k].median - sorted[k - 1].median, ok: apart(sorted[k], sorted[k - 1]) },
+  ].filter((e) => e.ok).sort((a, b) => b.gap - a.gap);
+  ends = ends.slice(0, Math.floor(s.dates.length / 4));
+  if (!ends.length) return 0;
+  const out = new Set(ends.map((e) => e.d));
+  s.setAside = [...out];
+  s.dates = s.dates.filter((d) => !out.has(d));
+  return out.size;
 }
 
 const slug = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -192,7 +221,9 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
       props: {
         id, entity_id: s.entity_id, category: s.category, start_year: start, end_year: end,
         label: s.site,
-        date_text: (oldest === youngest ? `c. ${ka(oldest)} ka cal BP (1 date` : `${ka(oldest)}–${ka(youngest)} ka cal BP (${n} dates`) + (s.category === "species" ? ", human remains)" : ")"),
+        date_text: (oldest === youngest ? `c. ${ka(oldest)} ka cal BP (1 date` : `${ka(oldest)}–${ka(youngest)} ka cal BP (${n} dates`) +
+          (s.category === "species" ? ", human remains" : "") +
+          (s.setAside?.length ? `; ${s.setAside.length} set aside as outlying: ${s.setAside.map((d) => d.labnr).join(", ")}` : "") + ")",
         confidence: n >= 5 ? "high" : n >= 2 ? "medium" : "low",
         weight: Math.round((Math.log(n + 1) / Math.log(maxN + 1)) * 1000) / 1000,
         source_id: "xronos",

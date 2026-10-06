@@ -119,6 +119,9 @@ Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.
 The XRONOS team confirmed (October 2026) that using the data this way is welcome: download the export once, or at
 most about daily, and cache it. Never crawl or repeatedly request their CSV files, which is why `robots.txt` lists them. Dates are calibrated with IntCal20, kept only if they fall within the
 culture's sourced date range, and grouped into one point per site.
+At sites with four or more dates, an oldest or youngest date that stands apart from the rest (at least 500 years from
+its nearest neighbour, with no overlap between their 95% ranges) is set aside, up to a quarter of the site's dates. The
+point's date text names it, and `data/build/xronos-set-aside.csv` lists every set-aside date for review.
 Dates on human remains (species *Homo sapiens*) also become *H. sapiens* site points (before 10,000 BCE only). Each
 XRONOS point links to an XRONOS record and lists the publications and compilations behind its dates. As
 [XRONOS asks](https://xronos.ch/about/citation), cite both those original sources and XRONOS itself: Roe, J., Schmid, C.,

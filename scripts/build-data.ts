@@ -98,7 +98,15 @@ else {
     features.push(f);
   }
   const s = xr.stats;
-  console.log(`XRONOS: ${s.labelled} labelled dates (${s.conflicting} with conflicting labels, ${s.noCoords} without coordinates, ${s.uncalibrated} not calibratable, ${s.duplicates} duplicate lab numbers, ${s.outOfWindow} outside the culture's sourced range, ${s.coarse} with whole-degree coordinates; ${s.countryMismatch} sites dropped for coordinates inconsistent with their country, ${s.merged} spelling variants merged) -> ${s.sites} sites, ${near} skipped as curated duplicates`);
+  console.log(`XRONOS: ${s.labelled} labelled dates (${s.conflicting} with conflicting labels, ${s.noCoords} without coordinates, ${s.uncalibrated} not calibratable, ${s.duplicates} duplicate lab numbers, ${s.outOfWindow} outside the culture's sourced range, ${s.coarse} with whole-degree coordinates; ${s.countryMismatch} sites dropped for coordinates inconsistent with their country, ${s.merged} spelling variants merged, ${s.setAside} outlying end dates set aside) -> ${s.sites} sites, ${near} skipped as curated duplicates`);
+  // Review list of the set-aside dates, for spot checks against the XRONOS records.
+  const q = (x: string | number) => (/[",\n]/.test(String(x)) ? `"${String(x).replace(/"/g, '""')}"` : String(x));
+  const rows = xr.sites.flatMap((x) => (x.setAside ?? []).map((d) => {
+    const kept = x.dates.map((k) => k.median - 1950);
+    return [x.entity_id, x.site, x.country, d.labnr, d.bp, d.std, Math.round(d.median - 1950), Math.round(Math.max(...kept)), Math.round(Math.min(...kept)), x.dates.length, `https://xronos.ch/c14s/${d.recordId}`];
+  }));
+  mkdirSync("data/build", { recursive: true });
+  writeFileSync("data/build/xronos-set-aside.csv", ["entity_id,site,country,labnr,bp,std,median_bce,kept_oldest_bce,kept_youngest_bce,kept_dates,record", ...rows.map((r) => r.map(q).join(","))].join("\n") + "\n");
 }
 
 // Civilizations from Cliopatria.
