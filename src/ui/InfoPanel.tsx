@@ -4,6 +4,10 @@ import { CATEGORY_STYLE } from "../config";
 import { formatRange } from "../time/scale";
 import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
+import { labNumbers, refLink, type RefLink } from "./refs";
+
+const Ref = ({ r }: { r: RefLink }) =>
+  r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
 
 const Swatch = ({ color }: { color?: string }) =>
   color ? <span className="swatch" style={{ background: color, borderRadius: 2 }} /> : null;
@@ -41,6 +45,12 @@ export default function InfoPanel() {
     : [];
   const wikiUrl = feature?.wikipedia_phrase ? wikipediaUrl(feature.wikipedia_phrase) : entity.wikipedia_url;
   const sourceIds = [...new Set([...(feature ? [feature.source_id] : []), ...entity.source_ids])];
+  // Evidence for the clicked point itself (curated and bulk sites carry per-row references).
+  const coordRef = refLink(feature?.coord_source);
+  const dateRef = refLink(feature?.date_source);
+  const sameRef = coordRef && dateRef && coordRef.href === dateRef.href && coordRef.label === dateRef.label;
+  const labs = labNumbers(feature?.source_ref);
+  const featureSource = feature ? data.sourceById.get(feature.source_id) : undefined;
   const showLabel = feature?.label && feature.label !== entity.name;
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
@@ -76,6 +86,24 @@ export default function InfoPanel() {
               Confidence: <span className={`conf conf-${feature.confidence}`}>{feature.confidence}</span>
             </div>
           )}
+          {(coordRef || dateRef) && (
+            <div className="site-refs">
+              {sameRef ? (
+                <div>Location &amp; date: <Ref r={coordRef} /></div>
+              ) : (
+                <>
+                  {coordRef && <div>Location: <Ref r={coordRef} /></div>}
+                  {dateRef && <div>Date: <Ref r={dateRef} /></div>}
+                </>
+              )}
+              {labs && <div className="muted">Lab nos. {labs}</div>}
+            </div>
+          )}
+          {!coordRef && !dateRef && featureSource && featureSource.id !== "recall" && (
+            <div className="site-refs">
+              Source: <a href={featureSource.url} target="_blank" rel="noreferrer">{featureSource.name}</a>
+            </div>
+          )}
         </div>
       )}
       {kids.length > 0 && (
@@ -94,7 +122,7 @@ export default function InfoPanel() {
         </div>
       )}
       <div className="muted refs">
-        Source:{" "}
+        {feature ? `Sources for ${entity.name}: ` : "Sources: "}
         {sourceIds.map((id, i) => {
           const s = data.sourceById.get(id);
           return s ? (
