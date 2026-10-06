@@ -28,8 +28,26 @@ export interface XronosSite {
 export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; sites: number }
 
 // Distinct references as one "; "-separated string (feature properties must be flat for MapLibre).
+const YEAR_END = /\b(?:1[89]|20)\d{2}[a-z]?$/;
 const uniq = (xs: string[]): string | undefined => {
-  const out = [...new Set(xs.flatMap((x) => x.split(/;\s*/)).map((x) => x.trim()).filter(Boolean))];
+  const all = [...new Set(xs
+    .flatMap((x) => x.split(/;\s*/))
+    .map((x) => x.trim().replace(/^(.*?)\s*DB\s*\d+$/i, "$1 DB")) // "Kiel DB 3245" -> "Kiel DB"
+    // "Burleigh 1981, Weinstein 1984" lists several works: split when every part ends in a year.
+    .flatMap((x) => { const parts = x.split(/,\s*/); return parts.length > 1 && parts.every((p) => YEAR_END.test(p)) ? parts : [x]; })
+    .filter(Boolean))];
+  // One work cited at several pages ("Smith 1988, 185", "Smith 1988, 187") becomes "Smith 1988, 185, 187".
+  const pages = new Map<string, string[]>();
+  const seen = new Set<string>();
+  for (const x of all) {
+    if (seen.has(x.toLowerCase())) continue; // "brami 2011" / "Brami 2011"
+    seen.add(x.toLowerCase());
+    const m = x.match(/^(.*\b(?:1[89]|20)\d{2}[a-z]?),\s*((?:pp?\.\s*)?\d[\d\s–-]*f{0,2}\.?)$/);
+    const [work, page] = m ? [m[1], m[2]] : [x, ""];
+    const ps = pages.get(work) ?? pages.set(work, []).get(work)!;
+    if (page) ps.push(page);
+  }
+  const out = [...pages].map(([work, ps]) => (ps.length ? `${work}, ${ps.join(", ")}` : work));
   return out.length ? out.join("; ") : undefined;
 };
 const units = (s: string): string[] => {
@@ -73,7 +91,9 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   // A record's references are either publications (they contain a year as a separate word, e.g. "Smith 2004") or the
   // radiocarbon compilations XRONOS took the date from (RADON, EUROEVOL, CalPal2022, p3k14c, ...). XRONOS asks for both
   // the original sources and XRONOS itself to be cited, so all of them are kept, publications and compilations apart.
-  const isPub = (x: string) => /\b(1[89]|20)\d{2}\b/.test(x);
+  // "Kiel DB 2018" is a record number in the Kiel radiocarbon database, not a year: a compilation.
+  const isDbRecord = (x: string) => /\bDB\s*\d+$/i.test(x);
+  const isPub = (x: string) => /\b(1[89]|20)\d{2}[a-z]?\b/.test(x) && !isDbRecord(x);
   const refsOf = (r: Record<string, string>) => units(r.reference).filter(isPub);
   const viaOf = (r: Record<string, string>) => units(r.reference).filter((x) => !isPub(x));
   for (const r of rows) {
