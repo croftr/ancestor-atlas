@@ -43,3 +43,13 @@ export function refLink(ref: string | undefined): RefLink | undefined {
 /** Lab numbers from a XRONOS source_ref ("xronos:OxA-1,KN-2,…"). */
 export const labNumbers = (sourceRef: string | undefined) =>
   sourceRef?.startsWith("xronos:") ? sourceRef.slice(7).split(",").join(", ") : undefined;
+
+/** A list-valued feature property. MapLibre hands nested arrays back from rendered features as JSON strings. */
+export function asList(v: unknown): string[] {
+  if (Array.isArray(v)) return v.map(String);
+  if (typeof v !== "string" || !v) return [];
+  if (v.startsWith("[")) {
+    try { const a = JSON.parse(v); if (Array.isArray(a)) return a.map(String); } catch { /* plain string */ }
+  }
+  return v.split(/;\s*/).filter(Boolean);
+}

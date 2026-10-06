@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { labNumbers, refLink } from "./refs";
+import { asList, labNumbers, refLink } from "./refs";
 
 describe("refLink", () => {
   it("links Wikidata items", () =>
@@ -25,3 +25,10 @@ describe("refLink", () => {
 });
 
 it("lists XRONOS lab numbers", () => expect(labNumbers("xronos:OxA-1,KN-2,…")).toBe("OxA-1, KN-2, …"));
+
+it("reads list properties from arrays, JSON strings and plain strings", () => {
+  expect(asList(["A 2001", "B 2002"])).toEqual(["A 2001", "B 2002"]);
+  expect(asList('["A 2001","B 2002"]')).toEqual(["A 2001", "B 2002"]);
+  expect(asList("A 2001; B 2002")).toEqual(["A 2001", "B 2002"]);
+  expect(asList(undefined)).toEqual([]);
+});

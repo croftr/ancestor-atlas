@@ -23,10 +23,15 @@ const HUMAN_ENTITY = "homo-sapiens";
 export interface XronosSite {
   entity_id: string; category: "culture" | "species"; range: [number, number]; // culture's sourced range, years BCE (oldest, youngest), no margin
   site: string; country: string; lat: number; lon: number;
-  dates: { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[] }[];
+  dates: { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[]; via: string[] }[];
 }
 export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; sites: number }
 
+// Distinct references as one "; "-separated string (feature properties must be flat for MapLibre).
+const uniq = (xs: string[]): string | undefined => {
+  const out = [...new Set(xs.flatMap((x) => x.split(/;\s*/)).map((x) => x.trim()).filter(Boolean))];
+  return out.length ? out.join("; ") : undefined;
+};
 const units = (s: string): string[] => {
   try { return (JSON.parse(s || "[]") as Record<string, string>[]).map((d) => Object.values(d)[0]?.trim()).filter(Boolean); }
   catch { return []; }
@@ -65,9 +70,12 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   }
   const conflicted = (r: Record<string, string>) =>
     [r.labnr?.trim(), measKey(r)].some((k) => !!k && (labCultures.get(k)?.size ?? 0) > 1);
-  // Publication references for a date: keep entries that look like citations (contain a year), not the names of the
-  // aggregating databases (RADON, CalPal2022, p3k14c, ...).
-  const refsOf = (r: Record<string, string>) => units(r.reference).filter((x) => /\b(1[89]|20)\d{2}\b/.test(x));
+  // A record's references are either publications (they contain a year as a separate word, e.g. "Smith 2004") or the
+  // radiocarbon compilations XRONOS took the date from (RADON, EUROEVOL, CalPal2022, p3k14c, ...). XRONOS asks for both
+  // the original sources and XRONOS itself to be cited, so all of them are kept, publications and compilations apart.
+  const isPub = (x: string) => /\b(1[89]|20)\d{2}\b/.test(x);
+  const refsOf = (r: Record<string, string>) => units(r.reference).filter(isPub);
+  const viaOf = (r: Record<string, string>) => units(r.reference).filter((x) => !isPub(x));
   for (const r of rows) {
     stats.rows++;
     if (r.lat && r.lng && r.country) {
@@ -107,7 +115,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
         entity_id, category: entity_id === HUMAN_ENTITY ? "species" : "culture", range: ranges.get(entity_id)!,
         site: r.site.trim(), country: r.country, lat, lon, dates: [],
       }).get(id)!;
-      s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to, refs: refsOf(r) });
+      s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to, refs: refsOf(r), via: viaOf(r) });
     }
   }
   // Drop sites whose coordinates are far from where the rest of their country's XRONOS dates lie: these are
@@ -167,12 +175,8 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
         confidence: n >= 5 ? "high" : n >= 2 ? "medium" : "low",
         weight: Math.round((Math.log(n + 1) / Math.log(maxN + 1)) * 1000) / 1000,
         source_id: "xronos",
-        refs: (() => {
-          const r = [...new Set(s.dates.flatMap((d) => d.refs.flatMap((x) => x.split(/;\s*/)).map((x) => x.trim()).filter(Boolean)))];
-          let out = "";
-          for (const x of r) { const next = out ? `${out}; ${x}` : x; if (next.length > 160) { out = out ? `${out}; …` : `${x.slice(0, 157)}…`; break; } out = next; }
-          return out || undefined;
-        })(),
+        refs: uniq(s.dates.flatMap((d) => d.refs)),
+        via: uniq(s.dates.flatMap((d) => d.via)),
         source_ref: `xronos:${s.dates.slice(0, 3).map((d) => d.labnr).join(",")}${n > 3 ? ",…" : ""}`,
         coord_source: `xronos:c14/${s.dates[0].recordId}`, date_source: `xronos:IntCal20:c14/${s.dates[0].recordId}`,
       },

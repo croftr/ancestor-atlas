@@ -33,6 +33,7 @@ export interface FeatureProps {
   source_id: string;
   source_ref?: string;
   refs?: string; // publications behind the dates (bulk sources), "; "-separated
+  via?: string; // radiocarbon compilations the dates were taken from (bulk sources), "; "-separated
   color?: string; // civilizations: fill colour
   line_color?: string; // civilizations: darker outline colour
   wikipedia_phrase?: string; // per-row Wikipedia page, when it differs from the entity's

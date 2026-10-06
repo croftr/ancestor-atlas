@@ -114,12 +114,16 @@ npm test                  # Run automated test suites (Vitest)
 
 ### Bulk Culture Data (XRONOS)
 
-Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.ch) (CC BY 4.0). XRONOS asks that its
-exports are not fetched automatically, so download `https://xronos.ch/data.csv` by hand into `data/raw/xronos/data.csv`;
-`npm run data:build` only reads that local copy. Dates are calibrated with IntCal20, kept only if they fall within the
+Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.ch) (CC BY 4.0). Download
+`https://xronos.ch/data.csv` by hand into `data/raw/xronos/data.csv`; `npm run data:build` only reads that local copy.
+The XRONOS team confirmed (October 2026) that using the data this way is welcome: download the export once, or at
+most about daily, and cache it. Never crawl or repeatedly request their CSV files, which is why `robots.txt` lists them. Dates are calibrated with IntCal20, kept only if they fall within the
 culture's sourced date range, and grouped into one point per site.
 Dates on human remains (species *Homo sapiens*) also become *H. sapiens* site points (before 10,000 BCE only). Each
-XRONOS point links to an XRONOS record and lists the publications behind its dates.
+XRONOS point links to an XRONOS record and lists the publications and compilations behind its dates. As
+[XRONOS asks](https://xronos.ch/about/citation), cite both those original sources and XRONOS itself: Roe, J., Schmid, C.,
+Ebrahimiabareghi, S., Heitz, C. & Hinz, M., 2025. XRONOS: An Open Data Infrastructure for Archaeological Chronology.
+*Journal of Computer Applications in Archaeology* 8(1): 242–263. https://doi.org/10.5334/jcaa.191
 
 ### Provenance Rules
 

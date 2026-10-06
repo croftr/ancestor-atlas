@@ -4,10 +4,24 @@ import { CATEGORY_STYLE } from "../config";
 import { formatRange } from "../time/scale";
 import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
-import { labNumbers, refLink, type RefLink } from "./refs";
+import { asList, labNumbers, refLink, type RefLink } from "./refs";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
+
+/** A list of references: the first few inline, the rest behind a "more" toggle. */
+const RefList = ({ title, items }: { title: string; items: string[] }) =>
+  items.length === 0 ? null : (
+    <div className="muted">
+      {title}: {items.slice(0, 3).join("; ")}
+      {items.length > 3 && (
+        <details>
+          <summary>{items.length - 3} more</summary>
+          {items.slice(3).join("; ")}
+        </details>
+      )}
+    </div>
+  );
 
 const Swatch = ({ color }: { color?: string }) =>
   color ? <span className="swatch" style={{ background: color, borderRadius: 2 }} /> : null;
@@ -98,7 +112,8 @@ export default function InfoPanel() {
                 </>
               )}
               {labs && <div className="muted">Lab nos. {labs}</div>}
-              {feature.refs && <div className="muted">Published: {feature.refs}</div>}
+              <RefList title="Published" items={asList(feature.refs)} />
+              <RefList title="Compiled in" items={asList(feature.via)} />
             </div>
           )}
           {!coordRef && !dateRef && featureSource && featureSource.id !== "recall" && (

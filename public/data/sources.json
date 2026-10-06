@@ -39,6 +39,6 @@
   "name": "XRONOS (open chronometric data)",
   "url": "https://xronos.ch/",
   "licence": "CC BY 4.0",
-  "citation": "Radiocarbon dates from XRONOS (https://xronos.ch), CC BY 4.0; Roe, Hinz et al. 2025, doi:10.5334/jcaa.191. Dates calibrated here with IntCal20 (Reimer et al. 2020, doi:10.1017/RDC.2020.41); one point per site spanning its calibrated dates."
+  "citation": "Roe, J., Schmid, C., Ebrahimiabareghi, S., Heitz, C. & Hinz, M., 2025. XRONOS: An Open Data Infrastructure for Archaeological Chronology. Journal of Computer Applications in Archaeology 8(1): 242–263. https://doi.org/10.5334/jcaa.191. Radiocarbon dates from XRONOS (https://xronos.ch), CC BY 4.0, with the original publications and compilations listed on each site point. Dates calibrated here with IntCal20 (Reimer et al. 2020, doi:10.1017/RDC.2020.41); one point per site spanning its calibrated dates."
  }
 ]
