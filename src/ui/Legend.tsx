@@ -11,6 +11,19 @@ interface ActiveEntityItem {
   siteCount: number;
 }
 
+const COLLAPSED_KEY = "history-globe.legend-collapsed";
+
+/** Remembered per browser; small screens start collapsed so the globe gets the room. */
+function loadCollapsed(): boolean {
+  try {
+    const v = localStorage.getItem(COLLAPSED_KEY);
+    if (v !== null) return v === "1";
+  } catch {
+    /* storage unavailable */
+  }
+  return typeof window !== "undefined" && window.innerWidth < 700;
+}
+
 const swatchStyle = (c: Category, colorOverride?: string): React.CSSProperties => {
   const color = colorOverride ?? CATEGORY_STYLE[c].color;
   if (c === "species") return { background: color, borderRadius: "50%" };
@@ -32,6 +45,16 @@ export default function Legend() {
   const data = useData();
   const features = data?.features;
   const [showSources, setShowSources] = useState(false);
+  const [collapsed, setCollapsed] = useState(loadCollapsed);
+  const toggleCollapsed = () =>
+    setCollapsed((c) => {
+      try {
+        localStorage.setItem(COLLAPSED_KEY, c ? "0" : "1");
+      } catch {
+        /* storage unavailable */
+      }
+      return !c;
+    });
   const [expanded, setExpanded] = useState<Record<Category, boolean>>({
     species: false,
     culture: false,
@@ -123,87 +146,104 @@ export default function Legend() {
   };
 
   return (
-    <div className="panel legend">
-      <div className="legend-brand">
-        <img src="/logo-128.webp" alt="Ancestor Atlas Logo" className="legend-brand-logo" />
-        <h1>Ancestor Atlas</h1>
-      </div>
-      {CATEGORIES.map((c) => {
-        const items = breakdown[c];
-        const isExpanded = expanded[c];
-        return (
-          <div key={c} className="legend-category">
-            <div className="legend-row">
-              <input
-                type="checkbox"
-                className="legend-checkbox"
-                checked={enabled[c]}
-                onChange={() => toggle(c)}
-                aria-label={`Toggle visibility of ${CATEGORY_STYLE[c].label}`}
-                title={enabled[c] ? "Hide on map" : "Show on map"}
-              />
-              <button
-                type="button"
-                className={`legend-title-btn ${!enabled[c] ? "disabled" : ""}`}
-                onClick={() => toggleExpanded(c)}
-                aria-expanded={isExpanded}
-                title={`Click to ${isExpanded ? "collapse" : "expand"} ${CATEGORY_STYLE[c].label} breakdown`}
-              >
-                <span className="swatch" style={swatchStyle(c)} />
-                <span className="legend-title-text">
-                  {CATEGORY_STYLE[c].label} <span className="muted">{CATEGORY_STYLE[c].shape}</span>
-                </span>
-                <span className="count">{items.length} active</span>
-                <span className={`legend-caret ${isExpanded ? "open" : ""}`} aria-hidden="true">
-                  ▸
-                </span>
-              </button>
-            </div>
-            {isExpanded && (
-              <div className="legend-breakdown">
-                {items.length === 0 ? (
-                  <div className="legend-breakdown-empty muted">None active in this era</div>
-                ) : (
-                  <ul className="legend-breakdown-list">
-                    {items.map((item) => {
-                      const isSelected = selectedEntityId === item.id;
-                      return (
-                        <li key={item.id} className="legend-breakdown-item">
-                          <button
-                            type="button"
-                            className={`legend-item-btn ${isSelected ? "selected" : ""}`}
-                            onClick={() => handleSelectEntity(item.id, c)}
-                            title={`Select ${item.name}`}
-                          >
-                            <span className="swatch" style={swatchStyle(c, item.color)} />
-                            <span className="item-name">{item.name}</span>
-                            {item.siteCount > 1 && (
-                              <span className="item-count muted">({item.siteCount})</span>
-                            )}
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </div>
-            )}
-          </div>
-        );
-      })}
-      <button className="sources-toggle" onClick={() => setShowSources((v) => !v)} aria-expanded={showSources}>
-        ⓘ Data sources
+    <div className={`legend-dock${collapsed ? " collapsed" : ""}`}>
+      <button
+        type="button"
+        className="legend-logo-btn"
+        onClick={toggleCollapsed}
+        aria-expanded={!collapsed}
+        aria-controls="legend-panel"
+        aria-label={collapsed ? "Show legend panel" : "Hide legend panel"}
+        title={collapsed ? "Show panel" : "Hide panel"}
+      >
+        <img src="/logo-128.webp" alt="" className="legend-logo-img" draggable={false} />
+        <span className="legend-logo-chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" width="10" height="10">
+            <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
       </button>
-      {showSources && (
-        <ul className="sources-list">
-          {(data?.sources ?? []).map((s) => (
-            <li key={s.id}>
-              <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="muted">· {s.licence}</span>
-              <div className="muted">{s.citation}</div>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div id="legend-panel" className="panel legend" aria-hidden={collapsed} inert={collapsed}>
+        <div className="legend-brand">
+          <h1>Ancestor Atlas</h1>
+        </div>
+        {CATEGORIES.map((c) => {
+          const items = breakdown[c];
+          const isExpanded = expanded[c];
+          return (
+            <div key={c} className="legend-category">
+              <div className="legend-row">
+                <input
+                  type="checkbox"
+                  className="legend-checkbox"
+                  checked={enabled[c]}
+                  onChange={() => toggle(c)}
+                  aria-label={`Toggle visibility of ${CATEGORY_STYLE[c].label}`}
+                  title={enabled[c] ? "Hide on map" : "Show on map"}
+                />
+                <button
+                  type="button"
+                  className={`legend-title-btn ${!enabled[c] ? "disabled" : ""}`}
+                  onClick={() => toggleExpanded(c)}
+                  aria-expanded={isExpanded}
+                  title={`Click to ${isExpanded ? "collapse" : "expand"} ${CATEGORY_STYLE[c].label} breakdown`}
+                >
+                  <span className="swatch" style={swatchStyle(c)} />
+                  <span className="legend-title-text">
+                    {CATEGORY_STYLE[c].label} <span className="muted">{CATEGORY_STYLE[c].shape}</span>
+                  </span>
+                  <span className="count">{items.length} active</span>
+                  <span className={`legend-caret ${isExpanded ? "open" : ""}`} aria-hidden="true">
+                    ▸
+                  </span>
+                </button>
+              </div>
+              {isExpanded && (
+                <div className="legend-breakdown">
+                  {items.length === 0 ? (
+                    <div className="legend-breakdown-empty muted">None active in this era</div>
+                  ) : (
+                    <ul className="legend-breakdown-list">
+                      {items.map((item) => {
+                        const isSelected = selectedEntityId === item.id;
+                        return (
+                          <li key={item.id} className="legend-breakdown-item">
+                            <button
+                              type="button"
+                              className={`legend-item-btn ${isSelected ? "selected" : ""}`}
+                              onClick={() => handleSelectEntity(item.id, c)}
+                              title={`Select ${item.name}`}
+                            >
+                              <span className="swatch" style={swatchStyle(c, item.color)} />
+                              <span className="item-name">{item.name}</span>
+                              {item.siteCount > 1 && (
+                                <span className="item-count muted">({item.siteCount})</span>
+                              )}
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        <button className="sources-toggle" onClick={() => setShowSources((v) => !v)} aria-expanded={showSources}>
+          ⓘ Data sources
+        </button>
+        {showSources && (
+          <ul className="sources-list">
+            {(data?.sources ?? []).map((s) => (
+              <li key={s.id}>
+                <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="muted">· {s.licence}</span>
+                <div className="muted">{s.citation}</div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

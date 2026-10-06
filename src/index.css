@@ -5,36 +5,81 @@ button { font: inherit; color: inherit; cursor: pointer; }
   padding: 12px 14px; border: 1px solid rgba(255,255,255,0.08); box-sizing: border-box;
 }
 .muted { color: #8b95ab; font-size: 0.85em; }
+/* Legend dock: the logo is a medallion on the panel's corner and toggles the panel. */
+.legend-dock { position: absolute; top: 18px; left: 18px; z-index: 4; }
 .legend {
-  position: absolute;
-  top: 12px;
-  left: 12px;
+  position: relative;
   min-width: 270px;
   max-width: 320px;
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 186px);
   overflow-y: auto;
+  transform-origin: 14px 14px;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease, visibility 0s linear 0s;
+}
+.legend-dock.collapsed .legend {
+  transform: scale(0.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.18s ease 0.04s, visibility 0s linear 0.24s;
 }
 .legend-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.legend-brand-logo {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-  flex: none;
-  margin-left: -8px;
-  margin-bottom: -6px;
-  padding: 0;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+  min-height: 26px;
+  padding-left: 34px;
+  margin: -6px 0 8px;
 }
 .legend-brand h1 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   line-height: 1.2;
   margin: 0;
   white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.legend-logo-btn {
+  position: absolute;
+  top: -5px;
+  left: -10px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(214, 160, 92, 0.45);
+  background: radial-gradient(circle at 35% 30%, #1d2740, #0c1220 70%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(12, 18, 32, 0.85);
+  display: grid;
+  place-items: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.legend-logo-img { width: 38px; height: 38px; object-fit: contain; pointer-events: none; user-select: none; }
+.legend-logo-btn:hover {
+  transform: scale(1.08);
+  border-color: rgba(232, 178, 104, 0.9);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.55), 0 0 0 3px rgba(12, 18, 32, 0.85), 0 0 14px 2px rgba(232, 168, 84, 0.35);
+}
+.legend-logo-btn:active { transform: scale(0.95); transition-duration: 0.06s; }
+.legend-logo-btn:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 3px; }
+/* Small chevron badge: points left (collapse) when open, right (expand) when closed. */
+.legend-logo-chevron {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d6a05c;
+  color: #1a1206;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  transition: transform 0.28s ease, background 0.18s ease;
+}
+.legend-logo-btn:hover .legend-logo-chevron { background: #f0bd78; }
+.legend-dock.collapsed .legend-logo-chevron { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) {
+  .legend, .legend-dock.collapsed .legend, .legend-logo-btn, .legend-logo-chevron { transition: none; }
 }
 .legend-category { margin-bottom: 2px; }
 .legend-row { display: flex; align-items: center; gap: 4px; padding: 1px 0; }
