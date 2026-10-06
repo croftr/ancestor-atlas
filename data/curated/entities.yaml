@@ -58,7 +58,7 @@
   name: "Australopithecus afarensis"
   category: species
   start_year: -3798050
-  end_year: -2948050
+  end_year: -2898050
   description: "Small-brained, habitually bipedal hominin of East Africa, known from the 'Lucy' skeleton (Hadar, Ethiopia) and the Laetoli footprints (Tanzania)."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_afarensis
   source_ids: [recall]
