@@ -1,5 +1,5 @@
 entity_id,label,lat,lon,start_year,end_year,date_text,confidence,weight,source_id,source_ref,wikidata,coord_source,date_source,checked,notes
-lomekwian,Lomekwi 3,3.91083,35.8503,-3403050,-3203050,3.33–3.28 Ma (approx.),medium,,recall,recall:lomekwian:lomekwi-3,Q19833854,wikidata:Q19833854#P625,,,recalled coords were 32.2 km off
+lomekwian,Lomekwi 3,3.91083,35.8503,-3398050,-3198050,c. 3.3 Ma,medium,,wikimedia,recall:lomekwian:lomekwi-3,Q19833854,wikidata:Q19833854#P625,wikipedia:Lomekwi@1378607817,,recalled coords were 32.2 km off
 oldowan,Gona,11.1,40.53333,-2673050,-2473050,2.6–2.55 Ma (approx.),low,,recall,recall:oldowan:gona,Q12314119,wikidata:Q12314119#P625,,,recalled coords were 38.0 km off
 oldowan,Lokalalei (West Turkana),4.2,35.8,-2438050,-2238050,2.36–2.32 Ma (approx.),medium,,recall,recall:oldowan:lokalalei-west-turkana,,,,,review: no Lokalalei site item found
 oldowan,Sterkfontein (Member 5),-26.01604,27.73456,-1998050,-1698050,2–1.7 Ma (approx.),low,,recall,recall:oldowan:sterkfontein-member-5,Q1476862,wikidata:Q1476862#P625,,,recalled coords were 0.7 km off
@@ -15,7 +15,7 @@ acheulean,Attirampakkam,13.23056,79.88889,-1498050,-398050,1.5 Ma–400 ka (appr
 acheulean,Ubeidiya,32.68972,35.55639,-1398050,-1198050,1.4–1.2 Ma (approx.),medium,,recall,recall:acheulean:ubeidiya,Q2660882,wikidata:Q2660882#P625,,,recalled coords were 2.5 km off
 acheulean,Olorgesailie,-1.58,36.45,-998050,-498050,1 Ma–500 ka (approx.),medium,,recall,recall:acheulean:olorgesailie,Q3881916,wikidata:Q3881916#P625,,,recalled coords were 0.0 km off
 acheulean,Ternifine (Tighennif),35.41528,0.32139,-798050,-598050,800–600 ka (approx.),low,,recall,recall:acheulean:ternifine-tighennif,Q7801608,wikidata:Q7801608#P625,,,recalled coords were 0.9 km off
-acheulean,Gesher Benot Ya'aqov,33.00776,35.62909,-788050,-768050,790–770 ka (approx.),medium,,recall,recall:acheulean:gesher-benot-ya-aqov,Q25495706,wikidata:Q25495706#P625,,,recalled coords were 2.8 km off
+acheulean,Gesher Benot Ya'aqov,33.00776,35.62909,-793050,-773050,790–780 ka,medium,,wikimedia,recall:acheulean:gesher-benot-ya-aqov,Q25495706,wikidata:Q25495706#P625,wikipedia:Daughters_of_Jacob_Bridge@1366740216,,recalled coords were 2.8 km off
 acheulean,Boxgrove,50.8703,-0.68741,-508050,-478050,510–480 ka (approx.),medium,,recall,recall:acheulean:boxgrove,Q2600371,wikidata:Q2600371#P625,,,recalled coords were 1.2 km off
 acheulean,Swanscombe,51.45,0.3,-408050,-388050,400–400 ka (approx.),medium,,recall,recall:acheulean:swanscombe,,,,,"review: candidate ""Palaeolithic sites near Baker's Hole"" is a different site from the Barnfield Pit skull locality"
 acheulean,Torralba-Ambrona,41.16014,-2.49851,-398050,-298050,400–300 ka (approx.),low,,recall,recall:acheulean:torralba-ambrona,Q1670070,wikidata:Q1670070#P625,,,recalled coords were 4.4 km off
@@ -30,13 +30,13 @@ middle-stone-age,Border Cave,-27.02583,31.98889,-198050,-38050,200–40 ka (appr
 middle-stone-age,Pinnacle Point,-34.20786,22.08952,-162050,-88050,164–90 ka (approx.),medium,,recall,recall:middle-stone-age:pinnacle-point,Q1814354,wikidata:Q1814354#P625,,,Pinnacle Point promontory item: the caves (PP13B etc.) are on it; recalled coords were 0.2 km off
 middle-stone-age,Diepkloof,-32.38667,18.45278,-108050,-53050,110–55 ka (approx.),medium,,recall,recall:middle-stone-age:diepkloof,Q2666120,wikidata:Q2666120#P625,,,recalled coords were 14.4 km off
 middle-stone-age,Klasies River,-34.1081,24.3901,-108050,-58050,110–60 ka (approx.),medium,,recall,recall:middle-stone-age:klasies-river,Q3815801,wikidata:Q3815801#P625,,,recalled coords were 1.3 km off
-middle-stone-age,Blombos Cave,-34.41444,21.2225,-98050,-70050,100–72 ka (approx.),medium,,recall,recall:middle-stone-age:blombos-cave,Q884971,wikidata:Q884971#P625,,,recalled coords were 0.5 km off
+middle-stone-age,Blombos Cave,-34.41444,21.2225,-99050,-68050,101–70 ka (MSA sequence),medium,,wikimedia,recall:middle-stone-age:blombos-cave,Q884971,wikidata:Q884971#P625,wikipedia:Blombos_Cave@1374861035,,recalled coords were 0.5 km off
 middle-stone-age,Sibudu,-29.52263,31.08589,-75050,-36050,77–38 ka (approx.),medium,,recall,recall:middle-stone-age:sibudu,Q1322486,wikidata:Q1322486#P625,,,recalled coords were 0.6 km off
 aurignacian,Geissenkloesterle,48.39833,9.77222,-41050,-33050,43–35 ka (approx.),medium,,recall,recall:aurignacian:geissenkloesterle,Q1282892,wikidata:Q1282892#P625,,,recalled coords were 0.2 km off
-aurignacian,Hohle Fels,48.37917,9.75556,-38050,-28050,40–30 ka (approx.),medium,,recall,recall:aurignacian:hohle-fels,Q875927,wikidata:Q875927#P625,,,recalled coords were 0.4 km off
+aurignacian,Hohle Fels,48.37917,9.75556,-38050,-33050,40–35 ka (Venus of Hohle Fels),medium,,wikimedia,recall:aurignacian:hohle-fels,Q875927,wikidata:Q875927#P625,wikipedia:Hohle_Fels@1374015367,,recalled coords were 0.4 km off
 aurignacian,Vogelherd,48.5586,10.1943,-38050,-33050,40–35 ka (approx.),medium,,recall,recall:aurignacian:vogelherd,Q2529989,wikidata:Q2529989#P625,,,recalled coords were 1.4 km off
 aurignacian,El Castillo,43.2923,-3.9655,-38050,-33050,40–35 ka (approx.),medium,,recall,recall:aurignacian:el-castillo,Q770666,wikidata:Q770666#P625,,,recalled coords were 0.5 km off
-aurignacian,Chauvet Cave,44.38812,4.41614,-35050,-26050,37–28 ka (approx.),medium,,recall,recall:aurignacian:chauvet-cave,Q374096,wikidata:Q374096#P625,,,recalled coords were 0.4 km off
+aurignacian,Chauvet Cave,44.38812,4.41614,-35050,-31550,37–33.5 ka (first occupation phase),medium,,wikimedia,recall:aurignacian:chauvet-cave,Q374096,wikidata:Q374096#P625,wikipedia:Chauvet_Cave@1378813921,,recalled coords were 0.4 km off
 aurignacian,Isturitz,43.35278,-1.20611,-34050,-28050,36–30 ka (approx.),low,,recall,recall:aurignacian:isturitz,Q770589,wikidata:Q770589#P625,,,recalled coords were 1.9 km off
 gravettian,Sunghir,56.17583,40.50917,-32050,-28050,34–30 ka (approx.),low,,recall,recall:gravettian:sunghir,Q1779534,wikidata:Q1779534#P625,,,recalled coords were 2.9 km off
 gravettian,Willendorf,48.32327,15.40412,-31050,-23050,33–25 ka (approx.),medium,,recall,recall:gravettian:willendorf,Q9374772,wikidata:Q9374772#P625,,,recalled coords were 0.6 km off
@@ -48,7 +48,7 @@ gravettian,Gargas Cave,42.98,0.4,-25050,-22050,27–24 ka (approx.),low,,recall,
 solutrean,Laugerie-Haute,44.95319,1.00333,-22050,-16050,24–18 ka (approx.),low,,recall,recall:solutrean:laugerie-haute,Q555427,wikidata:Q555427#P625,,,recalled coords were 1.5 km off
 solutrean,Solutre,46.2978,4.7198,-20050,-15050,22–17 ka (approx.),medium,,recall,recall:solutrean:solutre,Q22965943,wikidata:Q22965943#P625,,,recalled coords were 0.8 km off
 solutrean,Parpallo Cave,39.00417,-0.27167,-19050,-15050,21–17 ka (approx.),medium,,recall,recall:solutrean:parpallo-cave,Q8464929,wikidata:Q8464929#P625,,,recalled coords were 8.8 km off
-magdalenian,Altamira,43.37694,-4.11975,-16050,-11050,18–13 ka (approx.),medium,,recall,recall:magdalenian:altamira,Q133575,wikidata:Q133575#P625,,,recalled coords were 0.3 km off
+magdalenian,Altamira,43.37694,-4.11975,-14640,-12050,16.59–14 ka (Lower Magdalenian),medium,,wikimedia,recall:magdalenian:altamira,Q133575,wikidata:Q133575#P625,wikipedia:Cave_of_Altamira@1376869007,,recalled coords were 0.3 km off
 magdalenian,La Madeleine,44.96694,1.03639,-15050,-10050,17–12 ka (approx.),medium,,recall,recall:magdalenian:la-madeleine,Q551959,wikidata:Q551959#P625,,,recalled coords were 2.6 km off
 magdalenian,Gonnersdorf,50.42861,7.46139,-14100,-12100,15.5–14.6 ka (approx.),medium,,recall,recall:magdalenian:gonnersdorf,Q15818787,wikidata:Q15818787#P625,,,recalled coords were 4.7 km off
 magdalenian,Les Trois-Freres,43.03216,1.2121,-13050,-11050,15–13 ka (approx.),low,,recall,recall:magdalenian:les-trois-freres,Q736006,wikidata:Q736006#P625,,,recalled coords were 3.7 km off
@@ -62,8 +62,8 @@ clovis,Dent (Colorado),40.6,-104.7,-12050,-10050,13.2–12.8 ka (approx.),low,,r
 clovis,"Blackwater Draw (Clovis, NM)",34.27778,-103.32444,-12000,-10000,13.2–12.7 ka (approx.),medium,,recall,recall:clovis:blackwater-draw-clovis-nm,Q47145451,wikidata:Q47145451#P625,,,recalled coords were 1.4 km off
 clovis,Lehner Ranch (Arizona),31.43333,-110.1,-12000,-10000,13.1–12.8 ka (approx.),low,,recall,recall:clovis:lehner-ranch-arizona,Q6518940,wikidata:Q6518940#P625,,,recalled coords were 17.6 km off
 clovis,Anzick (Montana),45.985,-110.65167,-11700,-9700,12.7–12.6 ka (approx.),medium,,recall,recall:clovis:anzick-montana,Q19864463,wikidata:Q19864463#P625,,,recalled coords were 1.9 km off
-pre-pottery-neolithic,Goebekli Tepe,37.22306,38.9225,-9650,-8050,11.6–10 ka (approx.),medium,,recall,recall:pre-pottery-neolithic:goebekli-tepe,Q214944,wikidata:Q214944#P625,,,recalled coords were 0.4 km off
-pre-pottery-neolithic,Jericho,31.87172,35.44456,-9550,-6750,11.5–8.7 ka (approx.),medium,,recall,recall:pre-pottery-neolithic:jericho,Q2402267,wikidata:Q2402267#P625,,,recalled coords were 0.5 km off
+pre-pottery-neolithic,Goebekli Tepe,37.22306,38.9225,-9499,-7999,9500–8000 BCE,medium,,wikimedia,recall:pre-pottery-neolithic:goebekli-tepe,Q214944,wikidata:Q214944#P625,wikipedia:Göbekli_Tepe@1378753246,,recalled coords were 0.4 km off
+pre-pottery-neolithic,Jericho,31.87172,35.44456,-8499,-7499,8500–7500 BCE (PPNA),medium,,wikimedia,recall:pre-pottery-neolithic:jericho,Q2402267,wikidata:Q2402267#P625,wikipedia:Tell_es-Sultan@1373710443,,recalled coords were 0.5 km off
 pre-pottery-neolithic,Cayonu,38.216,39.725,-8650,-6450,10.6–8.4 ka (approx.),low,,recall,recall:pre-pottery-neolithic:cayonu,Q272720,wikidata:Q272720#P625,,,recalled coords were 2.8 km off
 pre-pottery-neolithic,Ain Ghazal,31.988,35.976,-8250,-5050,10.2–7 ka (approx.),low,,recall,recall:pre-pottery-neolithic:ain-ghazal,Q423625,wikidata:Q423625#P625,,,recalled coords were 0.4 km off
 linear-pottery,Vaihingen an der Enz,48.93,8.96,-5500,-4950,7.45–6.9 ka (approx.),medium,,recall,recall:linear-pottery:vaihingen-an-der-enz,,,,,review: only the town found

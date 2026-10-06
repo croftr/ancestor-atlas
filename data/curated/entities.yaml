@@ -68,7 +68,7 @@
   name: "Kenyanthropus platyops"
   category: species
   start_year: -3498050
-  end_year: -3298050
+  end_year: -3198050
   description: "Hominin known from a flat-faced skull found near Lake Turkana in Kenya, about 3.5 million years old. Whether it is a distinct genus or a variant of another australopith is disputed."
   wikipedia_url: https://en.wikipedia.org/wiki/Kenyanthropus
   source_ids: [recall]
@@ -97,8 +97,8 @@
 - id: australopithecus-sediba
   name: "Australopithecus sediba"
   category: species
-  start_year: -2073050
-  end_year: -1873050
+  start_year: -2075050
+  end_year: -1875050
   description: "Hominin from Malapa cave in South Africa, close to 2 million years old, with a mix of australopith and Homo-like features. Known from well-preserved partial skeletons."
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_sediba
   source_ids: [recall]
@@ -143,8 +143,8 @@
 - id: homo-rudolfensis
   name: "Homo rudolfensis"
   category: species
-  start_year: -1963050
-  end_year: -1763050
+  start_year: -2123050
+  end_year: -1923050
   description: "Early Homo known mainly from the skull KNM-ER 1470 at Koobi Fora, Kenya. Whether it is a separate species from Homo habilis is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_rudolfensis
   source_ids: [recall]
@@ -162,8 +162,8 @@
 - id: homo-antecessor
   name: "Homo antecessor"
   category: species
-  start_year: -858050
-  end_year: -778050
+  start_year: -888050
+  end_year: -768050
   description: "Hominin known from Gran Dolina at Atapuerca, Spain, about 800,000 years old. Remains show some of the earliest evidence of humans in western Europe and its placement in the family tree is debated."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_antecessor
   source_ids: [recall]
@@ -180,7 +180,7 @@
 - id: neanderthal
   name: "Homo neanderthalensis (Neanderthal)"
   category: species
-  start_year: -448050
+  start_year: -438050
   end_year: -27050
   description: "Cold-adapted hominins of Europe and western Asia who made sophisticated stone tools and buried their dead. They interbred with modern humans and disappeared about 40,000 years ago. The oldest site here, Sima de los Huesos, is usually treated as an early member of the Neanderthal line."
   wikipedia_url: https://en.wikipedia.org/wiki/Neanderthal
@@ -207,8 +207,8 @@
 - id: homo-luzonensis
   name: "Homo luzonensis"
   category: species
-  start_year: -68050
-  end_year: -48050
+  start_year: -146050
+  end_year: -118050
   description: "Hominin known from teeth and bones from Callao Cave on Luzon, Philippines, at least 67,000 years old. Its relationships to other hominins are unclear."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_luzonensis
   source_ids: [recall]
@@ -225,7 +225,7 @@
 - id: homo-sapiens
   name: "Homo sapiens"
   category: species
-  start_year: -348050
+  start_year: -347050
   end_year: -11550
   description: "Anatomically modern humans, first appearing in Africa at least 300,000 years ago and spreading across the world. Site points shown here end around 10,000 BCE."
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_sapiens
@@ -234,8 +234,8 @@
 - id: lomekwian
   name: "Lomekwian"
   category: culture
-  start_year: -3403050
-  end_year: -3203050
+  start_year: -3398050
+  end_year: -3198050
   description: "The oldest known stone tool industry, from Lomekwi 3 in West Turkana, Kenya, about 3.3 million years ago. It predates the genus Homo, and its makers are unknown."
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwian
   source_ids: [recall]
@@ -280,7 +280,7 @@
   name: "Aurignacian"
   category: culture
   start_year: -41050
-  end_year: -26050
+  end_year: -28050
   description: "Early Upper Palaeolithic culture of Europe linked with modern humans, with blade tools, bone points, ornaments, early figurative art and musical instruments."
   wikipedia_url: https://en.wikipedia.org/wiki/Aurignacian
   source_ids: [recall]
@@ -306,7 +306,7 @@
 - id: magdalenian
   name: "Magdalenian"
   category: culture
-  start_year: -16050
+  start_year: -15050
   end_year: -10050
   description: "Late Upper Palaeolithic culture of western Europe known for cave art, such as Altamira, and for carved bone and antler tools."
   wikipedia_url: https://en.wikipedia.org/wiki/Magdalenian
@@ -333,7 +333,7 @@
 - id: pre-pottery-neolithic
   name: "Pre-Pottery Neolithic"
   category: culture
-  start_year: -9650
+  start_year: -9499
   end_year: -5050
   description: "Early farming societies of the Levant and southeast Anatolia before pottery, including the monumental site Göbekli Tepe and the walled settlement at Jericho."
   wikipedia_url: https://en.wikipedia.org/wiki/Pre-Pottery_Neolithic

@@ -1,5 +1,6 @@
 // Pure helpers for the data QA report (scripts/report-data.ts). Years are astronomical.
-import { fromKa, fromMa } from "./dates.ts";
+import { fromKa, fromMa, minWindow } from "./dates.ts";
+import { STEPS, segmentOfBce } from "../../src/time/scale.ts";
 
 /** Great-circle distance in km. */
 export function distanceKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
@@ -9,21 +10,46 @@ export function distanceKm(lat1: number, lon1: number, lat2: number, lon2: numbe
 }
 
 const UNIT: Record<string, (n: number) => number> = { Ma: fromMa, ka: fromKa };
+const NUM = String.raw`(\d[\d,]*(?:\.\d+)?)`;
+const num = (s: string) => Number(s.replace(/,/g, ""));
 
 /**
- * Parse the human-readable age range used in the curated CSVs, e.g. "7.2–6.8 Ma (approx.)" or
- * "1.5 Ma–400 ka". Returns [startYear, endYear] (older first), or undefined if the text has another shape.
+ * Parse the human-readable age used in the curated CSVs. Returns [startYear, endYear] (older first) or undefined.
+ * Accepted shapes (anything in parentheses is ignored):
+ *   "7.2–6.8 Ma", "1.5 Ma–400 ka", "117–108 ka"       range
+ *   "c. 480 ka", "480 ka"                              single age (a zero-length range)
+ *   "315 ± 34 ka"                                      age ± error
+ *   "9500–8000 BCE"                                    calendar range
  */
 export function parseAgeText(text: string): [number, number] | undefined {
-  const m = text
-    .replace(/\(.*?\)/g, "")
-    .trim()
-    .match(/^([\d.]+)\s*(Ma|ka)?\s*[–-]\s*([\d.]+)\s*(Ma|ka)$/);
-  if (!m) return undefined;
-  const [, a, ua, b, ub] = m;
-  const older = UNIT[ua ?? ub](Number(a));
-  const younger = UNIT[ub](Number(b));
-  return older <= younger ? [older, younger] : undefined;
+  const t = text.replace(/\(.*?\)/g, "").replace(/^c\.\s*/, "").trim();
+  let m = t.match(new RegExp(`^${NUM}\\s*(Ma|ka)?\\s*[–-]\\s*${NUM}\\s*(Ma|ka)$`));
+  if (m) {
+    const older = UNIT[m[2] ?? m[4]](num(m[1]));
+    const younger = UNIT[m[4]](num(m[3]));
+    return older <= younger ? [older, younger] : undefined;
+  }
+  if ((m = t.match(new RegExp(`^${NUM}\\s*±\\s*${NUM}\\s*(Ma|ka)$`)))) {
+    const [a, e] = [num(m[1]), num(m[2])];
+    return [UNIT[m[3]](a + e), UNIT[m[3]](a - e)];
+  }
+  if ((m = t.match(new RegExp(`^${NUM}\\s*(Ma|ka)$`)))) {
+    const y = UNIT[m[2]](num(m[1]));
+    return [y, y];
+  }
+  if ((m = t.match(new RegExp(`^${NUM}\\s*[–-]\\s*${NUM}\\s*BCE$`)))) {
+    const [a, b] = [1 - num(m[1]), 1 - num(m[2])];
+    return a <= b ? [a, b] : undefined;
+  }
+  return undefined;
+}
+
+/** Slider-visible window for an age text: the parsed range widened to at least 2 slider steps (see data_plan.md D5). */
+export function windowFromText(text: string): [number, number] | undefined {
+  const r = parseAgeText(text);
+  if (!r) return undefined;
+  const mid = 1 - (r[0] + r[1]) / 2; // years BCE
+  return minWindow(r[0], r[1], 2 * STEPS[segmentOfBce(mid)]);
 }
 
 /**

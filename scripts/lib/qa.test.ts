@@ -1,10 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { distanceKm, outliers, parseAgeText, siteStatus, windowMatchesText, normaliseLabel } from "./qa.ts";
+import { distanceKm, outliers, parseAgeText, siteStatus, windowFromText, windowMatchesText, normaliseLabel } from "./qa.ts";
 
 describe("parseAgeText", () => {
   it("parses a Ma range", () => expect(parseAgeText("7.2–6.8 Ma (approx.)")).toEqual([-7198050, -6798050]));
   it("parses a ka range", () => expect(parseAgeText("117–108 ka")).toEqual([-115050, -106050]));
   it("parses mixed units", () => expect(parseAgeText("1.5 Ma–400 ka (approx.)")).toEqual([-1498050, -398050]));
+  it("parses single ages, ± errors and BCE ranges", () => {
+    expect(parseAgeText("c. 480 ka (end of MIS 13)")).toEqual([-478050, -478050]);
+    expect(parseAgeText("315 ± 34 ka")).toEqual([-347050, -279050]);
+    expect(parseAgeText("9500–8000 BCE")).toEqual([-9499, -7999]);
+    expect(parseAgeText("16,590–14,000 BCE")).toEqual([-16589, -13999]);
+  });
   it("rejects other shapes", () => {
     expect(parseAgeText("c. 5000 BCE")).toBeUndefined();
     expect(parseAgeText("1–2 Ma")).toBeUndefined(); // younger first
@@ -18,6 +24,13 @@ describe("windowMatchesText", () => {
   });
   it("rejects a window that misses the stated range", () => expect(windowMatchesText(-6000000, -5000000, "7.2–6.8 Ma")).toBe(false));
   it("is undefined for unparseable text", () => expect(windowMatchesText(0, 1, "Bronze Age")).toBeUndefined());
+});
+
+describe("windowFromText", () => {
+  it("widens to two slider steps", () => {
+    expect(windowFromText("c. 480 ka")).toEqual([-488050, -468050]); // 10k steps in 1 Ma–100 ka
+    expect(windowFromText("315 ± 34 ka")).toEqual([-347050, -279050]); // already wide enough
+  });
 });
 
 describe("siteStatus", () => {
