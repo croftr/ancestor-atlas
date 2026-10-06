@@ -124,7 +124,10 @@ export default function Legend() {
 
   return (
     <div className="panel legend">
-      <h1>Ancestor Atlas</h1>
+      <div className="legend-brand">
+        <img src="/logo-128.webp" alt="Ancestor Atlas Logo" className="legend-brand-logo" />
+        <h1>Ancestor Atlas</h1>
+      </div>
       {CATEGORIES.map((c) => {
         const items = breakdown[c];
         const isExpanded = expanded[c];

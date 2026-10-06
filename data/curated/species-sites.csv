@@ -1,32 +1,82 @@
 entity_id,label,lat,lon,start_year,end_year,date_text,confidence,weight,source_id,source_ref
-sahelanthropus,,16.0,18.0,-6999999,-5999999,,,,mock,mock:illustrative
-australopithecus-afarensis,,11.1,40.5,-3899999,-2899999,,,,mock,mock:illustrative
-australopithecus-afarensis,,-3.2,35.2,-3899999,-2899999,,,,mock,mock:illustrative
-australopithecus-afarensis,,4.0,36.0,-3899999,-2899999,,,,mock,mock:illustrative
-homo-habilis,,-2.99,35.35,-2399999,-1399999,,,,mock,mock:illustrative
-homo-habilis,,3.9,36.4,-2399999,-1399999,,,,mock,mock:illustrative
-homo-habilis,,11.0,40.0,-2399999,-1399999,,,,mock,mock:illustrative
-homo-erectus,"Dmanisi",41.34,44.34,-1848050,-1768050,1.85–1.77 Ma,high,,recall,recall:dmanisi
-homo-erectus,"Koobi Fora (East Turkana)",3.95,36.19,-1898050,-1398050,1.9–1.4 Ma,medium,,recall,recall:koobi-fora-east-turkana
-homo-erectus,"West Turkana (Nariokotome)",4.25,35.79,-1598050,-1398050,1.6–1.4 Ma,medium,,recall,recall:west-turkana-nariokotome
-homo-erectus,"Olduvai Gorge",-2.98,35.35,-1498050,-1198050,1.5–1.2 Ma,medium,,recall,recall:olduvai-gorge
-homo-erectus,"Melka Kunture (Gombore)",8.7,38.61,-1698050,-798050,1.7–0.8 Ma,low,,recall,recall:melka-kunture-gombore
-homo-erectus,"Konso",5.3,37.4,-1498050,-1298050,1.5–1.3 Ma,medium,,recall,recall:konso
-homo-erectus,"Daka (Bouri, Middle Awash)",10.3,40.5,-1098050,-898050,1.1–0.9 Ma,medium,,recall,recall:daka-bouri-middle-awash
-homo-erectus,"Tighennif (Ternifine)",35.42,0.33,-798050,-598050,0.8–0.6 Ma,medium,,recall,recall:tighennif-ternifine
-homo-erectus,"Sangiran",-7.45,110.83,-1498050,-398050,1.5–0.4 Ma,low,,recall,recall:sangiran
-homo-erectus,"Trinil",-7.37,111.36,-998050,-398050,1.0–0.4 Ma,low,,recall,recall:trinil
-homo-erectus,"Ngandong",-7.38,111.55,-115050,-106050,0.117–0.108 Ma,medium,,recall,recall:ngandong
-homo-erectus,"Zhoukoudian (Locality 1)",39.69,115.92,-768050,-398050,0.77–0.4 Ma,medium,,recall,recall:zhoukoudian-locality-1
-homo-erectus,"Lantian (Gongwangling)",34.2,109.4,-1648050,-1588050,1.65–1.59 Ma,low,,recall,recall:lantian-gongwangling
-homo-erectus,"Hexian (Longtan Cave)",31.74,118.35,-428050,-148050,0.43–0.15 Ma,low,,recall,recall:hexian-longtan-cave
-neanderthal,,51.23,6.95,-399999,-39999,,,,mock,mock:illustrative
-neanderthal,,36.8,44.2,-399999,-39999,,,,mock,mock:illustrative
-neanderthal,,36.13,-5.35,-399999,-39999,,,,mock,mock:illustrative
-neanderthal,,45.0,1.72,-399999,-39999,,,,mock,mock:illustrative
-neanderthal,,51.4,84.68,-399999,-39999,,,,mock,mock:illustrative
-homo-sapiens,,31.85,-8.87,-299999,1,,,,mock,mock:illustrative
-homo-sapiens,,5.4,35.95,-299999,1,,,,mock,mock:illustrative
-homo-sapiens,,32.67,34.97,-299999,1,,,,mock,mock:illustrative
-homo-sapiens,,-33.7,143.0,-299999,1,,,,mock,mock:illustrative
-homo-sapiens,,44.94,1.0,-299999,1,,,,mock,mock:illustrative
+sahelanthropus,Toros-Menalla,16.2,17.5,-7198050,-6798050,7.2–6.8 Ma (approx.),medium,,recall,recall:sahelanthropus:toros-menalla
+orrorin-tugenensis,Tugen Hills (Lukeino Formation),0.8,35.85,-6098050,-5698050,6.1–5.7 Ma (approx.),medium,,recall,recall:orrorin-tugenensis:tugen-hills-lukeino-formation
+ardipithecus-kadabba,Middle Awash (Asa Koma area),10.45,40.6,-5798050,-5198050,5.8–5.2 Ma (approx.),medium,,recall,recall:ardipithecus-kadabba:middle-awash-asa-koma-area
+ardipithecus-ramidus,Aramis (Middle Awash),10.5,40.5,-4498050,-4298050,4.5–4.3 Ma (approx.),medium,,recall,recall:ardipithecus-ramidus:aramis-middle-awash
+australopithecus-anamensis,Kanapoi,2.4,36.0,-4248050,-4048050,4.2–4.1 Ma (approx.),medium,,recall,recall:australopithecus-anamensis:kanapoi
+australopithecus-anamensis,Allia Bay (Koobi Fora),3.6,36.2,-4098050,-3898050,4.1–3.9 Ma (approx.),low,,recall,recall:australopithecus-anamensis:allia-bay-koobi-fora
+australopithecus-afarensis,Laetoli,-3.22,35.17,-3798050,-3598050,3.8–3.6 Ma (approx.),medium,,recall,recall:australopithecus-afarensis:laetoli
+australopithecus-afarensis,Dikika,11.15,40.6,-3448050,-3248050,3.4–3.3 Ma (approx.),low,,recall,recall:australopithecus-afarensis:dikika
+australopithecus-afarensis,Hadar,11.13,40.58,-3398050,-2948050,3.4–2.95 Ma (approx.),high,,recall,recall:australopithecus-afarensis:hadar
+kenyanthropus-platyops,Lomekwi (West Turkana),4.2,35.85,-3498050,-3298050,3.5–3.3 Ma (approx.),low,,recall,recall:kenyanthropus-platyops:lomekwi-west-turkana
+australopithecus-africanus,Makapansgat,-24.13,29.19,-2998050,-2598050,3–2.6 Ma (approx.),low,,recall,recall:australopithecus-africanus:makapansgat
+australopithecus-africanus,Taung,-27.55,24.65,-2798050,-2298050,2.8–2.3 Ma (approx.),low,,recall,recall:australopithecus-africanus:taung
+australopithecus-africanus,Sterkfontein,-26.02,27.74,-2598050,-1998050,2.6–2 Ma (approx.),low,,recall,recall:australopithecus-africanus:sterkfontein
+australopithecus-garhi,Bouri (Middle Awash),10.3,40.5,-2598050,-2398050,2.6–2.4 Ma (approx.),medium,,recall,recall:australopithecus-garhi:bouri-middle-awash
+australopithecus-sediba,Malapa,-25.88,27.79,-2073050,-1873050,1.99–1.96 Ma (approx.),medium,,recall,recall:australopithecus-sediba:malapa
+paranthropus-aethiopicus,Omo (Shungura Formation),4.8,36.0,-2698050,-2298050,2.7–2.3 Ma (approx.),low,,recall,recall:paranthropus-aethiopicus:omo-shungura-formation
+paranthropus-aethiopicus,West Turkana (Nachukui),4.25,35.8,-2598050,-2298050,2.6–2.3 Ma (approx.),medium,,recall,recall:paranthropus-aethiopicus:west-turkana-nachukui
+paranthropus-boisei,Koobi Fora,3.95,36.19,-2298050,-1398050,2.3–1.4 Ma (approx.),medium,,recall,recall:paranthropus-boisei:koobi-fora
+paranthropus-boisei,Olduvai Gorge,-2.98,35.35,-1898050,-1698050,1.9–1.7 Ma (approx.),medium,,recall,recall:paranthropus-boisei:olduvai-gorge
+paranthropus-boisei,Peninj (Lake Natron),-2.4,36.0,-1548050,-1348050,1.5–1.4 Ma (approx.),low,,recall,recall:paranthropus-boisei:peninj-lake-natron
+paranthropus-boisei,Konso,5.3,37.4,-1498050,-1298050,1.45–1.35 Ma (approx.),medium,,recall,recall:paranthropus-boisei:konso
+paranthropus-robustus,Swartkrans,-26.0,27.78,-1998050,-998050,2–1 Ma (approx.),low,,recall,recall:paranthropus-robustus:swartkrans
+paranthropus-robustus,Drimolen,-25.97,27.8,-1998050,-1498050,2–1.5 Ma (approx.),low,,recall,recall:paranthropus-robustus:drimolen
+paranthropus-robustus,Kromdraai,-26.01,27.77,-1898050,-1598050,1.9–1.6 Ma (approx.),low,,recall,recall:paranthropus-robustus:kromdraai
+homo-habilis,Hadar (A.L. 666),11.13,40.58,-2413050,-2213050,2.33–2.3 Ma (approx.),low,,recall,recall:homo-habilis:hadar-a-l-666
+homo-habilis,Olduvai Gorge,-2.98,35.35,-1898050,-1698050,1.9–1.7 Ma (approx.),medium,,recall,recall:homo-habilis:olduvai-gorge
+homo-habilis,Koobi Fora,3.95,36.19,-1898050,-1648050,1.9–1.65 Ma (approx.),medium,,recall,recall:homo-habilis:koobi-fora
+homo-rudolfensis,Koobi Fora (KNM-ER 1470),3.95,36.19,-1963050,-1763050,1.95–1.78 Ma (approx.),low,,recall,recall:homo-rudolfensis:koobi-fora-knm-er-1470
+homo-erectus,Dmanisi,41.34,44.34,-1908050,-1708050,1.85–1.77 Ma (approx.),high,,recall,recall:homo-erectus:dmanisi
+homo-erectus,Koobi Fora (East Turkana),3.95,36.19,-1898050,-1398050,1.9–1.4 Ma (approx.),medium,,recall,recall:homo-erectus:koobi-fora-east-turkana
+homo-erectus,Lantian (Gongwangling),34.2,109.4,-1718050,-1518050,1.65–1.59 Ma (approx.),low,,recall,recall:homo-erectus:lantian-gongwangling
+homo-erectus,Melka Kunture (Gombore),8.7,38.61,-1698050,-798050,1.7 Ma–800 ka (approx.),low,,recall,recall:homo-erectus:melka-kunture-gombore
+homo-erectus,West Turkana (Nariokotome),4.25,35.79,-1598050,-1398050,1.6–1.4 Ma (approx.),medium,,recall,recall:homo-erectus:west-turkana-nariokotome
+homo-erectus,Olduvai Gorge,-2.98,35.35,-1498050,-1198050,1.5–1.2 Ma (approx.),medium,,recall,recall:homo-erectus:olduvai-gorge
+homo-erectus,Konso,5.3,37.4,-1498050,-1298050,1.5–1.3 Ma (approx.),medium,,recall,recall:homo-erectus:konso
+homo-erectus,Sangiran,-7.45,110.83,-1498050,-398050,1.5 Ma–400 ka (approx.),low,,recall,recall:homo-erectus:sangiran
+homo-erectus,"Daka (Bouri, Middle Awash)",10.3,40.5,-1098050,-898050,1.1 Ma–900 ka (approx.),medium,,recall,recall:homo-erectus:daka-bouri-middle-awash
+homo-erectus,Trinil,-7.37,111.36,-998050,-398050,1 Ma–400 ka (approx.),low,,recall,recall:homo-erectus:trinil
+homo-erectus,Tighennif (Ternifine),35.42,0.33,-798050,-598050,800–600 ka (approx.),medium,,recall,recall:homo-erectus:tighennif-ternifine
+homo-erectus,Zhoukoudian (Locality 1),39.69,115.92,-768050,-398050,770–400 ka (approx.),medium,,recall,recall:homo-erectus:zhoukoudian-locality-1
+homo-erectus,Hexian (Longtan Cave),31.74,118.35,-428050,-148050,430–150 ka (approx.),low,,recall,recall:homo-erectus:hexian-longtan-cave
+homo-erectus,Ngandong,-7.38,111.55,-120550,-100550,117–108 ka (approx.),medium,,recall,recall:homo-erectus:ngandong
+homo-antecessor,Gran Dolina (Atapuerca),42.35,-3.52,-858050,-778050,860–780 ka (approx.),medium,,recall,recall:homo-antecessor:gran-dolina-atapuerca
+homo-heidelbergensis,Bodo (Middle Awash),10.2,40.55,-638050,-598050,640–600 ka (approx.),low,,recall,recall:homo-heidelbergensis:bodo-middle-awash
+homo-heidelbergensis,Mauer,49.33,8.82,-618050,-548050,620–550 ka (approx.),medium,,recall,recall:homo-heidelbergensis:mauer
+homo-heidelbergensis,Boxgrove,50.86,-0.69,-508050,-478050,510–480 ka (approx.),medium,,recall,recall:homo-heidelbergensis:boxgrove
+homo-heidelbergensis,Tautavel (Arago Cave),42.83,2.75,-448050,-398050,450–400 ka (approx.),medium,,recall,recall:homo-heidelbergensis:tautavel-arago-cave
+homo-heidelbergensis,Petralona,40.37,23.16,-348050,-148050,350–150 ka (approx.),low,,recall,recall:homo-heidelbergensis:petralona
+homo-heidelbergensis,Kabwe (Broken Hill),-14.43,28.45,-323050,-273050,325–275 ka (approx.),medium,,recall,recall:homo-heidelbergensis:kabwe-broken-hill
+neanderthal,Sima de los Huesos,42.35,-3.52,-448050,-408050,450–410 ka (approx.),medium,,recall,recall:neanderthal:sima-de-los-huesos
+neanderthal,Krapina,46.16,15.88,-133050,-113050,130–120 ka (approx.),medium,,recall,recall:neanderthal:krapina
+neanderthal,Tabun,32.67,34.99,-128050,-88050,130–90 ka (approx.),low,,recall,recall:neanderthal:tabun
+neanderthal,Shanidar,36.83,44.23,-73050,-43050,75–45 ka (approx.),medium,,recall,recall:neanderthal:shanidar
+neanderthal,Kebara,32.55,34.97,-62050,-46050,64–48 ka (approx.),medium,,recall,recall:neanderthal:kebara
+neanderthal,Amud,32.87,35.52,-59050,-51050,61–53 ka (approx.),low,,recall,recall:neanderthal:amud
+neanderthal,La Chapelle-aux-Saints,45.0,1.7,-54050,-45050,56–47 ka (approx.),medium,,recall,recall:neanderthal:la-chapelle-aux-saints
+neanderthal,La Ferrassie,44.95,0.93,-52050,-38050,54–40 ka (approx.),low,,recall,recall:neanderthal:la-ferrassie
+neanderthal,El Sidron,43.4,-5.33,-48050,-46050,50–48 ka (approx.),medium,,recall,recall:neanderthal:el-sidron
+neanderthal,Vindija,46.3,16.08,-46050,-36050,48–38 ka (approx.),medium,,recall,recall:neanderthal:vindija
+neanderthal,Spy,50.48,4.67,-42050,-38050,44–40 ka (approx.),medium,,recall,recall:neanderthal:spy
+neanderthal,Neander Valley,51.23,6.95,-42050,-38050,44–40 ka (approx.),low,,recall,recall:neanderthal:neander-valley
+neanderthal,Gorham's Cave,36.12,-5.34,-39050,-27050,41–29 ka (approx.),low,,recall,recall:neanderthal:gorham-s-cave
+denisovan,Denisova Cave,51.4,84.68,-198050,-48050,200–50 ka (approx.),low,,recall,recall:denisovan:denisova-cave
+denisovan,Baishiya Karst Cave (Xiahe),35.35,102.4,-167550,-147550,164–155 ka (approx.),low,,recall,recall:denisovan:baishiya-karst-cave-xiahe
+homo-floresiensis,Liang Bua,-8.53,120.44,-98050,-58050,100–60 ka (approx.),medium,,recall,recall:homo-floresiensis:liang-bua
+homo-luzonensis,Callao Cave,17.72,121.18,-68050,-48050,70–50 ka (approx.),low,,recall,recall:homo-luzonensis:callao-cave
+homo-naledi,Rising Star Cave,-26.02,27.73,-333050,-234050,335–236 ka (approx.),medium,,recall,recall:homo-naledi:rising-star-cave
+homo-sapiens,Jebel Irhoud,31.85,-8.87,-348050,-278050,350–280 ka (approx.),medium,,recall,recall:homo-sapiens:jebel-irhoud
+homo-sapiens,Omo Kibish,5.4,35.95,-231050,-198050,233–200 ka (approx.),low,,recall,recall:homo-sapiens:omo-kibish
+homo-sapiens,Misliya Cave,32.73,35.0,-189050,-169050,185–177 ka (approx.),medium,,recall,recall:homo-sapiens:misliya-cave
+homo-sapiens,Herto (Middle Awash),10.3,40.5,-165050,-145050,160–154 ka (approx.),medium,,recall,recall:homo-sapiens:herto-middle-awash
+homo-sapiens,Skhul,32.67,34.97,-128050,-88050,130–90 ka (approx.),low,,recall,recall:homo-sapiens:skhul
+homo-sapiens,Klasies River,-34.1,24.4,-108050,-88050,110–90 ka (approx.),low,,recall,recall:homo-sapiens:klasies-river
+homo-sapiens,Qafzeh,32.69,35.3,-98050,-88050,100–90 ka (approx.),medium,,recall,recall:homo-sapiens:qafzeh
+homo-sapiens,Lake Mungo,-33.73,143.07,-40050,-38050,42–40 ka (approx.),medium,,recall,recall:homo-sapiens:lake-mungo
+homo-sapiens,Pestera cu Oase,45.03,21.85,-40050,-35050,42–37 ka (approx.),medium,,recall,recall:homo-sapiens:pestera-cu-oase
+homo-sapiens,Tianyuan Cave,39.63,115.9,-38050,-36050,40–38 ka (approx.),low,,recall,recall:homo-sapiens:tianyuan-cave
+homo-sapiens,Niah Cave,3.82,113.78,-38050,-33050,40–35 ka (approx.),low,,recall,recall:homo-sapiens:niah-cave
+homo-sapiens,Cro-Magnon (Les Eyzies),44.93,1.02,-28050,-25050,30–27 ka (approx.),low,,recall,recall:homo-sapiens:cro-magnon-les-eyzies
+homo-sapiens,White Sands footprints,32.78,-106.17,-21050,-19050,23–21 ka (approx.),low,,recall,recall:homo-sapiens:white-sands-footprints
+homo-sapiens,Monte Verde,-41.5,-73.2,-13550,-11550,14.8–14.2 ka (approx.),medium,,recall,recall:homo-sapiens:monte-verde

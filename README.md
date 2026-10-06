@@ -1,4 +1,6 @@
-# ancestor-atlas
+# Ancestor Atlas
+
+<img src="public/logo-128.webp" alt="Ancestor Atlas Logo" width="80" />
 
 ## Data pipeline
 

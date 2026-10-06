@@ -14,7 +14,24 @@ button { font: inherit; color: inherit; cursor: pointer; }
   max-height: calc(100vh - 180px);
   overflow-y: auto;
 }
-.legend h1 { font-size: 1.1rem; margin: 0 0 8px; }
+.legend-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.legend-brand-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  object-fit: cover;
+  flex: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.legend-brand h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
 .legend-category { margin-bottom: 2px; }
 .legend-row { display: flex; align-items: center; gap: 4px; padding: 1px 0; }
 .legend-checkbox {
@@ -182,3 +199,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .sources-toggle:hover { color: #fff; }
 .sources-list { list-style: none; margin: 6px 0 0; padding: 0; max-height: 40vh; overflow-y: auto; font-size: 0.85em; }
 .sources-list li { padding: 4px 0; }
+.approx-note {
+  margin: 8px 0;
+  padding: 8px 10px;
+  border-left: 3px solid #e0a030;
+  border-radius: 4px;
+  background: rgba(224, 160, 48, 0.12);
+  font-size: 0.85em;
+  line-height: 1.35;
+}
+.conf { font-weight: 600; text-transform: capitalize; }
+.conf-high { color: #5fd38d; }
+.conf-medium { color: #e0c050; }
+.conf-low { color: #ee7b6b; }

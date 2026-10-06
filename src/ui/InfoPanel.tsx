@@ -42,6 +42,8 @@ export default function InfoPanel() {
   const wikiUrl = feature?.wikipedia_phrase ? wikipediaUrl(feature.wikipedia_phrase) : entity.wikipedia_url;
   const sourceIds = [...new Set([...(feature ? [feature.source_id] : []), ...entity.source_ids])];
   const showLabel = feature?.label && feature.label !== entity.name;
+  // Recalled (not source-backed) data must never look like sourced data.
+  const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
   return (
     <div className="panel info-panel">
@@ -55,11 +57,20 @@ export default function InfoPanel() {
       <h2>{entity.name}</h2>
       <div className="muted">{formatRange(entity.start_year, entity.end_year)}</div>
       <p>{entity.description}</p>
+      {approximate && (
+        <div className="approx-note" role="note">
+          <strong>Approximate, unverified.</strong> Location and dates were compiled from general knowledge and have not been checked against a primary source.
+        </div>
+      )}
       {feature && (showLabel || feature.date_text || feature.confidence) && (
         <div className="site-block">
           {showLabel && <strong>{feature.label}</strong>}
           {feature.date_text && <div>{feature.date_text}</div>}
-          {feature.confidence && <div className="muted">Dating confidence: {feature.confidence}</div>}
+          {feature.confidence && (
+            <div className="muted">
+              Confidence: <span className={`conf conf-${feature.confidence}`}>{feature.confidence}</span>
+            </div>
+          )}
         </div>
       )}
       {kids.length > 0 && (

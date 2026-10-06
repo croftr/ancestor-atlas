@@ -19,7 +19,7 @@ Phases 0 and 1 are specified in enough detail to hand to an implementing agent. 
 | D2 | Cliopatria scope | **Import all** polities that exist at or before 1 CE | Expect a few thousand polygon rows. Simplification and per-entity colours are mandatory. |
 | D3 | *H. sapiens* in the Holocene | **Hide** *H. sapiens* site points after **10,000 BCE** | The ingest clips `end_year` to `-9_999`, and the registry span stays to 1 CE. |
 | D4 | Egypt and its dynasties | Keep **separate entities, plus parent groupings** | Add an optional `parent_id` to the registry (see "Entity hierarchy" below). |
-| D5 | Interim recalled site data (agreed 2026-10-06) | **Temporary exception** to the "no LLM coordinates or dates" rule (Phase 4): species sites may be compiled from AI recall as `source_id: recall` with a confidence tag, until sourced data (ROAD, PBDB, papers) replaces them | Every such row is tagged `recall`, shown as approximate, and listed for replacement. Does not apply to civilizations (Cliopatria) or anything else. |
+| D5 | Interim recalled site data (agreed 2026-10-06) | **Temporary exception** to the "no LLM coordinates or dates" rule (Phase 4): species and culture sites may be compiled from AI recall as `source_id: recall` with a confidence tag, until sourced data (ROAD, PBDB, papers) replaces them | Every such row is tagged `recall`, shown as approximate, and listed for replacement. Does not apply to civilizations (Cliopatria) or anything else. Every `recall` window is widened to at least 2 slider steps so it can show at all. |
 
 ## Entity hierarchy (parent/child)
 

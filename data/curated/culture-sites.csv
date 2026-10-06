@@ -1,38 +1,71 @@
 entity_id,label,lat,lon,start_year,end_year,date_text,confidence,weight,source_id,source_ref
-oldowan,,11.1,40.4,-2599999,-1699999,,,0.9,mock,mock:illustrative
-oldowan,,-2.99,35.35,-2599999,-1699999,,,0.9,mock,mock:illustrative
-oldowan,,3.9,36.4,-2599999,-1699999,,,0.9,mock,mock:illustrative
-oldowan,,36.2,5.4,-2599999,-1699999,,,0.9,mock,mock:illustrative
-oldowan,,1.2,36.6,-2599999,-1699999,,,0.9,mock,mock:illustrative
-acheulean,,4.0,35.8,-1759999,-129999,,,0.8,mock,mock:illustrative
-acheulean,,-1.6,36.4,-1759999,-129999,,,0.8,mock,mock:illustrative
-acheulean,,33.0,35.63,-1759999,-129999,,,0.8,mock,mock:illustrative
-acheulean,,50.86,-0.68,-1759999,-129999,,,0.8,mock,mock:illustrative
-acheulean,,13.2,79.9,-1759999,-129999,,,0.8,mock,mock:illustrative
-acheulean,,-28.0,25.0,-1759999,-129999,,,0.8,mock,mock:illustrative
-levallois-mousterian,,44.99,1.06,-299999,-39999,,,0.8,mock,mock:illustrative
-levallois-mousterian,,32.56,34.97,-299999,-39999,,,0.8,mock,mock:illustrative
-levallois-mousterian,,36.8,44.2,-299999,-39999,,,0.8,mock,mock:illustrative
-levallois-mousterian,,44.85,1.2,-299999,-39999,,,0.8,mock,mock:illustrative
-levallois-mousterian,,36.13,-5.35,-299999,-39999,,,0.8,mock,mock:illustrative
-levallois-mousterian,,51.23,6.95,-299999,-39999,,,0.8,mock,mock:illustrative
-aurignacian,,43.22,0.88,-42999,-25999,,,0.9,mock,mock:illustrative
-aurignacian,,48.38,9.75,-42999,-25999,,,0.9,mock,mock:illustrative
-aurignacian,,44.39,4.42,-42999,-25999,,,0.9,mock,mock:illustrative
-aurignacian,,42.95,25.43,-42999,-25999,,,0.9,mock,mock:illustrative
-aurignacian,,48.07,20.4,-42999,-25999,,,0.9,mock,mock:illustrative
-gravettian,,48.88,16.65,-32999,-20999,,,0.9,mock,mock:illustrative
-gravettian,,48.32,15.4,-32999,-20999,,,0.9,mock,mock:illustrative
-gravettian,,51.39,39.05,-32999,-20999,,,0.9,mock,mock:illustrative
-gravettian,,51.55,-4.25,-32999,-20999,,,0.9,mock,mock:illustrative
-gravettian,,44.75,0.85,-32999,-20999,,,0.9,mock,mock:illustrative
-natufian,,31.98,35.05,-14999,-11499,,,1.0,mock,mock:illustrative
-natufian,,33.08,35.58,-14999,-11499,,,1.0,mock,mock:illustrative
-natufian,,31.87,35.44,-14999,-11499,,,1.0,mock,mock:illustrative
-natufian,,32.7,35.0,-14999,-11499,,,1.0,mock,mock:illustrative
-linear-pottery,,50.1,8.7,-5499,-4499,,,0.9,mock,mock:illustrative
-linear-pottery,,50.1,14.4,-5499,-4499,,,0.9,mock,mock:illustrative
-linear-pottery,,50.0,19.9,-5499,-4499,,,0.9,mock,mock:illustrative
-linear-pottery,,48.1,17.1,-5499,-4499,,,0.9,mock,mock:illustrative
-linear-pottery,,50.8,5.7,-5499,-4499,,,0.9,mock,mock:illustrative
-linear-pottery,,51.4,11.6,-5499,-4499,,,0.9,mock,mock:illustrative
+lomekwian,Lomekwi 3,4.2,35.85,-3403050,-3203050,3.33–3.28 Ma (approx.),medium,,recall,recall:lomekwian:lomekwi-3
+oldowan,Gona,11.0,40.2,-2673050,-2473050,2.6–2.55 Ma (approx.),low,,recall,recall:oldowan:gona
+oldowan,Lokalalei (West Turkana),4.2,35.8,-2438050,-2238050,2.36–2.32 Ma (approx.),medium,,recall,recall:oldowan:lokalalei-west-turkana
+oldowan,Sterkfontein (Member 5),-26.02,27.74,-1998050,-1698050,2–1.7 Ma (approx.),low,,recall,recall:oldowan:sterkfontein-member-5
+oldowan,Koobi Fora,3.95,36.19,-1948050,-1498050,1.95–1.5 Ma (approx.),medium,,recall,recall:oldowan:koobi-fora
+oldowan,Dmanisi,41.34,44.34,-1908050,-1708050,1.85–1.77 Ma (approx.),medium,,recall,recall:oldowan:dmanisi
+oldowan,Olduvai Gorge (Bed I),-2.98,35.35,-1898050,-1698050,1.85–1.75 Ma (approx.),medium,,recall,recall:oldowan:olduvai-gorge-bed-i
+oldowan,Melka Kunture (Gombore),8.7,38.61,-1848050,-1648050,1.8–1.7 Ma (approx.),low,,recall,recall:oldowan:melka-kunture-gombore
+oldowan,Majuangou (Nihewan),40.2,114.6,-1748050,-1548050,1.7–1.6 Ma (approx.),low,,recall,recall:oldowan:majuangou-nihewan
+acheulean,Kokiselei (West Turkana),4.27,35.87,-1848050,-1648050,1.76–1.74 Ma (approx.),low,,recall,recall:acheulean:kokiselei-west-turkana
+acheulean,Konso-Gardula,5.3,37.4,-1748050,-1398050,1.75–1.4 Ma (approx.),medium,,recall,recall:acheulean:konso-gardula
+acheulean,Olduvai Gorge (Beds II-IV),-2.98,35.35,-1698050,-598050,1.7 Ma–600 ka (approx.),low,,recall,recall:acheulean:olduvai-gorge-beds-ii-iv
+acheulean,Attirampakkam,13.2,79.9,-1498050,-398050,1.5 Ma–400 ka (approx.),low,,recall,recall:acheulean:attirampakkam
+acheulean,Ubeidiya,32.7,35.58,-1398050,-1198050,1.4–1.2 Ma (approx.),medium,,recall,recall:acheulean:ubeidiya
+acheulean,Olorgesailie,-1.58,36.45,-998050,-498050,1 Ma–500 ka (approx.),medium,,recall,recall:acheulean:olorgesailie
+acheulean,Ternifine (Tighennif),35.42,0.33,-798050,-598050,800–600 ka (approx.),low,,recall,recall:acheulean:ternifine-tighennif
+acheulean,Gesher Benot Ya'aqov,33.0,35.6,-788050,-768050,790–770 ka (approx.),medium,,recall,recall:acheulean:gesher-benot-ya-aqov
+acheulean,Boxgrove,50.86,-0.69,-508050,-478050,510–480 ka (approx.),medium,,recall,recall:acheulean:boxgrove
+acheulean,Swanscombe,51.45,0.3,-408050,-388050,400–400 ka (approx.),medium,,recall,recall:acheulean:swanscombe
+acheulean,Torralba-Ambrona,41.2,-2.5,-398050,-298050,400–300 ka (approx.),low,,recall,recall:acheulean:torralba-ambrona
+levallois-mousterian,Biache-Saint-Vaast,50.34,2.97,-238050,-168050,240–170 ka (approx.),low,,recall,recall:levallois-mousterian:biache-saint-vaast
+levallois-mousterian,Tabun,32.67,34.99,-168050,-48050,170–50 ka (approx.),low,,recall,recall:levallois-mousterian:tabun
+levallois-mousterian,Shanidar,36.83,44.23,-73050,-43050,75–45 ka (approx.),low,,recall,recall:levallois-mousterian:shanidar
+levallois-mousterian,La Ferrassie,44.95,0.93,-68050,-38050,70–40 ka (approx.),low,,recall,recall:levallois-mousterian:la-ferrassie
+levallois-mousterian,Kebara,32.55,34.97,-63050,-46050,65–48 ka (approx.),medium,,recall,recall:levallois-mousterian:kebara
+levallois-mousterian,Le Moustier,44.99,1.05,-48050,-38050,50–40 ka (approx.),low,,recall,recall:levallois-mousterian:le-moustier
+middle-stone-age,Jebel Irhoud,31.85,-8.87,-315550,-295550,315–300 ka (approx.),medium,,recall,recall:middle-stone-age:jebel-irhoud
+middle-stone-age,Border Cave,-27.02,31.99,-198050,-38050,200–40 ka (approx.),low,,recall,recall:middle-stone-age:border-cave
+middle-stone-age,Pinnacle Point,-34.21,22.09,-162050,-88050,164–90 ka (approx.),medium,,recall,recall:middle-stone-age:pinnacle-point
+middle-stone-age,Diepkloof,-32.4,18.3,-108050,-53050,110–55 ka (approx.),medium,,recall,recall:middle-stone-age:diepkloof
+middle-stone-age,Klasies River,-34.1,24.4,-108050,-58050,110–60 ka (approx.),medium,,recall,recall:middle-stone-age:klasies-river
+middle-stone-age,Blombos Cave,-34.41,21.22,-98050,-70050,100–72 ka (approx.),medium,,recall,recall:middle-stone-age:blombos-cave
+middle-stone-age,Sibudu,-29.52,31.08,-75050,-36050,77–38 ka (approx.),medium,,recall,recall:middle-stone-age:sibudu
+aurignacian,Geissenkloesterle,48.4,9.77,-41050,-33050,43–35 ka (approx.),medium,,recall,recall:aurignacian:geissenkloesterle
+aurignacian,Hohle Fels,48.38,9.75,-38050,-28050,40–30 ka (approx.),medium,,recall,recall:aurignacian:hohle-fels
+aurignacian,Vogelherd,48.55,10.18,-38050,-33050,40–35 ka (approx.),medium,,recall,recall:aurignacian:vogelherd
+aurignacian,El Castillo,43.29,-3.96,-38050,-33050,40–35 ka (approx.),medium,,recall,recall:aurignacian:el-castillo
+aurignacian,Chauvet Cave,44.39,4.42,-35050,-26050,37–28 ka (approx.),medium,,recall,recall:aurignacian:chauvet-cave
+aurignacian,Isturitz,43.34,-1.19,-34050,-28050,36–30 ka (approx.),low,,recall,recall:aurignacian:isturitz
+gravettian,Sunghir,56.15,40.5,-32050,-28050,34–30 ka (approx.),low,,recall,recall:gravettian:sunghir
+gravettian,Willendorf,48.32,15.41,-31050,-23050,33–25 ka (approx.),medium,,recall,recall:gravettian:willendorf
+gravettian,Kostenki,51.38,39.05,-31050,-20050,33–22 ka (approx.),low,,recall,recall:gravettian:kostenki
+gravettian,Paviland Cave,51.56,-4.26,-31050,-27050,33–29 ka (approx.),low,,recall,recall:gravettian:paviland-cave
+gravettian,Dolni Vestonice,48.89,16.64,-29050,-23050,31–25 ka (approx.),medium,,recall,recall:gravettian:dolni-vestonice
+gravettian,Predmosti,49.49,17.43,-26050,-22050,28–24 ka (approx.),medium,,recall,recall:gravettian:predmosti
+gravettian,Gargas Cave,42.98,0.4,-25050,-22050,27–24 ka (approx.),low,,recall,recall:gravettian:gargas-cave
+solutrean,Laugerie-Haute,44.94,1.0,-22050,-16050,24–18 ka (approx.),low,,recall,recall:solutrean:laugerie-haute
+solutrean,Solutre,46.3,4.71,-20050,-15050,22–17 ka (approx.),medium,,recall,recall:solutrean:solutre
+solutrean,Parpallo Cave,38.97,-0.18,-19050,-15050,21–17 ka (approx.),medium,,recall,recall:solutrean:parpallo-cave
+magdalenian,Altamira,43.38,-4.12,-16050,-11050,18–13 ka (approx.),medium,,recall,recall:magdalenian:altamira
+magdalenian,La Madeleine,44.99,1.03,-15050,-10050,17–12 ka (approx.),medium,,recall,recall:magdalenian:la-madeleine
+magdalenian,Gonnersdorf,50.47,7.45,-14100,-12100,15.5–14.6 ka (approx.),medium,,recall,recall:magdalenian:gonnersdorf
+magdalenian,Les Trois-Freres,43.0,1.2,-13050,-11050,15–13 ka (approx.),low,,recall,recall:magdalenian:les-trois-freres
+magdalenian,Pincevent,48.4,2.97,-12050,-10050,14–12 ka (approx.),medium,,recall,recall:magdalenian:pincevent
+magdalenian,Kesslerloch,47.75,8.7,-12050,-10050,14–12 ka (approx.),low,,recall,recall:magdalenian:kesslerloch
+natufian,El-Wad (Mount Carmel),32.67,34.97,-12550,-9550,14.5–11.5 ka (approx.),medium,,recall,recall:natufian:el-wad-mount-carmel
+natufian,Hayonim Cave,33.0,35.3,-12550,-9550,14.5–11.5 ka (approx.),low,,recall,recall:natufian:hayonim-cave
+natufian,Abu Hureyra,35.87,38.4,-12150,-10150,13.4–12.8 ka (approx.),medium,,recall,recall:natufian:abu-hureyra
+natufian,Ain Mallaha (Eynan),33.08,35.6,-11300,-9300,13–11.5 ka (approx.),medium,,recall,recall:natufian:ain-mallaha-eynan
+clovis,Dent (Colorado),40.6,-104.7,-12050,-10050,13.2–12.8 ka (approx.),low,,recall,recall:clovis:dent-colorado
+clovis,"Blackwater Draw (Clovis, NM)",34.29,-103.32,-12000,-10000,13.2–12.7 ka (approx.),medium,,recall,recall:clovis:blackwater-draw-clovis-nm
+clovis,Lehner Ranch (Arizona),31.3,-110.2,-12000,-10000,13.1–12.8 ka (approx.),low,,recall,recall:clovis:lehner-ranch-arizona
+clovis,Anzick (Montana),45.97,-110.64,-11700,-9700,12.7–12.6 ka (approx.),medium,,recall,recall:clovis:anzick-montana
+pre-pottery-neolithic,Goebekli Tepe,37.22,38.92,-9650,-8050,11.6–10 ka (approx.),medium,,recall,recall:pre-pottery-neolithic:goebekli-tepe
+pre-pottery-neolithic,Jericho,31.87,35.44,-9550,-6750,11.5–8.7 ka (approx.),medium,,recall,recall:pre-pottery-neolithic:jericho
+pre-pottery-neolithic,Cayonu,38.2,39.7,-8650,-6450,10.6–8.4 ka (approx.),low,,recall,recall:pre-pottery-neolithic:cayonu
+pre-pottery-neolithic,Ain Ghazal,31.99,35.98,-8250,-5050,10.2–7 ka (approx.),low,,recall,recall:pre-pottery-neolithic:ain-ghazal
+linear-pottery,Vaihingen an der Enz,48.93,8.96,-5500,-4950,7.45–6.9 ka (approx.),medium,,recall,recall:linear-pottery:vaihingen-an-der-enz
+linear-pottery,Koeln-Lindenthal,50.93,6.9,-5450,-4950,7.4–6.9 ka (approx.),low,,recall,recall:linear-pottery:koeln-lindenthal
+linear-pottery,Elsloo,50.94,5.76,-5450,-4950,7.4–6.9 ka (approx.),low,,recall,recall:linear-pottery:elsloo
