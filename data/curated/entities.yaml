@@ -463,3 +463,23 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Bell_Beaker_culture
   wikidata: Q470867
   source_ids: []
+
+- id: badarian
+  name: "Badarian culture"
+  category: culture
+  start_year: -4399
+  end_year: -3999
+  description: "Early farming culture of Upper Egypt, named after the El-Badari region, which flourished between about 4400 and 4000 BCE and preceded the Naqada culture."
+  wikipedia_url: https://en.wikipedia.org/wiki/Badarian_culture
+  wikidata: Q798844
+  source_ids: []
+
+- id: naqada
+  name: "Naqada culture"
+  category: culture
+  start_year: -3999
+  end_year: -2999
+  description: "Chalcolithic culture of Predynastic Egypt, named after the town of Naqada, c. 4000–3000 BCE. Through its phases Naqada I–III it led into the first Egyptian dynasties."
+  wikipedia_url: https://en.wikipedia.org/wiki/Naqada_culture
+  wikidata: Q753391
+  source_ids: []
