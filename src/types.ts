@@ -17,6 +17,8 @@ export interface Entity {
   color?: string; // civilizations: build-time colour
   image_url?: string; // optional WebP image asset URL
   image_credit?: string; // required with image_url: author/licence, or that it is AI-generated
+  /** Shared stand-in picture (picture-groups.yaml), shown until the entity has its own. */
+  fallback_image?: { url: string; credit: string; label: string };
   // Events only
   year?: number; // best date (start_year..end_year is the stated range, or equal to it)
   date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"

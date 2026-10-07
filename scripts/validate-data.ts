@@ -1,5 +1,5 @@
 // Validates public/data/{entities.json, features.geojson, sources.json}.
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
 import { EVIDENCE_REF, QID } from "./lib/qa.ts";
 
@@ -33,6 +33,7 @@ for (const s of sourceList) {
 }
 
 // ---------- registry ----------
+const missingPictures = new Set<string>();
 const entities = new Map<string, any>();
 for (const e of entityList) {
   const id = e.id;
@@ -48,6 +49,11 @@ for (const e of entityList) {
   else for (const s of e.source_ids) if (!sources.has(s)) err(`entity ${id}: unknown source ${s}`);
   if (e.color !== undefined && !HEX.test(e.color)) err(`entity ${id}: bad colour ${e.color}`);
   if (e.image_url && !e.image_credit) err(`entity ${id}: image_url needs an image_credit (author/licence, or "AI-generated")`);
+  if (e.fallback_image) {
+    const f = e.fallback_image;
+    if (!f.url || !f.credit || !f.label) err(`entity ${id}: fallback_image needs url, credit and label`);
+    else if (!existsSync(`public${f.url}`)) missingPictures.add(f.url);
+  }
   if (e.category === "event") {
     if (!Number.isInteger(e.year) || e.year < e.start_year || e.year > e.end_year) err(`event ${id}: year must be an integer within start_year..end_year`);
     if (typeof e.date_text !== "string" || !e.date_text) err(`event ${id}: missing date_text`);
@@ -145,6 +151,7 @@ for (const [i, f] of (gj.features ?? []).entries()) {
 }
 for (const e of entityList) if (!e.group && !withFeatures.has(e.id)) warn(`entity ${e.id}: has no features`);
 
+for (const u of missingPictures) warn(`stand-in picture ${u} not added yet (members show no picture until it is)`);
 for (const w of warnings) console.warn(`! ${w}`);
 if (errors.length) {
   console.error(errors.slice(0, 50).map((e) => `✗ ${e}`).join("\n"));

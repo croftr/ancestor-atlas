@@ -1,0 +1,36 @@
+# Stand-in pictures shared by several entities until each has its own `image_url`.
+# A member without its own picture shows its group's, credited "Shows <label>". The files may
+# not exist yet: the card simply shows no picture until one is added (the validator warns).
+# Pictures: 1200x900 WebP (4:3), no lettering, in public/images/cultures/.
+
+- id: early-toolmakers
+  label: early stone toolmakers in general
+  image_url: /images/cultures/early-toolmakers.webp
+  image_credit: AI-generated illustration
+  members: [lomekwian, oldowan, acheulean]
+
+- id: middle-stone-age-toolmakers
+  label: Middle Stone Age and Neanderthal toolmakers in general
+  image_url: /images/cultures/middle-stone-age-toolmakers.webp
+  image_credit: AI-generated illustration
+  members: [middle-stone-age, levallois-mousterian]
+
+- id: ice-age-hunters
+  label: Ice Age hunter-gatherers in general
+  image_url: /images/cultures/ice-age-hunters.webp
+  image_credit: AI-generated illustration
+  members: [aurignacian, gravettian, solutrean, magdalenian, clovis]
+
+- id: early-farmers
+  label: early farming communities in general
+  image_url: /images/cultures/early-farmers.webp
+  image_credit: AI-generated illustration
+  members:
+    [natufian, pre-pottery-neolithic, starcevo-koros-cris, cardial, linear-pottery, vinca, lengyel, chasseen,
+     michelsberg, funnelbeaker, cucuteni-trypillia, ertebolle, badarian, naqada]
+
+- id: copper-bronze-europe
+  label: Copper and Bronze Age Europe in general
+  image_url: /images/cultures/copper-bronze-europe.webp
+  image_credit: AI-generated illustration
+  members: [baden, globular-amphora, corded-ware, bell-beaker, unetice]

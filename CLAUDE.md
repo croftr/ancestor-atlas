@@ -45,6 +45,14 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
   `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile. Videos, later, are to be
   hosted outside the repo (embed or external URL), not committed.
 
+## Pictures
+
+- Species and civilizations: 4:3 (1200x900 WebP), shown in a 4:3 frame; events: square (see above). Every picture needs
+  an `image_credit`. Civilization pictures are overlaid by id at the end of `entities.yaml`.
+- Fallbacks on the info card: a civilization without a picture shows its group's ("Shows Ancient Egypt as a whole");
+  cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
+  (`public/images/cultures/`). The validator warns while a stage picture file is missing; the card then shows none.
+
 ## XRONOS bulk import (`scripts/ingest/xronos.ts`)
 
 About 2,310 points: 25 cultures plus H. sapiens. Rules:

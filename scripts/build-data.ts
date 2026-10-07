@@ -247,6 +247,23 @@ for (const c of curated) {
   }
 }
 
+// ---------- shared stand-in pictures (data/curated/picture-groups.yaml) ----------
+interface PictureGroup { id: string; label: string; image_url: string; image_credit: string; members: string[] }
+const pictureGroups = existsSync(`${CURATED}/picture-groups.yaml`)
+  ? ((parseYaml(readFileSync(`${CURATED}/picture-groups.yaml`, "utf8")) as PictureGroup[]) ?? [])
+  : [];
+const inPictureGroup = new Map<string, string>();
+for (const g of pictureGroups) {
+  if (!g.image_url || !g.image_credit || !g.label) fail(`picture-groups.yaml: ${g.id} needs label, image_url and image_credit`);
+  for (const m of g.members ?? []) {
+    const e = entities.get(m);
+    if (!e) fail(`picture-groups.yaml: ${g.id}: unknown entity ${m}`);
+    if (inPictureGroup.has(m)) fail(`picture-groups.yaml: ${m} is in both ${inPictureGroup.get(m)} and ${g.id}`);
+    inPictureGroup.set(m, g.id);
+    e!.fallback_image = { url: g.image_url, credit: g.image_credit, label: g.label };
+  }
+}
+
 // ---------- hierarchy ----------
 const groups = curated.filter((c) => c.group && !c.exclude);
 for (const g of groups) {

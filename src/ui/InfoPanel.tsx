@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE } from "../config";
 import { formatRange } from "../time/scale";
@@ -41,6 +41,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const jumpTo = useStore((s) => s.jumpTo);
   const stepFeature = useStore((s) => s.stepFeature);
 
+  // A picture that failed to load (a stand-in not added yet) is left out.
+  const [brokenImage, setBrokenImage] = useState<string | null>(null);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") useStore.getState().select(null);
@@ -82,8 +84,17 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const isEvent = entity.category === "event";
   const noun = entity.category === "civilization" ? "Period" : isEvent ? "Place" : "Site";
   const related = (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
-  // A period without its own picture shows its group's (e.g. Ancient Egypt), labelled as such.
-  const picture = isEvent ? undefined : entity.image_url ? entity : parent?.image_url ? parent : undefined;
+  // Own picture; else the group's (e.g. Ancient Egypt); else a shared stand-in (picture-groups.yaml).
+  // The last two say what they show.
+  const picture: { url: string; name: string; credit?: string; note?: string } | undefined = isEvent
+    ? undefined
+    : entity.image_url
+      ? { url: entity.image_url, name: entity.name, credit: entity.image_credit }
+      : parent?.image_url
+        ? { url: parent.image_url, name: parent.name, credit: parent.image_credit, note: `Shows ${parent.name} as a whole` }
+        : entity.fallback_image
+          ? { url: entity.fallback_image.url, name: entity.name, credit: entity.fallback_image.credit, note: `Shows ${entity.fallback_image.label}` }
+          : undefined;
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
@@ -158,15 +169,19 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       )}
       {isEvent && <EventImage event={entity} />}
       {isEvent && entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
-      {picture && (
+      {picture && brokenImage !== picture.url && (
         <>
           <div className="info-media">
-            <img src={picture.image_url} alt={picture.name} className="info-image" loading="lazy" />
+            <img
+              src={picture.url}
+              alt={picture.name}
+              className="info-image"
+              loading="lazy"
+              onError={() => setBrokenImage(picture.url)} // a stand-in not added yet: show nothing
+            />
           </div>
           {/* Credit below the frame (inside it, the cropped picture hid it). */}
-          <div className="muted image-credit">
-            {[picture.image_credit, picture !== entity && `Shows ${picture.name} as a whole`].filter(Boolean).join(" · ")}
-          </div>
+          <div className="muted image-credit">{[picture.credit, picture.note].filter(Boolean).join(" · ")}</div>
         </>
       )}
       <p>{entity.description}</p>
