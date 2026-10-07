@@ -42,6 +42,8 @@
   description: The Oldowan tradition marked the onset of standardized, systematically produced lithic reduction. Hominins deliberately struck river cobbles with hammerstones to produce sharp-edged flakes and chopper cores, giving our ancestors the butchery tools required to cut tough hides, strip meat from scavenged carcasses, and access lipid-dense bone marrow.
   related: [oldowan, homo-habilis]
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
+  image_url: /images/events/systematic-oldowan-tools.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Oldowan@1378627077
   places:
     - { label: Gona, lat: 11.1, lon: 40.53333, wikidata: Q12314119 }
@@ -53,6 +55,8 @@
   description: The Acheulean techno-complex introduced symmetrical, bifacially flaked teardrop handaxes, picks, and cleavers, demanding significant cognitive foresight and mental template mapping compared to earlier flake tools. This versatile toolkit spread across Africa, western Europe, and southern Asia, serving as the dominant hominin tool form for well over one million years.
   related: [acheulean, homo-erectus]
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
+  image_url: /images/events/acheulean-handaxe-technology.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Acheulean@1378641547
   places:
     - { label: Kokiselei (West Turkana), lat: 3.98027, lon: 35.86629, wikidata: Q55500799, note: "place-level: the Kokiselei River item; the site has no coordinates in Wikidata" }
@@ -64,6 +68,8 @@
   description: Microscopic analysis of burned bone fragments and plant ashing deep within Wonderwerk Cave confirms that hominins were deliberately managing fire in enclosed shelters by one million years ago. Regular access to fire dramatically lowered digestion costs through cooking, expanded available dietary calories, offered nocturnal defense against apex predators, and lengthened social contact hours after dark.
   related: [homo-erectus]
   wikipedia_url: https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans
+  image_url: /images/events/control-of-fire.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Control_of_fire_by_early_humans@1374975705
   places:
     - { label: Wonderwerk Cave, lat: -27.845, lon: 23.55389, wikidata: Q2543042 }
@@ -75,6 +81,8 @@
   description: Cranial and dental remains excavated alongside Middle Stone Age tools at Jebel Irhoud pushed the physical origin of our own species back past 300,000 years. These fossils exhibit modern facial morphologies paired with more archaic, elongated braincases, suggesting that modern humans emerged across Africa as a whole rather than in a single local cradle.
   related: [homo-sapiens, middle-stone-age]
   wikipedia_url: https://en.wikipedia.org/wiki/Jebel_Irhoud
+  image_url: /images/events/emergence-modern-humans.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Jebel_Irhoud@1376091257
   places:
     - { label: Jebel Irhoud, lat: 31.85498, lon: -8.87251, wikidata: Q846913 }
@@ -86,6 +94,8 @@
   description: Excavations at Blombos Cave recovered smoothed red ochre plaques engraved with cross-hatched geometric patterns, deliberate shell beads pierced for suspension, and dedicated pigment-processing abalone kits. These artifacts constitute some of the earliest conclusive archaeological evidence of modern human symbolic thought, non-verbal communication, and distinct personal ornamentation.
   related: [homo-sapiens, middle-stone-age]
   wikipedia_url: https://en.wikipedia.org/wiki/Blombos_Cave
+  image_url: /images/events/symbolic-culture.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Blombos_Cave@1374861035
   places:
     - { label: Blombos Cave, lat: -34.41444, lon: 21.2225, wikidata: Q884971 }
@@ -99,6 +109,8 @@
   description: Modern human populations crossed Wallacea by watercraft to reach the Pleistocene continent of Sahul, joined Australia and New Guinea, with early cultural deposits at the Madjedbebe rockshelter. Because Sahul stayed separated from Asia by deep ocean channels throughout the Pleistocene, reaching it required intentional, multi-stage open-water voyaging and planned maritime exploration.
   related: [homo-sapiens]
   wikipedia_url: https://en.wikipedia.org/wiki/Prehistory_of_Australia
+  image_url: /images/events/seafaring-to-sahul.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Prehistory_of_Australia@1376093040
   places:
     - { label: Madjedbebe, lat: -12.5, lon: 132.88333, wikidata: Q8563176 }
@@ -110,6 +122,8 @@
   description: Uranium-series dating of calcite crusts overlaying cave wall paintings at Leang Karampuang identified representational art showing human-like figures interacting with a wild pig. This find predates the famous cave art sites of western Europe, showing that narrative painting and visual storytelling were established long before the Last Glacial Maximum.
   related: [homo-sapiens]
   wikipedia_url: https://en.wikipedia.org/wiki/Karampuang_cave
+  image_url: /images/events/figurative-cave-art.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Karampuang_cave@1341794223
   places:
     - { label: Leang Karampuang (Maros), lat: -5.01649, lon: 119.57447, wikidata: Q14611, note: "place-level: Maros Regency; the cave item (Q127256239) has no coordinates in Wikidata" }
@@ -123,6 +137,8 @@
   description: Radiocarbon dates from Xianrendong Cave confirmed that hunter-gatherer bands manufactured fire-hardened ceramic vessels thousands of years before the advent of agriculture. These early pots enabled mobile foragers to boil tough wild seeds, extract bone greases, process freshwater mollusks, and cook stews in durable, flame-tolerant containers.
   related: [homo-sapiens]
   wikipedia_url: https://en.wikipedia.org/wiki/Xianren_Cave
+  image_url: /images/events/invention-of-pottery.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Xianren_Cave@1365044572
   places:
     - { label: Xianrendong Cave, lat: 28.73608, lon: 117.17322, wikidata: Q2812194 }
@@ -134,6 +150,8 @@
   description: Genetic and skeletal evidence shows that Eurasian gray wolf populations integrated into human hunter-gatherer camps toward the end of the Pleistocene, becoming our first animal domesticates. Joint burials, such as the Bonn–Oberkassel grave holding two humans and a cared-for puppy, highlight their integration into human foraging, sentry duty, and social structures.
   related: [homo-sapiens, magdalenian]
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_dog
+  image_url: /images/events/domestication-of-the-dog.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Domestication_of_the_dog@1376904672
   places:
     - { label: Bonn-Oberkassel, lat: 50.71389, lon: 7.16667, wikidata: Q178317, note: "place-level: the Oberkassel district of Bonn" }
@@ -145,6 +163,8 @@
   description: Göbekli Tepe features concentric circles of massive T-shaped limestone megaliths decorated with high-relief carvings of predators, snakes, and wild boars. Built before the invention of pottery, metal, or settled farming, the site shows that cooperative ritual and monumental construction helped catalyze sedentary communal lifestyles.
   related: [pre-pottery-neolithic]
   wikipedia_url: https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe
+  image_url: /images/events/gobekli-tepe.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Göbekli_Tepe@1378753246
   places:
     - { label: Göbekli Tepe, lat: 37.22306, lon: 38.9225, wikidata: Q214944 }
@@ -171,6 +191,8 @@
   description: Early European and Near Eastern societies moved from hammering native copper to reducing copper ores in high-temperature kilns. Extracting molten copper from mineral ores laid the foundation for kiln engineering and for the later alloying with tin and arsenic that launched the Bronze Age.
   related: [vinca]
   wikipedia_url: https://en.wikipedia.org/wiki/Chalcolithic
+  image_url: /images/events/copper-smelting.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Chalcolithic@1373076884
   places:
     - { label: Pločnik, lat: 43.21056, lon: 21.36472, wikidata: Q12757361 }

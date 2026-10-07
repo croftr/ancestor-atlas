@@ -50,4 +50,4 @@ export const BASEMAP_THEMES: Record<string, BasemapTheme> = {
   night: { label: "Night", bg: "#0a1424", fill: "#2a3652", line: "#5b6f96" },
 };
 
-export const DEFAULT_BASEMAP = "slate";
+export const DEFAULT_BASEMAP = "dusk";
