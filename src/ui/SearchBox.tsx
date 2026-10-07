@@ -34,7 +34,8 @@ function Highlight({ text, query }: { text: string; query: string }) {
   );
 }
 
-export default function SearchBox() {
+/** `onChoose` replaces the default (show the entity on the globe), e.g. on the timeline page. */
+export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void } = {}) {
   const data = useData();
   const focusEntity = useStore((s) => s.focusEntity);
   const [query, setQuery] = useState("");
@@ -63,7 +64,8 @@ export default function SearchBox() {
   }, []);
 
   const choose = (e: Entity) => {
-    focusEntity(e.id);
+    if (onChoose) onChoose(e);
+    else focusEntity(e.id);
     setQuery("");
     setOpen(false);
     inputRef.current?.blur();

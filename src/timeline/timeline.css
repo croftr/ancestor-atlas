@@ -1,0 +1,253 @@
+/* Timeline page (#/timeline). Sits over the globe, which stays mounted underneath. */
+.timeline-page {
+  --label-w: 250px;
+  --row-h: 24px;
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  background: #0b1020;
+  color: #e8ecf4;
+}
+.tl-loading { margin: auto; }
+
+.tl-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px 6px;
+}
+.tl-title { display: flex; align-items: center; gap: 10px; flex: none; }
+.tl-title h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.01em; }
+.tl-title img { width: 30px; height: 30px; object-fit: contain; }
+.tl-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+}
+.tl-btn:hover { background: rgba(122, 167, 255, 0.22); border-color: rgba(142, 197, 255, 0.5); }
+.tl-btn.square { width: 34px; height: 34px; padding: 0; font-size: 1.2rem; line-height: 1; }
+.tl-zoom { display: flex; gap: 6px; margin-left: auto; flex: none; }
+
+/* The shared search box, placed in the header instead of floating over the globe. */
+.timeline-page .search { position: relative; top: auto; left: auto; transform: none; width: min(380px, 40vw); }
+.timeline-page .search-results { position: absolute; left: 0; right: 0; z-index: 30; }
+
+.tl-presets { display: flex; align-items: center; gap: 6px; padding: 2px 16px 8px; flex-wrap: wrap; }
+.tl-hint { margin-left: auto; font-size: 0.78rem; }
+
+/* Overview strip, aligned with the chart track. */
+.tl-overview { position: relative; margin: 0 16px 6px calc(16px + var(--label-w)); padding-bottom: 14px; }
+.tl-overview-label { position: absolute; right: calc(100% + 12px); top: 8px; font-size: 0.75rem; white-space: nowrap; }
+.tl-overview-track {
+  position: relative;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+.tl-overview-track svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tl-ov-line { stroke-width: 3; stroke-opacity: 0.55; vector-effect: non-scaling-stroke; }
+.tl-ov-break { stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tl-ov-window {
+  position: absolute; top: -3px; bottom: -3px;
+  border: 2px solid #8ec5ff; border-radius: 4px;
+  background: rgba(142, 197, 255, 0.12);
+  pointer-events: none;
+}
+.tl-ov-brush { position: absolute; top: 0; bottom: 0; background: rgba(255, 255, 255, 0.18); pointer-events: none; }
+.tl-overview-ticks { position: relative; height: 12px; }
+.tl-overview-ticks span { position: absolute; top: 2px; transform: translateX(-50%); font-size: 0.68rem; color: #8b95ab; white-space: nowrap; }
+.tl-overview-ticks span:first-child { transform: none; }
+.tl-overview-ticks span:last-child { transform: translateX(-100%); }
+
+/* Chart */
+.tl-main {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(12, 18, 32, 0.85);
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.tl-axis {
+  display: flex;
+  flex: none;
+  height: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+.tl-axis-label {
+  width: var(--label-w);
+  flex: none;
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tl-axis-label strong { color: #fff; margin-right: 4px; }
+.tl-axis-track { position: relative; flex: 1; overflow: hidden; }
+.tl-tick {
+  position: absolute; top: 8px; transform: translateX(-50%);
+  font-size: 0.72rem; color: #a7b1c6; white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+
+.tl-body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; }
+.tl-rows { position: relative; min-height: 100%; }
+.tl-gridlines { position: absolute; top: 0; bottom: 0; right: 0; pointer-events: none; }
+.tl-gridlines span { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255, 255, 255, 0.05); }
+.tl-guide {
+  position: absolute; top: 0; bottom: 0; width: 1px;
+  background: rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.tl-row { position: relative; display: flex; height: var(--row-h); }
+.tl-row.odd { background: rgba(255, 255, 255, 0.018); }
+.tl-row.selected { background: rgba(142, 197, 255, 0.1); }
+.tl-label {
+  position: relative;
+  z-index: 2;
+  width: var(--label-w);
+  flex: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 8px 0 10px;
+  background: #0f1628;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 0;
+}
+.tl-row.selected .tl-label { background: #17223a; }
+.tl-caret-btn { flex: none; width: 18px; height: 18px; padding: 0; border: none; background: none; display: grid; place-items: center; border-radius: 4px; }
+.tl-caret-btn:hover { background: rgba(255, 255, 255, 0.1); }
+.tl-caret-spacer { flex: none; width: 18px; }
+.tl-caret { font-size: 0.6rem; color: #8b95ab; transition: transform 0.15s ease; display: inline-block; }
+.tl-caret.open { transform: rotate(90deg); }
+.tl-name {
+  display: flex; align-items: center; gap: 7px;
+  flex: 1; min-width: 0; height: 20px;
+  background: none; border: 1px solid transparent; border-radius: 4px;
+  padding: 0 4px; text-align: left; font-size: 0.82rem; color: #cbd3e6;
+}
+.tl-name:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
+.tl-name:focus-visible, .tl-bar:focus-visible, .tl-caret-btn:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
+.tl-row.selected .tl-name { color: #fff; font-weight: 600; }
+.tl-swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.tl-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-count { margin-left: auto; font-size: 0.72rem; flex: none; }
+
+.tl-track { position: relative; flex: 1; overflow: hidden; }
+
+.tl-bar {
+  --c: #888;
+  position: absolute;
+  top: 4px;
+  height: calc(var(--row-h) - 8px);
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.12s ease;
+}
+.tl-bar:hover { filter: brightness(1.15); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.tl-bar.selected { box-shadow: 0 0 0 2px #fff, 0 0 10px rgba(255, 255, 255, 0.35); z-index: 1; }
+/* Umbrella groups: striped, lighter. */
+.tl-bar.group {
+  background: repeating-linear-gradient(135deg, var(--c) 0 6px, color-mix(in srgb, var(--c) 55%, #0b1020) 6px 12px);
+}
+/* Runs off the edge of the view (or past the data's range): square, faded end. */
+.tl-bar.cut-start { border-top-left-radius: 0; border-bottom-left-radius: 0; mask-image: linear-gradient(90deg, transparent, #000 14px); }
+.tl-bar.cut-end { border-top-right-radius: 0; border-bottom-right-radius: 0; mask-image: linear-gradient(270deg, transparent, #000 14px); }
+.tl-bar.cut-start.cut-end { mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); }
+.tl-bar.dim, .tl-dur.dim { opacity: 0.28; }
+
+.tl-dur {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(10, 14, 24, 0.85);
+  white-space: nowrap;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+.tl-dur.outside { position: absolute; top: 5px; color: #a7b1c6; font-weight: 500; }
+.tl-cont { position: absolute; top: 3px; font-size: 0.8rem; color: #a7b1c6; pointer-events: none; }
+
+/* Lane header rows */
+.tl-lane { height: 30px; background: rgba(255, 255, 255, 0.045); border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.tl-lane:first-child { border-top: none; }
+.tl-lane .tl-label { background: #141d33; gap: 6px; }
+.tl-lane-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.tl-lane-name { font-weight: 600; font-size: 0.9rem; }
+.tl-lane-status { font-size: 0.72rem; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-extent { position: absolute; top: 13px; height: 4px; border-radius: 2px; opacity: 0.35; }
+.tl-fit {
+  position: absolute; top: 4px; left: 10px;
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(142, 197, 255, 0.45);
+  background: rgba(20, 30, 52, 0.95);
+  color: #cfe3ff;
+}
+.tl-fit:hover { background: rgba(122, 167, 255, 0.3); }
+
+.tl-tooltip {
+  position: fixed;
+  z-index: 40;
+  max-width: 300px;
+  pointer-events: none;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  padding: 8px 12px;
+}
+.tl-tip-name { font-weight: 700; margin-bottom: 2px; }
+
+/* Info card on this page: beside the chart, which narrows to make room for it. */
+.timeline-page { --card-w: 0px; }
+.timeline-page.has-card { --card-w: 356px; }
+.tl-main, .tl-overview { margin-right: calc(16px + var(--card-w)); }
+.timeline-page .info-panel { top: 92px; right: 16px; width: 340px; max-height: calc(100vh - 104px); z-index: 25; }
+@media (max-width: 900px) {
+  /* Too narrow to share: the card floats over the chart instead. */
+  .timeline-page.has-card { --card-w: 0px; }
+}
+
+@media (max-width: 760px) {
+  .timeline-page { --label-w: 150px; }
+  .tl-header { flex-wrap: wrap; }
+  .timeline-page .search { width: 100%; order: 3; }
+  .tl-hint { display: none; }
+  .tl-overview-label { display: none; }
+  .tl-overview-ticks span:not(:first-child):not(:last-child) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tl-bar, .tl-caret { transition: none; }
+}
+
+/* "Timeline" button on the globe */
+.view-switch { position: absolute; top: 12px; right: 12px; z-index: 6; width: 40px; height: 40px; padding: 0; display: grid; place-items: center; font-size: 1.1rem; }
+.view-switch:hover { border-color: rgba(142, 197, 255, 0.55); }
+.view-link { margin-top: 6px; font-size: 0.85em; }

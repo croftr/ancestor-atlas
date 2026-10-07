@@ -1,0 +1,223 @@
+import { CATEGORIES, type Category, type Entity } from "../types";
+
+/**
+ * Pure helpers for the timeline page: the zoomable linear time window, axis ticks, duration text
+ * and the row list (lanes, umbrella groups, children). Years are astronomical (1 CE = 1).
+ */
+
+/** Visible time window, in astronomical years, start < end. */
+export interface Window {
+  start: number;
+  end: number;
+}
+
+/** The axis stops at 1 CE, like the data. */
+export const AXIS_END = 1;
+/** Narrowest window (years); below this there is nothing in the data to see. */
+export const MIN_SPAN = 40;
+
+/** Furthest-back start the window may reach: the oldest entity plus a small margin. */
+export function axisStart(entities: Entity[]): number {
+  const oldest = Math.min(...entities.map((e) => e.start_year));
+  return Math.floor(oldest - (AXIS_END - oldest) * 0.02);
+}
+
+/** Keep the window inside [min, AXIS_END] and at least MIN_SPAN wide, preserving its span where possible. */
+export function clampWindow(w: Window, min: number): Window {
+  const full = AXIS_END - min;
+  const span = Math.min(full, Math.max(MIN_SPAN, w.end - w.start));
+  let start = w.start;
+  if (w.end - w.start < MIN_SPAN) start = (w.start + w.end) / 2 - span / 2;
+  start = Math.max(min, Math.min(AXIS_END - span, start));
+  return { start, end: start + span };
+}
+
+/** Zoom by `factor` (< 1 zooms in) keeping the year at fraction `at` (0–1 across the track) fixed. */
+export function zoomWindow(w: Window, factor: number, at: number, min: number): Window {
+  const span = w.end - w.start;
+  const pivot = w.start + span * at;
+  const next = span * factor;
+  return clampWindow({ start: pivot - next * at, end: pivot - next * at + next }, min);
+}
+
+/** Shift the window by `years` (positive moves later in time). */
+export const panWindow = (w: Window, years: number, min: number): Window =>
+  clampWindow({ start: w.start + years, end: w.end + years }, min);
+
+/** Window that shows [start, end] with a margin on each side. */
+export function fitWindow(start: number, end: number, min: number, margin = 0.06): Window {
+  const span = Math.max(end - start, MIN_SPAN * 0.5);
+  return clampWindow({ start: start - span * margin, end: end + span * margin }, min);
+}
+
+export const overlaps = (e: { start_year: number; end_year: number }, w: Window) =>
+  e.start_year <= w.end && e.end_year >= w.start;
+
+// ---- Axis ticks ---------------------------------------------------------------------------------
+
+/** Round tick step (1, 2 or 5 × 10^n years) giving about `count` ticks over `span`. */
+export function tickStep(span: number, count: number): number {
+  const raw = span / Math.max(1, count);
+  const pow = 10 ** Math.floor(Math.log10(raw));
+  const m = raw / pow;
+  return (m > 5 ? 10 : m > 2 ? 5 : m > 1 ? 2 : 1) * pow;
+}
+
+/**
+ * Tick years inside the window, placed at round numbers of years *before* 1 CE (so labels read
+ * "3,000 BCE", not "2,999 BCE").
+ */
+export function ticks(w: Window, count: number): number[] {
+  const step = tickStep(w.end - w.start, count);
+  // In "years before 1 CE" (b = 1 - year) the window runs from bHigh down to bLow.
+  const bHigh = 1 - w.start;
+  const bLow = 1 - w.end;
+  const out: number[] = [];
+  for (let b = Math.floor(bHigh / step) * step; b >= bLow - 1e-9; b -= step) {
+    if (b <= bHigh + 1e-9) out.push(1 - b);
+  }
+  return out;
+}
+
+const trim = (x: number) => +x.toFixed(2);
+
+/** Short axis label, matching the time slider's "Ma" / "ka" / BCE style. */
+export function tickLabel(year: number, step: number): string {
+  const b = 1 - year;
+  if (b <= 0) return `${year} CE`;
+  if (b >= 1_000_000 && step >= 10_000) return `${trim(b / 1e6)} Ma`;
+  if (b >= 100_000 && step >= 1_000) return `${trim(b / 1e3)} ka`;
+  return `${Math.round(b).toLocaleString("en-US")} BCE`;
+}
+
+/**
+ * Duration rounded to what the dates can support: whole years under a century, then tens of
+ * years, then thousands from 10,000 years. Drawn bars and the tooltip use the same rounding.
+ */
+export function roundDuration(years: number): number {
+  const y = Math.max(0, Math.round(years));
+  if (y >= 1_000_000) return Math.round(y / 10_000) * 10_000;
+  if (y >= 10_000) return Math.round(y / 1_000) * 1_000;
+  if (y >= 100) return Math.round(y / 10) * 10;
+  return y;
+}
+
+/** How long something lasted, in plain words: "1.91 million years", "430,000 years", "165 years". */
+export function formatDuration(years: number): string {
+  const y = roundDuration(years);
+  if (y >= 1_000_000) return `${trim(y / 1e6)} million years`;
+  if (y === 0) return "under a year";
+  return `${y.toLocaleString("en-US")} year${y === 1 ? "" : "s"}`;
+}
+
+/** Compact duration for drawing on a bar: "1.91 Myr", "430 kyr", "1,150 yr". */
+export function shortDuration(years: number): string {
+  const y = roundDuration(years);
+  if (y >= 1_000_000) return `${trim(y / 1e6)} Myr`;
+  if (y >= 10_000) return `${Math.round(y / 1000)} kyr`;
+  return `${y.toLocaleString("en-US")} yr`;
+}
+
+// ---- Rows ---------------------------------------------------------------------------------------
+
+export type Row =
+  | {
+      kind: "lane";
+      category: Category;
+      /** Entities in the lane (groups count once, children not separately). */
+      total: number;
+      inView: number;
+      start: number;
+      end: number;
+      collapsed: boolean;
+      /** Too narrow to read at this zoom: its rows are left out and the lane offers to zoom in. */
+      squashed: boolean;
+    }
+  | {
+      kind: "entity";
+      entity: Entity;
+      /** 1 for a child shown under its expanded group. */
+      depth: 0 | 1;
+      /** Group rows: number of children and whether they are shown. */
+      children?: number;
+      expanded?: boolean;
+    };
+
+export interface RowOptions {
+  window: Window;
+  collapsedLanes: ReadonlySet<Category>;
+  /** Lanes whose whole extent is too narrow to read at this zoom. */
+  squashedLanes?: ReadonlySet<Category>;
+  expandedGroups: ReadonlySet<string>;
+}
+
+const byStart = (a: Entity, b: Entity) => a.start_year - b.start_year || a.end_year - b.end_year;
+
+/**
+ * Lanes in category order; inside each, top-level entities (umbrella groups and entities without
+ * a parent) sorted by start. Only entities overlapping the window are listed: the view is meant
+ * for one stretch of time at once. An expanded group lists its children (also only those in view).
+ */
+export function buildRows(entities: Entity[], opts: RowOptions): Row[] {
+  const children = new Map<string, Entity[]>();
+  for (const e of entities) {
+    if (e.parent_id) (children.get(e.parent_id) ?? children.set(e.parent_id, []).get(e.parent_id)!).push(e);
+  }
+  const ids = new Set(entities.map((e) => e.id));
+  const rows: Row[] = [];
+  for (const category of CATEGORIES) {
+    // A child whose parent is missing from the registry is shown at the top level.
+    const top = entities
+      .filter((e) => e.category === category && !(e.parent_id && ids.has(e.parent_id)))
+      .sort(byStart);
+    if (top.length === 0) continue;
+    const visible = top.filter((e) => overlaps(e, opts.window));
+    const collapsed = opts.collapsedLanes.has(category);
+    const squashed = !collapsed && visible.length > 0 && !!opts.squashedLanes?.has(category);
+    rows.push({
+      kind: "lane",
+      category,
+      total: top.length,
+      inView: visible.length,
+      start: Math.min(...top.map((e) => e.start_year)),
+      end: Math.max(...top.map((e) => e.end_year)),
+      collapsed,
+      squashed,
+    });
+    if (collapsed || squashed) continue;
+    for (const e of visible) {
+      const kids = (children.get(e.id) ?? []).sort(byStart);
+      const expanded = kids.length > 0 && opts.expandedGroups.has(e.id);
+      rows.push({ kind: "entity", entity: e, depth: 0, ...(kids.length > 0 && { children: kids.length, expanded }) });
+      if (expanded) {
+        for (const k of kids) if (overlaps(k, opts.window)) rows.push({ kind: "entity", entity: k, depth: 1 });
+      }
+    }
+  }
+  return rows;
+}
+
+/** Overall [start, end] of each lane's top-level entities. */
+export function laneExtents(entities: Entity[]): Map<Category, [number, number]> {
+  const m = new Map<Category, [number, number]>();
+  for (const e of entities) {
+    const x = m.get(e.category);
+    m.set(e.category, x ? [Math.min(x[0], e.start_year), Math.max(x[1], e.end_year)] : [e.start_year, e.end_year]);
+  }
+  return m;
+}
+
+/**
+ * Entities shown as still going on past the data's range: H. sapiens (species are only tracked
+ * to 10,000 BCE) and anything that runs to the axis end at 1 CE.
+ */
+const STILL_LIVING = new Set(["homo-sapiens"]);
+export function continuation(e: Entity): string | null {
+  if (STILL_LIVING.has(e.id)) return "Still living; the atlas follows species only to 10,000 BCE";
+  if (e.end_year >= AXIS_END) return "Continues past 1 CE, where the atlas ends";
+  return null;
+}
+
+/** Entities whose span contains `year` (for the hover read-out); groups are not counted. */
+export const aliveAt = (entities: Entity[], year: number) =>
+  entities.filter((e) => !e.group && e.start_year <= year && year <= e.end_year);
