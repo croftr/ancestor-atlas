@@ -50,6 +50,37 @@ export function fitWindow(start: number, end: number, min: number, margin = 0.06
   return clampWindow({ start: start - span * margin, end: end + span * margin }, min);
 }
 
+// ---- Fixed chunks ------------------------------------------------------------------------------
+
+/** Width of the step-through chunks: chunk 0 is 10,000 BCE – 1 CE, chunk 1 the 10,000 years before. */
+export const CHUNK = 10_000;
+
+export const chunkWindow = (k: number): Window => ({ start: AXIS_END - CHUNK * (k + 1), end: AXIS_END - CHUNK * k });
+
+/** The chunk containing the middle of the window. */
+export function chunkIndexOf(w: Window): number {
+  const yearsBack = AXIS_END - (w.start + w.end) / 2;
+  return Math.max(0, Math.floor(yearsBack / CHUNK));
+}
+
+/** Last chunk that still reaches back into the axis. */
+export const lastChunk = (min: number) => Math.max(0, Math.ceil((AXIS_END - min) / CHUNK) - 1);
+
+/**
+ * The chunk before (dir -1, earlier) or after (dir 1, later) the one the window is in. Whatever the
+ * zoom, stepping lands on a whole chunk.
+ */
+export function stepChunk(w: Window, dir: 1 | -1, min: number): Window {
+  const k = Math.min(lastChunk(min), Math.max(0, chunkIndexOf(w) - dir));
+  return clampWindow(chunkWindow(k), min);
+}
+
+/** Whether stepping that way would change the view. */
+export function canStepChunk(w: Window, dir: 1 | -1, min: number): boolean {
+  const next = stepChunk(w, dir, min);
+  return Math.abs(next.start - w.start) > 0.5 || Math.abs(next.end - w.end) > 0.5;
+}
+
 export const overlaps = (e: { start_year: number; end_year: number }, w: Window) =>
   e.start_year <= w.end && e.end_year >= w.start;
 

@@ -2,6 +2,10 @@ import { describe, expect, it } from "vitest";
 import type { Entity } from "../types";
 import {
   AXIS_END,
+  CHUNK,
+  canStepChunk,
+  chunkWindow,
+  stepChunk,
   MIN_SPAN,
   buildRows,
   clampWindow,
@@ -94,5 +98,30 @@ describe("rows", () => {
       "1:old-kingdom",
       "0:akkad",
     ]);
+  });
+});
+
+describe("10,000-year chunks", () => {
+  it("starts with the last chunk and steps a whole chunk at a time", () => {
+    const c0 = chunkWindow(0);
+    expect(c0).toEqual({ start: -9_999, end: 1 });
+    expect(c0.end - c0.start).toBe(CHUNK);
+    expect(stepChunk(c0, -1, MIN)).toEqual(chunkWindow(1));
+    expect(stepChunk(chunkWindow(1), 1, MIN)).toEqual(c0);
+    expect(canStepChunk(c0, 1, MIN)).toBe(false);
+    expect(canStepChunk(c0, -1, MIN)).toBe(true);
+  });
+
+  it("snaps a zoomed view to the neighbouring chunk", () => {
+    // 3,500 BCE – 1 CE sits in chunk 0: earlier goes to chunk 1, later re-aligns to chunk 0.
+    const civ = { start: -3_499, end: 1 };
+    expect(stepChunk(civ, -1, MIN)).toEqual(chunkWindow(1));
+    expect(stepChunk(civ, 1, MIN)).toEqual(chunkWindow(0));
+  });
+
+  it("stops at the start of the axis", () => {
+    const first = stepChunk({ start: MIN, end: MIN + 5_000 }, -1, MIN);
+    expect(first.start).toBe(MIN);
+    expect(canStepChunk(first, -1, MIN)).toBe(false);
   });
 });

@@ -32,6 +32,13 @@
 .tl-btn.square { width: 34px; height: 34px; padding: 0; font-size: 1.2rem; line-height: 1; }
 .tl-zoom { display: flex; gap: 6px; margin-left: auto; flex: none; }
 
+/* Step through fixed 10,000-year chunks (also the main control on small screens). */
+.tl-nav { display: flex; align-items: center; gap: 8px; padding: 2px 16px 8px; }
+.tl-step { height: 34px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tl-btn:disabled { opacity: 0.35; cursor: default; }
+.tl-btn:disabled:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.14); }
+.tl-range { min-width: 15em; text-align: center; font-weight: 600; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+
 /* The shared search box, placed in the header instead of floating over the globe. */
 .timeline-page .search { position: relative; top: auto; left: auto; transform: none; width: min(380px, 40vw); }
 .timeline-page .search-results { position: absolute; left: 0; right: 0; z-index: 30; }
@@ -236,10 +243,15 @@
 }
 
 @media (max-width: 760px) {
-  .timeline-page { --label-w: 150px; }
+  .timeline-page { --label-w: 124px; }
   .tl-header { flex-wrap: wrap; }
   .timeline-page .search { width: 100%; order: 3; }
   .tl-hint { display: none; }
+  .tl-nav { flex-wrap: wrap; gap: 6px; }
+  .tl-step-text { display: none; }
+  .tl-step { flex: 1; }
+  .tl-range { order: -1; flex-basis: 100%; min-width: 0; font-size: 0.9rem; }
+  .tl-zoom { margin-left: 0; }
   .tl-overview-label { display: none; }
   .tl-overview-ticks span:not(:first-child):not(:last-child) { display: none; }
 }

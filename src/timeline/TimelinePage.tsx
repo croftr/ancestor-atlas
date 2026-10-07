@@ -9,7 +9,11 @@ import InfoPanel from "../ui/InfoPanel";
 import SearchBox from "../ui/SearchBox";
 import {
   AXIS_END,
+  CHUNK,
   aliveAt,
+  canStepChunk,
+  chunkWindow,
+  stepChunk,
   axisStart,
   buildRows,
   clampWindow,
@@ -38,7 +42,7 @@ const PRESETS: { label: string; start: number | null; end: number }[] = [
   { label: "Last 3 million", start: -3_000_000, end: AXIS_END },
   { label: "Last 500,000", start: -500_000, end: AXIS_END },
   { label: "Last 50,000", start: -50_000, end: AXIS_END },
-  { label: "Last 12,000", start: -12_000, end: AXIS_END },
+  { label: "Last 10,000", start: AXIS_END - CHUNK, end: AXIS_END },
   { label: "Civilizations", start: -3_600, end: AXIS_END },
 ];
 
@@ -55,17 +59,14 @@ export default function TimelinePage() {
   const min = useMemo(() => (entities?.length ? axisStart(entities) : -7_500_000), [entities]);
   const extents = useMemo(() => (entities ? laneExtents(entities) : new Map()), [entities]);
 
-  const [win, setWinState] = useState<Window>(() => savedWindow ?? { start: min, end: AXIS_END });
+  // Opens on the most recent 10,000 years; the back/forward buttons step through 10,000 at a time.
+  const [win, setWinState] = useState<Window>(() => savedWindow ?? chunkWindow(0));
   const winRef = useRef(win);
   const setWin = useCallback((w: Window) => {
     winRef.current = w;
     savedWindow = w;
     setWinState(w);
   }, []);
-  // The axis start depends on the data; widen to it once the data is in.
-  useEffect(() => {
-    if (!savedWindow) setWin({ start: min, end: AXIS_END });
-  }, [min, setWin]);
 
   const [expanded, setExpanded] = useState(savedExpanded);
   const [collapsedLanes, setCollapsedLanes] = useState(savedCollapsedLanes);
@@ -181,6 +182,8 @@ export default function TimelinePage() {
       const w = winRef.current;
       if (e.key === "+" || e.key === "=") zoomBy(0.6);
       else if (e.key === "-" || e.key === "_") zoomBy(1 / 0.6);
+      else if (e.key === "ArrowLeft" && e.shiftKey) setWin(stepChunk(w, -1, min));
+      else if (e.key === "ArrowRight" && e.shiftKey) setWin(stepChunk(w, 1, min));
       else if (e.key === "ArrowLeft") setWin(panWindow(w, -(w.end - w.start) * 0.15, min));
       else if (e.key === "ArrowRight") setWin(panWindow(w, (w.end - w.start) * 0.15, min));
       else return;
@@ -394,11 +397,33 @@ export default function TimelinePage() {
           </button>
         </div>
         <SearchBox onChoose={(e) => focus(e.id)} />
+      </header>
+
+      <nav className="tl-nav" aria-label="Move through time">
+        <button
+          className="tl-btn tl-step"
+          onClick={() => setWin(stepChunk(win, -1, min))}
+          disabled={!canStepChunk(win, -1, min)}
+          title="Earlier 10,000 years (Shift + ←)"
+        >
+          ‹ <span className="tl-step-text">Earlier </span>10,000 yrs
+        </button>
+        <div className="tl-range" aria-live="polite">
+          {formatRange(Math.round(win.start), Math.round(win.end))}
+        </div>
+        <button
+          className="tl-btn tl-step"
+          onClick={() => setWin(stepChunk(win, 1, min))}
+          disabled={!canStepChunk(win, 1, min)}
+          title="Later 10,000 years (Shift + →)"
+        >
+          <span className="tl-step-text">Later </span>10,000 yrs ›
+        </button>
         <div className="tl-zoom">
           <button className="tl-btn square" onClick={() => zoomBy(1 / 0.6)} title="Zoom out ( - )" aria-label="Zoom out">−</button>
           <button className="tl-btn square" onClick={() => zoomBy(0.6)} title="Zoom in ( + )" aria-label="Zoom in">+</button>
         </div>
-      </header>
+      </nav>
 
       <div className="tl-presets">
         {PRESETS.map((p) => (
@@ -410,7 +435,7 @@ export default function TimelinePage() {
             {p.label}
           </button>
         ))}
-        <span className="tl-hint muted">Ctrl/⌘ + scroll or pinch to zoom · drag or Shift + scroll to pan · double-click a bar to fit</span>
+        <span className="tl-hint muted">Ctrl/⌘ + scroll or pinch to zoom · drag or Shift + scroll to pan · Shift + ←/→ steps 10,000 years · double-click a bar to fit</span>
       </div>
 
       <Overview entities={entities} win={win} min={min} onWindow={setWin} />
