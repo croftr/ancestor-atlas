@@ -153,19 +153,16 @@ export default function Legend() {
     <div className={`legend-dock${collapsed ? " collapsed" : ""}`}>
       <button
         type="button"
-        className="legend-logo-btn"
+        className="legend-toggle"
         onClick={toggleCollapsed}
         aria-expanded={!collapsed}
         aria-controls="legend-panel"
         aria-label={collapsed ? "Show legend panel" : "Hide legend panel"}
         title={collapsed ? "Show panel" : "Hide panel"}
       >
-        <img src="/logo-128.webp" alt="" className="legend-logo-img" draggable={false} />
-        <span className="legend-logo-chevron" aria-hidden="true">
-          <svg viewBox="0 0 12 12" width="10" height="10">
-            <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
+        <svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true">
+          <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </button>
       <div id="legend-panel" className="panel legend" aria-hidden={collapsed} inert={collapsed}>
         <div className="legend-brand">
