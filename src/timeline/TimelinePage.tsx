@@ -51,11 +51,15 @@ export default function TimelinePage() {
   const extents = useMemo(() => (entities ? laneExtents(entities) : new Map()), [entities]);
 
   // Opens on the most recent 10,000 years; the back/forward buttons step through 10,000 at a time.
-  const eras = useMemo(() => resolveEras(TIMELINE_ERAS, min), [min]);
+  const firstCivilization = useMemo(() => {
+    const civs = entities?.filter((e) => e.category === "civilization") ?? [];
+    return civs.length ? Math.min(...civs.map((e) => e.start_year)) : undefined;
+  }, [entities]);
+  const eras = useMemo(() => resolveEras(TIMELINE_ERAS, min, firstCivilization), [min, firstCivilization]);
   // Opens on the most recent era (Civilizations); Earlier / Later step from era to era.
   const [win, setWinState] = useState<Window>(() => {
     if (savedWindow) return savedWindow;
-    const last = resolveEras(TIMELINE_ERAS, -7_500_000).at(-1)!;
+    const last = resolveEras(TIMELINE_ERAS, min, firstCivilization).at(-1)!;
     return { start: last.start, end: last.end };
   });
   const winRef = useRef(win);
@@ -64,6 +68,12 @@ export default function TimelinePage() {
     savedWindow = w;
     setWinState(w);
   }, []);
+  // Once the data is in, the opening era starts exactly at the first civilization.
+  useEffect(() => {
+    if (savedWindow || firstCivilization === undefined) return;
+    const last = eras.at(-1)!;
+    setWin({ start: last.start, end: last.end });
+  }, [eras, firstCivilization, setWin]);
 
   const [expanded, setExpanded] = useState(savedExpanded);
   const [collapsedLanes, setCollapsedLanes] = useState(savedCollapsedLanes);
@@ -333,7 +343,7 @@ export default function TimelinePage() {
                 className="tl-fit"
                 onClick={() => {
                   if (r.collapsed) toggleLane(r.category);
-                  setWin(fitWindow(r.start, r.end, min));
+                  setWin(fitWindow(r.start, r.end, min, 0));
                 }}
               >
                 Zoom to {style.label.toLowerCase()}

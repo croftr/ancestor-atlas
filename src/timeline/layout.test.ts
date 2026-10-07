@@ -118,6 +118,19 @@ describe("eras", () => {
     for (let i = 1; i < eras.length; i++) expect(eras[i].start).toBe(eras[i - 1].end);
   });
 
+  it("can start at the first civilization", () => {
+    const e = resolveEras(
+      [
+        { label: "Neolithic", start: -9_999 },
+        { label: "Civilizations", start: "first-civilization" },
+      ],
+      MIN,
+      -3_400,
+    );
+    expect(e[1]).toEqual({ label: "Civilizations", start: -3_400, end: AXIS_END });
+    expect(e[0].end).toBe(-3_400);
+  });
+
   it("step to the neighbouring era and stop at the ends", () => {
     expect(stepEra(eras, win(3), -1)?.label).toBe("Neolithic");
     expect(stepEra(eras, win(2), 1)?.label).toBe("Civilizations");

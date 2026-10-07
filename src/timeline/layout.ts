@@ -58,12 +58,24 @@ export interface Era {
   end: number;
 }
 
-/** Contiguous eras from their start years (oldest first); `null` start means the axis start. */
-export function resolveEras(defs: { label: string; start: number | null }[], min: number): Era[] {
+/** Fallback for "first-civilization" before the data has loaded. */
+const FIRST_CIVILIZATION_FALLBACK = 1 - 3_500;
+
+/**
+ * Contiguous eras from their start years (oldest first). A `null` start means the axis start;
+ * "first-civilization" means `firstCivilization` (the earliest civilization's start year).
+ */
+export function resolveEras(
+  defs: { label: string; start: number | null | "first-civilization" }[],
+  min: number,
+  firstCivilization?: number,
+): Era[] {
+  const startOf = (d: (typeof defs)[number]) =>
+    d.start === null ? min : d.start === "first-civilization" ? (firstCivilization ?? FIRST_CIVILIZATION_FALLBACK) : d.start;
   return defs.map((d, i) => ({
     label: d.label,
-    start: d.start ?? min,
-    end: i + 1 < defs.length ? (defs[i + 1].start as number) : AXIS_END,
+    start: startOf(d),
+    end: i + 1 < defs.length ? startOf(defs[i + 1]) : AXIS_END,
   }));
 }
 

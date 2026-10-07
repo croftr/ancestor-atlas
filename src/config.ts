@@ -22,14 +22,16 @@ export const ERA_PRESETS = [
 // Timeline eras: the chunks the timeline's Earlier / Later buttons step through, oldest first.
 // Each runs from its start to the next one's start (the last to 1 CE); the first starts at the
 // beginning of the axis. Sized to what is in them, so each is readable when it fills the screen.
+// "first-civilization" starts the era where the earliest civilization in the data begins.
 const bce = (years: number) => 1 - years; // astronomical year of "N BCE"
-export const TIMELINE_ERAS: { label: string; start: number | null }[] = [
+export type EraStart = number | null | "first-civilization";
+export const TIMELINE_ERAS: { label: string; start: EraStart }[] = [
   { label: "Earliest hominins", start: null }, // ~7.5–3 Ma: Sahelanthropus to Lucy
   { label: "Early Homo", start: bce(3_000_000) }, // Oldowan, Acheulean, H. erectus
   { label: "Neanderthals & early sapiens", start: bce(500_000) }, // Middle Stone Age, Mousterian
   { label: "Late Ice Age", start: bce(50_000) }, // Aurignacian to Clovis
   { label: "Neolithic", start: bce(10_000) }, // first farmers
-  { label: "Civilizations", start: bce(3_500) }, // states and empires
+  { label: "Civilizations", start: "first-civilization" }, // states and empires (c. 3,400 BCE on)
 ];
 
 export interface BasemapTheme {
