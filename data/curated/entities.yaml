@@ -456,6 +456,8 @@
     intermediate periods between them, with foreign rule by Hyksos and Assyrians
     in places.
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
+  image_url: /images/civilisations/egypt.webp
+  image_credit: AI-generated illustration
   match_children:
     cliopatria_name_regex: (Dynasty of Egypt|Kingdom of Egypt|Period of
       Egypt|^(Upper|Lower|Assyrian) Egypt)$

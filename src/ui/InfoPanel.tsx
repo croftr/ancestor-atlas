@@ -82,6 +82,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const isEvent = entity.category === "event";
   const noun = entity.category === "civilization" ? "Period" : isEvent ? "Place" : "Site";
   const related = (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
+  // A period without its own picture shows its group's (e.g. Ancient Egypt), labelled as such.
+  const picture = isEvent ? undefined : entity.image_url ? entity : parent?.image_url ? parent : undefined;
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
@@ -156,11 +158,16 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       )}
       {isEvent && <EventImage event={entity} />}
       {isEvent && entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
-      {!isEvent && entity.image_url && (
-        <div className="info-media">
-          <img src={entity.image_url} alt={entity.name} className="info-image" loading="lazy" />
-          {entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
-        </div>
+      {picture && (
+        <>
+          <div className="info-media">
+            <img src={picture.image_url} alt={picture.name} className="info-image" loading="lazy" />
+          </div>
+          {/* Credit below the frame (inside it, the cropped picture hid it). */}
+          <div className="muted image-credit">
+            {[picture.image_credit, picture !== entity && `Shows ${picture.name} as a whole`].filter(Boolean).join(" · ")}
+          </div>
+        </>
       )}
       <p>{entity.description}</p>
       {related.length > 0 && (
