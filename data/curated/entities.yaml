@@ -456,7 +456,7 @@
     intermediate periods between them, with foreign rule by Hyksos and Assyrians
     in places.
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
-  image_url: /images/civilisations/egypt.webp
+  image_url: /images/civilisations/ancient-egypt.webp
   image_credit: AI-generated illustration
   match_children:
     cliopatria_name_regex: (Dynasty of Egypt|Kingdom of Egypt|Period of
@@ -741,3 +741,21 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Baden_culture
   wikidata: Q687230
   source_ids: []
+
+# Pictures for individual civilizations (overlaid on the Cliopatria entries by id). A period
+# without its own picture shows its group's.
+- id: early-dynastic-period-of-egypt
+  image_url: /images/civilisations/early-dynastic-egypt.webp
+  image_credit: AI-generated illustration
+- id: old-kingdom-of-egypt
+  image_url: /images/civilisations/old-kingdom.webp
+  image_credit: AI-generated illustration
+- id: middle-kingdom-of-egypt
+  image_url: /images/civilisations/middle-kingdom.webp
+  image_credit: AI-generated illustration
+- id: hyksos
+  image_url: /images/civilisations/hyksos.webp
+  image_credit: AI-generated illustration
+- id: new-kingdom-of-egypt
+  image_url: /images/civilisations/new-kingdom.webp
+  image_credit: AI-generated illustration
