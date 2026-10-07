@@ -38,6 +38,12 @@ const TimelineIcon = (
     <path d="M3 21h18" strokeOpacity="0.5" />
   </Icon>
 );
+const EventsIcon = (
+  <Icon>
+    <path d="M12 3l3.2 9L12 21l-3.2-9z" />
+    <path d="M4 12h3.5M16.5 12H20" strokeOpacity="0.6" />
+  </Icon>
+);
 const SettingsIcon = (
   <Icon>
     <circle cx="12" cy="12" r="3" />
@@ -54,6 +60,7 @@ const MenuIcon = (
 const VIEW_ITEMS: NavItem[] = [
   { id: "globe", label: "Globe", icon: GlobeIcon, view: "globe", hint: "Explore sites on the globe" },
   { id: "timeline", label: "Timeline", icon: TimelineIcon, view: "timeline", hint: "Everything in order, in time" },
+  { id: "events", label: "Events", icon: EventsIcon, view: "events", hint: "Major moments, with pictures" },
 ];
 
 /** Tools and settings, bottom of the rail. */

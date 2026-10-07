@@ -280,3 +280,13 @@ export const aliveAt = (entities: Entity[], year: number) =>
 
 /** First sentence of a description, for tight spaces (tooltips, lists). */
 export const firstSentence = (text: string) => text.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? text;
+
+/** The eras for this data: the axis start and the first civilization come from the entities. */
+export function erasFor(
+  entities: Entity[],
+  defs: { label: string; start: number | null | "first-civilization" }[],
+): Era[] {
+  const civs = entities.filter((e) => e.category === "civilization");
+  const first = civs.length ? Math.min(...civs.map((e) => e.start_year)) : undefined;
+  return resolveEras(defs, entities.length ? axisStart(entities) : -7_500_000, first);
+}

@@ -1,22 +1,39 @@
 import { useEffect, useState } from "react";
 
 /**
- * Two views, switched by the URL hash so a refresh or a shared link keeps the view without any
- * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline.
+ * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
+ * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, "#/events" the events
+ * page and "#/events/<id>" one event open on it.
  */
-export type View = "globe" | "timeline";
+export type View = "globe" | "timeline" | "events";
 
-const viewOfHash = (hash: string): View => (hash.replace(/^#\/?/, "").startsWith("timeline") ? "timeline" : "globe");
+const pathOf = (hash: string) => hash.replace(/^#\/?/, "");
 
-export function useView(): View {
-  const [view, setView] = useState<View>(() => viewOfHash(window.location.hash));
+const viewOfHash = (hash: string): View => {
+  const p = pathOf(hash);
+  if (p.startsWith("timeline")) return "timeline";
+  if (p.startsWith("events")) return "events";
+  return "globe";
+};
+
+/** The event open on the events page ("#/events/<id>"), if any. */
+const eventOfHash = (hash: string): string | null => {
+  const m = pathOf(hash).match(/^events\/([^/?#]+)/);
+  return m ? decodeURIComponent(m[1]) : null;
+};
+
+function useHash(): string {
+  const [hash, setHash] = useState(() => window.location.hash);
   useEffect(() => {
-    const onHash = () => setView(viewOfHash(window.location.hash));
+    const onHash = () => setHash(window.location.hash);
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
-  return view;
+  return hash;
 }
+
+export const useView = (): View => viewOfHash(useHash());
+export const useOpenEvent = (): string | null => eventOfHash(useHash());
 
 /** Entity the timeline should zoom to when it next opens ("See on timeline" from the info card). */
 let pendingFocus: string | null = null;
@@ -26,7 +43,12 @@ export const takePendingFocus = () => {
   return id;
 };
 
-export function navigate(view: View, focusEntityId?: string) {
-  if (focusEntityId) pendingFocus = focusEntityId;
+/** Switch view. For the timeline, `entityId` is zoomed to; for events, that event is opened. */
+export function navigate(view: View, entityId?: string) {
+  if (view === "events") {
+    window.location.hash = entityId ? `#/events/${encodeURIComponent(entityId)}` : "#/events";
+    return;
+  }
+  if (entityId) pendingFocus = entityId;
   window.location.hash = view === "timeline" ? "#/timeline" : "#/";
 }

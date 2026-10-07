@@ -8,6 +8,7 @@ import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
 import { navigate, type View } from "../route";
 import "./events.css";
+import EventImage from "../events/EventImage";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -111,6 +112,14 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             See on timeline →
           </button>
         )}
+        {isEvent && (
+          <>
+            {" · "}
+            <button className="link" onClick={() => navigate("events", entity.id)}>
+              Event page →
+            </button>
+          </>
+        )}
       </div>
       {feature && siblings.length > 1 && (
         <div className="feature-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>
@@ -145,7 +154,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           </button>
         </div>
       )}
-      {entity.image_url && (
+      {isEvent && <EventImage event={entity} />}
+      {isEvent && entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
+      {!isEvent && entity.image_url && (
         <div className="info-media">
           <img src={entity.image_url} alt={entity.name} className="info-image" loading="lazy" />
           {entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}

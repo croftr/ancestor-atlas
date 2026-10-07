@@ -15,6 +15,8 @@
   description: Around seven million years ago, the ancestral lineage leading to humans diverged from the lineage leading to chimpanzees. Fossils recovered from this window, most notably the cranium of Sahelanthropus tchadensis in northern Chad and the femoral remains of Orrorin tugenensis in Kenya, display early anatomical adaptations toward upright bipedal posture, which became the defining locomotion strategy distinguishing hominins from all other hominoids.
   related: [sahelanthropus, orrorin-tugenensis]
   wikipedia_url: https://en.wikipedia.org/wiki/Human_evolution
+  image_url: /images/events/divergence-hominin-lineage.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Human_evolution@1379042225
   places:
     - { label: Toros-Menalla, lat: 16.2417, lon: 17.475, wikidata: Q56435888 }
@@ -27,6 +29,8 @@
   description: Archaeologists working at the Lomekwi 3 site discovered the oldest known intentionally flaked stone implements, pushing tool manufacture hundreds of thousands of years earlier than previously assumed. These massive basalt cores and anvils demonstrate deliberate block-on-block percussion used to crack hard plant foods or bone, proving that stone tool knapping predated the emergence of the genus Homo.
   related: [lomekwian, kenyanthropus-platyops, australopithecus-afarensis]
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwi
+  image_url: /images/events/earliest-stone-tools.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Lomekwi@1378607817
   places:
     - { label: Lomekwi 3, lat: 3.91083, lon: 35.8503, wikidata: Q19833854 }
@@ -154,6 +158,8 @@
   description: Hunter-gatherers in Southwest Asia began selecting and cultivating founder crops, including emmer wheat, einkorn, barley and lentils, alongside domesticating sheep and goats. This transition from foraging to food production drove permanent village life, food surpluses, land tenure, and substantial regional population growth.
   related: [pre-pottery-neolithic]
   wikipedia_url: https://en.wikipedia.org/wiki/Neolithic_Revolution
+  image_url: /images/events/birth-of-agriculture.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Neolithic_Revolution@1378743296
   places:
     - { label: Fertile Crescent, lat: 36, lon: 40, wikidata: Q170526, note: "region: the Fertile Crescent's Wikidata point" }

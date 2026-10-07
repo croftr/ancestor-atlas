@@ -5,6 +5,7 @@ import TimeSlider from "./ui/TimeSlider";
 import SearchBox from "./ui/SearchBox";
 import SideNav from "./ui/SideNav";
 import TimelinePage from "./timeline/TimelinePage";
+import EventsPage from "./events/EventsPage";
 import { useView } from "./route";
 
 export default function App() {
@@ -20,8 +21,10 @@ export default function App() {
           <TimeSlider />
           <SearchBox />
         </>
-      ) : (
+      ) : view === "timeline" ? (
         <TimelinePage />
+      ) : (
+        <EventsPage />
       )}
       <SideNav />
     </div>

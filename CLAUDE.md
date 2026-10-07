@@ -41,7 +41,8 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
 - Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
-- Media (Rob will supply pictures, sometimes video): `image_url` + `image_credit` as for species; videos are to be
+- Pictures: square 1000×1000 WebP in `public/images/events/` (title painted in, so always shown whole, never cropped);
+  `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile. Videos, later, are to be
   hosted outside the repo (embed or external URL), not committed.
 
 ## XRONOS bulk import (`scripts/ingest/xronos.ts`)
