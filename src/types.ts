@@ -1,5 +1,5 @@
-export type Category = "species" | "culture" | "civilization";
-export const CATEGORIES: Category[] = ["species", "culture", "civilization"];
+export type Category = "species" | "culture" | "civilization" | "event";
+export const CATEGORIES: Category[] = ["species", "culture", "civilization", "event"];
 
 /** Registry entry (public/data/entities.json): one per species / culture / civilization / group. */
 export interface Entity {
@@ -17,6 +17,10 @@ export interface Entity {
   color?: string; // civilizations: build-time colour
   image_url?: string; // optional WebP image asset URL
   image_credit?: string; // required with image_url: author/licence, or that it is AI-generated
+  // Events only
+  year?: number; // best date (start_year..end_year is the stated range, or equal to it)
+  date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"
+  related_ids?: string[]; // species / cultures / civilizations the event concerns
 }
 
 /** Feature properties (public/data/features.geojson). Flat so MapLibre can filter on them. */
@@ -40,6 +44,7 @@ export interface FeatureProps {
   // Evidence for curated point sites (species/culture). Empty on a `recall` row until it is checked.
   wikidata?: string; // site QID, e.g. "Q20573231"
   coord_source?: string; // where lat/lon came from, e.g. "wikidata:Q20573231#P625", "doi:10.1126/…"
+  notes?: string; // caveat shown on the card, e.g. place-level coordinates (events)
   date_source?: string; // where the dates came from, e.g. "doi:10.1038/…", "wikipedia:Dmanisi_hominins@1378502810"
 }
 

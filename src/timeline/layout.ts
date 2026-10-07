@@ -1,4 +1,7 @@
-import { CATEGORIES, type Category, type Entity } from "../types";
+import { type Category, type Entity } from "../types";
+
+/** Lane order on the timeline: events first, as markers over the rest. */
+export const LANE_ORDER: Category[] = ["event", "species", "culture", "civilization"];
 
 /**
  * Pure helpers for the timeline page: the zoomable linear time window, axis ticks, duration text
@@ -218,7 +221,7 @@ export function buildRows(entities: Entity[], opts: RowOptions): Row[] {
   }
   const ids = new Set(entities.map((e) => e.id));
   const rows: Row[] = [];
-  for (const category of CATEGORIES) {
+  for (const category of LANE_ORDER) {
     // A child whose parent is missing from the registry is shown at the top level.
     const top = entities
       .filter((e) => e.category === category && !(e.parent_id && ids.has(e.parent_id)))
@@ -273,4 +276,7 @@ export function continuation(e: Entity): string | null {
 
 /** Entities whose span contains `year` (for the hover read-out); groups are not counted. */
 export const aliveAt = (entities: Entity[], year: number) =>
-  entities.filter((e) => !e.group && e.start_year <= year && year <= e.end_year);
+  entities.filter((e) => !e.group && e.category !== "event" && e.start_year <= year && year <= e.end_year);
+
+/** First sentence of a description, for tight spaces (tooltips, lists). */
+export const firstSentence = (text: string) => text.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? text;

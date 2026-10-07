@@ -28,6 +28,7 @@ const swatchStyle = (c: Category, colorOverride?: string): React.CSSProperties =
   const color = colorOverride ?? CATEGORY_STYLE[c].color;
   if (c === "species") return { background: color, borderRadius: "50%" };
   if (c === "culture") return { background: color, borderRadius: "50%", filter: "blur(2px)" };
+  if (c === "event") return { background: color, borderRadius: 2, transform: "rotate(45deg) scale(0.8)" };
   return { background: color, borderRadius: 2 };
 };
 
@@ -59,6 +60,7 @@ export default function Legend() {
     species: false,
     culture: false,
     civilization: false,
+    event: false,
   });
 
   const toggleExpanded = (c: Category) => {
@@ -77,6 +79,7 @@ export default function Legend() {
       species: new Map(),
       culture: new Map(),
       civilization: new Map(),
+      event: new Map(),
     };
 
     for (const f of features ?? []) {
@@ -102,6 +105,7 @@ export default function Legend() {
       species: [],
       culture: [],
       civilization: [],
+      event: [],
     };
 
     for (const c of CATEGORIES) {

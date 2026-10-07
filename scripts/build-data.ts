@@ -85,6 +85,67 @@ function loadSites(file: string, category: Category) {
 loadSites("species-sites.csv", "species");
 loadSites("culture-sites.csv", "culture");
 
+// Events (data/curated/events.yaml): one entity each, one Point feature per place.
+interface CuratedEvent {
+  id: string;
+  name: string;
+  year: number;
+  start_year?: number;
+  end_year?: number;
+  date_text: string;
+  description: string;
+  related?: string[];
+  wikipedia_url?: string;
+  date_source?: string;
+  image_url?: string;
+  image_credit?: string;
+  places: { label: string; lat: number; lon: number; wikidata?: string; coord_source?: string; note?: string }[];
+}
+const curatedEvents = existsSync(`${CURATED}/events.yaml`)
+  ? ((parseYaml(readFileSync(`${CURATED}/events.yaml`, "utf8")) as CuratedEvent[]) ?? [])
+  : [];
+for (const ev of curatedEvents) {
+  if (curatedIds.has(ev.id) || entities.has(ev.id)) fail(`events.yaml: duplicate id ${ev.id}`);
+  const start = ev.start_year ?? ev.year;
+  const end = ev.end_year ?? ev.year;
+  if (!(start <= ev.year && ev.year <= end)) fail(`events.yaml: ${ev.id}: year ${ev.year} outside ${start}..${end}`);
+  if (!ev.places?.length) fail(`events.yaml: ${ev.id}: needs at least one place`);
+  entities.set(ev.id, {
+    id: ev.id,
+    name: ev.name,
+    category: "event",
+    start_year: start,
+    end_year: end,
+    year: ev.year,
+    date_text: ev.date_text,
+    description: ev.description,
+    related_ids: ev.related,
+    wikipedia_url: ev.wikipedia_url,
+    image_url: ev.image_url,
+    image_credit: ev.image_credit,
+    source_ids: [],
+  });
+  ev.places.forEach((p, i) => {
+    const coord_source = p.coord_source ?? (p.wikidata ? `wikidata:${p.wikidata}#P625` : undefined);
+    const props: FeatureProps = {
+      id: `${ev.id}@${i + 1}`,
+      entity_id: ev.id,
+      category: "event",
+      start_year: start,
+      end_year: end,
+      label: p.label,
+      date_text: ev.date_text,
+      // Sourced once both the place and the date are evidenced; otherwise flagged as unverified.
+      source_id: coord_source && ev.date_source ? "wikimedia" : "recall",
+    };
+    if (p.wikidata) props.wikidata = p.wikidata;
+    if (coord_source) props.coord_source = coord_source;
+    if (ev.date_source) props.date_source = ev.date_source;
+    if (p.note) props.notes = p.note;
+    features.push({ props, geometry: { type: "Point", coordinates: [p.lon, p.lat] } });
+  });
+}
+
 // Culture sites from XRONOS radiocarbon dates (local copy only; see scripts/ingest/xronos.ts).
 // A XRONOS site within 2 km of a curated site of the same entity is skipped: the curated row wins.
 const xr = readXronosSites();

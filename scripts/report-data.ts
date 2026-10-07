@@ -125,12 +125,13 @@ section(
   "Entities with no features",
   nonGroup.filter((e) => !withFeatures.has(e.id)).map((e) => `- \`${e.id}\` (${e.category})`),
 );
-const recallOnly = nonGroup.filter((e) => e.category !== "civilization" && (byEntity.get(e.id) ?? []).every((r) => r.status !== "sourced"));
+const isSite = (e: { category: string }) => e.category === "species" || e.category === "culture";
+const recallOnly = nonGroup.filter((e) => isSite(e) && (byEntity.get(e.id) ?? []).every((r) => r.status !== "sourced"));
 section(
   "Entities with no sourced sites",
   recallOnly.length
     ? [
-        `${recallOnly.length} of ${nonGroup.filter((e) => e.category !== "civilization").length} species/culture entities. Their spans in entities.yaml are`,
+        `${recallOnly.length} of ${nonGroup.filter(isSite).length} species/culture entities. Their spans in entities.yaml are`,
         "derived from unsourced rows, so the validator's \"site within entity span\" check can't catch errors for them yet.",
         "",
         recallOnly.map((e) => `\`${e.id}\``).join(", "),

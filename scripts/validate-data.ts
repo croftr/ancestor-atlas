@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
 import { EVIDENCE_REF, QID } from "./lib/qa.ts";
 
-const CATS = ["species", "culture", "civilization"];
+const CATS = ["species", "culture", "civilization", "event"];
 const CONFIDENCE = ["high", "medium", "low"];
 const HEX = /^#[0-9a-f]{6}$/i;
 const errors: string[] = [];
@@ -48,7 +48,17 @@ for (const e of entityList) {
   else for (const s of e.source_ids) if (!sources.has(s)) err(`entity ${id}: unknown source ${s}`);
   if (e.color !== undefined && !HEX.test(e.color)) err(`entity ${id}: bad colour ${e.color}`);
   if (e.image_url && !e.image_credit) err(`entity ${id}: image_url needs an image_credit (author/licence, or "AI-generated")`);
+  if (e.category === "event") {
+    if (!Number.isInteger(e.year) || e.year < e.start_year || e.year > e.end_year) err(`event ${id}: year must be an integer within start_year..end_year`);
+    if (typeof e.date_text !== "string" || !e.date_text) err(`event ${id}: missing date_text`);
+  }
 }
+for (const e of entityList)
+  for (const r of e.related_ids ?? []) {
+    const t = entities.get(r);
+    if (!t) err(`entity ${e.id}: related id ${r} does not exist`);
+    else if (t.category === "event") err(`entity ${e.id}: related id ${r} is an event (link species, cultures or civilizations)`);
+  }
 const kids = new Map<string, number>();
 for (const e of entityList) {
   if (e.parent_id === undefined) continue;
@@ -70,7 +80,7 @@ for (const e of entityList) if (e.group && !kids.get(e.id)) warn(`group ${e.id} 
 
 // ---------- features ----------
 const ids = new Set<string>();
-const counts: Record<string, number> = { species: 0, culture: 0, civilization: 0 };
+const counts: Record<string, number> = { species: 0, culture: 0, civilization: 0, event: 0 };
 const withFeatures = new Set<string>();
 
 const checkCoord = (id: string, c: unknown) => {

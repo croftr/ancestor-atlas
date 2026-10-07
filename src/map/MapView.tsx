@@ -4,7 +4,7 @@ import { useStore } from "../store";
 import { BASEMAP_THEMES } from "../config";
 import { type FeatureProps } from "../types";
 import { INTERACTIVE_LAYERS, LAYER_DEFS, SOURCE_ID, timeFilter } from "./layers";
-import { isActive, loadData, useFeatures } from "./data";
+import { eventTolerance, isActive, loadData, useFeatures } from "./data";
 
 export default function MapView() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,7 +61,8 @@ export default function MapView() {
 
     const applyFilters = () => {
       const { year } = useStore.getState();
-      for (const d of LAYER_DEFS) map.setFilter(d.spec.id, timeFilter(d.category, year));
+      for (const d of LAYER_DEFS)
+        map.setFilter(d.spec.id, timeFilter(d.category, year, d.category === "event" ? eventTolerance(year) : 0));
     };
     const applyVisibility = () => {
       const { enabled } = useStore.getState();

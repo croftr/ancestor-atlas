@@ -7,6 +7,7 @@ import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
 import { navigate, type View } from "../route";
+import "./events.css";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -77,7 +78,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // Prev/next through every feature of this entity (sites, or territory periods for civilizations).
   const siblings = feature ? navOrder(data.featuresOf.get(feature.entity_id) ?? [], data.bboxOf) : [];
   const position = feature ? siblings.findIndex((f) => f.id === feature.id) + 1 : 0;
-  const noun = entity.category === "civilization" ? "Period" : "Site";
+  const isEvent = entity.category === "event";
+  const noun = entity.category === "civilization" ? "Period" : isEvent ? "Place" : "Site";
+  const related = (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
@@ -91,7 +94,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </div>
       )}
       <h2>{entity.name}</h2>
-      <div className="muted">{formatRange(entity.start_year, entity.end_year)}</div>
+      <div className="muted">{isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}</div>
       <div className="view-link">
         {view === "timeline" ? (
           <button
@@ -124,8 +127,12 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
               {noun} {position} of {siblings.length}
             </div>
             <div className="feature-nav-label">
-              {showLabel ? `${feature.label} · ` : ""}
-              {formatRange(feature.start_year, feature.end_year)}
+              {isEvent ? feature.label : (
+                <>
+                  {showLabel ? `${feature.label} · ` : ""}
+                  {formatRange(feature.start_year, feature.end_year)}
+                </>
+              )}
             </div>
           </div>
           <button
@@ -145,6 +152,24 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </div>
       )}
       <p>{entity.description}</p>
+      {related.length > 0 && (
+        <div className="related">
+          <div className="muted">Related:</div>
+          <div className="also">
+            {related.map((r) => (
+              <button
+                key={r.id}
+                className="chip"
+                onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))}
+                title={formatRange(r.start_year, r.end_year)}
+              >
+                <span className="related-dot" style={{ background: r.color ?? CATEGORY_STYLE[r.category].color }} />
+                {r.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       {approximate && (
         <div className="approx-note" role="note">
           <strong>Approximate, unverified.</strong> Location and dates were compiled from general knowledge and have not been checked against a primary source.
@@ -153,7 +178,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       {feature && (showLabel || feature.date_text || feature.confidence) && (
         <div className="site-block">
           {showLabel && <strong>{feature.label}</strong>}
-          {feature.date_text && <div>{feature.date_text}</div>}
+          {feature.date_text && !isEvent && <div>{feature.date_text}</div>}
+          {feature.notes && <div className="muted">Location: {feature.notes}</div>}
           {feature.confidence && (
             <div className="muted">
               Confidence: <span className={`conf conf-${feature.confidence}`}>{feature.confidence}</span>

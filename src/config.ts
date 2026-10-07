@@ -2,6 +2,7 @@ export const CATEGORY_STYLE = {
   species: { label: "Species", color: "#ffd166", shape: "Point sites" },
   culture: { label: "Cultures", color: "#06d6a0", shape: "Fuzzy zones" },
   civilization: { label: "Civilizations", color: "#ef476f", shape: "Territories" },
+  event: { label: "Events", color: "#c39bff", shape: "Moments" },
 } as const;
 
 // Era jump chips. Years are astronomical.

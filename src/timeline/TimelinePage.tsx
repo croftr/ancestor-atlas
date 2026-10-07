@@ -10,6 +10,7 @@ import SearchBox from "../ui/SearchBox";
 import {
   AXIS_END,
   aliveAt,
+  firstSentence,
   eraIndexOf,
   isEraWindow,
   resolveEras,
@@ -130,7 +131,11 @@ export default function TimelinePage() {
     (id: string, select = true) => {
       const e = data?.entityById.get(id);
       if (!e) return;
-      setWin(fitWindow(e.start_year, e.end_year, min));
+      if (e.category === "event") {
+        // A moment has no length to fit: show it within its era.
+        const era = eras[eraIndexOf(eras, { start: e.year ?? e.start_year, end: e.year ?? e.start_year })];
+        setWin({ start: era.start, end: era.end });
+      } else setWin(fitWindow(e.start_year, e.end_year, min));
       if (e.parent_id) setExpanded((s) => (s.has(e.parent_id!) ? s : new Set(s).add(e.parent_id!)));
       setCollapsedLanes((s) => {
         if (!s.has(e.category)) return s;
@@ -141,7 +146,7 @@ export default function TimelinePage() {
       if (select) openGroup(id);
       setScrollTo(id);
     },
-    [data, min, openGroup, setWin],
+    [data, min, openGroup, setWin, eras],
   );
   useEffect(() => {
     if (!data) return;
@@ -259,7 +264,39 @@ export default function TimelinePage() {
       return n;
     });
 
+  /** Events: a diamond at the best date over a faint band for the stated range, with the date beside it. */
+  const renderEvent = (e: Entity) => {
+    const at = x(e.year ?? e.start_year);
+    const a = Math.max(-4, x(e.start_year));
+    const b = Math.min(trackW + 4, x(e.end_year));
+    const dim = hoverYear !== null && Math.abs((e.year ?? e.start_year) - hoverYear) > span * 0.02 && !(e.start_year <= hoverYear && hoverYear <= e.end_year);
+    const text = e.date_text ?? formatYear(e.year ?? e.start_year);
+    const textW = text.length * 6.4 + 10;
+    const after = trackW - at >= textW + 12;
+    return (
+      <>
+        {b - a > 2 && <div className={`tl-ev-range${dim ? " dim" : ""}`} style={{ left: a, width: b - a }} />}
+        <button
+          className={`tl-ev${selectedEntityId === e.id ? " selected" : ""}${dim ? " dim" : ""}`}
+          style={{ left: at - 7 }}
+          aria-label={`${e.name}, ${text}`}
+          onClick={() => {
+            if (suppressClick.current) return;
+            openGroup(e.id);
+          }}
+          onMouseEnter={(ev) => setTip({ e, x: ev.clientX, y: ev.clientY })}
+          onMouseMove={(ev) => setTip({ e, x: ev.clientX, y: ev.clientY })}
+          onMouseLeave={() => setTip(null)}
+        />
+        <span className={`tl-dur outside tl-ev-date${dim ? " dim" : ""}`} style={after ? { left: at + 12 } : { left: at - 12 - textW }}>
+          {text}
+        </span>
+      </>
+    );
+  };
+
   const renderBar = (e: Entity) => {
+    if (e.category === "event") return renderEvent(e);
     const rawL = x(e.start_year);
     const rawR = x(e.end_year);
     const left = Math.max(-4, rawL);
@@ -394,6 +431,9 @@ export default function TimelinePage() {
   };
 
   const hoverX = hoverYear !== null ? x(hoverYear) : null;
+  const eventsInView = collapsedLanes.has("event")
+    ? []
+    : entities.filter((e) => e.category === "event" && (e.year ?? e.start_year) >= win.start && (e.year ?? e.start_year) <= win.end);
   const eraIdx = eraIndexOf(eras, win);
   const currentEra = eras[eraIdx];
   const onEra = isEraWindow(currentEra, win);
@@ -498,6 +538,10 @@ export default function TimelinePage() {
               {tickYears.map((y) => (
                 <span key={y} style={{ left: x(y) }} />
               ))}
+              {/* A faint line down every lane at each event, to see what was around at the time. */}
+              {eventsInView.map((e) => (
+                <span key={e.id} className={`ev${selectedEntityId === e.id ? " selected" : ""}`} style={{ left: x(e.year ?? e.start_year) }} />
+              ))}
             </div>
             {rows.map(renderRow)}
           </div>
@@ -522,13 +566,22 @@ function Tooltip({ tip, parent, kids }: { tip: { e: Entity; x: number; y: number
       role="tooltip"
     >
       <div className="tl-tip-name">{e.name}</div>
-      {parent && <div className="muted">Part of {parent}</div>}
-      <div>{formatRange(e.start_year, e.end_year)}</div>
-      <div>
-        Lasted <strong>{formatDuration(e.end_year - e.start_year)}</strong>
-        {e.group && kids > 0 && <span className="muted"> · {kids} periods</span>}
-      </div>
-      {cont && <div className="muted">{cont}</div>}
+      {e.category === "event" ? (
+        <>
+          <div>{e.date_text ?? formatRange(e.start_year, e.end_year)}</div>
+          <div className="muted tl-tip-summary">{firstSentence(e.description)}</div>
+        </>
+      ) : (
+        <>
+          {parent && <div className="muted">Part of {parent}</div>}
+          <div>{formatRange(e.start_year, e.end_year)}</div>
+          <div>
+            Lasted <strong>{formatDuration(e.end_year - e.start_year)}</strong>
+            {e.group && kids > 0 && <span className="muted"> · {kids} periods</span>}
+          </div>
+          {cont && <div className="muted">{cont}</div>}
+        </>
+      )}
     </div>
   );
 }
@@ -542,7 +595,7 @@ function Overview({ entities, win, min, onWindow }: { entities: Entity[]; win: W
   const ref = useRef<HTMLDivElement>(null);
   const brush = useRef<{ p0: number; moved: boolean } | null>(null);
   const [sel, setSel] = useState<[number, number] | null>(null);
-  const lanes: Category[] = ["species", "culture", "civilization"];
+  const lanes: Category[] = ["event", "species", "culture", "civilization"];
   const lines = useMemo(
     () => entities.filter((e) => !e.group).map((e) => ({ e, a: yearToPos(e.start_year), b: yearToPos(e.end_year) })),
     [entities],
@@ -594,7 +647,7 @@ function Overview({ entities, win, min, onWindow }: { entities: Entity[]; win: W
             <line key={p} x1={p * 1000} x2={p * 1000} y1={0} y2={30} className="tl-ov-break" />
           ))}
           {lines.map(({ e, a: la, b: lb }) => {
-            const y = 5 + lanes.indexOf(e.category) * 10;
+            const y = 4 + lanes.indexOf(e.category) * 7.3;
             return (
               <line
                 key={e.id}

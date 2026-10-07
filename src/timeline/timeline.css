@@ -264,3 +264,27 @@
 }
 
 .view-link { margin-top: 6px; font-size: 0.85em; }
+
+/* Events lane: a diamond at the best date, a faint band for the stated range, the date beside it. */
+.tl-ev {
+  position: absolute;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 2px solid #2a1450;
+  border-radius: 2px;
+  background: #c39bff;
+  transform: rotate(45deg);
+  z-index: 1;
+  transition: opacity 0.12s ease;
+}
+.tl-ev:hover { background: #dcc6ff; border-color: #fff; }
+.tl-ev.selected { border-color: #fff; box-shadow: 0 0 10px rgba(195, 155, 255, 0.8); }
+.tl-ev.dim, .tl-ev-range.dim { opacity: 0.3; }
+.tl-ev-range { position: absolute; top: 9px; height: 6px; border-radius: 3px; background: rgba(195, 155, 255, 0.3); }
+.tl-ev-date { color: #cdb6ff; }
+.tl-gridlines span.ev { width: 0; border-left: 1px dashed rgba(195, 155, 255, 0.28); background: none; }
+.tl-gridlines span.ev.selected { border-left: 1px solid rgba(195, 155, 255, 0.85); }
+.tl-tip-summary { margin-top: 4px; }
+.tl-overview-track { height: 34px; }

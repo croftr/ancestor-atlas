@@ -34,6 +34,16 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
 - Open: the 21 partial rows need full papers or excavation reports. Koeln-Lindenthal (excavated before radiocarbon)
   has no dates to find and stays recall-sourced. Swartkrans and Kromdraai are marked `review keep-coords`.
 
+## Events (`data/curated/events.yaml`)
+
+- 24 major events (category `event`), from Rob's list, Oct 2026. Each has a best `year` (optional `start_year`/`end_year`
+  range), `date_text`, a paragraph `description`, `related` entity ids, and `places` (one globe point each).
+- Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
+  English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
+- On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
+- Media (Rob will supply pictures, sometimes video): `image_url` + `image_credit` as for species; videos are to be
+  hosted outside the repo (embed or external URL), not committed.
+
 ## XRONOS bulk import (`scripts/ingest/xronos.ts`)
 
 About 2,310 points: 25 cultures plus H. sapiens. Rules:

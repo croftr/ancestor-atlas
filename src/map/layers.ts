@@ -3,12 +3,13 @@ import type { Category } from "../types";
 
 export const SOURCE_ID = "features";
 
-export function timeFilter(category: Category, year: number): ExpressionSpecification {
+/** Features of `category` on the map at `year`; `tolerance` widens the window (events). */
+export function timeFilter(category: Category, year: number, tolerance = 0): ExpressionSpecification {
   return [
     "all",
     ["==", ["get", "category"], category],
-    ["<=", ["get", "start_year"], year],
-    [">=", ["get", "end_year"], year],
+    ["<=", ["get", "start_year"], year + tolerance],
+    [">=", ["get", "end_year"], year - tolerance],
   ];
 }
 
@@ -95,6 +96,35 @@ export const LAYER_DEFS: LayerDef[] = [
       },
     },
   },
+  // Events on top: a soft halo and a ringed dot in the event colour.
+  {
+    category: "event",
+    spec: {
+      id: "event-halo",
+      type: "circle",
+      source: SOURCE_ID,
+      paint: {
+        "circle-radius": ["case", selected, 22, 16],
+        "circle-color": "#c39bff",
+        "circle-opacity": 0.22,
+        "circle-blur": 0.6,
+      },
+    },
+  },
+  {
+    category: "event",
+    spec: {
+      id: "event-dots",
+      type: "circle",
+      source: SOURCE_ID,
+      paint: {
+        "circle-radius": ["case", selected, 9, 7],
+        "circle-color": "#c39bff",
+        "circle-stroke-color": ["case", selected, "#ffffff", "#2a1450"],
+        "circle-stroke-width": ["case", selected, 3, 2.5],
+      },
+    },
+  },
 ];
 
-export const INTERACTIVE_LAYERS = ["species-circles", "culture-dots", "civ-fill"];
+export const INTERACTIVE_LAYERS = ["event-dots", "species-circles", "culture-dots", "civ-fill"];

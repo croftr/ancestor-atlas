@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Entity, FeatureProps, Source } from "../types";
+import { STEPS, segmentOfBce } from "../time/scale";
 
 export interface Data {
   entities: Entity[];
@@ -127,5 +128,13 @@ export function useData(): Data | null {
 const NO_FEATURES: FeatureProps[] = [];
 export const useFeatures = (): FeatureProps[] => useData()?.features ?? NO_FEATURES;
 
-export const isActive = (f: { start_year: number; end_year: number }, year: number) =>
-  f.start_year <= year && year <= f.end_year;
+/**
+ * How far either side of the slider year an event stays on the map: a few slider steps, so a
+ * one-year event isn't skipped over between steps (100,000 years apart in deep time).
+ */
+export const eventTolerance = (year: number) => 3 * STEPS[segmentOfBce(1 - year)];
+
+export const isActive = (f: { start_year: number; end_year: number; category?: string }, year: number) => {
+  const tol = f.category === "event" ? eventTolerance(year) : 0;
+  return f.start_year - tol <= year && year <= f.end_year + tol;
+};

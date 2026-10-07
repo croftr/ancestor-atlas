@@ -1,0 +1,4 @@
+/* Event additions to the info card. */
+.related { margin: 6px 0 8px; }
+.related .chip { display: inline-flex; align-items: center; gap: 6px; }
+.related-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
