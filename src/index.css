@@ -196,7 +196,28 @@ button { font: inherit; color: inherit; cursor: pointer; }
   background: rgba(255, 255, 255, 0.25);
 }
 .swatch { display: inline-block; width: 12px; height: 12px; flex: none; }
-.info-panel { position: absolute; top: 12px; right: 60px; width: 340px; max-height: calc(100vh - 260px); overflow-y: auto; }
+/* Info card: against the right edge, up to nearly the full window height. */
+.info-panel {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: min(352px, 100vw);
+  max-height: calc(100vh - 16px);
+  overflow-y: auto;
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(142, 160, 200, 0.3) transparent;
+}
+.info-panel::-webkit-scrollbar { width: 8px; }
+.info-panel::-webkit-scrollbar-track { background: transparent; }
+.info-panel::-webkit-scrollbar-thumb {
+  background: rgba(142, 160, 200, 0.28);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.info-panel::-webkit-scrollbar-thumb:hover { background-color: rgba(170, 188, 230, 0.5); }
 .info-media {
   margin: 10px 0 8px;
   border-radius: 8px;

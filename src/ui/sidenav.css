@@ -83,12 +83,20 @@
 .app .legend-dock { left: calc(var(--nav-w) + 18px); }
 .app .search { left: calc(50% + var(--nav-w) / 2); }
 .app .time-slider { left: calc(50% + var(--nav-w) / 2); width: min(calc(100% - 120px - var(--nav-w)), 1100px); }
+/* With the info card open, the slider centres in the space between the rail and the card. */
+.app { --card-w: 352px; }
+.app.has-card .time-slider {
+  left: calc(var(--nav-w) + (100% - var(--nav-w) - var(--card-w)) / 2);
+  width: min(calc(100% - var(--nav-w) - var(--card-w) - 48px), 1100px);
+}
+/* The map's attribution moves left of the card too. */
+.app.has-card .maplibregl-ctrl-bottom-right { right: var(--card-w); }
 .app .timeline-page { left: var(--nav-w); }
 /* The timeline page's search sits in its header, not centred over the globe. */
 .app .timeline-page .search { left: auto; }
 
 @media (max-width: 700px) {
-  .app { --nav-w: 0px; }
+  .app { --nav-w: 0px; --card-w: 0px; }
   .side-nav { width: 240px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .side-nav.expanded { width: 240px; transform: none; }
   .side-nav .nav-label { opacity: 1; }
