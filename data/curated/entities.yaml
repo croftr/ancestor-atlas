@@ -639,3 +639,103 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Naqada_culture
   wikidata: Q753391
   source_ids: []
+
+- id: starcevo-koros-cris
+  name: "Starčevo–Körös–Criș culture"
+  category: culture
+  start_year: -6199
+  end_year: -4499
+  description: "First farming culture of the inland Balkans and the Carpathian Basin, c. 6200–4500 BCE, known as Starčevo in Serbia, Körös in Hungary and Criș in Romania. It carried farming and pottery north from the Aegean and preceded the Linear Pottery culture."
+  wikipedia_url: https://en.wikipedia.org/wiki/Starčevo_culture
+  wikidata: Q1483547
+  source_ids: []
+
+- id: michelsberg
+  name: "Michelsberg culture"
+  category: culture
+  start_year: -4399
+  end_year: -3499
+  description: "Neolithic culture of west-central Europe along both sides of the Rhine, c. 4400–3500 BCE, known for causewayed enclosures. Named after the Michaelsberg hill near Untergrombach in Baden-Württemberg."
+  wikipedia_url: https://en.wikipedia.org/wiki/Michelsberg_culture
+  wikidata: Q570798
+  source_ids: []
+
+- id: unetice
+  name: "Únětice culture"
+  category: culture
+  start_year: -2299
+  end_year: -1599
+  description: "Early Bronze Age culture of central Europe, c. 2300–1600 BCE, centred on Bohemia, Moravia, central Germany and western Poland. Named after the village of Únětice near Prague; the Nebra sky disc belongs to its world."
+  wikipedia_url: https://en.wikipedia.org/wiki/Únětice_culture
+  wikidata: Q773818
+  source_ids: []
+
+- id: cucuteni-trypillia
+  name: "Cucuteni–Trypillia culture"
+  category: culture
+  start_year: -5049
+  end_year: -2949
+  description: "Neolithic–Chalcolithic culture of Romania, Moldova and Ukraine, c. 5050–2950 BCE, famous for painted pottery and giant settlements of thousands of houses between the Carpathians and the Dnieper."
+  wikipedia_url: https://en.wikipedia.org/wiki/Cucuteni–Trypillia_culture
+  wikidata: Q1162419
+  source_ids: []
+
+- id: vinca
+  name: "Vinča culture"
+  category: culture
+  start_year: -5399
+  end_year: -4499
+  description: "Neolithic culture of the central Balkans, c. 5400–4500 BCE, named after the tell of Vinča-Belo Brdo near Belgrade. Known for large settlements, dark burnished pottery, figurines and early copper working."
+  wikipedia_url: https://en.wikipedia.org/wiki/Vinča_culture
+  wikidata: Q831336
+  source_ids: []
+
+- id: ertebolle
+  name: "Ertebølle culture"
+  category: culture
+  start_year: -5399
+  end_year: -3949
+  description: "Late Mesolithic hunter-gatherer and fisher culture of southern Scandinavia and northern Germany, c. 5400–3950 BCE, which made pottery and left large shell middens. Also called Ertebølle–Ellerbek."
+  wikipedia_url: https://en.wikipedia.org/wiki/Ertebølle_culture
+  wikidata: Q1362485
+  source_ids: []
+
+- id: lengyel
+  name: "Lengyel culture"
+  category: culture
+  start_year: -4999
+  end_year: -3999
+  description: "Neolithic culture of the Middle Danube, c. 5000–4000 BCE, centred on Hungary, Slovakia, Austria and Moravia, known for painted pottery and circular ditched enclosures (rondels). Named after Lengyel in Tolna county, Hungary."
+  wikipedia_url: https://en.wikipedia.org/wiki/Lengyel_culture
+  wikidata: Q668742
+  source_ids: []
+
+- id: chasseen
+  name: "Chasséen culture"
+  category: culture
+  start_year: -4499
+  end_year: -3499
+  description: "Middle Neolithic culture of France, c. 4500–3500 BCE, spread from the south across much of the country. Named after the site at Chassey-le-Camp in Saône-et-Loire."
+  wikipedia_url: https://en.wikipedia.org/wiki/Chasséen_culture
+  wikidata: Q688898
+  source_ids: []
+
+- id: globular-amphora
+  name: "Globular Amphora culture"
+  category: culture
+  start_year: -3399
+  end_year: -2799
+  description: "Late Neolithic culture of central and eastern Europe, c. 3400–2800 BCE, named after its round-bellied pots with two to four handles. It preceded the Corded Ware culture in much of its area."
+  wikipedia_url: https://en.wikipedia.org/wiki/Globular_Amphora_culture
+  wikidata: Q218257
+  source_ids: []
+
+- id: baden
+  name: "Baden culture"
+  category: culture
+  start_year: -3519
+  end_year: -2689
+  description: "Copper Age culture of central and southeastern Europe, c. 3520–2690 BCE, found from Moravia and southern Poland to Hungary, Slovakia, eastern Austria and northern Croatia. Also called Baden–Pécel."
+  wikipedia_url: https://en.wikipedia.org/wiki/Baden_culture
+  wikidata: Q687230
+  source_ids: []

@@ -110,6 +110,7 @@ npm test                  # Run automated test suites (Vitest)
   - `sources.yaml`: Attribution records and licensing metadata.
   - `*-sites.csv`: Discovery sites with provenance coordinates and dating sources.
   - `culture-labels.csv` / `culture-windows.csv`: Which XRONOS labels map to which culture, and each culture's sourced date range.
+  - `xronos-site-fixes.csv`: Hand-checked XRONOS sites whose coordinates fail the country check: corrected from Wikidata (`move`) or confirmed despite a wrong country code (`keep`).
 - **Reference data (`data/reference/`)**: `intcal20.14c`, the IntCal20 radiocarbon calibration curve (Reimer et al. 2020).
 
 ### Bulk Culture Data (XRONOS)
@@ -122,6 +123,10 @@ culture's sourced date range, and grouped into one point per site.
 At sites with four or more dates, an oldest or youngest date that stands apart from the rest (at least 500 years from
 its nearest neighbour, with no overlap between their 95% ranges) is set aside, up to a quarter of the site's dates. The
 point's date text names it, and `data/build/xronos-set-aside.csv` lists every set-aside date for review.
+A site is dropped when its coordinates do not fit the record's country: the point lies clearly in another country
+(offline point-in-country test with [country-coder](https://github.com/rapideditor/country-coder), allowing about 25 km
+for borders and coasts), or it is far from the rest of that country's dates. These are mostly corrupted longitudes.
+`data/build/xronos-dropped-coords.csv` lists them; sites checked by hand go in `data/curated/xronos-site-fixes.csv`.
 Dates on human remains (species *Homo sapiens*) also become *H. sapiens* site points (before 10,000 BCE only). Each
 XRONOS point links to an XRONOS record and lists the publications and compilations behind its dates. As
 [XRONOS asks](https://xronos.ch/about/citation), cite both those original sources and XRONOS itself: Roe, J., Schmid, C.,

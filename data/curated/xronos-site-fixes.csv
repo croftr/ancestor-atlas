@@ -1,0 +1,43 @@
+site,country,xronos_lat,xronos_lon,action,lat,lon,wikidata,note
+Altenbochum,DE,51.5,4.5839,move,51.4709,7.2463,Q870633,XRONOS longitude corrupted (latitude matches); place-level: Altenbochum quarter of Bochum
+"Drosa, Küsterberg",DE,51.8167,4.1528,move,51.8164,11.9078,Q691371,XRONOS longitude corrupted (latitude matches); place-level: Drosa village
+Forst Leina,DE,50.9833,2.0424,move,50.98,12.5481,Q32012529,XRONOS longitude corrupted (latitude matches); Leina forest
+Greußen,DE,51.2167,3.4973,move,51.2292,10.9475,Q552683,XRONOS longitude corrupted (latitude matches); place-level: Greußen town
+"Gröna, Lettenbruch",DE,51.7667,4.1466,move,51.7647,11.6978,Q688644,XRONOS longitude corrupted (latitude matches); place-level: Gröna village
+Hedersleben,DE,51.8594,4.5962,move,51.8594,11.25,Q32055019,XRONOS longitude corrupted (latitude matches Hedersleben in Salzlandkreis); place-level
+Kaster,DE,51,2.0241,move,51.0058,6.5506,Q1735461,XRONOS longitude corrupted (latitude matches); place-level: Kaster (Bedburg)
+Müddersheim,DE,50.7,2.0241,move,50.7525,6.6636,Q1230192,XRONOS longitude corrupted; place-level: Müddersheim (Vettweiß)
+Orlishausen,DE,51.15,4.1316,move,51.1556,11.1919,Q2031112,XRONOS longitude corrupted (latitude matches); place-level: Orlishausen village
+Oschersleben,DE,52.0333,4.5962,move,52.0167,11.25,Q525392,XRONOS longitude corrupted (latitude matches); place-level: Oschersleben town
+Rodingen,DE,50.9667,2.0241,move,50.9656,6.4592,Q2179384,XRONOS longitude corrupted (latitude matches); place-level: Rödingen (Titz)
+Rosdorf,DE,51.5,4.1526,move,51.5,9.9,Q630129,XRONOS longitude corrupted (latitude matches); place-level: Rosdorf near Göttingen
+Steinfürth 2,DE,50.4,2.7607,move,50.3993,8.7462,Q1236464,XRONOS longitude corrupted (latitude matches); place-level: Steinfurth (Bad Nauheim)
+"Quedlinburg, Hammwarte",DE,51.7833,4.2309,move,51.7917,11.1472,Q40623,XRONOS longitude corrupted (latitude matches); place-level: Quedlinburg town
+Westeregeln,DE,51.9667,4.1375,move,51.9619,11.3892,Q687563,XRONOS longitude corrupted (latitude matches); place-level: Westeregeln village
+"Baalberge, Schneiderberg",DE,51.7667,4.1497,move,51.7667,11.8,Q673096,XRONOS longitude corrupted (latitude matches); place-level: Baalberge (Bernburg)
+Benzingrode-Heimburg,DE,50.15,14.35,move,51.8346,10.8671,Q818496,XRONOS point in Czechia; place-level: Benzingerode village near Heimburg
+Jäckelberg-Nord,DE,54.0333,16.742,move,54.0339,11.4456,Q32565219,XRONOS longitude corrupted (latitude matches); Jäckelberg reef in Wismar Bay
+Breitenbach,DE,47.32,15.57,move,51,12.0667,Q704429,XRONOS point is in Austria; dates (Street and Terberger 2000; Higham et al. 2007) are from the Aurignacian site at Breitenbach near Zeitz; place-level
+Grieben,DE,52.45,29.63,move,52.4331,11.9667,Q687682,XRONOS longitude corrupted (latitude matches); place-level: Grieben (Tangerhütte)
+Ilsenhoehle,DE,50.67,29.23,move,50.6626,11.5649,Q1659237,XRONOS longitude corrupted (latitude matches); Ilsenhöhle cave at Ranis
+Nebra,DE,51.3,29.25,move,51.2867,11.5774,Q504051,XRONOS longitude corrupted (latitude matches); place-level: Nebra town
+Saaleck,DE,51.11,29.36,move,51.1119,11.7,Q2208996,XRONOS longitude corrupted (latitude matches); place-level: Saaleck village
+Unterpullendorf,AT,47.5,41.41,move,47.475,16.5417,Q678899,XRONOS longitude corrupted (latitude matches); place-level: Unterpullendorf village
+Unterwölbing,AT,48.3333,41.44,move,48.3247,15.6056,Q106943093,XRONOS longitude corrupted (latitude matches); place-level: Unterwölbling village
+Verteba Cave,UA,44.9,19.75,move,48.7889,25.8714,Q12088785,XRONOS point is a placeholder in Serbia; Verteba cave (Bilche-Zolote)
+Rzeszów,PL,50.0166,33.0333,move,50.0411,21.9989,Q598,XRONOS longitude corrupted (latitude matches); place-level: Rzeszów city
+Sandomierz Salve Regina,PL,5.0677,21.73,move,50.6833,21.75,Q193177,XRONOS latitude missing a digit; place-level: Sandomierz town
+Auve,SE,59.134,10.2331,move,59.0727,10.2679,Q108714290,Auve Stone Age site is in Norway (coded SE); Wikidata point for the site
+Divje Babe,SK,46,14.06,move,46.1128,13.9153,Q18533909,Divje babe cave is in Slovenia (coded SK); XRONOS point rounded
+Chealamy,England/Wales,58.5502,-3.7814,move,58.4212,-4.1866,Q2341104,Chealamy cist is in Scotland; XRONOS point about 30 km off
+Zambujal,ES,39.0743,-9.2833,keep,,,Q145728,Castro do Zambujal is in Portugal (coded ES); coordinates match Wikidata
+Anzabegovo,GR,41.8304,22.0089,keep,,,Q855923,Amzabegovo is in North Macedonia (coded GR); coordinates match the village
+Achavanich,England/Wales,58.3654,-3.3977,keep,,,Q1529774,Achavanich is in Scotland; coordinates match Wikidata
+Fodderty,England/Wales,57.5928,-4.4887,keep,,,Q2667320,Fodderty is in Scotland; coordinates match Wikidata
+Sorisdale,England/Wales,56.6817,-6.4565,keep,,,Q104382024,Sorisdale (Coll) is in Scotland; coordinates match Wikidata
+Hagestad 7:3b,DE,55.433,14.133,keep,,,Q10515985,Hagestad is in Skåne in Sweden (coded DE); coordinates match Wikidata
+Szamossalyi,BG,47.8833,22.6,keep,,,Q1186168,Szamossályi is in Hungary (coded BG); coordinates match Wikidata
+Strögen,DE,48.671,15.602,keep,,,Q63440059,Strögen is in Lower Austria (coded DE); coordinates match Wikidata
+"Hisar, Kossovo",GR,42.3667,20.8,keep,,,Q59086,Hisar at Suva Reka is in Kosovo (coded GR); coordinates match the town
+Bjurselet,SE,65,21.0833,keep,,,Q110553679,Bjurselet near Byske is in northern Sweden (far from other Swedish dates); coordinates match Wikidata
+Varvareuca,RO,47.879,28.311,keep,,,Q1985533,Vărvăreuca is in Moldova (coded RO); coordinates match Wikidata

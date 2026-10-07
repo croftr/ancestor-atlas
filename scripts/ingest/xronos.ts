@@ -12,6 +12,7 @@ import type { FeatureProps } from "../../src/types.ts";
 import { calibrate, loadCurve } from "../lib/calibrate.ts";
 import { minWindow } from "../lib/dates.ts";
 import { distanceKm } from "../lib/qa.ts";
+import { outsideCountry } from "../lib/countries.ts";
 import { STEPS, segmentOfBce } from "../../src/time/scale.ts";
 
 export const XRONOS_CSV = "data/raw/xronos/data.csv";
@@ -25,6 +26,7 @@ export interface XronosSite {
   site: string; country: string; lat: number; lon: number;
   dates: XronosDate[];
   setAside?: XronosDate[]; // isolated end dates left out of the window (see setAsideOutliers)
+  fix?: { action: "move" | "keep"; wikidata: string }; // hand-checked coordinates (data/curated/xronos-site-fixes.csv): no country checks
 }
 export interface XronosDate { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[]; via: string[] }
 export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; setAside: number; sites: number }
@@ -58,7 +60,7 @@ const units = (s: string): string[] => {
   catch { return []; }
 };
 
-export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", windowsPath = "data/curated/culture-windows.csv"): { sites: XronosSite[]; stats: XronosStats } | undefined {
+export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", windowsPath = "data/curated/culture-windows.csv", fixesPath = "data/curated/xronos-site-fixes.csv"): { sites: XronosSite[]; stats: XronosStats; dropped: XronosSite[] } | undefined {
   if (!existsSync(XRONOS_CSV)) return undefined;
   const labels = new Map<string, string>();
   for (const r of parse(readFileSync(labelsPath, "utf8"), { columns: true }) as Record<string, string>[])
@@ -69,6 +71,11 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     windows.set(r.entity_id, [Number(r.start_bce) + Number(r.margin_years), Number(r.end_bce) - Number(r.margin_years)]);
     ranges.set(r.entity_id, [Number(r.start_bce), Number(r.end_bce)]);
   }
+  // Hand-checked sites: "move" replaces XRONOS coordinates that are wrong with Wikidata ones; "keep" marks coordinates
+  // that are right although the record's country code is not. Matched on site name, country and XRONOS coordinates.
+  const fixes = existsSync(fixesPath) ? parse(readFileSync(fixesPath, "utf8"), { columns: true }) as Record<string, string>[] : [];
+  const fixFor = (site: string, country: string, lat: number, lon: number) => fixes.find((f) => f.site === site && f.country === country &&
+    Math.abs(Number(f.xronos_lat) - lat) < 1e-3 && Math.abs(Number(f.xronos_lon) - lon) < 1e-3);
   const curve = loadCurve();
   const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, coarse: 0, countryMismatch: 0, merged: 0, setAside: 0, sites: 0 };
   const byCountry = new Map<string, [number, number][]>(); // all XRONOS coordinates per country, for a consistency check
@@ -114,8 +121,10 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     if (HUMAN_SPECIES.test(r.species?.trim() ?? "")) targets.push(HUMAN_ENTITY);
     if (!targets.length) continue;
     stats.labelled++;
-    const lat = Number(r.lat), lon = Number(r.lng);
+    let lat = Number(r.lat), lon = Number(r.lng);
     if (!r.lat || !r.lng || !Number.isFinite(lat) || !Number.isFinite(lon)) { stats.noCoords++; continue; }
+    const fix = fixFor(r.site.trim(), r.country, lat, lon);
+    if (fix?.action === "move") { lat = Number(fix.lat); lon = Number(fix.lon); }
     if (Number.isInteger(lat) && Number.isInteger(lon)) { stats.coarse++; continue; } // whole-degree point: ~100 km
     const bp = Number(r.bp), std = Number(r.std);
     const c = Number.isFinite(bp) && Number.isFinite(std) ? calibrate(curve, bp, std) : undefined;
@@ -136,13 +145,15 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
       const id = `${entity_id}|${r.site.trim()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
       const s = sites.get(id) ?? sites.set(id, {
         entity_id, category: entity_id === HUMAN_ENTITY ? "species" : "culture", range: ranges.get(entity_id)!,
-        site: r.site.trim(), country: r.country, lat, lon, dates: [],
+        site: r.site.trim(), country: r.country, lat, lon, dates: [], ...(fix ? { fix: { action: fix.action as "move" | "keep", wikidata: fix.wikidata } } : {}),
       }).get(id)!;
       s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to, refs: refsOf(r), via: viaOf(r) });
     }
   }
-  // Drop sites whose coordinates are far from where the rest of their country's XRONOS dates lie: these are
-  // source errors (flipped longitude signs, shifted grids, wrong country codes).
+  // Drop sites whose coordinates do not fit their stated country: either the point lies clearly in another country
+  // (point-in-country test, see lib/countries.ts), or it is far from where the rest of that country's XRONOS dates lie.
+  // These are source errors (flipped longitude signs, shifted grids, swapped lat/lon, wrong country codes). A correct
+  // point with a wrong country code is lost too; data/build/xronos-dropped-coords.csv lists them all for review.
   const med = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
   const centre = new Map<string, { lat: number; lon: number; limit: number }>();
   for (const [c, ps] of byCountry) {
@@ -150,9 +161,13 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     const lat = med(ps.map((p) => p[0])), lon = med(ps.map((p) => p[1]));
     centre.set(c, { lat, lon, limit: Math.max(600, 4 * med(ps.map((p) => distanceKm(lat, lon, p[0], p[1])))) });
   }
+  const dropped: XronosSite[] = [];
   const kept = [...sites.values()].filter((s) => s.dates.length > 0).filter((s) => {
     const c = centre.get(s.country);
-    if (c && distanceKm(c.lat, c.lon, s.lat, s.lon) > c.limit) { stats.countryMismatch++; return false; }
+    if (s.fix) return true;
+    if ((c && distanceKm(c.lat, c.lon, s.lat, s.lon) > c.limit) || outsideCountry(s.country, s.lat, s.lon)) {
+      stats.countryMismatch++; dropped.push(s); return false;
+    }
     return true;
   });
   // Merge same-culture sites within 1 km: XRONOS often spells one site several ways ("Lubcze" / "Lubcze site 37").
@@ -165,7 +180,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   }
   for (const s of merged) stats.setAside += setAsideOutliers(s);
   stats.sites = merged.length;
-  return { sites: merged, stats };
+  return { sites: merged, stats, dropped };
 }
 
 // A site's oldest or youngest date is set aside when it stands apart from all the site's other dates: at least
@@ -230,7 +245,8 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
         refs: uniq(s.dates.flatMap((d) => d.refs)),
         via: uniq(s.dates.flatMap((d) => d.via)),
         source_ref: `xronos:${s.dates.slice(0, 3).map((d) => d.labnr).join(",")}${n > 3 ? ",…" : ""}`,
-        coord_source: `xronos:c14/${s.dates[0].recordId}`, date_source: `xronos:IntCal20:c14/${s.dates[0].recordId}`,
+        ...(s.fix ? { wikidata: s.fix.wikidata } : {}),
+        coord_source: s.fix?.action === "move" ? `wikidata:${s.fix.wikidata}#P625` : `xronos:c14/${s.dates[0].recordId}`, date_source: `xronos:IntCal20:c14/${s.dates[0].recordId}`,
       },
       geometry: { type: "Point", coordinates: [s.lon, s.lat] },
     };

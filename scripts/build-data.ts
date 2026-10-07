@@ -107,6 +107,9 @@ else {
   }));
   mkdirSync("data/build", { recursive: true });
   writeFileSync("data/build/xronos-set-aside.csv", ["entity_id,site,country,labnr,bp,std,median_bce,kept_oldest_bce,kept_youngest_bce,kept_dates,record", ...rows.map((r) => r.map(q).join(","))].join("\n") + "\n");
+  // Review list of sites dropped for coordinates that do not fit their stated country.
+  writeFileSync("data/build/xronos-dropped-coords.csv", ["entity_id,site,country,lat,lon,dates,record", ...xr.dropped.map((x) =>
+    [x.entity_id, x.site, x.country, x.lat, x.lon, x.dates.length, `https://xronos.ch/c14s/${x.dates[0].recordId}`].map(q).join(","))].join("\n") + "\n");
 }
 
 // Civilizations from Cliopatria.
