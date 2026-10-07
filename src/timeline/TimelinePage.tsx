@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { useStore } from "../store";
 import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
 import { useData } from "../map/data";
-import { navigate, takePendingFocus } from "../route";
+import { takePendingFocus } from "../route";
 import { POS_BREAKS, formatRange, formatYear, posToYear, yearToPos } from "../time/scale";
 import type { Category, Entity } from "../types";
 import InfoPanel from "../ui/InfoPanel";
@@ -406,9 +406,6 @@ export default function TimelinePage() {
         <div className="tl-title">
           <img src="/logo-128.webp" alt="" width={30} height={30} />
           <h1>Timeline</h1>
-          <button className="tl-btn" onClick={() => navigate("globe")} title="Back to the globe">
-            🌍 Globe
-          </button>
         </div>
         <SearchBox onChoose={(e) => focus(e.id)} />
       </header>

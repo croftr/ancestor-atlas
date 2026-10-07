@@ -263,7 +263,4 @@
   .tl-bar, .tl-caret { transition: none; }
 }
 
-/* "Timeline" button on the globe */
-.view-switch { position: absolute; top: 12px; right: 12px; z-index: 6; width: 40px; height: 40px; padding: 0; display: grid; place-items: center; font-size: 1.1rem; }
-.view-switch:hover { border-color: rgba(142, 197, 255, 0.55); }
 .view-link { margin-top: 6px; font-size: 0.85em; }
