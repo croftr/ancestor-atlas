@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { navigate, useView, type View } from "../route";
 import SettingsContent from "./SettingsPanel";
+import SourcesContent from "./SourcesPanel";
 import "./sidenav.css";
 
 /**
@@ -40,6 +41,12 @@ const EventsIcon = (
     <path d="M4 12h3.5M16.5 12H20" strokeOpacity="0.6" />
   </Icon>
 );
+const SourcesIcon = (
+  <Icon>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 11v6M12 7.5v.01" strokeWidth="2.2" />
+  </Icon>
+);
 const SettingsIcon = (
   <Icon>
     <circle cx="12" cy="12" r="3" />
@@ -60,7 +67,10 @@ const VIEW_ITEMS: NavItem[] = [
 ];
 
 /** Tools and settings, bottom of the rail. */
-const TOOL_ITEMS: NavItem[] = [{ id: "settings", label: "Settings", icon: SettingsIcon, panel: () => <SettingsContent /> }];
+const TOOL_ITEMS: NavItem[] = [
+  { id: "sources", label: "Sources", icon: SourcesIcon, hint: "Data sources and credits", panel: () => <SourcesContent /> },
+  { id: "settings", label: "Settings", icon: SettingsIcon, panel: () => <SettingsContent /> },
+];
 
 const isSmall = () => typeof window !== "undefined" && window.matchMedia("(max-width: 700px)").matches;
 

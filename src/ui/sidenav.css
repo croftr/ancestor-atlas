@@ -73,7 +73,20 @@
   width: 260px;
   z-index: 41;
 }
-.nav-flyout.panel { background: #0d1424; }
+.nav-flyout.panel {
+  background: #0d1424;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(142, 160, 200, 0.3) transparent;
+}
+.nav-flyout::-webkit-scrollbar { width: 8px; }
+.nav-flyout::-webkit-scrollbar-thumb { background: rgba(142, 160, 200, 0.28); border-radius: 8px; border: 2px solid transparent; background-clip: padding-box; }
+/* Sources: wider, and the list scrolls with the panel rather than on its own. */
+.nav-flyout:has(.sources-panel) { width: 360px; }
+.nav-flyout .sources-list { max-height: none; overflow: visible; }
+.sources-intro { margin: 0 0 8px; font-size: 0.85em; line-height: 1.4; }
+.sources-map-label { margin-top: 12px; }
 .nav-flyout h2 { margin: 0 0 10px; font-size: 1rem; }
 
 /* Small-screen menu button and drawer backdrop (hidden on desktop). */
@@ -99,6 +112,7 @@
   .app { --nav-w: 0px; --card-w: 0px; }
   .side-nav { width: 240px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .side-nav.expanded { width: 240px; transform: none; }
+  .side-nav { overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(142, 160, 200, 0.3) transparent; }
   .side-nav .nav-label { opacity: 1; }
   .nav-collapse { display: none; }
   .nav-menu-btn {
@@ -115,7 +129,7 @@
   }
   .nav-backdrop { display: block; position: absolute; inset: 0; z-index: 39; background: rgba(0, 0, 0, 0.45); }
   /* In the drawer the flyout opens inline, under its item. */
-  .nav-flyout { position: static; width: auto; margin-top: 6px; }
+  .nav-flyout, .nav-flyout:has(.sources-panel) { position: static; width: auto; max-height: none; margin-top: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

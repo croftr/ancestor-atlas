@@ -45,7 +45,6 @@ export default function Legend() {
 
   const data = useData();
   const features = data?.features;
-  const [showSources, setShowSources] = useState(false);
   const [collapsed, setCollapsed] = useState(loadCollapsed);
   const toggleCollapsed = () =>
     setCollapsed((c) => {
@@ -231,19 +230,6 @@ export default function Legend() {
             </div>
           );
         })}
-        <button className="sources-toggle" onClick={() => setShowSources((v) => !v)} aria-expanded={showSources}>
-          ⓘ Data sources
-        </button>
-        {showSources && (
-          <ul className="sources-list">
-            {(data?.sources ?? []).map((s) => (
-              <li key={s.id}>
-                <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="muted">· {s.licence}</span>
-                <div className="muted">{s.citation}</div>
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </div>
   );

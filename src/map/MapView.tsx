@@ -22,6 +22,7 @@ export default function MapView() {
       center: [30, 20],
       zoom: 1.6,
       maxZoom: 6, // no point zooming into detail the basemap (and the data) doesn't have
+      attributionControl: false, // credits are in the side menu's Sources panel
       style: {
         version: 8,
         projection: { type: "globe" },
