@@ -444,7 +444,6 @@ export default function TimelinePage() {
     <div className={`timeline-page${selectedEntityId ? " has-card" : ""}`}>
       <header className="tl-header">
         <div className="tl-title">
-          <img src="/logo-128.webp" alt="" width={30} height={30} />
           <h1>Timeline</h1>
         </div>
         <SearchBox onChoose={(e) => focus(e.id)} />

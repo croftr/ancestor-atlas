@@ -78,7 +78,6 @@
 }
 .ev-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .ev-title h1 { font-size: 1.15rem; margin: 0; }
-.ev-title img { width: 30px; height: 30px; object-fit: contain; }
 .ev-count { font-size: 0.85rem; }
 .ev-filters { display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; }
 .ev-filters .chip.active { background: rgba(195, 155, 255, 0.22); border-color: rgba(195, 155, 255, 0.65); color: #fff; }

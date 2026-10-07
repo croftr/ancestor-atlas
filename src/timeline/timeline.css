@@ -20,7 +20,6 @@
 }
 .tl-title { display: flex; align-items: center; gap: 10px; flex: none; }
 .tl-title h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.01em; }
-.tl-title img { width: 30px; height: 30px; object-fit: contain; }
 .tl-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
