@@ -37,7 +37,11 @@
 .tl-step { height: 34px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .tl-btn:disabled { opacity: 0.35; cursor: default; }
 .tl-btn:disabled:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.14); }
-.tl-range { min-width: 15em; text-align: center; font-weight: 600; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+.tl-range { min-width: 16em; display: flex; flex-direction: column; align-items: center; line-height: 1.2; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.tl-range > :only-child { font-weight: 600; font-size: 0.95rem; }
+.tl-era-name { font-weight: 700; font-size: 1rem; }
+.tl-step { max-width: 16em; overflow: hidden; text-overflow: ellipsis; }
+.tl-presets .chip.active { background: rgba(122, 167, 255, 0.22); border-color: rgba(142, 197, 255, 0.6); color: #fff; }
 
 /* The shared search box, placed in the header instead of floating over the globe. */
 .timeline-page .search { position: relative; top: auto; left: auto; transform: none; width: min(380px, 40vw); }
@@ -248,8 +252,8 @@
   .timeline-page .search { width: 100%; order: 3; }
   .tl-hint { display: none; }
   .tl-nav { flex-wrap: wrap; gap: 6px; }
-  .tl-step-text { display: none; }
-  .tl-step { flex: 1; }
+  .tl-step { flex: 1; min-width: 0; font-size: 0.82rem; }
+  .tl-presets { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .tl-range { order: -1; flex-basis: 100%; min-width: 0; font-size: 0.9rem; }
   .tl-zoom { margin-left: 0; }
   .tl-overview-label { display: none; }

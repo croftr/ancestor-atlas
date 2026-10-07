@@ -2,10 +2,9 @@ import { describe, expect, it } from "vitest";
 import type { Entity } from "../types";
 import {
   AXIS_END,
-  CHUNK,
-  canStepChunk,
-  chunkWindow,
-  stepChunk,
+  eraIndexOf,
+  resolveEras,
+  stepEra,
   MIN_SPAN,
   buildRows,
   clampWindow,
@@ -101,27 +100,37 @@ describe("rows", () => {
   });
 });
 
-describe("10,000-year chunks", () => {
-  it("starts with the last chunk and steps a whole chunk at a time", () => {
-    const c0 = chunkWindow(0);
-    expect(c0).toEqual({ start: -9_999, end: 1 });
-    expect(c0.end - c0.start).toBe(CHUNK);
-    expect(stepChunk(c0, -1, MIN)).toEqual(chunkWindow(1));
-    expect(stepChunk(chunkWindow(1), 1, MIN)).toEqual(c0);
-    expect(canStepChunk(c0, 1, MIN)).toBe(false);
-    expect(canStepChunk(c0, -1, MIN)).toBe(true);
+describe("eras", () => {
+  const eras = resolveEras(
+    [
+      { label: "Deep", start: null },
+      { label: "Late Ice Age", start: -49_999 },
+      { label: "Neolithic", start: -9_999 },
+      { label: "Civilizations", start: -3_499 },
+    ],
+    MIN,
+  );
+  const win = (i: number) => ({ start: eras[i].start, end: eras[i].end });
+
+  it("are contiguous from the axis start to 1 CE", () => {
+    expect(eras[0].start).toBe(MIN);
+    expect(eras.at(-1)!.end).toBe(AXIS_END);
+    for (let i = 1; i < eras.length; i++) expect(eras[i].start).toBe(eras[i - 1].end);
   });
 
-  it("snaps a zoomed view to the neighbouring chunk", () => {
-    // 3,500 BCE – 1 CE sits in chunk 0: earlier goes to chunk 1, later re-aligns to chunk 0.
-    const civ = { start: -3_499, end: 1 };
-    expect(stepChunk(civ, -1, MIN)).toEqual(chunkWindow(1));
-    expect(stepChunk(civ, 1, MIN)).toEqual(chunkWindow(0));
+  it("step to the neighbouring era and stop at the ends", () => {
+    expect(stepEra(eras, win(3), -1)?.label).toBe("Neolithic");
+    expect(stepEra(eras, win(2), 1)?.label).toBe("Civilizations");
+    expect(stepEra(eras, win(3), 1)).toBeNull();
+    expect(stepEra(eras, win(0), -1)).toBeNull();
   });
 
-  it("stops at the start of the axis", () => {
-    const first = stepChunk({ start: MIN, end: MIN + 5_000 }, -1, MIN);
-    expect(first.start).toBe(MIN);
-    expect(canStepChunk(first, -1, MIN)).toBe(false);
+  it("work from any zoom", () => {
+    // Zoomed into 2,000-1,000 BCE (inside Civilizations): Earlier goes to Neolithic, Later snaps
+    // to the whole Civilizations era.
+    const zoomed = { start: -1_999, end: -999 };
+    expect(eraIndexOf(eras, zoomed)).toBe(3);
+    expect(stepEra(eras, zoomed, -1)?.label).toBe("Neolithic");
+    expect(stepEra(eras, zoomed, 1)?.label).toBe("Civilizations");
   });
 });

@@ -50,39 +50,49 @@ export function fitWindow(start: number, end: number, min: number, margin = 0.06
   return clampWindow({ start: start - span * margin, end: end + span * margin }, min);
 }
 
-// ---- Fixed chunks ------------------------------------------------------------------------------
+// ---- Eras ---------------------------------------------------------------------------------------
 
-/** Width of the step-through chunks: chunk 0 is 10,000 BCE – 1 CE, chunk 1 the 10,000 years before. */
-export const CHUNK = 10_000;
-
-export const chunkWindow = (k: number): Window => ({ start: AXIS_END - CHUNK * (k + 1), end: AXIS_END - CHUNK * k });
-
-/** The chunk containing the middle of the window. */
-export function chunkIndexOf(w: Window): number {
-  const yearsBack = AXIS_END - (w.start + w.end) / 2;
-  return Math.max(0, Math.floor(yearsBack / CHUNK));
+export interface Era {
+  label: string;
+  start: number;
+  end: number;
 }
 
-/** Last chunk that still reaches back into the axis. */
-export const lastChunk = (min: number) => Math.max(0, Math.ceil((AXIS_END - min) / CHUNK) - 1);
+/** Contiguous eras from their start years (oldest first); `null` start means the axis start. */
+export function resolveEras(defs: { label: string; start: number | null }[], min: number): Era[] {
+  return defs.map((d, i) => ({
+    label: d.label,
+    start: d.start ?? min,
+    end: i + 1 < defs.length ? (defs[i + 1].start as number) : AXIS_END,
+  }));
+}
+
+/** Index of the era containing the middle of the window. */
+export function eraIndexOf(eras: Era[], w: Window): number {
+  const mid = (w.start + w.end) / 2;
+  const i = eras.findIndex((e) => mid < e.end);
+  return i < 0 ? eras.length - 1 : i;
+}
+
+/** The window shows exactly this era (to within a year). */
+export const isEraWindow = (era: Era, w: Window) =>
+  Math.abs(era.start - w.start) < 1 && Math.abs(era.end - w.end) < 1;
 
 /**
- * The chunk before (dir -1, earlier) or after (dir 1, later) the one the window is in. Whatever the
- * zoom, stepping lands on a whole chunk.
+ * Era the Earlier (-1) / Later (1) button goes to: the neighbour of the era the window is in.
+ * From a zoomed-in view at either end it first snaps to that end's era. Null when there is
+ * nowhere further to go.
  */
-export function stepChunk(w: Window, dir: 1 | -1, min: number): Window {
-  const k = Math.min(lastChunk(min), Math.max(0, chunkIndexOf(w) - dir));
-  return clampWindow(chunkWindow(k), min);
+export function stepEra(eras: Era[], w: Window, dir: 1 | -1): Era | null {
+  const k = eraIndexOf(eras, w);
+  const target = Math.min(eras.length - 1, Math.max(0, k + dir));
+  return isEraWindow(eras[target], w) ? null : eras[target];
 }
 
-/** Whether stepping that way would change the view. */
-export function canStepChunk(w: Window, dir: 1 | -1, min: number): boolean {
-  const next = stepChunk(w, dir, min);
-  return Math.abs(next.start - w.start) > 0.5 || Math.abs(next.end - w.end) > 0.5;
-}
-
+/** Overlaps the window by more than a touch (an entity ending exactly at an era boundary is not in the next era). */
 export const overlaps = (e: { start_year: number; end_year: number }, w: Window) =>
-  e.start_year <= w.end && e.end_year >= w.start;
+  // Something that only begins at 1 CE, where the axis ends, still shows in the last era.
+  (e.start_year < w.end || (w.end >= AXIS_END && e.start_year >= AXIS_END)) && e.end_year > w.start;
 
 // ---- Axis ticks ---------------------------------------------------------------------------------
 

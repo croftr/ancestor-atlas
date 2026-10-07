@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "../store";
-import { CATEGORY_STYLE } from "../config";
+import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
 import { useData } from "../map/data";
 import { navigate, takePendingFocus } from "../route";
 import { POS_BREAKS, formatRange, formatYear, posToYear, yearToPos } from "../time/scale";
@@ -9,11 +9,11 @@ import InfoPanel from "../ui/InfoPanel";
 import SearchBox from "../ui/SearchBox";
 import {
   AXIS_END,
-  CHUNK,
   aliveAt,
-  canStepChunk,
-  chunkWindow,
-  stepChunk,
+  eraIndexOf,
+  isEraWindow,
+  resolveEras,
+  stepEra,
   axisStart,
   buildRows,
   clampWindow,
@@ -36,15 +36,6 @@ import "./timeline.css";
 const SQUASH_PX = 36;
 const OVERVIEW_TICKS = ["10 Ma", "1 Ma", "100 ka", "10,000 BCE", "3,000 BCE", "1 CE"];
 
-/** Zoom presets, as [start, end] in astronomical years. `null` start means the whole axis. */
-const PRESETS: { label: string; start: number | null; end: number }[] = [
-  { label: "All 7 million years", start: null, end: AXIS_END },
-  { label: "Last 3 million", start: -3_000_000, end: AXIS_END },
-  { label: "Last 500,000", start: -500_000, end: AXIS_END },
-  { label: "Last 50,000", start: -50_000, end: AXIS_END },
-  { label: "Last 10,000", start: AXIS_END - CHUNK, end: AXIS_END },
-  { label: "Civilizations", start: -3_600, end: AXIS_END },
-];
 
 // Kept between visits so going to the globe and back returns to the same view.
 let savedWindow: Window | null = null;
@@ -60,7 +51,13 @@ export default function TimelinePage() {
   const extents = useMemo(() => (entities ? laneExtents(entities) : new Map()), [entities]);
 
   // Opens on the most recent 10,000 years; the back/forward buttons step through 10,000 at a time.
-  const [win, setWinState] = useState<Window>(() => savedWindow ?? chunkWindow(0));
+  const eras = useMemo(() => resolveEras(TIMELINE_ERAS, min), [min]);
+  // Opens on the most recent era (Civilizations); Earlier / Later step from era to era.
+  const [win, setWinState] = useState<Window>(() => {
+    if (savedWindow) return savedWindow;
+    const last = resolveEras(TIMELINE_ERAS, -7_500_000).at(-1)!;
+    return { start: last.start, end: last.end };
+  });
   const winRef = useRef(win);
   const setWin = useCallback((w: Window) => {
     winRef.current = w;
@@ -182,8 +179,10 @@ export default function TimelinePage() {
       const w = winRef.current;
       if (e.key === "+" || e.key === "=") zoomBy(0.6);
       else if (e.key === "-" || e.key === "_") zoomBy(1 / 0.6);
-      else if (e.key === "ArrowLeft" && e.shiftKey) setWin(stepChunk(w, -1, min));
-      else if (e.key === "ArrowRight" && e.shiftKey) setWin(stepChunk(w, 1, min));
+      else if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && e.shiftKey) {
+        const era = stepEra(eras, w, e.key === "ArrowLeft" ? -1 : 1);
+        if (era) setWin({ start: era.start, end: era.end });
+      }
       else if (e.key === "ArrowLeft") setWin(panWindow(w, -(w.end - w.start) * 0.15, min));
       else if (e.key === "ArrowRight") setWin(panWindow(w, (w.end - w.start) * 0.15, min));
       else return;
@@ -191,7 +190,7 @@ export default function TimelinePage() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [zoomBy, min, setWin]);
+  }, [zoomBy, min, setWin, eras]);
 
   // Drag on the chart to pan. A drag must not also count as a click on the bar under it.
   const drag = useRef<{ x: number; w: Window; moved: boolean; id: number } | null>(null);
@@ -385,6 +384,11 @@ export default function TimelinePage() {
   };
 
   const hoverX = hoverYear !== null ? x(hoverYear) : null;
+  const eraIdx = eraIndexOf(eras, win);
+  const currentEra = eras[eraIdx];
+  const onEra = isEraWindow(currentEra, win);
+  const earlier = stepEra(eras, win, -1);
+  const later = stepEra(eras, win, 1);
 
   return (
     <div className={`timeline-page${selectedEntityId ? " has-card" : ""}`}>
@@ -402,22 +406,23 @@ export default function TimelinePage() {
       <nav className="tl-nav" aria-label="Move through time">
         <button
           className="tl-btn tl-step"
-          onClick={() => setWin(stepChunk(win, -1, min))}
-          disabled={!canStepChunk(win, -1, min)}
-          title="Earlier 10,000 years (Shift + ←)"
+          onClick={() => earlier && setWin({ start: earlier.start, end: earlier.end })}
+          disabled={!earlier}
+          title={earlier ? `${earlier.label}: ${formatRange(earlier.start, earlier.end)} (Shift + ←)` : undefined}
         >
-          ‹ <span className="tl-step-text">Earlier </span>10,000 yrs
+          ‹ <span className="tl-step-text">{earlier?.label ?? "Earlier"}</span>
         </button>
         <div className="tl-range" aria-live="polite">
-          {formatRange(Math.round(win.start), Math.round(win.end))}
+          {onEra && <span className="tl-era-name">{currentEra.label}</span>}
+          <span className={onEra ? "muted" : ""}>{formatRange(Math.round(win.start), Math.round(win.end))}</span>
         </div>
         <button
           className="tl-btn tl-step"
-          onClick={() => setWin(stepChunk(win, 1, min))}
-          disabled={!canStepChunk(win, 1, min)}
-          title="Later 10,000 years (Shift + →)"
+          onClick={() => later && setWin({ start: later.start, end: later.end })}
+          disabled={!later}
+          title={later ? `${later.label}: ${formatRange(later.start, later.end)} (Shift + →)` : undefined}
         >
-          <span className="tl-step-text">Later </span>10,000 yrs ›
+          <span className="tl-step-text">{later?.label ?? "Later"}</span> ›
         </button>
         <div className="tl-zoom">
           <button className="tl-btn square" onClick={() => zoomBy(1 / 0.6)} title="Zoom out ( - )" aria-label="Zoom out">−</button>
@@ -425,17 +430,22 @@ export default function TimelinePage() {
         </div>
       </nav>
 
-      <div className="tl-presets">
-        {PRESETS.map((p) => (
+      <div className="tl-presets" role="group" aria-label="Eras">
+        {eras.map((era, i) => (
           <button
-            key={p.label}
-            className="chip"
-            onClick={() => setWin(clampWindow({ start: p.start ?? min, end: p.end }, min))}
+            key={era.label}
+            className={`chip${i === eraIdx ? " active" : ""}`}
+            aria-pressed={i === eraIdx && onEra}
+            onClick={() => setWin({ start: era.start, end: era.end })}
+            title={formatRange(era.start, era.end)}
           >
-            {p.label}
+            {era.label}
           </button>
         ))}
-        <span className="tl-hint muted">Ctrl/⌘ + scroll or pinch to zoom · drag or Shift + scroll to pan · Shift + ←/→ steps 10,000 years · double-click a bar to fit</span>
+        <button className="chip" onClick={() => setWin({ start: min, end: AXIS_END })}>
+          All 7 million years
+        </button>
+        <span className="tl-hint muted">Ctrl/⌘ + scroll or pinch to zoom · drag or Shift + scroll to pan · Shift + ←/→ changes era · double-click a bar to fit</span>
       </div>
 
       <Overview entities={entities} win={win} min={min} onWindow={setWin} />
