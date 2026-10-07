@@ -6,6 +6,7 @@ import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
+import { navigate, type View } from "../route";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -27,8 +28,9 @@ const RefList = ({ title, items }: { title: string; items: string[] }) =>
 const Swatch = ({ color }: { color?: string }) =>
   color ? <span className="swatch" style={{ background: color, borderRadius: 2 }} /> : null;
 
-export default function InfoPanel() {
+export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const data = useData();
+  const focusEntity = useStore((s) => s.focusEntity);
   const selectedId = useStore((s) => s.selectedId);
   const groupId = useStore((s) => s.groupId);
   const hits = useStore((s) => s.hits);
@@ -90,6 +92,23 @@ export default function InfoPanel() {
       )}
       <h2>{entity.name}</h2>
       <div className="muted">{formatRange(entity.start_year, entity.end_year)}</div>
+      <div className="view-link">
+        {view === "timeline" ? (
+          <button
+            className="link"
+            onClick={() => {
+              focusEntity(entity.id);
+              navigate("globe");
+            }}
+          >
+            Show on globe →
+          </button>
+        ) : (
+          <button className="link" onClick={() => navigate("timeline", entity.id)}>
+            See on timeline →
+          </button>
+        )}
+      </div>
       {feature && siblings.length > 1 && (
         <div className="feature-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>
           <button
