@@ -281,6 +281,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_luzonensis
   source_ids:
     - recall
+  image_url: /images/species/homo-luzonensis.webp
+  image_credit: AI-generated illustration, not a scientific reconstruction
 - id: homo-naledi
   name: Homo naledi
   category: species

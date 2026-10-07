@@ -236,7 +236,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .info-panel .close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 1rem; }
 .badge { display: inline-block; color: #111; font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
 .also { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-.time-slider { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: calc(100% - 24px); max-width: 1100px; }
+.time-slider { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 120px), 1100px); }
 .year-readout { font-size: 1.8rem; font-weight: 600; }
 .controls { display: flex; gap: 8px; justify-content: center; margin: 6px 0; }
 .controls button { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 4px 12px; }
@@ -279,9 +279,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .conf-medium { color: #e0c050; }
 .conf-low { color: #ee7b6b; }
 
-.settings { position: absolute; top: 12px; right: 12px; z-index: 5; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-.maplibregl-ctrl-top-right { top: 56px; }
-.maplibregl-ctrl-top-right .maplibregl-ctrl { margin: 0 15.5px 0 0; }
+.settings { position: absolute; bottom: 12px; left: 12px; z-index: 10; display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
 .settings-toggle { width: 36px; height: 36px; padding: 0; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
 .settings-panel { width: 240px; }
 .settings-panel h2 { margin: 0 0 10px; font-size: 1rem; }

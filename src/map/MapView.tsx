@@ -46,7 +46,6 @@ export default function MapView() {
         ],
       },
     });
-    map.addControl(new maplibregl.NavigationControl(), "top-right");
     // Fallback if the style-level projection is rejected.
     map.on("style.load", () => {
       try {
