@@ -827,12 +827,27 @@
 - id: early-dynastic-period-of-egypt
   image_url: /images/civilisations/early-dynastic-egypt.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=98wiu5DEABU
+      title: "The Early Dynastic Period: A Complete Overview (3150 BC–2686 BC)"
+      credit: Made In History, YouTube
 - id: old-kingdom-of-egypt
   image_url: /images/civilisations/old-kingdom.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vMieWZwJpDE
+      title: "The Old Kingdom: A Complete Overview (2686 BC–2181 BC)"
+      credit: Made In History, YouTube
 - id: middle-kingdom-of-egypt
   image_url: /images/civilisations/middle-kingdom.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=8OrAJdwJ9sI
+      title: "Ancient Egypt Part 2: The Middle Kingdom (2000 – 1500 BCE)"
+      credit: Professor Dave Explains, YouTube
 - id: hyksos
   image_url: /images/civilisations/hyksos.webp
   image_credit: AI-generated illustration
@@ -844,6 +859,11 @@
 - id: new-kingdom-of-egypt
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ObCKrypZC68
+      title: "New Kingdom Egypt: A Complete Overview From Ahmose to Ramesses"
+      credit: Made In History, YouTube
 - id: indus-valley-civilization
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
@@ -1419,3 +1439,64 @@
       src: https://www.youtube.com/watch?v=aV6ZZZsCjK8
       title: "Teotihuacan: Where One Becomes a God"
       credit: Ancient Americas, YouTube
+# Batch 4A: Egypt Dynasties and Kingdoms
+- id: lower-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mXa7633esMw
+      title: "The Surprising Story of Egypt's Two Kingdoms!"
+      credit: Legacy African History, YouTube
+- id: upper-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=L38wNoFWbAk
+      title: "Egypt's Secret Unification: The Story They Don't Teach"
+      credit: Legacy African History, YouTube
+- id: fifteenth-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=4M4YiyhzMgs
+      title: "Hyksos: The Mysterious ,,Foreign Kings'' of Egypt"
+      credit: Genetic Journeys, YouTube
+- id: sixteenth-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vPU_KAI-LI4
+      title: "The Second Intermediate Period: A Complete Overview (1700–1550 BC)"
+      credit: Made In History, YouTube
+- id: seventeenth-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xbxyxqU7gPo
+      title: "Seqenenre Tao (1558-1554 BC)"
+      credit: DW World History, YouTube
+- id: twenty-second-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=z2qqKTeWcfY
+      title: "History of Ancient Egypt: Dynasties XXII & XXIII - Shoshenq I, the Canaanite Campaign and Civil War"
+      credit: History with Cy, YouTube
+- id: twenty-third-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Vyo7RmOgk2k
+      title: "The Third Intermediate Period: A Complete Overview (1077 BC – 744 BC)"
+      credit: Made In History, YouTube
+- id: twenty-sixth-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=uki9rNwoRzk
+      title: "History of Ancient Egypt: Dynasty XXVI - Egypt's Last Great Pharaohs and the Saite Period"
+      credit: History with Cy, YouTube
+- id: thirtieth-dynasty-of-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=eojRsK7dFhM
+      title: "The Last Native Pharaoh – Nectanebo II"
+      credit: DW World History, YouTube
+- id: ankhwennefer
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=D2m9Tk8pgpo
+      title: "087: Ptolemaic Egypt - The Great Revolt"
+      credit: The Hellenistic Age History Podcast, YouTube
