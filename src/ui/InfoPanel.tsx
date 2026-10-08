@@ -10,6 +10,7 @@ import { navigate, type View } from "../route";
 import "./events.css";
 import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";
+import { useMediaQuery } from "./useMediaQuery";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -44,21 +45,23 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
 
   // A picture that failed to load (a stand-in not added yet) is left out.
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
-  // Small screens: the card can shrink to its title (and site stepper) to give the globe room.
+  // Small screens: the card can shrink to give the page room: on the globe to its title (and
+  // site stepper), on the timeline (where the expanded card fills the screen) to a thumbnail.
   const [minimised, setMinimised] = useState(false);
+  const stacked = useMediaQuery(STACKED_QUERY);
   // Small screens: the card sits above the globe in a scrolling column. When the selection
   // changes while the card is scrolled out of view (say, after tapping the globe below it),
   // bring the card's top back into view.
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = cardRef.current;
-    if (!el || !window.matchMedia?.(STACKED_QUERY).matches) return;
+    if (!el || view !== "globe" || !window.matchMedia?.(STACKED_QUERY).matches) return;
     const top = el.getBoundingClientRect().top;
     if (top < 56 || top > window.innerHeight * 0.6) {
       const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       el.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
     }
-  }, [selectedId, groupId]);
+  }, [selectedId, groupId, view]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") useStore.getState().select(null);
@@ -114,17 +117,47 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
+  // Timeline on a small screen, shrunk: a thumbnail of the picture over the chart; tap to expand.
+  if (view === "timeline" && stacked && minimised) {
+    const thumb = isEvent ? entity.image_url : picture?.url;
+    const showThumb = thumb && brokenImage !== thumb;
+    return (
+      <div className={`panel info-thumb${isEvent ? " square" : ""}`}>
+        <button className="info-thumb-open" onClick={() => setMinimised(false)} aria-label={`Open card: ${entity.name}`} title="Open card">
+          <span className="info-thumb-media" style={showThumb ? undefined : { background: entity.color ?? style.color }}>
+            {showThumb && <img src={thumb} alt="" onError={() => setBrokenImage(thumb)} />}
+            <svg className="info-thumb-expand" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+              <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span className="info-thumb-name">{entity.name}</span>
+        </button>
+        <button className="info-thumb-close" onClick={() => select(null)} aria-label="Close card">✕</button>
+      </div>
+    );
+  }
+  const shrinkToThumb = view === "timeline";
+
   return (
     <div ref={cardRef} className={`panel info-panel${minimised ? " minimised" : ""}`}>
       <button
         className="info-min"
         onClick={() => setMinimised((m) => !m)}
         aria-expanded={!minimised}
-        aria-label={minimised ? "Show full card" : "Minimise card"}
-        title={minimised ? "Show full card" : "Minimise card"}
+        aria-label={shrinkToThumb ? "Shrink card" : minimised ? "Show full card" : "Minimise card"}
+        title={shrinkToThumb ? "Shrink card" : minimised ? "Show full card" : "Minimise card"}
       >
         <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
-          <path d={minimised ? "M2.5 4.5 6 8l3.5-3.5" : "M2.5 7.5 6 4l3.5 3.5"} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d={
+              shrinkToThumb
+                ? "M10.5 1.5 7 5M7 1.5V5h3.5M1.5 10.5 5 7M5 10.5V7H1.5" // arrows pointing inward
+                : minimised
+                  ? "M2.5 4.5 6 8l3.5-3.5"
+                  : "M2.5 7.5 6 4l3.5 3.5"
+            }
+            fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
+          />
         </svg>
       </button>
       <button className="close" onClick={() => select(null)} aria-label="Close">✕</button>

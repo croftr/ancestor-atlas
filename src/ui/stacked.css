@@ -164,6 +164,110 @@
   .app.view-globe.has-card .time-slider .chips { display: none; }
 }
 
+/*
+ * Timeline page on small screens: the info card fills the screen above the chart, or shrinks to
+ * a thumbnail of its picture in the corner (tap to expand again).
+ */
+@media (max-width: 900px) {
+  .timeline-page .info-panel {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    max-height: none;
+    z-index: 50;
+    border: none;
+    border-radius: 0;
+    padding: 14px 16px 24px calc(var(--nav-w) + 16px);
+    background: #0d1424;
+    backdrop-filter: none;
+    overscroll-behavior: contain;
+  }
+  /* Its own buttons are the way out; the menu button would sit on the card's text. */
+  .app:has(.timeline-page .info-panel) .nav-menu-btn { display: none; }
+  .timeline-page .info-head { padding-right: 84px; }
+  .timeline-page .info-head h2 { font-size: 1.3rem; }
+  .timeline-page .info-panel .close,
+  .timeline-page .info-min {
+    position: absolute;
+    top: 10px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+  }
+  .timeline-page .info-panel .close { right: 10px; font-size: 1.05rem; }
+  .timeline-page .info-min { right: 54px; display: grid; place-items: center; color: #cbd3e6; }
+  .timeline-page .info-min svg { width: 15px; height: 15px; }
+  .timeline-page .info-media,
+  .timeline-page .info-panel .ev-img { max-width: 560px; margin-inline: auto; }
+
+  /* Shrunk: a thumbnail floating over the chart. */
+  .info-thumb {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 30;
+    width: 128px;
+    padding: 6px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    background: rgba(13, 20, 36, 0.96);
+  }
+  .info-thumb-open {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: left;
+  }
+  .info-thumb-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+  }
+  .info-thumb.square .info-thumb-media { aspect-ratio: 1; } /* events: square, never cropped */
+  .info-thumb-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .info-thumb-expand {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 4px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+  }
+  .info-thumb-name {
+    display: block;
+    margin: 5px 2px 1px;
+    font-size: 0.78rem;
+    line-height: 1.25;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .info-thumb-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #1a2338;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  .info-thumb-open:focus-visible, .info-thumb-close:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+}
+
 /* Phones: the rail is a drawer, and its menu button sits beside the search. */
 @media (max-width: 700px) {
   .app.view-globe .nav-menu-btn { top: 8px; bottom: auto; left: 8px; width: 40px; height: 40px; border-radius: 10px; }
