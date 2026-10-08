@@ -45,6 +45,16 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
   `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile. Videos, later, are to be
   hosted outside the repo (embed or external URL), not committed.
 
+## Civilization regions
+
+- Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points
+  inside each Cliopatria territory map are placed by country-coder in a UN M49 subregion (renamed and merged for the
+  ancient world; Iran and Afghanistan go with Central Asia), weighted by area and years covered. Groups combine
+  their members. The build lists civilizations with under half their territory in one region (now Greek Colonies,
+  Macedonian Empire, Roman Empire).
+- A `region` in `entities.yaml` overrides the computed one and must be one of the names in `REGIONS`.
+- Used by the Civilizations page (`#/civilizations`, `src/browse/`) for region chips and sections.
+
 ## Pictures
 
 - Species and civilizations: 4:3 (1200x900 WebP), shown in a 4:3 frame; events: square (see above). Every picture needs

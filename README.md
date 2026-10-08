@@ -107,6 +107,7 @@ npm test                  # Run automated test suites (Vitest)
   - `sources.json`: Academic bibliography and attribution records.
 - **Curated inputs (`data/curated/`)**:
   - `entities.yaml`: Descriptions, parent-child relationships, color schemes.
+    A civilization's `region` is worked out at build time from its Cliopatria territory maps (where most of the territory lay, weighted by area and years, using UN M49 subregions; see `scripts/lib/regions.ts`); setting `region` here overrides it.
   - `sources.yaml`: Attribution records and licensing metadata.
   - `*-sites.csv`: Discovery sites with provenance coordinates and dating sources.
   - `culture-labels.csv` / `culture-windows.csv`: Which XRONOS labels map to which culture, and each culture's sourced date range.

@@ -15,12 +15,14 @@ type Sort = "date" | "name";
 /** Millennium BCE a year falls in (1 = 1st millennium BCE; CE years count as the 1st). */
 const millenniumOf = (year: number) => Math.max(1, Math.ceil((1 - year) / 1000));
 const ordinal = (n: number) => `${n}${n % 10 === 1 && n % 100 !== 11 ? "st" : n % 10 === 2 && n % 100 !== 12 ? "nd" : n % 10 === 3 && n % 100 !== 13 ? "rd" : "th"}`;
+const NO_REGION = "Region not set";
 const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 
 /**
  * Civilizations page (#/civilizations): the groups (Ancient Egypt, Ancient China...) as sections
- * that open to list their periods, then every other civilization in one list. Search, sort and a
- * filter by the millennium each began in apply to both. Each row has a bar on a shared time axis.
+ * that open to list their periods, then every other civilization by region. Search, sort, region
+ * chips and a filter by the millennium each began in apply to both. Each row has a bar on a shared
+ * time axis.
  */
 export default function CivilizationsPage() {
   const data = useData();
@@ -28,6 +30,7 @@ export default function CivilizationsPage() {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<Sort>("date");
   const [millennium, setMillennium] = useState<number | null>(null);
+  const [region, setRegion] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   const civs = useMemo(() => (data?.entities ?? []).filter((e) => e.category === "civilization"), [data]);
@@ -42,13 +45,24 @@ export default function CivilizationsPage() {
     for (const e of singles) m.set(millenniumOf(e.start_year), (m.get(millenniumOf(e.start_year)) ?? 0) + 1);
     return [...m.entries()].sort((a, b) => b[0] - a[0]);
   }, [singles]);
+  // Regions in the order they first appear in time, with how many civilizations each has.
+  const regions = useMemo(() => {
+    const m = new Map<string, { first: number; n: number }>();
+    for (const e of singles) {
+      const r = e.region ?? NO_REGION;
+      const v = m.get(r) ?? { first: Infinity, n: 0 };
+      m.set(r, { first: Math.min(v.first, e.start_year), n: v.n + 1 });
+    }
+    return [...m.entries()].sort((a, b) => a[1].first - b[1].first).map(([name, v]) => ({ name, n: v.n }));
+  }, [singles]);
 
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
 
   const q = fold(query.trim());
-  const filtering = q !== "" || millennium !== null;
+  const filtering = q !== "" || millennium !== null || region !== null;
   const cmp = sort === "date" ? (a: Entity, b: Entity) => a.start_year - b.start_year || a.end_year - b.end_year : (a: Entity, b: Entity) => a.name.localeCompare(b.name);
-  const inMillennium = (e: Entity) => millennium === null || millenniumOf(e.start_year) === millennium;
+  const inMillennium = (e: Entity) =>
+    (millennium === null || millenniumOf(e.start_year) === millennium) && (region === null || (e.region ?? NO_REGION) === region);
   const matches = (e: Entity) => inMillennium(e) && (q === "" || fold(e.name).includes(q));
 
   const groupRows = groups
@@ -60,6 +74,9 @@ export default function CivilizationsPage() {
     })
     .filter((r) => !filtering || r.members.length > 0);
   const others = singles.filter((e) => !e.parent_id && matches(e)).sort(cmp);
+  const othersByRegion = regions
+    .map(({ name }) => ({ name, list: others.filter((e) => (e.region ?? NO_REGION) === name) }))
+    .filter((r) => r.list.length > 0);
   const visible = [...groupRows.flatMap((r) => r.members), ...others].sort(cmp);
   const total = singles.length;
 
@@ -95,14 +112,25 @@ export default function CivilizationsPage() {
             <button className={`chip${sort === "date" ? " active" : ""}`} aria-pressed={sort === "date"} onClick={() => setSort("date")}>By date</button>
             <button className={`chip${sort === "name" ? " active" : ""}`} aria-pressed={sort === "name"} onClick={() => setSort("name")}>A–Z</button>
           </div>
+          <select
+            className="cv-select"
+            aria-label="When they began"
+            value={millennium ?? ""}
+            onChange={(e) => setMillennium(e.target.value === "" ? null : Number(e.target.value))}
+          >
+            <option value="">Began any time</option>
+            {millennia.map(([m, n]) => (
+              <option key={m} value={m}>Began {ordinal(m)} millennium BCE ({n})</option>
+            ))}
+          </select>
         </div>
-        <div className="ev-filters" role="group" aria-label="Filter by when they began">
-          <button className={`chip${millennium === null ? " active" : ""}`} aria-pressed={millennium === null} onClick={() => setMillennium(null)}>
-            Any start
+        <div className="ev-filters" role="group" aria-label="Filter by region">
+          <button className={`chip${region === null ? " active" : ""}`} aria-pressed={region === null} onClick={() => setRegion(null)}>
+            All regions
           </button>
-          {millennia.map(([m, n]) => (
-            <button key={m} className={`chip${millennium === m ? " active" : ""}`} aria-pressed={millennium === m} onClick={() => setMillennium(millennium === m ? null : m)}>
-              Began {ordinal(m)} mill. BCE <span className="ev-chip-count">{n}</span>
+          {regions.map(({ name, n }) => (
+            <button key={name} className={`chip${region === name ? " active" : ""}`} aria-pressed={region === name} onClick={() => setRegion(region === name ? null : name)}>
+              {name} <span className="ev-chip-count">{n}</span>
             </button>
           ))}
         </div>
@@ -128,6 +156,7 @@ export default function CivilizationsPage() {
                           <span className="muted">{formatRange(group.start_year, group.end_year)}</span>
                           <span className="muted">
                             {filtering && members.length !== all.length ? `${members.length} of ${all.length}` : all.length} periods
+                            {group.region && <> · {group.region}</>}
                           </span>
                         </span>
                         {!filtering && <span className="cv-chevron" aria-hidden>▾</span>}
@@ -141,17 +170,27 @@ export default function CivilizationsPage() {
             </ul>
           </section>
         )}
-        {others.length > 0 && (
+        {othersByRegion.length > 0 && (
           <section className="cv-section">
             <h2>{groupRows.length ? "Other civilizations" : "Civilizations"} <span className="muted">{others.length}</span></h2>
-            <Rows list={others} axis={axis} />
+            {othersByRegion.map(({ name, list }) => (
+              <div key={name} className="cv-region">
+                <h3>{name} <span className="muted">{list.length}</span></h3>
+                <Rows list={list} axis={axis} />
+              </div>
+            ))}
           </section>
         )}
         {visible.length === 0 && <p className="muted cv-empty">No civilizations match.</p>}
       </main>
 
       {open && open.category === "civilization" && (
-        <EntityDetail entity={open} order={order} page="civilizations" kicker={open.group ? "Group of civilizations" : undefined} />
+        <EntityDetail
+          entity={open}
+          order={order}
+          page="civilizations"
+          kicker={[open.group ? "Group of civilizations" : CATEGORY_STYLE.civilization.label.replace(/s$/, ""), open.region].filter(Boolean).join(" · ")}
+        />
       )}
     </div>
   );

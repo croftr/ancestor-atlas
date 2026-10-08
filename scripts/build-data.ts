@@ -9,6 +9,7 @@ import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
 import { distanceKm } from "./lib/qa.ts";
+import { addAreas, regionAreas, REGIONS, topRegion } from "./lib/regions.ts";
 
 const OUT = "public/data";
 const CURATED = "data/curated";
@@ -310,6 +311,35 @@ for (const e of entities.values()) {
   e.color = color;
   for (const f of featuresOf.get(e.id) ?? []) Object.assign(f.props, { color, line_color });
 }
+
+// ---------- regions ----------
+// Civilizations: where most of the territory lay over the whole history (scripts/lib/regions.ts),
+// unless entities.yaml sets `region`. Groups take the combined territory of their members.
+const civRegionAreas = new Map<string, Map<string, number>>();
+for (const f of features) {
+  if (f.props.category !== "civilization") continue;
+  const areas = civRegionAreas.get(f.props.entity_id) ?? civRegionAreas.set(f.props.entity_id, new Map()).get(f.props.entity_id)!;
+  addAreas(areas, regionAreas(f.geometry), Math.max(1, f.props.end_year - f.props.start_year + 1));
+}
+const mixedRegions: string[] = [];
+for (const e of entities.values()) {
+  if (e.category !== "civilization") continue;
+  if (e.region) {
+    if (!REGIONS.includes(e.region)) fail(`entities.yaml: ${e.id} has unknown region "${e.region}" (one of: ${REGIONS.join(", ")})`);
+    continue;
+  }
+  const areas = new Map<string, number>();
+  for (const id of e.group ? (children.get(e.id) ?? []).map((k) => k.id) : [e.id]) addAreas(areas, civRegionAreas.get(id) ?? new Map());
+  const top = topRegion(areas);
+  if (!top) {
+    console.warn(`! ${e.id}: no region (territory all at sea or unmapped); set region in entities.yaml`);
+    continue;
+  }
+  e.region = top.region;
+  if (top.share < 0.5) mixedRegions.push(`${e.name} (${Math.round(top.share * 100)}% ${top.region})`);
+}
+if (mixedRegions.length)
+  console.log(`  ${mixedRegions.length} civilizations have under half their territory in one region: ${mixedRegions.join("; ")}`);
 
 // ---------- spans ----------
 // Species/culture spans must cover every site window (bulk sources can extend what the curated rows give).
