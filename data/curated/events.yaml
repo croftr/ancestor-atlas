@@ -17,6 +17,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Human_evolution
   image_url: /images/events/divergence-hominin-lineage.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=DZv8VyIQ7YU", title: "Seven million years of human evolution", credit: "American Museum of Natural History, YouTube" }
   date_source: wikipedia:Human_evolution@1379042225
   places:
     - { label: Toros-Menalla, lat: 16.2417, lon: 17.475, wikidata: Q56435888 }
@@ -31,6 +33,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwi
   image_url: /images/events/earliest-stone-tools.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=NhM-2P93hoI", title: "The oldest archaeological site in the world", credit: "Stefan Milo, YouTube" }
   date_source: wikipedia:Lomekwi@1378607817
   places:
     - { label: Lomekwi 3, lat: 3.91083, lon: 35.8503, wikidata: Q19833854 }
@@ -44,6 +48,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
   image_url: /images/events/systematic-oldowan-tools.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=uVTQBQfbqJc", title: "The Oldowan stone tool", credit: "Historic Concepts, YouTube" }
   date_source: wikipedia:Oldowan@1378627077
   places:
     - { label: Gona, lat: 11.1, lon: 40.53333, wikidata: Q12314119 }
@@ -57,6 +63,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   image_url: /images/events/acheulean-handaxe-technology.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=BwmpNKWGdGw", title: "Acheulean technology and how to make a handaxe", credit: "Nicci Sherwood, YouTube" }
   date_source: wikipedia:Acheulean@1378641547
   places:
     - { label: Kokiselei (West Turkana), lat: 3.98027, lon: 35.86629, wikidata: Q55500799, note: "place-level: the Kokiselei River item; the site has no coordinates in Wikidata" }
@@ -70,6 +78,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans
   image_url: /images/events/control-of-fire.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=xfDin2fEaeE", title: "When humans first controlled fire", credit: "CurioWorld, YouTube" }
   date_source: wikipedia:Control_of_fire_by_early_humans@1374975705
   places:
     - { label: Wonderwerk Cave, lat: -27.845, lon: 23.55389, wikidata: Q2543042 }
@@ -83,6 +93,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Jebel_Irhoud
   image_url: /images/events/emergence-modern-humans.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=t1_hFZM9Ew8", title: "Where the first anatomically modern humans were found", credit: "Highly Compelling, YouTube" }
   date_source: wikipedia:Jebel_Irhoud@1376091257
   places:
     - { label: Jebel Irhoud, lat: 31.85498, lon: -8.87251, wikidata: Q846913 }
@@ -96,6 +108,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Blombos_Cave
   image_url: /images/events/symbolic-culture.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=z2XsBYYM8kk", title: "Blombos Cave: the birth of symbolic thinking", credit: "Origins & Empires, YouTube" }
   date_source: wikipedia:Blombos_Cave@1374861035
   places:
     - { label: Blombos Cave, lat: -34.41444, lon: 21.2225, wikidata: Q884971 }
@@ -111,6 +125,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Prehistory_of_Australia
   image_url: /images/events/seafaring-to-sahul.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=6vQC3xBiRbM", title: "The oldest evidence of human seafaring", credit: "HistoryMush, YouTube" }
   date_source: wikipedia:Prehistory_of_Australia@1376093040
   places:
     - { label: Madjedbebe, lat: -12.5, lon: 132.88333, wikidata: Q8563176 }
@@ -124,6 +140,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Karampuang_cave
   image_url: /images/events/figurative-cave-art.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=b-wAYtBxn7E", title: "Oldest cave art found in Sulawesi", credit: "Griffith University, YouTube" }
   date_source: wikipedia:Karampuang_cave@1341794223
   places:
     - { label: Leang Karampuang (Maros), lat: -5.01649, lon: 119.57447, wikidata: Q14611, note: "place-level: Maros Regency; the cave item (Q127256239) has no coordinates in Wikidata" }
@@ -139,6 +157,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Xianren_Cave
   image_url: /images/events/invention-of-pottery.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=2taUjbCb3N8", title: "The world's first pottery is older than you think", credit: "Dan Davis History, YouTube" }
   date_source: wikipedia:Xianren_Cave@1365044572
   places:
     - { label: Xianrendong Cave, lat: 28.73608, lon: 117.17322, wikidata: Q2812194 }
@@ -152,6 +172,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_dog
   image_url: /images/events/domestication-of-the-dog.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=nDt0HKSdRRw", title: "How dogs (eventually) became our best friends", credit: "PBS Eons, YouTube" }
   date_source: wikipedia:Domestication_of_the_dog@1376904672
   places:
     - { label: Bonn-Oberkassel, lat: 50.71389, lon: 7.16667, wikidata: Q178317, note: "place-level: the Oberkassel district of Bonn" }
@@ -165,6 +187,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe
   image_url: /images/events/gobekli-tepe.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=n-phVB-EmR8", title: "The oldest temple in the world", credit: "BBC, YouTube" }
   date_source: wikipedia:Göbekli_Tepe@1378753246
   places:
     - { label: Göbekli Tepe, lat: 37.22306, lon: 38.9225, wikidata: Q214944 }
@@ -183,6 +207,7 @@
   media:
     - { kind: video, src: events/agriculture1.mp4, title: "Agriculture, part 1", credit: AI-generated video }
     - { kind: video, src: events/agriculture2.mp4, title: "Agriculture, part 2", credit: AI-generated video }
+    - { kind: video, src: "https://www.youtube.com/watch?v=bhzQFIZuNFY", title: "Mankind: the story of all of us – birth of farming", credit: "HISTORY, YouTube" }
   date_source: wikipedia:Neolithic_Revolution@1378743296
   places:
     - { label: Fertile Crescent, lat: 36, lon: 40, wikidata: Q170526, note: "region: the Fertile Crescent's Wikidata point" }
@@ -196,6 +221,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Chalcolithic
   image_url: /images/events/copper-smelting.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=ErpfUswqe6Y", title: "Copper smelting and bronze casting at the Great Orme copper mines", credit: "AncientCraftUK (Dr James Dilley), YouTube" }
   date_source: wikipedia:Chalcolithic@1373076884
   places:
     - { label: Pločnik, lat: 43.21056, lon: 21.36472, wikidata: Q12757361 }
@@ -211,6 +238,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Wheel
   image_url: /images/events/invention-of-the-wheel.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=hTmt6PUryT0", title: "Which ancient society really invented the wheel?", credit: "Dan Davis History, YouTube" }
   date_source: wikipedia:Wheel@1377593758
   places:
     - { label: Uruk, lat: 31.3259, lon: 45.6374, wikidata: Q168518 }
@@ -224,6 +253,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Bronze_Age
   image_url: /images/events/bronze-age.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=6rn9b7Z1ZnQ", title: "The Bronze Age summarized (geography, people and resources)", credit: "Epimetheus, YouTube" }
   date_source: wikipedia:Bronze_Age@1377895015
   places:
     - { label: Mesopotamia, lat: 33.7, lon: 43.5, wikidata: Q11767, note: "region: Mesopotamia's Wikidata point" }
@@ -237,6 +268,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Cuneiform
   image_url: /images/events/development-of-writing.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=gsFn64PL4ks", title: "The oldest text in the world", credit: "IFLScience, YouTube" }
   date_source: wikipedia:Cuneiform@1379042447
   places:
     - { label: Uruk, lat: 31.3259, lon: 45.6374, wikidata: Q168518 }
@@ -250,6 +283,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza
   image_url: /images/events/great-pyramid.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=dWq0iC4YqbE", title: "Building the Great Pyramid of Giza", credit: "National Geographic UK, YouTube" }
   date_source: wikipedia:Great_Pyramid_of_Giza@1378503482
   places:
     - { label: Great Pyramid of Giza, lat: 29.97915, lon: 31.13422, wikidata: Q37200 }
@@ -263,6 +298,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
   image_url: /images/events/indus-cities.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=CmOjLH0rs9U", title: "The Indus civilization: the discovery that changes everything", credit: "Show Me the World, YouTube" }
   date_source: wikipedia:Mohenjo-daro@1376909925
   places:
     - { label: Mohenjo-daro, lat: 27.32917, lon: 68.13889, wikidata: Q5725 }
@@ -277,6 +314,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Proto-Sinaitic_script
   image_url: /images/events/alphabetic-script.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=w6yonf-SAXw", title: "The history of the alphabet", credit: "The Generalist Papers, YouTube" }
   date_source: wikipedia:Proto-Sinaitic_script@1373408378
   places:
     - { label: Serabit el-Khadim, lat: 29.03673, lon: 33.45941, wikidata: Q1462523 }
@@ -290,6 +329,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Code_of_Hammurabi
   image_url: /images/events/code-of-hammurabi.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=QEko2CMykuk", title: "The Code of Hammurabi", credit: "NBC News Learn, YouTube" }
   date_source: wikipedia:Code_of_Hammurabi@1378337092
   places:
     - { label: Babylon, lat: 32.5425, lon: 44.42111, wikidata: Q5684 }
@@ -303,6 +344,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Iron_Age
   image_url: /images/events/iron-age.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=sD2Z6Lx5Z7A", title: "Recreating Iron Age smelting at Hengistbury Head", credit: "Career in Ruins, YouTube" }
   date_source: wikipedia:Iron_Age@1378096360
   places:
     - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007 }
@@ -316,6 +359,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lydia
   image_url: /images/events/minted-coinage.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=n5GKiwBERLc", title: "The first coin ever made", credit: "Classical Numismatics, YouTube" }
   date_source: wikipedia:Lydia@1376278046
   places:
     - { label: Sardis, lat: 38.48833, lon: 28.04028, wikidata: Q232615 }
@@ -331,6 +376,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_paper
   image_url: /images/events/papermaking.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=oVSf82tVNHg", title: "How ancient China invented paper", credit: "Learn Chinese Now, YouTube" }
   date_source: wikipedia:History_of_paper@1376858354
   places:
     - { label: Fangmatan, lat: 34.4129, lon: 106.10004, wikidata: Q5433839 }

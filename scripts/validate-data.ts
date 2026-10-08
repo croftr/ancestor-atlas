@@ -2,6 +2,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
 import { EVIDENCE_REF, QID } from "./lib/qa.ts";
+import { youtubeId } from "../src/youtube.ts";
 
 const CATS = ["species", "culture", "civilization", "event"];
 const CONFIDENCE = ["high", "medium", "low"];
@@ -60,6 +61,7 @@ for (const e of entityList) {
       for (const m of e.media) {
         const ext = { video: /\.(mp4|webm)$/i, audio: /\.(mp3|m4a|ogg|opus)$/i }[m?.kind as "video" | "audio"];
         if (!ext) err(`entity ${id}: media kind must be video or audio (${m?.src})`);
+        else if (m.kind === "video" && typeof m.src === "string" && youtubeId(m.src)) { /* embedded YouTube video */ }
         else if (typeof m.src !== "string" || !ext.test(m.src)) err(`entity ${id}: media src ${m.src} is not a ${m.kind} file`);
         else if (/^\/|^public\//.test(m.src)) err(`entity ${id}: media ${m.src} must be a bucket key or https URL, not a repo path`);
         if (!m?.title) err(`entity ${id}: media ${m?.src} needs a title`);

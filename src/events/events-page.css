@@ -179,6 +179,7 @@
 
 /* Videos and audio on the event detail view: nothing loads until a clip is chosen. */
 .ev-player { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); }
+.ev-player iframe { display: block; width: 100%; height: 100%; border: 0; }
 .ev-player video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
 .ev-player-close { position: absolute; top: 8px; right: 8px; z-index: 1; background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; padding: 4px 10px; font-size: 0.8rem; }
 .ev-player-close:hover { background: rgba(0, 0, 0, 0.8); }

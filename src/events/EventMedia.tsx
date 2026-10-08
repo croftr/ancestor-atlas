@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { mediaUrl } from "../config";
+import { youtubeId } from "../youtube";
 import type { Entity } from "../types";
 import EventImage from "./EventImage";
 
@@ -13,6 +14,7 @@ export default function EventMedia({ event }: { event: Entity }) {
   const [current, setCurrent] = useState<number | null>(null);
   const [failed, setFailed] = useState<string | null>(null);
   const clip = current === null ? undefined : media[current];
+  const ytId = clip?.kind === "video" ? youtubeId(clip.src) : null;
   const credit = clip ? clip.credit : event.image_credit;
   const choose = (i: number) => {
     setFailed(null);
@@ -23,20 +25,34 @@ export default function EventMedia({ event }: { event: Entity }) {
     <div className="ev-detail-media">
       {clip?.kind === "video" ? (
         <div className="ev-player">
-          <video
-            key={clip.src}
-            src={mediaUrl(clip.src)}
-            poster={event.image_url}
-            controls
-            autoPlay
-            playsInline
-            preload="metadata"
-            aria-label={clip.title}
-            onError={() => setFailed(clip.title)}
-          />
-          <button className="ev-player-close" onClick={() => setCurrent(null)} aria-label="Close video">
-            ✕ Close
-          </button>
+          {ytId ? (
+            // youtube-nocookie: no YouTube cookies until the viewer plays; nothing loads before the click.
+            <iframe
+              key={ytId}
+              src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&playsinline=1`}
+              title={clip.title}
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          ) : (
+            <video
+              key={clip.src}
+              src={mediaUrl(clip.src)}
+              poster={event.image_url}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              aria-label={clip.title}
+              onError={() => setFailed(clip.title)}
+            />
+          )}
+          {!ytId && ( // YouTube's own buttons sit top-right; its clip is closed from the list below
+            <button className="ev-player-close" onClick={() => setCurrent(null)} aria-label="Close video">
+              ✕ Close
+            </button>
+          )}
         </div>
       ) : (
         <EventImage event={event} className="large" />
@@ -54,6 +70,11 @@ export default function EventMedia({ event }: { event: Entity }) {
               {m.title}
             </button>
           ))}
+          {clip?.kind === "video" && (
+            <button className="ev-media-btn" onClick={() => setCurrent(null)}>
+              ✕ Close video
+            </button>
+          )}
         </div>
       )}
     </div>
