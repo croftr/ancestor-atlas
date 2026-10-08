@@ -867,6 +867,11 @@
 - id: indus-valley-civilization
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=EK5fbdoEhZE
+      title: "The Rise and Fall of the Indus Valley Civilization"
+      credit: Historical Adventure, YouTube
 - id: minoan-civilization
   media:
     - kind: video
@@ -1500,3 +1505,202 @@
       src: https://www.youtube.com/watch?v=D2m9Tk8pgpo
       title: "087: Ptolemaic Egypt - The Great Revolt"
       credit: The Hellenistic Age History Podcast, YouTube
+# Batch 4B: South Asia Kingdoms and Empires
+- id: janapada-of-anga
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=CZB2J9eiK0k
+      title: "Anga Mahajanapada: Champa (capital)"
+      credit: Ayushi jain, YouTube
+- id: janapada-of-asmaka
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Rj1wNecgY3g
+      title: "The Kingdom of Ashmaka - One of the 16th Mahajanapadas"
+      credit: Reelimaginarium, YouTube
+- id: janapada-of-avanti
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=kNn54y5e7WY
+      title: "Avanti Mahajanapada: Ancient India’s Center of Trade, Culture, and Spirituality"
+      credit: Gems of Indian History, YouTube
+- id: janapada-of-cedi
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=rCAscK1pdW8
+      title: "The Mystery of Chedi: The Untold Story of Shuktimati"
+      credit: AIEkAdhyayan, YouTube
+- id: janapada-of-gandhara
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=d44rhmRC3zk
+      title: "Gandhara Mahajanapada- one of 16 Mahajanapadas"
+      credit: Rk, YouTube
+- id: janapada-of-kamboja
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=HcyX15OcppM
+      title: "The Kingdom of Kamboja - One of the 16th Mahajanapadas"
+      credit: Reelimaginarium, YouTube
+- id: janapada-of-kasi
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=oABt9OP-3-E
+      title: "Exploring Kashi Mahajanpad: The Cradle of Ancient Indian Civilization"
+      credit: Gems of Indian History, YouTube
+- id: janapada-of-kosala
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bXnC3_WJ7Wo
+      title: "Exploring Koshal Mahajanapada - A Jewel of Ancient India"
+      credit: Gems of Indian History, YouTube
+- id: janapada-of-kuru
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=FU_0o4E4sPQ
+      title: "8/12 Kuru: The Legacy Of Kings | The Mahajanapadas | Ancient Indian History"
+      credit: History Chronicles, YouTube
+- id: janapada-of-magadha
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=QjZIgavpDcI
+      title: "Rise of Magadha | How Magadha Became The Strongest Empire In Ancient India"
+      credit: India Unravelled, YouTube
+- id: janapada-of-malla
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=j80KFCTMsh0
+      title: "Mall Mahajanapada – A Glimpse into Ancient India"
+      credit: Gems of Indian History, YouTube
+- id: janapada-of-matsya
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=65-ilDatFXg
+      title: "In Search of Matsya Mahajanapada | Bairat (Vijay Nagar Stupa) History On LHI Circle"
+      credit: Peepul Tree World, YouTube
+- id: janapada-of-pancala
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Afn4xY6si_I
+      title: "पंचाल महाजनपद का गौरवशाली इतिहास|Panchal Mahajanpad History"
+      credit: Gems of Indian History, YouTube
+- id: janapada-of-surasena
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xQe-Mc_SqFQ
+      title: "Surasena Mahajanpada"
+      credit: LearnersHub, YouTube
+- id: janapada-of-vajji
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=hvQ2oK5wj5w
+      title: "Vajji Mahajanapada Explained | Ancient India's Democracy?"
+      credit: Damanpreet Kaur, YouTube
+- id: janapada-of-vatsa
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=L2sLq942gFU
+      title: "Vats Mahajanapad"
+      credit: Gems of Indian History, YouTube
+- id: mahajanapadas
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=k2F9lHYqWrI
+      title: "Mahajanapadas | Complete Ancient History Through Animation"
+      credit: StudyIQ IAS, YouTube
+- id: magadha-haryanka-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=sZ-rLiYyDTo
+      title: "Haryanka Dynasty | Rajvansh: Dynasties Of India | Full Episode"
+      credit: Crazy Color Facts, YouTube
+- id: magadha-shaishunaga-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=b5VITYoVr_U
+      title: "Shishunaga Dynasty | Rajvansh: Dynasties of India | Full Episode"
+      credit: Crazy Color Facts, YouTube
+- id: nanda-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=07IUrCT3OwQ
+      title: "The Empire So Wealthy and So Hated That Alexander's Own Army Refused to Fight It"
+      credit: Ancestors Civilization, YouTube
+- id: kalinga
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=txQVjNWZx9I
+      title: "Why The Kalinga War Is The Greatest War In History | Ashoka The Great & Kalinga War"
+      credit: Battles In History, YouTube
+- id: maurya-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Ed6UZtVTI64
+      title: "Ashoka the Great - Rise of the Mauryan Empire Documentary"
+      credit: Kings and Generals, YouTube
+- id: anuradhapura
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vLDTBFcqKdA
+      title: "The Engineering Marvels Of Sri Lanka's Ancient Kingdom Anuradhapura | The Mark Of Empire"
+      credit: CNA Insider, YouTube
+- id: early-cheras
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=n_ByNtfuLbw
+      title: "The Chera Dynasty: Trade, Literature, and the Spice Route"
+      credit: Crazy Color Facts, YouTube
+- id: early-cholas
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=MqzM43o5Jes
+      title: "The Cholas Naval Power and Temple Building"
+      credit: Crazy Color Facts, YouTube
+- id: early-pandyas
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=On8ylx_veFk
+      title: "Pandyan Empire – History, Expansion"
+      credit: Crazy Color Facts, YouTube
+- id: satavahana-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=lgfPT9YtunM
+      title: "Satavahana Dynasty | Rajvansh: Dynasties Of India | Full Episode"
+      credit: EPIC TV, YouTube
+- id: mahameghavahana-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=5WWrhbaQyLY
+      title: "Samrat Kharavela of Kalinga | The Great Jain King of Ancient India"
+      credit: The Occasional Professor, YouTube
+- id: shunga-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=2pc5wPFdFQg
+      title: "Shunga And Kanva Dynasty | Rajvansh: Dynasties Of India | Full Episode"
+      credit: EPIC TV, YouTube
+- id: kanva-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=MoMuuziH7_0
+      title: "Ancient Indian History | Shunga Dynasty & Kanva Dynasty"
+      credit: Let's Crack UPSC CSE, YouTube
+- id: indo-greeks
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ZxJk4KHZxi8
+      title: "Ancient Greek Kingdom in India"
+      credit: Kings and Generals, YouTube
+- id: indo-scythians
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=LeDeYvP3nwE
+      title: "Clash of Civilizations: Satavahana Empire vs. Indo-Scythians"
+      credit: The Indian History Nerd, YouTube
+- id: indo-parthians
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bJRFT2s49Ao
+      title: "The short-lived Iranian dynasty of Ancient India"
+      credit: Jay Vardhan Singh, YouTube
