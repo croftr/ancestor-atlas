@@ -157,6 +157,7 @@ export default function CivilizationsPage() {
                           <span className="muted">
                             {filtering && members.length !== all.length ? `${members.length} of ${all.length}` : all.length} periods
                             {group.region && <> · {group.region}</>}
+                            {group.media && group.media.length > 0 && <> · ▶ {group.media.length}</>}
                           </span>
                         </span>
                         {!filtering && <span className="cv-chevron" aria-hidden>▾</span>}
@@ -210,7 +211,10 @@ function Rows({ list, axis }: { list: Entity[]; axis: [number, number] }) {
               <span className="br-bar cv-row-bar" aria-hidden>
                 <span style={{ ...barStyle(e, axis), background: e.color ?? undefined }} />
               </span>
-              <span className="cv-row-dur muted">{shortDuration(e.end_year - e.start_year)}</span>
+              <span className="cv-row-dur muted">
+                {shortDuration(e.end_year - e.start_year)}
+                {e.media && e.media.length > 0 && <> · ▶ {e.media.length}</>}
+              </span>
             </button>
           </li>
         );

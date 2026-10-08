@@ -223,6 +223,14 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             </button>
           </>
         )}
+        {entity.category === "civilization" && (
+          <>
+            {" · "}
+            <button className="link" onClick={() => navigate("civilizations", entity.id)}>
+              {entity.media?.length ? `Civilization page (▶ ${entity.media.length}) →` : "Civilization page →"}
+            </button>
+          </>
+        )}
       </div>
       {feature && siblings.length > 1 && (
         <div className="feature-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>

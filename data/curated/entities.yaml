@@ -452,6 +452,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
   image_url: /images/civilisations/ancient-egypt.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=YpKej05RgsY
+      title: "18. Egypt - Fall of the Pharaohs"
+      credit: Fall of Civilizations, YouTube
   match_children:
     cliopatria_name_regex: (Dynasty of Egypt|Kingdom of Egypt|Period of Egypt|^(Upper|Lower|Assyrian) Egypt)$
     names:
@@ -469,6 +474,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Mesopotamia
   image_url: /images/civilisations/mesopotamia.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=d2lJUOv0hLA
+      title: "8. The Sumerians - Fall of the First Cities"
+      credit: Fall of Civilizations, YouTube
   match_children:
     names:
       - Sumerian City-States
@@ -495,6 +505,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_China
   image_url: /images/civilisations/ancient-china.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=FwEkp4I75OA
+      title: "10. The Han Dynasty - The First Empire in Flames"
+      credit: Fall of Civilizations, YouTube
   match_children:
     names:
       - Shang Dynasty
@@ -522,6 +537,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_Iran
   image_url: /images/civilisations/persia.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=qRYdivPIWh4
+      title: "20. Persia - An Empire in Ashes"
+      credit: Fall of Civilizations, YouTube
   match_children:
     names:
       - Achaemenid Empire
@@ -540,6 +560,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Greece
   image_url: /images/civilisations/ancient-greece.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=oV0pOBij-wM
+      title: The Entire History of Ancient Greece (1100–146 BC)
+      credit: Past Uncovered, YouTube
   match_children:
     names:
       - Mycenaean Greece
@@ -562,9 +587,19 @@
 - id: roman-republic
   category: civilization
   wikidata: Q17167
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=k_0mYX1nHmI
+      title: The Roman Republic 509–27 BC History Documentary
+      credit: Past Uncovered, YouTube
 - id: roman-empire
   category: civilization
   description: The Roman state under Augustus and his successors, which grew from the Roman Republic into a Mediterranean-wide empire.
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=zKZjlIhitRI
+      title: Secrets of the Roman Empire
+      credit: National Geographic, YouTube
 - id: cardial
   name: Cardial culture
   category: culture
@@ -807,3 +842,117 @@
 - id: indus-valley-civilization
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
+- id: minoan-civilization
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=eKrzPJ60HKU
+      title: The Truth About Minoan Weapons and Warfare
+      credit: Dan Davis History, YouTube
+- id: etruscans
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=T22qDvgI930
+      title: "The Etruscans: Ancient Italy's Lost Civilization"
+      credit: National History, YouTube
+- id: roman-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=d4hA2ESdvE0
+      title: "The Seven Kings of Rome: How the Roman Kingdom Shaped History"
+      credit: Epoch Atlas, YouTube
+- id: phoenician-colonies
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mU4aU5yoyp4
+      title: "History of the Phoenicians: The Maritime Superpowers of the Mediterranean"
+      credit: World History Encyclopedia, YouTube
+- id: sacred-band-of-thebes
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xWsZwlN1j3c
+      title: Units of History - The Sacred Band of Thebes DOCUMENTARY
+      credit: Invicta, YouTube
+- id: polyperchon
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=m0eK2Iw_FpQ
+      title: Polyperchon, disappears from history in 304 BCE
+      credit: Thersites the Historian, YouTube
+- id: antigonid-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=hwWwGAqi-94
+      title: "Antigonus the One-Eyed: Alexander's most Ambitious General"
+      credit: Antiquity for All, YouTube
+- id: antigonid-macedonia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=PEVIhMUuYMg
+      title: The Animated History of the Antigonids
+      credit: Ancient History Guy, YouTube
+- id: greek-colonies
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ABHUeTRvOQ8
+      title: Introduction to Ancient Greek Colonies
+      credit: History with Cy, YouTube
+- id: mamertines
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=P4ewPrVTuwM
+      title: "First Punic Wars Part 1: The Eve of War"
+      credit: Ashes of history, YouTube
+- id: illyrian-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=8fDuTqAmo9M
+      title: History of the Illyrians - Ancient Civilizations DOCUMENTARY
+      credit: Kings and Generals, YouTube
+- id: molossians
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=gGiidErAW7w
+      title: They DEFIED Rome - The Kingdom of Epirus
+      credit: See U in History / Mythology, YouTube
+- id: italian-city-states
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=eeeK7fp5p2I
+      title: Ancient Italy Before Rome Took Over (800–500 BC)
+      credit: Mapped History, YouTube
+- id: carthage
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=01CZBhZM430
+      title: "17. Carthage - Empire of the Phoenicians"
+      credit: Fall of Civilizations, YouTube
+- id: kingdom-of-kush
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=R9Z8t79YF5k
+      title: Kingdom of Kush - History Of Africa with Zeinab Badawi
+      credit: BBC, YouTube
+- id: cyrenaica
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=RI62LGEKbLI
+      title: The True Story of Ancient Greece's Lost City in Africa
+      credit: History Leaks, YouTube
+- id: ptolemaic-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Hmz9e06DfSg
+      title: Ptolemy I Soter - First Pharaoh of Ptolemaic Egypt Documentary
+      credit: The People Profiles, YouTube
+- id: mauretania
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=0AMVjh0I7b4
+      title: "Kingdom of Mauretania: Exploring the Ancient Realm of North Africa"
+      credit: TimelessTreasury, YouTube
+- id: kingdom-of-numidia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=YTObOpc6Kt0
+      title: Intriguing History of the Berber Kingdom of Numidia
+      credit: Yohannes, YouTube
