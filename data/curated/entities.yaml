@@ -476,6 +476,8 @@
     cities and a succession of Sumerian, Akkadian, Babylonian and Assyrian
     states.
   wikipedia_url: https://en.wikipedia.org/wiki/Mesopotamia
+  image_url: /images/civilisations/mesopotamia.webp
+  image_credit: AI-generated illustration
   match_children:
     names:
       - Sumerian City-States
@@ -502,6 +504,8 @@
     states of the Spring and Autumn and Warring States periods, then the Qin and
     Han unifications."
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_China
+  image_url: /images/civilisations/ancient-china.webp
+  image_credit: AI-generated illustration
   match_children:
     names:
       - Shang Dynasty
@@ -529,6 +533,8 @@
     ruled from Anatolia and Egypt to the Indus, to the Parthians who followed
     Alexander's successors.
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_Iran
+  image_url: /images/civilisations/persia.webp
+  image_credit: AI-generated illustration
   match_children:
     names:
       - Achaemenid Empire
@@ -546,6 +552,8 @@
   description: The Bronze Age Mycenaeans, the Dark Age that followed, and the
     city-states and leagues of the Archaic and Classical Greek world.
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Greece
+  image_url: /images/civilisations/ancient-greece.webp
+  image_credit: AI-generated illustration
   match_children:
     names:
       - Mycenaean Greece
@@ -758,4 +766,7 @@
   image_credit: AI-generated illustration
 - id: new-kingdom-of-egypt
   image_url: /images/civilisations/new-kingdom.webp
+  image_credit: AI-generated illustration
+- id: indus-valley-civilization
+  image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration

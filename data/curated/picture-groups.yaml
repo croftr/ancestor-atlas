@@ -34,3 +34,9 @@
   image_url: /images/cultures/copper-bronze-europe.webp
   image_credit: AI-generated illustration
   members: [baden, globular-amphora, corded-ware, bell-beaker, unetice]
+
+- id: ancient-rome
+  label: Ancient Rome in general
+  image_url: /images/civilisations/ancient-rome.webp
+  image_credit: AI-generated illustration
+  members: [roman-kingdom, roman-republic, roman-empire, italian-city-states]
