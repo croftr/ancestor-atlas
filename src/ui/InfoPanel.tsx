@@ -6,7 +6,7 @@ import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
-import { navigate, type View } from "../route";
+import { clearShrunkCard, navigate, peekShrunkCard, type View } from "../route";
 import "./events.css";
 import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";
@@ -47,7 +47,11 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
   // Small screens: the card can shrink to give the page room: on the globe to its title (and
   // site stepper), on the timeline (where the expanded card fills the screen) to a thumbnail.
-  const [minimised, setMinimised] = useState(false);
+  // Arriving on the timeline via "See on timeline" starts shrunk.
+  const [minimised, setMinimised] = useState(() => view === "timeline" && peekShrunkCard());
+  useEffect(() => {
+    if (view === "timeline") clearShrunkCard();
+  }, [view]);
   const stacked = useMediaQuery(STACKED_QUERY);
   // Small screens: the card sits above the globe in a scrolling column. When the selection
   // changes while the card is scrolled out of view (say, after tapping the globe below it),

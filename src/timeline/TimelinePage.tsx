@@ -151,7 +151,12 @@ export default function TimelinePage() {
   useEffect(() => {
     if (!data) return;
     const id = takePendingFocus();
-    if (id) focus(id, false);
+    if (!id) return;
+    // "See on timeline": keep a card already open on that entity (from the globe, with its site);
+    // otherwise (say, from the events page) open its card, which starts shrunk on small screens.
+    const { selectedId, groupId, hits } = useStore.getState();
+    const current = groupId ?? hits.find((h) => h.id === selectedId)?.entity_id;
+    focus(id, current !== id);
   }, [data, focus]);
   useEffect(() => {
     if (!scrollTo) return;

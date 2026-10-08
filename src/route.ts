@@ -43,6 +43,17 @@ export const takePendingFocus = () => {
   return id;
 };
 
+/**
+ * Set by "See on timeline": the timeline's info card opens shrunk (on small screens, a thumbnail
+ * over the chart), so you land on the timeline itself rather than a full-screen card.
+ */
+let pendingShrunkCard = false;
+/** Read in the card's initial state (which StrictMode may run twice); cleared after mounting. */
+export const peekShrunkCard = () => pendingShrunkCard;
+export const clearShrunkCard = () => {
+  pendingShrunkCard = false;
+};
+
 /** Switch view. For the timeline, `entityId` is zoomed to; for events, that event is opened. */
 export function navigate(view: View, entityId?: string) {
   if (view === "events") {
@@ -50,5 +61,6 @@ export function navigate(view: View, entityId?: string) {
     return;
   }
   if (entityId) pendingFocus = entityId;
+  if (view === "timeline" && entityId) pendingShrunkCard = true;
   window.location.hash = view === "timeline" ? "#/timeline" : "#/";
 }
