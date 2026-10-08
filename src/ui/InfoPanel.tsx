@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE } from "../config";
 import { formatRange } from "../time/scale";
@@ -52,6 +52,12 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   useEffect(() => {
     if (view === "timeline") clearShrunkCard();
   }, [view]);
+  // Globe on a small screen: a newly picked entity opens its card minimised, so the globe's
+  // flight to it stays in view; expand it from there. Stepping through its sites keeps the state.
+  const entityKey = groupId ?? hits.find((h) => h.id === selectedId)?.entity_id ?? null;
+  useLayoutEffect(() => {
+    if (entityKey && view === "globe" && window.matchMedia?.(STACKED_QUERY).matches) setMinimised(true);
+  }, [entityKey, view]);
   const stacked = useMediaQuery(STACKED_QUERY);
   // Small screens: the card sits above the globe in a scrolling column. When the selection
   // changes while the card is scrolled out of view (say, after tapping the globe below it),
@@ -165,7 +171,17 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </svg>
       </button>
       <button className="close" onClick={() => select(null)} aria-label="Close">✕</button>
-      <div className="info-head">
+      <div
+        className="info-head"
+        // Minimised, a tap on the title opens the card (links inside keep their own action).
+        onClick={
+          minimised
+            ? (e) => {
+                if (!(e.target as HTMLElement).closest("a, button")) setMinimised(false);
+              }
+            : undefined
+        }
+      >
         <span className="badge" style={{ background: style.color }}>{style.label}</span>
         {parent && (
           <div className="breadcrumb">

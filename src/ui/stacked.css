@@ -127,6 +127,7 @@
   /* Minimised: just the title block and the site stepper. */
   .app.view-globe .info-panel.minimised > :not(.info-head, .feature-nav, .close, .info-min) { display: none; }
   .app.view-globe .info-panel.minimised .feature-nav { margin-bottom: 0; }
+  .app.view-globe .info-panel.minimised .info-head { cursor: pointer; }
 
   /* Globe: everything that's left; below an expanded card, a good-sized globe to scroll down to. */
   .app.view-globe .map-wrap { order: 4; flex: 1 1 0; min-height: 140px; margin: 0 0 0 var(--nav-w); }
