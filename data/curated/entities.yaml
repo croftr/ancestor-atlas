@@ -1861,3 +1861,160 @@
       src: https://www.youtube.com/watch?v=Ly5Emk2bG3M
       title: "Lu State Important Vassal State Relics of the Zhou Dynasty"
       credit: knowl card, YouTube
+# Batch 5B: Spring & Autumn States and Chu-Han Eighteen Kingdoms
+- id: cai
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GZ_lSXv4Psg
+      title: "The Western Zhou Dynasty and the Spring and Autumn Period - Explained"
+      credit: GatesOfKilikien, YouTube
+- id: cao
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bABIasJP48k
+      title: "The Spring and Autumn & Warring States Periods: A History of China: PART ONE"
+      credit: Hui Podcast, YouTube
+- id: chen
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bABIasJP48k
+      title: "The Spring and Autumn & Warring States Periods: A History of China: PART ONE"
+      credit: Hui Podcast, YouTube
+- id: qin
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Vmiv4zAeeAA
+      title: "The Architect of Qin’s Rise | ChineseHistory"
+      credit: Sino Epochs, YouTube
+- id: song
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bABIasJP48k
+      title: "The Spring and Autumn & Warring States Periods: A History of China: PART ONE"
+      credit: Hui Podcast, YouTube
+- id: teng
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GZ_lSXv4Psg
+      title: "The Western Zhou Dynasty and the Spring and Autumn Period - Explained"
+      credit: GatesOfKilikien, YouTube
+- id: wey
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GZ_lSXv4Psg
+      title: "The Western Zhou Dynasty and the Spring and Autumn Period - Explained"
+      credit: GatesOfKilikien, YouTube
+- id: wu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bvFJvfSfE60
+      title: "Sun Tzu and the King’s Concubines: Discipline Above All"
+      credit: A bit of all, YouTube
+- id: xu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bABIasJP48k
+      title: "The Spring and Autumn & Warring States Periods: A History of China: PART ONE"
+      credit: Hui Podcast, YouTube
+- id: zheng
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Z7VIycwTieU
+      title: "Duke Zhuang of Zheng: China’s First Hegemon"
+      credit: Josh Lin, YouTube
+- id: zhu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=_5bobS0DGF0
+      title: "Zhu Hai A Warrior of the Warring States Period"
+      credit: knowl card, YouTube
+- id: yue
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mAWkFpkROgw
+      title: "King Fuchai of Wu – The Tragic Rival of King Goujian and the Fall of Wu | Spring and Autumn Period"
+      credit: Ancient SEA, YouTube
+- id: zhongshan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Op7G8Y6Y9Pk
+      title: "The King Who Dressed Like a Nomad | Zhao Conquers Zhongshan (307–296 BCE)"
+      credit: MajorWarsofHistory, YouTube
+- id: dai
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=M4cVQoXpwPQ
+      title: "Why trap your own army against a river?"
+      credit: Dynasties Untold, YouTube
+- id: jibei
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=AizZzRMmXl0
+      title: "The Chu–Han Contention: The Civil War That Created the Han Dynasty"
+      credit: Unknown Lìshǐ, YouTube
+- id: zhai
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xqa-_P0dLKs
+      title: "From Peasant Rebellion to the Rise of Han | Chu-Han Contention"
+      credit: Empire Maps, YouTube
+- id: chang-shan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xqa-_P0dLKs
+      title: "From Peasant Rebellion to the Rise of Han | Chu-Han Contention"
+      credit: Empire Maps, YouTube
+- id: han-q5349053
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=BvCWUg_0Ngk
+      title: "The ENTIRE history of Han Dynasty: The CHU - HAN Contention"
+      credit: Dynast's Saga, YouTube
+- id: henan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xqa-_P0dLKs
+      title: "From Peasant Rebellion to the Rise of Han | Chu-Han Contention"
+      credit: Empire Maps, YouTube
+- id: jiaodong
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=YgNp6CEAjeI
+      title: "Liu Bang vs Xiang Yu: The Human vs the Overlord in Chu-Han Contention"
+      credit: Sanna Ferranto, YouTube
+- id: jiujiang
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=BvCWUg_0Ngk
+      title: "The ENTIRE history of Han Dynasty: The CHU - HAN Contention"
+      credit: Dynast's Saga, YouTube
+- id: liaodong
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=BvCWUg_0Ngk
+      title: "The ENTIRE history of Han Dynasty: The CHU - HAN Contention"
+      credit: Dynast's Saga, YouTube
+- id: linjiang
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=AizZzRMmXl0
+      title: "The Chu–Han Contention: The Civil War That Created the Han Dynasty"
+      credit: Unknown Lìshǐ, YouTube
+- id: sai
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xqa-_P0dLKs
+      title: "From Peasant Rebellion to the Rise of Han | Chu-Han Contention"
+      credit: Empire Maps, YouTube
+- id: yin
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=BvCWUg_0Ngk
+      title: "The ENTIRE history of Han Dynasty: The CHU - HAN Contention"
+      credit: Dynast's Saga, YouTube
+- id: yong
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=AizZzRMmXl0
+      title: "The Chu–Han Contention: The Civil War That Created the Han Dynasty"
+      credit: Unknown Lìshǐ, YouTube
