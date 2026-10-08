@@ -1237,3 +1237,185 @@
       src: https://www.youtube.com/watch?v=7Wkien4HwJc
       title: "E31 - The Kingdom of Lazica | The History of Saqartvelo Georgia"
       credit: The History Of Saqartvelo Georgia, YouTube
+
+# Batch 3: Iran, Central Asia, Steppes, Americas, Greece, Thrace, Axum, Vietnam
+- id: elam
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=jkFwh_saHmc
+      title: "The Ancient Kingdom of Elam, what was it?"
+      credit: BenjaminAngwin, YouTube
+- id: gutian-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=klO4RJc0qWQ
+      title: "Were Gutians Tocharians?"
+      credit: Germania Magna ENG, YouTube
+- id: mycenaean-greece
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=0HXSPu1UMZM
+      title: "The Bronze Age Civilization That Became Greek Mythology — The Mycenaeans"
+      credit: Paladin, YouTube
+- id: greek-dark-ages
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=C5rIbTq9txY
+      title: "Did You Know Ancient Greece Had Its Dark Ages?"
+      credit: Kings and Generals, YouTube
+- id: greek-city-states
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=tbUCXGbaV6A
+      title: "Athens vs Sparta: The Epic Rise of Greece’s Greatest City-States"
+      credit: Speed Study, YouTube
+- id: macedonian-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=K7lb6KWBanI
+      title: "The Greatest General in History? Alexander the Great (All Parts)"
+      credit: Epic History, YouTube
+- id: olmec-civilization
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=8xF7ikMhDK4
+      title: "The First Explorers of the Olmecs: A Truly Lost Civilization"
+      credit: Luke Reagan, YouTube
+- id: scythia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=UuPNMQmwLAQ
+      title: "Scythians - Rise and Fall of the Original Horselords"
+      credit: Kings and Generals, YouTube
+- id: median-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=XF9-27lMhpE
+      title: "The Transition of the Medes – How the Median Empire Became Persia"
+      credit: World's Secret Stories, YouTube
+- id: achaemenid-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ZoH2UQZBaPY
+      title: "Cyrus the Great - Rise of the Achaemenid Empire"
+      credit: Kings and Generals, YouTube
+- id: peloponnesian-league
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Jr8EGJwDCk8
+      title: "The Full History of the Peloponnesian War - Athens vs Sparta"
+      credit: Kings and Generals, YouTube
+- id: zapotec-civilization
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bV_4XySFa94
+      title: "The Rise and Fall of the ZAPOTEC EMPIRE"
+      credit: World of Antiquity, YouTube
+- id: odrysian-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=641pAxUD0So
+      title: "Odrysian Kings #1 (Thracian History)"
+      credit: Kings and Things, YouTube
+- id: cimmerian-bosporus
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ltikjXUiAC4
+      title: "Bosporan Kingdom - Longest Surviving Ancient Greek State"
+      credit: Kings and Generals, YouTube
+- id: second-athenian-league
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=f0UYZRxSrqA
+      title: "History of Athens, 1st and 2nd Athenian Empire"
+      credit: Costas Melas, YouTube
+- id: thebans
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=CRJAZUbWU9A
+      title: "When 6,000 Thebans CRUSHED 10,000 Spartans | Battle of Leuctra"
+      credit: TRUE HAPPENED, YouTube
+- id: athenian-coalition
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=FIDEgPb8HH8
+      title: "The Rise of Athens: The Delian League (479-445 BC)"
+      credit: Historic Battles, YouTube
+- id: seleucid-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ikJGoOAREbU
+      title: "History of the Seleucid Empire | Complete Animated Documentary"
+      credit: Ancient History Guy, YouTube
+- id: atropatene
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=-1XbXfBUxb8
+      title: "The History Of Atropatene"
+      credit: MadeInTurkey, YouTube
+- id: aetolian-league
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=v8j3OKjwGoU
+      title: "Aetolian League"
+      credit: Costas Melas, YouTube
+- id: achaean-league
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=pAxZOepCLJA
+      title: "A Brief Overview of the Achaean League"
+      credit: Boring History, YouTube
+- id: au-lac
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=67xJnkAKL_0
+      title: "The Story of Au Lac"
+      credit: 3388 Films, YouTube
+- id: greco-bactrian-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ZyxX_vsDzL0
+      title: "Rise and Fall of the Greco-Bactrian Kingdom | The Forgotten Greek Empire in Central Asia"
+      credit: TimelessTreasury, YouTube
+- id: mayan-city-states
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=z9YwfTerAdA
+      title: "3. The Mayans - Ruins Among the Trees"
+      credit: Fall of Civilizations, YouTube
+- id: parthian-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=c_Fbyc415yM
+      title: "The Rise and Fall of Parthia - Rome's Greatest Enemy - Ancient Civilizations"
+      credit: Kings and Generals, YouTube
+- id: wusun
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=NaqY7GKobJk
+      title: "Indo-Europeans of Gansu: Yuezhi, Wusun & the Forgotten Cultures of the Hexi Corridor"
+      credit: Lapis Lazuli, YouTube
+- id: great-yuan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=g6Rphg_lwwM
+      title: "The Greco-Chinese War Over the Heavenly Horses"
+      credit: Kings and Generals, YouTube
+- id: thracian-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=5AJW31Q-jg4
+      title: "History of the Thracians - Ancient Civilizations DOCUMENTARY"
+      credit: Kings and Generals, YouTube
+- id: kingdom-of-axum
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=LdSFpSarZkA
+      title: "Kingdom of Aksum: Africa’s Forgotten Superpower | Full Documentary"
+      credit: STORIES NETWORK, YouTube
+- id: teotihuacan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=aV6ZZZsCjK8
+      title: "Teotihuacan: Where One Becomes a God"
+      credit: Ancient Americas, YouTube
