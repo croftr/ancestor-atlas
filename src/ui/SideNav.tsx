@@ -41,6 +41,18 @@ const EventsIcon = (
     <path d="M4 12h3.5M16.5 12H20" strokeOpacity="0.6" />
   </Icon>
 );
+const CulturesIcon = (
+  <Icon>
+    <path d="M12 3.5 6.5 13l5.5 7.5 5.5-7.5z" />
+    <path d="M9 13h6M10.2 9.5h3.6" strokeOpacity="0.6" />
+  </Icon>
+);
+const CivilizationsIcon = (
+  <Icon>
+    <path d="M3.5 20.5h17M5 20.5V10M9.7 20.5V10M14.3 20.5V10M19 20.5V10" />
+    <path d="M3 9.5 12 4l9 5.5z" />
+  </Icon>
+);
 const SourcesIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />
@@ -64,6 +76,8 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "globe", label: "Globe", icon: GlobeIcon, view: "globe", hint: "Explore sites on the globe" },
   { id: "timeline", label: "Timeline", icon: TimelineIcon, view: "timeline", hint: "Everything in order, in time" },
   { id: "events", label: "Events", icon: EventsIcon, view: "events", hint: "Major moments, with pictures" },
+  { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
+  { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
 ];
 
 /** Tools and settings, bottom of the rail. */

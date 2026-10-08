@@ -1,0 +1,194 @@
+/* Cultures (#/cultures) and civilizations (#/civilizations) pages. They share the events page's
+   shell (events-page.css); --accent is the category colour, set on .br-page. */
+.br-page .ev-filters .chip.active,
+.br-page .cv-sort .chip.active {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 65%, transparent);
+  color: #fff;
+}
+
+/* 4:3 pictures (species, cultures, civilizations). */
+.br-img {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #141a33;
+}
+.br-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.br-img.large { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); }
+/* No picture: the entity's colour as a soft wash, its name set in the middle. */
+.br-ph {
+  display: grid;
+  place-items: center;
+  padding: 8%;
+  background:
+    radial-gradient(90% 70% at 50% 40%, color-mix(in srgb, var(--swatch) 45%, transparent), transparent 70%),
+    linear-gradient(180deg, #1a2140, #0f1528);
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #f2ead8;
+}
+
+/* Time bar: a thin track with the span marked on it. */
+.br-bar { position: relative; display: block; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.07); }
+.br-bar > span { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: var(--accent); opacity: 0.9; }
+
+/* Detail overlay additions */
+.br-kicker { display: flex; align-items: center; gap: 7px; color: var(--accent, #cdb6ff); }
+.br-detail .breadcrumb { margin: 2px 0 0; }
+.br-recall { margin: 8px 0 0; font-size: 0.85rem; color: #ffcf8a; }
+.br-mapline { margin: -4px 0 10px; }
+.br-members { margin: 4px 0 10px; padding: 0 0 0 1.9em; max-height: 15.5em; overflow-y: auto; }
+.br-members li { padding: 2px 0; font-size: 0.92rem; }
+.br-members li::marker { color: #8b95ab; font-variant-numeric: tabular-nums; }
+.br-members .br-member { display: flex; justify-content: space-between; gap: 12px; }
+.br-members .br-member .muted { flex: none; font-variant-numeric: tabular-nums; }
+
+/* ---- Cultures: one section per stage, its picture shown once beside the cards ---- */
+.cu-stage {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.cu-stage:last-child { border-bottom: none; }
+.cu-stage-head { position: sticky; top: 118px; align-self: start; display: flex; flex-direction: column; gap: 10px; }
+.cu-stage-head h2 { margin: 0 0 2px; font-size: 1.1rem; line-height: 1.25; }
+.cu-stage-fig { margin: 0; }
+.cu-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.cu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.cu-card:hover { background: rgba(255, 255, 255, 0.07); border-color: color-mix(in srgb, var(--accent) 50%, transparent); border-left-color: var(--accent); }
+.cu-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cu-card-name { font-weight: 650; font-size: 1rem; line-height: 1.25; }
+.cu-card-date { font-size: 0.8rem; color: #bfeee0; font-variant-numeric: tabular-nums; }
+.cu-card-meta { font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+.cu-card-summary {
+  font-size: 0.84rem;
+  color: #aeb8cc;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- Civilizations: search/sort, collapsible groups, compact rows ---- */
+.cv-controls { display: flex; gap: 10px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+.cv-search {
+  flex: 1 1 240px;
+  max-width: 420px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  font: inherit;
+}
+.cv-search:focus { outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent); outline-offset: 0; }
+.cv-sort { display: flex; gap: 6px; }
+.cv-main { max-width: 1100px; }
+.cv-section h2 { font-size: 1.05rem; margin: 22px 0 10px; display: flex; gap: 8px; align-items: baseline; }
+.cv-section h2 .muted { font-weight: 400; }
+.cv-empty { padding: 30px 0; }
+
+.cv-groups { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.cv-group { border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; background: rgba(255, 255, 255, 0.03); overflow: hidden; }
+.cv-group-head { display: flex; align-items: center; gap: 10px; padding-right: 12px; }
+.cv-group-toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: inherit;
+}
+.cv-group-toggle:disabled { cursor: default; opacity: 1; }
+.cv-group-toggle:not(:disabled):hover .cv-group-name { text-decoration: underline; text-underline-offset: 3px; }
+.cv-group-img {
+  flex: none;
+  width: 112px;
+  border-radius: 8px;
+  background: radial-gradient(90% 80% at 50% 40%, color-mix(in srgb, var(--swatch) 55%, transparent), #141a33 75%);
+}
+.cv-group-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cv-group-name { font-weight: 650; font-size: 1.05rem; }
+.cv-chevron { margin-left: auto; transition: transform 0.15s ease; color: #8b95ab; }
+.cv-group.open .cv-chevron { transform: rotate(180deg); }
+.cv-group .cv-rows { padding: 0 8px 8px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+
+.cv-rows { list-style: none; margin: 0; padding: 0; }
+.cv-row {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1.4fr) minmax(0, 1fr) minmax(120px, 1.2fr) 4.5em;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 7px 8px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  color: inherit;
+}
+.cv-rows li + li .cv-row { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.cv-row:hover { background: rgba(255, 255, 255, 0.06); }
+.cv-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.cv-swatch { width: 12px; height: 12px; border-radius: 3px; }
+.cv-row-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 550; }
+.cv-row-date { font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cv-row-dur { font-size: 0.78rem; text-align: right; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 900px) {
+  .cu-stage { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .cu-stage-head { position: static; flex-direction: row; align-items: center; gap: 14px; }
+  .cu-stage-fig { width: 132px; flex: none; }
+  .cu-stage-fig .image-credit { display: none; }
+}
+@media (max-width: 760px) {
+  .cu-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .cu-card-summary { -webkit-line-clamp: 2; }
+  .cv-group-img { width: 84px; }
+  .cv-row {
+    grid-template-columns: 12px minmax(0, 1fr) auto;
+    grid-template-areas: "sw name dur" ". date date" ". bar bar";
+    row-gap: 4px;
+  }
+  .cv-swatch { grid-area: sw; }
+  .cv-row-name { grid-area: name; }
+  .cv-row-dur { grid-area: dur; }
+  .cv-row-date { grid-area: date; }
+  .cv-row-bar { grid-area: bar; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cu-card, .cv-chevron { transition: none; }
+}

@@ -2,23 +2,28 @@ import { useEffect, useState } from "react";
 
 /**
  * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
- * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, "#/events" the events
- * page and "#/events/<id>" one event open on it.
+ * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, and "#/events",
+ * "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it.
  */
-export type View = "globe" | "timeline" | "events";
+export type View = "globe" | "timeline" | BrowseView;
+/** Pages that list one category and open an entry in a detail view. */
+export type BrowseView = "events" | "cultures" | "civilizations";
+const BROWSE_VIEWS: BrowseView[] = ["events", "cultures", "civilizations"];
+export const isBrowseView = (v: View): v is BrowseView => (BROWSE_VIEWS as View[]).includes(v);
 
 const pathOf = (hash: string) => hash.replace(/^#\/?/, "");
 
 const viewOfHash = (hash: string): View => {
-  const p = pathOf(hash);
-  if (p.startsWith("timeline")) return "timeline";
-  if (p.startsWith("events")) return "events";
+  const page = pathOf(hash).split(/[/?#]/)[0];
+  if (page === "timeline") return "timeline";
+  if ((BROWSE_VIEWS as string[]).includes(page)) return page as BrowseView;
   return "globe";
 };
 
-/** The event open on the events page ("#/events/<id>"), if any. */
-const eventOfHash = (hash: string): string | null => {
-  const m = pathOf(hash).match(/^events\/([^/?#]+)/);
+/** The entry open on a browse page ("#/<page>/<id>"), if any. */
+const itemOfHash = (hash: string): string | null => {
+  if (!isBrowseView(viewOfHash(hash))) return null;
+  const m = pathOf(hash).match(/^[^/]+\/([^/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 };
 
@@ -33,7 +38,12 @@ function useHash(): string {
 }
 
 export const useView = (): View => viewOfHash(useHash());
-export const useOpenEvent = (): string | null => eventOfHash(useHash());
+/** The entry open on the current browse page, if any. */
+export const useOpenItem = (): string | null => itemOfHash(useHash());
+export const useOpenEvent = (): string | null => {
+  const hash = useHash();
+  return viewOfHash(hash) === "events" ? itemOfHash(hash) : null;
+};
 
 /** Entity the timeline should zoom to when it next opens ("See on timeline" from the info card). */
 let pendingFocus: string | null = null;
@@ -54,10 +64,10 @@ export const clearShrunkCard = () => {
   pendingShrunkCard = false;
 };
 
-/** Switch view. For the timeline, `entityId` is zoomed to; for events, that event is opened. */
+/** Switch view. For the timeline, `entityId` is zoomed to; on a browse page, that entry is opened. */
 export function navigate(view: View, entityId?: string) {
-  if (view === "events") {
-    window.location.hash = entityId ? `#/events/${encodeURIComponent(entityId)}` : "#/events";
+  if (isBrowseView(view)) {
+    window.location.hash = entityId ? `#/${view}/${encodeURIComponent(entityId)}` : `#/${view}`;
     return;
   }
   if (entityId) pendingFocus = entityId;

@@ -6,6 +6,8 @@ import SearchBox from "./ui/SearchBox";
 import SideNav from "./ui/SideNav";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
+import CulturesPage from "./browse/CulturesPage";
+import CivilizationsPage from "./browse/CivilizationsPage";
 import { useView } from "./route";
 import { useStore } from "./store";
 // Last, so the small-screen layout overrides the component styles above.
@@ -31,11 +33,10 @@ export default function App() {
           </>
         )}
       </div>
-      {view === "globe" ? null : view === "timeline" ? (
-        <TimelinePage />
-      ) : (
-        <EventsPage />
-      )}
+      {view === "timeline" && <TimelinePage />}
+      {view === "events" && <EventsPage />}
+      {view === "cultures" && <CulturesPage />}
+      {view === "civilizations" && <CivilizationsPage />}
       <SideNav />
     </div>
   );
