@@ -42,8 +42,12 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
 - Pictures: square 1000×1000 WebP in `public/images/events/` (title painted in, so always shown whole, never cropped);
-  `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile. Videos, later, are to be
-  hosted outside the repo (embed or external URL), not committed.
+  `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile.
+- Video and audio: `media` list on an event (`kind` video|audio, `src`, `title`, `credit`; validator-enforced). Files live
+  in the S3 bucket `robs-ancestors-atlas` (eu-west-2), never in the repo; `src` is the bucket key (`events/x.mp4`), resolved
+  by `mediaUrl` in `src/config.ts` (override the base with `VITE_MEDIA_BASE`). Nothing loads until the viewer picks a
+  clip on the event detail view (`src/events/EventMedia.tsx`). Encode MP4s with `-movflags +faststart`; never overwrite a
+  key (uploads are cached for a year), upload a new name instead.
 
 ## Civilization regions
 

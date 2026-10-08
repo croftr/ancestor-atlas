@@ -24,6 +24,15 @@ export interface Entity {
   year?: number; // best date (start_year..end_year is the stated range, or equal to it)
   date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"
   related_ids?: string[]; // species / cultures / civilizations the event concerns
+  media?: MediaItem[]; // videos and audio, hosted outside the repo (see mediaUrl in config.ts)
+}
+
+/** A video or audio clip. `src` is a key in the media bucket ("events/x.mp4") or a full https URL. */
+export interface MediaItem {
+  kind: "video" | "audio";
+  src: string;
+  title: string;
+  credit: string; // author/licence, or that it is AI-generated
 }
 
 /** Feature properties (public/data/features.geojson). Flat so MapLibre can filter on them. */

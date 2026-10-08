@@ -211,7 +211,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <>
             {" · "}
             <button className="link" onClick={() => navigate("events", entity.id)}>
-              Event page →
+              {entity.media?.length ? `Event page (▶ ${entity.media.length}) →` : "Event page →"}
             </button>
           </>
         )}

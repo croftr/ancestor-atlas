@@ -54,3 +54,11 @@ export const DEFAULT_BASEMAP = "dusk";
 
 /** Small screens: the globe's panels stack in a column around it (index.css uses the same width). */
 export const STACKED_QUERY = "(max-width: 900px)";
+
+// Videos and audio live in S3, not the repo. Media `src` values are keys in this bucket; a full
+// https URL is used as is. Override with VITE_MEDIA_BASE (e.g. a CloudFront domain) without
+// touching the data.
+export const MEDIA_BASE = (
+  (import.meta.env.VITE_MEDIA_BASE as string | undefined) ?? "https://robs-ancestors-atlas.s3.eu-west-2.amazonaws.com"
+).replace(/\/+$/, "");
+export const mediaUrl = (src: string) => (/^https?:\/\//.test(src) ? src : `${MEDIA_BASE}/${src.replace(/^\/+/, "")}`);

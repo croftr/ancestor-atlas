@@ -180,6 +180,9 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Neolithic_Revolution
   image_url: /images/events/birth-of-agriculture.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: events/agriculture1.mp4, title: "Agriculture, part 1", credit: AI-generated video }
+    - { kind: video, src: events/agriculture2.mp4, title: "Agriculture, part 2", credit: AI-generated video }
   date_source: wikipedia:Neolithic_Revolution@1378743296
   places:
     - { label: Fertile Crescent, lat: 36, lon: 40, wikidata: Q170526, note: "region: the Fertile Crescent's Wikidata point" }

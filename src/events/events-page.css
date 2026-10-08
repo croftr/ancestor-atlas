@@ -176,3 +176,15 @@
 @media (prefers-reduced-motion: reduce) {
   .ev-tile .ev-img { transition: none; }
 }
+
+/* Videos and audio on the event detail view: nothing loads until a clip is chosen. */
+.ev-player { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); }
+.ev-player video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.ev-player-close { position: absolute; top: 8px; right: 8px; z-index: 1; background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; padding: 4px 10px; font-size: 0.8rem; }
+.ev-player-close:hover { background: rgba(0, 0, 0, 0.8); }
+.ev-audio { width: 100%; margin-top: 8px; }
+.ev-media-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.ev-media-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(195, 155, 255, 0.12); border: 1px solid rgba(195, 155, 255, 0.4); color: #e8ecf4; border-radius: 999px; padding: 5px 12px; font-size: 0.85rem; }
+.ev-media-btn:hover { background: rgba(195, 155, 255, 0.24); }
+.ev-media-btn[aria-pressed="true"] { background: rgba(195, 155, 255, 0.35); border-color: #c39bff; }
+.ev-media-error { margin-top: 6px; font-size: 0.8rem; color: #ffb4a8; }

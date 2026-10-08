@@ -54,6 +54,18 @@ for (const e of entityList) {
     if (!f.url || !f.credit || !f.label) err(`entity ${id}: fallback_image needs url, credit and label`);
     else if (!existsSync(`public${f.url}`)) missingPictures.add(f.url);
   }
+  if (e.media !== undefined) {
+    if (!Array.isArray(e.media)) err(`entity ${id}: media must be a list`);
+    else
+      for (const m of e.media) {
+        const ext = { video: /\.(mp4|webm)$/i, audio: /\.(mp3|m4a|ogg|opus)$/i }[m?.kind as "video" | "audio"];
+        if (!ext) err(`entity ${id}: media kind must be video or audio (${m?.src})`);
+        else if (typeof m.src !== "string" || !ext.test(m.src)) err(`entity ${id}: media src ${m.src} is not a ${m.kind} file`);
+        else if (/^\/|^public\//.test(m.src)) err(`entity ${id}: media ${m.src} must be a bucket key or https URL, not a repo path`);
+        if (!m?.title) err(`entity ${id}: media ${m?.src} needs a title`);
+        if (!m?.credit) err(`entity ${id}: media ${m?.src} needs a credit (author/licence, or "AI-generated")`);
+      }
+  }
   if (e.category === "event") {
     if (!Number.isInteger(e.year) || e.year < e.start_year || e.year > e.end_year) err(`event ${id}: year must be an integer within start_year..end_year`);
     if (typeof e.date_text !== "string" || !e.date_text) err(`event ${id}: missing date_text`);

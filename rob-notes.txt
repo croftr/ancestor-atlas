@@ -1,1 +1,15 @@
 Get-ChildItem -File | ForEach-Object { ffmpeg -i $_.Name -vf "scale=1200:900" "$($_.BaseName).webp" }
+
+# --- Videos (Git Bash): run in the folder holding the new .mp4s ---
+# Makes a web-ready copy in web/ (starts playing at once, no quality loss) and uploads it to s3://robs-ancestors-atlas/events/
+# Don't re-use a name: browsers cache uploads for a year, so a remade video needs a new name (e.g. agriculture1-v2.mp4).
+mkdir -p web && for f in *.mp4; do ffmpeg -y -loglevel error -i "$f" -c copy -movflags +faststart "web/$f" && aws s3 cp "web/$f" "s3://robs-ancestors-atlas/events/$f" --content-type video/mp4 --cache-control "public, max-age=31536000, immutable"; done
+
+# --- Audio (Git Bash): same, for .mp3 files ---
+for f in *.mp3; do aws s3 cp "$f" "s3://robs-ancestors-atlas/events/$f" --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable"; done
+
+# Then add each clip to its event in data/curated/events.yaml:
+#   media:
+#     - { kind: video, src: events/NAME.mp4, title: "Title", credit: AI-generated video }
+#     - { kind: audio, src: events/NAME.mp3, title: "Title", credit: AI-generated audio }
+# and run: npm run data:build   (commit public/data with it)

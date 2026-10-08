@@ -8,6 +8,7 @@ import { eraIndexOf, erasFor, firstSentence, type Era } from "../timeline/layout
 import type { Entity } from "../types";
 import { refLink } from "../ui/refs";
 import EventImage from "./EventImage";
+import EventMedia from "./EventMedia";
 import "./events-page.css";
 
 const yearOf = (e: Entity) => e.year ?? e.start_year;
@@ -124,10 +125,7 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
         <button ref={closeRef} className="ev-close" onClick={() => navigate("events")} aria-label="Close">
           ✕
         </button>
-        <div className="ev-detail-media">
-          <EventImage event={event} className="large" />
-          {event.image_credit && <div className="muted image-credit">{event.image_credit}</div>}
-        </div>
+        <EventMedia key={event.id} event={event} />
         <div className="ev-detail-body">
           {era && <div className="ev-detail-era">{era.label}</div>}
           <h2 id="ev-detail-name">{event.name}</h2>

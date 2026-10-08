@@ -100,6 +100,7 @@ interface CuratedEvent {
   date_source?: string;
   image_url?: string;
   image_credit?: string;
+  media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
   places: { label: string; lat: number; lon: number; wikidata?: string; coord_source?: string; note?: string }[];
 }
 const curatedEvents = existsSync(`${CURATED}/events.yaml`)
@@ -124,6 +125,7 @@ for (const ev of curatedEvents) {
     wikipedia_url: ev.wikipedia_url,
     image_url: ev.image_url,
     image_credit: ev.image_credit,
+    media: ev.media?.length ? ev.media : undefined,
     source_ids: [],
   });
   ev.places.forEach((p, i) => {
