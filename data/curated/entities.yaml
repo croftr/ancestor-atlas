@@ -836,6 +836,11 @@
 - id: hyksos
   image_url: /images/civilisations/hyksos.webp
   image_credit: AI-generated illustration
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=9K-ionaiu1s
+      title: Ancient Egypt Dynasty by Dynasty - Dynasties XV & XVI - The Arrival of the Hyksos
+      credit: History with Cy, YouTube
 - id: new-kingdom-of-egypt
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
@@ -956,3 +961,141 @@
       src: https://www.youtube.com/watch?v=YTObOpc6Kt0
       title: Intriguing History of the Berber Kingdom of Numidia
       credit: Yohannes, YouTube
+- id: sumerian-city-states
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=YPioTRAOAvU
+      title: "Ancient Mesopotamia: The First Cities in History | Sumer and the Urban Revolution"
+      credit: Topicus History, YouTube
+- id: akkadian-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=uNHkoGRc53Y
+      title: "SARGON OF AKKAD - The Man Who Built the First Empire"
+      credit: ChronoQuest, YouTube
+- id: assyria
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=iz-Xxu7y_gQ
+      title: "The Epic of Ancient Assyria - PART I: Early Ashur and the Old Assyrian Kingdom (c. 3000-1400 BC)"
+      credit: History with Cy, YouTube
+- id: babylonia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=gJF_lYSREgc
+      title: Rise of Babylon and Hammurabi - Ancient Mesopotamia DOCUMENTARY
+      credit: Kings and Generals, YouTube
+- id: first-sealand-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=lzjbkMmpoq0
+      title: The First Dynasty of the Sealand and the Last Days of the Old Babylonian Kingdom (c. 1730-1460 BC)
+      credit: History with Cy, YouTube
+- id: hittites
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=OusqE7gTUOI
+      title: The Entire History Of The Hittites / Ancient History Documentary
+      credit: History Time, YouTube
+- id: mitanni
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=0PGOZPbOBG4
+      title: History of the Hurrian Kingdom of the Mitanni
+      credit: History with Cy, YouTube
+- id: neo-hittite-states
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mRcD3zyQFzc
+      title: "The Hittites (Part 22): The Rise and Fall of the Neo Hittite Kingdoms (c.1207-700 BC)"
+      credit: Gospel and Spade, YouTube
+- id: philistia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=S3eLWgy2jus
+      title: "Who were the Philistines? (History of the Philistines explained)"
+      credit: Epimetheus, YouTube
+- id: phoenicia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=3BkIAZwM8U4
+      title: A Brief History of the Phoenicians (1500 - 300 BC)
+      credit: Captivating History, YouTube
+- id: kingdom-of-israel
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=KbQ5Mvy0jz0
+      title: Kings of Israel & Judah Family Tree
+      credit: UsefulCharts, YouTube
+- id: kingdom-of-judah
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ZybFYikBMLg
+      title: History of Ancient Israel and Judah explained in 5 minutes
+      credit: Epimetheus, YouTube
+- id: neo-assyrian-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=sW0O986C2t8
+      title: "19. The Assyrians - Empire of Iron"
+      credit: Fall of Civilizations, YouTube
+- id: phrygia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=FPRgXQCymCs
+      title: Complete History of the Phrygian Kingdom DOCUMENTARY
+      credit: Wanax TV, YouTube
+- id: tabal-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=sx8SURJuAag
+      title: Tabal and the Kingdoms of Iron Age Anatolia
+      credit: Dig., YouTube
+- id: kingdom-of-urartu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vU8ow2IxrMA
+      title: History of the Kingdom of Urartu and the Urartians
+      credit: History Class, YouTube
+- id: sabaeans
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=JwvoSjticXM
+      title: Exploring the Hidden History of the Sabaean Kingdom
+      credit: National History, YouTube
+- id: hadhramaut
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=j9yPlyUZTD4
+      title: "“ SHIBAM – SOUTH ARABIA ” 1964 HADHRAMAUT REGION OF YEMEN DOCUMENTARY ARAB NOMADS"
+      credit: PeriscopeFilm, YouTube
+- id: lydia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=kHiBXEfrOhw
+      title: Who were the Lydians?
+      credit: The Histories, YouTube
+- id: assyrian-egypt
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=hPoEtxTwYh4
+      title: "History of Ancient Egypt: Dynasties XXIV & XXV - Nubian Pharaohs and the Assyrian Conquest of Egypt"
+      credit: History with Cy, YouTube
+- id: neo-babylonian-empire
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=FbFSuO7KHLY
+      title: The Neo-Babylonian Empire (Nabopolassar, Nebuchadnezzar II, Nabonidus)
+      credit: History with Cy, YouTube
+- id: minaeans
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=K2yQ1J7JpFo
+      title: Kingdom of Ma'in
+      credit: Get to know with Kenzie, YouTube
+- id: qataban
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=jSQevkWfMBM
+      title: What Was Arabia Like Before Islam? | DOCUMENTARY
+      credit: Para Bellum, YouTube
