@@ -1704,3 +1704,160 @@
       src: https://www.youtube.com/watch?v=bJRFT2s49Ao
       title: "The short-lived Iranian dynasty of Ancient India"
       credit: Jay Vardhan Singh, YouTube
+# Batch 5A: East Asia Dynasties, Korea, Steppe & Warring States
+- id: shang-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=VRQKp_vjVSY
+      title: "[Documentary] China's Bronze Age - Shang Dynasty (1760 - 1520 BC)"
+      credit: Bronze Goblet, YouTube
+- id: zhou-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=sqppiHdirc0
+      title: "[Documentary] Origin of Li and Yue - Zhou Dynasty (1046 -256 BC)"
+      credit: Bronze Goblet, YouTube
+- id: later-zhou
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GZ_lSXv4Psg
+      title: "The Western Zhou Dynasty and the Spring and Autumn Period - Explained"
+      credit: GatesOfKilikien, YouTube
+- id: qin-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=h-SC0vKIWV0
+      title: "The Birth Of A Dynasty: China's First Emperor"
+      credit: Odyssey - Ancient History Documentaries, YouTube
+- id: han-dynasty
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=5Vm4Fg26e20
+      title: "The Han Dynasty Explained"
+      credit: Captivating History, YouTube
+- id: gojoseon
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=qmATYjagXMg
+      title: "The History of Korea (Ancient Kingdoms to Modern Korea)"
+      credit: Relaxing Asian History, YouTube
+- id: korean-jin
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vB0dz7XkHXA
+      title: "Jin-guk (辰國) was an ancient state that existed before the period of the Three Han"
+      credit: koreahistoryteller_KHT, YouTube
+- id: byeonhan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xBPLoQC-bto
+      title: "Samhan (The Three Hans): 진한 Jinhan; 마한 Mahan; 변한 Byeonhan"
+      credit: Korean History 한국사, YouTube
+- id: jinhan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GnDdkFjF-m8
+      title: "Korean Three Kingdoms Period explained (History of Korea)"
+      credit: Epimetheus, YouTube
+- id: mahan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xBPLoQC-bto
+      title: "Samhan (The Three Hans): 진한 Jinhan; 마한 Mahan; 변한 Byeonhan"
+      credit: Korean History 한국사, YouTube
+- id: dongye
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=wP0SMYirSoc
+      title: "Okjeo & Dongye (Ancient Korean States)"
+      credit: Korean History 한국사, YouTube
+- id: dong-okjeo
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=wP0SMYirSoc
+      title: "Okjeo & Dongye (Ancient Korean States)"
+      credit: Korean History 한국사, YouTube
+- id: goguryeo
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GpkAsdH78l4
+      title: "Goguryeo: The Three Kingdoms Period"
+      credit: From History, YouTube
+- id: xiongnu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=bFpQjWtpHcM
+      title: "Huns: The Origin"
+      credit: Kings and Generals, YouTube
+- id: yuezhi
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=2KdM6AlyLUY
+      title: "Yuezhi Migration and Kushan Empire - Nomads DOCUMENTARY"
+      credit: Kings and Generals, YouTube
+- id: minyue
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=kATDlKZNzTY
+      title: "Minyue Ancient Fujian"
+      credit: Knowledge=fun, YouTube
+- id: nanyue
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=a8FT2cBLaYs
+      title: "Who Built Guangzhou: The General Who Founded a Kingdom (Zhao Tuo & Nanyue)"
+      credit: WeDiscoverChina, YouTube
+- id: western-chu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=G1GRkTqIMgM
+      title: "Chu–Han Contention: The War That Created the Han Dynasty | Part 1"
+      credit: Armies of History, YouTube
+- id: chu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=x-3OYFbFOZY
+      title: "Chu State: A Feudal State in the Yangtze River Basin During the Pre-Qin Period"
+      credit: knowl card, YouTube
+- id: qi
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=fn3wTsVbllg
+      title: "Qi State: An Important Vassal State in Pre-Qin Period"
+      credit: knowl card, YouTube
+- id: jin
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=aKtXjLbqWBM
+      title: "The Six Ministers of Jin State: Military and Political System of Jin in the Spring and Autumn Period"
+      credit: knowl card, YouTube
+- id: yan
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=uQt3k9QfLBs
+      title: "King Zhao of Yan, Monarch of Yan State during the Warring States Period"
+      credit: knowl card, YouTube
+- id: zhao
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=i-D5NtE6c4M
+      title: "Zhao Bao: A Historical and Political Figure of Zhao State"
+      credit: knowl card, YouTube
+- id: wei
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Gp0b316IdD4
+      title: "Wei State One of the Seven Powers of the Warring States Period"
+      credit: knowl card, YouTube
+- id: han
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=iq7pUMqxSAY
+      title: "The Rise and Fall of the House of Han 韩国 (403 BC - 230 BC)"
+      credit: Bedtime history of ancient China, YouTube
+- id: lu
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Ly5Emk2bG3M
+      title: "Lu State Important Vassal State Relics of the Zhou Dynasty"
+      credit: knowl card, YouTube
