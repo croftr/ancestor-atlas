@@ -206,6 +206,8 @@
   description: The wheel-and-axle mechanism emerged in both potters' turntables and heavy four-wheeled carts across the Eurasian steppes and Mesopotamian floodplains. Replacing dragging sledges with wheeled draft wagons transformed overland cargo transport, agrarian efficiency, and regional military organization.
   related: [sumerian-city-states, cucuteni-trypillia, funnelbeaker]
   wikipedia_url: https://en.wikipedia.org/wiki/Wheel
+  image_url: /images/events/invention-of-the-wheel.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Wheel@1377593758
   places:
     - { label: Uruk, lat: 31.3259, lon: 45.6374, wikidata: Q168518 }
@@ -217,6 +219,8 @@
   description: Metallurgists discovered that smelting copper alongside tin or arsenic produced bronze, an alloy far harder and more durable than pure copper that melted at lower temperatures and cast cleanly. This breakthrough spurred long-distance maritime and overland trade networks to secure rare tin deposits across Eurasia and the Mediterranean, establishing complex merchant routes and elite-led palatial states.
   related: [sumerian-city-states]
   wikipedia_url: https://en.wikipedia.org/wiki/Bronze_Age
+  image_url: /images/events/bronze-age.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Bronze_Age@1377895015
   places:
     - { label: Mesopotamia, lat: 33.7, lon: 43.5, wikidata: Q11767, note: "region: Mesopotamia's Wikidata point" }
@@ -228,6 +232,8 @@
   description: Cuneiform script evolved from clay tokens and administrative seals used to track grain stores, livestock and trade in growing city-states. This system of marks moved from basic pictograms to an abstract logosyllabic script, marking the beginning of recorded history, legal codification, and literature.
   related: [sumerian-city-states]
   wikipedia_url: https://en.wikipedia.org/wiki/Cuneiform
+  image_url: /images/events/development-of-writing.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Cuneiform@1379042447
   places:
     - { label: Uruk, lat: 31.3259, lon: 45.6374, wikidata: Q168518 }
@@ -239,6 +245,8 @@
   description: Built as the tomb of Pharaoh Khufu during Egypt's Old Kingdom, the Great Pyramid was the tallest human-made structure on Earth for over 3,800 years. Its construction required quarrying, transporting and aligning roughly 2.3 million multi-ton limestone and granite blocks with precise astronomical orientation, reflecting state-level logistics and labour mobilization without iron tools.
   related: [old-kingdom-of-egypt]
   wikipedia_url: https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza
+  image_url: /images/events/great-pyramid.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Great_Pyramid_of_Giza@1378503482
   places:
     - { label: Great Pyramid of Giza, lat: 29.97915, lon: 31.13422, wikidata: Q37200 }
@@ -250,6 +258,8 @@
   description: The Indus Valley Civilization built cities from standardized baked bricks laid along orthogonal grid plans. Mohenjo-daro had some of the world's earliest urban sanitation, including private bathing rooms, covered street drains, terracotta drain chutes, and public reservoirs like the Great Bath, showing centralized civil engineering centuries ahead of its time.
   related: [indus-valley-civilization]
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
+  image_url: /images/events/indus-cities.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Mohenjo-daro@1376909925
   places:
     - { label: Mohenjo-daro, lat: 27.32917, lon: 68.13889, wikidata: Q5725 }
@@ -262,6 +272,8 @@
   description: Semitic-speaking workers in the Egyptian turquoise mines adapted simplified Egyptian hieroglyphs to represent single consonants rather than words or syllables, creating the Proto-Sinaitic script. This streamlined system was refined by Phoenician traders and became the ancestor of the Greek, Latin, Aramaic, Hebrew and Arabic alphabets.
   related: [middle-kingdom-of-egypt]
   wikipedia_url: https://en.wikipedia.org/wiki/Proto-Sinaitic_script
+  image_url: /images/events/alphabetic-script.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Proto-Sinaitic_script@1373408378
   places:
     - { label: Serabit el-Khadim, lat: 29.03673, lon: 33.45941, wikidata: Q1462523 }
@@ -273,6 +285,8 @@
   description: King Hammurabi of Babylon had 282 legal judgments inscribed on a diorite stele displayed in public. The code set out rules of evidence, contracts, commercial liability and scaled penalties, including "an eye for an eye", formalizing royal justice over local arbitration across an entire empire.
   related: [babylonia]
   wikipedia_url: https://en.wikipedia.org/wiki/Code_of_Hammurabi
+  image_url: /images/events/code-of-hammurabi.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Code_of_Hammurabi@1378337092
   places:
     - { label: Babylon, lat: 32.5425, lon: 44.42111, wikidata: Q5684 }
@@ -284,6 +298,8 @@
   description: Smiths developed bloomeries and bellows able to reach the temperatures needed to reduce iron ore into workable sponge iron. Because iron ore is far more common than copper and scarce tin, bloomery iron made tools and weapons widely available, supporting expanded farming and large armies.
   related: [hittites, neo-hittite-states]
   wikipedia_url: https://en.wikipedia.org/wiki/Iron_Age
+  image_url: /images/events/iron-age.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Iron_Age@1378096360
   places:
     - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007 }
@@ -295,6 +311,8 @@
   description: The Kingdom of Lydia introduced state-guaranteed coins stamped from electrum, a natural alloy of gold and silver, bearing a royal lion emblem. By certifying purity and weight with a government mark, coins replaced weighing raw metal at every transaction, laying the groundwork for market economies and money taxation.
   related: [lydia]
   wikipedia_url: https://en.wikipedia.org/wiki/Lydia
+  image_url: /images/events/minted-coinage.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Lydia@1376278046
   places:
     - { label: Sardis, lat: 38.48833, lon: 28.04028, wikidata: Q232615 }
@@ -308,6 +326,8 @@
   description: Early finds, including the Fangmatan paper map, show that Han Chinese craftspeople were already making paper from plant fibres suspended in water on screens well before 1 CE, long before Cai Lun codified the process in 105 CE. This light, cheap medium replaced bulky bamboo strips and expensive silk, lowering the cost of record-keeping and literacy.
   related: [han-dynasty]
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_paper
+  image_url: /images/events/papermaking.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:History_of_paper@1376858354
   places:
     - { label: Fangmatan, lat: 34.4129, lon: 106.10004, wikidata: Q5433839 }
