@@ -6,6 +6,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .muted { color: #8b95ab; font-size: 0.85em; }
 .app { position: relative; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+.globe-page { display: contents; } /* small screens: a scrolling column (ui/stacked.css) */
 .map-wrap { position: absolute; inset: 0; }
 /* Legend dock: the logo is a medallion on the panel's corner and toggles the panel. */
 .legend-dock { position: absolute; top: 18px; left: 18px; z-index: 4; }

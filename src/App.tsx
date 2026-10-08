@@ -17,17 +17,21 @@ export default function App() {
   const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null);
   return (
     <div className={`app view-${view}${view === "globe" && hasCard ? " has-card" : ""}`}>
-      {/* The globe stays mounted under the timeline so its camera and state survive the switch. */}
-      <MapView />
-      {view === "globe" ? (
-        <>
-          {/* Small screens stack these in a column (search, legend, card, globe, slider): see index.css. */}
-          <SearchBox />
-          <Legend />
-          <InfoPanel />
-          <TimeSlider />
-        </>
-      ) : view === "timeline" ? (
+      {/* Small screens stack the globe page in a scrolling column (search, legend, card, globe,
+          slider): see ui/stacked.css. Elsewhere the wrapper is display: contents. */}
+      <div className="globe-page">
+        {/* The globe stays mounted under the timeline so its camera and state survive the switch. */}
+        <MapView />
+        {view === "globe" && (
+          <>
+            <SearchBox />
+            <Legend />
+            <InfoPanel />
+            <TimeSlider />
+          </>
+        )}
+      </div>
+      {view === "globe" ? null : view === "timeline" ? (
         <TimelinePage />
       ) : (
         <EventsPage />

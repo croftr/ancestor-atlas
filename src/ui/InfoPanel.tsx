@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE } from "../config";
 import { formatRange } from "../time/scale";
@@ -9,6 +9,7 @@ import { navOrder } from "../search/search";
 import { navigate, type View } from "../route";
 import "./events.css";
 import EventImage from "../events/EventImage";
+import { STACKED_QUERY } from "../config";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -45,6 +46,19 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
   // Small screens: the card can shrink to its title (and site stepper) to give the globe room.
   const [minimised, setMinimised] = useState(false);
+  // Small screens: the card sits above the globe in a scrolling column. When the selection
+  // changes while the card is scrolled out of view (say, after tapping the globe below it),
+  // bring the card's top back into view.
+  const cardRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || !window.matchMedia?.(STACKED_QUERY).matches) return;
+    const top = el.getBoundingClientRect().top;
+    if (top < 56 || top > window.innerHeight * 0.6) {
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
+    }
+  }, [selectedId, groupId]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") useStore.getState().select(null);
@@ -101,7 +115,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
   return (
-    <div className={`panel info-panel${minimised ? " minimised" : ""}`}>
+    <div ref={cardRef} className={`panel info-panel${minimised ? " minimised" : ""}`}>
       <button
         className="info-min"
         onClick={() => setMinimised((m) => !m)}
