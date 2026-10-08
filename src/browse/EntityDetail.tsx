@@ -135,11 +135,6 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
                   {m.title}
                 </button>
               ))}
-              {clip?.kind === "video" && (
-                <button className="ev-media-btn" onClick={() => setCurrent(null)}>
-                  ✕ Close video
-                </button>
-              )}
             </div>
           )}
         </div>

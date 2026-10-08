@@ -70,11 +70,6 @@ export default function EventMedia({ event }: { event: Entity }) {
               {m.title}
             </button>
           ))}
-          {clip?.kind === "video" && (
-            <button className="ev-media-btn" onClick={() => setCurrent(null)}>
-              ✕ Close video
-            </button>
-          )}
         </div>
       )}
     </div>
