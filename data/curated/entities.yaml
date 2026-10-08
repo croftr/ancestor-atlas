@@ -1099,3 +1099,141 @@
       src: https://www.youtube.com/watch?v=jSQevkWfMBM
       title: What Was Arabia Like Before Islam? | DOCUMENTARY
       credit: Para Bellum, YouTube
+- id: kingdom-of-bithynia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=kpchFt5sZKE
+      title: Roman Bithynia and Pontus
+      credit: Schwerpunkt, YouTube
+- id: kingdom-of-armenia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mAsF1xwRS34
+      title: "The ENTIRE History of ARMENIA | FULL DOCUMENTARY"
+      credit: Our Ancient World, YouTube
+- id: kingdom-of-lysimachus
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ZIIOThLHeTY
+      title: "The Forgotten King: Lysimachus and the Rise of the Diadochi"
+      credit: WarBios, YouTube
+- id: laomedon
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vqqWcJ73_wY
+      title: "Laomedonte: El Diádoco que Perdió Siria ante Ptolomeo"
+      credit: Jenofonte, YouTube
+- id: perdiccas
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Jpzt9ovg9vU
+      title: First War of the Diadochi - Alexander's Successors At War DOCUMENTARY
+      credit: Kings and Generals, YouTube
+- id: colchis
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=IpvSodrdT8w
+      title: The Forgotten Ancient Kingdom of Colchis
+      credit: Study of Antiquity and the Middle Ages, YouTube
+- id: kingdom-of-pontus
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=6yp8VbJAWv4
+      title: Kingdom of Pontus
+      credit: Costas Melas, YouTube
+- id: galatia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=uw6iVSlWTJQ
+      title: The Forgotten History of Celtic Anatolia
+      credit: Study of Antiquity and the Middle Ages, YouTube
+- id: kingdom-of-pergamon
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=vDW6Q5JWnd8
+      title: "The Rise and Fall of the Attalid Dynasty: From Pergamon’s Glory to Roman Conquest"
+      credit: TimelessTreasury, YouTube
+- id: paphlagonia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Fqt-nYdUpqo
+      title: "Paphlagonia: Ancient History and Geography"
+      credit: Wikipedia TTS, YouTube
+- id: kingdom-of-sophene
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=nHgTBE0b-40
+      title: "New Archaeology: Message from a Lost Kingdom"
+      credit: Amazing Archaeology, YouTube
+- id: kingdom-of-cappadocia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=j2YQD_wLNSI
+      title: "Cappadocia History Documentary: The Ancient Secrets of Cappadocia, Turkey"
+      credit: Cappadocia Page Turkey, YouTube
+- id: rhodes
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=GPqxeNQWFHk
+      title: From Engine of War to Ancient Wonder - The Colossus of Rhodes DOCUMENTARY
+      credit: Invicta, YouTube
+- id: nabataeans
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=qSfFq02pK4s
+      title: "15. The Nabataeans - The Last Days Of Petra"
+      credit: Fall of Civilizations, YouTube
+- id: judea
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=OXVBwwpMjts
+      title: "The Maccabees Explained: Revolt, Hanukkah & the Rise of the Hasmoneans"
+      credit: Religion Files, YouTube
+- id: himyarite-kingdom
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=E_BAywEPUNA
+      title: "Himyarite Kingdom: The Forgotten Empire of Pre-Islamic Arabia DOCUMENTARY"
+      credit: Kings and Generals, YouTube
+- id: caucasian-albania
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mwijpopq87k
+      title: "The Other Albania: Lost Kingdom of the Caucasus"
+      credit: Kings and Generals, YouTube
+- id: caucasian-iberia
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=5Y9Z77G6a5Y
+      title: Pharasmanes of Iberia & Rhadamistus of Armenia
+      credit: Stoic Historian, YouTube
+- id: kingdom-of-adiabene
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=OJwa3suPNao
+      title: Helena, Queen of Adiabene
+      credit: Treasured Inheritance Ministry Int., YouTube
+- id: kingdom-of-commagene
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=EOpfF1sQrX4
+      title: Mount Nemrud I Remastered
+      credit: Tolga Örnek, YouTube
+- id: kingdom-of-gordyene
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=iummGCh1Rrw
+      title: The History of the Kurds in the Ancient Period
+      credit: Mîlan & Zîlan, YouTube
+- id: kingdom-of-osroene
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=d65GZQ9gIoE
+      title: "The Life and Reign of Abgar VIII: King of Osroene"
+      credit: Secret Record, YouTube
+- id: lazica
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=7Wkien4HwJc
+      title: "E31 - The Kingdom of Lazica | The History of Saqartvelo Georgia"
+      credit: The History Of Saqartvelo Georgia, YouTube
