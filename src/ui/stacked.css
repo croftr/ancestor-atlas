@@ -1,0 +1,150 @@
+/*
+ * Small screens (phones, portrait tablets): the globe page's panels stop floating over the globe
+ * and stack in a column instead: search, legend, info card, globe, time slider. The globe takes
+ * whatever height is left and shrinks when the card opens. Keep the width in step with
+ * STACKED_QUERY in src/config.ts.
+ */
+@media (max-width: 900px) {
+  .app.view-globe {
+    --stack-l: calc(var(--nav-w) + 8px); /* clear of the rail (701–900px) */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .app.view-globe .search,
+  .app.view-globe .legend-dock,
+  .app.view-globe .info-panel,
+  .app.view-globe .time-slider,
+  .app.view-globe .map-wrap {
+    position: relative;
+    inset: auto;
+    transform: none;
+    width: auto;
+    margin: 0 8px 0 var(--stack-l);
+  }
+
+  /* Search: top row. */
+  .app.view-globe .search { order: 1; flex: none; margin-top: 8px; z-index: 30; }
+  .app.view-globe .search-kbd { display: none; } /* no "/" key on a phone */
+  .app.view-globe .search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: min(60dvh, 420px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Legend: the four categories as a compact 2×2 grid; one category's list opens below it. */
+  .app.view-globe .legend-dock { order: 2; flex: none; z-index: auto; }
+  .app.view-globe .legend {
+    min-width: 0;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
+    padding: 6px 8px;
+    transform: none;
+  }
+  .app.view-globe .legend-toggle,
+  .app.view-globe .legend-brand,
+  .app.view-globe .legend-shape,
+  .app.view-globe .count-word { display: none; }
+  .app.view-globe .legend-cats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6px;
+  }
+  .app.view-globe .legend-category { display: contents; }
+  .app.view-globe .legend-row { min-width: 0; }
+  .app.view-globe .legend-title-btn { min-height: 36px; padding: 4px 6px; }
+  .app.view-globe .legend-title-btn[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  .app.view-globe .legend-title-text { font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; }
+  .app.view-globe .legend-breakdown {
+    grid-column: 1 / -1;
+    order: 1; /* after all four category rows */
+    margin: 4px 0 2px;
+    padding: 6px 0 0;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .app.view-globe .legend-breakdown-list { max-height: 24dvh; }
+  .app.view-globe .legend-item-btn { min-height: 36px; font-size: 0.9rem; }
+
+  /* Info card: a full-width panel above the globe, scrolling inside itself. */
+  .app.view-globe .info-panel {
+    order: 3;
+    flex: 0 1 auto;
+    min-height: 0;
+    max-height: 40dvh;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+  }
+  .app.view-globe .info-head { padding-right: 68px; }
+  .app.view-globe .info-head h2 { font-size: 1.1rem; }
+  .app.view-globe .info-panel .close { width: 32px; height: 32px; top: 6px; right: 6px; padding: 0; }
+  .info-min {
+    position: absolute;
+    top: 6px;
+    right: 42px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd3e6;
+  }
+  .app.view-globe .info-min { display: grid; place-items: center; }
+  .info-min:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
+  /* Pictures stay small enough to leave room for the text below them. */
+  .app.view-globe .info-media,
+  .app.view-globe .info-panel .ev-img { max-width: calc(30dvh * 4 / 3); margin-inline: auto; }
+  .app.view-globe .info-panel .ev-img { max-width: 30dvh; }
+  /* Minimised: just the title block and the site stepper. */
+  .app.view-globe .info-panel.minimised > :not(.info-head, .feature-nav, .close, .info-min) { display: none; }
+  .app.view-globe .info-panel.minimised .feature-nav { margin-bottom: 0; }
+
+  /* Globe: everything that's left. */
+  .app.view-globe .map-wrap { order: 4; flex: 1 1 0; min-height: 140px; margin: 0 0 0 var(--nav-w); }
+
+  /* Time slider: compact, docked at the bottom. */
+  .app.view-globe .time-slider {
+    order: 5;
+    flex: none;
+    margin-bottom: 8px;
+    padding: 8px 12px 6px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 8px;
+    align-items: center;
+  }
+  .app.view-globe .year-readout { grid-column: 1; grid-row: 1; font-size: 1.15rem; line-height: 1.25; }
+  .app.view-globe .resolution { grid-column: 1; grid-row: 2; font-size: 0.72rem; }
+  .app.view-globe .controls { grid-column: 2; grid-row: 1 / span 2; margin: 0; gap: 4px; }
+  .app.view-globe .controls button { width: 36px; height: 34px; padding: 0; }
+  .app.view-globe .range,
+  .app.view-globe .span-track,
+  .app.view-globe .ticks,
+  .app.view-globe .chips { grid-column: 1 / -1; }
+  .app.view-globe .range { margin-top: 6px; }
+  .app.view-globe .tick-long { display: none; }
+  .app.view-globe .tick-short { display: inline; }
+  /* With a card open, the era shortcuts give their row to the globe. */
+  .app.view-globe.has-card .time-slider .chips { display: none; }
+}
+
+/* Phones: the rail is a drawer, and its menu button sits beside the search. */
+@media (max-width: 700px) {
+  .app.view-globe .nav-menu-btn { top: 8px; bottom: auto; left: 8px; width: 40px; height: 40px; border-radius: 10px; }
+  .app.view-globe .search { margin-left: 56px; }
+}
+
+/* Narrow phones: start/end buttons go (the slider reaches both ends), so the year fits on one line. */
+@media (max-width: 480px) {
+  .app.view-globe .controls button:first-child,
+  .app.view-globe .controls button:last-child { display: none; }
+  .app.view-globe .year-readout { font-size: 1.1rem; }
+}

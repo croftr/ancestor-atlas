@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
-import { BASEMAP_THEMES } from "../config";
+import { BASEMAP_THEMES, STACKED_QUERY } from "../config";
 import { type FeatureProps } from "../types";
 import { INTERACTIVE_LAYERS, LAYER_DEFS, SOURCE_ID, timeFilter } from "./layers";
 import { eventTolerance, isActive, loadData, useFeatures } from "./data";
@@ -80,14 +80,18 @@ export default function MapView() {
 
     const flyTo = ([w, s, e, n]: [number, number, number, number], gentle = false) => {
       // Keep the target clear of the legend (left), info card (right) and time slider (bottom).
+      // On small screens those are stacked around the globe rather than over it.
       const { clientWidth: cw, clientHeight: ch } = map.getContainer();
+      const stacked = window.matchMedia?.(STACKED_QUERY).matches;
       const wide = cw > 900;
-      const padding = {
-        top: Math.min(70, ch * 0.1),
-        bottom: Math.min(230, ch * 0.3),
-        left: wide ? 340 : 20,
-        right: wide ? 420 : 20,
-      };
+      const padding = stacked
+        ? { top: 16, bottom: 16, left: 16, right: 16 }
+        : {
+            top: Math.min(70, ch * 0.1),
+            bottom: Math.min(230, ch * 0.3),
+            left: wide ? 340 : 20,
+            right: wide ? 420 : 20,
+          };
       const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       try {
         if (gentle) {
@@ -165,7 +169,16 @@ export default function MapView() {
           }
         }
       }
-      if (state.flyTo && state.flyTo !== prev.flyTo) flyTo(state.flyTo.bbox, state.flyTo.gentle);
+      if (state.flyTo && state.flyTo !== prev.flyTo) {
+        const { bbox, gentle } = state.flyTo;
+        // On small screens the info card opening resizes the globe; frame the target in the new size.
+        if (window.matchMedia?.(STACKED_QUERY).matches)
+          requestAnimationFrame(() => {
+            map.resize();
+            flyTo(bbox, gentle);
+          });
+        else flyTo(bbox, gentle);
+      }
       if (!loaded) return;
       if (state.year !== prev.year) {
         cancelAnimationFrame(raf);
@@ -191,12 +204,12 @@ export default function MapView() {
   const showEmpty = features.length > 0 && !anyActive;
 
   return (
-    <>
+    <div className="map-wrap">
       <div ref={containerRef} style={{ position: "absolute", inset: 0 }} />
       {showEmpty && (
         <div className="empty-state">No mapped entities at this point in time.</div>
       )}
-    </>
+    </div>
   );
 }
 

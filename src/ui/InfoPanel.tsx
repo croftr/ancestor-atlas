@@ -43,6 +43,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
 
   // A picture that failed to load (a stand-in not added yet) is left out.
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
+  // Small screens: the card can shrink to its title (and site stepper) to give the globe room.
+  const [minimised, setMinimised] = useState(false);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") useStore.getState().select(null);
@@ -99,16 +101,29 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
   return (
-    <div className="panel info-panel">
+    <div className={`panel info-panel${minimised ? " minimised" : ""}`}>
+      <button
+        className="info-min"
+        onClick={() => setMinimised((m) => !m)}
+        aria-expanded={!minimised}
+        aria-label={minimised ? "Show full card" : "Minimise card"}
+        title={minimised ? "Show full card" : "Minimise card"}
+      >
+        <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+          <path d={minimised ? "M2.5 4.5 6 8l3.5-3.5" : "M2.5 7.5 6 4l3.5 3.5"} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
       <button className="close" onClick={() => select(null)} aria-label="Close">✕</button>
-      <span className="badge" style={{ background: style.color }}>{style.label}</span>
-      {parent && (
-        <div className="breadcrumb">
-          <button className="link" onClick={() => openGroup(parent.id)}>{parent.name}</button> › {entity.name}
-        </div>
-      )}
-      <h2>{entity.name}</h2>
-      <div className="muted">{isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}</div>
+      <div className="info-head">
+        <span className="badge" style={{ background: style.color }}>{style.label}</span>
+        {parent && (
+          <div className="breadcrumb">
+            <button className="link" onClick={() => openGroup(parent.id)}>{parent.name}</button> › {entity.name}
+          </div>
+        )}
+        <h2>{entity.name}</h2>
+        <div className="muted">{isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}</div>
+      </div>
       <div className="view-link">
         {view === "timeline" ? (
           <button

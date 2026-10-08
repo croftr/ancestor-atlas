@@ -16,6 +16,8 @@ import {
 } from "../time/scale";
 
 const TICK_LABELS = ["10 Ma", "1 Ma", "100 ka", "10,000 BCE", "3,000 BCE", "1 CE"];
+/** Narrow screens: the same ticks, shortened so neighbours don't run together. */
+const TICK_SHORT = ["10 Ma", "1 Ma", "100 ka", "10k BCE", "3k BCE", "1 CE"];
 
 export default function TimeSlider() {
   const year = useStore((s) => s.year);
@@ -100,7 +102,7 @@ export default function TimeSlider() {
   return (
     <div className="panel time-slider">
       <div className="year-readout">{formatYear(year)}</div>
-      <div className="muted">Resolution: {resolution.toLocaleString("en-US")} years</div>
+      <div className="muted resolution">Resolution: {resolution.toLocaleString("en-US")} years</div>
       <div className="controls">
         <button onClick={() => setYear(MIN_YEAR)} title="Start">⏮</button>
         <button onClick={() => setYear(stepYear(year, -1))} title="Step back">◀</button>
@@ -133,7 +135,8 @@ export default function TimeSlider() {
       <div className="ticks">
         {POS_BREAKS.map((p, i) => (
           <span key={i} className="tick" style={{ left: `${p * 100}%` }}>
-            {TICK_LABELS[i]}
+            <span className="tick-long">{TICK_LABELS[i]}</span>
+            <span className="tick-short">{TICK_SHORT[i]}</span>
           </span>
         ))}
       </div>

@@ -51,3 +51,6 @@ export const BASEMAP_THEMES: Record<string, BasemapTheme> = {
 };
 
 export const DEFAULT_BASEMAP = "dusk";
+
+/** Small screens: the globe's panels stack in a column around it (index.css uses the same width). */
+export const STACKED_QUERY = "(max-width: 900px)";

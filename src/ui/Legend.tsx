@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { useStore } from "../store";
 import { CATEGORIES, type Category } from "../types";
-import { CATEGORY_STYLE } from "../config";
+import { CATEGORY_STYLE, STACKED_QUERY } from "../config";
 import { isActive, useData } from "../map/data";
+import { useMediaQuery } from "./useMediaQuery";
 
 interface ActiveEntityItem {
   id: string;
@@ -13,15 +14,13 @@ interface ActiveEntityItem {
 
 const COLLAPSED_KEY = "history-globe.legend-collapsed";
 
-/** Remembered per browser; small screens start collapsed so the globe gets the room. */
+/** Remembered per browser (desktop only: small screens always show the compact legend). */
 function loadCollapsed(): boolean {
   try {
-    const v = localStorage.getItem(COLLAPSED_KEY);
-    if (v !== null) return v === "1";
+    return localStorage.getItem(COLLAPSED_KEY) === "1";
   } catch {
-    /* storage unavailable */
+    return false; // storage unavailable
   }
-  return typeof window !== "undefined" && window.innerWidth < 700;
 }
 
 const swatchStyle = (c: Category, colorOverride?: string): React.CSSProperties => {
@@ -45,7 +44,10 @@ export default function Legend() {
 
   const data = useData();
   const features = data?.features;
-  const [collapsed, setCollapsed] = useState(loadCollapsed);
+  const [collapsedPref, setCollapsed] = useState(loadCollapsed);
+  // Small screens always show the legend (as a compact grid under the search); no hide toggle.
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const collapsed = collapsedPref && !stacked;
   const toggleCollapsed = () =>
     setCollapsed((c) => {
       try {
@@ -63,7 +65,12 @@ export default function Legend() {
   });
 
   const toggleExpanded = (c: Category) => {
-    setExpanded((prev) => ({ ...prev, [c]: !prev[c] }));
+    // Small screens show one list at a time, under the category grid.
+    setExpanded((prev) =>
+      stacked
+        ? { species: false, culture: false, civilization: false, event: false, [c]: !prev[c] }
+        : { ...prev, [c]: !prev[c] },
+    );
   };
 
   const selectedEntityId = useMemo(() => {
@@ -123,6 +130,8 @@ export default function Legend() {
   }, [features, year, data]);
 
   const handleSelectEntity = (entityId: string, category: Category) => {
+    // Small screens: close the list so the card that opens below has the room.
+    if (stacked) setExpanded({ species: false, culture: false, civilization: false, event: false });
     if (selectedEntityId === entityId) {
       select(null);
       return;
@@ -167,69 +176,74 @@ export default function Legend() {
         <div className="legend-brand">
           <h1>Ancestor Atlas</h1>
         </div>
-        {CATEGORIES.map((c) => {
-          const items = breakdown[c];
-          const isExpanded = expanded[c];
-          return (
-            <div key={c} className="legend-category">
-              <div className="legend-row">
-                <input
-                  type="checkbox"
-                  className="legend-checkbox"
-                  checked={enabled[c]}
-                  onChange={() => toggle(c)}
-                  aria-label={`Toggle visibility of ${CATEGORY_STYLE[c].label}`}
-                  title={enabled[c] ? "Hide on map" : "Show on map"}
-                />
-                <button
-                  type="button"
-                  className={`legend-title-btn ${!enabled[c] ? "disabled" : ""}`}
-                  onClick={() => toggleExpanded(c)}
-                  aria-expanded={isExpanded}
-                  title={`Click to ${isExpanded ? "collapse" : "expand"} ${CATEGORY_STYLE[c].label} breakdown`}
-                >
-                  <span className="swatch" style={swatchStyle(c)} />
-                  <span className="legend-title-text">
-                    {CATEGORY_STYLE[c].label} <span className="muted">{CATEGORY_STYLE[c].shape}</span>
-                  </span>
-                  <span className="count">{items.length} active</span>
-                  <span className={`legend-caret ${isExpanded ? "open" : ""}`} aria-hidden="true">
-                    ▸
-                  </span>
-                </button>
-              </div>
-              {isExpanded && (
-                <div className="legend-breakdown">
-                  {items.length === 0 ? (
-                    <div className="legend-breakdown-empty muted">None active in this era</div>
-                  ) : (
-                    <ul className="legend-breakdown-list">
-                      {items.map((item) => {
-                        const isSelected = selectedEntityId === item.id;
-                        return (
-                          <li key={item.id} className="legend-breakdown-item">
-                            <button
-                              type="button"
-                              className={`legend-item-btn ${isSelected ? "selected" : ""}`}
-                              onClick={() => handleSelectEntity(item.id, c)}
-                              title={`Select ${item.name}`}
-                            >
-                              <span className="swatch" style={swatchStyle(c, item.color)} />
-                              <span className="item-name">{item.name}</span>
-                              {item.siteCount > 1 && (
-                                <span className="item-count muted">({item.siteCount})</span>
-                              )}
-                            </button>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
+        <div className="legend-cats">
+          {CATEGORIES.map((c) => {
+            const items = breakdown[c];
+            const isExpanded = expanded[c];
+            return (
+              <div key={c} className="legend-category">
+                <div className="legend-row">
+                  <input
+                    type="checkbox"
+                    className="legend-checkbox"
+                    checked={enabled[c]}
+                    onChange={() => toggle(c)}
+                    aria-label={`Toggle visibility of ${CATEGORY_STYLE[c].label}`}
+                    title={enabled[c] ? "Hide on map" : "Show on map"}
+                  />
+                  <button
+                    type="button"
+                    className={`legend-title-btn ${!enabled[c] ? "disabled" : ""}`}
+                    onClick={() => toggleExpanded(c)}
+                    aria-expanded={isExpanded}
+                    title={`Click to ${isExpanded ? "collapse" : "expand"} ${CATEGORY_STYLE[c].label} breakdown`}
+                  >
+                    <span className="swatch" style={swatchStyle(c)} />
+                    <span className="legend-title-text">
+                      {CATEGORY_STYLE[c].label} <span className="muted legend-shape">{CATEGORY_STYLE[c].shape}</span>
+                    </span>
+                    <span className="count">
+                      {items.length}
+                      <span className="count-word"> active</span>
+                    </span>
+                    <span className={`legend-caret ${isExpanded ? "open" : ""}`} aria-hidden="true">
+                      ▸
+                    </span>
+                  </button>
                 </div>
-              )}
-            </div>
-          );
-        })}
+                {isExpanded && (
+                  <div className="legend-breakdown" aria-label={`${CATEGORY_STYLE[c].label} active now`}>
+                    {items.length === 0 ? (
+                      <div className="legend-breakdown-empty muted">None active in this era</div>
+                    ) : (
+                      <ul className="legend-breakdown-list">
+                        {items.map((item) => {
+                          const isSelected = selectedEntityId === item.id;
+                          return (
+                            <li key={item.id} className="legend-breakdown-item">
+                              <button
+                                type="button"
+                                className={`legend-item-btn ${isSelected ? "selected" : ""}`}
+                                onClick={() => handleSelectEntity(item.id, c)}
+                                title={`Select ${item.name}`}
+                              >
+                                <span className="swatch" style={swatchStyle(c, item.color)} />
+                                <span className="item-name">{item.name}</span>
+                                {item.siteCount > 1 && (
+                                  <span className="item-count muted">({item.siteCount})</span>
+                                )}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

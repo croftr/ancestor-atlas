@@ -5,6 +5,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   padding: 12px 14px; border: 1px solid rgba(255,255,255,0.08); box-sizing: border-box;
 }
 .muted { color: #8b95ab; font-size: 0.85em; }
+.app { position: relative; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+.map-wrap { position: absolute; inset: 0; }
 /* Legend dock: the logo is a medallion on the panel's corner and toggles the panel. */
 .legend-dock { position: absolute; top: 18px; left: 18px; z-index: 4; }
 .legend {
@@ -235,6 +237,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .info-panel h2 { margin: 8px 0 4px; font-size: 1.2rem; }
 .info-panel .close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 1rem; }
+.info-min { display: none; } /* small screens only (stacked.css) */
 .badge { display: inline-block; color: #111; font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
 .also { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .time-slider { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 120px), 1100px); }
@@ -244,6 +247,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .range { width: 100%; margin: 4px 0 0; }
 .ticks { position: relative; height: 18px; margin: 0 8px; }
 .tick { position: absolute; transform: translateX(-50%); font-size: 0.7rem; color: #8b95ab; white-space: nowrap; }
+.tick-short { display: none; }
 .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0 2px; }
 .chip { flex: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
 .chip:hover, .controls button:hover { background: rgba(255,255,255,0.18); }
