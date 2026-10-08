@@ -3,10 +3,7 @@
   category: species
   start_year: -7198050
   end_year: -6798050
-  description: One of the oldest known members of the human lineage, known mainly
-    from a cranium ('Toumaï') found in the Djurab Desert of Chad. Its age is
-    around 7 million years, near the time hominins and chimpanzees diverged, and
-    whether it walked upright is debated.
+  description: One of the oldest known members of the human lineage, known mainly from a cranium ('Toumaï') found in the Djurab Desert of Chad. Its age is around 7 million years, near the time hominins and chimpanzees diverged, and whether it walked upright is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Sahelanthropus
   source_ids:
     - recall
@@ -17,9 +14,7 @@
   category: species
   start_year: -6098050
   end_year: -5698050
-  description: Early hominin from the Tugen Hills of Kenya, about 6 million years
-    old. Thigh-bone fossils have been argued to show upright walking, though
-    this is debated.
+  description: Early hominin from the Tugen Hills of Kenya, about 6 million years old. Thigh-bone fossils have been argued to show upright walking, though this is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Orrorin
   source_ids:
     - recall
@@ -30,8 +25,7 @@
   category: species
   start_year: -5768050
   end_year: -5538050
-  description: Late Miocene hominin from the Middle Awash of Ethiopia, known from
-    fragmentary remains. Often seen as an ancestor of Ardipithecus ramidus.
+  description: Late Miocene hominin from the Middle Awash of Ethiopia, known from fragmentary remains. Often seen as an ancestor of Ardipithecus ramidus.
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus_kadabba
   source_ids:
     - recall
@@ -42,9 +36,7 @@
   category: species
   start_year: -4498050
   end_year: -4298050
-  description: Early hominin from Aramis, Ethiopia, about 4.4 million years old,
-    known from the partial skeleton 'Ardi'. It combined tree-climbing
-    adaptations with a pelvis suited to upright walking.
+  description: Early hominin from Aramis, Ethiopia, about 4.4 million years old, known from the partial skeleton 'Ardi'. It combined tree-climbing adaptations with a pelvis suited to upright walking.
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus
   source_ids:
     - recall
@@ -55,9 +47,7 @@
   category: species
   start_year: -4198050
   end_year: -3788050
-  description: Early australopith from the Turkana basin of Kenya and Ethiopia,
-    around 4.2 to 3.8 million years ago, often regarded as ancestral to A.
-    afarensis. One of the earliest clearly bipedal hominins.
+  description: Early australopith from the Turkana basin of Kenya and Ethiopia, around 4.2 to 3.8 million years ago, often regarded as ancestral to A. afarensis. One of the earliest clearly bipedal hominins.
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_anamensis
   source_ids:
     - recall
@@ -68,9 +58,7 @@
   category: species
   start_year: -3798050
   end_year: -2898050
-  description: Small-brained, habitually bipedal hominin of East Africa, known
-    from the 'Lucy' skeleton (Hadar, Ethiopia) and the Laetoli footprints
-    (Tanzania).
+  description: Small-brained, habitually bipedal hominin of East Africa, known from the 'Lucy' skeleton (Hadar, Ethiopia) and the Laetoli footprints (Tanzania).
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_afarensis
   source_ids:
     - recall
@@ -81,9 +69,7 @@
   category: species
   start_year: -3498050
   end_year: -3198050
-  description: Hominin known from a flat-faced skull found near Lake Turkana in
-    Kenya, about 3.5 million years old. Whether it is a distinct genus or a
-    variant of another australopith is disputed.
+  description: Hominin known from a flat-faced skull found near Lake Turkana in Kenya, about 3.5 million years old. Whether it is a distinct genus or a variant of another australopith is disputed.
   wikipedia_url: https://en.wikipedia.org/wiki/Kenyanthropus
   source_ids:
     - recall
@@ -94,9 +80,7 @@
   category: species
   start_year: -2898050
   end_year: -1998050
-  description: Gracile australopith of South Africa, first recognised from the
-    Taung Child in 1924. Found at cave sites such as Sterkfontein and
-    Makapansgat; dating of these deposits is debated.
+  description: Gracile australopith of South Africa, first recognised from the Taung Child in 1924. Found at cave sites such as Sterkfontein and Makapansgat; dating of these deposits is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_africanus
   source_ids:
     - recall
@@ -107,9 +91,7 @@
   category: species
   start_year: -2648050
   end_year: -2448050
-  description: Australopith from Bouri in Ethiopia's Middle Awash, about 2.5
-    million years old. Found near animal bones with cut marks, which fed debate
-    on early stone-tool use.
+  description: Australopith from Bouri in Ethiopia's Middle Awash, about 2.5 million years old. Found near animal bones with cut marks, which fed debate on early stone-tool use.
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_garhi
   source_ids:
     - recall
@@ -120,9 +102,7 @@
   category: species
   start_year: -2075050
   end_year: -1875050
-  description: Hominin from Malapa cave in South Africa, close to 2 million years
-    old, with a mix of australopith and Homo-like features. Known from
-    well-preserved partial skeletons.
+  description: Hominin from Malapa cave in South Africa, close to 2 million years old, with a mix of australopith and Homo-like features. Known from well-preserved partial skeletons.
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_sediba
   source_ids:
     - recall
@@ -133,9 +113,7 @@
   category: species
   start_year: -2698050
   end_year: -2298050
-  description: Early robust australopith known from the 'Black Skull' of West
-    Turkana, Kenya, and remains in the Omo Valley. Probably ancestral to later
-    robust forms.
+  description: Early robust australopith known from the 'Black Skull' of West Turkana, Kenya, and remains in the Omo Valley. Probably ancestral to later robust forms.
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_aethiopicus
   source_ids:
     - recall
@@ -146,9 +124,7 @@
   category: species
   start_year: -1998050
   end_year: -1098050
-  description: Robust East African hominin with massive jaws and chewing teeth,
-    nicknamed 'Nutcracker Man'. Found at Olduvai Gorge, Koobi Fora and other
-    sites; its diet was probably mostly tough plant matter.
+  description: Robust East African hominin with massive jaws and chewing teeth, nicknamed 'Nutcracker Man'. Found at Olduvai Gorge, Koobi Fora and other sites; its diet was probably mostly tough plant matter.
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_boisei
   source_ids:
     - recall
@@ -159,9 +135,7 @@
   category: species
   start_year: -2318050
   end_year: -1598050
-  description: Robust australopith of South Africa, found in the Cradle of
-    Humankind caves including Swartkrans, Kromdraai and Drimolen. Lived
-    alongside early Homo.
+  description: Robust australopith of South Africa, found in the Cradle of Humankind caves including Swartkrans, Kromdraai and Drimolen. Lived alongside early Homo.
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_robustus
   source_ids:
     - recall
@@ -172,8 +146,7 @@
   category: species
   start_year: -2598050
   end_year: -1673050
-  description: Early member of the genus Homo from East Africa, long associated
-    with the first stone tools. Its status as a distinct species is debated.
+  description: Early member of the genus Homo from East Africa, long associated with the first stone tools. Its status as a distinct species is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_habilis
   source_ids:
     - recall
@@ -184,8 +157,7 @@
   category: species
   start_year: -2123050
   end_year: -1923050
-  description: Early Homo known mainly from the skull KNM-ER 1470 at Koobi Fora,
-    Kenya. Whether it is a separate species from Homo habilis is debated.
+  description: Early Homo known mainly from the skull KNM-ER 1470 at Koobi Fora, Kenya. Whether it is a separate species from Homo habilis is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_rudolfensis
   source_ids:
     - recall
@@ -196,9 +168,7 @@
   category: species
   start_year: -1908050
   end_year: -100550
-  description: Long-legged, larger-brained hominin and the first to spread widely
-    beyond Africa, reaching the Caucasus (Dmanisi), China (Zhoukoudian) and Java
-    (Sangiran, Ngandong).
+  description: Long-legged, larger-brained hominin and the first to spread widely beyond Africa, reaching the Caucasus (Dmanisi), China (Zhoukoudian) and Java (Sangiran, Ngandong).
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_erectus
   source_ids:
     - recall
@@ -209,9 +179,7 @@
   category: species
   start_year: -888050
   end_year: -768050
-  description: Hominin known from Gran Dolina at Atapuerca, Spain, about 800,000
-    years old. Remains show some of the earliest evidence of humans in western
-    Europe and its placement in the family tree is debated.
+  description: Hominin known from Gran Dolina at Atapuerca, Spain, about 800,000 years old. Remains show some of the earliest evidence of humans in western Europe and its placement in the family tree is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_antecessor
   source_ids:
     - recall
@@ -222,9 +190,7 @@
   category: species
   start_year: -647050
   end_year: -148050
-  description: Middle Pleistocene hominin known from sites in Europe and Africa,
-    often seen as close to the ancestry of Neanderthals and modern humans. Which
-    fossils belong to the species is debated.
+  description: Middle Pleistocene hominin known from sites in Europe and Africa, often seen as close to the ancestry of Neanderthals and modern humans. Which fossils belong to the species is debated.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_heidelbergensis
   source_ids:
     - recall
@@ -235,10 +201,7 @@
   category: species
   start_year: -438050
   end_year: -33050
-  description: Cold-adapted hominins of Europe and western Asia who made
-    sophisticated stone tools and buried their dead. They interbred with modern
-    humans and disappeared about 40,000 years ago. The oldest site here, Sima de
-    los Huesos, is usually treated as an early member of the Neanderthal line.
+  description: Cold-adapted hominins of Europe and western Asia who made sophisticated stone tools and buried their dead. They interbred with modern humans and disappeared about 40,000 years ago. The oldest site here, Sima de los Huesos, is usually treated as an early member of the Neanderthal line.
   wikipedia_url: https://en.wikipedia.org/wiki/Neanderthal
   source_ids:
     - recall
@@ -249,9 +212,7 @@
   category: species
   start_year: -193050
   end_year: -50050
-  description: Archaic human group known mainly from DNA and a few fossils from
-    Denisova Cave in Siberia and Baishiya Karst Cave on the Tibetan Plateau.
-    They interbred with both Neanderthals and modern humans.
+  description: Archaic human group known mainly from DNA and a few fossils from Denisova Cave in Siberia and Baishiya Karst Cave on the Tibetan Plateau. They interbred with both Neanderthals and modern humans.
   wikipedia_url: https://en.wikipedia.org/wiki/Denisovans
   source_ids:
     - recall
@@ -262,9 +223,7 @@
   category: species
   start_year: -98050
   end_year: -58050
-  description: Small-bodied hominin from Liang Bua cave on Flores, Indonesia,
-    nicknamed the 'Hobbit'. Skeletal remains are dated to roughly 100,000 to
-    60,000 years ago.
+  description: Small-bodied hominin from Liang Bua cave on Flores, Indonesia, nicknamed the 'Hobbit'. Skeletal remains are dated to roughly 100,000 to 60,000 years ago.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_floresiensis
   source_ids:
     - recall
@@ -275,9 +234,7 @@
   category: species
   start_year: -146050
   end_year: -118050
-  description: Hominin known from teeth and bones from Callao Cave on Luzon,
-    Philippines, at least 67,000 years old. Its relationships to other hominins
-    are unclear.
+  description: Hominin known from teeth and bones from Callao Cave on Luzon, Philippines, at least 67,000 years old. Its relationships to other hominins are unclear.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_luzonensis
   source_ids:
     - recall
@@ -288,9 +245,7 @@
   category: species
   start_year: -333050
   end_year: -234050
-  description: Small-brained hominin from the Rising Star cave system in South
-    Africa, dated to roughly 335,000 to 236,000 years ago, so it lived alongside
-    early modern humans.
+  description: Small-brained hominin from the Rising Star cave system in South Africa, dated to roughly 335,000 to 236,000 years ago, so it lived alongside early modern humans.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_naledi
   source_ids:
     - recall
@@ -301,9 +256,7 @@
   category: species
   start_year: -347050
   end_year: -11550
-  description: Anatomically modern humans, first appearing in Africa at least
-    300,000 years ago and spreading across the world. Site points shown here end
-    around 10,000 BCE.
+  description: Anatomically modern humans, first appearing in Africa at least 300,000 years ago and spreading across the world. Site points shown here end around 10,000 BCE.
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_sapiens
   source_ids:
     - recall
@@ -314,153 +267,193 @@
   category: culture
   start_year: -3398050
   end_year: -3198050
-  description: The oldest known stone tool industry, from Lomekwi 3 in West
-    Turkana, Kenya, about 3.3 million years ago. It predates the genus Homo, and
-    its makers are unknown.
+  description: The oldest known stone tool industry, from Lomekwi 3 in West Turkana, Kenya, about 3.3 million years ago. It predates the genus Homo, and its makers are unknown.
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwian
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=NhM-2P93hoI
+      title: The oldest archaeological site in the world
+      credit: Stefan Milo, YouTube
 - id: oldowan
   name: Oldowan
   category: culture
   start_year: -2698050
   end_year: -1098050
-  description: Earliest widespread stone tool industry, made of simple flakes and
-    choppers struck from cobbles. Found from about 2.6 million years ago across
-    Africa and into western Asia.
+  description: Earliest widespread stone tool industry, made of simple flakes and choppers struck from cobbles. Found from about 2.6 million years ago across Africa and into western Asia.
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=uVTQBQfbqJc
+      title: The Oldowan stone tool
+      credit: Historic Concepts, YouTube
 - id: acheulean
   name: Acheulean
   category: culture
   start_year: -1848050
   end_year: -338050
-  description: Stone tool tradition best known for large, shaped hand axes,
-    associated mainly with Homo erectus and later hominins. It lasted well over
-    a million years across Africa, Europe and South Asia.
+  description: Stone tool tradition best known for large, shaped hand axes, associated mainly with Homo erectus and later hominins. It lasted well over a million years across Africa, Europe and South Asia.
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=BwmpNKWGdGw
+      title: Acheulean technology and how to make a handaxe
+      credit: Nicci Sherwood, YouTube
 - id: levallois-mousterian
   name: Levallois / Mousterian
   category: culture
   start_year: -248050
   end_year: -38050
-  description: Middle Palaeolithic tool tradition built on prepared-core
-    (Levallois) flake technology, linked mainly with Neanderthals in Europe and
-    western Asia and also with early modern humans in the Levant.
+  description: Middle Palaeolithic tool tradition built on prepared-core (Levallois) flake technology, linked mainly with Neanderthals in Europe and western Asia and also with early modern humans in the Levant.
   wikipedia_url: https://en.wikipedia.org/wiki/Mousterian
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=tA91YHaNTpc
+      title: "Levallois core technology: an alternative way of making stone tools"
+      credit: AncientCraftUK (Dr James Dilley), YouTube
 - id: middle-stone-age
   name: Middle Stone Age (Africa)
   category: culture
   start_year: -347050
   end_year: -36650
-  description: African counterpart of the Middle Palaeolithic, beginning about
-    300,000 years ago. Sites such as Blombos Cave have early evidence of ochre
-    use, engraving and bead-making.
+  description: African counterpart of the Middle Palaeolithic, beginning about 300,000 years ago. Sites such as Blombos Cave have early evidence of ochre use, engraving and bead-making.
   wikipedia_url: https://en.wikipedia.org/wiki/Middle_Stone_Age
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=uNqYhWXC7aM
+      title: Inside Africa's hidden history of early humans
+      credit: BBC Studios, YouTube
 - id: aurignacian
   name: Aurignacian
   category: culture
   start_year: -41050
   end_year: -28050
-  description: Early Upper Palaeolithic culture of Europe linked with modern
-    humans, with blade tools, bone points, ornaments, early figurative art and
-    musical instruments.
+  description: Early Upper Palaeolithic culture of Europe linked with modern humans, with blade tools, bone points, ornaments, early figurative art and musical instruments.
   wikipedia_url: https://en.wikipedia.org/wiki/Aurignacian
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=LLyXCJH9Xzg
+      title: How the Aurignacians conquered Ice Age Europe
+      credit: WEON Earth, YouTube
 - id: gravettian
   name: Gravettian
   category: culture
   start_year: -35050
   end_year: -20050
-  description: Upper Palaeolithic culture across Europe, known for small 'Venus'
-    figurines, mammoth-bone dwellings and pointed blades.
+  description: Upper Palaeolithic culture across Europe, known for small 'Venus' figurines, mammoth-bone dwellings and pointed blades.
   wikipedia_url: https://en.wikipedia.org/wiki/Gravettian
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=YTn5KdsxZ0E
+      title: "The Gravettian Culture: Ice Age mammoth hunters"
+      credit: Dan Davis History, YouTube
 - id: solutrean
   name: Solutrean
   category: culture
   start_year: -22050
   end_year: -15050
-  description: Upper Palaeolithic culture of France and Iberia, noted for finely
-    pressure-flaked leaf-shaped points.
+  description: Upper Palaeolithic culture of France and Iberia, noted for finely pressure-flaked leaf-shaped points.
   wikipedia_url: https://en.wikipedia.org/wiki/Solutrean
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=3aJJUk6Uy3g
+      title: The Solutrean Culture
+      credit: NORTH 02, YouTube
 - id: magdalenian
   name: Magdalenian
   category: culture
   start_year: -15050
   end_year: -9050
-  description: Late Upper Palaeolithic culture of western Europe known for cave
-    art, such as Altamira, and for carved bone and antler tools.
+  description: Late Upper Palaeolithic culture of western Europe known for cave art, such as Altamira, and for carved bone and antler tools.
   wikipedia_url: https://en.wikipedia.org/wiki/Magdalenian
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Ay6pJSVslAw
+      title: The Magdalenian Culture
+      credit: NORTH 02, YouTube
 - id: natufian
   name: Natufian
   category: culture
   start_year: -13050
   end_year: -9050
-  description: Late Epipalaeolithic culture of the Levant, with some of the
-    earliest semi-permanent villages and intensive wild-cereal harvesting just
-    before farming began.
+  description: Late Epipalaeolithic culture of the Levant, with some of the earliest semi-permanent villages and intensive wild-cereal harvesting just before farming began.
   wikipedia_url: https://en.wikipedia.org/wiki/Natufian_culture
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=W56dxT_P3jI
+      title: Who were the Natufian people?
+      credit: Anthromedia, YouTube
 - id: clovis
   name: Clovis
   category: culture
   start_year: -12050
   end_year: -9681
-  description: Widespread North American stone tool tradition around 13,000 years
-    ago, characterised by fluted spear points.
+  description: Widespread North American stone tool tradition around 13,000 years ago, characterised by fluted spear points.
   wikipedia_url: https://en.wikipedia.org/wiki/Clovis_culture
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=QQr7iTkw8_Y
+      title: The Clovis Culture
+      credit: NORTH 02, YouTube
 - id: pre-pottery-neolithic
   name: Pre-Pottery Neolithic
   category: culture
   start_year: -9499
   end_year: -5050
-  description: Early farming societies of the Levant and southeast Anatolia before
-    pottery, including the monumental site Göbekli Tepe and the walled
-    settlement at Jericho.
+  description: Early farming societies of the Levant and southeast Anatolia before pottery, including the monumental site Göbekli Tepe and the walled settlement at Jericho.
   wikipedia_url: https://en.wikipedia.org/wiki/Pre-Pottery_Neolithic
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=gyQqodlfLiA
+      title: Stone Age temple mystery (Göbekli Tepe)
+      credit: NOVA PBS Official, YouTube
 - id: linear-pottery
   name: Linear Pottery (LBK)
   category: culture
   start_year: -5500
   end_year: -4950
-  description: First farming culture of central Europe, with long timber houses
-    and pottery decorated with linear incised patterns.
+  description: First farming culture of central Europe, with long timber houses and pottery decorated with linear incised patterns.
   wikipedia_url: https://en.wikipedia.org/wiki/Linear_Pottery_culture
   source_ids:
     - recall
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Fbm80SzraRw
+      title: The enormous longhouses of the Linear Pottery Culture
+      credit: Dan Davis History, YouTube
 - id: ancient-egypt
   name: Ancient Egypt
   category: civilization
   group: true
-  description: Pharaonic civilisation along the Nile, from the unification of
-    Upper and Lower Egypt through the Old, Middle and New Kingdoms and the
-    intermediate periods between them, with foreign rule by Hyksos and Assyrians
-    in places.
+  description: Pharaonic civilisation along the Nile, from the unification of Upper and Lower Egypt through the Old, Middle and New Kingdoms and the intermediate periods between them, with foreign rule by Hyksos and Assyrians in places.
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
   image_url: /images/civilisations/ancient-egypt.webp
   image_credit: AI-generated illustration
   match_children:
-    cliopatria_name_regex: (Dynasty of Egypt|Kingdom of Egypt|Period of
-      Egypt|^(Upper|Lower|Assyrian) Egypt)$
+    cliopatria_name_regex: (Dynasty of Egypt|Kingdom of Egypt|Period of Egypt|^(Upper|Lower|Assyrian) Egypt)$
     names:
       - Hyksos
       - Ankhwennefer
@@ -472,9 +465,7 @@
   name: Mesopotamia
   category: civilization
   group: true
-  description: The land between the Tigris and Euphrates, home to the earliest
-    cities and a succession of Sumerian, Akkadian, Babylonian and Assyrian
-    states.
+  description: The land between the Tigris and Euphrates, home to the earliest cities and a succession of Sumerian, Akkadian, Babylonian and Assyrian states.
   wikipedia_url: https://en.wikipedia.org/wiki/Mesopotamia
   image_url: /images/civilisations/mesopotamia.webp
   image_credit: AI-generated illustration
@@ -500,9 +491,7 @@
   name: Ancient China
   category: civilization
   group: true
-  description: "The early dynasties and states of China: Shang and Zhou, the many
-    states of the Spring and Autumn and Warring States periods, then the Qin and
-    Han unifications."
+  description: "The early dynasties and states of China: Shang and Zhou, the many states of the Spring and Autumn and Warring States periods, then the Qin and Han unifications."
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_China
   image_url: /images/civilisations/ancient-china.webp
   image_credit: AI-generated illustration
@@ -529,9 +518,7 @@
   name: Persia
   category: civilization
   group: true
-  description: The great Iranian empires of antiquity, from the Achaemenids, who
-    ruled from Anatolia and Egypt to the Indus, to the Parthians who followed
-    Alexander's successors.
+  description: The great Iranian empires of antiquity, from the Achaemenids, who ruled from Anatolia and Egypt to the Indus, to the Parthians who followed Alexander's successors.
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_Iran
   image_url: /images/civilisations/persia.webp
   image_credit: AI-generated illustration
@@ -549,8 +536,7 @@
   name: Ancient Greece
   category: civilization
   group: true
-  description: The Bronze Age Mycenaeans, the Dark Age that followed, and the
-    city-states and leagues of the Archaic and Classical Greek world.
+  description: The Bronze Age Mycenaeans, the Dark Age that followed, and the city-states and leagues of the Archaic and Classical Greek world.
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Greece
   image_url: /images/civilisations/ancient-greece.webp
   image_credit: AI-generated illustration
@@ -575,183 +561,234 @@
     - Macedon
 - id: roman-republic
   category: civilization
-  # Cliopatria links Q175881, the Roman Republic of 1798-1799.
   wikidata: Q17167
 - id: roman-empire
   category: civilization
-  description: The Roman state under Augustus and his successors, which grew from
-    the Roman Republic into a Mediterranean-wide empire.
+  description: The Roman state under Augustus and his successors, which grew from the Roman Republic into a Mediterranean-wide empire.
 - id: cardial
   name: Cardial culture
   category: culture
   start_year: -5849
   end_year: -4499
-  description: Early Neolithic culture of the western Mediterranean, named after
-    pottery decorated by pressing cockle shells (Cardium) into the clay. Cardial
-    communities spread farming rapidly along the coasts from Italy to Portugal.
+  description: Early Neolithic culture of the western Mediterranean, named after pottery decorated by pressing cockle shells (Cardium) into the clay. Cardial communities spread farming rapidly along the coasts from Italy to Portugal.
   wikipedia_url: https://en.wikipedia.org/wiki/Cardium_pottery
   wikidata: Q1035710
   source_ids: []
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=d9yPp5akT38
+      title: What was the Cardial culture of southern Europe?
+      credit: Made In History, YouTube
 - id: funnelbeaker
   name: Funnelbeaker culture
   category: culture
   start_year: -4099
   end_year: -2799
-  description: Neolithic farming culture of north-central Europe and southern
-    Scandinavia (TRB), named after its funnel-necked beakers. It was succeeded
-    in the north by the Single Grave culture around 2800 BCE.
+  description: Neolithic farming culture of north-central Europe and southern Scandinavia (TRB), named after its funnel-necked beakers. It was succeeded in the north by the Single Grave culture around 2800 BCE.
   wikipedia_url: https://en.wikipedia.org/wiki/Funnelbeaker_culture
   wikidata: Q875115
   source_ids: []
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=iJYvhf0VVi0
+      title: "The Funnelbeaker Culture: Neolithic farmers of northern Europe"
+      credit: Dan Davis History, YouTube
 - id: corded-ware
   name: Corded Ware culture
   category: culture
   start_year: -2899
   end_year: -2299
-  description: Broad Late Neolithic to early Bronze Age horizon across northern
-    and central Europe, named after pottery decorated with cord impressions and
-    known for single burials under mounds. Includes the Single Grave culture of
-    southern Scandinavia, northern Germany and the Low Countries.
+  description: Broad Late Neolithic to early Bronze Age horizon across northern and central Europe, named after pottery decorated with cord impressions and known for single burials under mounds. Includes the Single Grave culture of southern Scandinavia, northern Germany and the Low Countries.
   wikipedia_url: https://en.wikipedia.org/wiki/Corded_Ware_culture
   wikidata: Q933996
   source_ids: []
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=ecmeQT7R7rk
+      title: The Corded Ware Culture (3000 BC - 2300 BC)
+      credit: Dan Davis History, YouTube
 - id: bell-beaker
   name: Bell Beaker culture
   category: culture
   start_year: -2799
   end_year: -1649
-  description: Archaeological culture of western and central Europe at the start
-    of the Bronze Age, named after its inverted-bell drinking vessels. It varied
-    strongly by region and lasted until between about 2300 and 1650 BCE
-    depending on the area.
+  description: Archaeological culture of western and central Europe at the start of the Bronze Age, named after its inverted-bell drinking vessels. It varied strongly by region and lasted until between about 2300 and 1650 BCE depending on the area.
   wikipedia_url: https://en.wikipedia.org/wiki/Bell_Beaker_culture
   wikidata: Q470867
   source_ids: []
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=njbWu6tWfng
+      title: "Meet the Bell Beakers: the culture that changed Europe"
+      credit: Celtic History Decoded, YouTube
 - id: badarian
   name: Badarian culture
   category: culture
   start_year: -4399
   end_year: -3999
-  description: Early farming culture of Upper Egypt, named after the El-Badari
-    region, which flourished between about 4400 and 4000 BCE and preceded the
-    Naqada culture.
+  description: Early farming culture of Upper Egypt, named after the El-Badari region, which flourished between about 4400 and 4000 BCE and preceded the Naqada culture.
   wikipedia_url: https://en.wikipedia.org/wiki/Badarian_culture
   wikidata: Q798844
   source_ids: []
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=fYNQk2jXSTY
+      title: "Predynastic Egypt: before the pharaohs and pyramids"
+      credit: History with Cy, YouTube
 - id: naqada
   name: Naqada culture
   category: culture
   start_year: -3999
   end_year: -2999
-  description: Chalcolithic culture of Predynastic Egypt, named after the town of
-    Naqada, c. 4000–3000 BCE. Through its phases Naqada I–III it led into the
-    first Egyptian dynasties.
+  description: Chalcolithic culture of Predynastic Egypt, named after the town of Naqada, c. 4000–3000 BCE. Through its phases Naqada I–III it led into the first Egyptian dynasties.
   wikipedia_url: https://en.wikipedia.org/wiki/Naqada_culture
   wikidata: Q753391
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=K3h47gYVvkI
+      title: Cultures of Predynastic Egypt (Badarian & Naqada)
+      credit: History with Cy, YouTube
 - id: starcevo-koros-cris
-  name: "Starčevo–Körös–Criș culture"
+  name: Starčevo–Körös–Criș culture
   category: culture
   start_year: -6199
   end_year: -4499
-  description: "First farming culture of the inland Balkans and the Carpathian Basin, c. 6200–4500 BCE, known as Starčevo in Serbia, Körös in Hungary and Criș in Romania. It carried farming and pottery north from the Aegean and preceded the Linear Pottery culture."
+  description: First farming culture of the inland Balkans and the Carpathian Basin, c. 6200–4500 BCE, known as Starčevo in Serbia, Körös in Hungary and Criș in Romania. It carried farming and pottery north from the Aegean and preceded the Linear Pottery culture.
   wikipedia_url: https://en.wikipedia.org/wiki/Starčevo_culture
   wikidata: Q1483547
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=SZPKSKOzHDI
+      title: "Unearthing the Starčevo Culture: Europe's early Neolithic farmers"
+      credit: Ancient Whispers, YouTube
 - id: michelsberg
-  name: "Michelsberg culture"
+  name: Michelsberg culture
   category: culture
   start_year: -4399
   end_year: -3499
-  description: "Neolithic culture of west-central Europe along both sides of the Rhine, c. 4400–3500 BCE, known for causewayed enclosures. Named after the Michaelsberg hill near Untergrombach in Baden-Württemberg."
+  description: Neolithic culture of west-central Europe along both sides of the Rhine, c. 4400–3500 BCE, known for causewayed enclosures. Named after the Michaelsberg hill near Untergrombach in Baden-Württemberg.
   wikipedia_url: https://en.wikipedia.org/wiki/Michelsberg_culture
   wikidata: Q570798
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=eIRjQMJpJBA
+      title: Die Michelsberger Kultur, ein kleiner Einblick
+      credit: Basic Archäologie, YouTube
 - id: unetice
-  name: "Únětice culture"
+  name: Únětice culture
   category: culture
   start_year: -2299
   end_year: -1599
-  description: "Early Bronze Age culture of central Europe, c. 2300–1600 BCE, centred on Bohemia, Moravia, central Germany and western Poland. Named after the village of Únětice near Prague; the Nebra sky disc belongs to its world."
+  description: Early Bronze Age culture of central Europe, c. 2300–1600 BCE, centred on Bohemia, Moravia, central Germany and western Poland. Named after the village of Únětice near Prague; the Nebra sky disc belongs to its world.
   wikipedia_url: https://en.wikipedia.org/wiki/Únětice_culture
   wikidata: Q773818
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=5fcEHA2ABeo
+      title: "Kings of Bronze Age Europe: the Únětice Culture"
+      credit: Dan Davis History, YouTube
 - id: cucuteni-trypillia
-  name: "Cucuteni–Trypillia culture"
+  name: Cucuteni–Trypillia culture
   category: culture
   start_year: -5049
   end_year: -2949
-  description: "Neolithic–Chalcolithic culture of Romania, Moldova and Ukraine, c. 5050–2950 BCE, famous for painted pottery and giant settlements of thousands of houses between the Carpathians and the Dnieper."
+  description: Neolithic–Chalcolithic culture of Romania, Moldova and Ukraine, c. 5050–2950 BCE, famous for painted pottery and giant settlements of thousands of houses between the Carpathians and the Dnieper.
   wikipedia_url: https://en.wikipedia.org/wiki/Cucuteni–Trypillia_culture
   wikidata: Q1162419
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Bk2Qbf1YQbI
+      title: "Cucuteni-Trypillia Culture: ancient European civilization"
+      credit: Dan Davis History, YouTube
 - id: vinca
-  name: "Vinča culture"
+  name: Vinča culture
   category: culture
   start_year: -5399
   end_year: -4499
-  description: "Neolithic culture of the central Balkans, c. 5400–4500 BCE, named after the tell of Vinča-Belo Brdo near Belgrade. Known for large settlements, dark burnished pottery, figurines and early copper working."
+  description: Neolithic culture of the central Balkans, c. 5400–4500 BCE, named after the tell of Vinča-Belo Brdo near Belgrade. Known for large settlements, dark burnished pottery, figurines and early copper working.
   wikipedia_url: https://en.wikipedia.org/wiki/Vinča_culture
   wikidata: Q831336
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=n7L7KZFrACc
+      title: "Europe's first civilization: the Vinča Culture"
+      credit: Dan Davis History, YouTube
 - id: ertebolle
-  name: "Ertebølle culture"
+  name: Ertebølle culture
   category: culture
   start_year: -5399
   end_year: -3949
-  description: "Late Mesolithic hunter-gatherer and fisher culture of southern Scandinavia and northern Germany, c. 5400–3950 BCE, which made pottery and left large shell middens. Also called Ertebølle–Ellerbek."
+  description: Late Mesolithic hunter-gatherer and fisher culture of southern Scandinavia and northern Germany, c. 5400–3950 BCE, which made pottery and left large shell middens. Also called Ertebølle–Ellerbek.
   wikipedia_url: https://en.wikipedia.org/wiki/Ertebølle_culture
   wikidata: Q1362485
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=lxmq4vOPF-Q
+      title: Tranchet axeheads in prehistoric Europe
+      credit: AncientCraftUK (Dr James Dilley), YouTube
 - id: lengyel
-  name: "Lengyel culture"
+  name: Lengyel culture
   category: culture
   start_year: -4999
   end_year: -3999
-  description: "Neolithic culture of the Middle Danube, c. 5000–4000 BCE, centred on Hungary, Slovakia, Austria and Moravia, known for painted pottery and circular ditched enclosures (rondels). Named after Lengyel in Tolna county, Hungary."
+  description: Neolithic culture of the Middle Danube, c. 5000–4000 BCE, centred on Hungary, Slovakia, Austria and Moravia, known for painted pottery and circular ditched enclosures (rondels). Named after Lengyel in Tolna county, Hungary.
   wikipedia_url: https://en.wikipedia.org/wiki/Lengyel_culture
   wikidata: Q668742
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=-r5XQ2P9g-4
+      title: "Svodín: a Neolithic settlement of the Lengyel culture"
+      credit: Peter Demján, YouTube
 - id: chasseen
-  name: "Chasséen culture"
+  name: Chasséen culture
   category: culture
   start_year: -4499
   end_year: -3499
-  description: "Middle Neolithic culture of France, c. 4500–3500 BCE, spread from the south across much of the country. Named after the site at Chassey-le-Camp in Saône-et-Loire."
+  description: Middle Neolithic culture of France, c. 4500–3500 BCE, spread from the south across much of the country. Named after the site at Chassey-le-Camp in Saône-et-Loire.
   wikipedia_url: https://en.wikipedia.org/wiki/Chasséen_culture
   wikidata: Q688898
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=MWU7mjzvV2Q
+      title: "Chassey-le-Camp : visite sur le site archéologique"
+      credit: France 3, YouTube
 - id: globular-amphora
-  name: "Globular Amphora culture"
+  name: Globular Amphora culture
   category: culture
   start_year: -3399
   end_year: -2799
-  description: "Late Neolithic culture of central and eastern Europe, c. 3400–2800 BCE, named after its round-bellied pots with two to four handles. It preceded the Corded Ware culture in much of its area."
+  description: Late Neolithic culture of central and eastern Europe, c. 3400–2800 BCE, named after its round-bellied pots with two to four handles. It preceded the Corded Ware culture in much of its area.
   wikipedia_url: https://en.wikipedia.org/wiki/Globular_Amphora_culture
   wikidata: Q218257
   source_ids: []
-
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=jvrFAJCBTm8
+      title: "The Fall of Neolithic Europe: the Globular Amphora Culture"
+      credit: Dan Davis History, YouTube
 - id: baden
-  name: "Baden culture"
+  name: Baden culture
   category: culture
   start_year: -3519
   end_year: -2689
-  description: "Copper Age culture of central and southeastern Europe, c. 3520–2690 BCE, found from Moravia and southern Poland to Hungary, Slovakia, eastern Austria and northern Croatia. Also called Baden–Pécel."
+  description: Copper Age culture of central and southeastern Europe, c. 3520–2690 BCE, found from Moravia and southern Poland to Hungary, Slovakia, eastern Austria and northern Croatia. Also called Baden–Pécel.
   wikipedia_url: https://en.wikipedia.org/wiki/Baden_culture
   wikidata: Q687230
   source_ids: []
-
-# Pictures for individual civilizations (overlaid on the Cliopatria entries by id). A period
-# without its own picture shows its group's.
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=hTmt6PUryT0
+      title: Which ancient society really invented the wheel?
+      credit: Dan Davis History, YouTube
 - id: early-dynastic-period-of-egypt
   image_url: /images/civilisations/early-dynastic-egypt.webp
   image_credit: AI-generated illustration

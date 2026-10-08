@@ -119,6 +119,7 @@ export default function CulturesPage() {
                       <span className="cu-card-meta muted">
                         {shortDuration(c.end_year - c.start_year)}
                         {n > 0 && <> · {n.toLocaleString("en-US")} site{n === 1 ? "" : "s"}</>}
+                        {c.media && c.media.length > 0 && <> · ▶ {c.media.length}</>}
                       </span>
                       {summary && <span className="cu-card-summary">{summary}</span>}
                     </button>

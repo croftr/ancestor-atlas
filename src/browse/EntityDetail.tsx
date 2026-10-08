@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { CATEGORY_STYLE } from "../config";
+import { CATEGORY_STYLE, mediaUrl } from "../config";
 import { useData } from "../map/data";
 import { navigate, type BrowseView } from "../route";
 import { useStore } from "../store";
 import { formatRange } from "../time/scale";
 import { formatDuration } from "../timeline/layout";
 import type { Entity } from "../types";
+import { youtubeId } from "../youtube";
 import { eventsAbout, pictureOf, typing } from "./browse";
 import "../events/events-page.css";
 import "./browse.css";
@@ -19,6 +20,12 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   const focusEntity = useStore((s) => s.focusEntity);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [broken, setBroken] = useState<string | null>(null);
+  const [current, setCurrent] = useState<number | null>(null);
+  const [failed, setFailed] = useState<string | null>(null);
+
+  const media = entity.media ?? [];
+  const clip = current === null ? undefined : media[current];
+  const ytId = clip?.kind === "video" ? youtubeId(clip.src) : null;
 
   const i = order.findIndex((e) => e.id === entity.id);
   const prev = i > 0 ? order[i - 1] : undefined;
@@ -30,11 +37,19 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   const events = eventsAbout(entity, data);
   const sources = entity.source_ids.flatMap((id) => data.sourceById.get(id) ?? []);
   const picture = pictureOf(entity, data);
+  const credit = clip ? clip.credit : (picture?.note ? `${picture.note}. ${picture.credit}` : picture?.credit);
   const style = CATEGORY_STYLE[entity.category];
   const color = entity.color ?? style.color;
   const approximate = entity.source_ids.includes("recall");
 
+  const choose = (idx: number) => {
+    setFailed(null);
+    setCurrent(current === idx ? null : idx);
+  };
+
   useEffect(() => {
+    setCurrent(null);
+    setFailed(null);
     closeRef.current?.focus({ preventScroll: true });
   }, [entity.id]);
   useEffect(() => {
@@ -67,19 +82,64 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
           ✕
         </button>
         <div className="ev-detail-media">
-          {picture && broken !== picture.url ? (
-            <>
-              <div className="br-img large">
-                <img src={picture.url} alt={entity.name} onError={() => setBroken(picture.url)} />
-              </div>
-              <div className="muted image-credit">
-                {picture.note && <>{picture.note}. </>}
-                {picture.credit}
-              </div>
-            </>
+          {clip?.kind === "video" ? (
+            <div className="ev-player">
+              {ytId ? (
+                // youtube-nocookie: no YouTube cookies until the viewer plays; nothing loads before the click.
+                <iframe
+                  key={ytId}
+                  src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&playsinline=1`}
+                  title={clip.title}
+                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              ) : (
+                <video
+                  key={clip.src}
+                  src={mediaUrl(clip.src)}
+                  poster={picture?.url}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  aria-label={clip.title}
+                  onError={() => setFailed(clip.title)}
+                />
+              )}
+              {!ytId && (
+                <button className="ev-player-close" onClick={() => setCurrent(null)} aria-label="Close video">
+                  ✕ Close
+                </button>
+              )}
+            </div>
+          ) : picture && broken !== picture.url ? (
+            <div className="br-img large">
+              <img src={picture.url} alt={entity.name} onError={() => setBroken(picture.url)} />
+            </div>
           ) : (
             <div className="br-img large br-ph" style={{ "--swatch": color } as CSSProperties} role="img" aria-label={`${entity.name} (no picture yet)`}>
               <span>{entity.name}</span>
+            </div>
+          )}
+          {clip?.kind === "audio" && (
+            <audio key={clip.src} className="ev-audio" src={mediaUrl(clip.src)} controls autoPlay preload="none" onError={() => setFailed(clip.title)} />
+          )}
+          {credit && <div className="muted image-credit">{credit}</div>}
+          {failed && <div className="ev-media-error">Couldn't load “{failed}”.</div>}
+          {media.length > 0 && (
+            <div className="ev-media-list">
+              {media.map((m, idx) => (
+                <button key={m.src} className="ev-media-btn" aria-pressed={current === idx} onClick={() => choose(idx)}>
+                  <span aria-hidden>{m.kind === "video" ? "▶" : "♪"}</span>
+                  {m.title}
+                </button>
+              ))}
+              {clip?.kind === "video" && (
+                <button className="ev-media-btn" onClick={() => setCurrent(null)}>
+                  ✕ Close video
+                </button>
+              )}
             </div>
           )}
         </div>
