@@ -85,3 +85,14 @@
   image_credit: AI-generated illustration
   members: [scythia, xiongnu, yuezhi, wusun, indo-scythians]
 
+- id: hellenistic-world
+  label: the Hellenistic world in general
+  image_url: /images/civilisations/ancient-greece.webp
+  image_credit: AI-generated illustration
+  members:
+    [macedonian-empire, ptolemaic-kingdom, seleucid-empire, antigonid-macedonia,
+     antigonid-dynasty, greco-bactrian-kingdom, indo-greeks, kingdom-of-pergamon,
+     kingdom-of-lysimachus, rhodes, sacred-band-of-thebes, greek-colonies,
+     cimmerian-bosporus, molossians, perdiccas, polyperchon, laomedon]
+
+
