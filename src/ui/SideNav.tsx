@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { navigate, useView, type View } from "../route";
 import SettingsContent from "./SettingsPanel";
 import SourcesContent from "./SourcesPanel";
-import { CATEGORY_GLYPH } from "./CategoryIcon";
+import { CategoryIcon } from "./CategoryIcon";
 import "./sidenav.css";
 
 /**
@@ -37,9 +37,9 @@ const TimelineIcon = (
   </Icon>
 );
 // Same drawings as the badge before an entity's name (CategoryIcon), so the two read as one set.
-const EventsIcon = <Icon>{CATEGORY_GLYPH.event}</Icon>;
-const CulturesIcon = <Icon>{CATEGORY_GLYPH.culture}</Icon>;
-const CivilizationsIcon = <Icon>{CATEGORY_GLYPH.civilization}</Icon>;
+const EventsIcon = <CategoryIcon category="event" />;
+const CulturesIcon = <CategoryIcon category="culture" />;
+const CivilizationsIcon = <CategoryIcon category="civilization" />;
 const SourcesIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />
