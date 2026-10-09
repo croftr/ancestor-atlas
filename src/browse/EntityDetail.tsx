@@ -132,7 +132,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
             <div className="ev-media-list">
               {media.map((m, idx) => (
                 <button key={m.src} className="ev-media-btn" aria-pressed={current === idx} onClick={() => choose(idx)}>
-                  <span aria-hidden>{m.kind === "video" ? "▶" : "♪"}</span>
+                  <span aria-hidden>{m.kind === "video" ? "▶\uFE0E" : "♪"}</span>
                   {m.title}
                 </button>
               ))}

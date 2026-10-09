@@ -7,6 +7,7 @@ import { POS_BREAKS, formatRange, formatYear, posToYear, yearToPos } from "../ti
 import type { Category, Entity } from "../types";
 import InfoPanel from "../ui/InfoPanel";
 import SearchBox from "../ui/SearchBox";
+import { CategoryBadge } from "../ui/CategoryIcon";
 import {
   AXIS_END,
   aliveAt,
@@ -35,7 +36,7 @@ import "./timeline.css";
 
 /** A lane narrower than this (px) at the current zoom is summarised instead of listed. */
 const SQUASH_PX = 36;
-const OVERVIEW_TICKS = ["10 Ma", "1 Ma", "100 ka", "10,000 BCE", "3,000 BCE", "1 CE"];
+const OVERVIEW_TICKS = ["10M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", "3,000 BCE", "1 CE"];
 
 
 // Kept between visits so going to the globe and back returns to the same view.
@@ -370,9 +371,9 @@ export default function TimelinePage() {
         <div className="tl-row tl-lane" key={`lane-${r.category}`}>
           <div className="tl-label">
             <button className="tl-caret-btn" onClick={() => toggleLane(r.category)} aria-expanded={!r.collapsed} aria-label={`${r.collapsed ? "Show" : "Hide"} ${style.label}`}>
-              <span className={`tl-caret${r.collapsed ? "" : " open"}`}>▶</span>
+              <span className={`tl-caret${r.collapsed ? "" : " open"}`}>{"▶\uFE0E"}</span>
             </button>
-            <span className="tl-lane-dot" style={{ background: style.color }} />
+            <CategoryBadge category={r.category} size={20} decorative />
             <span className="tl-lane-name">{style.label}</span>
             <span className="tl-lane-status muted">{status}</span>
           </div>
@@ -415,7 +416,7 @@ export default function TimelinePage() {
               aria-label={`${r.expanded ? "Collapse" : "Expand"} ${e.name} (${r.children})`}
               title={`${r.children} periods`}
             >
-              <span className={`tl-caret${r.expanded ? " open" : ""}`}>▶</span>
+              <span className={`tl-caret${r.expanded ? " open" : ""}`}>{"▶\uFE0E"}</span>
             </button>
           ) : (
             <span className="tl-caret-spacer" />

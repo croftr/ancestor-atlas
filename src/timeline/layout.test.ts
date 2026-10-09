@@ -53,8 +53,8 @@ describe("ticks", () => {
     expect(t.map((y) => 1 - y)).toEqual([3_500, 3_000, 2_500, 2_000, 1_500, 1_000, 500, 0]);
     expect(tickLabel(-2_999, 500)).toBe("3,000 BCE");
     expect(tickLabel(1, 500)).toBe("1 CE");
-    expect(tickLabel(1 - 2_500_000, 500_000)).toBe("2.5 Ma");
-    expect(tickLabel(1 - 300_000, 50_000)).toBe("300 ka");
+    expect(tickLabel(1 - 2_500_000, 500_000)).toBe("2.5M yrs ago");
+    expect(tickLabel(1 - 300_000, 50_000)).toBe("300k yrs ago");
   });
 });
 

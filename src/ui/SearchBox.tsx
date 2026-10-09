@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "../store";
-import { CATEGORY_STYLE } from "../config";
 import { useData } from "../map/data";
 import { formatRange } from "../time/scale";
 import { buildIndex, normalize, searchEntities } from "../search/search";
 import type { Entity } from "../types";
+import { CategoryBadge, SINGULAR } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
 
 /** Bold the first occurrence of the query in the name (accent-insensitive). */
@@ -124,7 +124,6 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
         <ul id="search-results" className="search-results panel" role="listbox">
           {results.length === 0 && <li className="search-empty muted">No matching names</li>}
           {results.map((e, i) => {
-            const style = CATEGORY_STYLE[e.category];
             return (
               <li
                 key={e.id}
@@ -136,15 +135,14 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
                 onMouseEnter={() => setActive(i)}
                 onClick={() => choose(e)}
               >
-                <span
-                  className="search-dot"
-                  style={{ background: e.color ?? style.color, borderRadius: e.category === "civilization" ? 2 : "50%" }}
-                />
+                <span className="search-badge">
+                  <CategoryBadge category={e.category} size={24} decorative />
+                </span>
                 <span className="search-name">
                   <Highlight text={e.name} query={query} />
                 </span>
                 <span className="search-meta muted">
-                  {e.group ? "Group" : style.label.replace(/s$/, "")} · {formatRange(e.start_year, e.end_year)}
+                  {e.group ? "Group" : SINGULAR[e.category]} · {formatRange(e.start_year, e.end_year)}
                 </span>
               </li>
             );

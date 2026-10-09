@@ -8,6 +8,12 @@ import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 
+/** How far from a tap (CSS px) a marker still counts as tapped: touch, and mouse. */
+const TAP_SLOP_TOUCH = 14;
+const TAP_SLOP_MOUSE = 6;
+/** Marker layers (points), as opposed to territories. */
+const POINT_LAYERS = ["event-dots", "species-circles", "culture-dots"];
+
 /** A category icon (24×24 SVG path) drawn dark for a marker, at the screen's pixel density. */
 function iconImage(path: string): { data: ImageData; pixelRatio: number } | null {
   const pixelRatio = Math.max(1, Math.ceil(window.devicePixelRatio || 1));
@@ -200,14 +206,34 @@ export default function MapView() {
 
     map.on("click", (e) => {
       if (!loaded) return;
-      const feats = map.queryRenderedFeatures(e.point, { layers: INTERACTIVE_LAYERS });
-      const seen = new Map<string, { props: FeatureProps; rank: number }>();
-      for (const f of feats) {
+      // Markers count as hit within a finger's reach of the tap (less with a mouse), nearest
+      // first; markers about equally near keep the layer order (events, species, cultures).
+      // Territories need a direct hit, so a tap near a site never opens the land around it.
+      const r = window.matchMedia?.("(pointer: coarse)").matches ? TAP_SLOP_TOUCH : TAP_SLOP_MOUSE;
+      const { x, y } = e.point;
+      const near = map.queryRenderedFeatures(
+        [
+          [x - r, y - r],
+          [x + r, y + r],
+        ],
+        { layers: POINT_LAYERS },
+      );
+      const under = map.queryRenderedFeatures(e.point, { layers: INTERACTIVE_LAYERS.filter((l) => !POINT_LAYERS.includes(l)) });
+      const seen = new Map<string, { props: FeatureProps; rank: number; dist: number }>();
+      for (const f of [...near, ...under]) {
         const props = f.properties as unknown as FeatureProps;
         if (seen.has(props.id)) continue;
-        seen.set(props.id, { props, rank: INTERACTIVE_LAYERS.indexOf(f.layer.id) });
+        let dist = 0;
+        if (f.geometry.type === "Point") {
+          const p = map.project(f.geometry.coordinates as [number, number]);
+          dist = Math.hypot(p.x - x, p.y - y);
+          if (dist > r * 1.5) continue; // a box corner, not within reach
+        }
+        seen.set(props.id, { props, rank: INTERACTIVE_LAYERS.indexOf(f.layer.id), dist });
       }
-      const sorted = [...seen.values()].sort((a, b) => a.rank - b.rank).map((x) => x.props);
+      const sorted = [...seen.values()]
+        .sort((a, b) => Math.round(a.dist / 6) - Math.round(b.dist / 6) || a.rank - b.rank)
+        .map((x) => x.props);
       if (sorted.length === 0) useStore.getState().select(null);
       else useStore.getState().select(sorted[0].id, sorted);
     });

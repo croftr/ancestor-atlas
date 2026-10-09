@@ -205,7 +205,7 @@ export default function Legend() {
                     </span>
                     <span className="count">
                       {items.length}
-                      <span className="count-word"> active</span>
+                      <span className="count-word"> on map</span>
                     </span>
                     <span className={`legend-caret ${isExpanded ? "open" : ""}`} aria-hidden="true">
                       ▸
@@ -213,9 +213,9 @@ export default function Legend() {
                   </button>
                 </div>
                 {isExpanded && (
-                  <div className="legend-breakdown" aria-label={`${CATEGORY_STYLE[c].label} active now`}>
+                  <div className="legend-breakdown" aria-label={`${CATEGORY_STYLE[c].label} on the map now`}>
                     {items.length === 0 ? (
-                      <div className="legend-breakdown-empty muted">None active in this era</div>
+                      <div className="legend-breakdown-empty muted">None on the map at this time</div>
                     ) : (
                       <ul className="legend-breakdown-list">
                         {items.map((item) => {

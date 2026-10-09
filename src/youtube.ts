@@ -7,4 +7,5 @@ export const youtubeId = (src: string): string | null => {
 
 
 /** A media count for lists and links, e.g. "▶ 2 videos". */
-export const videoCount = (n: number): string => `▶ ${n} video${n === 1 ? "" : "s"}`;
+// U+FE0E keeps ▶ as a text glyph (Android draws it as an emoji otherwise).
+export const videoCount = (n: number): string => `▶\uFE0E ${n} video${n === 1 ? "" : "s"}`;

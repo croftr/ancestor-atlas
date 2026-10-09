@@ -137,12 +137,12 @@ export function ticks(w: Window, count: number): number[] {
 
 const trim = (x: number) => +x.toFixed(2);
 
-/** Short axis label, matching the time slider's "Ma" / "ka" / BCE style. */
+/** Short axis label in plain words, as on the time slider: "2.5M yrs ago", "300k yrs ago", "3,000 BCE". */
 export function tickLabel(year: number, step: number): string {
   const b = 1 - year;
   if (b <= 0) return `${year} CE`;
-  if (b >= 1_000_000 && step >= 10_000) return `${trim(b / 1e6)} Ma`;
-  if (b >= 100_000 && step >= 1_000) return `${trim(b / 1e3)} ka`;
+  if (b >= 1_000_000 && step >= 10_000) return `${trim(b / 1e6)}M yrs ago`;
+  if (b >= 100_000 && step >= 1_000) return `${trim(b / 1e3)}k yrs ago`;
   return `${Math.round(b).toLocaleString("en-US")} BCE`;
 }
 
@@ -166,12 +166,12 @@ export function formatDuration(years: number): string {
   return `${y.toLocaleString("en-US")} year${y === 1 ? "" : "s"}`;
 }
 
-/** Compact duration for drawing on a bar: "1.91 Myr", "430 kyr", "1,150 yr". */
+/** Compact duration for drawing on a bar: "1.91M yrs", "430k yrs", "1,150 yrs". */
 export function shortDuration(years: number): string {
   const y = roundDuration(years);
-  if (y >= 1_000_000) return `${trim(y / 1e6)} Myr`;
-  if (y >= 10_000) return `${Math.round(y / 1000)} kyr`;
-  return `${y.toLocaleString("en-US")} yr`;
+  if (y >= 1_000_000) return `${trim(y / 1e6)}M yrs`;
+  if (y >= 10_000) return `${Math.round(y / 1000)}k yrs`;
+  return `${y.toLocaleString("en-US")} yr${y === 1 ? "" : "s"}`;
 }
 
 // ---- Rows ---------------------------------------------------------------------------------------

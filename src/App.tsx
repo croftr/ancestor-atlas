@@ -4,6 +4,7 @@ import InfoPanel from "./ui/InfoPanel";
 import TimeSlider from "./ui/TimeSlider";
 import SearchBox from "./ui/SearchBox";
 import SideNav from "./ui/SideNav";
+import WelcomeHint from "./ui/WelcomeHint";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
 import CulturesPage from "./browse/CulturesPage";
@@ -30,6 +31,7 @@ export default function App() {
             <Legend />
             <InfoPanel />
             <TimeSlider />
+            <WelcomeHint />
           </>
         )}
       </div>

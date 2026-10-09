@@ -27,7 +27,8 @@ export const CategoryIcon = ({ category, size = 22 }: { category: Category; size
   </svg>
 );
 
-const SINGULAR: Record<Category, string> = { species: "Species", culture: "Culture", civilization: "Civilization", event: "Event" };
+/** The category as a word for one item: "Species", "Culture", "Civilization", "Event". */
+export const SINGULAR: Record<Category, string> = { species: "Species", culture: "Culture", civilization: "Civilization", event: "Event" };
 
 /**
  * The category as a round badge in its colour, set before an entity's name in place of a

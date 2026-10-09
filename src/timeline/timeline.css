@@ -209,7 +209,6 @@
 .tl-lane { height: 30px; background: rgba(255, 255, 255, 0.045); border-top: 1px solid rgba(255, 255, 255, 0.08); }
 .tl-lane:first-child { border-top: none; }
 .tl-lane .tl-label { background: #141d33; gap: 6px; }
-.tl-lane-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
 .tl-lane-name { font-weight: 600; font-size: 0.9rem; }
 .tl-lane-status { font-size: 0.72rem; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tl-extent { position: absolute; top: 13px; height: 4px; border-radius: 2px; opacity: 0.35; }

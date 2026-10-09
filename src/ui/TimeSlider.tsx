@@ -15,9 +15,10 @@ import {
   yearToPos,
 } from "../time/scale";
 
-const TICK_LABELS = ["10 Ma", "1 Ma", "100 ka", "10,000 BCE", "3,000 BCE", "1 CE"];
+// Plain words, not geologists' "Ma" / "ka".
+const TICK_LABELS = ["10M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", "3,000 BCE", "1 CE"];
 /** Narrow screens: the same ticks, shortened so neighbours don't run together. */
-const TICK_SHORT = ["10 Ma", "1 Ma", "100 ka", "10k BCE", "3k BCE", "1 CE"];
+const TICK_SHORT = ["10M yrs", "1M yrs", "100k yrs", "10k BCE", "3k BCE", "1 CE"];
 
 /** Transport icons as SVG: emoji glyphs render inconsistently, and ▶ (play) and ▶ (step) look the same. */
 const Icon = ({ d }: { d: string }) => (
@@ -117,7 +118,7 @@ export default function TimeSlider() {
   return (
     <div className="panel time-slider">
       <div className="year-readout">{formatYear(year)}</div>
-      <div className="muted resolution">Resolution: {resolution.toLocaleString("en-US")} years</div>
+      <div className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</div>
       <div className="controls">
         <button className="ctl-start" onClick={() => setYear(MIN_YEAR)} title="Start" aria-label="Start"><Icon d={ICON.start} /></button>
         <button onClick={() => setYear(stepYear(year, -1))} title="Step back" aria-label="Step back"><Icon d={ICON.back} /></button>

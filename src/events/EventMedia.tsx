@@ -66,7 +66,7 @@ export default function EventMedia({ event }: { event: Entity }) {
         <div className="ev-media-list">
           {media.map((m, i) => (
             <button key={m.src} className="ev-media-btn" aria-pressed={current === i} onClick={() => choose(i)}>
-              <span aria-hidden>{m.kind === "video" ? "▶" : "♪"}</span>
+              <span aria-hidden>{m.kind === "video" ? "▶\uFE0E" : "♪"}</span>
               {m.title}
             </button>
           ))}
