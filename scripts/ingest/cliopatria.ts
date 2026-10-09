@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import type { FeatureProps } from "../../src/types.ts";
 import { formatYear, MAX_YEAR } from "../../src/time/scale.ts";
+import { fromHistorical } from "../lib/dates.ts";
 
 export const RAW_FILE = "data/raw/cliopatria/cliopatria.geojson";
 const BUILD_DIR = "data/build";
@@ -31,12 +32,16 @@ interface RawFeature {
 }
 
 /**
- * Year convention: Cliopatria contains a year 0 and its rows are contiguous across it
- * (e.g. Roman Empire ... (-14..0), (1..5)), so its numbering is already astronomical
- * (0 = 1 BCE) and needs no conversion. The original plan assumed historical numbering
- * (no year 0); the data disproves that. See cliopatria.test.ts.
+ * Year convention: Cliopatria writes BCE years as historians do, with no year 0 (-3400 = 3400 BCE),
+ * so they're converted to astronomical years. The evidence (see cliopatria.test.ts): its BCE rows
+ * break on historians' century boundaries, -3400..-3301 then -3300.., i.e. 3400-3301 BCE, the 34th
+ * century BCE; read astronomically that would be 3401-3302 BCE. The handful of rows ending at "0"
+ * (Roman Empire -14..0, then 1..5) come from each row ending at the next one's start minus one,
+ * not from a real year 0; converted, -14..0 becomes 14 BCE..1 BCE and still meets 1 CE.
+ * (An earlier reading took that "0" as proof of astronomical numbering, which showed every BCE
+ * date a year too early: "3,401 BCE".)
  */
-export const fromCliopatriaYear = (y: number) => y;
+export const fromCliopatriaYear = fromHistorical;
 
 /**
  * Composite rows ("(Warring States China)", "(Macedonian Empire)", ...) are unions of
