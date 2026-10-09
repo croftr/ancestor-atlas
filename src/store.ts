@@ -17,6 +17,9 @@ function loadBasemap(): string {
   return DEFAULT_BASEMAP;
 }
 
+const isIntroHash = () =>
+  typeof window !== "undefined" && /^(#\/?(intro|about))$/i.test(window.location.hash);
+
 interface AppState {
   year: number;
   enabled: Record<Category, boolean>;
@@ -26,6 +29,7 @@ interface AppState {
   groupId: string | null;
   playing: boolean;
   basemap: string;
+  introOpen: boolean;
   /** Camera request for the map; a new object each time so repeated requests still fire. */
   /** `gentle`: pan there without zooming out (stepping through sites). */
   flyTo: { bbox: BBox; gentle?: boolean } | null;
@@ -44,6 +48,7 @@ interface AppState {
   stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
   setBasemap(name: string): void;
+  setIntroOpen(open: boolean): void;
 }
 
 export const useStore = create<AppState>((set, get) => ({
@@ -54,9 +59,16 @@ export const useStore = create<AppState>((set, get) => ({
   groupId: null,
   playing: false,
   basemap: loadBasemap(),
+  introOpen: isIntroHash(),
   flyTo: null,
   setYear: (y) => set({ year: snapYear(y) }),
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
+  setIntroOpen: (open) => {
+    if (!open && isIntroHash()) {
+      window.location.hash = "#/";
+    }
+    set({ introOpen: open });
+  },
   select: (id, hits) =>
     set((s) => ({ selectedId: id, groupId: null, hits: id === null ? [] : (hits ?? s.hits) })),
   openGroup: (entityId) => set({ selectedId: null, hits: [], groupId: entityId }),

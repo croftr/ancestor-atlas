@@ -514,6 +514,37 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .welcome-hint ul { margin: 0 0 10px; padding-left: 18px; font-size: 0.9rem; line-height: 1.45; color: #cbd3e6; }
 .welcome-hint li { margin: 3px 0; }
 .welcome-hint strong { color: #fff; font-weight: 600; }
+.welcome-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+}
+.welcome-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(142, 197, 255, 0.4);
+  background: rgba(122, 167, 255, 0.15);
+  color: #8ec5ff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.welcome-video-btn:hover {
+  background: rgba(122, 167, 255, 0.28);
+  border-color: #8ec5ff;
+  color: #fff;
+}
+.welcome-video-btn:focus-visible {
+  outline: 2px solid #8ec5ff;
+  outline-offset: 2px;
+}
 .welcome-ok {
   display: block; margin-left: auto; min-height: 36px; padding: 6px 16px; border-radius: 8px;
   border: none; background: #3d7bff; color: #fff; font-weight: 600;

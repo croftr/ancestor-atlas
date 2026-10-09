@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { navigate, useView, type View } from "../route";
+import { useStore } from "../store";
 import SettingsContent from "./SettingsPanel";
 import SourcesContent from "./SourcesPanel";
 import { CategoryIcon } from "./CategoryIcon";
@@ -41,6 +42,12 @@ const EventsIcon = <CategoryIcon category="event" />;
 const SpeciesIcon = <CategoryIcon category="species" />;
 const CulturesIcon = <CategoryIcon category="culture" />;
 const CivilizationsIcon = <CategoryIcon category="civilization" />;
+const VideoIcon = (
+  <Icon>
+    <circle cx="12" cy="12" r="9" />
+    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+  </Icon>
+);
 const SourcesIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />
@@ -71,6 +78,7 @@ const VIEW_ITEMS: NavItem[] = [
 
 /** Tools and settings, bottom of the rail. */
 const TOOL_ITEMS: NavItem[] = [
+  { id: "intro", label: "Intro video", icon: VideoIcon, hint: "Watch the video introduction" },
   { id: "sources", label: "Sources", icon: SourcesIcon, hint: "Data sources and credits", panel: () => <SourcesContent /> },
   { id: "settings", label: "Settings", icon: SettingsIcon, panel: () => <SettingsContent /> },
 ];
@@ -79,6 +87,7 @@ const isSmall = () => typeof window !== "undefined" && window.matchMedia("(max-w
 
 export default function SideNav() {
   const view = useView();
+  const introOpen = useStore((s) => s.introOpen);
   const [expanded, setExpanded] = useState(false); // desktop: labels shown; small screens: drawer open
   const [openPanel, setOpenPanel] = useState<string | null>(null);
   const ref = useRef<HTMLElement>(null);
@@ -106,6 +115,12 @@ export default function SideNav() {
   }, [openPanel, expanded]);
 
   const choose = (item: NavItem) => {
+    if (item.id === "intro") {
+      setOpenPanel(null);
+      if (isSmall()) setExpanded(false);
+      useStore.getState().setIntroOpen(true);
+      return;
+    }
     if (item.view) {
       setOpenPanel(null);
       if (isSmall()) setExpanded(false);
@@ -116,7 +131,7 @@ export default function SideNav() {
   };
 
   const renderItem = (item: NavItem) => {
-    const active = item.view ? item.view === view : openPanel === item.id;
+    const active = item.id === "intro" ? introOpen : item.view ? item.view === view : openPanel === item.id;
     return (
       <li key={item.id} className="nav-li">
         <button

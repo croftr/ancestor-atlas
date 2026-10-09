@@ -18,6 +18,7 @@ const seen = () => {
  */
 export default function WelcomeHint() {
   const [open, setOpen] = useState(() => !seen());
+  const setIntroOpen = useStore((s) => s.setIntroOpen);
 
   useEffect(() => {
     if (!open) return;
@@ -49,9 +50,20 @@ export default function WelcomeHint() {
           <strong>{tap} a marker</strong> on the globe to learn about it.
         </li>
       </ul>
-      <button className="welcome-ok" onClick={() => setOpen(false)}>
-        Got it
-      </button>
+      <div className="welcome-actions">
+        <button
+          className="welcome-video-btn"
+          onClick={() => {
+            setIntroOpen(true);
+            setOpen(false);
+          }}
+        >
+          <span aria-hidden>▶</span> Watch intro video
+        </button>
+        <button className="welcome-ok" onClick={() => setOpen(false)}>
+          Got it
+        </button>
+      </div>
     </div>
   );
 }
