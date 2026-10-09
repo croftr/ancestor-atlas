@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE, ERA_PRESETS } from "../config";
 import { useData } from "../map/data";
@@ -18,6 +18,21 @@ import {
 const TICK_LABELS = ["10 Ma", "1 Ma", "100 ka", "10,000 BCE", "3,000 BCE", "1 CE"];
 /** Narrow screens: the same ticks, shortened so neighbours don't run together. */
 const TICK_SHORT = ["10 Ma", "1 Ma", "100 ka", "10k BCE", "3k BCE", "1 CE"];
+
+/** Transport icons as SVG: emoji glyphs render inconsistently, and ▶ (play) and ▶ (step) look the same. */
+const Icon = ({ d }: { d: string }) => (
+  <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+    <path d={d} fill="currentColor" />
+  </svg>
+);
+const ICON = {
+  start: "M3 3h2v10H3zM13 3v10L6 8z",
+  back: "M11 3v10L4 8z",
+  play: "M4.5 2.5v11L13.5 8z",
+  pause: "M4 3h3v10H4zM9 3h3v10H9z",
+  forward: "M5 3v10l7-5z",
+  end: "M11 3h2v10h-2zM3 3v10l7-5z",
+};
 
 export default function TimeSlider() {
   const year = useStore((s) => s.year);
@@ -104,11 +119,13 @@ export default function TimeSlider() {
       <div className="year-readout">{formatYear(year)}</div>
       <div className="muted resolution">Resolution: {resolution.toLocaleString("en-US")} years</div>
       <div className="controls">
-        <button onClick={() => setYear(MIN_YEAR)} title="Start">⏮</button>
-        <button onClick={() => setYear(stepYear(year, -1))} title="Step back">◀</button>
-        <button onClick={() => setPlaying(!playing)} title="Play / pause">{playing ? "⏸" : "▶"}</button>
-        <button onClick={() => setYear(stepYear(year, 1))} title="Step forward">▶</button>
-        <button onClick={() => setYear(MAX_YEAR)} title="End">⏭</button>
+        <button className="ctl-start" onClick={() => setYear(MIN_YEAR)} title="Start" aria-label="Start"><Icon d={ICON.start} /></button>
+        <button onClick={() => setYear(stepYear(year, -1))} title="Step back" aria-label="Step back"><Icon d={ICON.back} /></button>
+        <button className="ctl-play" onClick={() => setPlaying(!playing)} title="Play / pause" aria-label={playing ? "Pause" : "Play"}>
+          <Icon d={playing ? ICON.pause : ICON.play} />
+        </button>
+        <button onClick={() => setYear(stepYear(year, 1))} title="Step forward" aria-label="Step forward"><Icon d={ICON.forward} /></button>
+        <button className="ctl-end" onClick={() => setYear(MAX_YEAR)} title="End" aria-label="End"><Icon d={ICON.end} /></button>
       </div>
       <input
         className="range"
@@ -117,6 +134,9 @@ export default function TimeSlider() {
         max={10000}
         step={1}
         value={Math.round(yearToPos(year) * 10000)}
+        aria-label="Year"
+        // Drives the filled part of the track in the small-screen styling (stacked.css).
+        style={{ "--pos": `${yearToPos(year) * 100}%` } as CSSProperties}
         onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
       />
       <div className="span-track">

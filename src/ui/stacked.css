@@ -133,7 +133,8 @@
   .app.view-globe .map-wrap { order: 4; flex: 1 1 0; min-height: 140px; margin: 0 0 0 var(--nav-w); }
   .app.view-globe .globe-page:has(.info-panel:not(.minimised)) .map-wrap { flex: 1 0 60dvh; }
 
-  /* Time slider: compact, pinned to the bottom. */
+  /* Time slider: a slim bar pinned to the bottom: year and transport on one row, the track below.
+     The era shortcuts and the resolution note are left out to give the globe the room. */
   .app.view-globe .time-slider {
     order: 5;
     flex: none;
@@ -141,28 +142,78 @@
     bottom: 8px;
     z-index: 20;
     margin-bottom: 8px;
-    padding: 8px 12px 6px;
+    padding: 8px 12px 4px;
+    border-radius: 14px;
     display: grid;
     grid-template-columns: 1fr auto;
     column-gap: 8px;
     align-items: center;
   }
-  .app.view-globe .year-readout { grid-column: 1; grid-row: 1; font-size: 1.15rem; line-height: 1.25; }
-  .app.view-globe .time-slider::before { top: -8px; bottom: -8px; }
+  /* Reaches well past the bottom edge so card text scrolling underneath never peeks out below. */
+  .app.view-globe .time-slider::before { top: -8px; bottom: -48px; }
   /* The backdrop paints over the panel's own border, so redraw that as an outline. */
   .app.view-globe .time-slider { outline: 1px solid rgba(255, 255, 255, 0.08); outline-offset: -1px; }
-  .app.view-globe .resolution { grid-column: 1; grid-row: 2; font-size: 0.72rem; }
-  .app.view-globe .controls { grid-column: 2; grid-row: 1 / span 2; margin: 0; gap: 4px; }
-  .app.view-globe .controls button { width: 36px; height: 34px; padding: 0; }
+  .app.view-globe .year-readout {
+    grid-column: 1; grid-row: 1; min-width: 0;
+    font-size: 1.1rem; line-height: 1.2; font-variant-numeric: tabular-nums;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .app.view-globe .resolution,
+  .app.view-globe .time-slider .chips { display: none; }
+  .app.view-globe .controls { grid-column: 2; grid-row: 1; margin: 0; gap: 2px; align-items: center; }
+  .app.view-globe .controls button {
+    width: 36px; height: 36px; padding: 0;
+    border: none; border-radius: 50%; background: transparent; color: #cbd3e6;
+    touch-action: manipulation;
+  }
+  .app.view-globe .controls button:hover { background: rgba(255, 255, 255, 0.1); }
+  .app.view-globe .controls .ctl-play { width: 40px; height: 40px; margin: 0 2px; background: #3d7bff; color: #fff; }
+  .app.view-globe .controls .ctl-play:hover { background: #5a8fff; }
+  .app.view-globe .controls button:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
   .app.view-globe .range,
   .app.view-globe .span-track,
-  .app.view-globe .ticks,
-  .app.view-globe .chips { grid-column: 1 / -1; }
-  .app.view-globe .range { margin-top: 6px; }
+  .app.view-globe .ticks { grid-column: 1 / -1; }
+
+  /* The track: thin and filled up to the thumb (--pos, set by TimeSlider); the input itself stays
+     tall so it's easy to grab. */
+  .app.view-globe .range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 28px;
+    margin: 2px 0 0;
+    background: transparent;
+    touch-action: none;
+  }
+  .app.view-globe .range::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right, #3d7bff var(--pos, 0%), rgba(255, 255, 255, 0.16) var(--pos, 0%));
+  }
+  .app.view-globe .range::-moz-range-track { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.16); }
+  .app.view-globe .range::-moz-range-progress { height: 4px; border-radius: 2px; background: #3d7bff; }
+  .app.view-globe .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; height: 20px; margin-top: -8px;
+    border-radius: 50%; border: 3px solid #3d7bff; background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  .app.view-globe .range::-moz-range-thumb {
+    width: 14px; height: 14px;
+    border-radius: 50%; border: 3px solid #3d7bff; background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  .app.view-globe .range:focus-visible { outline: none; }
+  .app.view-globe .range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(142, 197, 255, 0.5); }
+  .app.view-globe .span-track { height: 3px; margin: -4px 10px 2px; }
+  .app.view-globe .span-band { height: 3px; }
+  .app.view-globe .ticks { height: 14px; margin: 0 10px; }
+  .app.view-globe .tick { font-size: 0.62rem; color: #6f7a92; }
   .app.view-globe .tick-long { display: none; }
   .app.view-globe .tick-short { display: inline; }
-  /* With a card open, the era shortcuts give their row to the globe. */
-  .app.view-globe.has-card .time-slider .chips { display: none; }
+
+  /* Site stepper (on every page): bigger tap targets either side. */
+  .feature-nav-btn { width: 56px; min-height: 52px; }
+  .feature-nav-btn svg { width: 18px; height: 18px; }
 }
 
 /*
@@ -277,7 +328,7 @@
 
 /* Narrow phones: start/end buttons go (the slider reaches both ends), so the year fits on one line. */
 @media (max-width: 480px) {
-  .app.view-globe .controls button:first-child,
-  .app.view-globe .controls button:last-child { display: none; }
-  .app.view-globe .year-readout { font-size: 1.1rem; }
+  .app.view-globe .controls .ctl-start,
+  .app.view-globe .controls .ctl-end { display: none; }
+  .app.view-globe .year-readout { font-size: 1.05rem; }
 }

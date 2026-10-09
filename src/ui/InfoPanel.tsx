@@ -240,7 +240,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             aria-label={`Previous ${noun.toLowerCase()}`}
             title={`Previous ${noun.toLowerCase()} ( [ )`}
           >
-            ‹
+            <svg viewBox="0 0 12 12" width="14" height="14" aria-hidden="true">
+              <path d="M7.5 2 3.5 6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
           <div className="feature-nav-mid" aria-live="polite">
             <div className="feature-nav-count">
@@ -261,7 +263,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             aria-label={`Next ${noun.toLowerCase()}`}
             title={`Next ${noun.toLowerCase()} ( ] )`}
           >
-            ›
+            <svg viewBox="0 0 12 12" width="14" height="14" aria-hidden="true">
+              <path d="M4.5 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         </div>
       )}
