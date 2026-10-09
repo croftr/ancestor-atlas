@@ -9,6 +9,11 @@
     - recall
   image_url: /images/species/sahelanthropus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=dOp6Fy5SX8E
+      title: "Toumaï, the New Ancestor"
+      credit: Best Documentary, YouTube
 - id: orrorin-tugenensis
   name: Orrorin tugenensis
   category: species
@@ -20,6 +25,11 @@
     - recall
   image_url: /images/species/orrorin-tugenensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=7Wq6XqyqQ34
+      title: "The First Humans After The Human-Chimp Split: Orrorin Tugenensis"
+      credit: HistoryMush, YouTube
 - id: ardipithecus-kadabba
   name: Ardipithecus kadabba
   category: species
@@ -31,6 +41,11 @@
     - recall
   image_url: /images/species/ardipithecus-kadabba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=qRY68467GPg
+      title: "Ardipithecus (That We Know Of) | The Evolution of Us"
+      credit: Lindsay Nikole, YouTube
 - id: ardipithecus-ramidus
   name: Ardipithecus ramidus
   category: species
@@ -42,6 +57,11 @@
     - recall
   image_url: /images/species/ardipithecus-ramidus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Pw_J6jV02eU
+      title: "Discovering Ardi - How Ardi Walked"
+      credit: Discovery, YouTube
 - id: australopithecus-anamensis
   name: Australopithecus anamensis
   category: species
@@ -53,6 +73,11 @@
     - recall
   image_url: /images/species/australopithecus-anamensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=XHBef_2dvqE
+      title: "Lucy's Grandad? Examining Australopithecus Anamensis"
+      credit: Evolution Soup, YouTube
 - id: australopithecus-afarensis
   name: Australopithecus afarensis
   category: species
@@ -64,6 +89,11 @@
     - recall
   image_url: /images/species/australopithecus-afarensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=u6kc7rEQXpI
+      title: "Life And Death 3,000,000 Years Ago"
+      credit: Stefan Milo, YouTube
 - id: kenyanthropus-platyops
   name: Kenyanthropus platyops
   category: species
@@ -75,6 +105,11 @@
     - recall
   image_url: /images/species/kenyanthropus-platyops.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Se54pYWiDd8
+      title: "Kenyanthropus platyops: The Flat Faced Hominin Who Lived Alongside Lucy"
+      credit: "ORIGINS: The History of Humanity, YouTube"
 - id: australopithecus-africanus
   name: Australopithecus africanus
   category: species
@@ -86,6 +121,11 @@
     - recall
   image_url: /images/species/australopithecus-africanus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=pwW40Dj5Sro
+      title: "The Missing Link That Wasn't"
+      credit: PBS Eons, YouTube
 - id: australopithecus-garhi
   name: Australopithecus garhi
   category: species
@@ -97,6 +137,11 @@
     - recall
   image_url: /images/species/australopithecus-garhi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=9ExOy42Hc50
+      title: "Australopithecus garhi | Human Evolution"
+      credit: Animated Ancestry, YouTube
 - id: australopithecus-sediba
   name: Australopithecus sediba
   category: species
@@ -108,6 +153,11 @@
     - recall
   image_url: /images/species/australopithecus-sediba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=Y7Q3EGYI78M
+      title: "Lee Berger: Rewriting human history"
+      credit: New Scientist, YouTube
 - id: paranthropus-aethiopicus
   name: Paranthropus aethiopicus
   category: species
@@ -119,6 +169,11 @@
     - recall
   image_url: /images/species/paranthropus-aethiopicus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=EpNgX8wRW8c
+      title: "Paranthropus aethiopicus: The Black Skull"
+      credit: HALABELLA, YouTube
 - id: paranthropus-boisei
   name: Paranthropus boisei
   category: species
@@ -130,6 +185,11 @@
     - recall
   image_url: /images/species/paranthropus-boisei.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=t0zC4GaGPzw
+      title: "The Diet Paradox: What Did Nutcracker Man Actually Eat?"
+      credit: KnowSights, YouTube
 - id: paranthropus-robustus
   name: Paranthropus robustus
   category: species
@@ -141,6 +201,11 @@
     - recall
   image_url: /images/species/paranthropus-robustus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=lzBwFh0dYIs
+      title: "Paranthropus Evolution"
+      credit: Stefan Milo, YouTube
 - id: homo-habilis
   name: Homo habilis
   category: species
@@ -152,6 +217,11 @@
     - recall
   image_url: /images/species/homo-habilis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xXGa5oNspKA
+      title: "Homo Habilis – The Handy Man | Human Evolution Documentary"
+      credit: Pre Historical Era, YouTube
 - id: homo-rudolfensis
   name: Homo rudolfensis
   category: species
@@ -163,6 +233,11 @@
     - recall
   image_url: /images/species/homo-rudolfensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=xuJPm1NBoIc
+      title: "Homo Rudolfensis: Humanity’s Forgotten Ancestor"
+      credit: EarlyHumans, YouTube
 - id: homo-erectus
   name: Homo erectus
   category: species
@@ -174,6 +249,11 @@
     - recall
   image_url: /images/species/homo-erectus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=_ANNQKKwWGk
+      title: "The Humans That Lived Before Us"
+      credit: PBS Eons, YouTube
 - id: homo-antecessor
   name: Homo antecessor
   category: species
@@ -185,6 +265,11 @@
     - recall
   image_url: /images/species/homo-antecessor.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=HKghZIYlN9g
+      title: "New Homo Antecessor Discoveries at Atapuerca"
+      credit: World of Paleoanthropology, YouTube
 - id: homo-heidelbergensis
   name: Homo heidelbergensis
   category: species
@@ -196,6 +281,11 @@
     - recall
   image_url: /images/species/homo-heidelbergensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=W0JQW_GKNRs
+      title: "The Story of Homo Heidelbergensis | Ancient Human Documentary"
+      credit: HistoryMush, YouTube
 - id: neanderthal
   name: Homo neanderthalensis (Neanderthal)
   category: species
@@ -207,6 +297,11 @@
     - recall
   image_url: /images/species/neanderthal.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=zLTAKMOBJ3A
+      title: "Homo Neanderthalensis: 'The Neanderthal Man'"
+      credit: EarlyHumans, YouTube
 - id: denisovan
   name: Denisovans
   category: species
@@ -218,6 +313,11 @@
     - recall
   image_url: /images/species/denisovan.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=NNusMHoSdss
+      title: "Where are all the Denisovans? Ancient DNA"
+      credit: Stefan Milo, YouTube
 - id: homo-floresiensis
   name: Homo floresiensis
   category: species
@@ -229,6 +329,11 @@
     - recall
   image_url: /images/species/homo-floresiensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=t_sFlHFgcFY
+      title: "Homo Floresiensis - Ancient Human"
+      credit: NORTH 02, YouTube
 - id: homo-luzonensis
   name: Homo luzonensis
   category: species
@@ -240,6 +345,11 @@
     - recall
   image_url: /images/species/homo-luzonensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=mBnzNpbaqS4
+      title: "Homo luzonensis: Another 'hobbit' species"
+      credit: Archaeology 101, YouTube
 - id: homo-naledi
   name: Homo naledi
   category: species
@@ -251,6 +361,11 @@
     - recall
   image_url: /images/species/homo-naledi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=6B4XEmFZ3M4
+      title: "The Extinct Human Species Found In Remote Cave Chambers"
+      credit: PBS Eons, YouTube
 - id: homo-sapiens
   name: Homo sapiens
   category: species
@@ -262,6 +377,11 @@
     - recall
   image_url: /images/species/homo-sapiens.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  media:
+    - kind: video
+      src: https://www.youtube.com/watch?v=eC4T-dD9C6o
+      title: "A Crash Course In Human Evolution With Anthropologist Chris Stringer"
+      credit: History Hit, YouTube
 - id: lomekwian
   name: Lomekwian
   category: culture
