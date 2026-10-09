@@ -48,6 +48,14 @@ export function formatYear(year: number): string {
     const x = +(bce / 1e6).toFixed(2);
     return `c. ${x} million years ago`;
   }
+  if (bce >= 10_000) {
+    // Deep-time dates carry leftovers from conversion (e.g. 347,051 BCE from years before 1950);
+    // show them to 3 significant figures, marked "c." when that changed the number. Round values,
+    // such as every year the time slider can show, are left exactly as they are.
+    const unit = 10 ** (Math.floor(Math.log10(bce)) - 2);
+    const r = Math.round(bce / unit) * unit;
+    return `${r === bce ? "" : "c. "}${r.toLocaleString("en-US")} BCE`;
+  }
   if (bce >= 1) return `${bce.toLocaleString("en-US")} BCE`;
   return `${year} CE`;
 }

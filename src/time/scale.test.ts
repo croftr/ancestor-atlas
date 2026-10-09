@@ -15,6 +15,17 @@ describe("scale", () => {
     expect(formatYear(0)).toBe("1 BCE");
   });
 
+  it("rounds deep-time dates for display, leaving round ones alone", () => {
+    expect(formatYear(-347_050)).toBe("c. 347,000 BCE");
+    expect(formatYear(-28_050)).toBe("c. 28,100 BCE");
+    expect(formatYear(-100_550)).toBe("c. 101,000 BCE");
+    expect(formatYear(-9_999)).toBe("10,000 BCE"); // already round
+    expect(formatYear(-42_999)).toBe("43,000 BCE"); // a slider year
+    expect(formatYear(-499_999)).toBe("500,000 BCE");
+    expect(formatYear(-4_099)).toBe("4,100 BCE"); // under 10,000 BCE: exact
+    expect(formatYear(-9_000)).toBe("9,001 BCE");
+  });
+
   it("round-trips snapped years in every segment", () => {
     for (const y of [-4_999_999, -499_999, -42_999, -4_999, -1_549]) {
       expect(posToYear(yearToPos(y))).toBe(y);
