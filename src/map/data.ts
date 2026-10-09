@@ -12,13 +12,15 @@ export interface Data {
   features: FeatureProps[];
   /** [west, south, east, north] of each feature's geometry, by feature id. */
   bboxOf: Map<string, BBox>;
+  /** Civilization territories' geometry, by feature id (for the selected one's badge). */
+  geometryOf: Map<string, GeoFeature["geometry"]>;
   sources: Source[];
   sourceById: Map<string, Source>;
 }
 
 export type BBox = [number, number, number, number];
 
-interface GeoFeature {
+export interface GeoFeature {
   properties: FeatureProps;
   geometry: { type: string; coordinates: unknown } | null;
 }
@@ -83,9 +85,11 @@ export function loadData(): Promise<Data | null> {
     .then(([entities, gj, sources]) => {
       const features = gj.features.map((f) => f.properties);
       const bboxOf = new Map<string, BBox>();
+      const geometryOf = new Map<string, GeoFeature["geometry"]>();
       for (const f of gj.features) {
         const b = geometryBBox(f.geometry);
         if (b) bboxOf.set(f.properties.id, b);
+        if (f.properties.category === "civilization") geometryOf.set(f.properties.id, f.geometry);
       }
       const byStart = (a: { start_year: number }, b: { start_year: number }) => a.start_year - b.start_year;
       const childrenOf = group(entities, (e) => e.parent_id);
@@ -99,6 +103,7 @@ export function loadData(): Promise<Data | null> {
         featuresOf,
         features,
         bboxOf,
+        geometryOf,
         sources,
         sourceById: new Map(sources.map((s) => [s.id, s])),
       };

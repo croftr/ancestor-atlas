@@ -2,9 +2,11 @@ import type { ExpressionSpecification, LayerSpecification } from "maplibre-gl";
 import type { Category } from "../types";
 
 export const SOURCE_ID = "features";
+/** One point inside the selected civilization's territory, carrying its badge (set in MapView). */
+export const ANCHOR_SOURCE_ID = "civ-anchor";
 
 /** Map images for the category icons drawn on species and event markers (added in MapView). */
-export const ICON_IMAGE = { species: "icon-species", culture: "icon-culture", event: "icon-event" } as const;
+export const ICON_IMAGE = { species: "icon-species", culture: "icon-culture", civilization: "icon-civilization", event: "icon-event" } as const;
 /** CSS px of those icons on the map. */
 export const MAP_ICON_PX = 14;
 
@@ -16,10 +18,10 @@ export const MAP_ICON_PX = 14;
 const CULTURE_ICON_ZOOM = 4.5;
 
 /** The category icon centred on a marker: fixed to the screen, never hidden by collisions. */
-const iconLayer = (id: string, image: string, opacity?: ExpressionSpecification): LayerSpecification => ({
+const iconLayer = (id: string, image: string, opacity?: ExpressionSpecification, source = SOURCE_ID): LayerSpecification => ({
   id,
   type: "symbol",
-  source: SOURCE_ID,
+  source,
   ...(opacity && { paint: { "icon-opacity": opacity } }),
   layout: {
     "icon-image": image,
@@ -160,6 +162,17 @@ export const LAYER_DEFS: LayerDef[] = [
     },
   },
   { category: "event", spec: iconLayer("event-icons", ICON_IMAGE.event) },
+  // The selected civilization: a temple badge inside its territory, on top of everything.
+  {
+    category: "civilization",
+    spec: {
+      id: "civ-badge",
+      type: "circle",
+      source: ANCHOR_SOURCE_ID,
+      paint: { "circle-radius": 13, "circle-color": "#ef476f", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3 },
+    },
+  },
+  { category: "civilization", spec: iconLayer("civ-badge-icon", ICON_IMAGE.civilization, undefined, ANCHOR_SOURCE_ID) },
 ];
 
 export const INTERACTIVE_LAYERS = ["event-dots", "species-circles", "culture-dots", "civ-fill"];

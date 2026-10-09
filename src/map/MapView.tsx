@@ -3,9 +3,10 @@ import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
 import { BASEMAP_THEMES, STACKED_QUERY } from "../config";
 import { type FeatureProps } from "../types";
-import { ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_PX, SOURCE_ID, timeFilter } from "./layers";
+import { ANCHOR_SOURCE_ID, ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_PX, SOURCE_ID, timeFilter } from "./layers";
+import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
-import { eventTolerance, isActive, loadData, useFeatures } from "./data";
+import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 
 /** A category icon (24×24 SVG path) drawn dark for a marker, at the screen's pixel density. */
 function iconImage(path: string): { data: ImageData; pixelRatio: number } | null {
@@ -121,6 +122,17 @@ export default function MapView() {
       if (prevSelected) map.setFeatureState({ source: SOURCE_ID, id: prevSelected }, { selected: false });
       if (selectedId) map.setFeatureState({ source: SOURCE_ID, id: selectedId }, { selected: true });
       prevSelected = selectedId;
+      // A selected civilization gets its temple badge inside its territory.
+      const geometry = selectedId ? getData()?.geometryOf.get(selectedId) : undefined;
+      const props = selectedId ? getData()?.features.find((f) => f.id === selectedId) : undefined;
+      const at = geometry ? polygonAnchor(geometry) : null;
+      (map.getSource(ANCHOR_SOURCE_ID) as maplibregl.GeoJSONSource | undefined)?.setData({
+        type: "FeatureCollection",
+        features:
+          at && props
+            ? [{ type: "Feature", geometry: { type: "Point", coordinates: at }, properties: { category: props.category, start_year: props.start_year, end_year: props.end_year } }]
+            : [],
+      });
     };
 
     const flyTo = ([w, s, e, n]: [number, number, number, number], gentle = false) => {
@@ -178,6 +190,7 @@ export default function MapView() {
         if (image) map.addImage(name, image.data, { pixelRatio: image.pixelRatio });
       }
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
+      map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
       loaded = true;
       applyFilters();
