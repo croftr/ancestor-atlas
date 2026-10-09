@@ -9,6 +9,7 @@ import { barStyle, stageTitle, summaryOf } from "./browse";
 import EntityDetail from "./EntityDetail";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
+import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
 
 interface Stage {
@@ -66,7 +67,10 @@ export default function CulturesPage() {
     <div className="events-page br-page" style={{ "--accent": accent } as CSSProperties}>
       <header className="ev-header">
         <div className="ev-title">
-          <h1>Cultures</h1>
+          <h1 className="cat-title">
+            <CategoryBadge category="culture" decorative />
+            Cultures
+          </h1>
           <span className="muted ev-count">
             {all.length} cultures{all.length ? `, ${formatRange(Math.min(...all.map((c) => c.start_year)), Math.max(...all.map((c) => c.end_year)))}` : ""}
           </span>

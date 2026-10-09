@@ -3,6 +3,7 @@ import { useStore } from "../store";
 import { CATEGORIES, type Category } from "../types";
 import { CATEGORY_STYLE, STACKED_QUERY } from "../config";
 import { isActive, useData } from "../map/data";
+import { CategoryBadge } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
 
 interface ActiveEntityItem {
@@ -198,7 +199,7 @@ export default function Legend() {
                     aria-expanded={isExpanded}
                     title={`Click to ${isExpanded ? "collapse" : "expand"} ${CATEGORY_STYLE[c].label} breakdown`}
                   >
-                    <span className="swatch" style={swatchStyle(c)} />
+                    <CategoryBadge category={c} size={stacked ? 18 : 22} decorative />
                     <span className="legend-title-text">
                       {CATEGORY_STYLE[c].label} <span className="muted legend-shape">{CATEGORY_STYLE[c].shape}</span>
                     </span>

@@ -32,13 +32,16 @@ const SINGULAR: Record<Category, string> = { species: "Species", culture: "Cultu
 /**
  * The category as a round badge in its colour, set before an entity's name in place of a
  * "Species" / "Cultures" chip on a line of its own. The word stays as its tooltip and label.
+ * Also before the titles of the Events, Cultures and Civilizations pages, and in the legend.
  */
-export const CategoryBadge = ({ category }: { category: Category }) => {
+export const CategoryBadge = ({ category, decorative = false, size = 26 }: { category: Category; decorative?: boolean; size?: number }) => {
   const style = CATEGORY_STYLE[category];
   const word = SINGULAR[category];
+  // Decorative: beside text that already names the category (a page title, a legend row).
+  const label = decorative ? { "aria-hidden": true } : { role: "img", "aria-label": word, title: word };
   return (
-    <span className="cat-badge" style={{ background: style.color }} role="img" aria-label={word} title={word}>
-      <CategoryIcon category={category} size={16} />
+    <span className="cat-badge" style={{ background: style.color, width: size, height: size }} {...label}>
+      <CategoryIcon category={category} size={Math.round(size * 0.62)} />
     </span>
   );
 };

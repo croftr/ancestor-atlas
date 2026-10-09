@@ -9,6 +9,7 @@ import { barStyle, pictureOf } from "./browse";
 import EntityDetail from "./EntityDetail";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
+import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
 
 type Sort = "date" | "name";
@@ -95,7 +96,10 @@ export default function CivilizationsPage() {
     <div className="events-page br-page" style={{ "--accent": CATEGORY_STYLE.civilization.color } as CSSProperties}>
       <header className="ev-header">
         <div className="ev-title">
-          <h1>Civilizations</h1>
+          <h1 className="cat-title">
+            <CategoryBadge category="civilization" decorative />
+            Civilizations
+          </h1>
           <span className="muted ev-count">
             {filtering ? `${visible.length} of ${total}` : `${total} civilizations and periods, ${formatRange(axis[0], axis[1])}`}
           </span>

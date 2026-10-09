@@ -3,8 +3,22 @@ import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
 import { BASEMAP_THEMES, STACKED_QUERY } from "../config";
 import { type FeatureProps } from "../types";
-import { INTERACTIVE_LAYERS, LAYER_DEFS, SOURCE_ID, timeFilter } from "./layers";
+import { ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_PX, SOURCE_ID, timeFilter } from "./layers";
+import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, isActive, loadData, useFeatures } from "./data";
+
+/** A category icon (24×24 SVG path) drawn dark for a marker, at the screen's pixel density. */
+function iconImage(path: string): { data: ImageData; pixelRatio: number } | null {
+  const pixelRatio = Math.max(1, Math.ceil(window.devicePixelRatio || 1));
+  const px = MAP_ICON_PX * pixelRatio;
+  const ctx = document.createElement("canvas").getContext("2d");
+  if (!ctx) return null;
+  ctx.canvas.width = ctx.canvas.height = px;
+  ctx.scale(px / 24, px / 24);
+  ctx.fillStyle = "#141a2b"; // as on the badges (.cat-badge)
+  ctx.fill(new Path2D(path), "evenodd");
+  return { data: ctx.getImageData(0, 0, px, px), pixelRatio };
+}
 
 /**
  * Large screens: the height the time slider covers at the bottom of the map. Kept as the map's
@@ -159,6 +173,10 @@ export default function MapView() {
     };
 
     map.on("load", () => {
+      for (const [category, name] of Object.entries(ICON_IMAGE) as [keyof typeof ICON_IMAGE, string][]) {
+        const image = iconImage(CATEGORY_PATH[category]);
+        if (image) map.addImage(name, image.data, { pixelRatio: image.pixelRatio });
+      }
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
       loaded = true;

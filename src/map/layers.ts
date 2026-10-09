@@ -3,6 +3,33 @@ import type { Category } from "../types";
 
 export const SOURCE_ID = "features";
 
+/** Map images for the category icons drawn on species and event markers (added in MapView). */
+export const ICON_IMAGE = { species: "icon-species", culture: "icon-culture", event: "icon-event" } as const;
+/** CSS px of those icons on the map. */
+export const MAP_ICON_PX = 14;
+
+/**
+ * Culture sites come in hundreds, so they stay small dots until zoomed in this far (where they
+ * spread apart); then they become pot badges like species and events. The selected site is
+ * always a badge.
+ */
+const CULTURE_ICON_ZOOM = 4.5;
+
+/** The category icon centred on a marker: fixed to the screen, never hidden by collisions. */
+const iconLayer = (id: string, image: string, opacity?: ExpressionSpecification): LayerSpecification => ({
+  id,
+  type: "symbol",
+  source: SOURCE_ID,
+  ...(opacity && { paint: { "icon-opacity": opacity } }),
+  layout: {
+    "icon-image": image,
+    "icon-allow-overlap": true,
+    "icon-ignore-placement": true,
+    "icon-pitch-alignment": "viewport",
+    "icon-rotation-alignment": "viewport",
+  },
+});
+
 /** Features of `category` on the map at `year`; `tolerance` widens the window (events). */
 export function timeFilter(category: Category, year: number, tolerance = 0): ExpressionSpecification {
   return [
@@ -74,13 +101,18 @@ export const LAYER_DEFS: LayerDef[] = [
       type: "circle",
       source: SOURCE_ID,
       paint: {
-        "circle-radius": ["case", selected, 8, 4],
+        // Small dots zoomed out; badge-sized discs (carrying the pot icon) zoomed in or selected.
+        "circle-radius": ["step", ["zoom"], ["case", selected, 13, 4], CULTURE_ICON_ZOOM, ["case", selected, 13, 11]],
         "circle-color": "#06d6a0",
-        "circle-stroke-color": ["case", selected, "#0b1020", "#ffffff"],
-        "circle-stroke-width": ["case", selected, 3, 1],
+        "circle-stroke-color": ["step", ["zoom"], "#ffffff", CULTURE_ICON_ZOOM, ["case", selected, "#ffffff", "#0b3d30"]],
+        "circle-stroke-width": ["step", ["zoom"], ["case", selected, 3, 1], CULTURE_ICON_ZOOM, ["case", selected, 3, 2]],
         "circle-opacity": ["case", selected, 1, 0.9],
       },
     },
+  },
+  {
+    category: "culture",
+    spec: iconLayer("culture-icons", ICON_IMAGE.culture, ["step", ["zoom"], ["case", selected, 1, 0], CULTURE_ICON_ZOOM, 1]),
   },
   {
     category: "species",
@@ -89,14 +121,16 @@ export const LAYER_DEFS: LayerDef[] = [
       type: "circle",
       source: SOURCE_ID,
       paint: {
-        "circle-radius": ["case", selected, 10, 7],
+        // Big enough to carry the species icon (the badge before a name, as a marker).
+        "circle-radius": ["case", selected, 13, 11],
         "circle-color": "#ffd166",
-        "circle-stroke-color": "#1a1a1a",
-        "circle-stroke-width": 2,
+        "circle-stroke-color": ["case", selected, "#ffffff", "#1a1a1a"],
+        "circle-stroke-width": ["case", selected, 3, 2],
       },
     },
   },
-  // Events on top: a soft halo and a ringed dot in the event colour.
+  { category: "species", spec: iconLayer("species-icons", ICON_IMAGE.species) },
+  // Events on top: a soft halo and a ringed disc in the event colour, carrying the event icon.
   {
     category: "event",
     spec: {
@@ -104,7 +138,7 @@ export const LAYER_DEFS: LayerDef[] = [
       type: "circle",
       source: SOURCE_ID,
       paint: {
-        "circle-radius": ["case", selected, 22, 16],
+        "circle-radius": ["case", selected, 26, 20],
         "circle-color": "#c39bff",
         "circle-opacity": 0.22,
         "circle-blur": 0.6,
@@ -118,13 +152,14 @@ export const LAYER_DEFS: LayerDef[] = [
       type: "circle",
       source: SOURCE_ID,
       paint: {
-        "circle-radius": ["case", selected, 9, 7],
+        "circle-radius": ["case", selected, 13, 11],
         "circle-color": "#c39bff",
         "circle-stroke-color": ["case", selected, "#ffffff", "#2a1450"],
         "circle-stroke-width": ["case", selected, 3, 2.5],
       },
     },
   },
+  { category: "event", spec: iconLayer("event-icons", ICON_IMAGE.event) },
 ];
 
 export const INTERACTIVE_LAYERS = ["event-dots", "species-circles", "culture-dots", "civ-fill"];

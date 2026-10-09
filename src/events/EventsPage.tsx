@@ -41,7 +41,10 @@ export default function EventsPage() {
     <div className="events-page">
       <header className="ev-header">
         <div className="ev-title">
-          <h1>Events</h1>
+          <h1 className="cat-title">
+            <CategoryBadge category="event" decorative />
+            Events
+          </h1>
           <span className="muted ev-count">{events.length} moments, from 7 million years ago to 1 CE</span>
         </div>
         <div className="ev-filters" role="group" aria-label="Filter by era">

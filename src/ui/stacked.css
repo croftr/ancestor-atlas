@@ -82,8 +82,7 @@
   .app.view-globe .legend-row { min-width: 0; }
   .app.view-globe .legend-row { gap: 2px; }
   .app.view-globe .legend-title-btn { min-height: 36px; padding: 4px; gap: 5px; }
-  /* Smaller swatches and a tighter count leave room for the longest name ("Civilizations") at 360px. */
-  .app.view-globe .legend-title-btn .swatch { width: 16px; height: 16px; }
+  /* Smaller badges and a tighter count leave room for the longest name ("Civilizations") at 360px. */
   .app.view-globe .legend-title-btn .count { padding-left: 2px; }
   .app.view-globe .legend-title-btn[aria-expanded="true"] {
     background: rgba(255, 255, 255, 0.1);

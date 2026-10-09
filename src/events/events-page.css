@@ -78,6 +78,8 @@
 }
 .ev-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .ev-title h1 { font-size: 1.15rem; margin: 0; }
+.ev-title h1.cat-title { align-items: center; }
+.ev-title h1 .cat-badge { margin-top: 0; }
 .ev-count { font-size: 0.85rem; }
 .ev-filters { display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; }
 /* Chip rows that scroll sideways fade out at the right edge, so the cut-off reads as "more this way". */

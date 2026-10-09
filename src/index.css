@@ -245,7 +245,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .cat-title { display: flex; align-items: flex-start; gap: 8px; }
 .cat-badge {
   flex: none; display: inline-grid; place-items: center;
-  width: 26px; height: 26px; margin-top: -1px; border-radius: 50%;
+  margin-top: -1px; border-radius: 50%; /* size: CategoryBadge */
   color: #141a2b; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
 }
 .also { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
