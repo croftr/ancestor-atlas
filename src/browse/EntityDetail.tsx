@@ -9,6 +9,7 @@ import type { Entity } from "../types";
 import { youtubeId } from "../youtube";
 import { eventsAbout, pictureOf, typing } from "./browse";
 import "../events/events-page.css";
+import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
 
 /**
@@ -148,7 +149,10 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
               <button className="link" onClick={() => navigate(page, parent.id)}>{parent.name}</button> › {entity.name}
             </div>
           )}
-          <h2 id="br-detail-name">{entity.name}</h2>
+          <h2 id="br-detail-name" className="cat-title">
+            <CategoryBadge category={entity.category} />
+            <span>{entity.name}</span>
+          </h2>
           <div className="ev-detail-date">
             {formatRange(entity.start_year, entity.end_year)}
             <span className="muted"> · {formatDuration(entity.end_year - entity.start_year)}</span>

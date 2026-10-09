@@ -7,6 +7,7 @@ import { shortDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { barStyle, pictureOf } from "./browse";
 import EntityDetail from "./EntityDetail";
+import { videoCount } from "../youtube";
 import "../events/events-page.css";
 import "./browse.css";
 
@@ -156,11 +157,17 @@ export default function CivilizationsPage() {
                           <span className="muted">{formatRange(group.start_year, group.end_year)}</span>
                           <span className="muted">
                             {filtering && members.length !== all.length ? `${members.length} of ${all.length}` : all.length} periods
-                            {group.region && <> · {group.region}</>}
-                            {group.media && group.media.length > 0 && <> · ▶ {group.media.length}</>}
+                            {group.region && <> · <span className="nowrap">{group.region}</span></>}
+                            {group.media && group.media.length > 0 && <> · <span className="nowrap">{videoCount(group.media.length)}</span></>}
                           </span>
                         </span>
-                        {!filtering && <span className="cv-chevron" aria-hidden>▾</span>}
+                        {!filtering && (
+                          <span className="cv-chevron" aria-hidden>
+                            <svg viewBox="0 0 12 12" width="14" height="14">
+                              <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        )}
                       </button>
                       <button className="tl-btn cv-about" onClick={() => navigate("civilizations", group.id)}>About</button>
                     </div>
@@ -213,7 +220,7 @@ function Rows({ list, axis }: { list: Entity[]; axis: [number, number] }) {
               </span>
               <span className="cv-row-dur muted">
                 {shortDuration(e.end_year - e.start_year)}
-                {e.media && e.media.length > 0 && <> · ▶ {e.media.length}</>}
+                {e.media && e.media.length > 0 && <> · <span className="nowrap">{videoCount(e.media.length)}</span></>}
               </span>
             </button>
           </li>

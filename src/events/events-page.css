@@ -80,6 +80,12 @@
 .ev-title h1 { font-size: 1.15rem; margin: 0; }
 .ev-count { font-size: 0.85rem; }
 .ev-filters { display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; }
+/* Chip rows that scroll sideways fade out at the right edge, so the cut-off reads as "more this way". */
+.ev-filters {
+  padding-right: 28px;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+}
 .ev-filters .chip.active { background: rgba(195, 155, 255, 0.22); border-color: rgba(195, 155, 255, 0.65); color: #fff; }
 .ev-chip-count { opacity: 0.65; margin-left: 2px; font-variant-numeric: tabular-nums; }
 
@@ -148,8 +154,8 @@
 .ev-detail-body p { line-height: 1.55; }
 .ev-detail-era { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #cdb6ff; }
 .ev-detail-date { color: #cbd3e6; }
-.ev-close { position: absolute; top: 10px; right: 12px; z-index: 1; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 8px; width: 34px; height: 34px; }
-.ev-close:hover { background: rgba(255, 255, 255, 0.18); }
+.ev-close { position: absolute; top: 10px; right: 12px; z-index: 1; background: rgba(11, 16, 32, 0.72); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; width: 34px; height: 34px; }
+.ev-close:hover { background: rgba(40, 52, 84, 0.9); }
 .ev-places ul { margin: 4px 0 8px; padding-left: 18px; }
 .ev-places li { margin: 2px 0; }
 .ev-place-note { font-size: 0.82rem; }
@@ -157,7 +163,8 @@
 .ev-sources a, .ev-places a { color: #8ec5ff; }
 .ev-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .ev-stepper { display: flex; align-items: center; gap: 10px; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
-.ev-stepper .tl-btn { max-width: 42%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ev-stepper .tl-btn { max-width: 42%; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; min-height: 36px; }
+.ev-step-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .ev-stepper .muted { flex: 1; text-align: center; font-size: 0.8rem; }
 
 /* Event picture on the globe/timeline info card. */

@@ -11,6 +11,8 @@ import "./events.css";
 import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";
 import { useMediaQuery } from "./useMediaQuery";
+import { videoCount } from "../youtube";
+import { CategoryBadge } from "./CategoryIcon";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -182,13 +184,15 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             : undefined
         }
       >
-        <span className="badge" style={{ background: style.color }}>{style.label}</span>
         {parent && (
           <div className="breadcrumb">
             <button className="link" onClick={() => openGroup(parent.id)}>{parent.name}</button> › {entity.name}
           </div>
         )}
-        <h2>{entity.name}</h2>
+        <h2 className="cat-title">
+          <CategoryBadge category={entity.category} />
+          <span>{entity.name}</span>
+        </h2>
         <div className="muted">{isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}</div>
       </div>
       <div className="view-link">
@@ -211,7 +215,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <>
             {" · "}
             <button className="link" onClick={() => navigate("events", entity.id)}>
-              {entity.media?.length ? `Event page (▶ ${entity.media.length}) →` : "Event page →"}
+              {entity.media?.length ? `Event page (${videoCount(entity.media.length)}) →` : "Event page →"}
             </button>
           </>
         )}
@@ -219,7 +223,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <>
             {" · "}
             <button className="link" onClick={() => navigate("cultures", entity.id)}>
-              {entity.media?.length ? `Culture page (▶ ${entity.media.length}) →` : "Culture page →"}
+              {entity.media?.length ? `Culture page (${videoCount(entity.media.length)}) →` : "Culture page →"}
             </button>
           </>
         )}
@@ -227,7 +231,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <>
             {" · "}
             <button className="link" onClick={() => navigate("civilizations", entity.id)}>
-              {entity.media?.length ? `Civilization page (▶ ${entity.media.length}) →` : "Civilization page →"}
+              {entity.media?.length ? `Civilization page (${videoCount(entity.media.length)}) →` : "Civilization page →"}
             </button>
           </>
         )}

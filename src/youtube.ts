@@ -5,3 +5,6 @@ export const youtubeId = (src: string): string | null => {
   return m ? m[1] : null;
 };
 
+
+/** A media count for lists and links, e.g. "▶ 2 videos". */
+export const videoCount = (n: number): string => `▶ ${n} video${n === 1 ? "" : "s"}`;

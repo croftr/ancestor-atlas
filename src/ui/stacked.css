@@ -178,36 +178,6 @@
   .app.view-globe .span-track,
   .app.view-globe .ticks { grid-column: 1 / -1; }
 
-  /* The track: thin and filled up to the thumb (--pos, set by TimeSlider); the input itself stays
-     tall so it's easy to grab. */
-  .app.view-globe .range {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 28px;
-    margin: 2px 0 0;
-    background: transparent;
-    touch-action: none;
-  }
-  .app.view-globe .range::-webkit-slider-runnable-track {
-    height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(to right, #3d7bff var(--pos, 0%), rgba(255, 255, 255, 0.16) var(--pos, 0%));
-  }
-  .app.view-globe .range::-moz-range-track { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.16); }
-  .app.view-globe .range::-moz-range-progress { height: 4px; border-radius: 2px; background: #3d7bff; }
-  .app.view-globe .range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px; height: 20px; margin-top: -8px;
-    border-radius: 50%; border: 3px solid #3d7bff; background: #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  }
-  .app.view-globe .range::-moz-range-thumb {
-    width: 14px; height: 14px;
-    border-radius: 50%; border: 3px solid #3d7bff; background: #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  }
-  .app.view-globe .range:focus-visible { outline: none; }
-  .app.view-globe .range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(142, 197, 255, 0.5); }
   .app.view-globe .span-track { height: 3px; margin: -4px 10px 2px; }
   .app.view-globe .span-band { height: 3px; }
   .app.view-globe .ticks { height: 14px; margin: 0 10px; }
@@ -324,10 +294,13 @@
   .info-thumb-open:focus-visible, .info-thumb-close:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
 }
 
-/* Phones: the rail is a drawer, and its menu button sits beside the search. */
+/* Phones: the rail is a drawer. Its menu button sits top-left on every page (on the globe, beside
+   the search; elsewhere, beside the page title), where it no longer covers the content below. */
 @media (max-width: 700px) {
-  .app.view-globe .nav-menu-btn { top: 8px; bottom: auto; left: 8px; width: 40px; height: 40px; border-radius: 10px; }
+  .app .nav-menu-btn { top: 8px; bottom: auto; left: 8px; width: 40px; height: 40px; border-radius: 10px; }
   .app.view-globe .search { margin-left: 56px; }
+  .app .ev-title,
+  .app .tl-title { margin-left: 44px; min-height: 40px; }
 }
 
 /* Narrow phones: start/end buttons go (the slider reaches both ends), so the year fits on one line. */

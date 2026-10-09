@@ -236,10 +236,18 @@ button { font: inherit; color: inherit; cursor: pointer; }
   object-fit: cover;
   display: block;
 }
-.info-panel h2 { margin: 8px 0 4px; font-size: 1.2rem; }
+.info-panel h2 { margin: 2px 0 4px; font-size: 1.2rem; }
+.info-panel .info-head { padding-right: 28px; } /* clear of the close button, now the name is the top line */
 .info-panel .close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 1rem; }
 .info-min { display: none; } /* small screens only (stacked.css) */
-.badge { display: inline-block; color: #111; font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+/* An entity's name with its category badge before it (CategoryBadge). The badge lines up with the
+   first line when a long name wraps. */
+.cat-title { display: flex; align-items: flex-start; gap: 8px; }
+.cat-badge {
+  flex: none; display: inline-grid; place-items: center;
+  width: 26px; height: 26px; margin-top: -1px; border-radius: 50%;
+  color: #141a2b; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
 .also { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .time-slider { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 120px), 1100px); }
 .year-readout { font-size: 1.8rem; font-weight: 600; }
@@ -247,6 +255,38 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .controls button { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 4px 12px; display: inline-grid; place-items: center; }
 .controls svg { display: block; }
 .range { width: 100%; margin: 4px 0 0; }
+/* Slider track: thin and filled up to the thumb (--pos, set by TimeSlider); the input itself stays
+   tall so it's easy to grab. */
+.time-slider .range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 28px;
+  margin: 2px 0 0;
+  background: transparent;
+  touch-action: none;
+}
+.time-slider .range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #3d7bff var(--pos, 0%), rgba(255, 255, 255, 0.16) var(--pos, 0%));
+}
+.time-slider .range::-moz-range-track { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.16); }
+.time-slider .range::-moz-range-progress { height: 4px; border-radius: 2px; background: #3d7bff; }
+.time-slider .range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px; margin-top: -8px;
+  border-radius: 50%; border: 3px solid #3d7bff; background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.time-slider .range::-moz-range-thumb {
+  width: 14px; height: 14px;
+  border-radius: 50%; border: 3px solid #3d7bff; background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.time-slider .range:focus-visible { outline: none; }
+.time-slider .range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(142, 197, 255, 0.5); }
+.controls .ctl-play { background: #3d7bff; border-color: #3d7bff; color: #fff; }
+.controls .ctl-play:hover { background: #5a8fff; }
 .ticks { position: relative; height: 18px; margin: 0 8px; }
 .tick { position: absolute; transform: translateX(-50%); font-size: 0.7rem; color: #8b95ab; white-space: nowrap; }
 .tick-short { display: none; }
@@ -333,3 +373,4 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .feature-nav-mid { flex: 1; min-width: 0; text-align: center; align-self: center; padding: 6px 8px; }
 .feature-nav-count { font-size: 0.75rem; color: #8b95ab; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
 .feature-nav-label { font-size: 0.85rem; line-height: 1.3; overflow-wrap: anywhere; }
+.nowrap { white-space: nowrap; }

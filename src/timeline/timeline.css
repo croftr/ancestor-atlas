@@ -246,13 +246,20 @@
 }
 
 @media (max-width: 760px) {
-  .timeline-page { --label-w: 124px; }
+  /* Wider label column (names were cut to a few letters) with tighter padding inside it. */
+  .timeline-page { --label-w: 150px; }
+  .tl-label { padding: 0 4px 0 6px; }
+  .tl-name { padding: 0 2px; font-size: 0.78rem; }
   .tl-header { flex-wrap: wrap; }
   .timeline-page .search { width: 100%; order: 3; }
   .tl-hint { display: none; }
   .tl-nav { flex-wrap: wrap; gap: 6px; }
   .tl-step { flex: 1; min-width: 0; font-size: 0.82rem; }
-  .tl-presets { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .tl-presets {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-right: 36px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
   .tl-range { order: -1; flex-basis: 100%; min-width: 0; font-size: 0.9rem; }
   .tl-zoom { margin-left: 0; }
   .tl-overview-label { display: none; }

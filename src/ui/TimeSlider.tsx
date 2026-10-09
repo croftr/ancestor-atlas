@@ -135,7 +135,7 @@ export default function TimeSlider() {
         step={1}
         value={Math.round(yearToPos(year) * 10000)}
         aria-label="Year"
-        // Drives the filled part of the track in the small-screen styling (stacked.css).
+        // Drives the filled part of the slider track (index.css).
         style={{ "--pos": `${yearToPos(year) * 100}%` } as CSSProperties}
         onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
       />

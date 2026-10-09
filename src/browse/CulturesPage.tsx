@@ -7,6 +7,7 @@ import { firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { barStyle, stageTitle, summaryOf } from "./browse";
 import EntityDetail from "./EntityDetail";
+import { videoCount } from "../youtube";
 import "../events/events-page.css";
 import "./browse.css";
 
@@ -119,7 +120,7 @@ export default function CulturesPage() {
                       <span className="cu-card-meta muted">
                         {shortDuration(c.end_year - c.start_year)}
                         {n > 0 && <> · {n.toLocaleString("en-US")} site{n === 1 ? "" : "s"}</>}
-                        {c.media && c.media.length > 0 && <> · ▶ {c.media.length}</>}
+                        {c.media && c.media.length > 0 && <> · <span className="nowrap">{videoCount(c.media.length)}</span></>}
                       </span>
                       {summary && <span className="cu-card-summary">{summary}</span>}
                     </button>

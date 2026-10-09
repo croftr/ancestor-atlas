@@ -154,7 +154,8 @@
 }
 .cv-group-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .cv-group-name { font-weight: 650; font-size: 1.05rem; }
-.cv-chevron { margin-left: auto; transition: transform 0.15s ease; color: #8b95ab; }
+.cv-chevron { margin-left: auto; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, 0.07); color: #cbd3e6; transition: transform 0.15s ease, background 0.12s ease; }
+.cv-group-toggle:not(:disabled):hover .cv-chevron { background: rgba(255, 255, 255, 0.14); }
 .cv-group.open .cv-chevron { transform: rotate(180deg); }
 .cv-group .cv-rows { padding: 0 8px 8px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
 
@@ -189,7 +190,15 @@
 @media (max-width: 760px) {
   .cu-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .cu-card-summary { -webkit-line-clamp: 2; }
-  .cv-group-img { width: 84px; }
+  .cv-group-img { width: 72px; }
+  /* Phones: "About" tucks into the top-right corner and the expand chevron sits under it, so the
+     name and dates get the card's width instead of wrapping word by word. */
+  .cv-group-head { position: relative; padding-right: 0; }
+  .cv-group-toggle { gap: 12px; align-items: stretch; padding-right: 10px; }
+  .cv-group-img { align-self: center; }
+  .cv-group-text { padding-right: 52px; justify-content: center; }
+  .cv-group-toggle .cv-chevron { align-self: flex-end; margin-left: -30px; }
+  .cv-about { position: absolute; top: 8px; right: 10px; padding: 3px 10px; font-size: 0.8rem; }
   .cv-row {
     grid-template-columns: 12px minmax(0, 1fr) auto;
     grid-template-areas: "sw name dur" ". date date" ". bar bar";

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { navigate, useView, type View } from "../route";
 import SettingsContent from "./SettingsPanel";
 import SourcesContent from "./SourcesPanel";
+import { CATEGORY_GLYPH } from "./CategoryIcon";
 import "./sidenav.css";
 
 /**
@@ -35,24 +36,10 @@ const TimelineIcon = (
     <path d="M3 21h18" strokeOpacity="0.5" />
   </Icon>
 );
-const EventsIcon = (
-  <Icon>
-    <path d="M12 3l3.2 9L12 21l-3.2-9z" />
-    <path d="M4 12h3.5M16.5 12H20" strokeOpacity="0.6" />
-  </Icon>
-);
-const CulturesIcon = (
-  <Icon>
-    <path d="M12 3.5 6.5 13l5.5 7.5 5.5-7.5z" />
-    <path d="M9 13h6M10.2 9.5h3.6" strokeOpacity="0.6" />
-  </Icon>
-);
-const CivilizationsIcon = (
-  <Icon>
-    <path d="M3.5 20.5h17M5 20.5V10M9.7 20.5V10M14.3 20.5V10M19 20.5V10" />
-    <path d="M3 9.5 12 4l9 5.5z" />
-  </Icon>
-);
+// Same drawings as the badge before an entity's name (CategoryIcon), so the two read as one set.
+const EventsIcon = <Icon>{CATEGORY_GLYPH.event}</Icon>;
+const CulturesIcon = <Icon>{CATEGORY_GLYPH.culture}</Icon>;
+const CivilizationsIcon = <Icon>{CATEGORY_GLYPH.civilization}</Icon>;
 const SourcesIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />

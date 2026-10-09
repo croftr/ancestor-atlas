@@ -9,6 +9,7 @@ import type { Entity } from "../types";
 import { refLink } from "../ui/refs";
 import EventImage from "./EventImage";
 import EventMedia from "./EventMedia";
+import { CategoryBadge } from "../ui/CategoryIcon";
 import "./events-page.css";
 
 const yearOf = (e: Entity) => e.year ?? e.start_year;
@@ -128,7 +129,10 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
         <EventMedia key={event.id} event={event} />
         <div className="ev-detail-body">
           {era && <div className="ev-detail-era">{era.label}</div>}
-          <h2 id="ev-detail-name">{event.name}</h2>
+          <h2 id="ev-detail-name" className="cat-title">
+            <CategoryBadge category="event" />
+            <span>{event.name}</span>
+          </h2>
           <div className="ev-detail-date">{event.date_text}</div>
           <p>{event.description}</p>
 

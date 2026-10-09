@@ -6,6 +6,30 @@ import { type FeatureProps } from "../types";
 import { INTERACTIVE_LAYERS, LAYER_DEFS, SOURCE_ID, timeFilter } from "./layers";
 import { eventTolerance, isActive, loadData, useFeatures } from "./data";
 
+/**
+ * Large screens: the height the time slider covers at the bottom of the map. Kept as the map's
+ * padding, so the globe centres in the open space above the slider instead of behind it.
+ * Small screens stack the slider below the map, so nothing is covered.
+ */
+function bottomInset(el: HTMLElement): number {
+  if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
+  const slider = document.querySelector(".time-slider");
+  if (!slider) return 0;
+  return Math.max(0, Math.round(el.getBoundingClientRect().bottom - slider.getBoundingClientRect().top));
+}
+
+/**
+ * Opening zoom: on a large screen the globe fills most of the space above the time slider,
+ * instead of a small ball in a sea of empty space. Phones keep 1.6, where the globe already
+ * spans the width. (A globe's radius in px is 512 · 2^zoom / 2π.)
+ */
+function initialZoom(el: HTMLElement, inset: number): number {
+  const usable = Math.min(el.clientWidth * 0.8, el.clientHeight - inset - 90);
+  if (usable <= 0) return 1.6;
+  const z = Math.log2((usable * Math.PI) / 512);
+  return Math.min(2.4, Math.max(1.6, z));
+}
+
 export default function MapView() {
   const containerRef = useRef<HTMLDivElement>(null);
   const features = useFeatures();
@@ -17,10 +41,11 @@ export default function MapView() {
     if (!container) return;
 
     const theme = BASEMAP_THEMES[useStore.getState().basemap];
+    const inset = bottomInset(container);
     const map = new maplibregl.Map({
       container,
       center: [30, 20],
-      zoom: 1.6,
+      zoom: initialZoom(container, inset),
       maxZoom: 6, // no point zooming into detail the basemap (and the data) doesn't have
       attributionControl: false, // credits are in the side menu's Sources panel
       style: {
@@ -46,6 +71,12 @@ export default function MapView() {
           },
         ],
       },
+    });
+    map.setPadding({ top: 0, left: 0, right: 0, bottom: inset });
+    // Keep that inset in step as the window resizes (or crosses into the stacked layout).
+    map.on("resize", () => {
+      const bottom = bottomInset(container);
+      if (bottom !== map.getPadding().bottom) map.setPadding({ ...map.getPadding(), bottom });
     });
     // Fallback if the style-level projection is rejected.
     map.on("style.load", () => {
@@ -92,6 +123,8 @@ export default function MapView() {
             left: wide ? 340 : 20,
             right: wide ? 420 : 20,
           };
+      // The map's own padding (the slider inset) counts towards this already.
+      padding.bottom = Math.max(0, padding.bottom - (map.getPadding().bottom ?? 0));
       const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       try {
         if (gentle) {
