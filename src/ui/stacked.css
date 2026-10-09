@@ -167,6 +167,7 @@
   .app.view-globe .year-sub { grid-column: 1; grid-row: 2; }
   .app.view-globe .time-slider .chips.open {
     display: flex; grid-column: 1 / -1; padding: 6px 28px 4px 0; scrollbar-width: none;
+    flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
   }
