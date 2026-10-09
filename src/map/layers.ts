@@ -1,5 +1,6 @@
 import type { ExpressionSpecification, LayerSpecification } from "maplibre-gl";
 import type { Category } from "../types";
+import { CATEGORY_STYLE } from "../config";
 
 export const SOURCE_ID = "features";
 /** One point inside the selected civilization's territory, carrying its badge (set in MapView). */
@@ -106,7 +107,7 @@ export const LAYER_DEFS: LayerDef[] = [
         // Small dots zoomed out; badge-sized discs (carrying the pot icon) zoomed in or selected.
         "circle-radius": ["step", ["zoom"], ["case", selected, 13, 4], CULTURE_ICON_ZOOM, ["case", selected, 13, 11]],
         "circle-color": "#06d6a0",
-        "circle-stroke-color": ["step", ["zoom"], "#ffffff", CULTURE_ICON_ZOOM, ["case", selected, "#ffffff", "#0b3d30"]],
+        "circle-stroke-color": ["step", ["zoom"], "#ffffff", CULTURE_ICON_ZOOM, ["case", selected, "#ffffff", CATEGORY_STYLE.culture.ink]],
         "circle-stroke-width": ["step", ["zoom"], ["case", selected, 3, 1], CULTURE_ICON_ZOOM, ["case", selected, 3, 2]],
         "circle-opacity": ["case", selected, 1, 0.9],
       },
@@ -126,7 +127,7 @@ export const LAYER_DEFS: LayerDef[] = [
         // Big enough to carry the species icon (the badge before a name, as a marker).
         "circle-radius": ["case", selected, 13, 11],
         "circle-color": "#ffd166",
-        "circle-stroke-color": ["case", selected, "#ffffff", "#1a1a1a"],
+        "circle-stroke-color": ["case", selected, "#ffffff", CATEGORY_STYLE.species.ink],
         "circle-stroke-width": ["case", selected, 3, 2],
       },
     },
@@ -156,7 +157,7 @@ export const LAYER_DEFS: LayerDef[] = [
       paint: {
         "circle-radius": ["case", selected, 13, 11],
         "circle-color": "#c39bff",
-        "circle-stroke-color": ["case", selected, "#ffffff", "#2a1450"],
+        "circle-stroke-color": ["case", selected, "#ffffff", CATEGORY_STYLE.event.ink],
         "circle-stroke-width": ["case", selected, 3, 2.5],
       },
     },

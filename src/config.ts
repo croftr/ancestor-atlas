@@ -1,8 +1,10 @@
+// `ink`: a dark shade of `color` for the icon and outline on a category badge or map marker
+// (softer than black; each at least 4:1 contrast against `color`).
 export const CATEGORY_STYLE = {
-  species: { label: "Species", color: "#ffd166", shape: "Point sites" },
-  culture: { label: "Cultures", color: "#06d6a0", shape: "Fuzzy zones" },
-  civilization: { label: "Civilizations", color: "#ef476f", shape: "Territories" },
-  event: { label: "Events", color: "#c39bff", shape: "Moments" },
+  species: { label: "Species", color: "#ffd166", ink: "#5a3a0c", shape: "Point sites" },
+  culture: { label: "Cultures", color: "#06d6a0", ink: "#0a4535", shape: "Fuzzy zones" },
+  civilization: { label: "Civilizations", color: "#ef476f", ink: "#4a0b1d", shape: "Territories" },
+  event: { label: "Events", color: "#c39bff", ink: "#3a1a6b", shape: "Moments" },
 } as const;
 
 // Era jump chips. Years are astronomical.

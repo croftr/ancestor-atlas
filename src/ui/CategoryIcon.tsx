@@ -41,7 +41,7 @@ export const CategoryBadge = ({ category, decorative = false, size = 26 }: { cat
   // Decorative: beside text that already names the category (a page title, a legend row).
   const label = decorative ? { "aria-hidden": true } : { role: "img", "aria-label": word, title: word };
   return (
-    <span className="cat-badge" style={{ background: style.color, width: size, height: size }} {...label}>
+    <span className="cat-badge" style={{ background: style.color, color: style.ink, boxShadow: `0 0 0 1.5px ${style.ink}`, width: size, height: size }} {...label}>
       <CategoryIcon category={category} size={Math.round(size * 0.62)} />
     </span>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
-import { BASEMAP_THEMES, STACKED_QUERY } from "../config";
+import { BASEMAP_THEMES, CATEGORY_STYLE, STACKED_QUERY } from "../config";
 import { type FeatureProps } from "../types";
 import { ANCHOR_SOURCE_ID, ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_PX, SOURCE_ID, timeFilter } from "./layers";
 import { polygonAnchor } from "./anchor";
@@ -14,15 +14,15 @@ const TAP_SLOP_MOUSE = 6;
 /** Marker layers (points), as opposed to territories. */
 const POINT_LAYERS = ["event-dots", "species-circles", "culture-dots"];
 
-/** A category icon (24×24 SVG path) drawn dark for a marker, at the screen's pixel density. */
-function iconImage(path: string): { data: ImageData; pixelRatio: number } | null {
+/** A category icon (24×24 SVG path) in its ink colour for a marker, at the screen's pixel density. */
+function iconImage(path: string, ink: string): { data: ImageData; pixelRatio: number } | null {
   const pixelRatio = Math.max(1, Math.ceil(window.devicePixelRatio || 1));
   const px = MAP_ICON_PX * pixelRatio;
   const ctx = document.createElement("canvas").getContext("2d");
   if (!ctx) return null;
   ctx.canvas.width = ctx.canvas.height = px;
   ctx.scale(px / 24, px / 24);
-  ctx.fillStyle = "#141a2b"; // as on the badges (.cat-badge)
+  ctx.fillStyle = ink; // as on the badges (CategoryBadge)
   ctx.fill(new Path2D(path), "evenodd");
   return { data: ctx.getImageData(0, 0, px, px), pixelRatio };
 }
@@ -192,7 +192,7 @@ export default function MapView() {
 
     map.on("load", () => {
       for (const [category, name] of Object.entries(ICON_IMAGE) as [keyof typeof ICON_IMAGE, string][]) {
-        const image = iconImage(CATEGORY_PATH[category]);
+        const image = iconImage(CATEGORY_PATH[category], CATEGORY_STYLE[category].ink);
         if (image) map.addImage(name, image.data, { pixelRatio: image.pixelRatio });
       }
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
