@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
 import { BASEMAP_THEMES, CATEGORY_STYLE, STACKED_QUERY } from "../config";
@@ -285,9 +285,10 @@ export default function MapView() {
     };
   }, []);
 
-  // Make sure the data is fetched even if the map fails to start.
+  // Make sure the data is fetched even if the map fails to start; until it's here, say so.
+  const [loading, setLoading] = useState<"loading" | "done" | "failed">(() => (getData() ? "done" : "loading"));
   useEffect(() => {
-    loadData();
+    loadData().then((d) => setLoading(d ? "done" : "failed"));
   }, []);
 
   const anyActive = features.some((f) => enabled[f.category] && isActive(f, year));
@@ -296,6 +297,17 @@ export default function MapView() {
   return (
     <div className="map-wrap">
       <div ref={containerRef} style={{ position: "absolute", inset: 0 }} />
+      {loading !== "done" && (
+        <div className="empty-state loading-state" role="status">
+          {loading === "loading" ? (
+            <>
+              <span className="loading-spinner" aria-hidden="true" /> Loading the atlas…
+            </>
+          ) : (
+            "The atlas couldn't load. Check your connection and refresh the page."
+          )}
+        </div>
+      )}
       {showEmpty && (
         <div className="empty-state">No mapped entities at this point in time.</div>
       )}

@@ -11,11 +11,13 @@ import CulturesPage from "./browse/CulturesPage";
 import CivilizationsPage from "./browse/CivilizationsPage";
 import { useView } from "./route";
 import { useStore } from "./store";
+import { useGlobeLink } from "./globeLink";
 // Last, so the small-screen layout overrides the component styles above.
 import "./ui/stacked.css";
 
 export default function App() {
   const view = useView();
+  useGlobeLink(view);
   // An open info card on the globe: the time slider narrows so the two never overlap.
   const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null);
   return (

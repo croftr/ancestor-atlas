@@ -184,7 +184,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
               <div className="also">
                 {events.map((ev) => (
                   <button key={ev.id} className="chip" onClick={() => navigate("events", ev.id)} title={ev.date_text}>
-                    <span className="related-dot" style={{ background: CATEGORY_STYLE.event.color }} />
+                    <CategoryBadge category="event" size={16} decorative />
                     {ev.name}
                   </button>
                 ))}

@@ -12,6 +12,7 @@ import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";
 import { useMediaQuery } from "./useMediaQuery";
 import { videoCount } from "../youtube";
+import { globeUrl } from "../globeLink";
 import { CategoryBadge } from "./CategoryIcon";
 
 const Ref = ({ r }: { r: RefLink }) =>
@@ -47,6 +48,21 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
 
   // A picture that failed to load (a stand-in not added yet) is left out.
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
+  // Share: the phone's share sheet where there is one, else copy the link ("Link copied").
+  const [copied, setCopied] = useState(false);
+  const share = async (title: string) => {
+    const url = globeUrl();
+    try {
+      if (navigator.share) await navigator.share({ title: `${title} · Ancestor Atlas`, url });
+      else {
+        await navigator.clipboard.writeText(url);
+        setCopied(true);
+        window.setTimeout(() => setCopied(false), 2000);
+      }
+    } catch {
+      /* share sheet dismissed, or clipboard unavailable */
+    }
+  };
   // Small screens: the card can shrink to give the page room: on the globe to its title (and
   // site stepper), on the timeline (where the expanded card fills the screen) to a thumbnail.
   // Arriving on the timeline via "See on timeline" starts shrunk.
@@ -65,6 +81,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // changes while the card is scrolled out of view (say, after tapping the globe below it),
   // bring the card's top back into view.
   const cardRef = useRef<HTMLDivElement>(null);
+  // Small screens: a quick sideways swipe on the card steps through the sites; a swipe down on
+  // its title minimises it (globe). Slow drags and mostly-vertical moves are left to scrolling.
+  const swipe = useRef<{ x: number; y: number; t: number; onHead: boolean } | null>(null);
   useEffect(() => {
     const el = cardRef.current;
     if (!el || view !== "globe" || !window.matchMedia?.(STACKED_QUERY).matches) return;
@@ -151,7 +170,29 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const shrinkToThumb = view === "timeline";
 
   return (
-    <div ref={cardRef} className={`panel info-panel${minimised ? " minimised" : ""}`}>
+    <div
+      ref={cardRef}
+      className={`panel info-panel${minimised ? " minimised" : ""}`}
+      onTouchStart={(e) => {
+        const target = e.target as HTMLElement;
+        if (!stacked || e.touches.length !== 1 || target.closest("iframe, video, audio, input")) return;
+        const t = e.touches[0];
+        swipe.current = { x: t.clientX, y: t.clientY, t: Date.now(), onHead: !!target.closest(".info-head") };
+      }}
+      onTouchEnd={(e) => {
+        const start = swipe.current;
+        swipe.current = null;
+        if (!start || Date.now() - start.t > 600) return;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - start.x;
+        const dy = t.clientY - start.y;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) {
+          if (feature && siblings.length > 1) stepFeature(dx < 0 ? 1 : -1);
+        } else if (start.onHead && view === "globe" && !minimised && dy > 50 && dy > 2 * Math.abs(dx)) {
+          setMinimised(true);
+        }
+      }}
+    >
       <button
         className="info-min"
         onClick={() => setMinimised((m) => !m)}
@@ -235,6 +276,10 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             </button>
           </>
         )}
+        {" · "}
+        <button className="link" onClick={() => share(entity.name)} aria-live="polite">
+          {copied ? "Link copied ✓" : "Share"}
+        </button>
       </div>
       {feature && siblings.length > 1 && (
         <div className="feature-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>
@@ -302,7 +347,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
                 onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))}
                 title={formatRange(r.start_year, r.end_year)}
               >
-                <span className="related-dot" style={{ background: r.color ?? CATEGORY_STYLE[r.category].color }} />
+                <CategoryBadge category={r.category} size={16} />
                 {r.name}
               </button>
             ))}
@@ -384,6 +429,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <div className="also">
             {others.map((o) => (
               <button key={o.id} className="chip" onClick={() => select(o.id, hits)}>
+                <CategoryBadge category={o.category} size={16} />
                 {data.entityById.get(o.entity_id)?.name ?? o.entity_id}
               </button>
             ))}

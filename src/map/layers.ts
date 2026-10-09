@@ -70,6 +70,18 @@ export const LAYER_DEFS: LayerDef[] = [
       paint: { "line-color": ["coalesce", ["get", "line_color"], "#ef476f"], "line-width": 1.5 },
     },
   },
+  // The selected civilization: a temple badge inside its territory, above the territories but
+  // under the other markers, so it never hides an event or species site.
+  {
+    category: "civilization",
+    spec: {
+      id: "civ-badge",
+      type: "circle",
+      source: ANCHOR_SOURCE_ID,
+      paint: { "circle-radius": 13, "circle-color": "#ef476f", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3 },
+    },
+  },
+  { category: "civilization", spec: iconLayer("civ-badge-icon", ICON_IMAGE.civilization, undefined, ANCHOR_SOURCE_ID) },
   {
     category: "culture",
     spec: {
@@ -163,17 +175,6 @@ export const LAYER_DEFS: LayerDef[] = [
     },
   },
   { category: "event", spec: iconLayer("event-icons", ICON_IMAGE.event) },
-  // The selected civilization: a temple badge inside its territory, on top of everything.
-  {
-    category: "civilization",
-    spec: {
-      id: "civ-badge",
-      type: "circle",
-      source: ANCHOR_SOURCE_ID,
-      paint: { "circle-radius": 13, "circle-color": "#ef476f", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3 },
-    },
-  },
-  { category: "civilization", spec: iconLayer("civ-badge-icon", ICON_IMAGE.civilization, undefined, ANCHOR_SOURCE_ID) },
 ];
 
 export const INTERACTIVE_LAYERS = ["event-dots", "species-circles", "culture-dots", "civ-fill"];

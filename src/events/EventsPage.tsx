@@ -145,7 +145,7 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
               <div className="also">
                 {related.map((r) => (
                   <button key={r.id} className="chip" onClick={() => showOnGlobe(r.id)} title={`${formatRange(r.start_year, r.end_year)}: show on the globe`}>
-                    <span className="related-dot" style={{ background: r.color ?? CATEGORY_STYLE[r.category].color }} />
+                    <CategoryBadge category={r.category} size={16} />
                     {r.name}
                   </button>
                 ))}

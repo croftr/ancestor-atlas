@@ -1,6 +1,8 @@
-import { useEffect, useRef, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useStore } from "../store";
-import { CATEGORY_STYLE, ERA_PRESETS } from "../config";
+import { CATEGORY_STYLE, ERA_PRESETS, STACKED_QUERY, TIMELINE_ERAS } from "../config";
+import { erasFor } from "../timeline/layout";
+import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
 import {
   MAX_YEAR,
@@ -52,6 +54,13 @@ export default function TimeSlider() {
   const spanRight = spanEntity ? yearToPos(spanEntity.end_year) : 0;
 
   const resolution = STEPS[segmentOfBce(1 - year)];
+
+  // The era the year falls in ("Early Homo"), as on the timeline and Events page. On small
+  // screens it's also the button that opens the jump-to shortcuts (hidden there for space).
+  const eras = useMemo(() => (data ? erasFor(data.entities, TIMELINE_ERAS) : []), [data]);
+  const era = eras.find((e) => year < e.end) ?? eras.at(-1);
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const [shortcutsOpen, setShortcutsOpen] = useState(false);
 
   // Play loop
   const posRef = useRef(0);
@@ -118,7 +127,26 @@ export default function TimeSlider() {
   return (
     <div className="panel time-slider">
       <div className="year-readout">{formatYear(year)}</div>
-      <div className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</div>
+      <div className="year-sub">
+        {era &&
+          (stacked ? (
+            <button
+              className="era-btn"
+              onClick={() => setShortcutsOpen((o) => !o)}
+              aria-expanded={shortcutsOpen}
+              aria-controls="era-shortcuts"
+              title="Jump to a moment"
+            >
+              {era.label}
+              <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+                <path d={shortcutsOpen ? "M2.5 7.5 6 4l3.5 3.5" : "M2.5 4.5 6 8l3.5-3.5"} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          ) : (
+            <span className="era-name">{era.label}</span>
+          ))}
+        <span className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</span>
+      </div>
       <div className="controls">
         <button className="ctl-start" onClick={() => setYear(MIN_YEAR)} title="Start" aria-label="Start"><Icon d={ICON.start} /></button>
         <button onClick={() => setYear(stepYear(year, -1))} title="Step back" aria-label="Step back"><Icon d={ICON.back} /></button>
@@ -161,9 +189,16 @@ export default function TimeSlider() {
           </span>
         ))}
       </div>
-      <div className="chips">
+      <div id="era-shortcuts" className={`chips${shortcutsOpen ? " open" : ""}`}>
         {ERA_PRESETS.map((e) => (
-          <button key={e.label} className="chip" onClick={() => setYear(e.year)}>
+          <button
+            key={e.label}
+            className="chip"
+            onClick={() => {
+              setYear(e.year);
+              setShortcutsOpen(false);
+            }}
+          >
             {e.label}
           </button>
         ))}

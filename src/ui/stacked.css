@@ -137,7 +137,7 @@
   .app.view-globe .globe-page:has(.info-panel:not(.minimised)) .map-wrap { flex: 1 0 60dvh; }
 
   /* Time slider: a slim bar pinned to the bottom: year and transport on one row, the track below.
-     The era shortcuts and the resolution note are left out to give the globe the room. */
+     The jump-to shortcuts open from the era name; the step note is left out for room. */
   .app.view-globe .time-slider {
     order: 5;
     flex: none;
@@ -163,7 +163,14 @@
   }
   .app.view-globe .resolution,
   .app.view-globe .time-slider .chips { display: none; }
-  .app.view-globe .controls { grid-column: 2; grid-row: 1; margin: 0; gap: 2px; align-items: center; }
+  /* The era under the year doubles as the button that opens the jump-to shortcuts. */
+  .app.view-globe .year-sub { grid-column: 1; grid-row: 2; }
+  .app.view-globe .time-slider .chips.open {
+    display: flex; grid-column: 1 / -1; padding: 6px 28px 4px 0; scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
+  .app.view-globe .controls { grid-column: 2; grid-row: 1 / span 2; margin: 0; gap: 2px; align-items: center; }
   .app.view-globe .controls button {
     width: 36px; height: 36px; padding: 0;
     border: none; border-radius: 50%; background: transparent; color: #cbd3e6;
