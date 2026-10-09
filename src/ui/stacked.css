@@ -76,11 +76,15 @@
   .app.view-globe .legend-cats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 6px;
+    column-gap: 4px;
   }
   .app.view-globe .legend-category { display: contents; }
   .app.view-globe .legend-row { min-width: 0; }
-  .app.view-globe .legend-title-btn { min-height: 36px; padding: 4px 6px; }
+  .app.view-globe .legend-row { gap: 2px; }
+  .app.view-globe .legend-title-btn { min-height: 36px; padding: 4px; gap: 5px; }
+  /* Smaller swatches and a tighter count leave room for the longest name ("Civilizations") at 360px. */
+  .app.view-globe .legend-title-btn .swatch { width: 16px; height: 16px; }
+  .app.view-globe .legend-title-btn .count { padding-left: 2px; }
   .app.view-globe .legend-title-btn[aria-expanded="true"] {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.12);
@@ -331,4 +335,11 @@
   .app.view-globe .controls .ctl-start,
   .app.view-globe .controls .ctl-end { display: none; }
   .app.view-globe .year-readout { font-size: 1.05rem; }
+}
+
+/* Smallest phones (320px): the legend's expand carets go (the row still opens on tap) and the
+   names shrink a touch, so "Civilizations" still fits its cell. */
+@media (max-width: 359px) {
+  .app.view-globe .legend-caret { display: none; }
+  .app.view-globe .legend-title-text { font-size: 0.82rem; }
 }

@@ -5,6 +5,7 @@ import { useData } from "../map/data";
 import { formatRange } from "../time/scale";
 import { buildIndex, normalize, searchEntities } from "../search/search";
 import type { Entity } from "../types";
+import { useMediaQuery } from "./useMediaQuery";
 
 /** Bold the first occurrence of the query in the name (accent-insensitive). */
 function Highlight({ text, query }: { text: string; query: string }) {
@@ -89,6 +90,8 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
   };
 
   const showList = open && query.trim().length > 0;
+  // Phones: the full placeholder doesn't fit beside the menu button.
+  const narrow = useMediaQuery("(max-width: 480px)");
 
   return (
     <div className="search" role="search">
@@ -98,7 +101,7 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
           ref={inputRef}
           type="search"
           value={query}
-          placeholder="Search species, cultures, civilizations…"
+          placeholder={narrow ? "Search the atlas…" : "Search species, cultures, civilizations…"}
           aria-label="Search by name"
           aria-expanded={showList}
           aria-controls="search-results"
