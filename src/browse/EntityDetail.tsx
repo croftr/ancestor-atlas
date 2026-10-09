@@ -13,7 +13,7 @@ import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
 
 /**
- * One culture or civilization over its browse page: picture, text, what is on the map, related
+ * One species, culture or civilization over its browse page: picture, text, what is on the map, related
  * events and sources, links out. ←/→ step through `order` (what the page is showing), Esc closes.
  */
 export default function EntityDetail({ entity, order, page, kicker }: { entity: Entity; order: Entity[]; page: BrowseView; kicker?: string }) {
@@ -70,7 +70,9 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   };
 
   let mapLine: string | null = null;
-  if (entity.category === "culture" && features.length)
+  if (entity.category === "species" && features.length)
+    mapLine = `${features.length} fossil site${features.length === 1 ? "" : "s"} on the globe`;
+  else if (entity.category === "culture" && features.length)
     mapLine = `${features.length.toLocaleString("en-US")} site${features.length === 1 ? "" : "s"} on the globe` +
       (xronos ? `, ${xronos.toLocaleString("en-US")} of them radiocarbon-dated (XRONOS)` : "");
   else if (entity.category === "civilization" && features.length)

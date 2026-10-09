@@ -38,6 +38,7 @@ const TimelineIcon = (
 );
 // Same drawings as the badge before an entity's name (CategoryIcon), so the two read as one set.
 const EventsIcon = <CategoryIcon category="event" />;
+const SpeciesIcon = <CategoryIcon category="species" />;
 const CulturesIcon = <CategoryIcon category="culture" />;
 const CivilizationsIcon = <CategoryIcon category="civilization" />;
 const SourcesIcon = (
@@ -63,6 +64,7 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "globe", label: "Globe", icon: GlobeIcon, view: "globe", hint: "Explore sites on the globe" },
   { id: "timeline", label: "Timeline", icon: TimelineIcon, view: "timeline", hint: "Everything in order, in time" },
   { id: "events", label: "Events", icon: EventsIcon, view: "events", hint: "Major moments, with pictures" },
+  { id: "species", label: "Species", icon: SpeciesIcon, view: "species", hint: "Our ancestors and relatives, in the order they appeared" },
   { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
   { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
 ];

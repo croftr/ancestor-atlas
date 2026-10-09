@@ -8,6 +8,7 @@ import WelcomeHint from "./ui/WelcomeHint";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
 import CulturesPage from "./browse/CulturesPage";
+import SpeciesPage from "./browse/SpeciesPage";
 import CivilizationsPage from "./browse/CivilizationsPage";
 import { useView } from "./route";
 import { useStore } from "./store";
@@ -39,6 +40,7 @@ export default function App() {
       </div>
       {view === "timeline" && <TimelinePage />}
       {view === "events" && <EventsPage />}
+      {view === "species" && <SpeciesPage />}
       {view === "cultures" && <CulturesPage />}
       {view === "civilizations" && <CivilizationsPage />}
       <SideNav />

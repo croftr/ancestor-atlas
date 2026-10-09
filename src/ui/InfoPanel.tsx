@@ -260,6 +260,14 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             </button>
           </>
         )}
+        {entity.category === "species" && (
+          <>
+            {" · "}
+            <button className="link" onClick={() => navigate("species", entity.id)}>
+              {entity.media?.length ? `Species page (${videoCount(entity.media.length)}) →` : "Species page →"}
+            </button>
+          </>
+        )}
         {entity.category === "culture" && (
           <>
             {" · "}

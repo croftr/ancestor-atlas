@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 /**
  * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
  * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, and "#/events",
- * "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it.
+ * "#/species", "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it.
  */
 export type View = "globe" | "timeline" | BrowseView;
 /** Pages that list one category and open an entry in a detail view. */
-export type BrowseView = "events" | "cultures" | "civilizations";
-const BROWSE_VIEWS: BrowseView[] = ["events", "cultures", "civilizations"];
+export type BrowseView = "events" | "species" | "cultures" | "civilizations";
+const BROWSE_VIEWS: BrowseView[] = ["events", "species", "cultures", "civilizations"];
 export const isBrowseView = (v: View): v is BrowseView => (BROWSE_VIEWS as View[]).includes(v);
 
 const pathOf = (hash: string) => hash.replace(/^#\/?/, "");
