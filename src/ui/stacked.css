@@ -180,7 +180,7 @@
   .app.view-globe .controls .ctl-play { width: 40px; height: 40px; margin: 0 2px; background: #3d7bff; color: #fff; }
   .app.view-globe .controls .ctl-play:hover { background: #5a8fff; }
   .app.view-globe .controls button:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
-  .app.view-globe .range,
+  .app.view-globe .range-wrap,
   .app.view-globe .span-track,
   .app.view-globe .ticks { grid-column: 1 / -1; }
 

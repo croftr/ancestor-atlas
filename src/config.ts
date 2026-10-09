@@ -1,3 +1,5 @@
+import type { EraIconName } from "./ui/EraIcon";
+
 // `ink`: a dark shade of `color` for the icon and outline on a category badge or map marker
 // (softer than black; each at least 4:1 contrast against `color`).
 export const CATEGORY_STYLE = {
@@ -7,19 +9,20 @@ export const CATEGORY_STYLE = {
   event: { label: "Events", color: "#c39bff", ink: "#3a1a6b", shape: "Moments" },
 } as const;
 
-// Era jump chips. Years are astronomical.
-export const ERA_PRESETS = [
-  { label: "Sahelanthropus", year: -6_499_999 },
-  { label: "Lucy", year: -3_199_999 },
-  { label: "First tools", year: -2_499_999 },
-  { label: "Out of Africa", year: -1_799_999 },
-  { label: "Neanderthals", year: -199_999 },
-  { label: "Cave art", year: -29_999 },
-  { label: "Natufian", year: -12_999 },
-  { label: "First farmers", year: -4_999 },
-  { label: "Bronze Age", year: -2_249 },
-  { label: "Persia", year: -499 },
-  { label: "1 CE", year: 1 },
+// Era jump chips under the time slider; years are astronomical. `icon` names a pictogram in ui/EraIcon.tsx and `tint`
+// colours it (earthy tones: bone, flint, ochre, wheat, bronze, marble, terracotta).
+export const ERA_PRESETS: { label: string; year: number; icon: EraIconName; tint: string }[] = [
+  { label: "Sahelanthropus", year: -6_499_999, icon: "skull", tint: "#e6dcc4" },
+  { label: "Lucy", year: -3_199_999, icon: "footprints", tint: "#d9b48a" },
+  { label: "First tools", year: -2_499_999, icon: "handaxe", tint: "#b9c1cc" },
+  { label: "Out of Africa", year: -1_799_999, icon: "migration", tint: "#e8a865" },
+  { label: "Neanderthals", year: -199_999, icon: "fire", tint: "#ff9a4d" },
+  { label: "Cave art", year: -29_999, icon: "cave-animal", tint: "#e0794f" },
+  { label: "Natufian", year: -12_999, icon: "hut", tint: "#c9a77c" },
+  { label: "First farmers", year: -4_999, icon: "wheat", tint: "#f0c85a" },
+  { label: "Bronze Age", year: -2_249, icon: "dagger", tint: "#d39a5b" },
+  { label: "Persia", year: -499, icon: "column", tint: "#e9e2d2" },
+  { label: "1 CE", year: 1, icon: "amphora", tint: "#e08a62" },
 ];
 
 // Timeline eras: the chunks the timeline's Earlier / Later buttons step through, oldest first.

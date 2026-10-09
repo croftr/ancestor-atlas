@@ -4,6 +4,7 @@ import { CATEGORY_STYLE, ERA_PRESETS, STACKED_QUERY, TIMELINE_ERAS } from "../co
 import { erasFor } from "../timeline/layout";
 import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
+import EraIcon from "./EraIcon";
 import {
   MAX_YEAR,
   MIN_YEAR,
@@ -60,6 +61,8 @@ export default function TimeSlider() {
   const eras = useMemo(() => (data ? erasFor(data.entities, TIMELINE_ERAS) : []), [data]);
   const era = eras.find((e) => year < e.end) ?? eras.at(-1);
   const stacked = useMediaQuery(STACKED_QUERY);
+  // The latest shortcut the slider has reached, lit up in the chip row and on the track.
+  const activePreset = [...ERA_PRESETS].reverse().find((p) => p.year <= year)?.label;
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
 
   // Play loop
@@ -156,18 +159,29 @@ export default function TimeSlider() {
         <button onClick={() => setYear(stepYear(year, 1))} title="Step forward" aria-label="Step forward"><Icon d={ICON.forward} /></button>
         <button className="ctl-end" onClick={() => setYear(MAX_YEAR)} title="End" aria-label="End"><Icon d={ICON.end} /></button>
       </div>
-      <input
-        className="range"
-        type="range"
-        min={0}
-        max={10000}
-        step={1}
-        value={Math.round(yearToPos(year) * 10000)}
-        aria-label="Year"
-        // Drives the filled part of the slider track (index.css).
-        style={{ "--pos": `${yearToPos(year) * 100}%` } as CSSProperties}
-        onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
-      />
+      <div className="range-wrap">
+        <div className="preset-marks" aria-hidden="true">
+          {ERA_PRESETS.map((p) => (
+            <span
+              key={p.label}
+              className={`preset-mark${p.label === activePreset ? " active" : ""}`}
+              style={{ left: `${yearToPos(p.year) * 100}%`, "--tint": p.tint } as CSSProperties}
+            />
+          ))}
+        </div>
+        <input
+          className="range"
+          type="range"
+          min={0}
+          max={10000}
+          step={1}
+          value={Math.round(yearToPos(year) * 10000)}
+          aria-label="Year"
+          // Drives the filled part of the slider track (index.css).
+          style={{ "--pos": `${yearToPos(year) * 100}%` } as CSSProperties}
+          onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
+        />
+      </div>
       <div className="span-track">
         {spanEntity && (
           <div
@@ -193,12 +207,18 @@ export default function TimeSlider() {
         {ERA_PRESETS.map((e) => (
           <button
             key={e.label}
-            className="chip"
+            className={`chip era-chip${e.label === activePreset ? " active" : ""}`}
+            style={{ "--tint": e.tint } as CSSProperties}
+            title={formatYear(e.year)}
+            aria-pressed={e.label === activePreset}
             onClick={() => {
               setYear(e.year);
               setShortcutsOpen(false);
             }}
           >
+            <span className="era-chip-icon">
+              <EraIcon name={e.icon} />
+            </span>
             {e.label}
           </button>
         ))}

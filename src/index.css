@@ -301,6 +301,113 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0 2px; }
 .chip { flex: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
 .chip:hover, .controls button:hover { background: rgba(255,255,255,0.18); }
+
+/* Raised time bar: lifted off the globe with a lit top edge, layered drop shadows and a recessed
+   groove for the track. Overrides the flat .panel look above. */
+.time-slider {
+  bottom: 18px;
+  padding: 12px 18px 10px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(34, 45, 72, 0.94) 0%, rgba(17, 24, 42, 0.94) 55%, rgba(12, 17, 31, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.25),
+    0 1px 0 rgba(0, 0, 0, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.35),
+    0 16px 40px rgba(0, 0, 0, 0.55);
+}
+.time-slider .year-readout { font-variant-numeric: tabular-nums; letter-spacing: 0.01em; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+
+/* Transport buttons: small raised keys that press in. */
+.time-slider .controls button {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-color: rgba(0, 0, 0, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 2px 3px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.08s ease;
+}
+.time-slider .controls button:hover { background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08)); }
+.time-slider .controls button:active { transform: translateY(1px); box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.45); }
+.time-slider .controls .ctl-play {
+  background: linear-gradient(180deg, #5b92ff, #2f66e8);
+  border-color: #6f9fff #2a5ad0 #1d43a6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 6px rgba(47, 102, 232, 0.45);
+}
+.time-slider .controls .ctl-play:hover { background: linear-gradient(180deg, #6c9eff, #3b72f0); }
+
+/* Track: a recessed groove, filled with a blue gradient up to the thumb. */
+.range-wrap { position: relative; }
+.time-slider .range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #2a5fe0 0%, #67a0ff var(--pos, 0%), rgba(0, 0, 0, 0.4) var(--pos, 0%));
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+.time-slider .range::-moz-range-track {
+  height: 6px; border-radius: 3px; background: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+.time-slider .range::-moz-range-progress { height: 6px; border-radius: 3px; background: linear-gradient(to right, #2a5fe0, #67a0ff); }
+.time-slider .range::-webkit-slider-thumb {
+  margin-top: -7px;
+  background: radial-gradient(circle at 50% 35%, #fff 0%, #e4ebf8 70%, #c8d3ea 100%);
+  box-shadow: 0 0 0 4px rgba(61, 123, 255, 0.18), 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+.time-slider .range::-moz-range-thumb {
+  background: radial-gradient(circle at 50% 35%, #fff 0%, #e4ebf8 70%, #c8d3ea 100%);
+  box-shadow: 0 0 0 4px rgba(61, 123, 255, 0.18), 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Where each jump-to shortcut falls: a small tinted pin above the groove (inset by half the
+   thumb so it lines up with where the thumb sits for that year). */
+.preset-marks { position: absolute; inset: 0 10px; pointer-events: none; }
+.preset-mark {
+  position: absolute; top: 3px; width: 3px; height: 6px; margin-left: -1.5px;
+  border-radius: 2px; background: var(--tint); opacity: 0.55;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.preset-mark.active { opacity: 1; transform: scaleY(1.3); box-shadow: 0 0 6px var(--tint); }
+
+/* Jump-to chips: raised pills with a tinted pictogram in a little disc. */
+.time-slider .chips {
+  gap: 8px; padding: 8px 28px 4px 2px; margin-top: 2px; border-top: 1px solid rgba(255, 255, 255, 0.06);
+  scrollbar-width: thin;
+  /* Fades out on the right so it's clear the row scrolls. */
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+}
+.era-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 3px 12px 3px 3px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035));
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-bottom-color: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 3px rgba(0, 0, 0, 0.3);
+  color: #dbe2f0;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+.era-chip:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
+  border-color: color-mix(in srgb, var(--tint) 45%, transparent);
+}
+.era-chip:active { transform: translateY(1px); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4); }
+.era-chip:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.era-chip-icon {
+  flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  color: var(--tint);
+  background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--tint) 26%, #1a2238), color-mix(in srgb, var(--tint) 10%, #0d1324));
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.era-icon { display: block; }
+.era-chip.active {
+  color: #fff;
+  border-color: color-mix(in srgb, var(--tint) 70%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tint) 24%, transparent), color-mix(in srgb, var(--tint) 8%, transparent));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 10px color-mix(in srgb, var(--tint) 30%, transparent);
+}
 .empty-state {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
   background: rgba(12,18,32,0.7); padding: 12px 18px; border-radius: 10px; color: #cbd3e6;
