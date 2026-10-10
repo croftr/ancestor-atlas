@@ -21,13 +21,6 @@
   "citation": "Approximate site locations and age windows compiled from general knowledge (AI-assisted), partly cross-checked against PBDB, Wikidata and Wikipedia. Not verified against primary sources; replaced as sourced data (e.g. ROAD, PBDB) lands."
  },
  {
-  "id": "wikidata",
-  "name": "Wikidata",
-  "url": "https://www.wikidata.org/",
-  "licence": "CC0 1.0",
-  "citation": "Short descriptions and identifiers from Wikidata."
- },
- {
   "id": "wikimedia",
   "name": "Wikidata coordinates and Wikipedia dates",
   "url": "https://www.wikidata.org/",

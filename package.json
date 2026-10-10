@@ -10,6 +10,7 @@
     "test": "vitest run",
     "validate-data": "tsx scripts/validate-data.ts",
     "data:fetch": "tsx scripts/fetch/cliopatria.ts && tsx scripts/fetch/wikidata.ts",
+    "data:fetch:wikipedia": "tsx scripts/fetch/wikipedia.ts",
     "data:fetch:pbdb": "tsx scripts/fetch/pbdb.ts",
     "data:build": "tsx scripts/build-data.ts && tsx scripts/validate-data.ts && tsx scripts/report-data.ts",
     "data:report": "tsx scripts/report-data.ts",
