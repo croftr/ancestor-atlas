@@ -6,8 +6,59 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .muted { color: #8b95ab; font-size: 0.85em; }
 .app { position: relative; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+.app.view-globe { background: #02040a; }
 .globe-page { display: contents; } /* small screens: a scrolling column (ui/stacked.css) */
 .map-wrap { position: absolute; inset: 0; }
+
+/* Space backdrop for the globe */
+.space-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #02040a;
+  background-image:
+    radial-gradient(ellipse 75% 55% at 85% 18%, rgba(68, 38, 120, 0.22) 0%, rgba(40, 20, 75, 0.08) 45%, transparent 70%),
+    radial-gradient(ellipse 70% 60% at 15% 82%, rgba(18, 55, 95, 0.25) 0%, rgba(12, 32, 60, 0.08) 50%, transparent 75%),
+    radial-gradient(ellipse 65% 45% at 60% 65%, rgba(75, 45, 25, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 95% 85% at 50% 50%, rgba(6, 12, 26, 0.35) 0%, rgba(2, 4, 10, 0.85) 100%);
+}
+.space-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.space-canvas-twinkle-a {
+  animation: space-twinkle-a 6s ease-in-out infinite alternate;
+}
+.space-canvas-twinkle-b {
+  animation: space-twinkle-b 9.5s ease-in-out infinite alternate;
+}
+@keyframes space-twinkle-a {
+  0% { opacity: 0.35; }
+  40% { opacity: 0.95; }
+  75% { opacity: 0.5; }
+  100% { opacity: 0.85; }
+}
+@keyframes space-twinkle-b {
+  0% { opacity: 0.8; }
+  35% { opacity: 0.4; }
+  70% { opacity: 0.95; }
+  100% { opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .space-canvas-twinkle-a,
+  .space-canvas-twinkle-b {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+.app:not(.view-globe) .space-background {
+  display: none;
+}
 /* Legend dock: the logo is a medallion on the panel's corner and toggles the panel. */
 .legend-dock { position: absolute; top: 18px; left: 18px; z-index: 4; }
 .legend {

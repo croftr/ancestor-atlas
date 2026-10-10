@@ -46,7 +46,7 @@
     left: -100vw;
     right: -100vw;
     z-index: -1;
-    background: #0b1020;
+    background: #02040a;
   }
   .app.view-globe .search::before { top: 0; bottom: -8px; }
   .app.view-globe .search-kbd { display: none; } /* no "/" key on a phone */

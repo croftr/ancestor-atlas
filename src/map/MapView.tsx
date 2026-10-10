@@ -7,6 +7,7 @@ import { ANCHOR_SOURCE_ID, ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_
 import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
+import SpaceBackground from "./SpaceBackground";
 
 /** How far from a tap (CSS px) a marker still counts as tapped: touch, and mouse. */
 const TAP_SLOP_TOUCH = 14;
@@ -296,6 +297,7 @@ export default function MapView() {
 
   return (
     <div className="map-wrap">
+      <SpaceBackground />
       <div ref={containerRef} style={{ position: "absolute", inset: 0 }} />
       {loading !== "done" && (
         <div className="empty-state loading-state" role="status">
