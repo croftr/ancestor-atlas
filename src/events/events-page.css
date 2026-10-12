@@ -172,6 +172,13 @@
 /* Event picture on the globe/timeline info card. */
 .info-panel .ev-img { margin: 10px 0 6px; }
 
+/* Wide screens: eras flow side by side in date order, each as wide as its tiles (--n, set per era), wrapping when the
+   row is full; a long era wraps its own tiles. Tiles grow a little with the screen. */
+@media (min-width: 1300px) {
+  .ev-flow { --tile: clamp(220px, 12.5vw, 300px); max-width: none; display: flex; flex-wrap: wrap; align-items: flex-start; column-gap: 44px; }
+  .ev-flow .ev-section { flex: 0 1 calc(var(--n) * (var(--tile) + 20px) - 20px); max-width: 100%; min-width: 0; }
+  .ev-flow .ev-grid { grid-template-columns: repeat(auto-fill, minmax(var(--tile), 1fr)); }
+}
 @media (max-width: 760px) {
   .ev-header { padding: 10px 16px 8px; }
   .ev-main { padding: 4px 16px 80px; }

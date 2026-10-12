@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
 import { useData } from "../map/data";
 import { navigate, useOpenEvent } from "../route";
@@ -66,9 +66,9 @@ export default function EventsPage() {
         </div>
       </header>
 
-      <main className="ev-main">
+      <main className="ev-main ev-flow">
         {shown.map(({ era, events: list }) => (
-          <section key={era.label} className="ev-section" aria-labelledby={`era-${era.label}`}>
+          <section key={era.label} className="ev-section" aria-labelledby={`era-${era.label}`} style={{ "--n": list.length } as CSSProperties}>
             <h2 id={`era-${era.label}`}>
               {era.label} <span className="muted">{formatRange(Math.round(era.start), Math.round(era.end))}</span>
             </h2>
