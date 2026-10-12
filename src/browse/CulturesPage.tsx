@@ -7,6 +7,7 @@ import { firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { barStyle, stageTitle, summaryOf } from "./browse";
 import EntityDetail from "./EntityDetail";
+import Totals from "./Totals";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
@@ -35,7 +36,7 @@ export default function CulturesPage() {
     const cultures = data.entities.filter((e) => e.category === "culture").sort((a, b) => a.start_year - b.start_year);
     const byKey = new Map<string, Stage>();
     for (const c of cultures) {
-      const fb = c.image_url ? undefined : c.fallback_image;
+      const fb = c.fallback_image; // a culture's stage stays its picture group's even once it has its own picture
       const key = fb?.url ?? "other";
       let s = byKey.get(key);
       if (!s) {
@@ -57,6 +58,11 @@ export default function CulturesPage() {
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
 
   const all = stages.flatMap((s) => s.cultures);
+  const sitesOf = (list: Entity[]) => list.reduce((n, c) => n + (data.featuresOf.get(c.id)?.length ?? 0), 0);
+  // Radiocarbon dates behind the XRONOS points; their date text gives the count: "... (12 dates)", "(1 date, ...)".
+  const radiocarbon = all.reduce((n, c) => n + (data.featuresOf.get(c.id) ?? [])
+    .filter((f) => f.source_id === "xronos")
+    .reduce((k, f) => k + Number(f.date_text?.match(/\((\d+) dates?\b/)?.[1] ?? 0), 0), 0);
   const shown = stages.filter((s) => stageFilter === null || s.key === stageFilter);
   const visible = shown.flatMap((s) => s.cultures);
   const open = openId ? data.entityById.get(openId) : undefined;
@@ -72,9 +78,17 @@ export default function CulturesPage() {
             Cultures
           </h1>
           <span className="muted ev-count">
-            {all.length} cultures{all.length ? `, ${formatRange(Math.min(...all.map((c) => c.start_year)), Math.max(...all.map((c) => c.end_year)))}` : ""}
+            {all.length ? formatRange(Math.min(...all.map((c) => c.start_year)), Math.max(...all.map((c) => c.end_year))) : ""}
           </span>
         </div>
+        <Totals
+          items={[
+            { label: "Cultures", value: all.length },
+            { label: "Sites", value: sitesOf(all) },
+            { label: "Radiocarbon dates", value: radiocarbon, title: "Calibrated radiocarbon dates from XRONOS behind the culture sites" },
+            { label: "Stages", value: stages.length },
+          ]}
+        />
         <div className="ev-filters" role="group" aria-label="Filter by stage">
           <button className={`chip${stageFilter === null ? " active" : ""}`} aria-pressed={stageFilter === null} onClick={() => setStageFilter(null)}>
             All stages
@@ -107,6 +121,9 @@ export default function CulturesPage() {
               <div>
                 <h2 id={`stage-${s.key}`}>{s.title}</h2>
                 <div className="muted">{formatRange(s.axis[0], s.axis[1])}</div>
+                <div className="muted">
+                  {s.cultures.length} culture{s.cultures.length === 1 ? "" : "s"} · {sitesOf(s.cultures).toLocaleString("en-US")} sites
+                </div>
               </div>
             </div>
             <ul className="cu-grid">

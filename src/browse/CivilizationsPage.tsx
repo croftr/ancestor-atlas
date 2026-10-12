@@ -7,6 +7,7 @@ import { shortDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { barStyle, pictureOf } from "./browse";
 import EntityDetail from "./EntityDetail";
+import Totals from "./Totals";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
@@ -101,9 +102,21 @@ export default function CivilizationsPage() {
             Civilizations
           </h1>
           <span className="muted ev-count">
-            {filtering ? `${visible.length} of ${total}` : `${total} civilizations and periods, ${formatRange(axis[0], axis[1])}`}
+            {filtering ? `showing ${visible.length} of ${total}` : formatRange(axis[0], axis[1])}
           </span>
         </div>
+        <Totals
+          items={[
+            { label: "Civilizations & periods", value: total },
+            { label: "Groups", value: groups.length },
+            { label: "Regions", value: regions.filter((r) => r.name !== NO_REGION).length },
+            {
+              label: "Territory maps",
+              value: singles.reduce((n, e) => n + (data.featuresOf.get(e.id)?.length ?? 0), 0),
+              title: "Dated territory outlines drawn on the globe (Cliopatria)",
+            },
+          ]}
+        />
         <div className="cv-controls">
           <input
             className="cv-search"

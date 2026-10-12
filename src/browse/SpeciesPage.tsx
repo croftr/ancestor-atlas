@@ -7,6 +7,7 @@ import { erasFor, firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity, FeatureProps } from "../types";
 import { summaryOf } from "./browse";
 import EntityDetail from "./EntityDetail";
+import Totals from "./Totals";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
@@ -96,11 +97,13 @@ export default function SpeciesPage() {
             {first && last ? `: ${formatRange(first.start_year, Math.max(...species.map((s) => s.end_year)))}` : ""}
           </span>
         </div>
-        <dl className="sp-totals">
-          <div><dt>Species</dt><dd>{species.length.toLocaleString("en-US")}</dd></div>
-          <div><dt>Fossil sites</dt><dd>{totalSites.toLocaleString("en-US")}</dd></div>
-          <div title={FINDS_NOTE}><dt>Fossil finds</dt><dd>{totalFinds.toLocaleString("en-US")}</dd></div>
-        </dl>
+        <Totals
+          items={[
+            { label: "Species", value: species.length },
+            { label: "Fossil sites", value: totalSites },
+            { label: "Fossil finds", value: totalFinds, title: FINDS_NOTE },
+          ]}
+        />
         <div className="ev-filters" role="group" aria-label="Filter by era">
           <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
             All eras

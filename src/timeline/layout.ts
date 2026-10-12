@@ -279,7 +279,18 @@ export const aliveAt = (entities: Entity[], year: number) =>
   entities.filter((e) => !e.group && e.category !== "event" && e.start_year <= year && year <= e.end_year);
 
 /** First sentence of a description, for tight spaces (tooltips, lists). */
-export const firstSentence = (text: string) => text.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? text;
+// Words ending in a full stop that do not end a sentence: "c. 9000 BCE", "e.g.", "A. afarensis".
+const NOT_A_SENTENCE_END = /(?:^|[\s(])(?:c|ca|cf|e\.g|i\.e|approx|St|Mt|vs|[A-Z])\.$/;
+
+/** The text up to the end of its first sentence (all of it if there is no sentence end). */
+export function firstSentence(text: string): string {
+  const re = /[.!?](?=\s|$)/g;
+  for (let m = re.exec(text); m; m = re.exec(text)) {
+    const head = text.slice(0, m.index + 1);
+    if (!NOT_A_SENTENCE_END.test(head)) return head;
+  }
+  return text;
+}
 
 /** The eras for this data: the axis start and the first civilization come from the entities. */
 export function erasFor(

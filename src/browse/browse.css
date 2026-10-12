@@ -227,10 +227,16 @@
 .sp-main { max-width: none; --sp-cols: 28px 96px minmax(0, 1fr); --sp-gap: 14px; --sp-pad: 14px; }
 .sp-era h2 { font-size: 1.05rem; margin: 22px 0 10px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
 .sp-era h2 .muted { font-weight: 400; }
-.sp-totals { display: flex; gap: 10px; margin: 10px 0 0; flex-wrap: wrap; }
-.sp-totals > div { padding: 6px 14px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
-.sp-totals dt { font-size: 0.72rem; color: #8b95ab; text-transform: uppercase; letter-spacing: 0.04em; }
-.sp-totals dd { margin: 0; font-size: 1.35rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.br-totals { display: flex; gap: 10px; margin: 10px 0 0; flex-wrap: wrap; }
+.br-totals > div { padding: 6px 14px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+.br-totals dt { font-size: 0.72rem; color: #8b95ab; text-transform: uppercase; letter-spacing: 0.04em; }
+.br-totals dd { margin: 0; font-size: 1.35rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) {
+  .br-totals { gap: 6px; margin-top: 8px; }
+  .br-totals > div { padding: 4px 10px; }
+  .br-totals dt { font-size: 0.64rem; }
+  .br-totals dd { font-size: 1.05rem; }
+}
 .sp-note { font-size: 0.78rem; margin: 10px 0 0; }
 .sp-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .sp-row {
