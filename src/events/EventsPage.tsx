@@ -10,7 +10,9 @@ import { refLink } from "../ui/refs";
 import EventImage from "./EventImage";
 import EventMedia from "./EventMedia";
 import { CategoryBadge } from "../ui/CategoryIcon";
+import Totals from "../browse/Totals";
 import "./events-page.css";
+import "../browse/browse.css";
 
 const yearOf = (e: Entity) => e.year ?? e.start_year;
 
@@ -38,15 +40,25 @@ export default function EventsPage() {
   const shown = byEra.filter((s, i) => s.events.length > 0 && (eraFilter === null || eraFilter === i));
 
   return (
-    <div className="events-page">
+    <div className="events-page" style={{ "--accent": CATEGORY_STYLE.event.color } as CSSProperties}>
       <header className="ev-header">
         <div className="ev-title">
           <h1 className="cat-title">
             <CategoryBadge category="event" decorative />
             Events
           </h1>
-          <span className="muted ev-count">{events.length} moments, from 7 million years ago to 1 CE</span>
+          <span className="muted ev-count">
+            {events.length ? formatRange(yearOf(events[0]), Math.max(...events.map((e) => e.end_year))) : ""}
+          </span>
         </div>
+        <Totals
+          items={[
+            { label: "Events", value: events.length },
+            { label: "Eras", value: byEra.filter((s) => s.events.length > 0).length },
+            { label: "Places on the map", value: events.reduce((n, e) => n + (data.featuresOf.get(e.id)?.length ?? 0), 0) },
+            { label: "Videos & audio", value: events.reduce((n, e) => n + (e.media?.length ?? 0), 0) },
+          ]}
+        />
         <div className="ev-filters" role="group" aria-label="Filter by era">
           <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
             All eras
@@ -70,7 +82,10 @@ export default function EventsPage() {
         {shown.map(({ era, events: list }) => (
           <section key={era.label} className="ev-section" aria-labelledby={`era-${era.label}`} style={{ "--n": list.length } as CSSProperties}>
             <h2 id={`era-${era.label}`}>
-              {era.label} <span className="muted">{formatRange(Math.round(era.start), Math.round(era.end))}</span>
+              {era.label}{" "}
+              <span className="muted">
+                {formatRange(Math.round(era.start), Math.round(era.end))} · {list.length} event{list.length === 1 ? "" : "s"}
+              </span>
             </h2>
             <ul className="ev-grid">
               {list.map((e) => (
