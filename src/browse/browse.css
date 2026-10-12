@@ -52,7 +52,7 @@
 /* ---- Cultures: one section per stage, its picture shown once beside the cards ---- */
 .cu-stage {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: clamp(240px, 15vw, 340px) minmax(0, 1fr);
   gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -67,8 +67,10 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  align-content: start; /* cards keep their own height, not the stage picture's */
   gap: 12px;
 }
+.cu-main { max-width: none; }
 .cu-card {
   display: flex;
   flex-direction: column;
@@ -124,7 +126,7 @@
 .cv-region h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: #c5ccdc; margin: 16px 0 4px 8px; font-weight: 600; }
 .cv-region h3 .muted { font-weight: 400; letter-spacing: 0; }
 .cv-region:first-of-type h3 { margin-top: 4px; }
-.cv-main { max-width: 1100px; }
+.cv-main { max-width: none; }
 .cv-section h2 { font-size: 1.05rem; margin: 22px 0 10px; display: flex; gap: 8px; align-items: baseline; }
 .cv-section h2 .muted { font-weight: 400; }
 .cv-empty { padding: 30px 0; }
@@ -181,6 +183,13 @@
 .cv-row-date { font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cv-row-dur { font-size: 0.78rem; text-align: right; font-variant-numeric: tabular-nums; }
 
+/* Wide screens: groups side by side (an opened group takes the whole row for its periods), and in the compact rows
+   the name and dates keep a fixed width so the time bar gets the extra space. */
+@media (min-width: 1300px) {
+  .cv-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); align-items: start; }
+  .cv-group.open { grid-column: 1 / -1; }
+  .cv-row { grid-template-columns: 12px minmax(180px, 300px) minmax(140px, 180px) minmax(0, 1fr) 8.5em; gap: 16px; }
+}
 @media (max-width: 900px) {
   .cu-stage { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .cu-stage-head { position: static; flex-direction: row; align-items: center; gap: 14px; }

@@ -92,7 +92,7 @@ export default function CulturesPage() {
         </div>
       </header>
 
-      <main className="ev-main">
+      <main className="ev-main cu-main">
         {shown.map((s) => (
           <section key={s.key} className="cu-stage" aria-labelledby={`stage-${s.key}`}>
             <div className="cu-stage-head">
