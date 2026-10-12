@@ -128,6 +128,7 @@ export default function SpeciesPage() {
                         <span className="sp-name">{s.name}</span>
                         <span className="sp-date">{formatRange(s.start_year, s.end_year)}</span>
                         <span className="br-bar sp-bar" aria-hidden>
+                          {ticks.map((t) => <i key={t.y} className="sp-grid" style={{ left: `${t.x}%` }} />)}
                           <span style={bar(s)} />
                         </span>
                         <span className="sp-meta muted">

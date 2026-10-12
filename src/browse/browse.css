@@ -215,7 +215,7 @@
 }
 
 /* ---- Species: one numbered row per species, in order of appearance, on a shared time scale ---- */
-.sp-main { max-width: 980px; --sp-cols: 28px 96px minmax(0, 1fr); --sp-gap: 14px; --sp-pad: 14px; }
+.sp-main { max-width: none; --sp-cols: 28px 96px minmax(0, 1fr); --sp-gap: 14px; --sp-pad: 14px; }
 .sp-era h2 { font-size: 1.05rem; margin: 22px 0 10px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
 .sp-era h2 .muted { font-weight: 400; }
 .sp-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
@@ -258,10 +258,29 @@
   padding: 0 calc(var(--sp-pad) + 1px) 0 calc(var(--sp-pad) + 3px); /* + the rows' borders */
   margin-top: 14px;
 }
-.sp-scale-track { grid-column: 3; position: relative; height: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.sp-scale-track { position: relative; height: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
 .sp-tick { position: absolute; bottom: 3px; transform: translateX(-50%); font-size: 0.7rem; color: #8b95ab; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .sp-tick::after { content: ""; position: absolute; left: 50%; bottom: -4px; height: 4px; border-left: 1px solid rgba(255, 255, 255, 0.25); }
-.sp-scale-caption { grid-column: 3; justify-self: end; font-size: 0.7rem; color: #8b95ab; margin-top: 2px; }
+.sp-scale-caption { justify-self: end; font-size: 0.7rem; color: #8b95ab; margin-top: 2px; }
+.sp-grid { display: none; }
+.sp-scale-track, .sp-scale-caption { grid-column: var(--sp-bar-col, 3); }
+/* Wide screens: the list fills the page and each row's bar gets its own column beside the text, lined up with the
+   scale above, so the shared time scale runs most of the page's width. */
+@media (min-width: 1500px) {
+  .sp-main { --sp-cols: 28px 96px minmax(300px, clamp(300px, 28vw, 520px)) minmax(0, 1fr); --sp-gap: 20px; --sp-bar-col: 4; }
+  .sp-row { grid-template-rows: 1fr auto auto auto auto 1fr; row-gap: 3px; align-items: start; } /* text centred, lines kept together */
+  .sp-order, .sp-img { grid-row: 1 / -1; align-self: center; }
+  .sp-text { display: contents; }
+  .sp-name, .sp-date, .sp-meta, .sp-summary { grid-column: 3; }
+  .sp-name { grid-row: 2; }
+  .sp-date { grid-row: 3; }
+  .sp-meta { grid-row: 4; }
+  .sp-summary { grid-row: 5; }
+  .sp-bar { grid-column: 4; grid-row: 1 / -1; align-self: center; margin: 0; height: 12px; border-radius: 6px; }
+  .sp-bar > span { border-radius: 6px; }
+  .sp-grid { display: block; position: absolute; top: -10px; bottom: -10px; border-left: 1px dashed rgba(255, 255, 255, 0.1); }
+  .sp-tick { font-size: 0.76rem; }
+}
 @media (max-width: 760px) {
   .sp-main { --sp-cols: 24px 64px minmax(0, 1fr); --sp-gap: 10px; --sp-pad: 10px; }
   .sp-order { width: 22px; height: 22px; font-size: 0.72rem; }
