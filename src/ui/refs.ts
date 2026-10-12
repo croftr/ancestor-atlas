@@ -33,6 +33,13 @@ export function refLink(ref: string | undefined): RefLink | undefined {
         ? { label: "XRONOS radiocarbon dates, calibrated with IntCal20", href }
         : { label: rec ? `XRONOS record ${rec}` : "XRONOS", href };
     }
+    case "road": {
+      // road:locality/<name> (location) or road:assemblage/<name>#<ids> (layer ages); ROAD has no per-locality links
+      const href = "https://www.roceeh.uni-tuebingen.de/roadweb/smarty_road_simple_search.php";
+      const [kind, rest2 = ""] = value.split("/");
+      const name = rest2.split("#")[0];
+      return kind === "assemblage" ? { label: `ROAD layer ages, ${name}`, href } : { label: `ROAD locality ${name}`, href };
+    }
     case "url":
       return { label: value.replace(/^https?:\/\//, ""), href: value };
     default:

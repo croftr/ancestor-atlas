@@ -1,0 +1,47 @@
+genus,species,entity_id,note
+Ardipithecus,kadabba,ardipithecus-kadabba,
+Australopithecus,afarensis,australopithecus-afarensis,
+Australopithecus,africanus,australopithecus-africanus,
+Australopithecus,sediba,australopithecus-sediba,
+Australopithecus,aethiopicus,paranthropus-aethiopicus,robust australopith filed under Australopithecus
+Australopithecus,boisei,paranthropus-boisei,robust australopith filed under Australopithecus
+Australopithecus,robustus,paranthropus-robustus,robust australopith filed under Australopithecus
+Plesianthropus,transvaalensis,australopithecus-africanus,old name for A. africanus (Sts 5 and other Sterkfontein finds)
+Paranthropus,aethiopicus,paranthropus-aethiopicus,
+Paranthropus,boisei,paranthropus-boisei,
+Paranthropus,robustus,paranthropus-robustus,
+Paranthropus,crassidens,paranthropus-robustus,old name for the Swartkrans P. robustus finds
+Paranthropus,robustus crassidens,paranthropus-robustus,
+Kenyanthropus,platyops,kenyanthropus-platyops,
+Homo,habilis,homo-habilis,
+Homo,rudolfensis,homo-rudolfensis,
+Homo,erectus,homo-erectus,
+Homo,ergaster,homo-erectus,African H. erectus; the atlas does not split H. ergaster
+Homo,soloensis,homo-erectus,Ngandong (H. erectus soloensis)
+Homo,modjokertensis,homo-erectus,Mojokerto child (H. erectus)
+Pithecanthropus,erectus,homo-erectus,Dubois's name for H. erectus
+Telanthropus,capensis,homo-erectus,Swartkrans early Homo (SK 15) now in H. erectus
+Homo,antecessor,homo-antecessor,
+Homo,heidelbergensis,homo-heidelbergensis,
+Homo,rhodesiensis,homo-heidelbergensis,Kabwe; the atlas does not split H. rhodesiensis
+Homo,sapiens rhodesiensis,homo-heidelbergensis,Kabwe; the atlas does not split H. rhodesiensis
+Homo,neanderthalensis,neanderthal,
+Homo,t. neanderthalensis,neanderthal,
+Homo,primigenius neanderthalensis,neanderthal,
+Homo,sapiens neanderthalesis,neanderthal,
+Homo,sp. (denisova),denisovan,
+Homo,naledi,homo-naledi,
+Homo,floresiensis,homo-floresiensis,
+Homo,luzonensis,homo-luzonensis,
+Homo,sapiens,homo-sapiens,
+Homo,sapiens sapiens,homo-sapiens,
+Homo,steinheimensis,,Steinheim: H. heidelbergensis or early Neanderthal; contested
+Homo,gautengensis,,contested species; most specimens are usually put in H. habilis
+Homo,palaeojavanicus,,Meganthropus; contested
+Meganthropus,palaeojavanicus,,contested
+Homo,sp. (Neanderthal/Denisovan offspring),,Denisova 11 (first-generation hybrid)
+Paranthropus,capensis,,ambiguous old name
+Giganthopithecus,blacki,,not a hominin
+Pongo,sp.,,not a hominin
+Theropithecus,sp.,,not a hominin
+Lufengpithecus,sp.,,not a hominin

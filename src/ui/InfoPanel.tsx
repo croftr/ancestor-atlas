@@ -372,6 +372,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           {showLabel && <strong>{feature.label}</strong>}
           {feature.date_text && !isEvent && <div>{feature.date_text}</div>}
           {feature.notes && <div className="muted">Location: {feature.notes}</div>}
+          {feature.cultures && <div>Culture in the same layer: {asList(feature.cultures).join(", ")}</div>}
           {feature.confidence && (
             <div className="muted">
               Confidence: <span className={`conf conf-${feature.confidence}`}>{feature.confidence}</span>

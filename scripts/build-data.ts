@@ -8,6 +8,7 @@ import { civColors } from "./lib/colors.ts";
 import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
+import { readRoadSites, roadFeatures } from "./ingest/road.ts";
 import { distanceKm } from "./lib/qa.ts";
 import { addAreas, regionAreas, REGIONS, topRegion } from "./lib/regions.ts";
 
@@ -174,6 +175,21 @@ else {
   // Review list of sites dropped for coordinates that do not fit their stated country.
   writeFileSync("data/build/xronos-dropped-coords.csv", ["entity_id,site,country,lat,lon,dates,record", ...xr.dropped.map((x) =>
     [x.entity_id, x.site, x.country, x.lat, x.lon, x.dates.length, `https://xronos.ch/c14s/${x.dates[0].recordId}`].map(q).join(","))].join("\n") + "\n");
+}
+
+// Hominin fossil sites from ROAD (generated data/curated/road/sites.csv; see scripts/ingest/road.ts).
+// Added after XRONOS: a ROAD point within 2 km of a curated or XRONOS point of the same species is skipped.
+const road = readRoadSites();
+if (!road) console.warn("! data/curated/road/sites.csv missing: no ROAD sites (npm run data:ingest:road)");
+else {
+  const pts = features.map((f) => ({ e: f.props.entity_id, c: f.geometry.coordinates as number[] }));
+  let near = 0;
+  for (const f of roadFeatures(road)) {
+    const [lon, lat] = f.geometry.coordinates;
+    if (pts.some((p) => p.e === f.props.entity_id && distanceKm(lat, lon, p.c[1], p.c[0]) < 2)) { near++; continue; }
+    features.push(f);
+  }
+  console.log(`ROAD: ${road.length} sites, ${near} skipped as curated or XRONOS duplicates`);
 }
 
 // Civilizations from Cliopatria.

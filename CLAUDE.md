@@ -68,6 +68,17 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
   cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
   (`public/images/cultures/`). The validator warns while a stage picture file is missing; the card then shows none.
 
+## ROAD bulk import (`scripts/ingest/road.ts`)
+
+About 345 hominin fossil site points (17 species), from ROAD (CC BY-SA 4.0; export 12 Oct 2026). The raw export
+(`data/raw/road/`, from `Rscript scripts/fetch/road.R`) exists only on Rob's Linux machine, so `npm run data:ingest:road`
+writes the committed, generated `data/curated/road/sites.csv` and the build reads that. Re-run the ingest after editing
+`road/species-labels.csv` or entity spans. Rules: explicit taxon list (no cf./aff./sp./"or"); ROAD age brackets are
+clipped to the species span from `entities.yaml` and sites outside it dropped (`data/build/road-dropped.csv`: 31 span
+misses, mostly ROAD mislabels such as H. sapiens at Swartkrans, plus 35 without ages); cultures come only from
+assemblages in the same locality and geological layer. The roadDB publications step hangs (it was killed); refs come from
+the dates table. Not yet done: mapping ROAD cultures to culture entities, new species (ergaster, rhodesiensis, longi).
+
 ## XRONOS bulk import (`scripts/ingest/xronos.ts`)
 
 About 2,310 points: 25 cultures plus H. sapiens. Rules:

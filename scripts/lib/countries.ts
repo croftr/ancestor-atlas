@@ -49,7 +49,11 @@ const PROBES = [[0, 0], [STEP, 0], [-STEP, 0], [0, STEP], [0, -STEP], [STEP, STE
  * falls in another country. Unknown labels and points with all probes at sea are not judged.
  */
 export function outsideCountry(label: string, lat: number, lon: number): boolean {
-  const codes = countryCodes(label);
+  return outsideCodes(countryCodes(label), lat, lon);
+}
+
+/** outsideCountry for a set of alpha-2 codes (undefined: not judged). */
+export function outsideCodes(codes: string[] | undefined, lat: number, lon: number): boolean {
   if (!codes) return false;
   // Both levels: a point in an overseas territory geocodes to the territory (TC, GF) and to its country (GB, FR).
   const found = PROBES.flatMap(([dy, dx]) => [iso1A2Code([lon + dx, lat + dy]), iso1A2Code([lon + dx, lat + dy], { level: "territory" })])

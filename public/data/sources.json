@@ -21,6 +21,13 @@
   "citation": "Approximate site locations and age windows compiled from general knowledge (AI-assisted), partly cross-checked against PBDB, Wikidata and Wikipedia. Not verified against primary sources; replaced as sourced data (e.g. ROAD, PBDB) lands."
  },
  {
+  "id": "road",
+  "name": "ROAD (ROCEEH Out of Africa Database)",
+  "url": "https://www.roceeh.uni-tuebingen.de/roadweb/smarty_road_simple_search.php",
+  "licence": "CC BY-SA 4.0",
+  "citation": "Kandel, A.W., Sommer, C., Kanaeva, Z., Bolus, M., Bruch, A.A., Groth, C., Haidle, M.N., Hertler, C., Heß, J., Malina, M., Märker, M., Hochschild, V., Mosbrugger, V., Schrenk, F. & Conard, N.J., 2023. The ROCEEH Out of Africa Database (ROAD): A large-scale research database serves as an indispensable tool for human evolutionary studies. PLOS ONE 18(8): e0289513. https://doi.org/10.1371/journal.pone.0289513. Hominin finds, layer ages and cultures from ROAD (http://www.roceeh.net), CC BY-SA 4.0, exported 12 Oct 2026 with the roadDB R package; the work of the data contributors and ROAD community is gratefully acknowledged. Adapted here: one point per species and locality, ages clipped to the species' range; these points are shared under CC BY-SA 4.0."
+ },
+ {
   "id": "wikimedia",
   "name": "Wikidata coordinates and Wikipedia dates",
   "url": "https://www.wikidata.org/",
