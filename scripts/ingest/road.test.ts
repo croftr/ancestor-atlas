@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cultureName, formatRange, siteWindow } from "./road.ts";
+import { cultureName, formatRange, joinNames, siteWindow } from "./road.ts";
 
 describe("siteWindow", () => {
   const span: [number, number] = [-1_908_050, -100_550]; // H. erectus
@@ -32,5 +32,16 @@ describe("cultureName", () => {
     expect(cultureName("MSA")).toBe("Middle Stone Age");
     expect(cultureName("MSA/LSA")).toBe("Middle Stone Age/Later Stone Age");
     expect(cultureName("MSA/ MSA 2b")).toBe("Middle Stone Age 2b");
+  });
+});
+
+describe("joinNames", () => {
+  it("shares common leading words", () => {
+    expect(joinNames(["Koobi Fora Area 123", "Koobi Fora Area 116"])).toBe("Koobi Fora Area 123, 116");
+    expect(joinNames(["Olduvai FLK NN", "Olduvai HWK EE"])).toBe("Olduvai FLK NN, HWK EE");
+  });
+  it("keeps whole names when nothing is shared, and caps the list", () => {
+    expect(joinNames(["Dmanisi", "Zhoukoudian"])).toBe("Dmanisi, Zhoukoudian");
+    expect(joinNames(["A 1", "A 2", "A 3", "A 4", "A 5", "A 6"])).toBe("A 1, 2, 3, 4 +2 more");
   });
 });

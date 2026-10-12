@@ -147,7 +147,8 @@ machines without the raw export build the same points. Taxa map to species only 
 per species and locality; its window is ROAD's age bracket for the finds' layers, clipped to the species' span in
 `entities.yaml` (sites outside it are dropped and listed in `data/build/road-dropped.csv`). The card shows the finds
 (cranial, dental, postcranial), any dates on those layers and their publications, and the cultures ROAD records in the
-same layer. A ROAD point within 2 km of a curated or XRONOS point of the same species is skipped. ROAD-derived points
+same layer. Localities of one species within 1 km of each other become one point. A ROAD point within 2 km of a curated
+or XRONOS point of the same species is not drawn; its finds and cultures are listed on that point's card instead. ROAD-derived points
 are shared under CC BY-SA 4.0. Cite: Kandel, A.W. et al., 2023. The ROCEEH Out of Africa Database (ROAD): A large-scale
 research database serves as an indispensable tool for human evolutionary studies. *PLOS ONE* 18(8): e0289513.
 https://doi.org/10.1371/journal.pone.0289513

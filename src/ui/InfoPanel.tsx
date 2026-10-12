@@ -373,6 +373,14 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           {feature.date_text && !isEvent && <div>{feature.date_text}</div>}
           {feature.notes && <div className="muted">Location: {feature.notes}</div>}
           {feature.cultures && <div>Culture in the same layer: {asList(feature.cultures).join(", ")}</div>}
+          {feature.also_recorded && (
+            <div className="muted">
+              Also recorded here in ROAD:
+              <ul className="children">
+                {feature.also_recorded.split(" | ").map((r) => <li key={r}>{r}</li>)}
+              </ul>
+            </div>
+          )}
           {feature.confidence && (
             <div className="muted">
               Confidence: <span className={`conf conf-${feature.confidence}`}>{feature.confidence}</span>

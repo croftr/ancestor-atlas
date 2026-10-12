@@ -178,18 +178,27 @@ else {
 }
 
 // Hominin fossil sites from ROAD (generated data/curated/road/sites.csv; see scripts/ingest/road.ts).
-// Added after XRONOS: a ROAD point within 2 km of a curated or XRONOS point of the same species is skipped.
+// Added after XRONOS. A ROAD point within 2 km of a curated or XRONOS point of the same species is not drawn; its
+// finds and cultures are added to the nearest such point's card instead ("Also recorded here in ROAD").
 const road = readRoadSites();
 if (!road) console.warn("! data/curated/road/sites.csv missing: no ROAD sites (npm run data:ingest:road)");
 else {
-  const pts = features.map((f) => ({ e: f.props.entity_id, c: f.geometry.coordinates as number[] }));
-  let near = 0;
+  const existing = [...features];
+  let attached = 0;
   for (const f of roadFeatures(road)) {
     const [lon, lat] = f.geometry.coordinates;
-    if (pts.some((p) => p.e === f.props.entity_id && distanceKm(lat, lon, p.c[1], p.c[0]) < 2)) { near++; continue; }
-    features.push(f);
+    const near = existing
+      .filter((p) => p.props.entity_id === f.props.entity_id)
+      .map((p) => ({ p, d: distanceKm(lat, lon, (p.geometry.coordinates as number[])[1], (p.geometry.coordinates as number[])[0]) }))
+      .filter((x) => x.d < 2)
+      .sort((a, b) => a.d - b.d)[0]?.p;
+    if (!near) { features.push(f); continue; }
+    attached++;
+    near.props.also_recorded = [near.props.also_recorded, `${f.props.label}: ${f.props.date_text}`].filter(Boolean).join(" | ");
+    const cultures = [...new Set([...(near.props.cultures?.split("; ") ?? []), ...(f.props.cultures?.split("; ") ?? [])])];
+    if (cultures.length) near.props.cultures = cultures.join("; ");
   }
-  console.log(`ROAD: ${road.length} sites, ${near} skipped as curated or XRONOS duplicates`);
+  console.log(`ROAD: ${road.length} sites, ${attached} added to the card of a curated or XRONOS point within 2 km`);
 }
 
 // Civilizations from Cliopatria.
@@ -375,6 +384,7 @@ for (const f of features) {
   const e = entities.get(f.props.entity_id);
   if (!e) fail(`feature ${f.props.id}: unknown entity ${f.props.entity_id}`);
   else if (!e.source_ids.includes(f.props.source_id)) e.source_ids.push(f.props.source_id);
+  if (e && f.props.also_recorded && !e.source_ids.includes("road")) e.source_ids.push("road");
 }
 for (const id of descriptionFromWikidata) entities.get(id)!.source_ids.push("wikidata");
 const usedSources = new Set([...entities.values()].flatMap((e) => e.source_ids));
