@@ -13,13 +13,13 @@
   label: Middle Stone Age and Neanderthal toolmakers in general
   image_url: /images/cultures/middle-stone-age-toolmakers.webp
   image_credit: AI-generated illustration
-  members: [middle-stone-age, levallois-mousterian]
+  members: [middle-stone-age, levallois-mousterian, micoquian, szeletian, chatelperronian]
 
 - id: ice-age-hunters
   label: Ice Age hunter-gatherers in general
   image_url: /images/cultures/ice-age-hunters.webp
   image_credit: AI-generated illustration
-  members: [aurignacian, gravettian, solutrean, magdalenian, clovis]
+  members: [aurignacian, gravettian, solutrean, epigravettian, magdalenian, clovis]
 
 - id: early-farmers
   label: early farming communities in general

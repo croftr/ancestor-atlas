@@ -22,6 +22,7 @@ import { STEPS, segmentOfBce } from "../../src/time/scale.ts";
 
 export const ROAD_RAW = "data/raw/road";
 export const ROAD_SITES = "data/curated/road/sites.csv";
+export const ROAD_CULTURE_SITES = "data/curated/road/culture-sites.csv";
 const LABELS = "data/curated/road/species-labels.csv";
 
 // ROAD country names that country-coder does not resolve by name.
@@ -235,6 +236,90 @@ export function ingestRoad(raw = ROAD_RAW): RoadIngest {
   return { sites, dropped, unmapped, stats };
 }
 
+/**
+ * Culture sites: ROAD assemblages whose technocomplex maps to a culture entity (the `road` rows of culture-labels.csv,
+ * matched on the readable name written by cultureName). One site per culture and locality, nearby localities merged
+ * as for species; the window is the assemblages' age bracket clipped to the culture's span in entities.yaml, and a
+ * site outside that span is dropped. `finds` holds the number of assemblages (it sets the point's weight).
+ */
+export function ingestRoadCultures(raw = ROAD_RAW): RoadIngest {
+  const labels = readRoadCultureLabels();
+  const spans = new Map<string, [number, number]>();
+  for (const e of parseYaml(readFileSync("data/curated/entities.yaml", "utf8")) as { id: string; category?: string; start_year?: number; end_year?: number }[])
+    if (e.category === "culture" && e.start_year !== undefined && e.end_year !== undefined) spans.set(e.id, [e.start_year, e.end_year]);
+  for (const id of new Set(labels.values())) if (!spans.has(id)) throw new Error(`culture-labels.csv: road label maps to unknown culture ${id}`);
+  const localities = new Map(read(`${raw}/localities.csv`).map((l) => [l.locality_id, l]));
+  const stats = { assemblages: 0, mapped: 0, unmapped: 0, sites: 0, noAge: 0, outsideSpan: 0, coarse: 0, countryMismatch: 0, merged: 0 };
+  const unmapped = new Map<string, number>();
+  const groups = new Map<string, Row[]>(); // entity|locality -> assemblages
+  for (const a of read(`${raw}/assemblages.csv`)) {
+    const techs = (a.technocomplex ?? "").split(/,\s*(?=[A-Z]+(?:\/[A-Z]+)*\/)/).map((t) => t.trim()).filter(Boolean);
+    if (!techs.length) continue;
+    stats.assemblages++;
+    const entities = new Set<string>();
+    for (const t of techs) {
+      const e = labels.get(cultureName(t));
+      if (e) entities.add(e);
+      else unmapped.set(cultureName(t), (unmapped.get(cultureName(t)) ?? 0) + 1);
+    }
+    if (!entities.size) { stats.unmapped++; continue; }
+    stats.mapped++;
+    for (const e of entities) {
+      const g = `${e}|${a.locality_id}`;
+      (groups.get(g) ?? groups.set(g, []).get(g)!).push(a);
+    }
+  }
+  interface Loc { entity: string; name: string; lat: number; lon: number; oldest: number; youngest: number; rows: Row[]; coordQuality: string }
+  const locs: Loc[] = [];
+  const dropped: Row[] = [];
+  const drop = (reason: string, entity: string, a: Row, extra = "") =>
+    dropped.push({ reason, entity_id: entity, locality: a.locality_id, country: a.country, lat: a.coord_y, lon: a.coord_x, detail: extra });
+  for (const [g, rows] of groups) {
+    const entity = g.slice(0, g.indexOf("|"));
+    const a = rows[0];
+    const lat = Number(a.coord_y), lon = Number(a.coord_x);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || (lat === 0 && lon === 0)) { stats.noAge++; drop("no coordinates", entity, a); continue; }
+    if (Number.isInteger(lat) && Number.isInteger(lon)) { stats.coarse++; drop("whole-degree coordinates", entity, a); continue; }
+    if (outsideCodes(codesFor(a.country), lat, lon)) { stats.countryMismatch++; drop("point outside its country", entity, a); continue; }
+    const ages = rows.filter((r) => r.age_min && r.age_max).map((r) => [Number(r.age_max), Number(r.age_min)]);
+    if (!ages.length) { stats.noAge++; drop("no age", entity, a); continue; }
+    const oldest = Math.max(...ages.map((x) => x[0])), youngest = Math.min(...ages.map((x) => x[1]));
+    if (!siteWindow(oldest, youngest, spans.get(entity)!)) { stats.outsideSpan++; drop("age outside the culture span", entity, a, formatRange(oldest, youngest)); continue; }
+    locs.push({ entity, name: a.locality_id, lat, lon, oldest, youngest, rows, coordQuality: localities.get(a.locality_id)?.coordinate_source || a.coordinate_source || "" });
+  }
+  locs.sort((x, y) => y.rows.length - x.rows.length || x.name.localeCompare(y.name));
+  const clusters: Loc[][] = [];
+  for (const l of locs) {
+    const c = clusters.find((c) => c[0].entity === l.entity && distanceKm(c[0].lat, c[0].lon, l.lat, l.lon) < MERGE_KM);
+    if (c) { c.push(l); stats.merged++; } else clusters.push([l]);
+  }
+  const sites: RoadSite[] = clusters.map((c) => {
+    const [main] = c;
+    const oldest = Math.max(...c.map((l) => l.oldest)), youngest = Math.min(...c.map((l) => l.youngest));
+    const w = siteWindow(oldest, youngest, spans.get(main.entity)!)!;
+    const n = c.reduce((k, l) => k + l.rows.length, 0);
+    const mid = (oldest + youngest) / 2, narrow = oldest - youngest <= 0.3 * mid;
+    const names = c.map((l) => l.name);
+    const ids = [...new Set(main.rows.map((r) => r.assemblage_id))];
+    const layers = [...new Set(c.flatMap((l) => l.rows.flatMap((r) => split(r.archlayer || r.geolayer))))];
+    return {
+      entity_id: main.entity, label: joinNames(names), lat: main.lat, lon: main.lon, start_year: w.start, end_year: w.end,
+      date_text: `${formatRange(oldest, youngest)} (ROAD layer age${w.clipped ? ", shown within the culture's range" : ""}); ` +
+        `${n} assemblage${n > 1 ? "s" : ""}${layers.length ? ` (${layers.slice(0, 4).join(", ")}${layers.length > 4 ? ", …" : ""})` : ""}` +
+        `${c.length > 1 ? ` from ${c.length} ROAD localities` : ""}`,
+      confidence: narrow && !w.clipped ? "medium" : "low", finds: n,
+      source_ref: `road:${names.join(" | ")}`,
+      coord_source: `road:locality/${main.name}`,
+      date_source: `road:assemblage/${main.name}#${ids.slice(0, 3).join(",")}${ids.length > 3 ? ",…" : ""}${c.length > 1 ? " +" + (c.length - 1) : ""}`,
+      notes: main.coordQuality === "checked" || main.coordQuality === "gps" ? undefined
+        : `ROAD marks these coordinates as ${main.coordQuality || "unchecked"}; the point may be approximate`,
+    };
+  });
+  sites.sort((x, y) => x.entity_id.localeCompare(y.entity_id) || x.label.localeCompare(y.label));
+  stats.sites = sites.length;
+  return { sites, dropped, unmapped, stats };
+}
+
 /** Reads the generated data/curated/road/sites.csv; undefined when it has not been generated yet. */
 export function readRoadSites(path = ROAD_SITES): RoadSite[] | undefined {
   if (!existsSync(path)) return undefined;
@@ -265,7 +350,7 @@ export function linkCultures(names: string[], labels: Map<string, string>): { cu
 }
 
 /** One Point feature per site. */
-export function roadFeatures(sites: RoadSite[], cultureLabels = new Map<string, string>()): { props: FeatureProps; geometry: { type: string; coordinates: number[] } }[] {
+export function roadFeatures(sites: RoadSite[], cultureLabels = new Map<string, string>(), category: "species" | "culture" = "species"): { props: FeatureProps; geometry: { type: string; coordinates: number[] } }[] {
   const maxN = Math.max(1, ...sites.map((s) => s.finds));
   const used = new Set<string>();
   return sites.map((s) => {
@@ -273,8 +358,9 @@ export function roadFeatures(sites: RoadSite[], cultureLabels = new Map<string, 
     for (let k = 2; used.has(id); k++) id = `${s.entity_id}@r:${slug(s.label)}-${k}`;
     used.add(id);
     const props: FeatureProps = {
-      id, entity_id: s.entity_id, category: "species", start_year: s.start_year, end_year: s.end_year,
-      label: s.label, date_text: s.date_text, confidence: s.confidence, finds: s.finds,
+      id, entity_id: s.entity_id, category, start_year: s.start_year, end_year: s.end_year,
+      label: s.label, date_text: s.date_text, confidence: s.confidence,
+      ...(category === "species" ? { finds: s.finds } : {}), // culture sites count assemblages, not fossils
       weight: Math.round((Math.log(s.finds + 1) / Math.log(maxN + 1)) * 1000) / 1000,
       source_id: "road", source_ref: s.source_ref, coord_source: s.coord_source, date_source: s.date_source,
     };
@@ -308,4 +394,17 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
   console.log("  " + [...perEntity].sort((a, b) => b[1] - a[1]).map(([e, n]) => `${e} ${n}`).join(", "));
   console.log(`  unlisted taxa: ${[...unmapped].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k.replace("|", " ").trim() || "(blank)"} (${n})`).join(", ")}`);
   console.log(`Wrote ${ROAD_SITES}`);
+
+  const cu = ingestRoadCultures();
+  writeFileSync(ROAD_CULTURE_SITES, [SITE_COLUMNS.join(","), ...cu.sites.map((s) => SITE_COLUMNS.map((c) => q(s[c])).join(","))].join("\n") + "\n");
+  writeFileSync("data/build/road-culture-dropped.csv", [cols.join(","), ...cu.dropped.map((d) => cols.map((c) => q(d[c])).join(","))].join("\n") + "\n");
+  const st = cu.stats;
+  console.log(`ROAD cultures: ${st.assemblages} assemblages with a culture, ${st.mapped} mapped to a culture entity -> ${st.sites} sites` +
+    ` (dropped: ${st.outsideSpan} outside the culture span, ${st.noAge} without age or coordinates, ${st.coarse} whole-degree,` +
+    ` ${st.countryMismatch} outside their country; see data/build/road-culture-dropped.csv; ${st.merged} localities merged)`);
+  const perCulture = new Map<string, number>();
+  for (const s of cu.sites) perCulture.set(s.entity_id, (perCulture.get(s.entity_id) ?? 0) + 1);
+  console.log("  " + [...perCulture].sort((a, b) => b[1] - a[1]).map(([e, n]) => `${e} ${n}`).join(", "));
+  console.log(`  unmapped culture names (top 25): ${[...cu.unmapped].sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, n]) => `${k} (${n})`).join(", ")}`);
+  console.log(`Wrote ${ROAD_CULTURE_SITES}`);
 }

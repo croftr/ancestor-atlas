@@ -8,7 +8,7 @@ import { civColors } from "./lib/colors.ts";
 import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
-import { readRoadCultureLabels, readRoadSites, roadFeatures } from "./ingest/road.ts";
+import { readRoadCultureLabels, readRoadSites, roadFeatures, ROAD_CULTURE_SITES, ROAD_SITES } from "./ingest/road.ts";
 import { distanceKm } from "./lib/qa.ts";
 import { addAreas, regionAreas, REGIONS, topRegion } from "./lib/regions.ts";
 
@@ -177,18 +177,19 @@ else {
     [x.entity_id, x.site, x.country, x.lat, x.lon, x.dates.length, `https://xronos.ch/c14s/${x.dates[0].recordId}`].map(q).join(","))].join("\n") + "\n");
 }
 
-// Hominin fossil sites from ROAD (generated data/curated/road/sites.csv; see scripts/ingest/road.ts).
-// Added after XRONOS. A ROAD point within 2 km of a curated or XRONOS point of the same species is not drawn; its
-// finds and cultures are added to the nearest such point's card instead ("Also recorded here in ROAD").
-const road = readRoadSites();
-if (!road) console.warn("! data/curated/road/sites.csv missing: no ROAD sites (npm run data:ingest:road)");
-else {
-  const existing = [...features];
+// Hominin fossil sites and Palaeolithic culture sites from ROAD (generated data/curated/road/sites.csv and
+// culture-sites.csv; see scripts/ingest/road.ts). Added after XRONOS. A ROAD point within 2 km of a curated or XRONOS
+// point of the same entity is not drawn; it is listed on the nearest such point's card instead ("Also recorded here in
+// ROAD"), with its finds and cultures merged in.
+const cultureLabels = readRoadCultureLabels();
+for (const id of new Set(cultureLabels.values()))
+  if (!curatedIds.has(id)) fail(`culture-labels.csv: road label maps to unknown entity ${id}`);
+const existing = [...features];
+for (const [path, category] of [[ROAD_SITES, "species"], [ROAD_CULTURE_SITES, "culture"]] as const) {
+  const road = readRoadSites(path);
+  if (!road) { console.warn(`! ${path} missing: no ROAD ${category} sites (npm run data:ingest:road)`); continue; }
   let attached = 0;
-  const cultureLabels = readRoadCultureLabels();
-  for (const id of new Set(cultureLabels.values()))
-    if (!curatedIds.has(id)) fail(`culture-labels.csv: road label maps to unknown entity ${id}`);
-  for (const f of roadFeatures(road, cultureLabels)) {
+  for (const f of roadFeatures(road, cultureLabels, category)) {
     const [lon, lat] = f.geometry.coordinates;
     const near = existing
       .filter((p) => p.props.entity_id === f.props.entity_id)
@@ -198,13 +199,13 @@ else {
     if (!near) { features.push(f); continue; }
     attached++;
     near.props.also_recorded = [near.props.also_recorded, `${f.props.label}: ${f.props.date_text}`].filter(Boolean).join(" | ");
-    near.props.finds = (near.props.finds ?? 0) + (f.props.finds ?? 0);
+    if (f.props.finds !== undefined) near.props.finds = (near.props.finds ?? 0) + f.props.finds;
     for (const k of ["cultures", "culture_ids"] as const) {
       const merged = [...new Set([...(near.props[k]?.split("; ") ?? []), ...(f.props[k]?.split("; ") ?? [])])];
       if (merged.length) near.props[k] = merged.join("; ");
     }
   }
-  console.log(`ROAD: ${road.length} sites, ${attached} added to the card of a curated or XRONOS point within 2 km`);
+  console.log(`ROAD ${category}: ${road.length} sites, ${attached} added to the card of a curated or XRONOS point within 2 km`);
 }
 
 // Civilizations from Cliopatria.

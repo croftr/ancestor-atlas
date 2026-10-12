@@ -84,7 +84,15 @@ assemblages in the same locality and geological layer. Localities of one species
 point (label shares the common prefix: "Koobi Fora Area 123, 116, 130"); in the build, a ROAD point within 2 km of a curated
 or XRONOS point of the same species is not drawn but listed on that point's card (`also_recorded`, " | "-separated) and
 its cultures merged in. The roadDB publications step hangs (it was killed); refs come from
-the dates table. ROAD culture names link to culture entities through the `road` rows of `culture-labels.csv` (resolved at build time).
+the dates table. ROAD culture names link to culture entities through the `road` rows of `culture-labels.csv` (resolved at build time for
+the links on cards; at ingest time for culture sites, so re-run the ingest after changing them).
+
+ROAD culture sites (`road/culture-sites.csv`, added 12 Oct 2026): 959 sites from ROAD assemblages, clipped to each culture's
+span, 1 km merge, 2 km attach (as for species). Took Oldowan 8 -> 41, Acheulean 11 -> 134, MSA 7 -> 174, Mousterian 6 ->
+237 sites; new cultures Micoquian, Szeletian, Châtelperronian (Neanderthal-toolmakers stage picture) and Epigravettian
+(Ice Age stage picture), spans from Wikipedia (revisions in entities.yaml comments), descriptions written from Wikipedia;
+Rob is providing pictures. Generic ROAD periods ("Middle Paleolithic (Eurasia)") are not mapped. Further candidates in
+ROAD: Proto-Aurignacian 30, Robberg 27, Dabban 25, Lupemban 23, Fauresmith 22, Clactonian 20, Aterian (now under MSA).
 
 ## XRONOS bulk import (`scripts/ingest/xronos.ts`)
 

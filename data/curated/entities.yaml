@@ -478,6 +478,37 @@
       src: https://www.youtube.com/watch?v=uNqYhWXC7aM
       title: Inside Africa's hidden history of early humans
       credit: BBC Studios, YouTube
+# Spans of the next three from English Wikipedia: Micoquian@1349026510, Szeletian@1379782690, Châtelperronian@1337735389.
+- id: micoquian
+  name: Micoquian
+  category: culture
+  start_year: -129999
+  end_year: -59999
+  description: Middle Palaeolithic Neanderthal tool tradition of central and eastern Europe, recognised by asymmetrical hand axes and bifacial backed knives (Keilmesser). It spans the last interglacial and the early part of the last glaciation, roughly 130,000 to 60,000 years ago.
+  wikidata: Q1759091
+  wikipedia_url: https://en.wikipedia.org/wiki/Micoquien
+  source_ids:
+    - road
+- id: szeletian
+  name: Szeletian
+  category: culture
+  start_year: -42050
+  end_year: -33050
+  description: Transitional culture between the Middle and Upper Palaeolithic in Hungary, Moravia, Austria and southern Poland, about 44,000 to 40,000 years ago, named after Szeleta Cave in the Bükk Mountains. It is known for finely made leaf-shaped points; most researchers attribute it to Neanderthals, though this is debated.
+  wikidata: Q1295733
+  wikipedia_url: https://en.wikipedia.org/wiki/Szeletian
+  source_ids:
+    - road
+- id: chatelperronian
+  name: Châtelperronian
+  category: culture
+  start_year: -42550
+  end_year: -31050
+  description: Early Upper Palaeolithic industry of central and southwestern France and northern Spain, named after the cave at Châtelperron and dated from about 44,500 years ago. It is the only Upper Palaeolithic industry attributed to Neanderthals, with curved-backed flint knives and ivory ornaments, though some argue it is a mix of Mousterian and Aurignacian layers.
+  wikidata: Q1090851
+  wikipedia_url: https://en.wikipedia.org/wiki/Ch%C3%A2telperronian
+  source_ids:
+    - road
 - id: aurignacian
   name: Aurignacian
   category: culture
@@ -534,6 +565,17 @@
       src: https://www.youtube.com/watch?v=Ay6pJSVslAw
       title: The Magdalenian Culture
       credit: NORTH 02, YouTube
+# Span from English Wikipedia: Epigravettian@1376524877.
+- id: epigravettian
+  name: Epigravettian
+  category: culture
+  start_year: -19050
+  end_year: -8050
+  description: Last Upper Palaeolithic culture of Italy and southern and eastern Europe, which followed the Gravettian after the Last Glacial Maximum, around 21,000 years ago. Its stone tools are dominated by small backed blades and points, and it lasted until the Mesolithic, after about 10,000 years ago.
+  wikidata: Q3589150
+  wikipedia_url: https://en.wikipedia.org/wiki/Epigravettian
+  source_ids:
+    - road
 - id: natufian
   name: Natufian
   category: culture
