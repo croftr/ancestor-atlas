@@ -359,6 +359,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sea_Peoples
   image_url: /images/events/sea-peoples.webp
   image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=cLk8CUiovIk", title: "Eric Cline on the Sea Peoples invasion of ancient Egypt", credit: "The Ancients (History Hit), YouTube" }
   date_source: wikipedia:Sea_Peoples@1378711126
   places:
     - { label: Medinet Habu, lat: 25.72, lon: 32.600833, wikidata: Q932622 }
