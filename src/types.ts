@@ -50,7 +50,8 @@ export interface FeatureProps {
   source_ref?: string;
   refs?: string; // publications behind the dates (bulk sources), "; "-separated
   via?: string; // radiocarbon compilations the dates were taken from (bulk sources), "; "-separated
-  cultures?: string; // archaeological cultures recorded in the same layer as the finds (ROAD), "; "-separated
+  cultures?: string; // archaeological cultures in the same layer as the finds (ROAD) that are not culture entities, "; "-separated
+  culture_ids?: string; // culture entities in the same layer as the finds (ROAD, via culture-labels.csv), "; "-separated
   also_recorded?: string; // ROAD localities near this point, merged into it: "<localities>: <ages and finds>", " | "-separated
   color?: string; // civilizations: fill colour
   line_color?: string; // civilizations: darker outline colour

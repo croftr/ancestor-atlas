@@ -134,6 +134,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const isEvent = entity.category === "event";
   const noun = entity.category === "civilization" ? "Period" : isEvent ? "Place" : "Site";
   const related = (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
+  const siteCultures = asList(feature?.culture_ids).flatMap((id) => data.entityById.get(id) ?? []);
   // Own picture; else the group's (e.g. Ancient Egypt); else a shared stand-in (picture-groups.yaml).
   // The last two say what they show.
   const picture: { url: string; name: string; credit?: string; note?: string } | undefined = isEvent
@@ -372,7 +373,20 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           {showLabel && <strong>{feature.label}</strong>}
           {feature.date_text && !isEvent && <div>{feature.date_text}</div>}
           {feature.notes && <div className="muted">Location: {feature.notes}</div>}
-          {feature.cultures && <div>Culture in the same layer: {asList(feature.cultures).join(", ")}</div>}
+          {(siteCultures.length > 0 || feature.cultures) && (
+            <div className="related">
+              <div className="muted">Culture in the same layer:</div>
+              <div className="also">
+                {siteCultures.map((c) => (
+                  <button key={c.id} className="chip" onClick={() => focusEntity(c.id)} title={formatRange(c.start_year, c.end_year)}>
+                    <CategoryBadge category={c.category} size={16} />
+                    {c.name}
+                  </button>
+                ))}
+                {asList(feature.cultures).map((n) => <span key={n} className="chip chip-plain">{n}</span>)}
+              </div>
+            </div>
+          )}
           {feature.also_recorded && (
             <div className="muted">
               Also recorded here in ROAD:

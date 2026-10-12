@@ -246,8 +246,26 @@ export function readRoadSites(path = ROAD_SITES): RoadSite[] | undefined {
 
 const slug = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+/**
+ * ROAD culture names (as written to sites.csv) -> culture entity ids, from the `road` rows of culture-labels.csv.
+ * Explicit list: generic periods ("Middle Paleolithic (Eurasia)") and contested industries stay plain text.
+ */
+export function readRoadCultureLabels(path = "data/curated/culture-labels.csv"): Map<string, string> {
+  return new Map((parse(readFileSync(path, "utf8"), { columns: true }) as Row[]).filter((r) => r.source === "road").map((r) => [r.label, r.entity_id]));
+}
+
+/**
+ * Splits a site's cultures into linked culture entities (culture_ids) and the names left as text (cultures).
+ * Both "; "-separated; undefined when empty.
+ */
+export function linkCultures(names: string[], labels: Map<string, string>): { culture_ids?: string; cultures?: string } {
+  const ids = [...new Set(names.map((n) => labels.get(n)).filter((x): x is string => !!x))];
+  const rest = names.filter((n) => !labels.has(n));
+  return { culture_ids: ids.join("; ") || undefined, cultures: rest.join("; ") || undefined };
+}
+
 /** One Point feature per site. */
-export function roadFeatures(sites: RoadSite[]): { props: FeatureProps; geometry: { type: string; coordinates: number[] } }[] {
+export function roadFeatures(sites: RoadSite[], cultureLabels = new Map<string, string>()): { props: FeatureProps; geometry: { type: string; coordinates: number[] } }[] {
   const maxN = Math.max(1, ...sites.map((s) => s.finds));
   const used = new Set<string>();
   return sites.map((s) => {
@@ -262,7 +280,9 @@ export function roadFeatures(sites: RoadSite[]): { props: FeatureProps; geometry
     };
     if (s.notes) props.notes = s.notes;
     if (s.refs) props.refs = s.refs;
-    if (s.cultures) props.cultures = s.cultures;
+    const linked = linkCultures(s.cultures?.split("; ") ?? [], cultureLabels);
+    if (linked.culture_ids) props.culture_ids = linked.culture_ids;
+    if (linked.cultures) props.cultures = linked.cultures;
     return { props, geometry: { type: "Point", coordinates: [s.lon, s.lat] } };
   });
 }
