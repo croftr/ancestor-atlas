@@ -110,6 +110,28 @@
       src: https://www.youtube.com/watch?v=Se54pYWiDd8
       title: "Kenyanthropus platyops: The Flat Faced Hominin Who Lived Alongside Lucy"
       credit: "ORIGINS: The History of Humanity, YouTube"
+- id: australopithecus-bahrelghazali
+  name: Australopithecus bahrelghazali
+  category: species
+  start_year: -3848050
+  end_year: -3308050
+  description: Australopith known from a jawbone nicknamed "Abel" and a few other fossils found at Koro Toro in Chad in 1995, around 3.5 million years old. It is the only australopith found far west of the Rift Valley; some researchers see it as a western population of A. afarensis.
+  wikidata: Q310945
+  wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_bahrelghazali
+  related_ids: [australopithecus-afarensis]
+  source_ids:
+    - literature
+- id: australopithecus-deyiremeda
+  name: Australopithecus deyiremeda
+  category: species
+  start_year: -3498050
+  end_year: -3298050
+  description: Australopith named in 2015 from jaws found at Burtele and Waytaleyta in the Woranso-Mille area of Ethiopia's Afar region, 3.5 to 3.3 million years old. It lived at the same time and place as Lucy's species, A. afarensis, and the Burtele foot may belong to it.
+  wikidata: Q19991921
+  wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_deyiremeda
+  related_ids: [australopithecus-afarensis, kenyanthropus-platyops]
+  source_ids:
+    - literature
 - id: australopithecus-africanus
   name: Australopithecus africanus
   category: species
@@ -305,9 +327,9 @@
 - id: denisovan
   name: Denisovans
   category: species
-  start_year: -193050
+  start_year: -307050
   end_year: -50050
-  description: Archaic human group known mainly from DNA and a few fossils from Denisova Cave in Siberia and Baishiya Karst Cave on the Tibetan Plateau. They interbred with both Neanderthals and modern humans.
+  description: Archaic human group first known from DNA and a few fossils from Denisova Cave in Siberia, since also identified at Baishiya Karst Cave on the Tibetan Plateau, in a molar from Laos and, through ancient proteins and DNA, in the Penghu jaw from Taiwan and the Harbin skull from northeast China (the type specimen of Homo longi). They interbred with both Neanderthals and modern humans.
   wikipedia_url: https://en.wikipedia.org/wiki/Denisovans
   source_ids:
     - recall

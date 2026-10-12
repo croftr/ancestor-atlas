@@ -26,7 +26,10 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
 
 ## Curated sites (`data/curated/species-sites.csv`, `culture-sites.csv`)
 
-- 194 rows: 169 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent).
+- 199 rows: 174 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent).
+- Added 12 Oct 2026: A. bahrelghazali (Koro Toro) and A. deyiremeda (Woranso-Mille), both place-level points without
+  pictures yet; Denisovan sites Harbin (Homo longi holotype, kept as Denisovan per the 2025 protein/mtDNA work, so the
+  Denisovan span now starts 309 ka), Penghu 1 and Tam Ngu Hao 2. H. ergaster stays in H. erectus (Rob's call).
 - Each row carries `wikidata`, `coord_source`, `date_source`, `checked`, `notes`. A row leaves `source_id: recall`
   only when both coordinate and date evidence are set (validator-enforced). Place-level coordinates are acceptable
   if the note says so.
@@ -80,7 +83,7 @@ assemblages in the same locality and geological layer. Localities of one species
 point (label shares the common prefix: "Koobi Fora Area 123, 116, 130"); in the build, a ROAD point within 2 km of a curated
 or XRONOS point of the same species is not drawn but listed on that point's card (`also_recorded`, " | "-separated) and
 its cultures merged in. The roadDB publications step hangs (it was killed); refs come from
-the dates table. Not yet done: mapping ROAD cultures to culture entities, new species (ergaster, rhodesiensis, longi).
+the dates table. ROAD culture names link to culture entities through the `road` rows of `culture-labels.csv` (resolved at build time).
 
 ## XRONOS bulk import (`scripts/ingest/xronos.ts`)
 
