@@ -489,6 +489,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Micoquien
   source_ids:
     - road
+  image_url: /images/cultures/micoquian.webp
+  image_credit: AI-generated illustration
 - id: szeletian
   name: Szeletian
   category: culture
@@ -499,6 +501,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Szeletian
   source_ids:
     - road
+  image_url: /images/cultures/szeletian.webp
+  image_credit: AI-generated illustration
 - id: chatelperronian
   name: Châtelperronian
   category: culture
@@ -509,6 +513,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ch%C3%A2telperronian
   source_ids:
     - road
+  image_url: /images/cultures/chatelperronian.webp
+  image_credit: AI-generated illustration
 - id: aurignacian
   name: Aurignacian
   category: culture
@@ -576,6 +582,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Epigravettian
   source_ids:
     - road
+  image_url: /images/cultures/epigravettian.webp
+  image_credit: AI-generated illustration
 - id: natufian
   name: Natufian
   category: culture
