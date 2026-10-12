@@ -121,6 +121,8 @@
   related_ids: [australopithecus-afarensis]
   source_ids:
     - literature
+  image_url: /images/species/australopithecus-bahrelghazali.webp
+  image_credit: AI-generated illustration, not a scientific reconstruction
 - id: australopithecus-deyiremeda
   name: Australopithecus deyiremeda
   category: species
@@ -132,6 +134,8 @@
   related_ids: [australopithecus-afarensis, kenyanthropus-platyops]
   source_ids:
     - literature
+  image_url: /images/species/australopithecus-deyiremeda.webp
+  image_credit: AI-generated illustration, not a scientific reconstruction
 - id: australopithecus-africanus
   name: Australopithecus africanus
   category: species
