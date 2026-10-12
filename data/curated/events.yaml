@@ -357,6 +357,8 @@
   description: Around 1200 BCE, at the end of the Late Bronze Age, bands of raiders and migrants later called the Sea Peoples, among them the Sherden, Lukka, Shekelesh, Peleset and Tjekker, attacked Egypt and the coasts of the eastern Mediterranean. Ramesses III recorded on his mortuary temple at Medinet Habu that in his eighth year he defeated them on land and in a great sea battle in the Nile Delta; the reliefs show warriors travelling with women and children in ox-carts. Once blamed for the Bronze Age collapse, in which the Hittite Empire, Mycenaean palaces and cities such as Ugarit fell, they are now more often seen as people displaced by a crisis already under way. The Peleset are generally identified with the Philistines, who settled on the southern Levantine coast.
   related: [new-kingdom-of-egypt, hittites, mycenaean-greece, philistia]
   wikipedia_url: https://en.wikipedia.org/wiki/Sea_Peoples
+  image_url: /images/events/sea-peoples.webp
+  image_credit: AI-generated illustration
   date_source: wikipedia:Sea_Peoples@1378711126
   places:
     - { label: Medinet Habu, lat: 25.72, lon: 32.600833, wikidata: Q932622 }
