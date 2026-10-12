@@ -198,6 +198,7 @@ else {
     if (!near) { features.push(f); continue; }
     attached++;
     near.props.also_recorded = [near.props.also_recorded, `${f.props.label}: ${f.props.date_text}`].filter(Boolean).join(" | ");
+    near.props.finds = (near.props.finds ?? 0) + (f.props.finds ?? 0);
     for (const k of ["cultures", "culture_ids"] as const) {
       const merged = [...new Set([...(near.props[k]?.split("; ") ?? []), ...(f.props[k]?.split("; ") ?? [])])];
       if (merged.length) near.props[k] = merged.join("; ");

@@ -274,7 +274,7 @@ export function roadFeatures(sites: RoadSite[], cultureLabels = new Map<string, 
     used.add(id);
     const props: FeatureProps = {
       id, entity_id: s.entity_id, category: "species", start_year: s.start_year, end_year: s.end_year,
-      label: s.label, date_text: s.date_text, confidence: s.confidence,
+      label: s.label, date_text: s.date_text, confidence: s.confidence, finds: s.finds,
       weight: Math.round((Math.log(s.finds + 1) / Math.log(maxN + 1)) * 1000) / 1000,
       source_id: "road", source_ref: s.source_ref, coord_source: s.coord_source, date_source: s.date_source,
     };

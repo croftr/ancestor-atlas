@@ -4,7 +4,7 @@ import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
 import { formatRange, yearToPos } from "../time/scale";
 import { erasFor, firstSentence, shortDuration } from "../timeline/layout";
-import type { Entity } from "../types";
+import type { Entity, FeatureProps } from "../types";
 import { summaryOf } from "./browse";
 import EntityDetail from "./EntityDetail";
 import { videoCount } from "../youtube";
@@ -14,6 +14,16 @@ import "./browse.css";
 
 /** Years marked on the shared time scale above the list (those inside the species' span). */
 const SCALE_YEARS = [-7_000_000, -5_000_000, -3_000_000, -2_000_000, -1_000_000, -500_000, -200_000, -100_000, -50_000];
+/**
+ * Fossil finds at a site: the specimens ROAD catalogues there (FeatureProps.finds); a site without a ROAD record
+ * stands for at least one fossil and counts as one.
+ */
+const findsAt = (f: FeatureProps) => f.finds ?? 1;
+const count = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
+
+const FINDS_NOTE =
+  "Fossil finds are individual specimens (a skull, a jaw, a tooth) as catalogued in ROAD; a site with no ROAD record counts as one find.";
+
 /** "7M", "500k" (the scale's caption says "years ago"). */
 const scaleLabel = (year: number) => (-year >= 1_000_000 ? `${-year / 1_000_000}M` : `${-year / 1000}k`);
 
@@ -28,16 +38,23 @@ export default function SpeciesPage() {
   const openId = useOpenItem();
   const [eraFilter, setEraFilter] = useState<string | null>(null);
 
-  const { species, eras, axis } = useMemo(() => {
-    if (!data) return { species: [] as Entity[], eras: [], axis: [0, 1] as [number, number] };
+  const { species, eras, axis, tally } = useMemo(() => {
+    const tally = new Map<string, { sites: number; finds: number }>();
+    if (!data) return { species: [] as Entity[], eras: [], axis: [0, 1] as [number, number], tally };
     const species = data.entities.filter((e) => e.category === "species").sort((a, b) => a.start_year - b.start_year || a.end_year - b.end_year);
+    for (const s of species) {
+      const fs = data.featuresOf.get(s.id) ?? [];
+      tally.set(s.id, { sites: fs.length, finds: fs.reduce((n, f) => n + findsAt(f), 0) });
+    }
+    const sum = (list: Entity[], k: "sites" | "finds") => list.reduce((n, s) => n + (tally.get(s.id)?.[k] ?? 0), 0);
     const eras = erasFor(data.entities, TIMELINE_ERAS)
       .map((era) => ({ ...era, species: species.filter((s) => s.start_year >= era.start && s.start_year < era.end) }))
+      .map((era) => ({ ...era, sites: sum(era.species, "sites"), finds: sum(era.species, "finds") }))
       .filter((era) => era.species.length > 0);
     const axis: [number, number] = species.length
       ? [yearToPos(Math.min(...species.map((s) => s.start_year))), yearToPos(Math.max(...species.map((s) => s.end_year)))]
       : [0, 1];
-    return { species, eras, axis };
+    return { species, eras, axis, tally };
   }, [data]);
 
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
@@ -61,6 +78,8 @@ export default function SpeciesPage() {
   const open = openId ? data.entityById.get(openId) : undefined;
   const openEra = open && eras.find((e) => e.species.includes(open));
   const accent = CATEGORY_STYLE.species.color;
+  const totalSites = eras.reduce((n, e) => n + e.sites, 0);
+  const totalFinds = eras.reduce((n, e) => n + e.finds, 0);
   const first = species[0];
   const last = species.at(-1);
 
@@ -73,10 +92,15 @@ export default function SpeciesPage() {
             Species
           </h1>
           <span className="muted ev-count">
-            {species.length} species, in the order they appeared
+            in the order they appeared
             {first && last ? `: ${formatRange(first.start_year, Math.max(...species.map((s) => s.end_year)))}` : ""}
           </span>
         </div>
+        <dl className="sp-totals">
+          <div><dt>Species</dt><dd>{species.length.toLocaleString("en-US")}</dd></div>
+          <div><dt>Fossil sites</dt><dd>{totalSites.toLocaleString("en-US")}</dd></div>
+          <div title={FINDS_NOTE}><dt>Fossil finds</dt><dd>{totalFinds.toLocaleString("en-US")}</dd></div>
+        </dl>
         <div className="ev-filters" role="group" aria-label="Filter by era">
           <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
             All eras
@@ -95,6 +119,7 @@ export default function SpeciesPage() {
       </header>
 
       <main className="ev-main sp-main">
+        <p className="muted sp-note">{FINDS_NOTE}</p>
         {/* The shared scale every row's bar is drawn on. */}
         <div className="sp-scale" aria-hidden="true">
           <span className="sp-scale-track">
@@ -110,11 +135,14 @@ export default function SpeciesPage() {
         {shown.map((era) => (
           <section key={era.label} className="sp-era" aria-labelledby={`sp-era-${era.label}`}>
             <h2 id={`sp-era-${era.label}`}>
-              {era.label} <span className="muted">{era.species.length} species</span>
+              {era.label}{" "}
+              <span className="muted">
+                {count(era.species.length, "species", "species")} · {count(era.sites, "fossil site")} · {count(era.finds, "fossil find")}
+              </span>
             </h2>
             <ol className="sp-list">
               {era.species.map((s) => {
-                const n = data.featuresOf.get(s.id)?.length ?? 0;
+                const { sites: n, finds } = tally.get(s.id) ?? { sites: 0, finds: 0 };
                 const order = species.indexOf(s) + 1;
                 const summary = summaryOf(s, firstSentence);
                 return (
@@ -133,7 +161,7 @@ export default function SpeciesPage() {
                         </span>
                         <span className="sp-meta muted">
                           Lived {shortDuration(s.end_year - s.start_year)}
-                          {n > 0 && <> · {n.toLocaleString("en-US")} fossil site{n === 1 ? "" : "s"}</>}
+                          {n > 0 && <> · {count(n, "fossil site")} · <span title={FINDS_NOTE}>{count(finds, "fossil find")}</span></>}
                           {s.media && s.media.length > 0 && <> · <span className="nowrap">{videoCount(s.media.length)}</span></>}
                         </span>
                         {summary && <span className="sp-summary">{summary}</span>}
