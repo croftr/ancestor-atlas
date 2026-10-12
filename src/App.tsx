@@ -5,6 +5,7 @@ import InfoPanel from "./ui/InfoPanel";
 import TimeSlider from "./ui/TimeSlider";
 import SearchBox from "./ui/SearchBox";
 import SideNav from "./ui/SideNav";
+import PageTabs from "./ui/PageTabs";
 import WelcomeHint from "./ui/WelcomeHint";
 import IntroModal from "./ui/IntroModal";
 import TimelinePage from "./timeline/TimelinePage";
@@ -58,6 +59,7 @@ export default function App() {
       {view === "species" && <SpeciesPage />}
       {view === "cultures" && <CulturesPage />}
       {view === "civilizations" && <CivilizationsPage />}
+      <PageTabs />
       <SideNav />
       {introOpen && <IntroModal />}
     </div>

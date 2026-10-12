@@ -1,0 +1,97 @@
+/* Phone tab bar (PageTabs) across the top of the Timeline, Events, Species, Cultures and
+   Civilizations pages. The menu button (SideNav) sits in its left end. Only rendered below 700px. */
+.app { --tabs-h: 0px; }
+.app:has(.page-tabs) { --tabs-h: 56px; }
+
+.page-tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 31; /* over the pages (timeline z 20), under the menu button (35), drawer and overlays */
+  height: var(--tabs-h);
+  box-sizing: border-box;
+  padding: 8px 8px 8px 56px; /* the menu button's 40px plus gaps */
+  background: rgba(10, 15, 28, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.page-tabs ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; height: 100%; }
+/* Unpicked tabs share the space as icons; the picked one sizes to its name, which is the page title. */
+.page-tabs li { flex: 1 1 0; min-width: 34px; display: flex; }
+.page-tabs li.active { flex: 0 1 auto; min-width: 0; }
+
+.page-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: none;
+  color: #8e99ae;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.page-tab:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
+.page-tab[aria-current="page"] {
+  padding: 0 12px 0 10px;
+  color: #fff;
+  background: color-mix(in srgb, var(--tab-accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--tab-accent) 55%, transparent);
+}
+.page-tab-icon { flex: none; display: grid; place-items: center; width: 22px; height: 22px; }
+.page-tab[aria-current="page"] .page-tab-icon { color: var(--tab-accent); }
+.page-tab-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(0.88rem, 3.6vw, 1.02rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  animation: page-tab-label-in 0.2s ease both;
+}
+@keyframes page-tab-label-in {
+  from { opacity: 0; transform: translateX(-4px); }
+}
+
+/* Smallest phones (320px): tighter icons, so "Civilizations" still fits whole. */
+@media (max-width: 359px) {
+  .page-tabs ul { gap: 2px; }
+  .page-tabs li { min-width: 30px; }
+  .page-tab { padding: 0; }
+  .page-tab[aria-current="page"] { padding: 0 6px; gap: 5px; }
+  .page-tab-label { font-size: 0.8rem; }
+}
+
+/* The pages start under the bar. */
+.app:has(.page-tabs) :is(.events-page, .timeline-page) { top: var(--tabs-h); }
+
+/* The bar names the page, so the page's own title goes (kept for screen readers). */
+.app:has(.page-tabs) .ev-title h1,
+.app:has(.page-tabs) .tl-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.app:has(.page-tabs) .ev-title { margin-left: 0; min-height: 0; }
+/* The menu button sits in the bar now, clear of the timeline's full-screen card. */
+.app.app:has(.page-tabs) .nav-menu-btn { display: grid; }
+
+/* A tab change slides the new page in from the side it came from. */
+.app[data-tab-dir="next"] :is(.events-page, .timeline-page) { animation: page-in-next 0.24s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.app[data-tab-dir="prev"] :is(.events-page, .timeline-page) { animation: page-in-prev 0.24s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes page-in-next { from { opacity: 0.4; transform: translateX(28px); } }
+@keyframes page-in-prev { from { opacity: 0.4; transform: translateX(-28px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-tab, .page-tab-label { transition: none; animation: none; }
+  .app[data-tab-dir] :is(.events-page, .timeline-page) { animation: none; }
+}

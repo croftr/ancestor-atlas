@@ -31,7 +31,7 @@ const Icon = ({ children }: { children: ReactNode }) => (
 
 /** The globe page's button is the Ancestor Atlas logo. */
 const GlobeIcon = <img src="/logo-128.webp" alt="" className="nav-logo" draggable={false} />;
-const TimelineIcon = (
+export const TimelineIcon = (
   <Icon>
     <path d="M4 6h9M7 12h11M5 18h7" strokeWidth="2.6" />
     <path d="M3 21h18" strokeOpacity="0.5" />
