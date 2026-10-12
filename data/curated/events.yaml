@@ -54,6 +54,23 @@
   places:
     - { label: Gona, lat: 11.1, lon: 40.53333, wikidata: Q12314119 }
 
+- id: out-of-africa-dmanisi
+  name: Early hominin expansion out of Africa (Dmanisi)
+  year: -1798050
+  start_year: -1848050
+  end_year: -1768050
+  date_text: c. 1.8 million years ago (1.85–1.77 Ma)
+  description: Excavations at Dmanisi in the southern Caucasus recovered remarkably complete crania, postcranial remains, and Oldowan stone tools dating to 1.8 million years ago. Representing the earliest undisputed record of hominins outside Africa, these small-bodied, relatively small-brained individuals prove that our ancestors ventured into Eurasia long before the emergence of tall body proportions and advanced Acheulean biface technology.
+  related: [homo-erectus, oldowan]
+  wikipedia_url: https://en.wikipedia.org/wiki/Dmanisi_hominins
+  image_url: /images/events/out-of-africa.webp
+  image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=9btN6H7H3Rg", title: "When Did Hominins First Leave Africa?", credit: "Stefan Milo, YouTube" }
+  date_source: wikipedia:Dmanisi_hominins@1379254244
+  places:
+    - { label: Dmanisi, lat: 41.336, lon: 44.338, wikidata: Q64446966 }
+
 - id: acheulean-handaxes
   name: Acheulean handaxe technology
   year: -1758050
@@ -131,6 +148,25 @@
   places:
     - { label: Madjedbebe, lat: -12.5, lon: 132.88333, wikidata: Q8563176 }
 
+- id: archaic-human-admixture
+  name: Archaic admixture with Neanderthals and Denisovans
+  year: -53050
+  start_year: -63050
+  end_year: -48050
+  date_text: c. 65,000–50,000 years ago
+  description: Genomic sequencing of fossil specimens and contemporary populations revealed that modern humans repeatedly interbred with archaic hominin lineages as they expanded across Eurasia. Initial encounters with Neanderthals introduced genetic variants present across all present-day non-African populations, while pulses of Denisovan introgression provided vital immune and high-altitude adaptations to ancestral Oceanic and East Asian groups.
+  related: [homo-sapiens, neanderthal, denisovan]
+  wikipedia_url: https://en.wikipedia.org/wiki/Archaic_human_admixture_with_modern_humans
+  image_url: /images/events/archaic-human-admixture.webp
+  image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=rXN-KEULia8", title: "Does Neanderthal DNA put a ceiling on Out of Africa?", credit: "Stefan Milo, YouTube" }
+    - { kind: video, src: "https://www.youtube.com/watch?v=5JzoalkMW6I", title: "Denny: The Incredible Hybrid of Neanderthal and Denisovan", credit: "Evo Inception, YouTube" }
+  date_source: wikipedia:Archaic_human_admixture_with_modern_humans@849841297
+  places:
+    - { label: Denisova Cave, lat: 51.39758, lon: 84.67621, wikidata: Q1029322 }
+    - { label: Peștera cu Oase, lat: 45.01673, lon: 21.83335, wikidata: Q946978 }
+
 - id: figurative-cave-art
   name: First figurative and narrative cave art
   year: -49250
@@ -145,6 +181,43 @@
   date_source: wikipedia:Karampuang_cave@1341794223
   places:
     - { label: Leang Karampuang (Maros), lat: -5.01649, lon: 119.57447, wikidata: Q14611, note: "place-level: Maros Regency; the cave item (Q127256239) has no coordinates in Wikidata" }
+
+- id: earliest-musical-instruments
+  name: Earliest musical instruments
+  year: -38050
+  start_year: -38050
+  end_year: -33050
+  date_text: c. 40,000–35,000 years ago
+  description: Delicately crafted flutes made from griffon vulture wing bones and mammoth ivory discovered in the Swabian Jura caves demonstrate intentional musical tradition in the Upper Paleolithic. Featuring precisely spaced finger holes designed for acoustic scales, these instruments show that complex auditory art, shared performance, and ritual music accompanied the symbolic flowering of early modern humans in Europe.
+  related: [homo-sapiens, aurignacian]
+  wikipedia_url: https://en.wikipedia.org/wiki/Paleolithic_flute
+  image_url: /images/events/earliest-musical-instruments.webp
+  image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=obTQG1i4A78", title: "Playing the 35,000-year-old Hohle Fels bone flute replica", credit: "Albin Paulus, YouTube" }
+    - { kind: video, src: "https://www.youtube.com/watch?v=dqjxtstlHA0", title: "Hohle Fels Cave flute", credit: "Odd Quartet, YouTube" }
+  date_source: wikipedia:Paleolithic_flute@1365091409
+  places:
+    - { label: Hohle Fels, lat: 48.37917, lon: 9.75556, wikidata: Q875927 }
+    - { label: Geissenklösterle, lat: 48.39833, lon: 9.77222, wikidata: Q1282892 }
+
+- id: peopling-of-the-americas
+  name: Peopling of the Americas
+  year: -21050
+  start_year: -21050
+  end_year: -12550
+  date_text: c. 23,000–14,500 years ago
+  description: Fossilized human trackways at White Sands confirm modern humans walked the interior of North America during the Last Glacial Maximum, while early foraging campsites at Monte Verde establish human settlement in southern South America before 14,000 years ago. These pre-Clovis discoveries decisively overturned the "Clovis First" model, confirming that ancestral indigenous populations dispersed across the Western Hemisphere thousands of years earlier than once believed.
+  related: [homo-sapiens, clovis]
+  wikipedia_url: https://en.wikipedia.org/wiki/Settlement_of_the_Americas
+  image_url: /images/events/peopling-of-the-americas.webp
+  image_credit: AI-generated illustration
+  media:
+    - { kind: video, src: "https://www.youtube.com/watch?v=U7VQbRsRxLg", title: "Ice Age Footprints", credit: "PBS America, YouTube" }
+  date_source: wikipedia:Settlement_of_the_Americas@1161199235
+  places:
+    - { label: White Sands, lat: 32.77972, lon: -106.17167, wikidata: Q1200164, note: "place-level: White Sands National Park" }
+    - { label: Monte Verde, lat: -41.50472, lon: -73.20444, wikidata: Q975775 }
 
 - id: first-pottery
   name: Invention of pottery
