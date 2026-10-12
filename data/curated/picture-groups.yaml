@@ -19,7 +19,7 @@
   label: Ice Age hunter-gatherers in general
   image_url: /images/cultures/ice-age-hunters.webp
   image_credit: AI-generated illustration
-  members: [aurignacian, gravettian, solutrean, epigravettian, magdalenian, clovis]
+  members: [aurignacian, gravettian, solutrean, epigravettian, magdalenian, azilian, clovis]
 
 - id: early-farmers
   label: early farming communities in general
@@ -27,7 +27,8 @@
   image_credit: AI-generated illustration
   members:
     [natufian, pre-pottery-neolithic, starcevo-koros-cris, cardial, linear-pottery, vinca, lengyel, chasseen,
-     michelsberg, funnelbeaker, cucuteni-trypillia, ertebolle, badarian, naqada]
+     michelsberg, funnelbeaker, cucuteni-trypillia, ertebolle, badarian, naqada, halaf, ubaid,
+     hinkelstein-grossgartach, stichbandkeramik, rossen]
 
 - id: copper-bronze-europe
   label: Copper and Bronze Age Europe in general

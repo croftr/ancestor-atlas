@@ -1021,6 +1021,86 @@
       src: https://www.youtube.com/watch?v=hTmt6PUryT0
       title: Which ancient society really invented the wheel?
       credit: Dan Davis History, YouTube
+# Span from English Wikipedia: Azilian@1373678621.
+- id: azilian
+  name: Azilian
+  category: culture
+  start_year: -10550
+  end_year: -8050
+  description: "Epipalaeolithic or Mesolithic industry of northern Spain and southern France, c. 12,500–10,000 years ago, seen as the tail end of the Magdalenian as the climate warmed. Known for small round-backed points, flat bone harpoons and painted pebbles; named after the cave of Le Mas-d'Azil in the French Pyrenees."
+  wikipedia_url: https://en.wikipedia.org/wiki/Azilian
+  wikidata: Q793777
+  source_ids: []
+# Span from English Wikipedia: Maglemosian_culture@1375962679.
+- id: maglemosian
+  name: Maglemosian culture
+  category: culture
+  start_year: -8999
+  end_year: -5999
+  description: Early Mesolithic culture of northern Europe, c. 9000–6000 BCE. In Scandinavia it was followed by the Kongemose culture.
+  wikipedia_url: https://en.wikipedia.org/wiki/Maglemosian_culture
+  wikidata: Q928511
+  source_ids: []
+# Span from English Wikipedia: Capsian_culture@1371764415.
+- id: capsian
+  name: Capsian culture
+  category: culture
+  start_year: -8999
+  end_year: -5399
+  description: Epipalaeolithic tradition of Algeria and Tunisia, c. 9000–5400 BCE, named after Gafsa (Latin Capsa). Divided into the Typical and Upper Capsian; its people hunted a wide range of animals, from aurochs to hares and snails, and made ostrich-eggshell beads and containers and figurative and abstract rock art.
+  wikipedia_url: https://en.wikipedia.org/wiki/Capsian_culture
+  wikidata: Q766150
+  source_ids: []
+# Span from English Wikipedia: Halaf_culture@1372302292.
+- id: halaf
+  name: Halaf culture
+  category: culture
+  start_year: -6099
+  end_year: -5099
+  description: Pottery Neolithic culture of northern Mesopotamia, c. 6100–5100 BCE, centred on the Khabur valley of south-eastern Turkey, Syria and northern Iraq. Named after Tell Halaf in Syria; it was followed by the Ubaid period.
+  wikipedia_url: https://en.wikipedia.org/wiki/Halaf_culture
+  wikidata: Q904998
+  source_ids: []
+# Span from English Wikipedia: Ubaid_period@1378055527.
+- id: ubaid
+  name: Ubaid period
+  category: culture
+  start_year: -6499
+  end_year: -3799
+  description: "Prehistoric period of Mesopotamia, c. 6500–3800 BCE, with the earliest known settlements on the southern alluvial plain; in the north it ran only from about 5300 to 4300 BCE, after the Halaf. Named after Tell al-'Ubaid; it was followed by the Uruk period."
+  wikipedia_url: https://en.wikipedia.org/wiki/Ubaid_period
+  wikidata: Q245156
+  source_ids: []
+# Span from English Wikipedia: Hinkelstein_culture@1349025280 (Hinkelstein, c. 5000-4900 BC) and Grossgartach_culture@1344276271 (c. 4750/4650 BCE, succeeded by Rössen from 4600 BCE).
+- id: hinkelstein-grossgartach
+  name: Hinkelstein and Grossgartach cultures
+  category: culture
+  start_year: -4999
+  end_year: -4599
+  description: "Successive Neolithic cultures of the Rhine region: Hinkelstein, part of the wider Linear Pottery horizon in Rhine-Main and Rhenish Hesse, c. 5000–4900 BCE, then the Middle Neolithic Grossgartach culture, which flourished around 4750/4650 BCE along the middle and upper Rhine, in southern Germany and northern Switzerland, before giving way to Rössen."
+  wikipedia_url: https://en.wikipedia.org/wiki/Grossgartach_culture
+  wikidata: Q1549257
+  source_ids: []
+# Span from English Wikipedia: Stroke-ornamented_ware_culture@1309226838.
+- id: stichbandkeramik
+  name: Stroke-ornamented ware culture
+  category: culture
+  start_year: -4899
+  end_year: -4399
+  description: Successor of the Linear Pottery culture in central Europe, c. 4900–4400 BCE, centred on Silesia, eastern Germany and the northern Czech Republic, where it overlapped with Lengyel to the south and Rössen to the west. Also called Stichbandkeramik.
+  wikipedia_url: https://en.wikipedia.org/wiki/Stroke-ornamented_ware_culture
+  wikidata: Q1932196
+  source_ids: []
+# Span from English Wikipedia: Rössen_culture@1325126170.
+- id: rossen
+  name: Rössen culture
+  category: culture
+  start_year: -4599
+  end_year: -4299
+  description: Middle Neolithic culture of central Europe, c. 4600–4300 BCE, found across most of Germany and into the Low Countries, north-eastern France, northern Switzerland and Austria. Named after the cemetery at Rössen in Saxony-Anhalt, it bridges the Linear Pottery tradition and later cultures such as Michelsberg and Funnelbeaker.
+  wikipedia_url: https://en.wikipedia.org/wiki/Rössen_culture
+  wikidata: Q1886212
+  source_ids: []
 - id: early-dynastic-period-of-egypt
   description: The formative era of unified Egyptian civilization (First and Second Dynasties) following the unification of Upper and Lower Egypt under Narmer. Governing from the royal seat of Thinis and Memphis, this period consolidated divine kingship, codified hieroglyphic writing, established mortuary complexes at Abydos, and laid the foundations of pharaonic statecraft.
   image_url: /images/civilisations/early-dynastic-egypt.webp
