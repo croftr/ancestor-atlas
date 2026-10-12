@@ -350,6 +350,18 @@
   places:
     - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007 }
 
+- id: sea-peoples
+  name: Invasion of the Sea Peoples
+  year: -1174
+  date_text: c. 1175 BCE (Year 8 of Ramesses III)
+  description: Around 1200 BCE, at the end of the Late Bronze Age, bands of raiders and migrants later called the Sea Peoples, among them the Sherden, Lukka, Shekelesh, Peleset and Tjekker, attacked Egypt and the coasts of the eastern Mediterranean. Ramesses III recorded on his mortuary temple at Medinet Habu that in his eighth year he defeated them on land and in a great sea battle in the Nile Delta; the reliefs show warriors travelling with women and children in ox-carts. Once blamed for the Bronze Age collapse, in which the Hittite Empire, Mycenaean palaces and cities such as Ugarit fell, they are now more often seen as people displaced by a crisis already under way. The Peleset are generally identified with the Philistines, who settled on the southern Levantine coast.
+  related: [new-kingdom-of-egypt, hittites, mycenaean-greece, philistia]
+  wikipedia_url: https://en.wikipedia.org/wiki/Sea_Peoples
+  date_source: wikipedia:Sea_Peoples@1378711126
+  places:
+    - { label: Medinet Habu, lat: 25.72, lon: 32.600833, wikidata: Q932622 }
+    - { label: Ugarit, lat: 35.601944, lon: 35.785556, wikidata: Q191369 }
+
 - id: minted-coinage
   name: Standardized minted coinage
   year: -599
