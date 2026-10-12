@@ -65,7 +65,8 @@ current state that the README does not cover. Data state as of 7 Oct 2026.
 
 ## Pictures
 
-- Species and civilizations: 4:3 (1200x900 WebP), shown in a 4:3 frame; events: square (see above). Every picture needs
+- Species: 4:3, 640x477 WebP (`public/images/species/`); civilizations and culture stage pictures: 4:3, 1200x900 WebP
+  (`public/images/civilisations/`, `public/images/cultures/`). All shown in a 4:3 frame; events: square (see above). Every picture needs
   an `image_credit`. Civilization pictures are overlaid by id at the end of `entities.yaml`.
 - Fallbacks on the info card: a civilization without a picture shows its group's ("Shows Ancient Egypt as a whole");
   cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
