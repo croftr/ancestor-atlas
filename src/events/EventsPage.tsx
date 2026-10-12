@@ -78,9 +78,9 @@ export default function EventsPage() {
         </div>
       </header>
 
-      <main className="ev-main ev-flow">
+      <main className="ev-main">
         {shown.map(({ era, events: list }) => (
-          <section key={era.label} className="ev-section" aria-labelledby={`era-${era.label}`} style={{ "--n": list.length } as CSSProperties}>
+          <section key={era.label} className="ev-section" aria-labelledby={`era-${era.label}`}>
             <h2 id={`era-${era.label}`}>
               {era.label}{" "}
               <span className="muted">

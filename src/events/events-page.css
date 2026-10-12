@@ -91,8 +91,16 @@
 .ev-filters .chip.active { background: rgba(195, 155, 255, 0.22); border-color: rgba(195, 155, 255, 0.65); color: #fff; }
 .ev-chip-count { opacity: 0.65; margin-left: 2px; font-variant-numeric: tabular-nums; }
 
-.ev-main { padding: 6px 24px 40px; max-width: 1400px; }
-.ev-section h2 { font-size: 1.05rem; margin: 22px 0 12px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ev-main { padding: 6px 24px 40px; }
+.ev-section {
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ev-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.ev-section h2 { font-size: 1.05rem; margin: 24px 0 14px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
 .ev-section h2 .muted { font-weight: 400; }
 .ev-grid {
   list-style: none;
@@ -172,12 +180,12 @@
 /* Event picture on the globe/timeline info card. */
 .info-panel .ev-img { margin: 10px 0 6px; }
 
-/* Wide screens: eras flow side by side in date order, each as wide as its tiles (--n, set per era), wrapping when the
-   row is full; a long era wraps its own tiles. Tiles grow a little with the screen. */
+/* Each era sits on its own line across the page; on wider screens tiles scale gently. */
 @media (min-width: 1300px) {
-  .ev-flow { --tile: clamp(220px, 12.5vw, 300px); max-width: none; display: flex; flex-wrap: wrap; align-items: flex-start; column-gap: 44px; }
-  .ev-flow .ev-section { flex: 0 1 calc(var(--n) * (var(--tile) + 20px) - 20px); max-width: 100%; min-width: 0; }
-  .ev-flow .ev-grid { grid-template-columns: repeat(auto-fill, minmax(var(--tile), 1fr)); }
+  .ev-grid {
+    grid-template-columns: repeat(auto-fill, minmax(clamp(220px, 12.5vw, 280px), 1fr));
+    gap: 24px;
+  }
 }
 @media (max-width: 760px) {
   .ev-header { padding: 10px 16px 8px; }
