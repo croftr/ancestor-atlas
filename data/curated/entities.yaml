@@ -468,7 +468,8 @@
   category: culture
   start_year: -248050
   end_year: -38050
-  description: Middle Palaeolithic tool tradition built on prepared-core (Levallois) flake technology, linked mainly with Neanderthals in Europe and western Asia and also with early modern humans in the Levant.
+  description: "The Mousterian is the toolkit of the Neanderthals, named after the rock shelter of Le Moustier in France. Its makers shaped a stone core with care so that a single blow would strike off a flake of planned size and shape, a method known as Levallois, then retouched the flakes into scrapers and points. With these tools Neanderthals hunted reindeer, horse and bison across Europe and western Asia for some 200,000 years, and at Pech de l'Azé in France they left blocks of manganese that may have helped them light fires."
+  narration: { src: narration/cultures/levallois-mousterian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "bd1a6a331a" }
   wikipedia_url: https://en.wikipedia.org/wiki/Mousterian
   source_ids:
     - recall
@@ -482,7 +483,8 @@
   category: culture
   start_year: -347050
   end_year: -36650
-  description: African counterpart of the Middle Palaeolithic, beginning about 300,000 years ago. Sites such as Blombos Cave have early evidence of ochre use, engraving and bead-making.
+  description: "In Africa the long age after the handaxes is called the Middle Stone Age, beginning around 300,000 years ago alongside the first Homo sapiens. Its people struck flakes from carefully prepared cores and made stone spear points, and at Pinnacle Point on South Africa's south coast, some 164,000 years ago, they were already gathering shellfish and grinding red ochre. Later sites such as Blombos Cave and Diepkloof add engraved ochre, shell beads and decorated ostrich eggshell, early signs of symbolic thought."
+  narration: { src: narration/cultures/middle-stone-age-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9c381841c6" }
   wikipedia_url: https://en.wikipedia.org/wiki/Middle_Stone_Age
   source_ids:
     - recall
@@ -521,7 +523,8 @@
   category: culture
   start_year: -42550
   end_year: -31050
-  description: Early Upper Palaeolithic industry of central and southwestern France and northern Spain, named after the cave at Châtelperron and dated from about 44,500 years ago. It is the only Upper Palaeolithic industry attributed to Neanderthals, with curved-backed flint knives and ivory ornaments, though some argue it is a mix of Mousterian and Aurignacian layers.
+  description: "The Châtelperronian, named after a cave at Châtelperron in central France, appeared around 44,000 years ago, just as modern humans were entering Europe. Its makers produced curved-backed stone knives and, at the Grotte du Renne at Arcy-sur-Cure, pierced animal teeth and bone ornaments. Neanderthal remains found with it at Saint-Césaire and Arcy suggest it was the work of some of the last Neanderthals, perhaps influenced by their new neighbours, though who made it is still argued over."
+  narration: { src: narration/cultures/chatelperronian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f8010c9e6e" }
   wikidata: Q1090851
   wikipedia_url: https://en.wikipedia.org/wiki/Ch%C3%A2telperronian
   source_ids:
@@ -548,7 +551,8 @@
   category: culture
   start_year: -35050
   end_year: -20050
-  description: Upper Palaeolithic culture across Europe, known for small 'Venus' figurines, mammoth-bone dwellings and pointed blades.
+  description: "From roughly 35,000 years ago the Gravettian spread from the Atlantic coast to the Russian plains, as the climate slid towards the coldest stretch of the Ice Age. Its people hunted mammoth, and on the plains built huts framed with mammoth bones. They are best known for small carved 'Venus' figurines such as the Venus of Willendorf, and at Dolní Věstonice in Moravia they fired figures of clay in hearths more than 26,000 years ago, long before anyone made pottery vessels. Some of their dead were buried with rich ornaments."
+  narration: { src: narration/cultures/gravettian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b65ff5f961" }
   wikipedia_url: https://en.wikipedia.org/wiki/Gravettian
   source_ids:
     - recall
@@ -562,7 +566,8 @@
   category: culture
   start_year: -22050
   end_year: -15050
-  description: Upper Palaeolithic culture of France and Iberia, noted for finely pressure-flaked leaf-shaped points.
+  description: "As the ice sheets neared their greatest extent, between about 24,000 and 17,000 years ago, people in France and Spain developed the Solutrean, named after the great rock of Solutré in Burgundy. Its makers mastered pressure flaking, pressing tiny flakes off a stone blank with a pointed bone tool to make thin, symmetrical 'laurel leaf' points, some too fine to have been used for hunting. At Parpalló in Spain they left thousands of small stone slabs engraved and painted with animals."
+  narration: { src: narration/cultures/solutrean-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4adebe205a" }
   wikipedia_url: https://en.wikipedia.org/wiki/Solutrean
   source_ids:
     - recall
@@ -576,7 +581,8 @@
   category: culture
   start_year: -15050
   end_year: -9050
-  description: Late Upper Palaeolithic culture of western Europe known for cave art, such as Altamira, and for carved bone and antler tools.
+  description: "The Magdalenian, named after the rock shelter of La Madeleine in France, was the last great culture of the Ice Age in western Europe, from about 17,000 to 11,000 years ago. Its people followed herds of reindeer and horse, hurled spears with carved spear-throwers and fished with barbed antler harpoons. They painted the ceiling of Altamira in Spain and decorated many other caves, and carved lifelike animals into bone and antler. As the climate warmed and the reindeer moved north, their way of life gave way to new ones."
+  narration: { src: narration/cultures/magdalenian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "95239209a2" }
   wikipedia_url: https://en.wikipedia.org/wiki/Magdalenian
   source_ids:
     - recall

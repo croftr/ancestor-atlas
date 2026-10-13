@@ -104,6 +104,29 @@ export const TOURS: Tour[] = [
       { entity: "clovis", year: -10_999, site: "clovis@2" },
     ],
   },
+  {
+    id: "ice-age-artists",
+    title: "Ice Age artists and toolmakers",
+    blurb: "From the first sharp flakes of stone to the painted caves of the Ice Age: how our ancestors learned to make tools, ornaments, music and art.",
+    layers: ["culture", "event"],
+    music: { src: "music/tours/ice-age-artists-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    stops: [
+      { entity: "lomekwian-tools" },
+      { entity: "oldowan-tools" },
+      { entity: "acheulean-handaxes" },
+      { entity: "middle-stone-age", year: -149_999, site: "middle-stone-age@3" },
+      { entity: "levallois-mousterian", year: -89_999, site: "levallois-mousterian@r:pech-de-l-aze-iv-i-ii" },
+      { entity: "symbolic-culture" },
+      { entity: "figurative-cave-art" },
+      { entity: "chatelperronian", year: -40_999, site: "chatelperronian@r:grotte-des-fees-chatelperron-grotte-effondree" },
+      { entity: "aurignacian", year: -39_999, site: "aurignacian@1" },
+      { entity: "earliest-musical-instruments" },
+      { entity: "gravettian", year: -27_999, site: "gravettian@5" },
+      { entity: "solutrean", year: -18_999, site: "solutrean@2" },
+      { entity: "first-pottery" },
+      { entity: "magdalenian", year: -12_999, site: "magdalenian@1" },
+    ],
+  },
 ];
 
 export const tourById = (id: string) => TOURS.find((t) => t.id === id);
