@@ -17,7 +17,7 @@ export const ERA_PRESETS: { label: string; year: number; icon: EraIconName; tint
   { label: "First tools", year: -2_499_999, icon: "handaxe", tint: "#b9c1cc" },
   { label: "Out of Africa", year: -1_799_999, icon: "migration", tint: "#e8a865" },
   { label: "Neanderthals", year: -199_999, icon: "fire", tint: "#ff9a4d" },
-  { label: "Cave art", year: -29_999, icon: "cave-animal", tint: "#e0794f" },
+  { label: "Cave art", year: -48_999, icon: "cave-animal", tint: "#e0794f" },
   { label: "Natufian", year: -12_999, icon: "hut", tint: "#c9a77c" },
   { label: "First farmers", year: -4_999, icon: "wheat", tint: "#f0c85a" },
   { label: "Bronze Age", year: -2_249, icon: "dagger", tint: "#d39a5b" },
