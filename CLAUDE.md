@@ -44,6 +44,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
+- The jump-to chips under the time slider (`ERA_PRESETS` in `src/config.ts`) each name an event id and jump to
+  that event's snapped year; `src/eraPresets.test.ts` checks every chip lands on its event.
 - Pictures: square 1000×1000 WebP in `public/images/events/` (title painted in, so always shown whole, never cropped);
   `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile.
 - Video and audio: `media` list on an event (`kind` video|audio, `src`, `title`, `credit`; validator-enforced). Files live

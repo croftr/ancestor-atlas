@@ -9,20 +9,20 @@ export const CATEGORY_STYLE = {
   event: { label: "Events", color: "#c39bff", ink: "#3a1a6b", shape: "Moments" },
 } as const;
 
-// Era jump chips under the time slider; years are astronomical. `icon` names a pictogram in ui/EraIcon.tsx and `tint`
-// colours it (earthy tones: bone, flint, ochre, wheat, bronze, marble, terracotta).
-export const ERA_PRESETS: { label: string; year: number; icon: EraIconName; tint: string }[] = [
-  { label: "Sahelanthropus", year: -6_499_999, icon: "skull", tint: "#e6dcc4" },
-  { label: "Lucy", year: -3_199_999, icon: "footprints", tint: "#d9b48a" },
-  { label: "First tools", year: -2_499_999, icon: "handaxe", tint: "#b9c1cc" },
-  { label: "Out of Africa", year: -1_799_999, icon: "migration", tint: "#e8a865" },
-  { label: "Neanderthals", year: -199_999, icon: "fire", tint: "#ff9a4d" },
-  { label: "Cave art", year: -48_999, icon: "cave-animal", tint: "#e0794f" },
-  { label: "Natufian", year: -12_999, icon: "hut", tint: "#c9a77c" },
-  { label: "First farmers", year: -4_999, icon: "wheat", tint: "#f0c85a" },
-  { label: "Bronze Age", year: -2_249, icon: "dagger", tint: "#d39a5b" },
-  { label: "Persia", year: -499, icon: "column", tint: "#e9e2d2" },
-  { label: "1 CE", year: 1, icon: "amphora", tint: "#e08a62" },
+// Era jump chips under the time slider, each tied to an event in events.yaml: the chip jumps to the event's year
+// (snapped to the slider), so the event is always on the globe when you land. Oldest first. `icon` names a pictogram
+// in ui/EraIcon.tsx and `tint` colours it (earthy tones: bone, flint, ochre, wheat, bronze, marble).
+export const ERA_PRESETS: { label: string; event: string; icon: EraIconName; tint: string }[] = [
+  { label: "First hominins", event: "hominin-divergence", icon: "skull", tint: "#e6dcc4" },
+  { label: "First tools", event: "lomekwian-tools", icon: "handaxe", tint: "#b9c1cc" },
+  { label: "Out of Africa", event: "out-of-africa-dmanisi", icon: "migration", tint: "#e8a865" },
+  { label: "Fire", event: "control-of-fire", icon: "fire", tint: "#ff9a4d" },
+  { label: "Modern humans", event: "modern-humans-emerge", icon: "footprints", tint: "#d9b48a" },
+  { label: "Cave art", event: "figurative-cave-art", icon: "cave-animal", tint: "#e0794f" },
+  { label: "First farmers", event: "birth-of-agriculture", icon: "wheat", tint: "#f0c85a" },
+  { label: "Bronze Age", event: "bronze-age", icon: "dagger", tint: "#d39a5b" },
+  { label: "Pyramids", event: "great-pyramid", icon: "pyramid", tint: "#e9e2d2" },
+  { label: "Coinage", event: "minted-coinage", icon: "coin", tint: "#e0b94f" },
 ];
 
 // Timeline eras: the chunks the timeline's Earlier / Later buttons step through, oldest first.

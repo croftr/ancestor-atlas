@@ -14,6 +14,7 @@ import {
   formatYear,
   posToYear,
   segmentOfBce,
+  snapYear,
   stepYear,
   yearToPos,
 } from "../time/scale";
@@ -61,8 +62,18 @@ export default function TimeSlider() {
   const eras = useMemo(() => (data ? erasFor(data.entities, TIMELINE_ERAS) : []), [data]);
   const era = eras.find((e) => year < e.end) ?? eras.at(-1);
   const stacked = useMediaQuery(STACKED_QUERY);
+  // Jump-to chips, each landing on its event's year (snapped to the slider, so the event is in view).
+  const presets = useMemo(
+    () =>
+      ERA_PRESETS.flatMap((p) => {
+        const ev = data?.entityById.get(p.event);
+        if (!ev) return [];
+        return [{ ...p, year: snapYear(ev.year ?? ev.start_year), title: `${ev.name}: ${ev.date_text ?? formatYear(ev.start_year)}` }];
+      }),
+    [data],
+  );
   // The latest shortcut the slider has reached, lit up in the chip row and on the track.
-  const activePreset = [...ERA_PRESETS].reverse().find((p) => p.year <= year)?.label;
+  const activePreset = [...presets].reverse().find((p) => p.year <= year)?.label;
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
 
   // Play loop
@@ -161,7 +172,7 @@ export default function TimeSlider() {
       </div>
       <div className="range-wrap">
         <div className="preset-marks" aria-hidden="true">
-          {ERA_PRESETS.map((p) => (
+          {presets.map((p) => (
             <span
               key={p.label}
               className={`preset-mark${p.label === activePreset ? " active" : ""}`}
@@ -204,12 +215,12 @@ export default function TimeSlider() {
         ))}
       </div>
       <div id="era-shortcuts" className={`chips${shortcutsOpen ? " open" : ""}`}>
-        {ERA_PRESETS.map((e) => (
+        {presets.map((e) => (
           <button
             key={e.label}
             className={`chip era-chip${e.label === activePreset ? " active" : ""}`}
             style={{ "--tint": e.tint } as CSSProperties}
-            title={formatYear(e.year)}
+            title={e.title}
             aria-pressed={e.label === activePreset}
             onClick={() => {
               setYear(e.year);

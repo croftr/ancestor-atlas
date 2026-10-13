@@ -11,11 +11,10 @@ export type EraIconName =
   | "migration"
   | "fire"
   | "cave-animal"
-  | "hut"
   | "wheat"
   | "dagger"
-  | "column"
-  | "amphora";
+  | "pyramid"
+  | "coin";
 
 const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 1.3, strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
@@ -30,7 +29,7 @@ const ICONS: Record<EraIconName, ReactNode> = {
       />
     </>
   ),
-  // Laetoli-style footprints: Lucy's kind walked upright.
+  // Laetoli-style footprints, for the first modern humans.
   footprints: (
     <g fill="currentColor">
       <ellipse cx="5.2" cy="10.4" rx="1.7" ry="2.9" transform="rotate(-12 5.2 10.4)" />
@@ -70,13 +69,6 @@ const ICONS: Record<EraIconName, ReactNode> = {
       <path d="M2.7 7.4c-.7.2-1.1.8-1.2 1.6" fill="none" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" />
     </g>
   ),
-  // Round house, as in the first Natufian villages.
-  hut: (
-    <g {...stroke}>
-      <path d="M3.5 13V9.6a4.5 4.5 0 0 1 9 0V13" />
-      <path d="M2 13h12M6.9 13v-2.3a1.1 1.1 0 0 1 2.2 0V13M3.9 7.9h8.2" />
-    </g>
-  ),
   // An ear of wheat.
   wheat: (
     <g fill="currentColor">
@@ -99,18 +91,19 @@ const ICONS: Record<EraIconName, ReactNode> = {
       <circle cx="8" cy="14.1" r="1" fill="currentColor" />
     </g>
   ),
-  // A column of Persepolis.
-  column: (
-    <g {...stroke}>
-      <path d="M3 3.3c1.2 0 1.6-1.2 2.5-1.2h5c.9 0 1.3 1.2 2.5 1.2M4.5 4.6h7M5.8 4.6v8.3M8 4.6v8.3M10.2 4.6v8.3M3.8 13.4h8.4" />
-    </g>
+  // The Great Pyramid with its shaded face.
+  pyramid: (
+    <>
+      <path {...stroke} d="M1.8 13.2h12.4M8 2.8 2.6 13.2h10.8z" />
+      <path fill="currentColor" d="M8 2.8l5.4 10.4H9.4z" />
+    </>
   ),
-  // Roman amphora.
-  amphora: (
-    <g {...stroke}>
-      <path d="M6.6 1.8h2.8M7.1 1.8v2.1C5.5 4.8 4.7 6.4 4.7 8.6c0 2.3 1.3 4 3.3 5.6 2-1.6 3.3-3.3 3.3-5.6 0-2.2-.8-3.8-2.4-4.7V1.8" />
-      <path d="M7.1 3.3 5.4 3c-.5 0-.8.5-.6 1l.8 1.8M8.9 3.3l1.7-.3c.5 0 .8.5.6 1l-.8 1.8" strokeWidth="1" />
-    </g>
+  // A stamped coin: rim and a lion-head blob, as on Lydian electrum.
+  coin: (
+    <>
+      <circle {...stroke} cx="8" cy="8" r="5.6" />
+      <circle fill="currentColor" cx="8" cy="8" r="2.6" />
+    </>
   ),
 };
 
