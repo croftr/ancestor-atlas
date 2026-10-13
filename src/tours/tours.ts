@@ -86,6 +86,24 @@ export const TOURS: Tour[] = [
       { entity: "peopling-of-the-americas" },
     ],
   },
+  {
+    id: "out-of-africa",
+    title: "Out of Africa",
+    blurb: "How our ancestors left Africa and reached every continent, from the first steps into Asia to the peopling of the Americas.",
+    layers: ["species", "culture", "event"],
+    music: { src: "music/tours/out-of-africa-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    stops: [
+      { entity: "out-of-africa-dmanisi" },
+      { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },
+      { entity: "symbolic-culture" },
+      { entity: "sahul-seafaring" },
+      { entity: "archaic-human-admixture" },
+      { entity: "figurative-cave-art" },
+      { entity: "aurignacian", year: -39_999, site: "aurignacian@1" },
+      { entity: "peopling-of-the-americas" },
+      { entity: "clovis", year: -10_999, site: "clovis@2" },
+    ],
+  },
 ];
 
 export const tourById = (id: string) => TOURS.find((t) => t.id === id);

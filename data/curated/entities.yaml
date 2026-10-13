@@ -533,7 +533,8 @@
   category: culture
   start_year: -41050
   end_year: -28050
-  description: Early Upper Palaeolithic culture of Europe linked with modern humans, with blade tools, bone points, ornaments, early figurative art and musical instruments.
+  description: "The Aurignacian marks the arrival of modern humans across Europe from about 43,000 years ago, while Neanderthals still lived there. Its makers struck long, thin stone blades, shaped spear points from bone and antler, and wore beads of shell, ivory and animal teeth. In the caves of the Swabian Jura they carved the oldest known figurines, among them the Lion Man and the Venus of Hohle Fels, and played flutes of bird bone and mammoth ivory; the paintings of Chauvet Cave in France belong to the same world."
+  narration: { src: narration/cultures/aurignacian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e885ba5a55" }
   wikipedia_url: https://en.wikipedia.org/wiki/Aurignacian
   source_ids:
     - recall
@@ -616,7 +617,8 @@
   category: culture
   start_year: -12050
   end_year: -9681
-  description: Widespread North American stone tool tradition around 13,000 years ago, characterised by fluted spear points.
+  description: "Around 13,000 years ago a distinctive way of making stone spear points spread across North America. Clovis points, named after finds near Clovis, New Mexico, in the 1930s, have a channel struck from the base so they could be bound to a shaft, and they turn up from the Atlantic coast to the Rockies, sometimes beside the bones of mammoths. Clovis was long thought to mark the first Americans, but older sites such as Monte Verde in Chile show people had arrived thousands of years before."
+  narration: { src: narration/cultures/clovis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "20e58f3384" }
   wikipedia_url: https://en.wikipedia.org/wiki/Clovis_culture
   source_ids:
     - recall
