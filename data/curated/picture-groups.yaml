@@ -96,4 +96,32 @@
      kingdom-of-lysimachus, rhodes, sacred-band-of-thebes, greek-colonies,
      cimmerian-bosporus, molossians, perdiccas, polyperchon, laomedon]
 
+- id: ancient-korea
+  label: Ancient Korea in general
+  image_url: /images/civilisations/ancient-korea.webp
+  image_credit: AI-generated illustration
+  members:
+    [gojoseon, korean-jin, byeonhan, jinhan, mahan, dongye, dong-okjeo, goguryeo]
+
+- id: berber-kingdoms
+  label: ancient Berber kingdoms in general
+  image_url: /images/civilisations/numidia.webp
+  image_credit: AI-generated illustration
+  members: [kingdom-of-numidia, mauretania]
+
+- id: ancient-thrace
+  label: Ancient Thrace in general
+  image_url: /images/civilisations/thrace.webp
+  image_credit: AI-generated illustration
+  members: [odrysian-kingdom, thracian-kingdom]
+
+- id: baiyue
+  label: the Baiyue kingdoms in general
+  image_url: /images/civilisations/baiyue.webp
+  image_credit: AI-generated illustration
+  members: [nanyue, minyue]
+
+
+
+
 

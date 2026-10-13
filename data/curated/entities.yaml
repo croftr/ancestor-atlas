@@ -1180,6 +1180,8 @@
       credit: Historical Adventure, YouTube
 - id: minoan-civilization
   description: "On the island of Crete the Minoans built Europe's first great palaces, at Knossos, Phaistos and Malia: centres of storage, craft and ritual, decorated with vivid frescoes of bulls, dolphins and processions. They traded across the eastern Mediterranean with Egypt and the Levant, and wrote in a script, Linear A, that is still undeciphered. After about 1450 BCE most of the palaces were destroyed, and Knossos came under the control of Mycenaean Greeks from the mainland."
+  image_url: /images/civilisations/minoan-civilization.webp
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/minoan-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5981d1131c" }
   media:
     - kind: video
@@ -1188,6 +1190,8 @@
       credit: Dan Davis History, YouTube
 - id: etruscans
   description: A sophisticated pre-Roman civilization that flourished in Etruria (modern Tuscany, western Umbria, and northern Lazio) in central Italy. Organized into a wealthy confederation of independent city-states like Tarquinia and Veii, the Etruscans possessed advanced metalworking, terracotta sculpture, and divination traditions, deeply influencing early Roman culture, religion, and urban design.
+  image_url: /images/civilisations/etruscans.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=T22qDvgI930
@@ -1244,6 +1248,8 @@
       credit: History with Cy, YouTube
 - id: mamertines
   description: A band of Campanian mercenary soldiers originally hired by Agathocles of Syracuse who mutinied, seized the strategic city of Messina in Sicily in 289 BCE, and conducted piracy. Their subsequent appeals for protection against Hiero II of Syracuse to both Carthage and Rome directly ignited the First Punic War in 264 BCE.
+  image_url: /images/civilisations/mamertines.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=P4ewPrVTuwM
@@ -1251,6 +1257,8 @@
       credit: Ashes of history, YouTube
 - id: illyrian-kingdom
   description: An ancient Balkan confederation and kingdom of Illyrian tribes situated along the Adriatic coast in modern Albania, Montenegro, and Bosnia. Under rulers like King Agron and Queen Teuta, Illyria fielded formidable lembi warships that dominated Adriatic trade routes, triggering armed conflict and two wars with the Roman Republic.
+  image_url: /images/civilisations/illyrian-kingdom.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=8fDuTqAmo9M
@@ -1279,6 +1287,8 @@
       credit: Fall of Civilizations, YouTube
 - id: kingdom-of-kush
   description: A powerful ancient Nubian civilization centered along the Middle Nile in modern Sudan, with historic capitals at Kerma, Napata, and Meroë. Famed for archery, gold mining, and distinctive steep-sided pyramids, the Kushites conquered Egypt in the 8th century BCE to rule as the Twenty-Fifth Dynasty before later flourishing as an ironworking empire.
+  image_url: /images/civilisations/kingdom-of-kush.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=R9Z8t79YF5k
@@ -1286,6 +1296,8 @@
       credit: BBC, YouTube
 - id: cyrenaica
   description: A prosperous Greek settlement region on the Mediterranean coast of eastern Libya, founded in the 7th century BCE around the city of Cyrene. Renowned for its philosophers, horse racing, and monopoly on the prized medicinal plant silphium, Cyrenaica evolved from an independent monarchy into a Hellenistic kingdom before Roman annexation.
+  image_url: /images/civilisations/cyrenaica.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=RI62LGEKbLI
@@ -1359,6 +1371,8 @@
       credit: History Time, YouTube
 - id: mitanni
   description: A powerful Hurrian-speaking kingdom centered in northern Syria and Upper Mesopotamia that flourished as a major Near Eastern empire during the mid-second millennium BCE. Renowned for horse breeding and chariot warfare, Mitanni rivaled Egypt and the Hittite Empire before falling to Assyrian and Hittite expansion.
+  image_url: /images/civilisations/mitanni.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=0PGOZPbOBG4
@@ -1643,6 +1657,8 @@
 # Batch 3: Iran, Central Asia, Steppes, Americas, Greece, Thrace, Axum, Vietnam
 - id: elam
   description: An ancient civilization centered in southwestern Iran across Khuzestan and the Zagros highlands, with principal capitals at Susa and Anshan. Contemporaries and frequent rivals of Sumer, Babylon, and Assyria, the Elamites developed their own Linear Elamite and cuneiform scripts, monumental brick ziggurats like Chogha Zanbil, and deeply influenced the rise of the Persian Empire.
+  image_url: /images/civilisations/elam.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=jkFwh_saHmc
@@ -1687,6 +1703,8 @@
       credit: Epic History, YouTube
 - id: olmec-civilization
   description: "On the humid Gulf Coast of Mexico the Olmecs created one of the first complex societies of Mesoamerica. At San Lorenzo and later La Venta they built earthen platforms and plazas, and carved colossal heads from basalt boulders brought from mountains many kilometres away, probably portraits of their rulers. Their art, their ball game and their reverence for jade and the jaguar shaped the Maya and the cultures that followed them. By around 400 BCE their great centres had been abandoned."
+  image_url: /images/civilisations/olmec-civilization.webp
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/olmec-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6ad3d987f1" }
   media:
     - kind: video
@@ -1702,6 +1720,8 @@
       credit: Kings and Generals, YouTube
 - id: median-kingdom
   description: An ancient Iranian tribal confederation and empire centered at Ecbatana (modern Hamadan, Iran) in the Zagros Mountains. Allying with Nabopolassar of Babylon to overthrow the Neo-Assyrian Empire in 612 BCE, the Medes controlled a vast territory from eastern Anatolia to the Iranian plateau before Cyrus the Great incorporated Media into the Achaemenid Empire.
+  image_url: /images/civilisations/median-kingdom.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=XF9-27lMhpE
@@ -1724,6 +1744,8 @@
       credit: Kings and Generals, YouTube
 - id: zapotec-civilization
   description: An advanced indigenous pre-Columbian civilization centered in the highland Valley of Oaxaca in southern Mexico. Ruling from the mountaintop acropolis city of Monte Albán, the Zapotecs developed the earliest known written glyphic script and calendar in Mesoamerica, terrace farming, and monumental ballcourts that flourished for over a millennium.
+  image_url: /images/civilisations/zapotec-civilization.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bV_4XySFa94
@@ -1773,6 +1795,8 @@
       credit: Ancient History Guy, YouTube
 - id: atropatene
   description: An ancient Iranian kingdom in northwestern Media (modern Iranian Azerbaijan) founded around 323 BCE by the Persian satrap Atropates, who successfully preserved his realm's independence amid the Wars of the Diadochi. Thriving as an autonomous Zoroastrian cultural center, Atropatene gave its name to modern Azerbaijan while skillfully maneuvering between Seleucid, Parthian, and Roman imperial spheres.
+  image_url: /images/civilisations/atropatene.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=-1XbXfBUxb8
@@ -1794,6 +1818,8 @@
       credit: Boring History, YouTube
 - id: au-lac
   description: An ancient proto-Vietnamese kingdom established in the Red River Delta of northern Vietnam by Thục Phán (King An Dương Vương) around 257 BCE. Centered on the monumental spiral-walled fortress of Cổ Loa, Âu Lạc was celebrated for bronze casting and sophisticated mechanical crossbow technology before being conquered by Nanyue.
+  image_url: /images/civilisations/au-lac.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=67xJnkAKL_0
@@ -1808,6 +1834,8 @@
       credit: TimelessTreasury, YouTube
 - id: mayan-city-states
   description: A sophisticated Mesoamerican civilization spanning southeastern Mexico, Guatemala, Belize, and western Honduras. Organized into competing city-states like Tikal, Calakmul, and El Mirador, the Maya engineered tropical agriculture, developed the most fully articulated pre-Columbian hieroglyphic script, advanced astronomical mathematics, and monumental corbeled-vault architecture.
+  image_url: /images/civilisations/mayan-city-states.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=z9YwfTerAdA
@@ -1829,6 +1857,8 @@
       credit: Lapis Lazuli, YouTube
 - id: great-yuan
   description: An urbanized Hellenistic civilization in the fertile Fergana Valley of Central Asia (modern Uzbekistan, Kyrgyzstan, and Tajikistan), recorded in Chinese chronicles as Dayuan ('Great Ionians'). Famed for walled cities and prized, blood-sweating 'Heavenly Horses', Dayuan fought the War of the Heavenly Horses (104–101 BCE) against Han China, initiating direct Chinese commercial ties to the West.
+  image_url: /images/civilisations/great-yuan.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=g6Rphg_lwwM
@@ -1843,6 +1873,8 @@
       credit: Kings and Generals, YouTube
 - id: kingdom-of-axum
   description: A powerful maritime and trading empire centered in northern Ethiopia and Eritrea, flourishing along the Red Sea and Gulf of Aden. Positioned along spice and silk routes connecting Rome to India, Axum developed the Ge'ez script, erected colossal monolithic granite stelae, minted its own gold coinage, and adopted Christianity under King Ezana.
+  image_url: /images/civilisations/kingdom-of-axum.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=LdSFpSarZkA
@@ -1850,6 +1882,8 @@
       credit: STORIES NETWORK, YouTube
 - id: teotihuacan
   description: A colossal pre-Columbian metropolis in the Valley of Mexico that was one of the largest cities in the ancient world, peaking around 400 CE. Known for its grid layout, apartment compounds, and monumental Pyramids of the Sun and Moon along the Avenue of the Dead, Teotihuacan projected profound cultural influence across Mesoamerica.
+  image_url: /images/civilisations/teotihuacan.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=aV6ZZZsCjK8
@@ -2154,6 +2188,8 @@
       credit: The Indian History Nerd, YouTube
 - id: indo-parthians
   description: An ancient kingdom established around 19 CE when the Parthian general Gondophares broke away from the Arsacids to forge an independent realm spanning modern Afghanistan, Pakistan, and northwestern India. Governed from Taxila, the dynasty blended Parthian, Scythian, and Hellenistic cultural traditions, featuring prominently in early Christian apocrypha concerning Saint Thomas.
+  image_url: /images/civilisations/indo-parthians.webp
+  image_credit: AI-generated illustration
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bJRFT2s49Ao
