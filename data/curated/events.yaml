@@ -36,6 +36,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=NhM-2P93hoI", title: "The oldest archaeological site in the world", credit: "Stefan Milo, YouTube" }
+  narration: { src: narration/events/lomekwian-tools-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "7926749546" }
   date_source: wikipedia:Lomekwi@1378607817
   places:
     - { label: Lomekwi 3, lat: 3.91083, lon: 35.8503, wikidata: Q19833854 }
@@ -51,6 +52,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=uVTQBQfbqJc", title: "The Oldowan stone tool", credit: "Historic Concepts, YouTube" }
+  narration: { src: narration/events/oldowan-tools-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5d31d95d74" }
   date_source: wikipedia:Oldowan@1378627077
   places:
     - { label: Gona, lat: 11.1, lon: 40.53333, wikidata: Q12314119 }
@@ -68,6 +70,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=9btN6H7H3Rg", title: "When Did Hominins First Leave Africa?", credit: "Stefan Milo, YouTube" }
+  narration: { src: narration/events/out-of-africa-dmanisi-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4d3c64072e" }
   date_source: wikipedia:Dmanisi_hominins@1379254244
   places:
     - { label: Dmanisi, lat: 41.336, lon: 44.338, wikidata: Q64446966 }
@@ -83,6 +86,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=BwmpNKWGdGw", title: "Acheulean technology and how to make a handaxe", credit: "Nicci Sherwood, YouTube" }
+  narration: { src: narration/events/acheulean-handaxes-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e6e0e6e8da" }
   date_source: wikipedia:Acheulean@1378641547
   places:
     - { label: Kokiselei (West Turkana), lat: 3.98027, lon: 35.86629, wikidata: Q55500799, note: "place-level: the Kokiselei River item; the site has no coordinates in Wikidata" }
@@ -98,6 +102,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=xfDin2fEaeE", title: "When humans first controlled fire", credit: "CurioWorld, YouTube" }
+  narration: { src: narration/events/control-of-fire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ba7a7780dd" }
   date_source: wikipedia:Control_of_fire_by_early_humans@1374975705
   places:
     - { label: Wonderwerk Cave, lat: -27.845, lon: 23.55389, wikidata: Q2543042 }
@@ -113,6 +118,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=t1_hFZM9Ew8", title: "Where the first anatomically modern humans were found", credit: "Highly Compelling, YouTube" }
+  narration: { src: narration/events/modern-humans-emerge-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ca109e5b28" }
   date_source: wikipedia:Jebel_Irhoud@1376091257
   places:
     - { label: Jebel Irhoud, lat: 31.85498, lon: -8.87251, wikidata: Q846913 }
@@ -128,6 +134,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=z2XsBYYM8kk", title: "Blombos Cave: the birth of symbolic thinking", credit: "Origins & Empires, YouTube" }
+  narration: { src: narration/events/symbolic-culture-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "953f0dde52" }
   date_source: wikipedia:Blombos_Cave@1374861035
   places:
     - { label: Blombos Cave, lat: -34.41444, lon: 21.2225, wikidata: Q884971 }
@@ -145,6 +152,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=6vQC3xBiRbM", title: "The oldest evidence of human seafaring", credit: "HistoryMush, YouTube" }
+  narration: { src: narration/events/sahul-seafaring-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6a4e016875" }
   date_source: wikipedia:Prehistory_of_Australia@1376093040
   places:
     - { label: Madjedbebe, lat: -12.5, lon: 132.88333, wikidata: Q8563176 }
@@ -163,6 +171,7 @@
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=rXN-KEULia8", title: "Does Neanderthal DNA put a ceiling on Out of Africa?", credit: "Stefan Milo, YouTube" }
     - { kind: video, src: "https://www.youtube.com/watch?v=5JzoalkMW6I", title: "Denny: The Incredible Hybrid of Neanderthal and Denisovan", credit: "Evo Inception, YouTube" }
+  narration: { src: narration/events/archaic-human-admixture-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ac17699ce8" }
   date_source: wikipedia:Archaic_human_admixture_with_modern_humans@849841297
   places:
     - { label: Denisova Cave, lat: 51.39758, lon: 84.67621, wikidata: Q1029322 }
@@ -179,6 +188,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=b-wAYtBxn7E", title: "Oldest cave art found in Sulawesi", credit: "Griffith University, YouTube" }
+  narration: { src: narration/events/figurative-cave-art-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f3ac340078" }
   date_source: wikipedia:Karampuang_cave@1341794223
   places:
     - { label: Leang Karampuang (Maros), lat: -5.01649, lon: 119.57447, wikidata: Q14611, note: "place-level: Maros Regency; the cave item (Q127256239) has no coordinates in Wikidata" }
@@ -197,6 +207,7 @@
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=obTQG1i4A78", title: "Playing the 35,000-year-old Hohle Fels bone flute replica", credit: "Albin Paulus, YouTube" }
     - { kind: video, src: "https://www.youtube.com/watch?v=dqjxtstlHA0", title: "Hohle Fels Cave flute", credit: "Odd Quartet, YouTube" }
+  narration: { src: narration/events/earliest-musical-instruments-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d38a9355fc" }
   date_source: wikipedia:Paleolithic_flute@1365091409
   places:
     - { label: Hohle Fels, lat: 48.37917, lon: 9.75556, wikidata: Q875927 }
@@ -215,6 +226,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=U7VQbRsRxLg", title: "Ice Age Footprints", credit: "PBS America, YouTube" }
+  narration: { src: narration/events/peopling-of-the-americas-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6521a21a2d" }
   date_source: wikipedia:Settlement_of_the_Americas@1161199235
   places:
     - { label: White Sands, lat: 32.77972, lon: -106.17167, wikidata: Q1200164, note: "place-level: White Sands National Park" }
@@ -233,6 +245,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=2taUjbCb3N8", title: "The world's first pottery is older than you think", credit: "Dan Davis History, YouTube" }
+  narration: { src: narration/events/first-pottery-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "c7346f774b" }
   date_source: wikipedia:Xianren_Cave@1365044572
   places:
     - { label: Xianrendong Cave, lat: 28.73608, lon: 117.17322, wikidata: Q2812194 }
@@ -248,6 +261,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=nDt0HKSdRRw", title: "How dogs (eventually) became our best friends", credit: "PBS Eons, YouTube" }
+  narration: { src: narration/events/dog-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6d17c7588a" }
   date_source: wikipedia:Domestication_of_the_dog@1376904672
   places:
     - { label: Bonn-Oberkassel, lat: 50.71389, lon: 7.16667, wikidata: Q178317, note: "place-level: the Oberkassel district of Bonn" }
@@ -263,6 +277,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=n-phVB-EmR8", title: "The oldest temple in the world", credit: "BBC, YouTube" }
+  narration: { src: narration/events/gobekli-tepe-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b9f011df8d" }
   date_source: wikipedia:Göbekli_Tepe@1378753246
   places:
     - { label: Göbekli Tepe, lat: 37.22306, lon: 38.9225, wikidata: Q214944 }
@@ -282,6 +297,7 @@
     - { kind: video, src: events/agriculture1.mp4, title: "Agriculture, part 1", credit: AI-generated video }
     - { kind: video, src: events/agriculture2.mp4, title: "Agriculture, part 2", credit: AI-generated video }
     - { kind: video, src: "https://www.youtube.com/watch?v=bhzQFIZuNFY", title: "Mankind: the story of all of us – birth of farming", credit: "HISTORY, YouTube" }
+  narration: { src: narration/events/birth-of-agriculture-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "679ed140c6" }
   date_source: wikipedia:Neolithic_Revolution@1378743296
   places:
     - { label: Fertile Crescent, lat: 36, lon: 40, wikidata: Q170526, note: "region: the Fertile Crescent's Wikidata point" }
@@ -297,6 +313,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=ErpfUswqe6Y", title: "Copper smelting and bronze casting at the Great Orme copper mines", credit: "AncientCraftUK (Dr James Dilley), YouTube" }
+  narration: { src: narration/events/copper-smelting-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e5a955bdfa" }
   date_source: wikipedia:Chalcolithic@1373076884
   places:
     - { label: Pločnik, lat: 43.21056, lon: 21.36472, wikidata: Q12757361 }
@@ -314,6 +331,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=hTmt6PUryT0", title: "Which ancient society really invented the wheel?", credit: "Dan Davis History, YouTube" }
+  narration: { src: narration/events/invention-of-the-wheel-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1ecbe7a0f7" }
   date_source: wikipedia:Wheel@1377593758
   places:
     - { label: Uruk, lat: 31.3259, lon: 45.6374, wikidata: Q168518 }
@@ -329,6 +347,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=6rn9b7Z1ZnQ", title: "The Bronze Age summarized (geography, people and resources)", credit: "Epimetheus, YouTube" }
+  narration: { src: narration/events/bronze-age-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d72dbb8826" }
   date_source: wikipedia:Bronze_Age@1377895015
   places:
     - { label: Mesopotamia, lat: 33.7, lon: 43.5, wikidata: Q11767, note: "region: Mesopotamia's Wikidata point" }
@@ -344,6 +363,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=gsFn64PL4ks", title: "The oldest text in the world", credit: "IFLScience, YouTube" }
+  narration: { src: narration/events/development-of-writing-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "99a01e6c4e" }
   date_source: wikipedia:Cuneiform@1379042447
   places:
     - { label: Uruk, lat: 31.3259, lon: 45.6374, wikidata: Q168518 }
@@ -359,6 +379,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=dWq0iC4YqbE", title: "Building the Great Pyramid of Giza", credit: "National Geographic UK, YouTube" }
+  narration: { src: narration/events/great-pyramid-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3e1d57afc1" }
   date_source: wikipedia:Great_Pyramid_of_Giza@1378503482
   places:
     - { label: Great Pyramid of Giza, lat: 29.97915, lon: 31.13422, wikidata: Q37200 }
@@ -374,6 +395,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=CmOjLH0rs9U", title: "The Indus civilization: the discovery that changes everything", credit: "Show Me the World, YouTube" }
+  narration: { src: narration/events/indus-cities-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e8561d65ec" }
   date_source: wikipedia:Mohenjo-daro@1376909925
   places:
     - { label: Mohenjo-daro, lat: 27.32917, lon: 68.13889, wikidata: Q5725 }
@@ -390,6 +412,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=w6yonf-SAXw", title: "The history of the alphabet", credit: "The Generalist Papers, YouTube" }
+  narration: { src: narration/events/alphabetic-script-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "aa616858e4" }
   date_source: wikipedia:Proto-Sinaitic_script@1373408378
   places:
     - { label: Serabit el-Khadim, lat: 29.03673, lon: 33.45941, wikidata: Q1462523 }
@@ -405,6 +428,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=QEko2CMykuk", title: "The Code of Hammurabi", credit: "NBC News Learn, YouTube" }
+  narration: { src: narration/events/code-of-hammurabi-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "c1918d0e7b" }
   date_source: wikipedia:Code_of_Hammurabi@1378337092
   places:
     - { label: Babylon, lat: 32.5425, lon: 44.42111, wikidata: Q5684 }
@@ -420,6 +444,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=sD2Z6Lx5Z7A", title: "Recreating Iron Age smelting at Hengistbury Head", credit: "Career in Ruins, YouTube" }
+  narration: { src: narration/events/iron-age-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "241a49cf4d" }
   date_source: wikipedia:Iron_Age@1378096360
   places:
     - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007 }
@@ -435,6 +460,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=cLk8CUiovIk", title: "Eric Cline on the Sea Peoples invasion of ancient Egypt", credit: "The Ancients (History Hit), YouTube" }
+  narration: { src: narration/events/sea-peoples-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "a6dd477f3c" }
   date_source: wikipedia:Sea_Peoples@1378711126
   places:
     - { label: Medinet Habu, lat: 25.72, lon: 32.600833, wikidata: Q932622 }
@@ -451,6 +477,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=n5GKiwBERLc", title: "The first coin ever made", credit: "Classical Numismatics, YouTube" }
+  narration: { src: narration/events/minted-coinage-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "8828b949de" }
   date_source: wikipedia:Lydia@1376278046
   places:
     - { label: Sardis, lat: 38.48833, lon: 28.04028, wikidata: Q232615 }
@@ -468,6 +495,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=oVSf82tVNHg", title: "How ancient China invented paper", credit: "Learn Chinese Now, YouTube" }
+  narration: { src: narration/events/papermaking-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "35443abd31" }
   date_source: wikipedia:History_of_paper@1376858354
   places:
     - { label: Fangmatan, lat: 34.4129, lon: 106.10004, wikidata: Q5433839 }
