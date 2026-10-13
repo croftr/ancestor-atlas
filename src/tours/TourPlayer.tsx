@@ -5,6 +5,10 @@ import { bestYear } from "../search/search";
 import { posToYear, snapYear, yearToPos } from "../time/scale";
 import { tourById, type TourStop } from "./tours";
 import type { Data } from "../map/data";
+import { narrationState, pauseNarration, playNarration, preloadNarration, resumeNarration, stopNarration } from "../audio/narration";
+
+/** After a narration ends, the card stays up this long before the tour moves on. */
+const AFTER_NARRATION_MS = 1_500;
 
 /** Slider travel between stops: as fast as normal play (the whole track in 60 s), within these bounds. */
 const TRAVEL_MS_PER_TRACK = 60_000;
@@ -49,7 +53,11 @@ export default function TourPlayer() {
       return;
     }
     const entity = data.entityById.get(stop.entity)!;
-    const holdMs = holdSeconds(stop, entity.description) * 1000;
+    // Held for the narration if there is one (set once it starts), else for reading time.
+    let holdMs = holdSeconds(stop, entity.description) * 1000;
+    let cancelled = false;
+    const nextEntity = tour.stops[index + 1] && data.entityById.get(tour.stops[index + 1].entity);
+    if (nextEntity?.narration) preloadNarration(nextEntity.narration.src);
     const patchTour = (p: Partial<NonNullable<ReturnType<typeof useStore.getState>["tour"]>>) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
 
@@ -64,6 +72,15 @@ export default function TourPlayer() {
     const arrive = () => {
       useStore.getState().showEntity(stop.entity, { year: target, open: true });
       patchTour({ phase: "hold", holdMs });
+      if (entity.narration && !stop.hold)
+        playNarration(entity.narration.src)
+          .then((seconds) => {
+            if (cancelled || !Number.isFinite(seconds)) return;
+            if (useStore.getState().tour?.paused) pauseNarration();
+            holdMs = seconds * 1000 + AFTER_NARRATION_MS;
+            patchTour({ holdMs });
+          })
+          .catch(() => {}); // blocked or missing: the reading-time hold stands
     };
     if (travelMs > 0) {
       useStore.getState().select(null);
@@ -88,7 +105,7 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
-      } else if (elapsed >= holdMs) {
+      } else if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
         if (index + 1 < tour.stops.length) patchTour({ index: index + 1, travel: true });
         else useStore.getState().stopTour(); // the last card stays open
         return;
@@ -96,8 +113,20 @@ export default function TourPlayer() {
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      stopNarration();
+    };
   }, [data, id, index, travel]);
+
+  // Pausing the tour pauses its narration.
+  const paused = useStore((s) => s.tour?.paused);
+  useEffect(() => {
+    if (paused === undefined) return;
+    if (paused) pauseNarration();
+    else resumeNarration();
+  }, [paused]);
 
   // The viewer taking hold of the globe or the card pauses the tour.
   useEffect(() => {

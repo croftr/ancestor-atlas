@@ -8,6 +8,7 @@ import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
 import { clearShrunkCard, navigate, peekShrunkCard, type View } from "../route";
 import "./events.css";
+import ListenButton from "../audio/ListenButton";
 import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";
 import { useMediaQuery } from "./useMediaQuery";
@@ -329,6 +330,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       )}
       {isEvent && <EventImage event={entity} />}
       {isEvent && entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
+      {isEvent && <ListenButton entity={entity} />}
       {picture && brokenImage !== picture.url && (
         <>
           <div className="info-media">

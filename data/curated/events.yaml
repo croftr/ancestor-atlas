@@ -19,6 +19,7 @@
   image_credit: AI-generated illustration
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=DZv8VyIQ7YU", title: "Seven million years of human evolution", credit: "American Museum of Natural History, YouTube" }
+  narration: { src: narration/events/hominin-divergence-v1.mp3, credit: "AI-generated narration", text_hash: "5260a9af38" }
   date_source: wikipedia:Human_evolution@1379042225
   places:
     - { label: Toros-Menalla, lat: 16.2417, lon: 17.475, wikidata: Q56435888 }

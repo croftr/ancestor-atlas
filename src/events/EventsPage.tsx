@@ -9,6 +9,7 @@ import type { Entity } from "../types";
 import { refLink } from "../ui/refs";
 import EventImage from "./EventImage";
 import EventMedia from "./EventMedia";
+import ListenButton from "../audio/ListenButton";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import Totals from "../browse/Totals";
 import "./events-page.css";
@@ -152,6 +153,7 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
             <span>{event.name}</span>
           </h2>
           <div className="ev-detail-date">{event.date_text}</div>
+          <ListenButton entity={event} />
           <p>{event.description}</p>
 
           {related.length > 0 && (

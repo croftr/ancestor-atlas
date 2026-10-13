@@ -25,6 +25,12 @@ export interface Entity {
   date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"
   related_ids?: string[]; // species / cultures / civilizations the event concerns
   media?: MediaItem[]; // videos and audio, hosted outside the repo (see mediaUrl in config.ts)
+  /**
+   * The description read aloud (Listen button; played by tours). `src`: bucket key, see
+   * scripts/audio/narration.ts. `text_hash`: textHash() of the description that was recorded, so the
+   * validator can warn when the text has changed since.
+   */
+  narration?: { src: string; credit: string; text_hash: string };
 }
 
 /** A video or audio clip. `src` is a key in the media bucket ("events/x.mp4") or a full https URL. */

@@ -46,6 +46,13 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
 - The jump-to chips under the time slider (`ERA_PRESETS` in `src/config.ts`) each name an event id and jump to
   that event's snapped year; `src/eraPresets.test.ts` checks every chip lands on its event.
+- Narration (the description read aloud): `narration: { src, credit, text_hash }` on an event. Prepare a recording with
+  `npm run audio:narration -- <file> <event id> [credit]`: two-pass loudness normalisation to -16 LUFS, mono 96 kbps
+  MP3 at `data/build/audio/narration/events/<id>-v<n>.mp3` (n bumps on each re-record), events.yaml updated, upload
+  command printed. Bucket keys: `narration/events/<id>-v<n>.mp3` (validator-enforced); later `narration/tours/<tour>/…`
+  and `music/tours/<tour>-v<n>.mp3`. `text_hash` is the description's fingerprint at recording time; the validator
+  warns when the description changes. Played by the Listen button (card and event page, `src/audio/`) and by tours,
+  where the clip's length sets the hold.
 - Pictures: square 1000×1000 WebP in `public/images/events/` (title painted in, so always shown whole, never cropped);
   `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile.
 - Video and audio: `media` list on an event (`kind` video|audio, `src`, `title`, `credit`; validator-enforced). Files live

@@ -102,6 +102,7 @@ interface CuratedEvent {
   image_url?: string;
   image_credit?: string;
   media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
+  narration?: { src: string; credit: string; text_hash: string };
   places: { label: string; lat: number; lon: number; wikidata?: string; coord_source?: string; note?: string }[];
 }
 const curatedEvents = existsSync(`${CURATED}/events.yaml`)
@@ -127,6 +128,7 @@ for (const ev of curatedEvents) {
     image_url: ev.image_url,
     image_credit: ev.image_credit,
     media: ev.media?.length ? ev.media : undefined,
+    narration: ev.narration,
     source_ids: [],
   });
   ev.places.forEach((p, i) => {

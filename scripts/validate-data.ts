@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
 import { EVIDENCE_REF, QID } from "./lib/qa.ts";
 import { youtubeId } from "../src/youtube.ts";
+import { textHash } from "./lib/text-hash.ts";
 
 const CATS = ["species", "culture", "civilization", "event"];
 const CONFIDENCE = ["high", "medium", "low"];
@@ -67,6 +68,15 @@ for (const e of entityList) {
         if (!m?.title) err(`entity ${id}: media ${m?.src} needs a title`);
         if (!m?.credit) err(`entity ${id}: media ${m?.src} needs a credit (author/licence, or "AI-generated")`);
       }
+  }
+  if (e.narration !== undefined) {
+    const n = e.narration;
+    // Bucket keys: narration/events/<event id>-v<n>.mp3 (scripts/audio/narration.ts).
+    if (n?.src !== undefined && !new RegExp(`^narration/events/${id}-v\\d+\\.mp3$`).test(n.src))
+      err(`entity ${id}: narration src ${n.src} should be narration/events/${id}-v<n>.mp3`);
+    if (!n?.src || !n?.credit || !n?.text_hash) err(`entity ${id}: narration needs src, credit and text_hash`);
+    else if (n.text_hash !== textHash(e.description))
+      warn(`entity ${id}: description changed since narration ${n.src} was recorded (re-record, or set text_hash: ${textHash(e.description)} if the words still match)`);
   }
   if (e.category === "event") {
     if (!Number.isInteger(e.year) || e.year < e.start_year || e.year > e.end_year) err(`event ${id}: year must be an integer within start_year..end_year`);
