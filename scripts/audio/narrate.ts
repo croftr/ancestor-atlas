@@ -69,8 +69,13 @@ if (file && targets.length !== 1) fail("--file takes one event");
 // A batch spends ElevenLabs characters: show what it will cost and ask for --yes.
 if (!file) {
   const chars = targets.reduce((n, e) => n + e.description.length, 0);
-  const sub = (await (await api("/user/subscription")).json()) as { character_count: number; character_limit: number };
-  console.log(`${targets.length} event(s), ${chars.toLocaleString("en-US")} characters; ElevenLabs quota left: ${(sub.character_limit - sub.character_count).toLocaleString("en-US")}`);
+  // The quota needs the key's "User: read" permission; a key restricted to text-to-speech skips it.
+  const sub = await fetch(`${API}/user/subscription`, { headers: { "xi-api-key": apiKey() } });
+  const left = sub.ok ? ((await sub.json()) as { character_count: number; character_limit: number }) : null;
+  console.log(
+    `${targets.length} event(s), ${chars.toLocaleString("en-US")} characters` +
+      (left ? `; ElevenLabs quota left: ${(left.character_limit - left.character_count).toLocaleString("en-US")}` : " (quota not shown: the API key lacks User read)"),
+  );
   if (targets.length > 1 && !flag("--yes")) {
     for (const e of targets) console.log(`  ${e.id} (${e.description.length})`);
     console.log("Run again with --yes to go ahead.");
