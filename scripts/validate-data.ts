@@ -71,7 +71,7 @@ for (const e of entityList) {
   }
   if (e.narration !== undefined) {
     const n = e.narration;
-    // Bucket keys: narration/events/<event id>-v<n>.mp3 (scripts/audio/narration.ts).
+    // Bucket keys: narration/events/<event id>-v<n>.mp3 (scripts/audio/narrate.ts).
     if (n?.src !== undefined && !new RegExp(`^narration/events/${id}-v\\d+\\.mp3$`).test(n.src))
       err(`entity ${id}: narration src ${n.src} should be narration/events/${id}-v<n>.mp3`);
     if (!n?.src || !n?.credit || !n?.text_hash) err(`entity ${id}: narration needs src, credit and text_hash`);

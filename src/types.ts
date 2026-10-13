@@ -27,7 +27,7 @@ export interface Entity {
   media?: MediaItem[]; // videos and audio, hosted outside the repo (see mediaUrl in config.ts)
   /**
    * The description read aloud (Listen button; played by tours). `src`: bucket key, see
-   * scripts/audio/narration.ts. `text_hash`: textHash() of the description that was recorded, so the
+   * scripts/audio/narrate.ts. `text_hash`: textHash() of the description that was recorded, so the
    * validator can warn when the text has changed since.
    */
   narration?: { src: string; credit: string; text_hash: string };
