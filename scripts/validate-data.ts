@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
 import { EVIDENCE_REF, QID } from "./lib/qa.ts";
 import { youtubeId } from "../src/youtube.ts";
-import { textHash } from "./lib/text-hash.ts";
+import { NARRATION_FOLDER, textHash } from "./lib/text-hash.ts";
 
 const CATS = ["species", "culture", "civilization", "event"];
 const CONFIDENCE = ["high", "medium", "low"];
@@ -71,9 +71,10 @@ for (const e of entityList) {
   }
   if (e.narration !== undefined) {
     const n = e.narration;
-    // Bucket keys: narration/events/<event id>-v<n>.mp3 (scripts/audio/narrate.ts).
-    if (n?.src !== undefined && !new RegExp(`^narration/events/${id}-v\\d+\\.mp3$`).test(n.src))
-      err(`entity ${id}: narration src ${n.src} should be narration/events/${id}-v<n>.mp3`);
+    // Bucket keys: narration/<category folder>/<id>-v<n>.mp3 (scripts/audio/narrate.ts).
+    const folder = NARRATION_FOLDER[e.category as keyof typeof NARRATION_FOLDER];
+    if (n?.src !== undefined && !new RegExp(`^narration/${folder}/${id}-v\\d+\\.mp3$`).test(n.src))
+      err(`entity ${id}: narration src ${n.src} should be narration/${folder}/${id}-v<n>.mp3`);
     if (!n?.src || !n?.credit || !n?.text_hash) err(`entity ${id}: narration needs src, credit and text_hash`);
     else if (n.text_hash !== textHash(e.description))
       warn(`entity ${id}: description changed since narration ${n.src} was recorded (re-record, or set text_hash: ${textHash(e.description)} if the words still match)`);

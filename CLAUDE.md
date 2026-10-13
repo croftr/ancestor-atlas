@@ -46,10 +46,12 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
 - The jump-to chips under the time slider (`ERA_PRESETS` in `src/config.ts`) each name an event id and jump to
   that event's snapped year; `src/eraPresets.test.ts` checks every chip lands on its event.
-- Narration (the description read aloud): `narration: { src, credit, text_hash }` on an event. `npm run audio:narrate --
-  <event id>…` (or `--missing` / `--stale`, which list the cost and need `--yes`) does it all: ElevenLabs text-to-speech
+- Narration (the description read aloud): `narration: { src, credit, text_hash }` on an event, or on a species,
+  culture or civilization in entities.yaml (straight after `description`). One text per entity: the card, the page and
+  the narration always match, in every tour. `npm run audio:narrate -- <id>…` (or `--missing` for events, `--tour <id>`
+  for a tour's stops, `--stale`; batches list the cost and need `--yes`) does it all: ElevenLabs text-to-speech
   of the description (cached by text in `data/build/audio/tts`), two-pass normalisation to -16 LUFS, mono 96 kbps MP3,
-  upload to `narration/events/<id>-v<n>.mp3` (new key each time; refuses to overwrite), then sets events.yaml and that
+  upload to `narration/<events|species|cultures|civilizations>/<id>-v<n>.mp3` (new key each time; refuses to overwrite), then sets events.yaml and that
   event in public/data (and build-meta, if it was fresh): no data build needed, just commit. `--file <mp3>` uses a
   recording instead; `--no-upload` prepares only; `--voices` lists voices. Settings in `.env.local` (gitignored):
   `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID`, optional `ELEVENLABS_MODEL` (default eleven_multilingual_v2). Uploading
@@ -78,8 +80,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `src/audio/music.ts` loops it through Web Audio (needs the bucket's CORS, which allows `*`), fades, and dips it under
   narration (levels at the top of that file); a music on/off button on the tour bar (remembered).
 - Sound needs a tap: the Tours menu primes audio; a tour opened from a link waits behind a "Start tour" button (`gate`).
-- Tours so far: Events and inventions (all 29 events; a first draft for Rob to trim). Planned: human evolution,
-  rise and fall of civilizations (needs start/end stops). Music and narration later (narration length to set holds).
+- A stop may set `site` (a feature id) to frame and open the card on one place. Tours can mix categories.
+- Tours so far: Events and inventions (all 29 events; a first draft for Rob to trim); Human evolution (13 species,
+  descriptions rewritten Oct 2026 as narration-length paragraphs, plus 2 events; species and events layers).
+  Planned: rise and fall of civilizations (one description covering both). Ideas: hide the search bar during tours; a per-tour intro video.
 
 ## Civilization regions
 

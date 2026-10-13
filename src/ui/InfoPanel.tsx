@@ -346,6 +346,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <div className="muted image-credit">{[picture.credit, picture.note].filter(Boolean).join(" · ")}</div>
         </>
       )}
+      {!isEvent && <ListenButton entity={entity} />}
       <p>{entity.description}</p>
       {related.length > 0 && (
         <div className="related">

@@ -86,7 +86,7 @@ export default function TourPlayer() {
     const travelMs = travel && to > from ? Math.min(MAX_TRAVEL_MS, Math.max(MIN_TRAVEL_MS, (to - from) * TRAVEL_MS_PER_TRACK)) : 0;
 
     const arrive = () => {
-      useStore.getState().showEntity(stop.entity, { year: target, open: true });
+      useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
       patchTour({ phase: "hold", holdMs });
       if (entity.narration && !stop.hold)
         playNarration(entity.narration.src)

@@ -11,6 +11,7 @@ import type { Category } from "../types";
 export interface TourStop {
   entity: string;
   year?: number;
+  site?: string;
   hold?: number;
 }
 
@@ -59,6 +60,29 @@ export const TOURS: Tour[] = [
       { entity: "sea-peoples" },
       { entity: "minted-coinage" },
       { entity: "papermaking" },
+    ],
+  },
+  {
+    id: "human-evolution",
+    title: "Human evolution",
+    blurb: "Seven million years of our family tree: the first upright apes, the first toolmakers, and the many kinds of human who shared the world with ours.",
+    layers: ["species", "event"],
+    stops: [
+      { entity: "sahelanthropus", year: -6_999_999, site: "sahelanthropus@1" },
+      { entity: "ardipithecus-ramidus", year: -4_399_999, site: "ardipithecus-ramidus@1" },
+      { entity: "australopithecus-afarensis", year: -3_199_999, site: "australopithecus-afarensis@3" },
+      { entity: "homo-habilis", year: -2_299_999, site: "homo-habilis@3" },
+      { entity: "paranthropus-boisei", year: -1_899_999, site: "paranthropus-boisei@2" },
+      { entity: "homo-erectus", year: -1_799_999, site: "homo-erectus@1" },
+      { entity: "homo-antecessor", year: -849_999, site: "homo-antecessor@1" },
+      { entity: "homo-heidelbergensis", year: -599_999, site: "homo-heidelbergensis@2" },
+      { entity: "neanderthal", year: -429_999, site: "neanderthal@1" },
+      { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },
+      { entity: "homo-naledi", year: -289_999, site: "homo-naledi@1" },
+      { entity: "denisovan", year: -159_999, site: "denisovan@1" },
+      { entity: "homo-floresiensis", year: -79_999, site: "homo-floresiensis@1" },
+      { entity: "archaic-human-admixture" },
+      { entity: "peopling-of-the-americas" },
     ],
   },
 ];

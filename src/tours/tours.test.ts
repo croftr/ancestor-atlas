@@ -24,6 +24,11 @@ describe.each(TOURS)("tour $id", (tour) => {
     expect(tour.layers ?? [e!.category]).toContain(e!.category);
     const year = snapYear(stop.year ?? e!.year ?? e!.start_year);
     expect(features.some((f) => f.entity_id === stop.entity && isActive(f, year))).toBe(true);
+    if (stop.site) {
+      const site = features.find((f) => f.id === stop.site);
+      expect(site?.entity_id).toBe(stop.entity);
+      expect(isActive(site!, year)).toBe(true);
+    }
   });
 
   it("names its music by the bucket convention, with a credit", () => {

@@ -10,6 +10,7 @@ import { youtubeId } from "../youtube";
 import { eventsAbout, pictureOf, typing } from "./browse";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
+import ListenButton from "../audio/ListenButton";
 import "./browse.css";
 
 /**
@@ -160,6 +161,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
             <span className="muted"> · {formatDuration(entity.end_year - entity.start_year)}</span>
           </div>
           {approximate && <div className="br-recall">Dates and places recalled, not yet checked against a source.</div>}
+          <ListenButton entity={entity} />
           <p>{entity.description}</p>
 
           {mapLine && <div className="muted br-mapline">{mapLine}</div>}

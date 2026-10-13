@@ -1,24 +1,28 @@
-// Narrate events, from the description to a clip in the bucket:
-//   npm run audio:narrate -- <event id> [<event id>…]   generate with ElevenLabs
+// Narrate entities (events, species, cultures, civilizations), from the card's description to a clip in the bucket:
+//   npm run audio:narrate -- <id> [<id>…]               generate with ElevenLabs
 //   npm run audio:narrate -- --missing [--yes]          every event without a narration
-//   npm run audio:narrate -- --stale [--yes]            every event whose description changed since recording
-//   npm run audio:narrate -- <event id> --file <mp3>    use a recording you made instead
+//   npm run audio:narrate -- --tour <tour id> [--yes]   every stop of a tour without a narration
+//   npm run audio:narrate -- --stale [--yes]            everything whose description changed since recording
+//   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead
 //   npm run audio:narrate -- --voices                   list your ElevenLabs voices (to pick ELEVENLABS_VOICE_ID)
 // Options: --no-upload (prepare only; prints the upload command), --credit "<text>".
 //
-// Per event: text-to-speech of the description (ElevenLabs API; cached in data/build/audio/tts by text,
+// Per entity: text-to-speech of the description as built (the text on its card) (ElevenLabs API; cached in data/build/audio/tts by text,
 // so a re-run after a failed upload costs nothing), loudness-normalised mono MP3, uploaded to
-// narration/events/<id>-v<n>.mp3 (a new key every time: the bucket caches for a year), then events.yaml
-// and that event in public/data are updated, so there is nothing to rebuild: commit both.
+// narration/<category>/<id>-v<n>.mp3 (a new key every time: the bucket caches for a year), then the
+// entity's narration is set in events.yaml or entities.yaml and in public/data, so there is nothing to
+// rebuild: commit both. A species, culture or civilization needs an entry in entities.yaml.
 // Settings in .env.local (gitignored): ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, optional ELEVENLABS_MODEL.
 import { execFileSync, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { parse as parseYaml } from "yaml";
-import { textHash } from "../lib/text-hash.ts";
+import { NARRATION_FOLDER, textHash } from "../lib/text-hash.ts";
+import { TOURS } from "../../src/tours/tours.ts";
 import { fingerprint, META_PATH } from "../lib/fingerprint.ts";
 import { BUCKET, encode, uploadCommand } from "./encode.ts";
 
 const EVENTS = "data/curated/events.yaml";
+const CURATED_ENTITIES = "data/curated/entities.yaml";
 const ENTITIES = "public/data/entities.json";
 const API = "https://api.elevenlabs.io/v1";
 const MODEL_DEFAULT = "eleven_multilingual_v2";
@@ -31,7 +35,7 @@ const option = (f: string) => {
   return i >= 0 ? args[i + 1] : undefined;
 };
 const file = option("--file");
-const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--credit"].includes(args[i - 1]));
+const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--credit", "--tour"].includes(args[i - 1]));
 const fail = (m: string): never => {
   console.error(`✗ ${m}`);
   process.exit(1);
@@ -50,21 +54,41 @@ if (flag("--voices")) {
   process.exit(0);
 }
 
-interface CuratedEvent {
+/** An entity to narrate: its text as built (the card's), and the curated file that carries its narration. */
+interface Target {
   id: string;
-  name: string;
+  category: keyof typeof NARRATION_FOLDER;
   description: string;
   narration?: { src: string; text_hash: string };
+  file: string;
 }
-const yamlText = readFileSync(EVENTS, "utf8");
-const events = parseYaml(yamlText) as CuratedEvent[];
-const targets = flag("--missing")
-  ? events.filter((e) => !e.narration)
-  : flag("--stale")
-    ? events.filter((e) => e.narration && e.narration.text_hash !== textHash(e.description))
-    : ids.map((id) => events.find((e) => e.id === id) ?? fail(`no event ${id} in ${EVENTS}`));
-if (targets.length === 0) fail(ids.length || flag("--missing") || flag("--stale") ? "nothing to narrate" : "usage: see the top of scripts/audio/narrate.ts");
-if (file && targets.length !== 1) fail("--file takes one event");
+const built = new Map(
+  readFileSync(ENTITIES, "utf8")
+    .split("\n")
+    .filter((l) => l.startsWith("{"))
+    .map((l) => JSON.parse(l.replace(/,$/, "")))
+    .map((e: Target) => [e.id, e]),
+);
+const yamlFiles: Record<string, string> = { [EVENTS]: readFileSync(EVENTS, "utf8"), [CURATED_ENTITIES]: readFileSync(CURATED_ENTITIES, "utf8") };
+const curatedIn = new Map<string, string>();
+for (const f of [EVENTS, CURATED_ENTITIES]) for (const e of parseYaml(yamlFiles[f]) as { id: string }[]) curatedIn.set(e.id, f);
+const target = (id: string): Target => {
+  const e = built.get(id) ?? fail(`no entity ${id} in ${ENTITIES}`);
+  const file = curatedIn.get(id) ?? fail(`${id} has no entry in ${CURATED_ENTITIES}: add one (id, category) first`);
+  if (!e.description) fail(`${id} has no description`);
+  return { id, category: e.category, description: e.description, narration: e.narration, file };
+};
+const tourId = option("--tour");
+const tour = tourId ? (TOURS.find((t) => t.id === tourId) ?? fail(`no tour ${tourId}`)) : undefined;
+const targets: Target[] = flag("--missing")
+  ? [...built.values()].filter((e) => e.category === "event" && !e.narration).map((e) => target(e.id))
+  : tour
+    ? [...new Set(tour.stops.map((st) => st.entity))].map(target).filter((e) => !e.narration)
+    : flag("--stale")
+      ? [...built.values()].filter((e) => e.narration && e.narration.text_hash !== textHash(e.description)).map((e) => target(e.id))
+      : ids.map(target);
+if (targets.length === 0) fail(ids.length || tour || flag("--missing") || flag("--stale") ? "nothing to narrate" : "usage: see the top of scripts/audio/narrate.ts");
+if (file && targets.length !== 1) fail("--file takes one entity");
 
 // A batch spends ElevenLabs characters: show what it will cost and ask for --yes.
 if (!file) {
@@ -86,7 +110,7 @@ const voice = file ? "" : process.env.ELEVENLABS_VOICE_ID || fail("set ELEVENLAB
 const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-generated narration (ElevenLabs)");
 
 /** The description spoken, cached by its text so the same words are never paid for twice. */
-async function speak(e: CuratedEvent): Promise<string> {
+async function speak(e: Target): Promise<string> {
   const path = `data/build/audio/tts/${e.id}-${textHash(e.description)}.mp3`;
   if (existsSync(path)) return path;
   const res = await api(`/text-to-speech/${voice}?output_format=mp3_44100_128`, {
@@ -114,8 +138,11 @@ function upload(out: string, key: string): boolean {
   return true;
 }
 
-/** Set the event's narration line in events.yaml, keeping the file's layout. */
-function setYaml(text: string, id: string, line: string): string {
+/**
+ * Set the entity's narration line in its YAML file, keeping the file's layout: replace it, or add it
+ * (events: before date_source; entities.yaml: straight after the description, where public/data has it).
+ */
+function setYaml(text: string, id: string, line: string, isEvent: boolean): string {
   const lines = text.split("\n");
   const start = lines.indexOf(`- id: ${id}`);
   let end = lines.findIndex((l, i) => i > start && l.startsWith("- id:"));
@@ -123,34 +150,45 @@ function setYaml(text: string, id: string, line: string): string {
   const block = lines.slice(start, end);
   const at = block.findIndex((l) => l.startsWith("  narration:"));
   if (at >= 0) block[at] = line;
-  else {
+  else if (isEvent) {
     const ds = block.findIndex((l) => l.startsWith("  date_source:") || l.startsWith("  places:"));
     block.splice(ds < 0 ? block.length : ds, 0, line);
+  } else {
+    let d = block.findIndex((l) => l.startsWith("  description:"));
+    if (d < 0) fail(`${id}: no description in its YAML entry to narrate`);
+    while (block[d + 1]?.startsWith("    ")) d++; // a description over several lines
+    block.splice(d + 1, 0, line);
   }
   lines.splice(start, end - start, ...block);
   return lines.join("\n");
 }
 
-/** Put the narration on the event in public/data as the build would (just before source_ids). */
+/** Put the narration on the entity in public/data where the build would: events before source_ids, others after description. */
 function setEntity(text: string, id: string, narration: object): string {
   const lines = text.split("\n");
   const i = lines.findIndex((l) => l.includes(`"id":${JSON.stringify(id)},`));
   if (i < 0) fail(`${id} not in ${ENTITIES}`);
   const comma = lines[i].endsWith(",");
-  const { narration: _old, source_ids, ...rest } = JSON.parse(comma ? lines[i].slice(0, -1) : lines[i]);
-  lines[i] = JSON.stringify({ ...rest, narration, source_ids }) + (comma ? "," : "");
+  const { narration: _old, ...rest } = JSON.parse(comma ? lines[i].slice(0, -1) : lines[i]);
+  const after = rest.category === "event" ? null : "description";
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(rest)) {
+    if (k === "source_ids" && after === null) out.narration = narration;
+    out[k] = v;
+    if (k === after) out.narration = narration;
+  }
+  lines[i] = JSON.stringify(out) + (comma ? "," : "");
   return lines.join("\n");
 }
 
 const META = JSON.parse(readFileSync(META_PATH, "utf8"));
 const wasFresh = META.inputs_hash === fingerprint().hash;
-let yaml = yamlText;
 let entities = readFileSync(ENTITIES, "utf8");
 const pending: string[] = [];
 
 for (const e of targets) {
   const version = Number(e.narration?.src.match(/-v(\d+)\.mp3$/)?.[1] ?? 0) + 1;
-  const key = `narration/events/${e.id}-v${version}.mp3`;
+  const key = `narration/${NARRATION_FOLDER[e.category]}/${e.id}-v${version}.mp3`;
   const out = `data/build/audio/${key}`;
   const source = file ?? (await speak(e));
   const seconds = encode(source, out, { channels: 1, kbps: 96 });
@@ -158,15 +196,16 @@ for (const e of targets) {
   console.log(`${uploaded ? "✓" : "…"} ${e.id}: ${key} (${seconds.toFixed(1)} s)${uploaded ? "" : " not uploaded"}`);
   if (!uploaded) pending.push(uploadCommand(out, key));
   const narration = { src: key, credit, text_hash: textHash(e.description) };
-  yaml = setYaml(yaml, e.id, `  narration: { src: ${key}, credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" }`);
+  yamlFiles[e.file] = setYaml(yamlFiles[e.file], e.id, `  narration: { src: ${key}, credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" }`, e.category === "event");
   entities = setEntity(entities, e.id, narration);
 }
 
-writeFileSync(EVENTS, yaml);
+const changed = [...new Set(targets.map((t) => t.file))];
+for (const f of changed) writeFileSync(f, yamlFiles[f]);
 writeFileSync(ENTITIES, entities);
 // public/data matched its inputs before, and only narration changed: it still does.
 if (wasFresh) writeFileSync(META_PATH, JSON.stringify({ ...META, inputs_hash: fingerprint().hash }) + "\n");
 else console.warn("! public/data was already out of date before this run: run npm run data:build");
 
-console.log(`\nUpdated ${EVENTS} and ${ENTITIES}: commit both${wasFresh ? ` (with ${META_PATH})` : ""}.`);
+console.log(`\nUpdated ${[...changed, ENTITIES].join(", ")}: commit them${wasFresh ? ` (with ${META_PATH})` : ""}.`);
 if (pending.length) console.log(`\nStill to upload (before the commit goes live):\n  ${pending.join("\n  ")}`);

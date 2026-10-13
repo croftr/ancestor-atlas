@@ -64,9 +64,10 @@ interface AppState {
   focusEntity(entityId: string): void;
   /**
    * Move the slider to `year` (default: the entity's best year) and turn the globe to the entity's
-   * features on the map then; `open` also opens the card. Used by the era chips and tours.
+   * features on the map then (or just `site`, one of them); `open` also opens the card. Used by the era
+   * chips and tours.
    */
-  showEntity(entityId: string, opts?: { year?: number; open?: boolean }): void;
+  showEntity(entityId: string, opts?: { year?: number; open?: boolean; site?: string }): void;
   /** `gate`: wait for a tap before playing (a tour opened from a link). */
   startTour(id: string, opts?: { gate?: boolean }): void;
   /** The tap on "Start tour". */
@@ -153,9 +154,11 @@ export const useStore = create<AppState>((set, get) => ({
     if (!d || !entity) return;
     const features = d.featuresOf.get(entityId) ?? [];
     const year = snapYear(opts.year ?? entity.year ?? bestYear(features)?.year ?? entity.start_year);
-    const on = features.filter((f) => isActive(f, year));
+    const active = features.filter((f) => isActive(f, year));
+    const site = opts.site ? active.find((f) => f.id === opts.site) : undefined;
+    const on = site ? [site, ...active.filter((f) => f !== site)] : active;
     const bbox = unionBBox(
-      on.flatMap((f): BBox[] => {
+      (site ? [site] : on).flatMap((f): BBox[] => {
         const b = d.bboxOf.get(f.id);
         return b ? [b] : [];
       }),
