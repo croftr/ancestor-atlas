@@ -102,7 +102,7 @@ export const TOURS: Tour[] = [
     blurb: "How our ancestors left Africa and reached every continent, from the first steps into Asia to the peopling of the Americas.",
     layers: ["species", "culture", "event"],
     music: { src: "music/tours/out-of-africa-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
-    announcement: { src: "narration/tours/out-of-africa-v2.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "cce3d2ec85" },
+    announcement: { src: "narration/tours/out-of-africa-v3.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "cce3d2ec85" },
     intro: { video: "intro/tours/out-of-africa-v1.mp4" },
     stops: [
       { entity: "out-of-africa-dmanisi" },
