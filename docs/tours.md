@@ -20,7 +20,9 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
   its own.
 - A tour opens with a title card (`TitleCard.tsx`): the title, blurb and length over the globe as it
   turns to the first stop, while the tour's `announcement` reads the title and blurb aloud
-  (`announcementText` in `tours.ts`); it stays for the announcement plus 1.2 s (6 s without one).
+  (`announcementText` in `tours.ts`) 1.5 s after the card appears. The music comes in as the
+  announcement ends, and the card stays 2 s more (without an announcement: 6 s, music after 3 s;
+  timings at the top of `TourPlayer.tsx`).
   "Skip intro", Next or → skip it; starting from a later stop on the Tours page leaves it out.
 - At each stop the slider plays forward to the year, the globe turns to the place, the card opens and
   the narration plays; the card stays up until the narration ends plus 1.5 s (reading time if there

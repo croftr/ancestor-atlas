@@ -52,6 +52,8 @@ interface AppState {
     gate: boolean;
     /** The title card before the first stop (announced, if the tour has an announcement). */
     intro: boolean;
+    /** The music may play: from the end of the announcement (or the start, from a later stop). */
+    musicIn: boolean;
   } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
@@ -192,6 +194,7 @@ export const useStore = create<AppState>((set, get) => ({
         gate: !!opts.gate,
         // Started from a later stop (the Tours page): no title card.
         intro: !opts.index,
+        musicIn: !!opts.index,
         phase: "travel",
         holdMs: 0,
         restore: s.tour?.restore ?? s.enabled,
@@ -205,11 +208,11 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => {
       const t = s.tour && tourById(s.tour.id);
       if (!s.tour || !t) return {};
-      if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, travel: true, phase: "travel", holdMs: 0 } } : {};
+      if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {};
       if (index < 0 || index >= t.stops.length) return {};
       return { tour: { ...s.tour, index, travel: false, phase: "travel", holdMs: 0 } };
     }),
-  skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, travel: true, phase: "travel", holdMs: 0 } } : {})),
+  skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {})),
   stepFeature: (dir) => {
     const d = getData();
     const s = get();

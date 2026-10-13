@@ -54,6 +54,7 @@ export function playNarration(src: string): Promise<number> {
           a.addEventListener("loadedmetadata", () => resolve(a.duration), { once: true });
           a.addEventListener("error", () => reject(a.error), { once: true });
         });
+  meta.catch(() => {}); // a failed load also rejects play(), which the caller handles
   return a.play().then(() => meta);
 }
 

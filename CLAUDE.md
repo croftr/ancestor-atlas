@@ -94,7 +94,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   Running time and covers come from `src/tours/summary.ts`.
 - Title card before stop 1 (`TitleCard.tsx`, `tour.intro` in the store): title, blurb, length, while the globe turns to
   the first stop and `announcement` (ElevenLabs reading `announcementText`: title + blurb; `npm run audio:narrate --
-  --announce <id>|all`, key `narration/tours/<id>-v<n>.mp3`) plays. Skip intro / Next / → skip it; starting from a
+  --announce <id>|all`, key `narration/tours/<id>-v<n>.mp3`) plays after 1.5 s; the music comes in as it ends (`tour.musicIn`). Skip intro / Next / → skip it; starting from a
   later stop leaves it out. Rob is trying it without video first, then decides on per-tour intro videos.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
   goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.

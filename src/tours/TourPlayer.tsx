@@ -25,9 +25,15 @@ export function beginTour(start: () => void) {
 
 /** After a narration ends, the card stays up this long before the tour moves on. */
 const AFTER_NARRATION_MS = 1_500;
-/** The title card: this long without an announcement, and this long after one ends. */
+/**
+ * The title card: the announcement starts ANNOUNCE_DELAY_MS after the card appears and the music comes in
+ * as it ends; the card stays AFTER_ANNOUNCEMENT_MS more. Without an announcement (or if it fails to
+ * load): the card stays INTRO_MS and the music comes in after MUSIC_DELAY_MS.
+ */
+const ANNOUNCE_DELAY_MS = 1_500;
+const AFTER_ANNOUNCEMENT_MS = 2_000;
 const INTRO_MS = 6_000;
-const AFTER_ANNOUNCEMENT_MS = 1_200;
+const MUSIC_DELAY_MS = 3_000;
 
 /** Slider travel between stops: as fast as normal play (the whole track in 60 s), within these bounds. */
 const TRAVEL_MS_PER_TRACK = 60_000;
@@ -63,8 +69,13 @@ export default function TourPlayer() {
       return;
     }
     let cancelled = false;
-    let holdMs = INTRO_MS;
-    const patchTour = (p: { phase: "hold"; holdMs: number }) => useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
+    const announcement = tour.announcement;
+    let holdMs = announcement ? ANNOUNCE_DELAY_MS + INTRO_MS : INTRO_MS;
+    let musicAt = announcement ? Infinity : MUSIC_DELAY_MS; // set when the announcement ends
+    let announced = false;
+    let finished = false;
+    const patchTour = (p: { phase?: "hold"; holdMs?: number; musicIn?: boolean }) =>
+      useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     const on = (data.featuresOf.get(stop.entity) ?? []).filter((f) => isActive(f, target) && (!stop.site || f.id === stop.site));
     const bbox = unionBBox(
       on.flatMap((f) => {
@@ -80,15 +91,18 @@ export default function TourPlayer() {
     patchTour({ phase: "hold", holdMs });
     const first = data.entityById.get(stop.entity);
     if (first?.narration) preloadNarration(first.narration.src);
-    if (tour.announcement)
-      playNarration(tour.announcement.src)
+    const announce = (src: string) =>
+      playNarration(src)
         .then((seconds) => {
-          if (cancelled || !Number.isFinite(seconds)) return;
+          if (cancelled || !Number.isFinite(seconds)) throw new Error("no length");
           if (useStore.getState().tour?.paused) pauseNarration();
-          holdMs = seconds * 1000 + AFTER_ANNOUNCEMENT_MS;
+          // An estimate for the card and the progress bar; set exactly when the clip ends.
+          holdMs = ANNOUNCE_DELAY_MS + seconds * 1000 + AFTER_ANNOUNCEMENT_MS;
           patchTour({ phase: "hold", holdMs });
         })
-        .catch(() => {}); // blocked or missing: the card stays INTRO_MS
+        .catch(() => {
+          if (!cancelled) musicAt = Math.min(musicAt, ANNOUNCE_DELAY_MS + MUSIC_DELAY_MS); // blocked or missing
+        });
     let elapsed = 0;
     let last = performance.now();
     let raf = 0;
@@ -97,6 +111,18 @@ export default function TourPlayer() {
       if (!s.tour) return;
       if (!s.tour.paused) elapsed += now - last;
       last = now;
+      if (announcement && !announced && elapsed >= ANNOUNCE_DELAY_MS) {
+        announced = true;
+        announce(announcement.src);
+      }
+      const n = narrationState();
+      if (announced && !finished && n.src === announcement?.src && n.ended && !n.failed) {
+        finished = true;
+        musicAt = elapsed;
+        holdMs = elapsed + AFTER_ANNOUNCEMENT_MS;
+        patchTour({ phase: "hold", holdMs });
+      }
+      if (!s.tour.musicIn && elapsed >= musicAt) patchTour({ musicIn: true });
       if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === tour.announcement?.src)) {
         s.skipIntro();
         return;
@@ -195,12 +221,13 @@ export default function TourPlayer() {
     if (paused) pauseNarration();
     else resumeNarration();
   }, [paused]);
+  const musicIn = useStore((s) => s.tour?.musicIn);
   useEffect(() => {
     const music = id === undefined ? undefined : tourById(id)?.music;
     if (!music || paused === undefined) return;
     if (paused) pauseMusic();
-    else startMusic(music.src);
-  }, [id, paused]);
+    else if (musicIn) startMusic(music.src);
+  }, [id, paused, musicIn]);
   useEffect(() => () => stopMusic(), [id]);
 
   // The viewer taking hold of the globe or the card pauses the tour.
