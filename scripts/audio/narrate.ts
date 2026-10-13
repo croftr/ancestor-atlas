@@ -19,7 +19,7 @@ import { parse as parseYaml } from "yaml";
 import { NARRATION_FOLDER, textHash } from "../lib/text-hash.ts";
 import { TOURS } from "../../src/tours/tours.ts";
 import { fingerprint, META_PATH } from "../lib/fingerprint.ts";
-import { BUCKET, encode, uploadCommand } from "./encode.ts";
+import { BUCKET, encode, uploadArgs, uploadCommand } from "./encode.ts";
 
 const EVENTS = "data/curated/events.yaml";
 const CURATED_ENTITIES = "data/curated/entities.yaml";
@@ -132,9 +132,7 @@ function upload(out: string, key: string): boolean {
     console.error(`! could not reach S3 (${head.stderr.trim().split("\n").at(-1)}); log in to AWS, or upload by hand:`);
     return false;
   }
-  execFileSync("aws", ["s3", "cp", out, `s3://${BUCKET}/${key}`, "--content-type", "audio/mpeg", "--cache-control", "public, max-age=31536000, immutable", "--only-show-errors"], {
-    stdio: "inherit",
-  });
+  execFileSync("aws", uploadArgs(out, key), { stdio: "inherit" });
   return true;
 }
 
@@ -208,4 +206,4 @@ if (wasFresh) writeFileSync(META_PATH, JSON.stringify({ ...META, inputs_hash: fi
 else console.warn("! public/data was already out of date before this run: run npm run data:build");
 
 console.log(`\nUpdated ${[...changed, ENTITIES].join(", ")}: commit them${wasFresh ? ` (with ${META_PATH})` : ""}.`);
-if (pending.length) console.log(`\nStill to upload (before the commit goes live):\n  ${pending.join("\n  ")}`);
+if (pending.length) console.log(`\n${pending.length} clip(s) still to upload: npm run audio:upload (with your AWS login)`);

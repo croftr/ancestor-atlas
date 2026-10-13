@@ -3,6 +3,8 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { mkdirSync } from "node:fs";
 
 export const BUCKET = "robs-ancestors-atlas";
+/** The bucket's public URL (as MEDIA_BASE in src/config.ts). */
+export const MEDIA_BASE_DEFAULT = "https://robs-ancestors-atlas.s3.eu-west-2.amazonaws.com";
 
 /**
  * Two-pass loudnorm to -16 LUFS (peaks under -1.5 dBTP): measure, then correct linearly (one pass
@@ -30,5 +32,10 @@ export function encode(input: string, out: string, opts: { channels: 1 | 2; kbps
   return Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out], { encoding: "utf8" }));
 }
 
+/** `aws` arguments to upload a clip: a year-long cache, so a key is never reused. */
+export const uploadArgs = (out: string, key: string) => [
+  "s3", "cp", out, `s3://${BUCKET}/${key}`, "--content-type", "audio/mpeg",
+  "--cache-control", "public, max-age=31536000, immutable", "--only-show-errors",
+];
 export const uploadCommand = (out: string, key: string) =>
   `aws s3 cp ${out} s3://${BUCKET}/${key} --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable"`;

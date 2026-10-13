@@ -55,7 +55,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   event in public/data (and build-meta, if it was fresh): no data build needed, just commit. `--file <mp3>` uses a
   recording instead; `--no-upload` prepares only; `--voices` lists voices. Settings in `.env.local` (gitignored):
   `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID`, optional `ELEVENLABS_MODEL` (default eleven_multilingual_v2). Uploading
-  needs Rob's AWS login; without it the script prints the upload command. `text_hash` is the description's fingerprint
+  needs Rob's AWS login; without it, `npm run audio:upload` later uploads every referenced clip missing from the bucket
+  (checked over the public URL; `--dry-run` lists them). `text_hash` is the description's fingerprint
   at recording time; the validator warns when the description changes (`--stale` re-records those). Played by the
   Listen button (card and event page, `src/audio/`) and by tours, where the clip's length sets the hold.
 - Pictures: square 1000×1000 WebP in `public/images/events/` (title painted in, so always shown whole, never cropped);
