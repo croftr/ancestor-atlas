@@ -89,6 +89,24 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   4 events, Sumer to Rome). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
   narration-length paragraphs for them (Rob to review). All tours reuse one music track for now. Ideas: hide the search bar during tours; a per-tour intro video.
 
+### Tour polish: next up (as of 13 Oct 2026)
+
+Five tours are live (events-and-inventions, human-evolution, out-of-africa, ice-age-artists, civilizations),
+every stop narrated. Rob chose to polish next. Backlog, roughly in his order of interest:
+
+1. Hide the search bar (and consider the legend and other chrome) while a tour plays: a cleaner, cinematic view.
+2. Optional intro video per tour (`intro` on the tour: bucket key or YouTube link), played before stop 1, skippable.
+3. Tours menu (`TourPicker` in `src/tours/TourBar.tsx`) now lists five: give it a better layout (picture per tour,
+   running time); perhaps a way into tours beyond the time bar.
+4. Events and inventions still runs all 29 events: Rob to pick the stops to keep.
+5. Music: every tour reuses one track (separate keys, so each can be swapped); the 6:45 loop seam is audible on
+   longer tours. Levels and the dip under narration are untested by ear on phones (iOS Web Audio, the Start tour tap).
+6. Rob reviews the 36 rewritten descriptions (species, cultures, civilizations; commits fd9cc09, c537034, fe91b57,
+   9303da5); an edit makes that narration stale (`npm run audio:narrate -- --stale`).
+7. Housekeeping: `scripts/ingest/cliopatria.test.ts` times out at 5 s on most full runs (passes with a longer
+   timeout); many later cultures have no features in the committed data (needs a full build on the XRONOS machine).
+   `npm run audio:upload -- --dry-run` shows any clips still to upload.
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points
