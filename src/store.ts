@@ -101,7 +101,7 @@ export const useStore = create<AppState>((set, get) => ({
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
-  setYear: (y) => set((s) => ({ year: snapYear(y), ...(s.tour && { tour: { ...s.tour, paused: true } }) })),
+  setYear: (y) => set({ year: snapYear(y) }), // leaves a tour playing: only its pause button pauses it
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
   setIntroOpen: (open) => {
     if (!open && isIntroHash()) {

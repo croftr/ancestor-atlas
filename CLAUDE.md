@@ -75,8 +75,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - A tour is a hand-picked list of stops in `src/tours/tours.ts` (entity id, optional `year` and `hold` seconds; optional
   `layers` per tour). Kept in the app, not the data pipeline. `tours.test.ts` checks each stop is on the globe then.
 - `TourPlayer.tsx` runs it: play the slider forward to the stop (card closed), turn the globe (`showEntity`, `flyTo`
-  turn mode), open the card, hold (default from description length, 8–22 s), next. Touching the globe or card,
-  or moving the slider, pauses; Play ends the tour. Keys: arrows step stops, Space pauses, Escape ends.
+  turn mode), open the card, hold (default from description length, 8–22 s), next. Only the tour bar's pause
+  button (or Space) pauses; touching the globe, card or slider does not (Rob's call). Play ends the tour. Keys: arrows step stops, Space pauses, Escape ends.
 - `TourBar.tsx`: the Tours button and menu, and the bar that replaces the transport buttons. Link: `#/tour/<id>`.
 - Music: `music: { src, credit }` on a tour; `npm run audio:music -- <track> <tour id> "<credit>"` encodes (stereo
   128 kbps, -16 LUFS), sets it in tours.ts and prints the upload command (key `music/tours/<id>-v<n>.mp3`).

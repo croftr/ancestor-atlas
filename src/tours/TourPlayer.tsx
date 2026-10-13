@@ -48,7 +48,7 @@ const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
 /**
  * Plays the tour in the store: for each stop, play the slider forward to its year with the card
  * closed, then turn the globe to it, open its card and hold; then on to the next. Pausing freezes
- * the clock. Touching the globe or the card pauses (the viewer has taken over).
+ * the clock; only the tour bar's pause button (or Space) pauses.
  */
 export default function TourPlayer() {
   const data = useData();
@@ -233,20 +233,8 @@ export default function TourPlayer() {
   }, [id, paused, musicIn]);
   useEffect(() => () => stopMusic(), [id]);
 
-  // The viewer taking hold of the globe or the card pauses the tour.
-  useEffect(() => {
-    if (id === undefined) return;
-    const onDown = (e: Event) => {
-      const t = e.target as HTMLElement | null;
-      if (t?.closest(".map-wrap, .info-panel")) useStore.getState().pauseTour(true);
-    };
-    window.addEventListener("pointerdown", onDown, true);
-    window.addEventListener("wheel", onDown, { capture: true, passive: true });
-    return () => {
-      window.removeEventListener("pointerdown", onDown, true);
-      window.removeEventListener("wheel", onDown, true);
-    };
-  }, [id]);
+  // Only the pause button (or Space) pauses a tour: touching the globe, the card or anything else
+  // in the app leaves it playing (Rob's call, Oct 2026).
 
   const tour = id === undefined ? undefined : tourById(id);
   if (!tour) return null;

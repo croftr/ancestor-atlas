@@ -175,8 +175,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       </div>
     );
   }
-  // Globe on a small screen during a tour: the slim strip. It is not part of the card, so tapping
-  // it does not pause the tour (touching the opened card does, as before).
+  // Globe on a small screen during a tour: the slim strip (tapping it opens the card; the tour
+  // keeps playing).
   if (view === "globe" && stacked && touring && peek) {
     const thumb = isEvent ? entity.image_url : picture?.url;
     const showThumb = thumb && brokenImage !== thumb;
