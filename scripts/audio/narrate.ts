@@ -97,7 +97,7 @@ if (!file) {
   const sub = await fetch(`${API}/user/subscription`, { headers: { "xi-api-key": apiKey() } });
   const left = sub.ok ? ((await sub.json()) as { character_count: number; character_limit: number }) : null;
   console.log(
-    `${targets.length} event(s), ${chars.toLocaleString("en-US")} characters` +
+    `${targets.length} to narrate, ${chars.toLocaleString("en-US")} characters` +
       (left ? `; ElevenLabs quota left: ${(left.character_limit - left.character_count).toLocaleString("en-US")}` : " (quota not shown: the API key lacks User read)"),
   );
   if (targets.length > 1 && !flag("--yes")) {

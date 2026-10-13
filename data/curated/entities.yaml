@@ -4,6 +4,7 @@
   start_year: -7198050
   end_year: -6798050
   description: "A nearly complete skull found in 2001 in the Djurab Desert of Chad, nicknamed Toumaï, is about seven million years old, close to the time our lineage split from that of chimpanzees. Its brain was no bigger than a chimpanzee's, but its canine teeth were small and the opening for the spinal cord sat further under the skull, hinting that it may have walked upright. Found 2,500 kilometres west of the East African Rift, it showed that the earliest hominins lived across a much wider part of Africa than once thought."
+  narration: { src: narration/species/sahelanthropus-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "269e88f1f9" }
   wikipedia_url: https://en.wikipedia.org/wiki/Sahelanthropus
   source_ids:
     - recall
@@ -52,6 +53,7 @@
   start_year: -4498050
   end_year: -4298050
   description: "At Aramis in Ethiopia's Middle Awash, researchers spent fifteen years recovering and studying 'Ardi', a partial skeleton 4.4 million years old, published in 2009. About 1.2 metres tall, Ardi had an opposable big toe for gripping branches, yet a pelvis adapted for walking upright on the ground. She lived in woodland rather than open savanna, overturning the old idea that our ancestors first stood upright to cross the grasslands."
+  narration: { src: narration/species/ardipithecus-ramidus-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "07f26f7776" }
   wikipedia_url: https://en.wikipedia.org/wiki/Ardipithecus
   source_ids:
     - recall
@@ -84,6 +86,7 @@
   start_year: -3798050
   end_year: -2898050
   description: "In 1974 at Hadar in Ethiopia, Donald Johanson and Tom Gray found Lucy, a 3.2-million-year-old skeleton about 40 percent complete. Australopithecus afarensis stood a little over a metre tall and had a brain hardly larger than a chimpanzee's, but its hips, knees and feet were built for walking upright. Footprints left in volcanic ash at Laetoli in Tanzania about 3.7 million years ago show the same stride. The species lived in East Africa for nearly a million years."
+  narration: { src: narration/species/australopithecus-afarensis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "243293bd56" }
   wikipedia_url: https://en.wikipedia.org/wiki/Australopithecus_afarensis
   source_ids:
     - recall
@@ -206,6 +209,7 @@
   start_year: -1998050
   end_year: -1098050
   description: "In 1959 Mary Leakey found a massive skull at Olduvai Gorge with huge flat molars and a bony crest along the top of the head, anchoring enormous chewing muscles. Nicknamed Nutcracker Man, Paranthropus boisei turned out to eat mostly grasses and sedges rather than nuts. It lived in East Africa for about a million years, side by side with early Homo, and then died out: a robust side branch of the human family rather than our ancestor."
+  narration: { src: narration/species/paranthropus-boisei-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5428888bd0" }
   wikipedia_url: https://en.wikipedia.org/wiki/Paranthropus_boisei
   source_ids:
     - recall
@@ -238,6 +242,7 @@
   start_year: -2598050
   end_year: -1673050
   description: "Named in 1964 from fossils at Olduvai Gorge, Homo habilis, the 'handy man', was long thought to be the first maker of stone tools. It lived in East Africa between roughly 2.5 and 1.6 million years ago, with a brain somewhat larger than the australopiths', smaller teeth, and hands capable of a precise grip. Older tools from Lomekwi show that toolmaking began before it, and its place in our genus is still argued over, but it marks the first steps of Homo."
+  narration: { src: narration/species/homo-habilis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0170341689" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_habilis
   source_ids:
     - recall
@@ -270,6 +275,7 @@
   start_year: -1908050
   end_year: -100550
   description: "Homo erectus was the first human to spread far beyond Africa. At Dmanisi in Georgia, five skulls about 1.8 million years old show small-brained early members of the species already living at the gateway to Asia, and the 1.5-million-year-old Turkana Boy from Kenya had a tall, long-legged body much like ours. Makers of Acheulean handaxes, they reached China and Java and survived for nearly two million years, the last of them on Java around 110,000 years ago."
+  narration: { src: narration/species/homo-erectus-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ef191cd945" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_erectus
   source_ids:
     - recall
@@ -286,6 +292,7 @@
   start_year: -888050
   end_year: -768050
   description: "In 1994 excavators at Gran Dolina in Spain's Sierra de Atapuerca found the remains of several individuals around 850,000 years old: the earliest well-documented humans in western Europe. Homo antecessor combined a strikingly modern-looking face with primitive teeth, and cut marks on the bones show the group was butchered and eaten. Proteins from its tooth enamel suggest it was a close relative of the lineage that later gave rise to Neanderthals, Denisovans and modern humans."
+  narration: { src: narration/species/homo-antecessor-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "10ecc7e02a" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_antecessor
   source_ids:
     - recall
@@ -302,6 +309,7 @@
   start_year: -647050
   end_year: -148050
   description: "A heavy jaw found in a sandpit at Mauer near Heidelberg in 1907, about 600,000 years old, gave this species its name. Homo heidelbergensis had a brain approaching modern size and a strong brow ridge, and fossils from Bodo in Ethiopia, Kabwe in Zambia and Arago in France are often grouped with it. Many researchers see it as the common ancestor of Neanderthals in Europe and modern humans in Africa, though which fossils belong to it is still debated."
+  narration: { src: narration/species/homo-heidelbergensis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9249a08b2c" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_heidelbergensis
   source_ids:
     - recall
@@ -318,6 +326,7 @@
   start_year: -438050
   end_year: -33050
   description: "Neanderthals were the humans of Ice Age Europe and western Asia, stocky and strong, with brains as large as ours. At the Sima de los Huesos in Spain, a pit holding at least 28 individuals about 430,000 years old shows their lineage already taking shape. They made Mousterian stone tools, controlled fire, hunted large game and buried some of their dead. They disappeared around 40,000 years ago, but most people living outside Africa today carry a little Neanderthal DNA."
+  narration: { src: narration/species/neanderthal-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d5dc08c2cb" }
   wikipedia_url: https://en.wikipedia.org/wiki/Neanderthal
   source_ids:
     - recall
@@ -334,6 +343,7 @@
   start_year: -307050
   end_year: -50050
   description: "Denisovans were the first human group discovered through DNA alone. In 2010 the genome from a tiny finger bone found in Denisova Cave, in Siberia's Altai Mountains, turned out to belong to an unknown population, related to but distinct from Neanderthals. Since then a jaw from the Tibetan Plateau and a skull from Harbin in China have been identified as Denisovan. They interbred with Neanderthals and with modern humans: people in Papua New Guinea and Australia carry several percent Denisovan DNA, and Tibetans owe a gene for life at high altitude to them."
+  narration: { src: narration/species/denisovan-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "42ffb56c40" }
   wikipedia_url: https://en.wikipedia.org/wiki/Denisovans
   source_ids:
     - recall
@@ -350,6 +360,7 @@
   start_year: -98050
   end_year: -58050
   description: "On the Indonesian island of Flores, a team excavating Liang Bua cave in 2003 found the skeleton of a tiny adult woman, about a metre tall, with a brain no bigger than a chimpanzee's. Nicknamed the Hobbit, Homo floresiensis lived there until about 60,000 years ago, hunting dwarf elephants called Stegodon alongside Komodo dragons. Older finds on the island suggest its ancestors arrived around a million years ago and shrank over time, as island animals often do."
+  narration: { src: narration/species/homo-floresiensis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6bdc27fd2c" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_floresiensis
   source_ids:
     - recall
@@ -382,6 +393,7 @@
   start_year: -333050
   end_year: -234050
   description: "In 2013 cavers squeezed through a narrow chute in the Rising Star cave system in South Africa and found a chamber of bones. More than 1,500 fossils from at least fifteen individuals revealed Homo naledi, a small-brained human with curved fingers suited to climbing, yet hands and feet much like ours. It lived between about 335,000 and 236,000 years ago, showing that small-brained humans survived in Africa alongside early members of our own species."
+  narration: { src: narration/species/homo-naledi-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6b2d083f81" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_naledi
   source_ids:
     - recall
@@ -398,6 +410,7 @@
   start_year: -347050
   end_year: -11550
   description: "Our own species is older than once thought. In 2017 fossils from Jebel Irhoud in Morocco were dated to about 315,000 years ago: their faces already looked modern, though their braincases were still long and low. Together with finds such as Omo Kibish in Ethiopia, they suggest Homo sapiens took shape across many parts of Africa rather than in one place. From Africa our species eventually spread to every continent, and became the only human left."
+  narration: { src: narration/species/homo-sapiens-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "68f01c1c1e" }
   wikipedia_url: https://en.wikipedia.org/wiki/Homo_sapiens
   source_ids:
     - recall

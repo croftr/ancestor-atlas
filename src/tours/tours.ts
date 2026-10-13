@@ -67,6 +67,7 @@ export const TOURS: Tour[] = [
     title: "Human evolution",
     blurb: "Seven million years of our family tree: the first upright apes, the first toolmakers, and the many kinds of human who shared the world with ours.",
     layers: ["species", "event"],
+    music: { src: "music/tours/human-evolution-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     stops: [
       { entity: "sahelanthropus", year: -6_999_999, site: "sahelanthropus@1" },
       { entity: "ardipithecus-ramidus", year: -4_399_999, site: "ardipithecus-ramidus@1" },
