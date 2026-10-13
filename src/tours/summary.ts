@@ -1,13 +1,26 @@
 import type { Data } from "../map/data";
 import { pictureOf, type Picture } from "../browse/browse";
-import { yearToPos } from "../time/scale";
+import { bestYear } from "../search/search";
+import { snapYear, yearToPos } from "../time/scale";
 import type { Entity } from "../types";
-import { holdSeconds, stopYear } from "./TourPlayer";
-import type { Tour } from "./tours";
+import type { Tour, TourStop } from "./tours";
 
-/** Rough running time of a tour in minutes: the holds plus the slider travel between stops. */
+/** Seconds a card stays up: about reading speed for its description, within 8–22 s. */
+export function holdSeconds(stop: TourStop, description: string): number {
+  if (stop.hold) return stop.hold;
+  const words = description.split(/\s+/).filter(Boolean).length;
+  return Math.min(22, Math.max(8, 4 + words / 4.5));
+}
+
+export function stopYear(stop: TourStop, d: Data): number | null {
+  const e = d.entityById.get(stop.entity);
+  if (!e) return null;
+  return snapYear(stop.year ?? e.year ?? bestYear(d.featuresOf.get(stop.entity) ?? [])?.year ?? e.start_year);
+}
+
+/** Rough running time of a tour in minutes: the title card, the holds and the slider travel between stops. */
 export function minutes(tour: Tour, d: Data): number {
-  let ms = 0;
+  let ms = 8_000;
   let pos = 0;
   for (const stop of tour.stops) {
     const e = d.entityById.get(stop.entity);

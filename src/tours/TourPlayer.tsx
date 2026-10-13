@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useStore } from "../store";
-import { useData } from "../map/data";
-import { bestYear } from "../search/search";
-import { posToYear, snapYear, yearToPos } from "../time/scale";
-import { tourById, type TourStop } from "./tours";
-import type { Data } from "../map/data";
+import { isActive, unionBBox, useData } from "../map/data";
+import { posToYear, yearToPos } from "../time/scale";
+import { tourById } from "./tours";
+import { holdSeconds, stopYear } from "./summary";
+import TitleCard from "./TitleCard";
 import {
   narrationState,
   pauseNarration,
@@ -25,6 +25,9 @@ export function beginTour(start: () => void) {
 
 /** After a narration ends, the card stays up this long before the tour moves on. */
 const AFTER_NARRATION_MS = 1_500;
+/** The title card: this long without an announcement, and this long after one ends. */
+const INTRO_MS = 6_000;
+const AFTER_ANNOUNCEMENT_MS = 1_200;
 
 /** Slider travel between stops: as fast as normal play (the whole track in 60 s), within these bounds. */
 const TRAVEL_MS_PER_TRACK = 60_000;
@@ -32,19 +35,6 @@ const MIN_TRAVEL_MS = 1_500;
 const MAX_TRAVEL_MS = 6_000;
 /** When the next stop is behind the slider (a tour's first stop), start this far before it. */
 const PRE_ROLL = 0.02;
-
-/** Seconds a card stays up: about reading speed for its description, within 8–22 s. */
-export function holdSeconds(stop: TourStop, description: string): number {
-  if (stop.hold) return stop.hold;
-  const words = description.split(/\s+/).filter(Boolean).length;
-  return Math.min(22, Math.max(8, 4 + words / 4.5));
-}
-
-export function stopYear(stop: TourStop, d: Data): number | null {
-  const e = d.entityById.get(stop.entity);
-  if (!e) return null;
-  return snapYear(stop.year ?? e.year ?? bestYear(d.featuresOf.get(stop.entity) ?? [])?.year ?? e.start_year);
-}
 
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
 
@@ -58,9 +48,71 @@ export default function TourPlayer() {
   const id = useStore((s) => s.tour?.id);
   const index = useStore((s) => s.tour?.index);
   const travel = useStore((s) => s.tour?.travel);
+  const intro = useStore((s) => s.tour?.intro);
+  const gate = useStore((s) => s.tour?.gate);
+
+  // The title card: set the slider just before the first stop and turn the globe towards it, while
+  // the announcement plays (or for INTRO_MS); then on to the first stop. Waits behind the gate.
+  useEffect(() => {
+    if (!data || id === undefined || !intro || gate) return;
+    const tour = tourById(id);
+    const stop = tour?.stops[0];
+    const target = stop && stopYear(stop, data);
+    if (!tour || !stop || target === null || target === undefined) {
+      useStore.getState().skipIntro();
+      return;
+    }
+    let cancelled = false;
+    let holdMs = INTRO_MS;
+    const patchTour = (p: { phase: "hold"; holdMs: number }) => useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
+    const on = (data.featuresOf.get(stop.entity) ?? []).filter((f) => isActive(f, target) && (!stop.site || f.id === stop.site));
+    const bbox = unionBBox(
+      on.flatMap((f) => {
+        const b = data.bboxOf.get(f.id);
+        return b ? [b] : [];
+      }),
+    );
+    useStore.getState().select(null);
+    useStore.setState((s) => ({
+      year: posToYear(Math.max(0, yearToPos(target) - PRE_ROLL)),
+      flyTo: bbox ? { bbox, turn: true } : s.flyTo,
+    }));
+    patchTour({ phase: "hold", holdMs });
+    const first = data.entityById.get(stop.entity);
+    if (first?.narration) preloadNarration(first.narration.src);
+    if (tour.announcement)
+      playNarration(tour.announcement.src)
+        .then((seconds) => {
+          if (cancelled || !Number.isFinite(seconds)) return;
+          if (useStore.getState().tour?.paused) pauseNarration();
+          holdMs = seconds * 1000 + AFTER_ANNOUNCEMENT_MS;
+          patchTour({ phase: "hold", holdMs });
+        })
+        .catch(() => {}); // blocked or missing: the card stays INTRO_MS
+    let elapsed = 0;
+    let last = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const s = useStore.getState();
+      if (!s.tour) return;
+      if (!s.tour.paused) elapsed += now - last;
+      last = now;
+      if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === tour.announcement?.src)) {
+        s.skipIntro();
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      stopNarration();
+    };
+  }, [data, id, intro, gate]);
 
   useEffect(() => {
-    if (!data || id === undefined || index === undefined) return;
+    if (!data || id === undefined || index === undefined || intro) return;
     const tour = tourById(id);
     const stop = tour?.stops[index];
     const target = stop && stopYear(stop, data);
@@ -134,7 +186,7 @@ export default function TourPlayer() {
       cancelAnimationFrame(raf);
       stopNarration();
     };
-  }, [data, id, index, travel]);
+  }, [data, id, index, travel, intro]);
 
   // Pausing the tour pauses its narration and music; the music fades out when the tour ends.
   const paused = useStore((s) => s.tour?.paused);
@@ -166,10 +218,11 @@ export default function TourPlayer() {
     };
   }, [id]);
 
+  const tour = id === undefined ? undefined : tourById(id);
+  if (!tour) return null;
+  if (!gate) return intro ? <TitleCard tour={tour} /> : null;
   // A tour opened from a link waits for a tap: browsers only play sound after one.
-  const gate = useStore((s) => s.tour?.gate);
-  const title = id === undefined ? undefined : tourById(id)?.title;
-  if (!gate || !title) return null;
+  const title = tour.title;
   return (
     <div className="tour-gate">
       <button className="tour-gate-btn" onClick={() => beginTour(useStore.getState().openGate)}>

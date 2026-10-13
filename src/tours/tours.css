@@ -62,6 +62,53 @@
   .app .search, .app .legend-dock { transition: none; }
 }
 
+/* The title card before the first stop: over the globe, fading in and out across its hold. */
+.tour-title-wrap {
+  position: absolute; inset: 0 0 180px; z-index: 15; padding: 16px; pointer-events: none;
+  display: grid; grid-template-columns: minmax(0, 560px); justify-content: center; align-content: center;
+}
+.tour-title-card {
+  pointer-events: auto;
+  box-sizing: border-box;
+  padding: 26px 30px 20px;
+  border-radius: 20px;
+  background: radial-gradient(120% 100% at 50% 0%, rgba(60, 42, 104, 0.92), rgba(14, 19, 36, 0.92) 70%);
+  border: 1px solid rgba(195, 155, 255, 0.4);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  animation-name: tour-title;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+.tour-title-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #c39bff; }
+.tour-title-name {
+  margin: 8px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  color: #f6e7c8;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.tour-title-blurb { margin: 0 auto 12px; max-width: 44ch; font-size: 1.02rem; line-height: 1.5; color: #d6dcec; }
+.tour-title-meta { font-size: 0.82rem; color: #8ec5ff; }
+.tour-title-skip {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px; padding: 6px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #c3cbe0;
+  font-size: 0.82rem;
+}
+.tour-title-skip:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
+.tour-title-skip:focus-visible { outline: 2px solid #c39bff; outline-offset: 2px; }
+@keyframes tour-title {
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  7% { opacity: 1; transform: none; }
+  93% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes tour-title { 0%, 100% { opacity: 1; transform: none; } }
+}
+
 /* A tour opened from a link: one tap starts it (and lets it play sound). */
 .tour-gate { position: absolute; inset: 0; z-index: 15; display: grid; place-items: center; pointer-events: none; }
 .tour-gate-btn {
@@ -87,6 +134,9 @@
   .app.view-globe .tour-bar { grid-column: 1 / -1; margin: 4px 0; }
   .app.view-globe.touring .search,
   .app.view-globe.touring .legend-dock { display: none; }
+  .tour-title-wrap { position: fixed; inset: 0 0 200px; }
+  .tour-title-card { padding: 20px 18px 16px; }
+  .tour-title-blurb { font-size: 0.95rem; }
   .app.view-globe .controls .tour-item { width: 100%; height: auto; padding: 6px 8px; border-radius: 8px; color: inherit; }
 }
 /* Phones: the menu button sat beside the search and would now cover the card (the tour bar ends the tour). */

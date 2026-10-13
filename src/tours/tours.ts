@@ -6,6 +6,8 @@ import type { Category } from "../types";
  * `hold` is how long the card stays up, in seconds (default: from the length of its description).
  * `layers`: the categories shown during the tour (default: all); the viewer's own come back after.
  * `music`: background track, a bucket key (music/tours/<id>-v<n>.mp3; set by `npm run audio:music`).
+ * `announcement`: the title card's voice-over, reading announcementText (narration/tours/<id>-v<n>.mp3;
+ * set by `npm run audio:narrate -- --announce <id>`; `text_hash` is that text's fingerprint when recorded).
  * Stops run oldest first. src/tours/tours.test.ts checks every stop lands on something visible.
  */
 export interface TourStop {
@@ -21,8 +23,12 @@ export interface Tour {
   blurb: string;
   layers?: Category[];
   music?: { src: string; credit: string };
+  announcement?: { src: string; credit: string; text_hash: string };
   stops: TourStop[];
 }
+
+/** What the title card's announcement says: the tour's title, then its blurb. */
+export const announcementText = (t: Pick<Tour, "title" | "blurb">) => `${t.title}. ${t.blurb}`;
 
 export const TOURS: Tour[] = [
   {
@@ -30,6 +36,7 @@ export const TOURS: Tour[] = [
     title: "Events and inventions",
     blurb: "From the first stone tools to paper: the breakthroughs that shaped the human story.",
     music: { src: "music/tours/events-and-inventions-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/events-and-inventions-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "753419e41b" },
     stops: [
       { entity: "hominin-divergence" },
       { entity: "lomekwian-tools" },
@@ -68,6 +75,7 @@ export const TOURS: Tour[] = [
     blurb: "Seven million years of our family tree: the first upright apes, the first toolmakers, and the many kinds of human who shared the world with ours.",
     layers: ["species", "event"],
     music: { src: "music/tours/human-evolution-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/human-evolution-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e2d5a39321" },
     stops: [
       { entity: "sahelanthropus", year: -6_999_999, site: "sahelanthropus@1" },
       { entity: "ardipithecus-ramidus", year: -4_399_999, site: "ardipithecus-ramidus@1" },
@@ -92,6 +100,7 @@ export const TOURS: Tour[] = [
     blurb: "How our ancestors left Africa and reached every continent, from the first steps into Asia to the peopling of the Americas.",
     layers: ["species", "culture", "event"],
     music: { src: "music/tours/out-of-africa-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/out-of-africa-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "d2d3c375fa" },
     stops: [
       { entity: "out-of-africa-dmanisi" },
       { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },
@@ -110,6 +119,7 @@ export const TOURS: Tour[] = [
     blurb: "From the first sharp flakes of stone to the painted caves of the Ice Age: how our ancestors learned to make tools, ornaments, music and art.",
     layers: ["culture", "event"],
     music: { src: "music/tours/ice-age-artists-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/ice-age-artists-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "3f391402c7" },
     stops: [
       { entity: "lomekwian-tools" },
       { entity: "oldowan-tools" },
@@ -133,6 +143,7 @@ export const TOURS: Tour[] = [
     blurb: "From the first cities of Sumer to the Roman Empire: how the great civilizations of the ancient world rose, flourished and fell.",
     layers: ["civilization", "event"],
     music: { src: "music/tours/civilizations-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/civilizations-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "a91989c457" },
     stops: [
       { entity: "sumerian-city-states", year: -2_899 },
       { entity: "great-pyramid" },

@@ -3,6 +3,7 @@
 //   npm run audio:narrate -- --missing [--yes]          every event without a narration
 //   npm run audio:narrate -- --tour <tour id> [--yes]   every stop of a tour without a narration
 //   npm run audio:narrate -- --stale [--yes]            everything whose description changed since recording
+//   npm run audio:narrate -- --announce <tour id>|all   a tour's title-card announcement (all: those missing or stale)
 //   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead
 //   npm run audio:narrate -- --voices                   list your ElevenLabs voices (to pick ELEVENLABS_VOICE_ID)
 // Options: --no-upload (prepare only; prints the upload command), --credit "<text>".
@@ -17,7 +18,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { parse as parseYaml } from "yaml";
 import { NARRATION_FOLDER, textHash } from "../lib/text-hash.ts";
-import { TOURS } from "../../src/tours/tours.ts";
+import { TOURS, announcementText } from "../../src/tours/tours.ts";
 import { fingerprint, META_PATH } from "../lib/fingerprint.ts";
 import { BUCKET, encode, uploadArgs, uploadCommand } from "./encode.ts";
 
@@ -35,7 +36,7 @@ const option = (f: string) => {
   return i >= 0 ? args[i + 1] : undefined;
 };
 const file = option("--file");
-const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--credit", "--tour"].includes(args[i - 1]));
+const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--credit", "--tour", "--announce"].includes(args[i - 1]));
 const fail = (m: string): never => {
   console.error(`✗ ${m}`);
   process.exit(1);
@@ -54,10 +55,13 @@ if (flag("--voices")) {
   process.exit(0);
 }
 
-/** An entity to narrate: its text as built (the card's), and the curated file that carries its narration. */
+/**
+ * An entity to narrate: its text as built (the card's), and the curated file that carries its narration.
+ * Or a tour's announcement (category "tour"): its announcementText, set in src/tours/tours.ts.
+ */
 interface Target {
   id: string;
-  category: keyof typeof NARRATION_FOLDER;
+  category: keyof typeof NARRATION_FOLDER | "tour";
   description: string;
   narration?: { src: string; text_hash: string };
   file: string;
@@ -78,16 +82,33 @@ const target = (id: string): Target => {
   if (!e.description) fail(`${id} has no description`);
   return { id, category: e.category, description: e.description, narration: e.narration, file };
 };
+const TOURS_FILE = "src/tours/tours.ts";
+const announcement = (t: (typeof TOURS)[number]): Target => ({
+  id: t.id,
+  category: "tour",
+  description: announcementText(t),
+  narration: t.announcement,
+  file: TOURS_FILE,
+});
+const staleAnnouncement = (t: (typeof TOURS)[number]) => !t.announcement || t.announcement.text_hash !== textHash(announcementText(t));
+const announceId = option("--announce");
 const tourId = option("--tour");
 const tour = tourId ? (TOURS.find((t) => t.id === tourId) ?? fail(`no tour ${tourId}`)) : undefined;
-const targets: Target[] = flag("--missing")
+const targets: Target[] = announceId
+  ? announceId === "all"
+    ? TOURS.filter(staleAnnouncement).map(announcement)
+    : [announcement(TOURS.find((t) => t.id === announceId) ?? fail(`no tour ${announceId}`))]
+  : flag("--missing")
   ? [...built.values()].filter((e) => e.category === "event" && !e.narration).map((e) => target(e.id))
   : tour
     ? [...new Set(tour.stops.map((st) => st.entity))].map(target).filter((e) => !e.narration)
     : flag("--stale")
-      ? [...built.values()].filter((e) => e.narration && e.narration.text_hash !== textHash(e.description)).map((e) => target(e.id))
+      ? [
+          ...[...built.values()].filter((e) => e.narration && e.narration.text_hash !== textHash(e.description)).map((e) => target(e.id)),
+          ...TOURS.filter((t) => t.announcement && staleAnnouncement(t)).map(announcement),
+        ]
       : ids.map(target);
-if (targets.length === 0) fail(ids.length || tour || flag("--missing") || flag("--stale") ? "nothing to narrate" : "usage: see the top of scripts/audio/narrate.ts");
+if (targets.length === 0) fail(ids.length || tour || announceId || flag("--missing") || flag("--stale") ? "nothing to narrate" : "usage: see the top of scripts/audio/narrate.ts");
 if (file && targets.length !== 1) fail("--file takes one entity");
 
 // A batch spends ElevenLabs characters: show what it will cost and ask for --yes.
@@ -111,7 +132,7 @@ const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-gene
 
 /** The description spoken, cached by its text so the same words are never paid for twice. */
 async function speak(e: Target): Promise<string> {
-  const path = `data/build/audio/tts/${e.id}-${textHash(e.description)}.mp3`;
+  const path = `data/build/audio/tts/${e.category === "tour" ? "tour-" : ""}${e.id}-${textHash(e.description)}.mp3`;
   if (existsSync(path)) return path;
   const res = await api(`/text-to-speech/${voice}?output_format=mp3_44100_128`, {
     method: "POST",
@@ -183,14 +204,27 @@ function setEntity(text: string, id: string, narration: object): string {
   return lines.join("\n");
 }
 
+/** Set a tour's announcement line in tours.ts (after its music, before its stops), as audio:music does. */
+function setTour(text: string, id: string, line: string): string {
+  const lines = text.split("\n");
+  const start = lines.indexOf(`    id: "${id}",`);
+  if (start < 0) fail(`no tour ${id} in ${TOURS_FILE}`);
+  const end = lines.findIndex((l, i) => i > start && l.startsWith("    stops:"));
+  const at = lines.slice(start, end).findIndex((l) => l.startsWith("    announcement:"));
+  if (at >= 0) lines[start + at] = line;
+  else lines.splice(end, 0, line);
+  return lines.join("\n");
+}
+
 const META = JSON.parse(readFileSync(META_PATH, "utf8"));
 const wasFresh = META.inputs_hash === fingerprint().hash;
 let entities = readFileSync(ENTITIES, "utf8");
+let toursFile = readFileSync(TOURS_FILE, "utf8");
 const pending: string[] = [];
 
 for (const e of targets) {
   const version = Number(e.narration?.src.match(/-v(\d+)\.mp3$/)?.[1] ?? 0) + 1;
-  const key = `narration/${NARRATION_FOLDER[e.category]}/${e.id}-v${version}.mp3`;
+  const key = `narration/${e.category === "tour" ? "tours" : NARRATION_FOLDER[e.category]}/${e.id}-v${version}.mp3`;
   const out = `data/build/audio/${key}`;
   let source: string;
   try {
@@ -205,16 +239,30 @@ for (const e of targets) {
   console.log(`${uploaded ? "✓" : "…"} ${e.id}: ${key} (${seconds.toFixed(1)} s)${uploaded ? "" : " not uploaded"}`);
   if (!uploaded) pending.push(uploadCommand(out, key));
   const narration = { src: key, credit, text_hash: textHash(e.description) };
+  if (e.category === "tour") {
+    toursFile = setTour(toursFile, e.id, `    announcement: { src: "${key}", credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" },`);
+    continue;
+  }
   yamlFiles[e.file] = setYaml(yamlFiles[e.file], e.id, `  narration: { src: ${key}, credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" }`, e.category === "event");
   entities = setEntity(entities, e.id, narration);
 }
 
-const changed = [...new Set(targets.map((t) => t.file))];
+const changed = [...new Set(targets.filter((t) => t.category !== "tour").map((t) => t.file))];
 for (const f of changed) writeFileSync(f, yamlFiles[f]);
-writeFileSync(ENTITIES, entities);
-// public/data matched its inputs before, and only narration changed: it still does.
-if (wasFresh) writeFileSync(META_PATH, JSON.stringify({ ...META, inputs_hash: fingerprint().hash }) + "\n");
-else console.warn("! public/data was already out of date before this run: run npm run data:build");
+if (changed.length) {
+  writeFileSync(ENTITIES, entities);
+  changed.push(ENTITIES);
+}
+if (targets.some((t) => t.category === "tour")) {
+  writeFileSync(TOURS_FILE, toursFile);
+  changed.push(TOURS_FILE);
+}
+// public/data matched its inputs before, and only narration changed: it still does. (Announcements
+// live in tours.ts, outside public/data.)
+if (changed.includes(ENTITIES)) {
+  if (wasFresh) writeFileSync(META_PATH, JSON.stringify({ ...META, inputs_hash: fingerprint().hash }) + "\n");
+  else console.warn("! public/data was already out of date before this run: run npm run data:build");
+}
 
-console.log(`\nUpdated ${[...changed, ENTITIES].join(", ")}: commit them${wasFresh ? ` (with ${META_PATH})` : ""}.`);
+console.log(`\nUpdated ${changed.join(", ")}: commit them${wasFresh && changed.includes(ENTITIES) ? ` (with ${META_PATH})` : ""}.`);
 if (pending.length) console.log(`\n${pending.length} clip(s) still to upload: npm run audio:upload (with your AWS login)`);

@@ -18,6 +18,10 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
   the Tours menu on the time bar is the quick way in. Both take their pictures from the stops (the
   page's cover: four spread through the tour; the menu: the first), so a new tour needs no picture of
   its own.
+- A tour opens with a title card (`TitleCard.tsx`): the title, blurb and length over the globe as it
+  turns to the first stop, while the tour's `announcement` reads the title and blurb aloud
+  (`announcementText` in `tours.ts`); it stays for the announcement plus 1.2 s (6 s without one).
+  "Skip intro", Next or → skip it; starting from a later stop on the Tours page leaves it out.
 - At each stop the slider plays forward to the year, the globe turns to the place, the card opens and
   the narration plays; the card stays up until the narration ends plus 1.5 s (reading time if there
   is none), then on to the next stop.
@@ -115,6 +119,15 @@ Other forms: `npm run audio:narrate -- <id> [<id>…]`, `--stale` (re-record cha
 `--missing` (events without narration), `<id> --file <mp3>` (a recording made by hand),
 `--no-upload`, `--credit "<text>"`.
 
+The title card's announcement (title and blurb, about 150 characters):
+
+```sh
+npm run audio:narrate -- --announce <tour id>      # or --announce all: every tour missing one or out of date
+```
+
+It sets `announcement` on the tour in `tours.ts`. Changing a tour's title or blurb makes it stale: the
+tour test warns, and `--stale` re-records it with the descriptions.
+
 ### 5. Music
 
 ```sh
@@ -148,10 +161,11 @@ overwritten**: a new recording gets the next version.
 | What | Key |
 |---|---|
 | Narration | `narration/<events\|species\|cultures\|civilizations>/<entity id>-v<n>.mp3` |
+| Tour announcement | `narration/tours/<tour id>-v<n>.mp3` |
 | Tour music | `music/tours/<tour id>-v<n>.mp3` |
 | Event video | `events/<name>.mp4` (or a YouTube link) |
 
-The validator enforces the narration keys; the tour test enforces the music keys.
+The validator enforces the narration keys; the tour test enforces the announcement and music keys.
 
 ## Gotchas
 

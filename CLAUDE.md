@@ -92,6 +92,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
   (`startTour(id, { index })`). The time bar's Tours menu shows a thumbnail and running time, and links to the page.
   Running time and covers come from `src/tours/summary.ts`.
+- Title card before stop 1 (`TitleCard.tsx`, `tour.intro` in the store): title, blurb, length, while the globe turns to
+  the first stop and `announcement` (ElevenLabs reading `announcementText`: title + blurb; `npm run audio:narrate --
+  --announce <id>|all`, key `narration/tours/<id>-v<n>.mp3`) plays. Skip intro / Next / → skip it; starting from a
+  later stop leaves it out. Rob is trying it without video first, then decides on per-tour intro videos.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
   goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
@@ -101,7 +105,9 @@ Five tours are live (events-and-inventions, human-evolution, out-of-africa, ice-
 every stop narrated. Rob chose to polish next. Backlog, roughly in his order of interest:
 
 1. Done 13 Oct 2026: search bar, legend and welcome hint hidden during tours (see above).
-2. Optional intro video per tour (`intro` on the tour: bucket key or YouTube link), played before stop 1, skippable.
+2. Title card and announcement done 13 Oct 2026 (uploaded? `npm run audio:upload -- --dry-run`). Intro video per tour:
+   on hold until Rob has watched the title card. Plan if wanted: video first (music off, skipped on a repeat
+   viewing, remembered in the browser), then the title card leads back into the globe; plays inline on iOS.
 3. Done 13 Oct 2026: Tours page and a better Tours menu (see above).
 4. Events and inventions still runs all 29 events: Rob to pick the stops to keep.
 5. Music: every tour reuses one track (separate keys, so each can be swapped); the 6:45 loop seam is audible on

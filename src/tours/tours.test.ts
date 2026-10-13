@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { TOURS } from "./tours";
+import { TOURS, announcementText } from "./tours";
+import { textHash } from "../../scripts/lib/text-hash";
 import { isActive } from "../map/data";
 import { readTourHash, tourHash } from "../globeLink";
 import { snapYear } from "../time/scale";
@@ -35,6 +36,15 @@ describe.each(TOURS)("tour $id", (tour) => {
     if (!tour.music) return;
     expect(tour.music.src).toMatch(new RegExp(`^music/tours/${tour.id}-v\\d+\\.mp3$`));
     expect(tour.music.credit).toBeTruthy();
+  });
+
+  it("names its announcement by the bucket convention, with a credit", () => {
+    if (!tour.announcement) return;
+    expect(tour.announcement.src).toMatch(new RegExp(`^narration/tours/${tour.id}-v\\d+\\.mp3$`));
+    expect(tour.announcement.credit).toBeTruthy();
+    // A changed title or blurb leaves the recording behind (npm run audio:narrate -- --stale re-records it).
+    if (tour.announcement.text_hash !== textHash(announcementText(tour)))
+      console.warn(`tour ${tour.id}: the announcement no longer matches its title and blurb`);
   });
 
   it("runs oldest first", () => {

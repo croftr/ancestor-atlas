@@ -50,6 +50,8 @@ interface AppState {
     restore: Record<Category, boolean>;
     /** Opened from a link: waits for a tap on "Start tour" (browsers only play sound after one). */
     gate: boolean;
+    /** The title card before the first stop (announced, if the tour has an announcement). */
+    intro: boolean;
   } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
@@ -75,8 +77,10 @@ interface AppState {
   /** End the tour and put the viewer's layers back. */
   stopTour(): void;
   pauseTour(paused: boolean): void;
-  /** Cut straight to a stop (Back / Next). */
+  /** Cut straight to a stop (Back / Next). During the title card, Next skips it to the first stop. */
   tourGo(index: number): void;
+  /** End the title card and play on to the first stop. */
+  skipIntro(): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
@@ -186,6 +190,8 @@ export const useStore = create<AppState>((set, get) => ({
         travel: true,
         paused: !!opts.gate,
         gate: !!opts.gate,
+        // Started from a later stop (the Tours page): no title card.
+        intro: !opts.index,
         phase: "travel",
         holdMs: 0,
         restore: s.tour?.restore ?? s.enabled,
@@ -198,9 +204,12 @@ export const useStore = create<AppState>((set, get) => ({
   tourGo: (index) =>
     set((s) => {
       const t = s.tour && tourById(s.tour.id);
-      if (!s.tour || !t || index < 0 || index >= t.stops.length) return {};
+      if (!s.tour || !t) return {};
+      if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, travel: true, phase: "travel", holdMs: 0 } } : {};
+      if (index < 0 || index >= t.stops.length) return {};
       return { tour: { ...s.tour, index, travel: false, phase: "travel", holdMs: 0 } };
     }),
+  skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, travel: true, phase: "travel", holdMs: 0 } } : {})),
   stepFeature: (dir) => {
     const d = getData();
     const s = get();

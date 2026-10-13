@@ -121,11 +121,11 @@ export default function TourBar() {
       <div className="tour-bar-text">
         <span className="tour-bar-title">{t.title}</span>
         <span className="tour-bar-stop" aria-live="polite">
-          {tour.index + 1} of {t.stops.length}: {name}
+          {tour.intro ? "Introduction" : `${tour.index + 1} of ${t.stops.length}: ${name}`}
         </span>
       </div>
       <div className="controls tour-controls">
-        <button onClick={() => tourGo(tour.index - 1)} disabled={tour.index === 0} title="Previous stop" aria-label="Previous stop">
+        <button onClick={() => tourGo(tour.index - 1)} disabled={tour.index === 0 || tour.intro} title="Previous stop" aria-label="Previous stop">
           <Icon d={ICON.prev} />
         </button>
         <button className="ctl-play" onClick={() => (tour.gate ? beginTour(openGate) : pauseTour(!tour.paused))} title={tour.paused ? "Resume" : "Pause"} aria-label={tour.paused ? "Resume tour" : "Pause tour"}>
@@ -152,7 +152,7 @@ export default function TourBar() {
       <div className="tour-progress" aria-hidden="true">
         {tour.phase === "hold" && (
           <span
-            key={`${tour.id}:${tour.index}:${tour.holdMs}`}
+            key={`${tour.id}:${tour.intro}:${tour.index}:${tour.holdMs}`}
             style={{ animationDuration: `${tour.holdMs}ms`, animationPlayState: tour.paused ? "paused" : "running" } as CSSProperties}
           />
         )}
