@@ -1,5 +1,5 @@
 /* Phone tab bar (PageTabs) across the top of the Timeline, Events, Species, Cultures and
-   Civilizations pages. The menu button (SideNav) sits in its left end. Only rendered below 700px. */
+   Civilizations and Tours pages. The menu button (SideNav) sits in its left end. Only rendered below 700px. */
 .app { --tabs-h: 0px; }
 .app:has(.page-tabs) { --tabs-h: 56px; }
 

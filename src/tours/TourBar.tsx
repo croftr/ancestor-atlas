@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useStore } from "../store";
 import { useData } from "../map/data";
-import { yearToPos } from "../time/scale";
-import { TOURS, tourById, type Tour } from "./tours";
-import { beginTour, holdSeconds, stopYear } from "./TourPlayer";
+import { navigate } from "../route";
+import { TOURS, tourById } from "./tours";
+import { beginTour } from "./TourPlayer";
+import { coverPictures, minutes, stopsOf } from "./summary";
 import { setMusicMuted, useMusicMuted } from "../audio/music";
-import type { Data } from "../map/data";
 import "./tours.css";
 
 const Icon = ({ d }: { d: string }) => (
@@ -25,22 +25,6 @@ const ICON = {
   // A film frame: the "watch a tour" button.
   film: "M2 3h12v10H2zM3.3 4.2v1.3h1.3V4.2zm0 3.1v1.4h1.3V7.3zm0 3.2v1.3h1.3v-1.3zm8.1-6.3v1.3h1.3V4.2zm0 3.1v1.4h1.3V7.3zm0 3.2v1.3h1.3v-1.3zM5.8 4.2v7.6h4.4V4.2z",
 };
-
-/** Rough running time of a tour in minutes: the holds plus the slider travel between stops. */
-function minutes(tour: Tour, d: Data): number {
-  let ms = 0;
-  let pos = 0;
-  for (const stop of tour.stops) {
-    const e = d.entityById.get(stop.entity);
-    const y = stopYear(stop, d);
-    if (!e || y === null) continue;
-    ms += holdSeconds(stop, e.description) * 1000;
-    const to = yearToPos(y);
-    if (to > pos) ms += Math.min(6000, Math.max(1500, (to - pos) * 60_000));
-    pos = to;
-  }
-  return Math.max(1, Math.round(ms / 60_000));
-}
 
 /** The "Tours" button on the time bar and its list of tours. */
 export function TourPicker() {
@@ -78,23 +62,39 @@ export function TourPicker() {
       {open && (
         <div className="tour-menu" role="menu">
           <div className="tour-menu-head">Sit back and watch</div>
-          {TOURS.map((t) => (
-            <button
-              key={t.id}
-              role="menuitem"
-              className="tour-item"
-              onClick={() => {
-                setOpen(false);
-                beginTour(() => startTour(t.id));
-              }}
-            >
-              <span className="tour-item-title">{t.title}</span>
-              <span className="tour-item-blurb">{t.blurb}</span>
-              <span className="tour-item-meta">
-                {t.stops.length} stops{data && ` · about ${minutes(t, data)} min`}
-              </span>
-            </button>
-          ))}
+          {TOURS.map((t) => {
+            const cover = data && coverPictures(stopsOf(t, data), 1)[0]?.picture;
+            return (
+              <button
+                key={t.id}
+                role="menuitem"
+                className="tour-item"
+                title={t.blurb}
+                onClick={() => {
+                  setOpen(false);
+                  beginTour(() => startTour(t.id));
+                }}
+              >
+                <span className="tour-item-thumb">{cover && <img src={cover.url} alt="" loading="lazy" />}</span>
+                <span className="tour-item-text">
+                  <span className="tour-item-title">{t.title}</span>
+                  <span className="tour-item-meta">
+                    {t.stops.length} stops{data && ` · about ${minutes(t, data)} min`}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
+          <button
+            role="menuitem"
+            className="tour-item tour-all"
+            onClick={() => {
+              setOpen(false);
+              navigate("tours");
+            }}
+          >
+            All tours, with their stops →
+          </button>
         </div>
       )}
     </div>

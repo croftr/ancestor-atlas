@@ -1,0 +1,131 @@
+/* Tours page (#/tours): a card per tour, with a cover made from its stops' pictures. */
+.tp-title-icon { display: inline-flex; color: #c39bff; }
+.tp-main { max-width: 1040px; display: grid; gap: 18px; padding-top: 18px; }
+
+.tp-card {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4px 20px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Cover: up to four stop pictures in a square, with a play mark. */
+.tp-cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #141a33;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.tp-cover:focus-visible { outline: 2px solid #c39bff; outline-offset: 3px; }
+.tp-mosaic { position: absolute; inset: 0; display: grid; gap: 2px; grid-template: 1fr 1fr / 1fr 1fr; }
+.tp-mosaic.n1 { grid-template: 1fr / 1fr; }
+.tp-mosaic.n2 { grid-template: 1fr / 1fr 1fr; }
+.tp-mosaic.n3 > :first-child { grid-row: span 2; }
+.tp-cell, .tp-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--tint) 18%, #141a33);
+}
+.tp-cell img, .tp-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tp-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  padding-left: 3px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(17, 24, 42, 0.78);
+  border: 1px solid rgba(195, 155, 255, 0.6);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.tp-cover:hover .tp-play { background: #c39bff; color: #1d1036; transform: translate(-50%, -50%) scale(1.06); }
+
+.tp-body { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
+.tp-body h2 { margin: 2px 0 0; font-size: 1.25rem; }
+.tp-span { font-size: 0.85rem; }
+.tp-blurb { margin: 2px 0; line-height: 1.5; color: #cbd3e6; max-width: 60ch; }
+.tp-meta { display: flex; flex-wrap: wrap; gap: 4px 0; font-size: 0.82rem; color: #8ec5ff; }
+.tp-meta span + span::before { content: "·"; margin: 0 7px; color: #5d6780; }
+.tp-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  min-height: 40px;
+  padding: 8px 18px 8px 14px;
+  border: none;
+  border-radius: 999px;
+  background: #c39bff;
+  color: #1d1036;
+  font-weight: 650;
+}
+.tp-watch:hover { background: #d5b8ff; }
+.tp-watch:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* The stops: a list to start from any one of them. */
+.tp-stops { grid-column: 1 / -1; margin-top: 8px; }
+.tp-stops summary { cursor: pointer; padding: 6px 2px; font-size: 0.88rem; color: #c3cbe0; }
+.tp-stops summary:hover { color: #fff; }
+.tp-stops ol {
+  list-style: none;
+  margin: 6px 0 2px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px;
+}
+.tp-stops li button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  text-align: left;
+}
+.tp-stops li button:hover { background: rgba(195, 155, 255, 0.12); border-color: rgba(195, 155, 255, 0.35); }
+.tp-stops li button:focus-visible { outline: 2px solid #c39bff; outline-offset: 1px; }
+.tp-thumb { flex: none; width: 48px; height: 48px; border-radius: 7px; }
+.tp-thumb .cat-badge { transform: scale(0.85); }
+.tp-stop-text { display: grid; min-width: 0; }
+.tp-stop-name { font-size: 0.88rem; font-weight: 550; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tp-stop-n { display: inline-block; min-width: 1.4em; color: #c39bff; font-variant-numeric: tabular-nums; }
+.tp-stop-year { font-size: 0.76rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tp-note { max-width: 70ch; font-size: 0.85rem; line-height: 1.5; }
+
+/* Phones: a small cover beside the title; the blurb and button run full width beneath. */
+@media (max-width: 760px) {
+  .tp-main { padding-top: 12px; gap: 12px; }
+  .tp-card { grid-template-columns: 104px 1fr; gap: 10px 14px; padding: 10px; }
+  .tp-play { width: 40px; height: 40px; }
+  .tp-play svg { width: 16px; height: 16px; }
+  .tp-body { display: contents; }
+  .tp-body h2 { grid-column: 2; grid-row: 1; align-self: center; font-size: 1.1rem; }
+  .tp-span { display: none; }
+  .tp-blurb, .tp-meta, .tp-watch { grid-column: 1 / -1; }
+  .tp-blurb { margin: 0; font-size: 0.92rem; }
+  .tp-watch { justify-self: start; }
+  .tp-stops { margin-top: 0; }
+  .tp-stops ol { grid-template-columns: 1fr; }
+}

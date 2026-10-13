@@ -68,8 +68,8 @@ interface AppState {
    * chips and tours.
    */
   showEntity(entityId: string, opts?: { year?: number; open?: boolean; site?: string }): void;
-  /** `gate`: wait for a tap before playing (a tour opened from a link). */
-  startTour(id: string, opts?: { gate?: boolean }): void;
+  /** `gate`: wait for a tap before playing (a tour opened from a link). `index`: the stop to start at. */
+  startTour(id: string, opts?: { gate?: boolean; index?: number }): void;
   /** The tap on "Start tour". */
   openGate(): void;
   /** End the tour and put the viewer's layers back. */
@@ -182,7 +182,7 @@ export const useStore = create<AppState>((set, get) => ({
       enabled: t.layers ? (Object.fromEntries(CATEGORIES.map((c) => [c, t.layers!.includes(c)])) as Record<Category, boolean>) : s.enabled,
       tour: {
         id,
-        index: 0,
+        index: Math.min(Math.max(0, opts.index ?? 0), t.stops.length - 1),
         travel: true,
         paused: !!opts.gate,
         gate: !!opts.gate,

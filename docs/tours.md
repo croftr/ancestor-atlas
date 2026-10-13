@@ -13,6 +13,11 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
   slider stops; default the entity's best year, an event's `year`), `site` (a feature id to frame and
   open the card on; default all the entity's features on the map then), `hold` (seconds; default the
   narration's length).
+- Where viewers find tours: the Tours page (`#/tours`, `src/tours/ToursPage.tsx`; in the side rail and the
+  phone tabs) shows each tour as a card, with the blurb, running time and a list of stops to start from;
+  the Tours menu on the time bar is the quick way in. Both take their pictures from the stops (the
+  page's cover: four spread through the tour; the menu: the first), so a new tour needs no picture of
+  its own.
 - At each stop the slider plays forward to the year, the globe turns to the place, the card opens and
   the narration plays; the card stays up until the narration ends plus 1.5 s (reading time if there
   is none), then on to the next stop.

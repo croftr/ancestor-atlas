@@ -88,6 +88,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   events); Out of Africa (9); Ice Age artists and toolmakers (14); Rise and fall of civilizations (15 civilizations +
   4 events, Sumer to Rome). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
   narration-length paragraphs for them (Rob to review). All tours reuse one music track for now.
+- Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,
+  blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
+  (`startTour(id, { index })`). The time bar's Tours menu shows a thumbnail and running time, and links to the page.
+  Running time and covers come from `src/tours/summary.ts`.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
   goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
@@ -98,8 +102,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 
 1. Done 13 Oct 2026: search bar, legend and welcome hint hidden during tours (see above).
 2. Optional intro video per tour (`intro` on the tour: bucket key or YouTube link), played before stop 1, skippable.
-3. Tours menu (`TourPicker` in `src/tours/TourBar.tsx`) now lists five: give it a better layout (picture per tour,
-   running time); perhaps a way into tours beyond the time bar.
+3. Done 13 Oct 2026: Tours page and a better Tours menu (see above).
 4. Events and inventions still runs all 29 events: Rob to pick the stops to keep.
 5. Music: every tour reuses one track (separate keys, so each can be swapped); the 6:45 loop seam is audible on
    longer tours. Levels and the dip under narration are untested by ear on phones (iOS Web Audio, the Start tour tap).

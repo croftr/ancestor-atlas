@@ -9,6 +9,7 @@ import PageTabs from "./ui/PageTabs";
 import WelcomeHint from "./ui/WelcomeHint";
 import IntroModal from "./ui/IntroModal";
 import TourPlayer from "./tours/TourPlayer";
+import ToursPage from "./tours/ToursPage";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
 import CulturesPage from "./browse/CulturesPage";
@@ -64,6 +65,7 @@ export default function App() {
       {view === "species" && <SpeciesPage />}
       {view === "cultures" && <CulturesPage />}
       {view === "civilizations" && <CivilizationsPage />}
+      {view === "tours" && <ToursPage />}
       <PageTabs />
       <SideNav />
       {introOpen && <IntroModal />}

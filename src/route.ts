@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 /**
  * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
  * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, and "#/events",
- * "#/species", "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it.
+ * "#/species", "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it,
+ * and "#/tours" the guided tours. (A tour itself plays on the globe: "#/tour/<id>".)
  */
-export type View = "globe" | "timeline" | BrowseView;
+export type View = "globe" | "timeline" | "tours" | BrowseView;
 /** Pages that list one category and open an entry in a detail view. */
 export type BrowseView = "events" | "species" | "cultures" | "civilizations";
 const BROWSE_VIEWS: BrowseView[] = ["events", "species", "cultures", "civilizations"];
@@ -16,6 +17,7 @@ const pathOf = (hash: string) => hash.replace(/^#\/?/, "");
 const viewOfHash = (hash: string): View => {
   const page = pathOf(hash).split(/[/?#]/)[0];
   if (page === "timeline") return "timeline";
+  if (page === "tours") return "tours";
   if ((BROWSE_VIEWS as string[]).includes(page)) return page as BrowseView;
   return "globe";
 };
@@ -72,5 +74,5 @@ export function navigate(view: View, entityId?: string) {
   }
   if (entityId) pendingFocus = entityId;
   if (view === "timeline" && entityId) pendingShrunkCard = true;
-  window.location.hash = view === "timeline" ? "#/timeline" : "#/";
+  window.location.hash = view === "globe" ? "#/" : `#/${view}`;
 }

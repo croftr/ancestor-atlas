@@ -42,6 +42,14 @@ const EventsIcon = <CategoryIcon category="event" />;
 const SpeciesIcon = <CategoryIcon category="species" />;
 const CulturesIcon = <CategoryIcon category="culture" />;
 const CivilizationsIcon = <CategoryIcon category="civilization" />;
+/** Guided tours: a film frame with a play mark. */
+export const ToursIcon = (
+  <Icon>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="M7 5v14M17 5v14" strokeOpacity="0.55" />
+    <polygon points="10.5 9.5 14 12 10.5 14.5 10.5 9.5" fill="currentColor" stroke="none" />
+  </Icon>
+);
 const VideoIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />
@@ -74,6 +82,7 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "species", label: "Species", icon: SpeciesIcon, view: "species", hint: "Our ancestors and relatives, in the order they appeared" },
   { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
   { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
+  { id: "tours", label: "Tours", icon: ToursIcon, view: "tours", hint: "Guided tours to sit back and watch" },
 ];
 
 /** Tools and settings, bottom of the rail. */
