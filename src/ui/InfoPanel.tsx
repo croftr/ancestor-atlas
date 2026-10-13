@@ -188,7 +188,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         aria-label={`Show card: ${entity.name}`}
         title="Show card"
       >
-        <CategoryBadge category={entity.category} size={24} decorative />
+        <CategoryBadge category={entity.category} size={30} decorative />
         <span className="tour-peek-name">{entity.name}</span>
         {showThumb && (
           <span className="tour-peek-thumb">
