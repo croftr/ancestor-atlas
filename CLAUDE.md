@@ -87,14 +87,16 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - Tours (Oct 2026): Events and inventions (all 29 events; a draft for Rob to trim); Human evolution (13 species + 2
   events); Out of Africa (9); Ice Age artists and toolmakers (14); Rise and fall of civilizations (15 civilizations +
   4 events, Sumer to Rome). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
-  narration-length paragraphs for them (Rob to review). All tours reuse one music track for now. Ideas: hide the search bar during tours; a per-tour intro video.
+  narration-length paragraphs for them (Rob to review). All tours reuse one music track for now.
+- While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
+  goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
 ### Tour polish: next up (as of 13 Oct 2026)
 
 Five tours are live (events-and-inventions, human-evolution, out-of-africa, ice-age-artists, civilizations),
 every stop narrated. Rob chose to polish next. Backlog, roughly in his order of interest:
 
-1. Hide the search bar (and consider the legend and other chrome) while a tour plays: a cleaner, cinematic view.
+1. Done 13 Oct 2026: search bar, legend and welcome hint hidden during tours (see above).
 2. Optional intro video per tour (`intro` on the tour: bucket key or YouTube link), played before stop 1, skippable.
 3. Tours menu (`TourPicker` in `src/tours/TourBar.tsx`) now lists five: give it a better layout (picture per tour,
    running time); perhaps a way into tours beyond the time bar.

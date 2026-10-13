@@ -49,9 +49,10 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
 
   useEffect(() => setActive(0), [query]);
 
-  // "/" or Ctrl/Cmd+K focuses the search from anywhere.
+  // "/" or Ctrl/Cmd+K focuses the search from anywhere (not during a tour, which hides it).
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (useStore.getState().tour) return;
       const t = e.target as HTMLElement | null;
       const typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
       if ((e.key === "k" && (e.ctrlKey || e.metaKey)) || (e.key === "/" && !typing)) {

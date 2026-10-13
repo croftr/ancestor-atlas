@@ -41,6 +41,21 @@
 /* Between stops the globe can be empty for a moment: no "nothing on the map" note during a tour. */
 .app.touring .empty-state:not(.loading-state) { display: none; }
 
+/* While a tour plays the globe goes cinematic: the search and legend fade away (the nav rail stays,
+   so nothing shifts) and the welcome hint goes. Small screens take them out of the stacked column
+   below. */
+.app .search,
+.app .legend-dock { transition: opacity 0.4s ease, visibility 0s linear 0s; }
+.app.touring .welcome-hint { display: none; }
+.app.touring .search,
+.app.touring .legend-dock {
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .app .search, .app .legend-dock { transition: none; }
+}
+
 /* A tour opened from a link: one tap starts it (and lets it play sound). */
 .tour-gate { position: absolute; inset: 0; z-index: 15; display: grid; place-items: center; pointer-events: none; }
 .tour-gate-btn {
@@ -64,5 +79,11 @@
 @media (max-width: 900px) {
   .time-slider .controls .ctl-tour span { display: none; }
   .app.view-globe .tour-bar { grid-column: 1 / -1; margin: 4px 0; }
+  .app.view-globe.touring .search,
+  .app.view-globe.touring .legend-dock { display: none; }
   .app.view-globe .controls .tour-item { width: 100%; height: auto; padding: 8px 10px; border-radius: 8px; color: inherit; }
+}
+/* Phones: the menu button sat beside the search and would now cover the card (the tour bar ends the tour). */
+@media (max-width: 700px) {
+  .app.view-globe.touring .nav-menu-btn { display: none; }
 }
