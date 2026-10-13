@@ -7,8 +7,8 @@ import { narrationState, subscribeNarration } from "./narration";
  * Web Audio (a gain node), since iOS ignores an element's volume; the bucket allows cross-origin
  * reads, which that needs. Falls back to the element's volume where Web Audio is missing.
  */
-const LEVEL = 0.35; // music under the tour, relative to narration (both mastered to -16 LUFS)
-const DUCKED = 0.1; // while narration plays
+const LEVEL = 0.85; // music between narrations, relative to full volume (music and narration both mastered to -16 LUFS)
+const DUCKED = 0.28; // while narration plays: about 11 dB under the voice
 const FADE_IN = 2.5;
 const FADE_OUT = 1.5;
 const DUCK = 0.6;
