@@ -28,6 +28,8 @@ export default function TitleCard({ tour }: { tour: Tour }) {
         <div className="tour-title-meta">
           {tour.stops.length} stops{data && ` · about ${minutes(tour, data)} min`}
         </div>
+        {/* Small screens leave the credit off the slimmed time bar, so it is shown here. */}
+        {tour.music && <div className="tour-title-credit">{tour.music.credit}</div>}
         <button className="tour-title-skip" onClick={skipIntro}>
           Skip intro
           <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">

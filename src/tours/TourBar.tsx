@@ -123,6 +123,10 @@ export default function TourBar() {
         <span className="tour-bar-stop" aria-live="polite">
           {tour.intro ? "Introduction" : `${tour.index + 1} of ${t.stops.length}: ${name}`}
         </span>
+        {/* Small screens: just the tour and where it has got to (the stop's name is on its strip). */}
+        <span className="tour-bar-compact">
+          {tour.intro ? "Intro" : `${tour.index + 1}/${t.stops.length}`} · {t.title}
+        </span>
       </div>
       <div className="controls tour-controls">
         <button onClick={() => tourGo(tour.index - 1)} disabled={tour.index === 0 || tour.intro} title="Previous stop" aria-label="Previous stop">
@@ -138,7 +142,7 @@ export default function TourBar() {
           <button
             onClick={() => setMusicMuted(!musicMuted)}
             aria-pressed={!musicMuted}
-            title={musicMuted ? "Music off" : "Music on"}
+            title={`${musicMuted ? "Music off" : "Music on"} · ${t.music.credit}`}
             aria-label="Background music"
           >
             <Icon d={musicMuted ? ICON.musicOff : ICON.music} />

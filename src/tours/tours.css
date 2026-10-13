@@ -42,6 +42,7 @@
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
+.tour-bar-compact, .tour-title-credit { display: none; }
 .tour-credit { grid-column: 1 / -1; font-size: 0.68rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* Between stops the globe can be empty for a moment: no "nothing on the map" note during a tour. */
@@ -138,6 +139,51 @@
   .tour-title-card { padding: 20px 18px 16px; }
   .tour-title-blurb { font-size: 0.95rem; }
   .app.view-globe .controls .tour-item { width: 100%; height: auto; padding: 6px 8px; border-radius: 8px; color: inherit; }
+}
+/* Small screens: while a tour plays the time bar slims to one row: the year with the tour and its
+   stop count under it, the tour buttons beside them, and the stop's hold as a hairline along the
+   bottom. The track, ticks, era button and music credit go (the credit is on the title card and
+   the music button's tooltip). */
+@media (max-width: 900px) {
+  .app.view-globe.touring .time-slider {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 0;
+    padding: 8px 8px 10px 14px;
+    border-radius: 16px;
+    background: rgba(13, 20, 36, 0.9);
+    backdrop-filter: blur(10px);
+  }
+  .app.view-globe.touring .time-slider::before { display: none; } /* nothing scrolls under it now */
+  .app.view-globe.touring .year-sub,
+  .app.view-globe.touring .range-wrap,
+  .app.view-globe.touring .span-track,
+  .app.view-globe.touring .ticks,
+  .app.view-globe.touring .tour-credit,
+  .app.view-globe.touring .tour-bar-title,
+  .app.view-globe.touring .tour-bar-stop { display: none; }
+  .app.view-globe.touring .tour-bar { display: contents; }
+  .app.view-globe.touring .year-readout { grid-column: 1; grid-row: 1; align-self: end; font-size: 1rem; }
+  .app.view-globe.touring .tour-bar-text { grid-column: 1; grid-row: 2; align-self: start; }
+  .app.view-globe.touring .tour-bar-compact {
+    display: block;
+    font-size: 0.74rem;
+    color: #8ec5ff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .app.view-globe.touring .tour-controls { grid-column: 2; grid-row: 1 / span 2; gap: 0; }
+  .app.view-globe.touring .tour-controls button { width: 34px; height: 34px; }
+  .app.view-globe.touring .tour-controls .ctl-play { width: 38px; height: 38px; margin: 0 2px; }
+  .app.view-globe.touring .tour-progress {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .tour-title-credit { display: block; margin-top: 10px; font-size: 0.7rem; color: #8b95ab; }
 }
 /* Small screens: during a tour each stop shows as a slim strip floating over the top of the globe
    (badge, name, thumbnail) instead of the card, so the globe keeps the screen. Tap: the card. */
