@@ -82,9 +82,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   narration (levels at the top of that file); a music on/off button on the tour bar (remembered).
 - Sound needs a tap: the Tours menu primes audio; a tour opened from a link waits behind a "Start tour" button (`gate`).
 - A stop may set `site` (a feature id) to frame and open the card on one place. Tours can mix categories.
-- Tours so far: Events and inventions (all 29 events; a first draft for Rob to trim); Human evolution (13 species,
-  descriptions rewritten Oct 2026 as narration-length paragraphs, plus 2 events; species and events layers).
-  Planned: rise and fall of civilizations (one description covering both). Ideas: hide the search bar during tours; a per-tour intro video.
+- Tours (Oct 2026): Events and inventions (all 29 events; a draft for Rob to trim); Human evolution (13 species + 2
+  events); Out of Africa (9); Ice Age artists and toolmakers (14); Rise and fall of civilizations (15 civilizations +
+  4 events, Sumer to Rome). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
+  narration-length paragraphs for them (Rob to review). All tours reuse one music track for now. Ideas: hide the search bar during tours; a per-tour intro video.
 
 ## Civilization regions
 

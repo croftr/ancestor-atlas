@@ -44,7 +44,7 @@ const fail = (m: string): never => {
 const apiKey = () => process.env.ELEVENLABS_API_KEY || fail("set ELEVENLABS_API_KEY in .env.local (ElevenLabs: Profile → API keys)");
 async function api(path: string, init: RequestInit = {}): Promise<Response> {
   const res = await fetch(`${API}${path}`, { ...init, headers: { "xi-api-key": apiKey(), ...init.headers } });
-  if (!res.ok) fail(`ElevenLabs ${path}: ${res.status} ${(await res.text()).slice(0, 300)}`);
+  if (!res.ok) throw new Error(`ElevenLabs ${path.split("?")[0]}: ${res.status} ${(await res.text()).slice(0, 300)}`);
   return res;
 }
 
@@ -161,14 +161,18 @@ function setYaml(text: string, id: string, line: string, isEvent: boolean): stri
   return lines.join("\n");
 }
 
-/** Put the narration on the entity in public/data where the build would: events before source_ids, others after description. */
+/**
+ * Put the narration on the entity in public/data where the build would: events before source_ids;
+ * civilizations (Cliopatria records with curated fields laid over them) after source_ids; species and
+ * cultures (built from entities.yaml in its key order) after description.
+ */
 function setEntity(text: string, id: string, narration: object): string {
   const lines = text.split("\n");
   const i = lines.findIndex((l) => l.includes(`"id":${JSON.stringify(id)},`));
   if (i < 0) fail(`${id} not in ${ENTITIES}`);
   const comma = lines[i].endsWith(",");
   const { narration: _old, ...rest } = JSON.parse(comma ? lines[i].slice(0, -1) : lines[i]);
-  const after = rest.category === "event" ? null : "description";
+  const after = rest.category === "event" ? null : rest.category === "civilization" ? "source_ids" : "description";
   const out: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(rest)) {
     if (k === "source_ids" && after === null) out.narration = narration;
@@ -188,7 +192,14 @@ for (const e of targets) {
   const version = Number(e.narration?.src.match(/-v(\d+)\.mp3$/)?.[1] ?? 0) + 1;
   const key = `narration/${NARRATION_FOLDER[e.category]}/${e.id}-v${version}.mp3`;
   const out = `data/build/audio/${key}`;
-  const source = file ?? (await speak(e));
+  let source: string;
+  try {
+    source = file ?? (await speak(e));
+  } catch (err) {
+    // Out of credit, say: keep what is done so far; a re-run picks up the rest.
+    console.error(`✗ ${e.id}: ${(err as Error).message}\n  Stopping here; the clips above are kept. Run the same command again later for the rest.`);
+    break;
+  }
   const seconds = encode(source, out, { channels: 1, kbps: 96 });
   const uploaded = upload(out, key);
   console.log(`${uploaded ? "✓" : "…"} ${e.id}: ${key} (${seconds.toFixed(1)} s)${uploaded ? "" : " not uploaded"}`);

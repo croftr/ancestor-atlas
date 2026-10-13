@@ -812,7 +812,8 @@
       credit: Past Uncovered, YouTube
 - id: roman-empire
   category: civilization
-  description: The Roman state under Augustus and his successors, which grew from the Roman Republic into a Mediterranean-wide empire.
+  description: "From a small city on the Tiber, Rome conquered Italy and then the whole Mediterranean. In 27 BCE, after a century of civil wars, Augustus became its first emperor, and for two centuries the Roman peace let trade, roads and cities flourish from Britain to Syria under one law. Latin became the root of many European languages. Divided in two in 395 CE, the western empire fell to Germanic kings in 476, while the eastern half, ruled from Constantinople, lasted until 1453."
+  narration: { src: narration/civilizations/roman-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "90c4997a67" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=zKZjlIhitRI
@@ -1159,7 +1160,8 @@
       title: Ancient Egypt Dynasty by Dynasty - Dynasties XV & XVI - The Arrival of the Hyksos
       credit: History with Cy, YouTube
 - id: new-kingdom-of-egypt
-  description: The imperial zenith of pharaonic Egypt (Eighteenth to Twentieth Dynasties), forged by warrior pharaohs like Thutmose III, Hatshepsut, and Ramesses II. Stretching from Nubia to the Euphrates, the empire amassed unprecedented wealth, constructing monumental temple complexes at Karnak and Luxor and magnificent royal tombs in the Valley of the Kings.
+  description: "After driving out the Hyksos rulers of the north around 1550 BCE, the pharaohs of the New Kingdom made Egypt an imperial power reaching from Nubia to Syria. It was the age of Hatshepsut, Thutmose the Third, Akhenaten, Tutankhamun and Ramesses the Second, of the temples of Karnak and Luxor and the royal tombs in the Valley of the Kings. After about 1100 BCE, worn down by the Sea Peoples, by drought and by rivalry between priests and kings, the kingdom split apart."
+  narration: { src: narration/civilizations/new-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
   media:
@@ -1177,7 +1179,8 @@
       title: "The Rise and Fall of the Indus Valley Civilization"
       credit: Historical Adventure, YouTube
 - id: minoan-civilization
-  description: An advanced Bronze Age maritime civilization that flourished on the Mediterranean island of Crete, centered at the labyrinthine palace complex of Knossos. Famed for vibrant frescoes, unfortified settlements, seafaring commerce, and the undeciphered Linear A script, Minoan society exerted immense cultural influence across the Aegean before its Bronze Age decline.
+  description: "On the island of Crete the Minoans built Europe's first great palaces, at Knossos, Phaistos and Malia: centres of storage, craft and ritual, decorated with vivid frescoes of bulls, dolphins and processions. They traded across the eastern Mediterranean with Egypt and the Levant, and wrote in a script, Linear A, that is still undeciphered. After about 1450 BCE most of the palaces were destroyed, and Knossos came under the control of Mycenaean Greeks from the mainland."
+  narration: { src: narration/civilizations/minoan-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5981d1131c" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=eKrzPJ60HKU
@@ -1310,14 +1313,16 @@
       title: Intriguing History of the Berber Kingdom of Numidia
       credit: Yohannes, YouTube
 - id: sumerian-city-states
-  description: A network of pioneering Bronze Age city-states—including Uruk, Ur, and Eridu—in the river valleys of southern Mesopotamia. Sumerians developed the world's earliest known writing system (cuneiform), monumental mudbrick ziggurats, advanced irrigation networks, and complex municipal law codes.
+  description: "In the river plains of southern Mesopotamia, cities such as Uruk, Ur and Lagash grew in the late fourth millennium BCE into the world's first urban civilization. Sumerian scribes invented cuneiform writing on clay tablets, temple communities raised stepped ziggurats, and canals turned the dry plain into rich farmland. The city-states fought one another over water and land for centuries, fell under Akkadian and later Babylonian rule, and by about 1750 BCE had lost their independence, though their language lived on in temples and schools."
+  narration: { src: narration/civilizations/sumerian-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "523b4fd799" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=YPioTRAOAvU
       title: "Ancient Mesopotamia: The First Cities in History | Sumer and the Urban Revolution"
       credit: Topicus History, YouTube
 - id: akkadian-empire
-  description: Regarded as the world's first multi-national empire, founded by Sargon the Great around 2334 BCE in central Mesopotamia. Uniting Akkadian and Sumerian speakers under centralized rule, the empire fostered major artistic, administrative, and military innovations across the Fertile Crescent before collapsing amid climatic disruption and regional unrest.
+  description: "Around 2334 BCE Sargon of Akkad, a man of humble birth according to legend, conquered the Sumerian cities and created what is often called the world's first empire, stretching from the Persian Gulf towards the Mediterranean. His grandson Naram-Sin called himself king of the four quarters of the world and was worshipped as a god. Within two centuries the empire had collapsed, weakened by revolts, by raids from the Zagros mountains and, many believe, by a severe drought."
+  narration: { src: narration/civilizations/akkadian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "912a730cb8" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=uNHkoGRc53Y
@@ -1345,7 +1350,8 @@
       title: The First Dynasty of the Sealand and the Last Days of the Old Babylonian Kingdom (c. 1730-1460 BC)
       credit: History with Cy, YouTube
 - id: hittites
-  description: A major Bronze Age empire established by Indo-European speakers in central Anatolia, centered at their fortified capital of Hattusa. Pioneers in early iron metallurgy and chariot warfare, the Hittites expanded across modern Turkey and northern Syria, signing the world's earliest known parity peace treaty with Ramesses II of Egypt.
+  description: "From their fortified capital of Hattusa in central Anatolia, the Hittites built one of the great powers of the Bronze Age. Their kings sacked Babylon around 1595 BCE, fought Egypt at the battle of Kadesh in 1274 BCE, and later sealed one of the earliest surviving peace treaties with Ramesses the Second. Thousands of clay tablets from their archives preserve the oldest written Indo-European language. Around 1180 BCE the empire collapsed and Hattusa was abandoned, in the wider upheaval at the end of the Bronze Age."
+  narration: { src: narration/civilizations/hittites-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b28fa1fd38" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=OusqE7gTUOI
@@ -1373,7 +1379,8 @@
       title: "Who were the Philistines? (History of the Philistines explained)"
       credit: Epimetheus, YouTube
 - id: phoenicia
-  description: Ancient Semitic seafaring civilization originating in the coastal Levant (modern Lebanon and coastal Syria). Renowned as master mariners, traders, and artisans, the Phoenicians established trade networks and colonies across the Mediterranean—most notably Carthage—and developed the phonetic alphabet that became the ancestor of Greek, Latin, and modern writing systems.
+  description: "On the narrow coast of what is now Lebanon, Phoenician city-states such as Tyre, Sidon and Byblos became the great seafarers and traders of the Iron Age. They sailed the length of the Mediterranean and beyond, founding colonies such as Carthage, and traded cedar wood, glass and cloth dyed with a precious purple made from sea snails. Their simple alphabet of 22 letters was taken up by the Greeks and became the ancestor of most alphabets used today. Assyria, Babylon and Persia in turn brought the cities under their rule."
+  narration: { src: narration/civilizations/phoenicia-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1e0f11aafa" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=3BkIAZwM8U4
@@ -1394,7 +1401,8 @@
       title: History of Ancient Israel and Judah explained in 5 minutes
       credit: Epimetheus, YouTube
 - id: neo-assyrian-empire
-  description: The apex of ancient Assyrian imperial power, stretching from the Persian Gulf to Egypt and central Anatolia during the early first millennium BCE. Controlled through an organized standing army, provincial governors, and road networks, the empire created monumental palaces and the celebrated Library of Ashurbanipal at Nineveh.
+  description: "From its heartland on the upper Tigris, Assyria rose in the ninth century BCE to become the largest empire of its time, stretching from Egypt to western Iran. Its kings ruled through a professional army, deported conquered peoples on a vast scale and built great palaces at Nimrud and Nineveh lined with carved stone reliefs, and Ashurbanipal gathered a famous library of clay tablets. Overstretched and torn by civil war, the empire fell to the Babylonians and Medes, who destroyed Nineveh in 612 BCE."
+  narration: { src: narration/civilizations/neo-assyrian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3801b35914" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=sW0O986C2t8
@@ -1662,21 +1670,24 @@
       title: "Did You Know Ancient Greece Had Its Dark Ages?"
       credit: Kings and Generals, YouTube
 - id: greek-city-states
-  description: The network of fiercely independent, self-governing poleis—including Athens, Sparta, Corinth, and Thebes—that defined Archaic and Classical Greek civilization across the Aegean basin. Despite frequent rivalries and wars, these city-states shared a common language, Olympian pantheon, Panhellenic games, and pioneered foundational philosophies, democratic governance, civic institutions, and classical arts.
+  description: "Among the mountains and islands of Greece, hundreds of independent city-states, each a polis with its own laws and gods, grew up after about 800 BCE. They planted colonies around the Mediterranean and the Black Sea, competed at the Olympic Games, and joined forces to drive back the Persian invasions of 490 and 480 BCE. Athens gave the world democracy, drama, philosophy and the Parthenon, but long wars between Athens and Sparta wore the cities down, and in 338 BCE Philip the Second of Macedon brought them under his control."
+  narration: { src: narration/civilizations/greek-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d52e548e7b" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=tbUCXGbaV6A
       title: "Athens vs Sparta: The Epic Rise of Greece’s Greatest City-States"
       credit: Speed Study, YouTube
 - id: macedonian-empire
-  description: The expansive classical empire forged by Philip II and dramatically expanded by Alexander the Great between 336 and 323 BCE. Sweeping from Greece and Egypt to the Indus River, Macedonian armies shattered the Achaemenid Persian Empire, inaugurating the Hellenistic era that fused Greek, Near Eastern, and Central Asian cultures across three continents.
+  description: "Macedon, a kingdom on the northern edge of the Greek world, was turned into a military power by Philip the Second. His son Alexander, king at twenty, crossed into Asia in 334 BCE and in little more than ten years conquered the Persian Empire, Egypt and lands as far as the Indus, founding cities named Alexandria along the way. When he died in Babylon in 323 BCE, aged thirty-two, his generals fought over the empire and carved it into rival kingdoms that spread Greek language and culture across the east."
+  narration: { src: narration/civilizations/macedonian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "51a1eaafb0" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=K7lb6KWBanI
       title: "The Greatest General in History? Alexander the Great (All Parts)"
       credit: Epic History, YouTube
 - id: olmec-civilization
-  description: Considered the 'mother culture' of Mesoamerica, the Olmec civilization flourished along the tropical Gulf Coast lowlands of modern Veracruz and Tabasco. Famous for monumental basalt colossal heads, complex ceremonial centers like San Lorenzo and La Venta, and jade carvings, the Olmecs pioneered the Mesoamerican ballgame, early writing, and calendar systems.
+  description: "On the humid Gulf Coast of Mexico the Olmecs created one of the first complex societies of Mesoamerica. At San Lorenzo and later La Venta they built earthen platforms and plazas, and carved colossal heads from basalt boulders brought from mountains many kilometres away, probably portraits of their rulers. Their art, their ball game and their reverence for jade and the jaguar shaped the Maya and the cultures that followed them. By around 400 BCE their great centres had been abandoned."
+  narration: { src: narration/civilizations/olmec-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6ad3d987f1" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=8xF7ikMhDK4
@@ -1697,7 +1708,8 @@
       title: "The Transition of the Medes – How the Median Empire Became Persia"
       credit: World's Secret Stories, YouTube
 - id: achaemenid-empire
-  description: The first Persian Empire, founded by Cyrus the Great in 550 BCE, which became the largest empire in antiquity spanning from the Balkans and Egypt to the Indus Valley. Governed from Persepolis and Susa via a sophisticated satrapy system, the Royal Road, and postal courier networks, the empire pioneered religious tolerance before falling to Alexander the Great.
+  description: "In 550 BCE Cyrus the Great of Persia overthrew his Median overlords, then conquered Lydia and Babylon, founding an empire far larger than any before it. Under Darius the First it stretched from Egypt and the Balkans to the Indus, held together by provincial governors called satraps, a common coinage and the Royal Road with its relays of mounted messengers. Its kings ruled from Persepolis and Susa and generally let conquered peoples keep their gods and customs. In 330 BCE it fell to Alexander the Great."
+  narration: { src: narration/civilizations/achaemenid-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f1cce7939b" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ZoH2UQZBaPY
@@ -2063,7 +2075,8 @@
       title: "Why The Kalinga War Is The Greatest War In History | Ashoka The Great & Kalinga War"
       credit: Battles In History, YouTube
 - id: maurya-empire
-  description: The first pan-Indian empire, founded by Chandragupta Maurya and his strategist Chanakya in 322 BCE after overthrowing the Nanda Empire. Reaching its zenith under Ashoka the Great, the Maurya state unified almost the entire subcontinent under centralized bureaucratic rule, disseminating ethical rock edicts, patronizing Buddhism, and standardizing trade.
+  description: "Around 320 BCE Chandragupta Maurya seized power in the kingdom of Magadha and built the first empire to unite most of the Indian subcontinent, governed from the great city of Pataliputra. His grandson Ashoka, horrified by the bloodshed of his conquest of Kalinga, turned to Buddhism, and had edicts urging non-violence and tolerance carved on rocks and pillars across his realm. After Ashoka's death the empire weakened, and in about 185 BCE the last Mauryan king was killed by his own general."
+  narration: { src: narration/civilizations/maurya-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f9ac22c521" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Ed6UZtVTI64
@@ -2169,14 +2182,16 @@
       title: "The Western Zhou Dynasty and the Spring and Autumn Period - Explained"
       credit: GatesOfKilikien, YouTube
 - id: qin-dynasty
-  description: The short-lived but epochal dynasty (221–206 BCE) that first unified China under Qin Shi Huang, the First Emperor. Standardizing writing characters, weights, measurements, currency, and axle widths, the regime connected the Great Wall and constructed the Terracotta Army through rigorous Legalist laws, collapsing rapidly in widespread rebellions following the emperor's death.
+  description: "After centuries of war between rival states, the kingdom of Qin conquered the last of its rivals in 221 BCE, and its king declared himself Qin Shi Huang, the First Emperor of a united China. He imposed one script, one currency and standard weights and measures, linked older walls into a great wall against the northern nomads, and was buried with an army of thousands of life-size terracotta soldiers. His harsh rule did not outlast him: the dynasty collapsed in rebellion in 206 BCE."
+  narration: { src: narration/civilizations/qin-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "32437c007b" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=h-SC0vKIWV0
       title: "The Birth Of A Dynasty: China's First Emperor"
       credit: Odyssey - Ancient History Documentaries, YouTube
 - id: han-dynasty
-  description: The golden age imperial dynasty of China (202 BCE – 220 CE), founded by Liu Bang after the Chu-Han Contention. Establishing Confucianism as the state orthodoxy, the Han created a meritocratic civil service, opened the trans-Eurasian Silk Road, invented papermaking, and expanded imperial borders into Central Asia, Korea, and Vietnam.
+  description: "Out of the rebellions that ended the Qin, a former village official named Liu Bang founded the Han dynasty in 202 BCE. Over four centuries the Han built a lasting model for Chinese government, staffed by officials trained in Confucian learning, and their armies pushed into Central Asia, opening the trade routes later called the Silk Road. Paper was invented in the Han era. So central was this age that most Chinese people still call themselves the Han; the dynasty finally broke apart in 220 CE."
+  narration: { src: narration/civilizations/han-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2c8c8b5fe0" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=5Vm4Fg26e20
