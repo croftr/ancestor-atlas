@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type TouchEvent } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE } from "../config";
-import { formatRange } from "../time/scale";
+import { formatRange, formatYear } from "../time/scale";
 import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
@@ -32,6 +32,22 @@ const RefList = ({ title, items }: { title: string; items: string[] }) =>
       )}
     </div>
   );
+
+/**
+ * A date range in fewer words, for the compact card: the shared unit said once
+ * ("c. 2.3–1.4 million years ago", "3,100 – 2,686 BCE").
+ */
+export function shortRange(start: number, end: number): string {
+  const a = formatYear(start);
+  const b = formatYear(end);
+  const million = /^(?:c\. )?([\d.]+) million years ago$/;
+  const ma = a.match(million);
+  const mb = b.match(million);
+  if (ma && mb) return `c. ${ma[1]}–${mb[1]} million years ago`;
+  if (a.endsWith(" BCE") && b.endsWith(" BCE")) return `${a.slice(0, -4)} – ${b}`;
+  if (/\d CE$/.test(a) && /\d CE$/.test(b)) return `${a.slice(0, -3)} – ${b}`;
+  return `${a} – ${b}`;
+}
 
 const Swatch = ({ color }: { color?: string }) =>
   color ? <span className="swatch" style={{ background: color, borderRadius: 2 }} /> : null;
@@ -78,12 +94,6 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     if (entityKey && view === "globe" && window.matchMedia?.(STACKED_QUERY).matches) setMinimised(true);
   }, [entityKey, view]);
   const stacked = useMediaQuery(STACKED_QUERY);
-  // A tour on a small screen: each stop shows only a slim strip over the globe (badge, name,
-  // thumbnail) so the globe stays in view; a tap on it opens the minimised card, and from there the
-  // full one. Every new stop starts as the strip again.
-  const touring = useStore((s) => s.tour !== null);
-  const [peek, setPeek] = useState(true);
-  useLayoutEffect(() => setPeek(true), [entityKey]);
   // Small screens: the card sits above the globe in a scrolling column. When the selection
   // changes while the card is scrolled out of view (say, after tapping the globe below it),
   // bring the card's top back into view.
@@ -175,30 +185,91 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       </div>
     );
   }
-  // Globe on a small screen during a tour: the slim strip (tapping it opens the card; the tour
-  // keeps playing).
-  if (view === "globe" && stacked && touring && peek) {
+  // Small screens track a quick sideways swipe (steps through the sites) and a swipe down on the
+  // full card's title (shrinks it). Slow drags and mostly-vertical moves are left to scrolling.
+  const onTouchStart = (e: TouchEvent) => {
+    const target = e.target as HTMLElement;
+    if (!stacked || e.touches.length !== 1 || target.closest("iframe, video, audio, input")) return;
+    const t = e.touches[0];
+    swipe.current = { x: t.clientX, y: t.clientY, t: Date.now(), onHead: !!target.closest(".info-head") };
+  };
+  const onTouchEnd = (e: TouchEvent) => {
+    const start = swipe.current;
+    swipe.current = null;
+    if (!start || Date.now() - start.t > 600) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) {
+      if (feature && siblings.length > 1) stepFeature(dx < 0 ? 1 : -1);
+    } else if (start.onHead && view === "globe" && !minimised && dy > 50 && dy > 2 * Math.abs(dx)) {
+      setMinimised(true);
+    }
+  };
+
+  // Globe on a small screen, shrunk (the default for a new pick, and for every tour stop): a compact
+  // card, the name and dates beside the picture, with the site stepper along the bottom. A tap opens
+  // the full card. During a tour it floats over the top of the globe; otherwise it sits above it.
+  if (view === "globe" && stacked && minimised) {
     const thumb = isEvent ? entity.image_url : picture?.url;
-    const showThumb = thumb && brokenImage !== thumb;
+    const showThumb = !!thumb && brokenImage !== thumb;
+    const open = () => setMinimised(false);
     return (
-      <button
+      <div
+        ref={cardRef}
         key={entity.id}
-        className={`tour-peek${isEvent ? " square" : ""}`}
-        onClick={() => setPeek(false)}
-        aria-label={`Show card: ${entity.name}`}
-        title="Show card"
+        className={`info-compact${isEvent ? " square" : ""}${feature && siblings.length > 1 ? " has-nav" : ""}`}
+        style={{ "--cat": entity.color ?? style.color } as CSSProperties}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
-        <CategoryBadge category={entity.category} size={30} decorative />
-        <span className="tour-peek-name">{entity.name}</span>
-        {showThumb && (
-          <span className="tour-peek-thumb">
-            <img src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+        <button className="ic-open" onClick={open} aria-label={`Open card: ${entity.name}`} title="Open card">
+          <span className="ic-name">
+            <CategoryBadge category={entity.category} size={22} decorative />
+            <span>{entity.name}</span>
           </span>
+          <span className="ic-date">{isEvent && entity.date_text ? entity.date_text : shortRange(entity.start_year, entity.end_year)}</span>
+        </button>
+        <button className="ic-media" onClick={open} tabIndex={-1} aria-hidden="true">
+          {showThumb ? (
+            <img src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+          ) : (
+            <span className="ic-media-blank">
+              <CategoryBadge category={entity.category} size={40} decorative />
+            </span>
+          )}
+          <svg className="ic-expand" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+            <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <button className="ic-close" onClick={() => select(null)} aria-label="Close card">
+          <svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true">
+            <path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+        </button>
+        {feature && siblings.length > 1 && (
+          <div className="ic-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>
+            <button onClick={() => stepFeature(-1)} aria-label={`Previous ${noun.toLowerCase()}`}>
+              <svg viewBox="0 0 12 12" width="14" height="14" aria-hidden="true">
+                <path d="M7.5 2 3.5 6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <span className="ic-nav-mid" aria-live="polite">
+              <span className="ic-nav-count">
+                {noun} {position} of {siblings.length}
+              </span>
+              <span className="ic-nav-label">
+                {isEvent ? feature.label : showLabel ? feature.label : shortRange(feature.start_year, feature.end_year)}
+              </span>
+            </span>
+            <button onClick={() => stepFeature(1)} aria-label={`Next ${noun.toLowerCase()}`}>
+              <svg viewBox="0 0 12 12" width="14" height="14" aria-hidden="true">
+                <path d="M4.5 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
         )}
-        <svg className="tour-peek-caret" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
-          <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
+      </div>
     );
   }
   const shrinkToThumb = view === "timeline";
@@ -207,26 +278,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     <div
       ref={cardRef}
       className={`panel info-panel${minimised ? " minimised" : ""}`}
-      onTouchStart={(e) => {
-        const target = e.target as HTMLElement;
-        if (!stacked || e.touches.length !== 1 || target.closest("iframe, video, audio, input")) return;
-        const t = e.touches[0];
-        swipe.current = { x: t.clientX, y: t.clientY, t: Date.now(), onHead: !!target.closest(".info-head") };
-      }}
-      onTouchEnd={(e) => {
-        const start = swipe.current;
-        swipe.current = null;
-        if (!start || Date.now() - start.t > 600) return;
-        const t = e.changedTouches[0];
-        const dx = t.clientX - start.x;
-        const dy = t.clientY - start.y;
-        if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) {
-          if (feature && siblings.length > 1) stepFeature(dx < 0 ? 1 : -1);
-        } else if (start.onHead && view === "globe" && dy > 50 && dy > 2 * Math.abs(dx)) {
-          if (!minimised) setMinimised(true);
-          else if (touring) setPeek(true); // back to the slim strip
-        }
-      }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <button
         className="info-min"

@@ -99,6 +99,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   --announce <id>|all`, key `narration/tours/<id>-v<n>.mp3`) plays after 1.5 s; the music comes in as it ends (`tour.musicIn`). Skip intro / Next / → skip it; starting from a
   later stop leaves it out. Announcements are read slowly, as a title: `eleven_v3` with "<title> [slowly]" (Rob's
   choice; Out of Africa's v3 is his own recording made that way).
+- Phones (globe): a pick, and every tour stop, opens the compact card (`.info-compact` in `InfoPanel.tsx`,
+  `ui/stacked.css`): badge, name (serif), short date range, the picture filling the right edge (events square,
+  never faded or covered), and the site stepper; a tap opens the full card, whose minimise button returns to it.
+  Above the globe normally, floating over its top during a tour. It replaced both the old minimised card and the
+  tour strip (Rob's call, 13 Oct 2026). The full card itself is unchanged.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
   goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
