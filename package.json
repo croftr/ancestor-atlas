@@ -21,8 +21,7 @@
     "data:describe": "tsx scripts/describe.ts",
     "audio:narrate": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",
     "audio:music": "tsx scripts/audio/music.ts",
-    "audio:upload": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts",
-    "video:intro": "tsx scripts/audio/intro.ts"
+    "audio:upload": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",

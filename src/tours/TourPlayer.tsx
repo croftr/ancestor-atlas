@@ -5,7 +5,6 @@ import { posToYear, yearToPos } from "../time/scale";
 import { tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
-import IntroVideo from "./IntroVideo";
 import {
   narrationState,
   pauseNarration,
@@ -57,12 +56,11 @@ export default function TourPlayer() {
   const travel = useStore((s) => s.tour?.travel);
   const intro = useStore((s) => s.tour?.intro);
   const gate = useStore((s) => s.tour?.gate);
-  const introVideo = useStore((s) => s.tour?.introVideo);
 
   // The title card: set the slider just before the first stop and turn the globe towards it, while
   // the announcement plays (or for INTRO_MS); then on to the first stop. Waits behind the gate.
   useEffect(() => {
-    if (!data || id === undefined || !intro || gate || introVideo) return;
+    if (!data || id === undefined || !intro || gate) return;
     const tour = tourById(id);
     const stop = tour?.stops[0];
     const target = stop && stopYear(stop, data);
@@ -137,7 +135,7 @@ export default function TourPlayer() {
       cancelAnimationFrame(raf);
       stopNarration();
     };
-  }, [data, id, intro, gate, introVideo]);
+  }, [data, id, intro, gate]);
 
   useEffect(() => {
     if (!data || id === undefined || index === undefined || intro) return;
@@ -249,7 +247,7 @@ export default function TourPlayer() {
 
   const tour = id === undefined ? undefined : tourById(id);
   if (!tour) return null;
-  if (!gate) return !intro ? null : introVideo && tour.intro ? <IntroVideo src={tour.intro.video} /> : <TitleCard tour={tour} />;
+  if (!gate) return intro ? <TitleCard tour={tour} /> : null;
   // A tour opened from a link waits for a tap: browsers only play sound after one.
   const title = tour.title;
   return (

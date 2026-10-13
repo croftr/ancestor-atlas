@@ -95,11 +95,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - Title card before stop 1 (`TitleCard.tsx`, `tour.intro` in the store): title, blurb, length, while the globe turns to
   the first stop and `announcement` (ElevenLabs reading `announcementText`: the title only; `npm run audio:narrate --
   --announce <id>|all`, key `narration/tours/<id>-v<n>.mp3`) plays after 1.5 s; the music comes in as it ends (`tour.musicIn`). Skip intro / Next / → skip it; starting from a
-  later stop leaves it out.
-- Intro video (trial, 13 Oct 2026: Out of Africa only, Rob's 10 s clip): `intro: { video }` on a tour, played before the
-  title card (`IntroVideo.tsx`, `tour.introVideo`; music waits; Skip goes to the title card). `npm run video:intro --
-  <file> <tour id>` encodes it to `intro/tours/<id>-v<n>.mp4` (local copy in data/build/video); `audio:upload` uploads.
-  Rob decides after trying it whether every tour gets one; not yet: skipping it on a repeat viewing.
+  later stop leaves it out. Announcements are read slowly, as a title: `eleven_v3` with "<title> [slowly]" (Rob's
+  choice; Out of Africa's v3 is his own recording made that way).
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
   goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
@@ -109,8 +106,8 @@ Five tours are live (events-and-inventions, human-evolution, out-of-africa, ice-
 every stop narrated. Rob chose to polish next. Backlog, roughly in his order of interest:
 
 1. Done 13 Oct 2026: search bar, legend and welcome hint hidden during tours (see above).
-2. Title card and announcement done 13 Oct 2026 (uploaded? `npm run audio:upload -- --dry-run`). Intro video: on trial
-   on Out of Africa (see above); if kept, perhaps skip it on a repeat viewing (remembered in the browser).
+2. Done 13 Oct 2026: title card and announcement. Intro videos were tried (Out of Africa) and dropped: Rob did not
+   like them; the code was reverted (commit 9badd1f). Don't bring them back unless he asks.
 3. Done 13 Oct 2026: Tours page and a better Tours menu (see above).
 4. Events and inventions still runs all 29 events: Rob to pick the stops to keep.
 5. Music: every tour reuses one track (separate keys, so each can be swapped); the 6:45 loop seam is audible on

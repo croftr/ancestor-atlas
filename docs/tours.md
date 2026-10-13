@@ -24,8 +24,6 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
   announcement ends, and the card stays 2 s more (without an announcement: 6 s, music after 3 s;
   timings at the top of `TourPlayer.tsx`).
   "Skip intro", Next or → skip it; starting from a later stop on the Tours page leaves it out.
-- A tour with `intro` plays that video first (`IntroVideo.tsx`), with its own sound (the music waits),
-  then the title card. Skip intro, Next or → go on to the title card; it fails to load: likewise.
 - At each stop the slider plays forward to the year, the globe turns to the place, the card opens and
   the narration plays; the card stays up until the narration ends plus 1.5 s (reading time if there
   is none), then on to the next stop.
@@ -129,18 +127,9 @@ The title card's announcement (the title only, a few dozen characters):
 npm run audio:narrate -- --announce <tour id>      # or --announce all: every tour missing one or out of date
 ```
 
-It sets `announcement` on the tour in `tours.ts`. Changing a tour's title makes it stale: the
+It is read slowly, as a title: the script sends "<title> [slowly]" to ElevenLabs' `eleven_v3` model
+(the narration keeps its own model). It sets `announcement` on the tour in `tours.ts`. Changing a tour's title makes it stale: the
 tour test warns, and `--stale` re-records it with the descriptions.
-
-### Intro video (optional)
-
-```sh
-npm run video:intro -- temp/<video>.mp4 <tour id> ["<credit>"]
-```
-
-Re-encodes for the web (H.264, at most 1280 wide, CRF 23, faststart; sound normalised to -16 LUFS like
-the narration), writes `data/build/video/intro/tours/<tour id>-v<n>.mp4` and sets `intro` on the tour.
-`npm run audio:upload` uploads it with the clips. A 16:9 video is letterboxed on a phone held upright.
 
 ### 5. Music
 
@@ -177,10 +166,9 @@ overwritten**: a new recording gets the next version.
 | Narration | `narration/<events\|species\|cultures\|civilizations>/<entity id>-v<n>.mp3` |
 | Tour announcement | `narration/tours/<tour id>-v<n>.mp3` |
 | Tour music | `music/tours/<tour id>-v<n>.mp3` |
-| Tour intro video | `intro/tours/<tour id>-v<n>.mp4` |
 | Event video | `events/<name>.mp4` (or a YouTube link) |
 
-The validator enforces the narration keys; the tour test enforces the announcement, music and intro video keys.
+The validator enforces the narration keys; the tour test enforces the announcement and music keys.
 
 ## Gotchas
 

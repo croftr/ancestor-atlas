@@ -47,11 +47,6 @@ describe.each(TOURS)("tour $id", (tour) => {
       console.warn(`tour ${tour.id}: the announcement no longer matches its title`);
   });
 
-  it("names its intro video by the bucket convention", () => {
-    if (!tour.intro) return;
-    expect(tour.intro.video).toMatch(new RegExp(`^intro/tours/${tour.id}-v\\d+\\.mp4$`));
-  });
-
   it("runs oldest first", () => {
     const years = tour.stops.map((s) => s.year ?? byId.get(s.entity)?.year ?? 0);
     expect(years).toEqual([...years].sort((a, b) => a - b));

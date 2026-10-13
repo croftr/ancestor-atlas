@@ -3,7 +3,7 @@
 //   npm run audio:narrate -- --missing [--yes]          every event without a narration
 //   npm run audio:narrate -- --tour <tour id> [--yes]   every stop of a tour without a narration
 //   npm run audio:narrate -- --stale [--yes]            everything whose description changed since recording
-//   npm run audio:narrate -- --announce <tour id>|all   a tour's title-card announcement (all: those missing or stale)
+//   npm run audio:narrate -- --announce <tour id>|all   a tour's title-card announcement, read slowly (all: missing or stale)
 //   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead
 //   npm run audio:narrate -- --voices                   list your ElevenLabs voices (to pick ELEVENLABS_VOICE_ID)
 // Options: --no-upload (prepare only; prints the upload command), --credit "<text>".
@@ -27,6 +27,9 @@ const CURATED_ENTITIES = "data/curated/entities.yaml";
 const ENTITIES = "public/data/entities.json";
 const API = "https://api.elevenlabs.io/v1";
 const MODEL_DEFAULT = "eleven_multilingual_v2";
+/** Announcements are read slowly, as a title: ElevenLabs v3 with its [slowly] tag (Rob's choice, Oct 2026). */
+const ANNOUNCE_MODEL = "eleven_v3";
+const announceSpoken = (title: string) => `${title} [slowly]`;
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");
 const args = process.argv.slice(2);
@@ -65,6 +68,9 @@ interface Target {
   description: string;
   narration?: { src: string; text_hash: string };
   file: string;
+  /** What is sent to ElevenLabs, if not the description (announcements), and with which model. */
+  spoken?: string;
+  model?: string;
 }
 const built = new Map(
   readFileSync(ENTITIES, "utf8")
@@ -89,6 +95,8 @@ const announcement = (t: (typeof TOURS)[number]): Target => ({
   description: announcementText(t),
   narration: t.announcement,
   file: TOURS_FILE,
+  spoken: announceSpoken(t.title),
+  model: ANNOUNCE_MODEL,
 });
 const staleAnnouncement = (t: (typeof TOURS)[number]) => !t.announcement || t.announcement.text_hash !== textHash(announcementText(t));
 const announceId = option("--announce");
@@ -132,12 +140,15 @@ const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-gene
 
 /** The description spoken, cached by its text so the same words are never paid for twice. */
 async function speak(e: Target): Promise<string> {
-  const path = `data/build/audio/tts/${e.category === "tour" ? "tour-" : ""}${e.id}-${textHash(e.description)}.mp3`;
+  const text = e.spoken ?? e.description;
+  const model = e.model ?? (process.env.ELEVENLABS_MODEL || MODEL_DEFAULT);
+  const hash = e.spoken ? textHash(`${model}:${text}`) : textHash(text);
+  const path = `data/build/audio/tts/${e.category === "tour" ? "tour-" : ""}${e.id}-${hash}.mp3`;
   if (existsSync(path)) return path;
   const res = await api(`/text-to-speech/${voice}?output_format=mp3_44100_128`, {
     method: "POST",
     headers: { "content-type": "application/json", accept: "audio/mpeg" },
-    body: JSON.stringify({ text: e.description, model_id: process.env.ELEVENLABS_MODEL || MODEL_DEFAULT }),
+    body: JSON.stringify({ text, model_id: model }),
   });
   mkdirSync("data/build/audio/tts", { recursive: true });
   writeFileSync(path, Buffer.from(await res.arrayBuffer()));

@@ -152,7 +152,7 @@ export default function TourBar() {
       <div className="tour-progress" aria-hidden="true">
         {tour.phase === "hold" && (
           <span
-            key={`${tour.id}:${tour.intro}:${tour.introVideo}:${tour.index}:${tour.holdMs}`}
+            key={`${tour.id}:${tour.intro}:${tour.index}:${tour.holdMs}`}
             style={{ animationDuration: `${tour.holdMs}ms`, animationPlayState: tour.paused ? "paused" : "running" } as CSSProperties}
           />
         )}
