@@ -161,7 +161,6 @@ export default function TourBar() {
           />
         )}
       </div>
-      {t.music && <div className="tour-credit muted">{t.music.credit}</div>}
     </div>
   );
 }

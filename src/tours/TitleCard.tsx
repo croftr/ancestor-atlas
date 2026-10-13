@@ -28,7 +28,7 @@ export default function TitleCard({ tour }: { tour: Tour }) {
         <div className="tour-title-meta">
           {tour.stops.length} stops{data && ` · about ${minutes(tour, data)} min`}
         </div>
-        {/* Small screens leave the credit off the slimmed time bar, so it is shown here. */}
+        {/* The music's credit (CC BY): here, and in the tour bar's music button tooltip. */}
         {tour.music && <div className="tour-title-credit">{tour.music.credit}</div>}
         <button className="tour-title-skip" onClick={skipIntro}>
           Skip intro

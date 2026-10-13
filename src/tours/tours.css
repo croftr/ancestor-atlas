@@ -42,8 +42,7 @@
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
-.tour-bar-compact, .tour-title-credit { display: none; }
-.tour-credit { grid-column: 1 / -1; font-size: 0.68rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tour-bar-compact { display: none; }
 
 /* Between stops the globe can be empty for a moment: no "nothing on the map" note during a tour. */
 .app.touring .empty-state:not(.loading-state) { display: none; }
@@ -92,6 +91,7 @@
 }
 .tour-title-blurb { margin: 0 auto 12px; max-width: 44ch; font-size: 1.02rem; line-height: 1.5; color: #d6dcec; }
 .tour-title-meta { font-size: 0.82rem; color: #8ec5ff; }
+.tour-title-credit { margin-top: 10px; font-size: 0.7rem; color: #8b95ab; }
 .tour-title-skip {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 16px; padding: 6px 14px; border-radius: 999px;
@@ -142,8 +142,7 @@
 }
 /* Small screens: while a tour plays the time bar slims to one row: the year with the tour and its
    stop count under it, the tour buttons beside them, and the stop's hold as a hairline along the
-   bottom. The track, ticks, era button and music credit go (the credit is on the title card and
-   the music button's tooltip). */
+   bottom. The track, ticks and era button go. */
 @media (max-width: 900px) {
   .app.view-globe.touring .time-slider {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -158,7 +157,6 @@
   .app.view-globe.touring .range-wrap,
   .app.view-globe.touring .span-track,
   .app.view-globe.touring .ticks,
-  .app.view-globe.touring .tour-credit,
   .app.view-globe.touring .tour-bar-title,
   .app.view-globe.touring .tour-bar-stop { display: none; }
   .app.view-globe.touring .tour-bar { display: contents; }
@@ -183,7 +181,6 @@
     height: 2px;
     background: rgba(255, 255, 255, 0.08);
   }
-  .tour-title-credit { display: block; margin-top: 10px; font-size: 0.7rem; color: #8b95ab; }
 }
 /* Small screens: during a tour each stop shows as a slim strip floating over the top of the globe
    (badge, name, thumbnail) instead of the card, so the globe keeps the screen. Tap: the card. */
