@@ -53,7 +53,7 @@ export function useGlobeLink(view: View) {
   useEffect(() => {
     const tour = readTourHash(window.location.hash);
     if (tour) {
-      loadData().then((d) => d && useStore.getState().startTour(tour));
+      loadData().then((d) => d && useStore.getState().startTour(tour, { gate: true }));
       return;
     }
     const link = readGlobeHash(window.location.hash);

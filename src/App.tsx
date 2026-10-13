@@ -32,7 +32,7 @@ export default function App() {
         setIntroOpen(true);
       }
       const tour = readTourHash(window.location.hash);
-      if (tour && useStore.getState().tour?.id !== tour) useStore.getState().startTour(tour);
+      if (tour && useStore.getState().tour?.id !== tour) useStore.getState().startTour(tour, { gate: true });
     };
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
@@ -40,8 +40,9 @@ export default function App() {
 
   // An open info card on the globe: the time slider narrows so the two never overlap.
   const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null);
+  const touring = useStore((s) => s.tour !== null);
   return (
-    <div className={`app view-${view}${view === "globe" && hasCard ? " has-card" : ""}`}>
+    <div className={`app view-${view}${view === "globe" && hasCard ? " has-card" : ""}${touring ? " touring" : ""}`}>
       {/* Small screens stack the globe page in a scrolling column (search, legend, card, globe,
           slider): see ui/stacked.css. Elsewhere the wrapper is display: contents. */}
       <div className="globe-page">

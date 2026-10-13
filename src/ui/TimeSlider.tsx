@@ -6,6 +6,7 @@ import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
 import EraIcon from "./EraIcon";
 import TourBar, { TourPicker } from "../tours/TourBar";
+import { beginTour } from "../tours/TourPlayer";
 import {
   MAX_YEAR,
   MIN_YEAR,
@@ -123,6 +124,7 @@ export default function TimeSlider() {
       if (s.tour) {
         const go = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
         if (go) s.tourGo(s.tour.index + go);
+        else if (e.key === " " && s.tour.gate) beginTour(s.openGate);
         else if (e.key === " ") s.pauseTour(!s.tour.paused);
         else if (e.key === "Escape") s.stopTour();
         else return;

@@ -26,6 +26,12 @@ describe.each(TOURS)("tour $id", (tour) => {
     expect(features.some((f) => f.entity_id === stop.entity && isActive(f, year))).toBe(true);
   });
 
+  it("names its music by the bucket convention, with a credit", () => {
+    if (!tour.music) return;
+    expect(tour.music.src).toMatch(new RegExp(`^music/tours/${tour.id}-v\\d+\\.mp3$`));
+    expect(tour.music.credit).toBeTruthy();
+  });
+
   it("runs oldest first", () => {
     const years = tour.stops.map((s) => s.year ?? byId.get(s.entity)?.year ?? 0);
     expect(years).toEqual([...years].sort((a, b) => a - b));

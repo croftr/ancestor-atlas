@@ -48,6 +48,8 @@ interface AppState {
     phase: "travel" | "hold";
     holdMs: number;
     restore: Record<Category, boolean>;
+    /** Opened from a link: waits for a tap on "Start tour" (browsers only play sound after one). */
+    gate: boolean;
   } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
@@ -65,7 +67,10 @@ interface AppState {
    * features on the map then; `open` also opens the card. Used by the era chips and tours.
    */
   showEntity(entityId: string, opts?: { year?: number; open?: boolean }): void;
-  startTour(id: string): void;
+  /** `gate`: wait for a tap before playing (a tour opened from a link). */
+  startTour(id: string, opts?: { gate?: boolean }): void;
+  /** The tap on "Start tour". */
+  openGate(): void;
   /** End the tour and put the viewer's layers back. */
   stopTour(): void;
   pauseTour(paused: boolean): void;
@@ -163,7 +168,7 @@ export const useStore = create<AppState>((set, get) => ({
       flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
   },
-  startTour: (id) => {
+  startTour: (id, opts = {}) => {
     const t = tourById(id);
     if (!t) return;
     set((s) => ({
@@ -172,9 +177,19 @@ export const useStore = create<AppState>((set, get) => ({
       hits: [],
       groupId: null,
       enabled: t.layers ? (Object.fromEntries(CATEGORIES.map((c) => [c, t.layers!.includes(c)])) as Record<Category, boolean>) : s.enabled,
-      tour: { id, index: 0, travel: true, paused: false, phase: "travel", holdMs: 0, restore: s.tour?.restore ?? s.enabled },
+      tour: {
+        id,
+        index: 0,
+        travel: true,
+        paused: !!opts.gate,
+        gate: !!opts.gate,
+        phase: "travel",
+        holdMs: 0,
+        restore: s.tour?.restore ?? s.enabled,
+      },
     }));
   },
+  openGate: () => set((s) => (s.tour ? { tour: { ...s.tour, gate: false, paused: false } } : {})),
   stopTour: () => set((s) => (s.tour ? { tour: null, enabled: s.tour.restore } : {})),
   pauseTour: (paused) => set((s) => (s.tour && s.tour.paused !== paused ? { tour: { ...s.tour, paused } } : {})),
   tourGo: (index) =>

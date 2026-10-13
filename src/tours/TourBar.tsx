@@ -3,7 +3,8 @@ import { useStore } from "../store";
 import { useData } from "../map/data";
 import { yearToPos } from "../time/scale";
 import { TOURS, tourById, type Tour } from "./tours";
-import { holdSeconds, stopYear } from "./TourPlayer";
+import { beginTour, holdSeconds, stopYear } from "./TourPlayer";
+import { setMusicMuted, useMusicMuted } from "../audio/music";
 import type { Data } from "../map/data";
 import "./tours.css";
 
@@ -17,6 +18,9 @@ const ICON = {
   next: "M11 3h2v10h-2zM3 3v10l7-5z",
   play: "M4.5 2.5v11L13.5 8z",
   pause: "M4 3h3v10H4zM9 3h3v10H9z",
+  // A note, and the same struck through: music on / off.
+  music: "M6 2.5 13 1v9.2a2.3 2.3 0 1 1-1.4-2.1V4.1L7.4 5v6.7A2.3 2.3 0 1 1 6 9.6z",
+  musicOff: "M6 2.5 13 1v9.2a2.3 2.3 0 1 1-1.4-2.1V4.1L7.4 5v6.7A2.3 2.3 0 1 1 6 9.6zM1.7 2.6l.9-.9 11.7 11.7-.9.9z",
   close: "M4.2 3 8 6.8 11.8 3 13 4.2 9.2 8l3.8 3.8-1.2 1.2L8 9.2 4.2 13 3 11.8 6.8 8 3 4.2z",
   // A film frame: the "watch a tour" button.
   film: "M2 3h12v10H2zM3.3 4.2v1.3h1.3V4.2zm0 3.1v1.4h1.3V7.3zm0 3.2v1.3h1.3v-1.3zm8.1-6.3v1.3h1.3V4.2zm0 3.1v1.4h1.3V7.3zm0 3.2v1.3h1.3v-1.3zM5.8 4.2v7.6h4.4V4.2z",
@@ -81,7 +85,7 @@ export function TourPicker() {
               className="tour-item"
               onClick={() => {
                 setOpen(false);
-                startTour(t.id);
+                beginTour(() => startTour(t.id));
               }}
             >
               <span className="tour-item-title">{t.title}</span>
@@ -104,6 +108,8 @@ export default function TourBar() {
   const pauseTour = useStore((s) => s.pauseTour);
   const tourGo = useStore((s) => s.tourGo);
   const stopTour = useStore((s) => s.stopTour);
+  const openGate = useStore((s) => s.openGate);
+  const musicMuted = useMusicMuted();
   const t = tour && tourById(tour.id);
   if (!tour || !t) return null;
   const stop = t.stops[tour.index];
@@ -122,12 +128,22 @@ export default function TourBar() {
         <button onClick={() => tourGo(tour.index - 1)} disabled={tour.index === 0} title="Previous stop" aria-label="Previous stop">
           <Icon d={ICON.prev} />
         </button>
-        <button className="ctl-play" onClick={() => pauseTour(!tour.paused)} title={tour.paused ? "Resume" : "Pause"} aria-label={tour.paused ? "Resume tour" : "Pause tour"}>
+        <button className="ctl-play" onClick={() => (tour.gate ? beginTour(openGate) : pauseTour(!tour.paused))} title={tour.paused ? "Resume" : "Pause"} aria-label={tour.paused ? "Resume tour" : "Pause tour"}>
           <Icon d={tour.paused ? ICON.play : ICON.pause} />
         </button>
         <button onClick={() => tourGo(tour.index + 1)} disabled={tour.index === last} title="Next stop" aria-label="Next stop">
           <Icon d={ICON.next} />
         </button>
+        {t.music && (
+          <button
+            onClick={() => setMusicMuted(!musicMuted)}
+            aria-pressed={!musicMuted}
+            title={musicMuted ? "Music off" : "Music on"}
+            aria-label="Background music"
+          >
+            <Icon d={musicMuted ? ICON.musicOff : ICON.music} />
+          </button>
+        )}
         <button className="tour-exit" onClick={stopTour} title="End tour" aria-label="End tour">
           <Icon d={ICON.close} />
         </button>
@@ -141,6 +157,7 @@ export default function TourBar() {
           />
         )}
       </div>
+      {t.music && <div className="tour-credit muted">{t.music.credit}</div>}
     </div>
   );
 }

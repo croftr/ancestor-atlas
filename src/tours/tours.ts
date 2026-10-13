@@ -5,6 +5,7 @@ import type { Category } from "../types";
  * its card. A stop lands on `year` if given, else the entity's best year (an event's `year`).
  * `hold` is how long the card stays up, in seconds (default: from the length of its description).
  * `layers`: the categories shown during the tour (default: all); the viewer's own come back after.
+ * `music`: background track, a bucket key (music/tours/<id>-v<n>.mp3; set by `npm run audio:music`).
  * Stops run oldest first. src/tours/tours.test.ts checks every stop lands on something visible.
  */
 export interface TourStop {
@@ -18,6 +19,7 @@ export interface Tour {
   title: string;
   blurb: string;
   layers?: Category[];
+  music?: { src: string; credit: string };
   stops: TourStop[];
 }
 
@@ -26,6 +28,7 @@ export const TOURS: Tour[] = [
     id: "events-and-inventions",
     title: "Events and inventions",
     blurb: "From the first stone tools to paper: the breakthroughs that shaped the human story.",
+    music: { src: "music/tours/events-and-inventions-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     stops: [
       { entity: "hominin-divergence" },
       { entity: "lomekwian-tools" },

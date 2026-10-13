@@ -70,6 +70,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   turn mode), open the card, hold (default from description length, 8–22 s), next. Touching the globe or card,
   or moving the slider, pauses; Play ends the tour. Keys: arrows step stops, Space pauses, Escape ends.
 - `TourBar.tsx`: the Tours button and menu, and the bar that replaces the transport buttons. Link: `#/tour/<id>`.
+- Music: `music: { src, credit }` on a tour; `npm run audio:music -- <track> <tour id> "<credit>"` encodes (stereo
+  128 kbps, -16 LUFS), sets it in tours.ts and prints the upload command (key `music/tours/<id>-v<n>.mp3`).
+  `src/audio/music.ts` loops it through Web Audio (needs the bucket's CORS, which allows `*`), fades, and dips it under
+  narration (levels at the top of that file); a music on/off button on the tour bar (remembered).
+- Sound needs a tap: the Tours menu primes audio; a tour opened from a link waits behind a "Start tour" button (`gate`).
 - Tours so far: Events and inventions (all 29 events; a first draft for Rob to trim). Planned: human evolution,
   rise and fall of civilizations (needs start/end stops). Music and narration later (narration length to set holds).
 

@@ -5,7 +5,23 @@ import { bestYear } from "../search/search";
 import { posToYear, snapYear, yearToPos } from "../time/scale";
 import { tourById, type TourStop } from "./tours";
 import type { Data } from "../map/data";
-import { narrationState, pauseNarration, playNarration, preloadNarration, resumeNarration, stopNarration } from "../audio/narration";
+import {
+  narrationState,
+  pauseNarration,
+  playNarration,
+  preloadNarration,
+  primeNarration,
+  resumeNarration,
+  stopNarration,
+} from "../audio/narration";
+import { pauseMusic, primeMusic, startMusic, stopMusic } from "../audio/music";
+
+/** From a tap: lets the tour's sound play (narration and music), then starts the tour. */
+export function beginTour(start: () => void) {
+  primeNarration();
+  primeMusic();
+  start();
+}
 
 /** After a narration ends, the card stays up this long before the tour moves on. */
 const AFTER_NARRATION_MS = 1_500;
@@ -120,13 +136,20 @@ export default function TourPlayer() {
     };
   }, [data, id, index, travel]);
 
-  // Pausing the tour pauses its narration.
+  // Pausing the tour pauses its narration and music; the music fades out when the tour ends.
   const paused = useStore((s) => s.tour?.paused);
   useEffect(() => {
     if (paused === undefined) return;
     if (paused) pauseNarration();
     else resumeNarration();
   }, [paused]);
+  useEffect(() => {
+    const music = id === undefined ? undefined : tourById(id)?.music;
+    if (!music || paused === undefined) return;
+    if (paused) pauseMusic();
+    else startMusic(music.src);
+  }, [id, paused]);
+  useEffect(() => () => stopMusic(), [id]);
 
   // The viewer taking hold of the globe or the card pauses the tour.
   useEffect(() => {
@@ -143,5 +166,21 @@ export default function TourPlayer() {
     };
   }, [id]);
 
-  return null;
+  // A tour opened from a link waits for a tap: browsers only play sound after one.
+  const gate = useStore((s) => s.tour?.gate);
+  const title = id === undefined ? undefined : tourById(id)?.title;
+  if (!gate || !title) return null;
+  return (
+    <div className="tour-gate">
+      <button className="tour-gate-btn" onClick={() => beginTour(useStore.getState().openGate)}>
+        <svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M4.5 2.5v11L13.5 8z" />
+        </svg>
+        <span>
+          <span className="tour-gate-kicker">Guided tour</span>
+          <span className="tour-gate-title">{title}</span>
+        </span>
+      </button>
+    </div>
+  );
 }

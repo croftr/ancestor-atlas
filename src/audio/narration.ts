@@ -77,11 +77,43 @@ export function preloadNarration(src: string) {
   a.src = mediaUrl(src);
 }
 
-export const useNarration = () =>
-  useSyncExternalStore(
-    (l) => {
-      listeners.add(l);
-      return () => listeners.delete(l);
-    },
-    () => state,
-  );
+export function subscribeNarration(l: () => void) {
+  listeners.add(l);
+  return () => {
+    listeners.delete(l);
+  };
+}
+
+export const useNarration = () => useSyncExternalStore(subscribeNarration, () => state);
+
+/**
+ * Call from a tap (starting a tour): lets the shared element play later without one (iOS and others
+ * only allow audio that was first started from a tap). Plays a moment of silence.
+ */
+export function primeNarration() {
+  const a = el();
+  if (state.src) return;
+  a.src = silence();
+  a.play().then(() => a.pause(), () => {});
+}
+
+/** 0.1 s of silent 8 kHz, 8-bit mono WAV (silence is the midpoint, 128). */
+function silence(): string {
+  const n = 800;
+  const b = new Uint8Array(44 + n).fill(128, 44);
+  const v = new DataView(b.buffer);
+  const str = (o: number, t: string) => [...t].forEach((c, i) => (b[o + i] = c.charCodeAt(0)));
+  str(0, "RIFF");
+  v.setUint32(4, 36 + n, true);
+  str(8, "WAVEfmt ");
+  v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true); // PCM
+  v.setUint16(22, 1, true); // mono
+  v.setUint32(24, 8000, true);
+  v.setUint32(28, 8000, true);
+  v.setUint16(32, 1, true);
+  v.setUint16(34, 8, true);
+  str(36, "data");
+  v.setUint32(40, n, true);
+  return URL.createObjectURL(new Blob([b], { type: "audio/wav" }));
+}
