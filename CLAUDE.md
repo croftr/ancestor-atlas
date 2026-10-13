@@ -70,6 +70,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Guided tours (`src/tours/`)
 
+**To make a tour, follow `docs/tours.md`** (stops, descriptions, narration, music, upload, release).
+
 - A tour is a hand-picked list of stops in `src/tours/tours.ts` (entity id, optional `year` and `hold` seconds; optional
   `layers` per tour). Kept in the app, not the data pipeline. `tours.test.ts` checks each stop is on the globe then.
 - `TourPlayer.tsx` runs it: play the slider forward to the stop (card closed), turn the globe (`showEntity`, `flyTo`

@@ -31,8 +31,8 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
 - Uploading needs Rob's AWS login in `~/.aws` (credentials exported in another terminal tab are not
   visible to other shells). Without it, everything else still works and Rob uploads at the end.
 - Budget: narration costs ElevenLabs credits at about one per character of description. A tour of new
-  stops costs 5,000–8,000; stops that are already narrated cost nothing. Rob's plan is about 30,000
-  a month; check what is left before a big batch.
+  stops costs 5,000–8,000; stops that are already narrated cost nothing. Check what is left on the
+  plan (ElevenLabs: Subscription) before a big batch; October 2026 used about 28,700.
 
 ## Steps
 
