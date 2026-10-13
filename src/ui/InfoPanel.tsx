@@ -78,6 +78,12 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     if (entityKey && view === "globe" && window.matchMedia?.(STACKED_QUERY).matches) setMinimised(true);
   }, [entityKey, view]);
   const stacked = useMediaQuery(STACKED_QUERY);
+  // A tour on a small screen: each stop shows only a slim strip over the globe (badge, name,
+  // thumbnail) so the globe stays in view; a tap on it opens the minimised card, and from there the
+  // full one. Every new stop starts as the strip again.
+  const touring = useStore((s) => s.tour !== null);
+  const [peek, setPeek] = useState(true);
+  useLayoutEffect(() => setPeek(true), [entityKey]);
   // Small screens: the card sits above the globe in a scrolling column. When the selection
   // changes while the card is scrolled out of view (say, after tapping the globe below it),
   // bring the card's top back into view.
@@ -169,6 +175,32 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       </div>
     );
   }
+  // Globe on a small screen during a tour: the slim strip. It is not part of the card, so tapping
+  // it does not pause the tour (touching the opened card does, as before).
+  if (view === "globe" && stacked && touring && peek) {
+    const thumb = isEvent ? entity.image_url : picture?.url;
+    const showThumb = thumb && brokenImage !== thumb;
+    return (
+      <button
+        key={entity.id}
+        className={`tour-peek${isEvent ? " square" : ""}`}
+        onClick={() => setPeek(false)}
+        aria-label={`Show card: ${entity.name}`}
+        title="Show card"
+      >
+        <CategoryBadge category={entity.category} size={24} decorative />
+        <span className="tour-peek-name">{entity.name}</span>
+        {showThumb && (
+          <span className="tour-peek-thumb">
+            <img src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+          </span>
+        )}
+        <svg className="tour-peek-caret" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+          <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+    );
+  }
   const shrinkToThumb = view === "timeline";
 
   return (
@@ -190,8 +222,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         const dy = t.clientY - start.y;
         if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) {
           if (feature && siblings.length > 1) stepFeature(dx < 0 ? 1 : -1);
-        } else if (start.onHead && view === "globe" && !minimised && dy > 50 && dy > 2 * Math.abs(dx)) {
-          setMinimised(true);
+        } else if (start.onHead && view === "globe" && dy > 50 && dy > 2 * Math.abs(dx)) {
+          if (!minimised) setMinimised(true);
+          else if (touring) setPeek(true); // back to the slim strip
         }
       }}
     >

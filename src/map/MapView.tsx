@@ -149,7 +149,8 @@ export default function MapView() {
       const stacked = window.matchMedia?.(STACKED_QUERY).matches;
       const wide = cw > 900;
       const padding = stacked
-        ? { top: 16, bottom: 16, left: 16, right: 16 }
+        ? // During a tour the stop's strip floats over the top of the globe (InfoPanel, tour-peek).
+          { top: useStore.getState().tour ? 76 : 16, bottom: 16, left: 16, right: 16 }
         : {
             top: Math.min(70, ch * 0.1),
             bottom: Math.min(230, ch * 0.3),

@@ -139,6 +139,54 @@
   .tour-title-blurb { font-size: 0.95rem; }
   .app.view-globe .controls .tour-item { width: 100%; height: auto; padding: 6px 8px; border-radius: 8px; color: inherit; }
 }
+/* Small screens: during a tour each stop shows as a slim strip floating over the top of the globe
+   (badge, name, thumbnail) instead of the card, so the globe keeps the screen. Tap: the card. */
+@media (max-width: 900px) {
+  .app.view-globe .tour-peek {
+    position: absolute;
+    top: 8px;
+    left: var(--stack-l);
+    right: 8px;
+    z-index: 25;
+    width: fit-content;
+    max-width: 520px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(13, 20, 36, 0.86);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    color: #fff;
+    text-align: left;
+    touch-action: manipulation;
+    animation: tour-peek-in 0.35s ease both;
+  }
+  .tour-peek .cat-badge { flex: none; }
+  .tour-peek-name {
+    min-width: 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tour-peek-thumb { flex: none; width: 53px; height: 40px; border-radius: 7px; overflow: hidden; background: #000; }
+  .tour-peek.square .tour-peek-thumb { width: 40px; } /* events: square pictures */
+  .tour-peek-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .tour-peek-caret { flex: none; color: #8b95ab; }
+  .tour-peek:hover { background: rgba(26, 35, 58, 0.92); }
+  .tour-peek:focus-visible { outline: 2px solid #c39bff; outline-offset: 2px; }
+}
+@keyframes tour-peek-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .app.view-globe .tour-peek { animation: none; }
+}
 /* Phones: the menu button sat beside the search and would now cover the card (the tour bar ends the tour). */
 @media (max-width: 700px) {
   .app.view-globe.touring .nav-menu-btn { display: none; }
