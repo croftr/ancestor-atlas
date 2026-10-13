@@ -52,6 +52,8 @@ interface AppState {
     gate: boolean;
     /** The title card before the first stop (announced, if the tour has an announcement). */
     intro: boolean;
+    /** The tour's intro video, before the title card (tours with `intro`). */
+    introVideo: boolean;
     /** The music may play: from the end of the announcement (or the start, from a later stop). */
     musicIn: boolean;
   } | null;
@@ -81,7 +83,7 @@ interface AppState {
   pauseTour(paused: boolean): void;
   /** Cut straight to a stop (Back / Next). During the title card, Next skips it to the first stop. */
   tourGo(index: number): void;
-  /** End the title card and play on to the first stop. */
+  /** End the intro video (on to the title card), or the title card (on to the first stop). */
   skipIntro(): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;
@@ -194,6 +196,7 @@ export const useStore = create<AppState>((set, get) => ({
         gate: !!opts.gate,
         // Started from a later stop (the Tours page): no title card.
         intro: !opts.index,
+        introVideo: !opts.index && !!t.intro,
         musicIn: !!opts.index,
         phase: "travel",
         holdMs: 0,
@@ -208,11 +211,20 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => {
       const t = s.tour && tourById(s.tour.id);
       if (!s.tour || !t) return {};
-      if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {};
+      if (s.tour.intro) {
+        if (index <= s.tour.index) return {};
+        if (s.tour.introVideo) return { tour: { ...s.tour, introVideo: false, phase: "travel", holdMs: 0 } };
+        return { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } };
+      }
       if (index < 0 || index >= t.stops.length) return {};
       return { tour: { ...s.tour, index, travel: false, phase: "travel", holdMs: 0 } };
     }),
-  skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {})),
+  skipIntro: () =>
+    set((s) => {
+      if (!s.tour?.intro) return {};
+      if (s.tour.introVideo) return { tour: { ...s.tour, introVideo: false, phase: "travel", holdMs: 0 } };
+      return { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } };
+    }),
   stepFeature: (dir) => {
     const d = getData();
     const s = get();

@@ -12,17 +12,11 @@ export const MEDIA_BASE_DEFAULT = "https://robs-ancestors-atlas.s3.eu-west-2.ama
  */
 export function encode(input: string, out: string, opts: { channels: 1 | 2; kbps: number }): number {
   mkdirSync(out.slice(0, out.lastIndexOf("/")), { recursive: true });
-  const LOUDNORM = "loudnorm=I=-16:TP=-1.5:LRA=11";
-  const probe = spawnSync("ffmpeg", ["-hide_banner", "-i", input, "-vn", "-af", `${LOUDNORM}:print_format=json`, "-f", "null", "-"], {
-    encoding: "utf8",
-  });
-  const json = probe.stderr.match(/\{[^{}]*"input_i"[^{}]*\}/)?.[0];
-  if (probe.status !== 0 || !json) {
-    console.error(`✗ could not measure ${input}:\n${probe.stderr.slice(-500)}`);
+  const filter = loudnormFilter(input);
+  if (!filter) {
+    console.error(`✗ could not measure ${input}`);
     process.exit(1);
   }
-  const m = JSON.parse(json);
-  const filter = `${LOUDNORM}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
   execFileSync(
     "ffmpeg",
     ["-hide_banner", "-loglevel", "error", "-y", "-i", input, "-map_metadata", "-1", "-vn",
@@ -32,10 +26,29 @@ export function encode(input: string, out: string, opts: { channels: 1 | 2; kbps
   return Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out], { encoding: "utf8" }));
 }
 
+/**
+ * Two-pass loudnorm filter for `input`'s sound (as encode() uses): -16 LUFS, peaks under -1.5 dBTP.
+ * Null if it has no sound.
+ */
+export function loudnormFilter(input: string): string | null {
+  const LOUDNORM = "loudnorm=I=-16:TP=-1.5:LRA=11";
+  const probe = spawnSync("ffmpeg", ["-hide_banner", "-i", input, "-vn", "-af", `${LOUDNORM}:print_format=json`, "-f", "null", "-"], {
+    encoding: "utf8",
+  });
+  const json = probe.stderr.match(/\{[^{}]*"input_i"[^{}]*\}/)?.[0];
+  if (probe.status !== 0 || !json) return null;
+  const m = JSON.parse(json);
+  return `${LOUDNORM}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
+}
+
+const contentType = (key: string) => (key.endsWith(".mp4") ? "video/mp4" : "audio/mpeg");
+/** Where a clip is prepared locally before upload: data/build/audio/<key> (videos: data/build/video/<key>). */
+export const localPath = (key: string) => `data/build/${key.endsWith(".mp4") ? "video" : "audio"}/${key}`;
+
 /** `aws` arguments to upload a clip: a year-long cache, so a key is never reused. */
 export const uploadArgs = (out: string, key: string) => [
-  "s3", "cp", out, `s3://${BUCKET}/${key}`, "--content-type", "audio/mpeg",
+  "s3", "cp", out, `s3://${BUCKET}/${key}`, "--content-type", contentType(key),
   "--cache-control", "public, max-age=31536000, immutable", "--only-show-errors",
 ];
 export const uploadCommand = (out: string, key: string) =>
-  `aws s3 cp ${out} s3://${BUCKET}/${key} --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable"`;
+  `aws s3 cp ${out} s3://${BUCKET}/${key} --content-type ${contentType(key)} --cache-control "public, max-age=31536000, immutable"`;

@@ -24,6 +24,8 @@ export interface Tour {
   layers?: Category[];
   music?: { src: string; credit: string };
   announcement?: { src: string; credit: string; text_hash: string };
+  /** Played before the title card: a bucket key (intro/tours/<id>-v<n>.mp4; set by `npm run video:intro`). */
+  intro?: { video: string; credit?: string };
   stops: TourStop[];
 }
 
@@ -101,6 +103,7 @@ export const TOURS: Tour[] = [
     layers: ["species", "culture", "event"],
     music: { src: "music/tours/out-of-africa-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     announcement: { src: "narration/tours/out-of-africa-v2.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "cce3d2ec85" },
+    intro: { video: "intro/tours/out-of-africa-v1.mp4" },
     stops: [
       { entity: "out-of-africa-dmanisi" },
       { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },

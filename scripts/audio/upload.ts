@@ -1,13 +1,14 @@
-// Upload every narration and music clip the app refers to that is not in the bucket yet:
+// Upload every narration and music clip and tour intro video the app refers to that is not in the bucket yet:
 //   npm run audio:upload [-- --dry-run]
 // Checks each key over the bucket's public URL (no AWS login needed for that), then uploads the
-// missing ones from data/build/audio with `aws s3 cp`. Keys are never overwritten (year-long cache).
+// missing ones from data/build/audio (videos: data/build/video) with `aws s3 cp`. Keys are never
+// overwritten (year-long cache).
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
-import { MEDIA_BASE_DEFAULT, uploadArgs } from "./encode.ts";
+import { MEDIA_BASE_DEFAULT, localPath, uploadArgs } from "./encode.ts";
 
 const files = ["data/curated/events.yaml", "data/curated/entities.yaml", "src/tours/tours.ts"];
-const keys = [...new Set(files.flatMap((f) => readFileSync(f, "utf8").match(/\b(?:narration|music)\/[a-z]+\/[a-z0-9-]+-v\d+\.mp3/g) ?? []))].sort();
+const keys = [...new Set(files.flatMap((f) => readFileSync(f, "utf8").match(/\b(?:(?:narration|music)\/[a-z]+\/[a-z0-9-]+-v\d+\.mp3|intro\/tours\/[a-z0-9-]+-v\d+\.mp4)/g) ?? []))].sort();
 
 const missing: string[] = [];
 await Promise.all(
@@ -19,7 +20,7 @@ await Promise.all(
 console.log(`${keys.length} clips referenced, ${missing.length} not in the bucket yet`);
 let failed = 0;
 for (const key of missing.sort()) {
-  const local = `data/build/audio/${key}`;
+  const local = localPath(key);
   if (!existsSync(local)) {
     console.error(`✗ ${key}: no local file ${local} (made on another machine?)`);
     failed++;
