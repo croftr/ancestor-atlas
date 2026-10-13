@@ -1,0 +1,40 @@
+import { readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
+import { TOURS } from "./tours";
+import { isActive } from "../map/data";
+import { readTourHash, tourHash } from "../globeLink";
+import { snapYear } from "../time/scale";
+import type { Entity, FeatureProps } from "../types";
+
+const entities: Entity[] = JSON.parse(readFileSync("public/data/entities.json", "utf8"));
+const features: FeatureProps[] = JSON.parse(readFileSync("public/data/features.geojson", "utf8")).features.map(
+  (f: { properties: FeatureProps }) => f.properties,
+);
+const byId = new Map(entities.map((e) => [e.id, e]));
+
+describe.each(TOURS)("tour $id", (tour) => {
+  it("has a unique id and stops", () => {
+    expect(TOURS.filter((t) => t.id === tour.id)).toHaveLength(1);
+    expect(tour.stops.length).toBeGreaterThan(0);
+  });
+
+  it.each(tour.stops)("$entity is on the globe when the tour stops there", (stop) => {
+    const e = byId.get(stop.entity);
+    expect(e).toBeDefined();
+    expect(tour.layers ?? [e!.category]).toContain(e!.category);
+    const year = snapYear(stop.year ?? e!.year ?? e!.start_year);
+    expect(features.some((f) => f.entity_id === stop.entity && isActive(f, year))).toBe(true);
+  });
+
+  it("runs oldest first", () => {
+    const years = tour.stops.map((s) => s.year ?? byId.get(s.entity)?.year ?? 0);
+    expect(years).toEqual([...years].sort((a, b) => a - b));
+  });
+});
+
+describe("tour links", () => {
+  it("reads back what it writes", () => {
+    expect(readTourHash(tourHash("events-and-inventions"))).toBe("events-and-inventions");
+    expect(readTourHash("#/?year=1")).toBeNull();
+  });
+});

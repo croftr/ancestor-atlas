@@ -23,6 +23,13 @@ export function globeHash(s: { year: number; selectedId: string | null; groupId:
   return `#/?${p}`;
 }
 
+/** A guided tour's link: "#/tour/<id>". */
+export const tourHash = (id: string) => `#/tour/${encodeURIComponent(id)}`;
+export function readTourHash(hash: string): string | null {
+  const m = hash.match(/^#\/?tour\/([^/?#]+)$/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
 export function readGlobeHash(hash: string): GlobeLink | null {
   const m = hash.match(/^#\/?\?(.*)$/);
   if (!m) return null;
@@ -44,6 +51,11 @@ export const globeUrl = () => {
 /** Open the link the page was loaded with, then keep the address bar in step with the globe. */
 export function useGlobeLink(view: View) {
   useEffect(() => {
+    const tour = readTourHash(window.location.hash);
+    if (tour) {
+      loadData().then((d) => d && useStore.getState().startTour(tour));
+      return;
+    }
     const link = readGlobeHash(window.location.hash);
     if (!link) return;
     loadData().then((d) => {
@@ -77,11 +89,11 @@ export function useGlobeLink(view: View) {
     const write = () => {
       const s = useStore.getState();
       if (s.playing) return;
-      const hash = globeHash(s);
+      const hash = s.tour ? tourHash(s.tour.id) : globeHash(s);
       if (hash !== window.location.hash) history.replaceState(null, "", hash);
     };
     const unsubscribe = useStore.subscribe((s, prev) => {
-      if (s.year !== prev.year || s.selectedId !== prev.selectedId || s.groupId !== prev.groupId || s.playing !== prev.playing) {
+      if (s.year !== prev.year || s.selectedId !== prev.selectedId || s.groupId !== prev.groupId || s.playing !== prev.playing || s.tour?.id !== prev.tour?.id) {
         window.clearTimeout(timer);
         timer = window.setTimeout(write, 400);
       }

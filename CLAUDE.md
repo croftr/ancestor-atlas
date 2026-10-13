@@ -55,6 +55,17 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   clip on the event detail view (`src/events/EventMedia.tsx`). Encode MP4s with `-movflags +faststart`; never overwrite a
   key (uploads are cached for a year), upload a new name instead.
 
+## Guided tours (`src/tours/`)
+
+- A tour is a hand-picked list of stops in `src/tours/tours.ts` (entity id, optional `year` and `hold` seconds; optional
+  `layers` per tour). Kept in the app, not the data pipeline. `tours.test.ts` checks each stop is on the globe then.
+- `TourPlayer.tsx` runs it: play the slider forward to the stop (card closed), turn the globe (`showEntity`, `flyTo`
+  turn mode), open the card, hold (default from description length, 8–22 s), next. Touching the globe or card,
+  or moving the slider, pauses; Play ends the tour. Keys: arrows step stops, Space pauses, Escape ends.
+- `TourBar.tsx`: the Tours button and menu, and the bar that replaces the transport buttons. Link: `#/tour/<id>`.
+- Tours so far: Events and inventions (all 29 events; a first draft for Rob to trim). Planned: human evolution,
+  rise and fall of civilizations (needs start/end stops). Music and narration later (narration length to set holds).
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points

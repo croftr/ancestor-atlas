@@ -1,9 +1,10 @@
 import { create } from "zustand";
 import { CATEGORIES, type Category, type FeatureProps } from "./types";
 import { snapYear } from "./time/scale";
-import { getData, unionBBox, type BBox } from "./map/data";
+import { getData, isActive, unionBBox, type BBox } from "./map/data";
 import { bestYear, navOrder, sliderYearFor } from "./search/search";
 import { BASEMAP_THEMES, DEFAULT_BASEMAP } from "./config";
+import { tourById } from "./tours/tours";
 
 const BASEMAP_KEY = "history-globe.basemap";
 
@@ -34,6 +35,20 @@ interface AppState {
   /** `gentle`: pan there without zooming out (stepping through sites). */
   /** `turn`: rotate the globe to it without zooming in (era chips). */
   flyTo: { bbox: BBox; gentle?: boolean; turn?: boolean } | null;
+  /**
+   * The guided tour playing, if any (tours/tours.ts; run by tours/TourPlayer.tsx). `travel`: play the
+   * slider forward to this stop rather than cutting to it. `phase` and `holdMs` drive the tour bar.
+   * `restore`: the viewer's layers before the tour, put back when it ends.
+   */
+  tour: {
+    id: string;
+    index: number;
+    travel: boolean;
+    paused: boolean;
+    phase: "travel" | "hold";
+    holdMs: number;
+    restore: Record<Category, boolean>;
+  } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -45,8 +60,17 @@ interface AppState {
    * on the map, and fly the globe to it.
    */
   focusEntity(entityId: string): void;
-  /** Era chip: move the slider to the event's year and turn the globe to its places. */
-  showEvent(entityId: string): void;
+  /**
+   * Move the slider to `year` (default: the entity's best year) and turn the globe to the entity's
+   * features on the map then; `open` also opens the card. Used by the era chips and tours.
+   */
+  showEntity(entityId: string, opts?: { year?: number; open?: boolean }): void;
+  startTour(id: string): void;
+  /** End the tour and put the viewer's layers back. */
+  stopTour(): void;
+  pauseTour(paused: boolean): void;
+  /** Cut straight to a stop (Back / Next). */
+  tourGo(index: number): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
@@ -64,7 +88,8 @@ export const useStore = create<AppState>((set, get) => ({
   basemap: loadBasemap(),
   introOpen: isIntroHash(),
   flyTo: null,
-  setYear: (y) => set({ year: snapYear(y) }),
+  tour: null,
+  setYear: (y) => set((s) => ({ year: snapYear(y), ...(s.tour && { tour: { ...s.tour, paused: true } }) })),
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
   setIntroOpen: (open) => {
     if (!open && isIntroHash()) {
@@ -117,22 +142,47 @@ export const useStore = create<AppState>((set, get) => ({
       flyTo: bbox ? { bbox } : s.flyTo,
     }));
   },
-  showEvent: (entityId) => {
+  showEntity: (entityId, opts = {}) => {
     const d = getData();
-    const ev = d?.entityById.get(entityId);
-    if (!d || !ev) return;
-    const boxes = (d.featuresOf.get(entityId) ?? []).flatMap((f): BBox[] => {
-      const b = d.bboxOf.get(f.id);
-      return b ? [b] : [];
-    });
-    const bbox = unionBBox(boxes);
+    const entity = d?.entityById.get(entityId);
+    if (!d || !entity) return;
+    const features = d.featuresOf.get(entityId) ?? [];
+    const year = snapYear(opts.year ?? entity.year ?? bestYear(features)?.year ?? entity.start_year);
+    const on = features.filter((f) => isActive(f, year));
+    const bbox = unionBBox(
+      on.flatMap((f): BBox[] => {
+        const b = d.bboxOf.get(f.id);
+        return b ? [b] : [];
+      }),
+    );
     set((s) => ({
       playing: false,
-      year: snapYear(ev.year ?? ev.start_year),
-      enabled: { ...s.enabled, event: true },
+      year,
+      enabled: { ...s.enabled, [entity.category]: true },
+      ...(opts.open && on.length > 0 && { selectedId: on[0].id, hits: on, groupId: null }),
       flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
   },
+  startTour: (id) => {
+    const t = tourById(id);
+    if (!t) return;
+    set((s) => ({
+      playing: false,
+      selectedId: null,
+      hits: [],
+      groupId: null,
+      enabled: t.layers ? (Object.fromEntries(CATEGORIES.map((c) => [c, t.layers!.includes(c)])) as Record<Category, boolean>) : s.enabled,
+      tour: { id, index: 0, travel: true, paused: false, phase: "travel", holdMs: 0, restore: s.tour?.restore ?? s.enabled },
+    }));
+  },
+  stopTour: () => set((s) => (s.tour ? { tour: null, enabled: s.tour.restore } : {})),
+  pauseTour: (paused) => set((s) => (s.tour && s.tour.paused !== paused ? { tour: { ...s.tour, paused } } : {})),
+  tourGo: (index) =>
+    set((s) => {
+      const t = s.tour && tourById(s.tour.id);
+      if (!s.tour || !t || index < 0 || index >= t.stops.length) return {};
+      return { tour: { ...s.tour, index, travel: false, phase: "travel", holdMs: 0 } };
+    }),
   stepFeature: (dir) => {
     const d = getData();
     const s = get();
@@ -154,7 +204,7 @@ export const useStore = create<AppState>((set, get) => ({
       flyTo: bbox ? { bbox, gentle: true } : s.flyTo,
     });
   },
-  setPlaying: (p) => set({ playing: p }),
+  setPlaying: (p) => set((s) => ({ playing: p, ...(p && s.tour && { tour: null, enabled: s.tour.restore }) })),
   setBasemap: (name) => {
     if (!BASEMAP_THEMES[name]) return;
     try {

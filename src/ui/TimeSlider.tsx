@@ -5,6 +5,7 @@ import { erasFor } from "../timeline/layout";
 import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
 import EraIcon from "./EraIcon";
+import TourBar, { TourPicker } from "../tours/TourBar";
 import {
   MAX_YEAR,
   MIN_YEAR,
@@ -44,7 +45,8 @@ export default function TimeSlider() {
   const playing = useStore((s) => s.playing);
   const setYear = useStore((s) => s.setYear);
   const setPlaying = useStore((s) => s.setPlaying);
-  const showEvent = useStore((s) => s.showEvent);
+  const showEntity = useStore((s) => s.showEntity);
+  const touring = useStore((s) => s.tour !== null);
 
   // Lifespan of whatever is selected, drawn as a band under the slider.
   const data = useData();
@@ -117,6 +119,16 @@ export default function TimeSlider() {
     const onDown = (e: KeyboardEvent) => {
       if (isTextInput(e.target)) return;
       const s = useStore.getState();
+      // During a tour: arrows step between stops, Space pauses, Escape ends it.
+      if (s.tour) {
+        const go = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
+        if (go) s.tourGo(s.tour.index + go);
+        else if (e.key === " ") s.pauseTour(!s.tour.paused);
+        else if (e.key === "Escape") s.stopTour();
+        else return;
+        e.preventDefault();
+        return;
+      }
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         s.setYear(stepYear(s.year, -1));
@@ -162,15 +174,20 @@ export default function TimeSlider() {
           ))}
         <span className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</span>
       </div>
-      <div className="controls">
-        <button className="ctl-start" onClick={() => setYear(MIN_YEAR)} title="Start" aria-label="Start"><Icon d={ICON.start} /></button>
-        <button onClick={() => setYear(stepYear(year, -1))} title="Step back" aria-label="Step back"><Icon d={ICON.back} /></button>
-        <button className="ctl-play" onClick={() => setPlaying(!playing)} title="Play / pause" aria-label={playing ? "Pause" : "Play"}>
-          <Icon d={playing ? ICON.pause : ICON.play} />
-        </button>
-        <button onClick={() => setYear(stepYear(year, 1))} title="Step forward" aria-label="Step forward"><Icon d={ICON.forward} /></button>
-        <button className="ctl-end" onClick={() => setYear(MAX_YEAR)} title="End" aria-label="End"><Icon d={ICON.end} /></button>
-      </div>
+      {touring ? (
+        <TourBar />
+      ) : (
+        <div className="controls">
+          <button className="ctl-start" onClick={() => setYear(MIN_YEAR)} title="Start" aria-label="Start"><Icon d={ICON.start} /></button>
+          <button onClick={() => setYear(stepYear(year, -1))} title="Step back" aria-label="Step back"><Icon d={ICON.back} /></button>
+          <button className="ctl-play" onClick={() => setPlaying(!playing)} title="Play / pause" aria-label={playing ? "Pause" : "Play"}>
+            <Icon d={playing ? ICON.pause : ICON.play} />
+          </button>
+          <button onClick={() => setYear(stepYear(year, 1))} title="Step forward" aria-label="Step forward"><Icon d={ICON.forward} /></button>
+          <button className="ctl-end" onClick={() => setYear(MAX_YEAR)} title="End" aria-label="End"><Icon d={ICON.end} /></button>
+          <TourPicker />
+        </div>
+      )}
       <div className="range-wrap">
         <div className="preset-marks" aria-hidden="true">
           {presets.map((p) => (
@@ -215,7 +232,7 @@ export default function TimeSlider() {
           </span>
         ))}
       </div>
-      <div id="era-shortcuts" className={`chips${shortcutsOpen ? " open" : ""}`}>
+      <div id="era-shortcuts" className={`chips${shortcutsOpen ? " open" : ""}`} style={touring ? { display: "none" } : undefined}>
         {presets.map((e) => (
           <button
             key={e.label}
@@ -224,7 +241,7 @@ export default function TimeSlider() {
             title={e.title}
             aria-pressed={e.label === activePreset}
             onClick={() => {
-              showEvent(e.event);
+              showEntity(e.event);
               setShortcutsOpen(false);
             }}
           >

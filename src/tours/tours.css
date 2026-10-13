@@ -1,0 +1,47 @@
+/* Guided tours: the "Tours" button and menu on the time bar, and the tour bar that replaces the
+   transport buttons while a tour plays. */
+.tour-picker { position: relative; display: inline-flex; }
+.time-slider .controls .ctl-tour { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 0.8rem; font-weight: 600; }
+.tour-menu {
+  position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 20;
+  width: min(320px, calc(100vw - 32px));
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(17, 24, 42, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  text-align: left;
+}
+.tour-menu-head { padding: 2px 6px 6px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8b95ab; }
+.time-slider .controls .tour-item {
+  display: grid; gap: 2px; width: 100%; padding: 8px 10px; place-items: start;
+  text-align: left; border-radius: 8px;
+}
+.tour-item-title { font-weight: 600; color: #fff; }
+.tour-item-blurb { font-size: 0.8rem; color: #c3cbe0; line-height: 1.35; }
+.tour-item-meta { font-size: 0.72rem; color: #8ec5ff; }
+
+.tour-bar { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; margin: 6px 0; }
+.tour-bar-text { display: grid; min-width: 0; }
+.tour-bar-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8ec5ff; }
+.tour-bar-stop { font-size: 0.95rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tour-bar .tour-controls { margin: 0; }
+.time-slider .controls button:disabled { opacity: 0.4; cursor: default; }
+.tour-progress { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.tour-progress span {
+  display: block; height: 100%; width: 100%;
+  background: #c39bff;
+  transform-origin: left;
+  animation-name: tour-hold;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes tour-hold { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Small screens (ui/stacked.css): the tour bar takes the full width under the year; the menu's rows
+   are not round transport keys. */
+@media (max-width: 900px) {
+  .time-slider .controls .ctl-tour span { display: none; }
+  .app.view-globe .tour-bar { grid-column: 1 / -1; margin: 4px 0; }
+  .app.view-globe .controls .tour-item { width: 100%; height: auto; padding: 8px 10px; border-radius: 8px; color: inherit; }
+}

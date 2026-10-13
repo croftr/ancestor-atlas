@@ -8,6 +8,7 @@ import SideNav from "./ui/SideNav";
 import PageTabs from "./ui/PageTabs";
 import WelcomeHint from "./ui/WelcomeHint";
 import IntroModal from "./ui/IntroModal";
+import TourPlayer from "./tours/TourPlayer";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
 import CulturesPage from "./browse/CulturesPage";
@@ -15,7 +16,7 @@ import SpeciesPage from "./browse/SpeciesPage";
 import CivilizationsPage from "./browse/CivilizationsPage";
 import { useView } from "./route";
 import { useStore } from "./store";
-import { useGlobeLink } from "./globeLink";
+import { readTourHash, useGlobeLink } from "./globeLink";
 // Last, so the small-screen layout overrides the component styles above.
 import "./ui/stacked.css";
 
@@ -30,6 +31,8 @@ export default function App() {
       if (/^#\/?(intro|about)$/i.test(window.location.hash)) {
         setIntroOpen(true);
       }
+      const tour = readTourHash(window.location.hash);
+      if (tour && useStore.getState().tour?.id !== tour) useStore.getState().startTour(tour);
     };
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
@@ -51,6 +54,7 @@ export default function App() {
             <InfoPanel />
             <TimeSlider />
             <WelcomeHint />
+            <TourPlayer />
           </>
         )}
       </div>
