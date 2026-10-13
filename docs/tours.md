@@ -128,7 +128,8 @@ npm run audio:narrate -- --announce <tour id>      # or --announce all: every to
 ```
 
 It is read slowly, as a title: the script sends "<title> [slowly]" to ElevenLabs' `eleven_v3` model
-(the narration keeps its own model). It sets `announcement` on the tour in `tours.ts`. Changing a tour's title makes it stale: the
+(the narration keeps its own model), and cuts the take 0.5 s after the speech ends (v3 sometimes adds a
+stray sound after it). It sets `announcement` on the tour in `tours.ts`. Changing a tour's title makes it stale: the
 tour test warns, and `--stale` re-records it with the descriptions.
 
 ### 5. Music

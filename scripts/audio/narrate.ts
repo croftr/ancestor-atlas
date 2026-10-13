@@ -155,6 +155,28 @@ async function speak(e: Target): Promise<string> {
   return path;
 }
 
+/**
+ * A short title read by v3 can end in a stray sound after the speech (a click or breath, up to -10 dB,
+ * Oct 2026). Cut the clip TAIL_S after the speech ends, with a short fade; a clip with no trailing
+ * silence is left as it is. Returns the file to encode.
+ */
+const TAIL_S = 0.5;
+const FADE_S = 0.15;
+function trimTail(input: string, id: string): string {
+  const probe = spawnSync("ffmpeg", ["-hide_banner", "-i", input, "-af", "silencedetect=noise=-45dB:d=0.3", "-f", "null", "-"], { encoding: "utf8" });
+  const starts = [...probe.stderr.matchAll(/silence_start: ([\d.]+)/g)].map((m) => Number(m[1])).filter((t) => t > 0.3);
+  const last = starts.at(-1);
+  if (last === undefined) return input;
+  const cut = last + TAIL_S;
+  const out = `data/build/audio/tts/trimmed-${id}.wav`;
+  execFileSync(
+    "ffmpeg",
+    ["-hide_banner", "-loglevel", "error", "-y", "-i", input, "-af", `atrim=0:${cut},afade=t=out:st=${cut - FADE_S}:d=${FADE_S}`, out],
+    { stdio: "inherit" },
+  );
+  return out;
+}
+
 /** Upload to a key that must not exist yet. False if it could not (the command to run is printed). */
 function upload(out: string, key: string): boolean {
   if (flag("--no-upload")) return false;
@@ -240,6 +262,7 @@ for (const e of targets) {
   let source: string;
   try {
     source = file ?? (await speak(e));
+    if (e.category === "tour" && !file) source = trimTail(source, e.id);
   } catch (err) {
     // Out of credit, say: keep what is done so far; a re-run picks up the rest.
     console.error(`✗ ${e.id}: ${(err as Error).message}\n  Stopping here; the clips above are kept. Run the same command again later for the rest.`);
