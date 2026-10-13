@@ -5,6 +5,7 @@ import { posToYear, yearToPos } from "../time/scale";
 import { tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
+import { useWakeLock } from "./useWakeLock";
 import {
   narrationState,
   pauseNarration,
@@ -221,6 +222,8 @@ export default function TourPlayer() {
     if (paused) pauseNarration();
     else resumeNarration();
   }, [paused]);
+  // Keep the screen on while the tour plays (not while paused, or waiting behind its Start button).
+  useWakeLock(id !== undefined && paused === false && !gate);
   const musicIn = useStore((s) => s.tour?.musicIn);
   useEffect(() => {
     const music = id === undefined ? undefined : tourById(id)?.music;

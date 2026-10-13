@@ -82,6 +82,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   128 kbps, -16 LUFS), sets it in tours.ts and prints the upload command (key `music/tours/<id>-v<n>.mp3`).
   `src/audio/music.ts` loops it through Web Audio (needs the bucket's CORS, which allows `*`), fades, and dips it under
   narration (levels at the top of that file); a music on/off button on the tour bar (remembered). The music credit (CC BY) shows on the title card and in that button's tooltip, not on the bar.
+- The screen stays on while a tour plays (Screen Wake Lock, `src/tours/useWakeLock.ts`; released on pause or end,
+  taken again when the page comes back into view).
 - Sound needs a tap: the Tours menu primes audio; a tour opened from a link waits behind a "Start tour" button (`gate`).
 - A stop may set `site` (a feature id) to frame and open the card on one place. Tours can mix categories.
 - Tours (Oct 2026): Events and inventions (all 29 events; a draft for Rob to trim); Human evolution (13 species + 2
