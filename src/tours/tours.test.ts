@@ -42,9 +42,9 @@ describe.each(TOURS)("tour $id", (tour) => {
     if (!tour.announcement) return;
     expect(tour.announcement.src).toMatch(new RegExp(`^narration/tours/${tour.id}-v\\d+\\.mp3$`));
     expect(tour.announcement.credit).toBeTruthy();
-    // A changed title or blurb leaves the recording behind (npm run audio:narrate -- --stale re-records it).
+    // A changed title leaves the recording behind (npm run audio:narrate -- --stale re-records it).
     if (tour.announcement.text_hash !== textHash(announcementText(tour)))
-      console.warn(`tour ${tour.id}: the announcement no longer matches its title and blurb`);
+      console.warn(`tour ${tour.id}: the announcement no longer matches its title`);
   });
 
   it("runs oldest first", () => {

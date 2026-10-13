@@ -19,7 +19,7 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
   page's cover: four spread through the tour; the menu: the first), so a new tour needs no picture of
   its own.
 - A tour opens with a title card (`TitleCard.tsx`): the title, blurb and length over the globe as it
-  turns to the first stop, while the tour's `announcement` reads the title and blurb aloud
+  turns to the first stop, while the tour's `announcement` reads the title aloud (the blurb is only shown)
   (`announcementText` in `tours.ts`) 1.5 s after the card appears. The music comes in as the
   announcement ends, and the card stays 2 s more (without an announcement: 6 s, music after 3 s;
   timings at the top of `TourPlayer.tsx`).
@@ -121,13 +121,13 @@ Other forms: `npm run audio:narrate -- <id> [<id>…]`, `--stale` (re-record cha
 `--missing` (events without narration), `<id> --file <mp3>` (a recording made by hand),
 `--no-upload`, `--credit "<text>"`.
 
-The title card's announcement (title and blurb, about 150 characters):
+The title card's announcement (the title only, a few dozen characters):
 
 ```sh
 npm run audio:narrate -- --announce <tour id>      # or --announce all: every tour missing one or out of date
 ```
 
-It sets `announcement` on the tour in `tours.ts`. Changing a tour's title or blurb makes it stale: the
+It sets `announcement` on the tour in `tours.ts`. Changing a tour's title makes it stale: the
 tour test warns, and `--stale` re-records it with the descriptions.
 
 ### 5. Music
