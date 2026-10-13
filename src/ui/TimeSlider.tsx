@@ -44,6 +44,7 @@ export default function TimeSlider() {
   const playing = useStore((s) => s.playing);
   const setYear = useStore((s) => s.setYear);
   const setPlaying = useStore((s) => s.setPlaying);
+  const showEvent = useStore((s) => s.showEvent);
 
   // Lifespan of whatever is selected, drawn as a band under the slider.
   const data = useData();
@@ -223,7 +224,7 @@ export default function TimeSlider() {
             title={e.title}
             aria-pressed={e.label === activePreset}
             onClick={() => {
-              setYear(e.year);
+              showEvent(e.event);
               setShortcutsOpen(false);
             }}
           >

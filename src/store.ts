@@ -32,7 +32,8 @@ interface AppState {
   introOpen: boolean;
   /** Camera request for the map; a new object each time so repeated requests still fire. */
   /** `gentle`: pan there without zooming out (stepping through sites). */
-  flyTo: { bbox: BBox; gentle?: boolean } | null;
+  /** `turn`: rotate the globe to it without zooming in (era chips). */
+  flyTo: { bbox: BBox; gentle?: boolean; turn?: boolean } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -44,6 +45,8 @@ interface AppState {
    * on the map, and fly the globe to it.
    */
   focusEntity(entityId: string): void;
+  /** Era chip: move the slider to the event's year and turn the globe to its places. */
+  showEvent(entityId: string): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
@@ -112,6 +115,22 @@ export const useStore = create<AppState>((set, get) => ({
         ? { selectedId: null, hits: [], groupId: entityId }
         : { selectedId: best.active[0].id, hits: best.active, groupId: null }),
       flyTo: bbox ? { bbox } : s.flyTo,
+    }));
+  },
+  showEvent: (entityId) => {
+    const d = getData();
+    const ev = d?.entityById.get(entityId);
+    if (!d || !ev) return;
+    const boxes = (d.featuresOf.get(entityId) ?? []).flatMap((f): BBox[] => {
+      const b = d.bboxOf.get(f.id);
+      return b ? [b] : [];
+    });
+    const bbox = unionBBox(boxes);
+    set((s) => ({
+      playing: false,
+      year: snapYear(ev.year ?? ev.start_year),
+      enabled: { ...s.enabled, event: true },
+      flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
   },
   stepFeature: (dir) => {

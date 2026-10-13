@@ -142,7 +142,7 @@ export default function MapView() {
       });
     };
 
-    const flyTo = ([w, s, e, n]: [number, number, number, number], gentle = false) => {
+    const flyTo = ([w, s, e, n]: [number, number, number, number], gentle = false, turn = false) => {
       // Keep the target clear of the legend (left), info card (right) and time slider (bottom).
       // On small screens those are stacked around the globe rather than over it.
       const { clientWidth: cw, clientHeight: ch } = map.getContainer();
@@ -160,6 +160,25 @@ export default function MapView() {
       padding.bottom = Math.max(0, padding.bottom - (map.getPadding().bottom ?? 0));
       const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       try {
+        if (turn) {
+          // Era chips: turn the globe to the place(s), zooming out only if they don't fit.
+          const cam = map.cameraForBounds(
+            [
+              [w, s],
+              [e, n],
+            ],
+            { padding, maxZoom: map.getZoom() },
+          );
+          if (cam?.center) {
+            map.easeTo({
+              center: cam.center,
+              zoom: Math.min(cam.zoom ?? map.getZoom(), map.getZoom()),
+              duration: reduceMotion ? 0 : 1400,
+              essential: true,
+            });
+            return;
+          }
+        }
         if (gentle) {
           // Stepping through sites: glide to the next one and keep the user's zoom (at least 3).
           const cam = map.cameraForBounds(
@@ -261,14 +280,14 @@ export default function MapView() {
         }
       }
       if (state.flyTo && state.flyTo !== prev.flyTo) {
-        const { bbox, gentle } = state.flyTo;
+        const { bbox, gentle, turn } = state.flyTo;
         // On small screens the info card opening resizes the globe; frame the target in the new size.
         if (window.matchMedia?.(STACKED_QUERY).matches)
           requestAnimationFrame(() => {
             map.resize();
-            flyTo(bbox, gentle);
+            flyTo(bbox, gentle, turn);
           });
-        else flyTo(bbox, gentle);
+        else flyTo(bbox, gentle, turn);
       }
       if (!loaded) return;
       if (state.year !== prev.year) {
