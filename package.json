@@ -18,6 +18,7 @@
     "sites:candidates": "tsx scripts/fetch/site-candidates.ts",
     "sites:sync": "tsx scripts/sync-site-coords.ts",
     "data:check": "tsx scripts/check-data-fresh.ts",
+    "data:describe": "tsx scripts/describe.ts",
     "audio:narrate": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",
     "audio:music": "tsx scripts/audio/music.ts",
     "audio:upload": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts"
