@@ -1,16 +1,21 @@
 import { useEffect, useRef } from "react";
 import { pauseNarration, playNarration, resumeNarration, stopNarration, useNarration } from "./narration";
 import type { Entity } from "../types";
+import { useStore } from "../store";
 import "./listen.css";
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
-/** "Listen": plays the entity's narration (pause and resume on the same button). Nothing loads until pressed. */
+/**
+ * "Listen": plays the entity's narration (pause and resume on the same button). Nothing loads until pressed.
+ * Hidden while a tour plays: the tour reads each stop itself.
+ */
 export default function ListenButton({ entity }: { entity: Entity }) {
   const n = useNarration();
   const narration = entity.narration;
   const started = useRef(false);
   const mine = narration !== undefined && n.src === narration.src;
+  const touring = useStore((s) => s.tour !== null);
 
   // Leaving the card stops a clip this button started (a tour stops its own).
   useEffect(
@@ -20,7 +25,7 @@ export default function ListenButton({ entity }: { entity: Entity }) {
     [narration?.src],
   );
 
-  if (!narration) return null;
+  if (!narration || touring) return null;
   const playing = mine && n.playing;
   const onClick = () => {
     if (playing) return pauseNarration();

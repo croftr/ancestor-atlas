@@ -58,7 +58,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   needs Rob's AWS login; without it, `npm run audio:upload` later uploads every referenced clip missing from the bucket
   (checked over the public URL; `--dry-run` lists them). `text_hash` is the description's fingerprint
   at recording time; the validator warns when the description changes (`--stale` re-records those). Played by the
-  Listen button (card and event page, `src/audio/`) and by tours, where the clip's length sets the hold.
+  Listen button (card and event page, `src/audio/`; hidden while a tour plays) and by tours, where the clip's length sets the hold.
 - Pictures: square 1000×1000 WebP in `public/images/events/` (title painted in, so always shown whole, never cropped);
   `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile.
 - Video and audio: `media` list on an event (`kind` video|audio, `src`, `title`, `credit`; validator-enforced). Files live
