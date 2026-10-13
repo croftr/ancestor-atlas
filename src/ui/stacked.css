@@ -207,24 +207,24 @@
   .app.view-globe .info-compact {
     --row: 84px;
     --nav: 44px;
-    --media-w: 112px;
+    --media-w: 140px;
     order: 3;
     flex: none;
     position: relative;
     margin: 0 8px 0 var(--stack-l);
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--media-w);
-    grid-template-rows: var(--row);
+    grid-template-rows: var(--row) var(--nav); /* always the stepper's height: a bigger picture */
     border-radius: 16px;
     overflow: hidden;
     background: #0d1424;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 3px 0 0 var(--cat), 0 10px 28px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
     animation: info-compact-in 0.3s ease both;
   }
-  .app.view-globe .info-compact.has-nav { grid-template-rows: var(--row) var(--nav); --media-w: 140px; }
-  .app.view-globe .info-compact.square { --media-w: var(--row); }
-  .app.view-globe .info-compact.square.has-nav { --media-w: calc(var(--row) + var(--nav)); }
+  .app.view-globe .info-compact.square { --media-w: calc(var(--row) + var(--nav)); }
+  /* Nothing to step through: the name and dates take the whole height, centred. */
+  .app.view-globe .info-compact:not(.has-nav) .ic-open { grid-row: 1 / -1; }
   .app.view-globe.touring .info-compact {
     position: absolute;
     top: 8px;
