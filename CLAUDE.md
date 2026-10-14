@@ -145,7 +145,13 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   (validator-checked: file exists, credit, `at` increasing). For now shown only while a tour holds on that card:
   `at` = seconds after the card opens (when the narration starts) to switch; untimed ones share the hold evenly
   (`src/tours/tourPicture.ts`). Shown whole (contain), fading in. Later: arrows on the card to step through them.
-  First use (14 Oct 2026): hominin-divergence shows the Sahelanthropus picture, then the Toumaï cranium photo.
+  hominin-divergence: the Toumaï cranium photo, then the Sahelanthropus picture (Rob's order). Every other event
+  (14 Oct 2026): two real photos from Wikimedia Commons (free licences only; no NC/ND), 900 px WebP in
+  `public/images/events/extra/<event id>-<n>.webp`; `credit` is "Author, licence, via Wikimedia Commons" and
+  `source` the Commons file page (the card's credit links to it). Weak spots Rob accepted: Lomekwi (no tool photos on
+  Commons; Kenyanthropus skull and Lake Turkana), fire (Qesem Cave bones and Zhoukoudian; nothing from Wonderwerk),
+  Iron Age (Tutankhamun's meteoric-iron dagger, captioned as such). Search from Rob's machine (the cloud workspace's
+  shared address gets 429s from upload.wikimedia.org).
 - Fallbacks on the info card: a civilization without a picture shows its group's ("Shows Ancient Egypt as a whole");
   cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
   (`public/images/cultures/`). The validator warns while a stage picture file is missing; the card then shows none.

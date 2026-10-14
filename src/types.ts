@@ -46,6 +46,7 @@ export interface ExtraImage {
   url: string; // "/images/..." in public/, or an https URL
   credit: string; // author/licence, or that it is AI-generated
   caption?: string; // what it shows (alt text, and beside the credit)
+  source?: string; // the page it came from (e.g. its Wikimedia Commons file page); the credit links to it
   at?: number;
 }
 

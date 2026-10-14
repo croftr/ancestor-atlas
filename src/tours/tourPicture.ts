@@ -5,6 +5,7 @@ export interface Picture {
   url: string;
   credit?: string;
   caption?: string;
+  source?: string;
 }
 
 /** The main picture then the extras, in order. Empty when there is no main picture. */

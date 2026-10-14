@@ -60,6 +60,7 @@ for (const e of entityList) {
           err(`entity ${id}: extra image ${x?.url} must be a /images/... path or an https URL`);
         else if (x.url.startsWith("/") && !existsSync(`public${x.url}`)) err(`entity ${id}: extra image ${x.url} not found in public/`);
         if (x?.url && x.url === e.image_url) warn(`entity ${id}: extra image ${x.url} repeats the main picture`);
+        if (x?.source !== undefined && !/^https:\/\//.test(String(x.source))) err(`entity ${id}: extra image ${x.url}: source must be an https URL`);
         if (!x?.credit) err(`entity ${id}: extra image ${x?.url} needs a credit (author/licence, or "AI-generated")`);
         if (x?.at !== undefined) {
           if (typeof x.at !== "number" || !(x.at >= 0)) err(`entity ${id}: extra image ${x.url}: at must be seconds (0 or more)`);

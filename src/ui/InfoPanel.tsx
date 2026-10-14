@@ -17,6 +17,23 @@ import { globeUrl } from "../globeLink";
 import { CategoryBadge } from "./CategoryIcon";
 import { tourPictureFor } from "../tours/tourPicture";
 
+/** A picture's credit (linked to where it came from, if known), then what it shows. */
+function creditLine(credit: string | undefined, note: string | undefined, source: string | undefined) {
+  return (
+    <>
+      {source && credit ? (
+        <a href={source} target="_blank" rel="noopener noreferrer">
+          {credit}
+        </a>
+      ) : (
+        credit
+      )}
+      {credit && note ? " · " : ""}
+      {note}
+    </>
+  );
+}
+
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
 
@@ -423,7 +440,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       )}
       {isEvent && <EventImage event={entity} picture={extra} />}
       {isEvent && eventPicture?.credit && (
-        <div className="muted image-credit">{[eventPicture.credit, extra?.caption].filter(Boolean).join(" · ")}</div>
+        <div className="muted image-credit">{creditLine(eventPicture.credit, extra?.caption, extra?.source)}</div>
       )}
       {isEvent && <ListenButton entity={entity} />}
       {shown && brokenImage !== shown.url && (
@@ -439,7 +456,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             />
           </div>
           {/* Credit below the frame (inside it, the cropped picture hid it). */}
-          <div className="muted image-credit">{[shown.credit, shown.note].filter(Boolean).join(" · ")}</div>
+          <div className="muted image-credit">{creditLine(shown.credit, shown.note, extra?.source)}</div>
         </>
       )}
       {!isEvent && <ListenButton entity={entity} />}
