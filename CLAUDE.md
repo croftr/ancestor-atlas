@@ -153,6 +153,11 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   Commons; Kenyanthropus skull and Lake Turkana), fire (Qesem Cave bones and Zhoukoudian; nothing from Wonderwerk),
   Iron Age (Tutankhamun's meteoric-iron dagger, captioned as such). Search from Rob's machine (the cloud workspace's
   shared address gets 429s from upload.wikimedia.org).
+  Tour stops (14 Oct 2026): every species, culture and civilization used in a tour got two Commons photos the same
+  way, in `public/images/extra/<entity id>-<n>.webp` (entities.yaml). Weak spots Rob accepted: Middle Stone Age (no
+  usable Pinnacle Point photo), Neanderthal (a model of the Sima de los Huesos shaft), Châtelperronian (paper figure
+  plates), Phoenicia (a drawing of an Assyrian relief), Maurya (Sarnath pillar stumps). Skip Commons files whose only
+  author/source is a news site (licence doubtful).
 - Fallbacks on the info card: a civilization without a picture shows its group's ("Shows Ancient Egypt as a whole");
   cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
   (`public/images/cultures/`). The validator warns while a stage picture file is missing; the card then shows none.

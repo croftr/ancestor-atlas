@@ -10,6 +10,9 @@
     - recall
   image_url: /images/species/sahelanthropus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/sahelanthropus-1.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Cast of the Toumaï skull from the side", source: "https://commons.wikimedia.org/wiki/File:Sahelenthropus_tchadensis-MGL_95214-P4150636-black.jpg" }
+    - { url: /images/extra/sahelanthropus-2.webp, credit: "Commons user 120, public domain, via Wikimedia Commons", caption: "Where Toumaï was found in the Djurab Desert of Chad, far west of the East African Rift", source: "https://commons.wikimedia.org/wiki/File:Sahelanthropus_tchadensis_-_TM_266_location.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=dOp6Fy5SX8E
@@ -59,6 +62,9 @@
     - recall
   image_url: /images/species/ardipithecus-ramidus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/ardipithecus-ramidus-1.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Middle Awash in Ethiopia's Afar region; Aramis lies within it", source: "https://commons.wikimedia.org/wiki/File:Middle_Awash_map.jpg" }
+    - { url: /images/extra/ardipithecus-ramidus-2.webp, credit: "Sailko, CC BY 3.0, via Wikimedia Commons", caption: "Ardi's skeleton (cast), 4.4 million years old", source: "https://commons.wikimedia.org/wiki/File:Resti_di_ardipithecus_ramidus_detto_ardi,_da_aramis_(afar),_4,4_milioni_di_anni_fa_01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Pw_J6jV02eU
@@ -92,6 +98,9 @@
     - recall
   image_url: /images/species/australopithecus-afarensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/australopithecus-afarensis-1.webp, credit: "Commons user 120, CC BY 2.5, via Wikimedia Commons", caption: "Cast of Lucy's skeleton, about 40 percent complete", source: "https://commons.wikimedia.org/wiki/File:Lucy_blackbg.jpg" }
+    - { url: /images/extra/australopithecus-afarensis-2.webp, credit: "Momotarou2012, CC BY-SA 3.0, via Wikimedia Commons", caption: "Replica of the Laetoli footprints, about 3.7 million years old", source: "https://commons.wikimedia.org/wiki/File:Laetoli_footprints_replica.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=u6kc7rEQXpI
@@ -215,6 +224,9 @@
     - recall
   image_url: /images/species/paranthropus-boisei.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/paranthropus-boisei-1.webp, credit: "Guérin Nicolas, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cast of OH 5, the skull Mary Leakey found at Olduvai in 1959", source: "https://commons.wikimedia.org/wiki/File:Paranthropus_boisei_(University_of_Zurich).JPG" }
+    - { url: /images/extra/paranthropus-boisei-2.webp, credit: "Bjørn Christian Tørrissen, CC BY-SA 3.0, via Wikimedia Commons", caption: "Paranthropus boisei skull with its massive cheekbones (Nairobi National Museum)", source: "https://commons.wikimedia.org/wiki/File:Paranthropus-boisei-Nairobi.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=t0zC4GaGPzw
@@ -248,6 +260,9 @@
     - recall
   image_url: /images/species/homo-habilis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-habilis-1.webp, credit: "Jl FilpoC, CC BY 4.0, via Wikimedia Commons", caption: "Homo habilis skull from Olduvai Gorge", source: "https://commons.wikimedia.org/wiki/File:Cr%C3%A1neo_de_Homo_habilis,_Garganta_de_Olduvai.jpg" }
+    - { url: /images/extra/homo-habilis-2.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "OH 7 (replica): the jaw from Olduvai that defined Homo habilis in 1964", source: "https://commons.wikimedia.org/wiki/File:OH_7_replica_01.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=xXGa5oNspKA
@@ -281,6 +296,9 @@
     - recall
   image_url: /images/species/homo-erectus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-erectus-1.webp, credit: "Vicpeters, CC BY 4.0, via Wikimedia Commons", caption: "Turkana Boy, about 1.5 million years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Turkana_boy_cast.jpg" }
+    - { url: /images/extra/homo-erectus-2.webp, credit: "Suyash Dwivedi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Java Man (Trinil 2), found in 1891 in Java", source: "https://commons.wikimedia.org/wiki/File:Java_Man_or_Trinil_2,_was_discovered_in_1891_in_Java,_Indonesia.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=_ANNQKKwWGk
@@ -298,6 +316,9 @@
     - recall
   image_url: /images/species/homo-antecessor.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-antecessor-1.webp, credit: "Malopez 21, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Gran Dolina dig in the Sierra de Atapuerca, Spain", source: "https://commons.wikimedia.org/wiki/File:Atapuerca,_excavaci%C3%B3n_TD.jpg" }
+    - { url: /images/extra/homo-antecessor-2.webp, credit: "Velatrix, CC0, via Wikimedia Commons", caption: "Face of a Homo antecessor child from Gran Dolina (cast, Natural History Museum)", source: "https://commons.wikimedia.org/wiki/File:Homo_antecessor_child_cast_Natural_History_Museum_London.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=HKghZIYlN9g
@@ -315,6 +336,9 @@
     - recall
   image_url: /images/species/homo-heidelbergensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-heidelbergensis-1.webp, credit: "Gerbil, CC BY 3.0, via Wikimedia Commons", caption: "The Mauer jaw, found near Heidelberg in 1907", source: "https://commons.wikimedia.org/wiki/File:Mandibel_from_Mauer.JPG" }
+    - { url: /images/extra/homo-heidelbergensis-2.webp, credit: "John Cummings, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Kabwe (Broken Hill) skull from Zambia, Natural History Museum", source: "https://commons.wikimedia.org/wiki/File:Broken_Hill_skull,_Treasures_Exhibition,_Natural_History_Museum_01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=W0JQW_GKNRs
@@ -332,6 +356,9 @@
     - recall
   image_url: /images/species/neanderthal.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/neanderthal-1.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "Model of the Sima de los Huesos shaft, Museum of Human Evolution, Burgos", source: "https://commons.wikimedia.org/wiki/File:MEH_Sima_de_los_Huesos_29-04-2012_9-38-44_1466x2073.JPG" }
+    - { url: /images/extra/neanderthal-2.webp, credit: "Commons user 120 / V. Mourre, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Neanderthal skull from La Chapelle-aux-Saints, France, found in a burial", source: "https://commons.wikimedia.org/wiki/File:LCAS1.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=zLTAKMOBJ3A
@@ -349,6 +376,9 @@
     - recall
   image_url: /images/species/denisovan.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/denisovan-1.webp, credit: "Thilo Parg, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Denisova finger bone, whose DNA revealed the Denisovans (replica)", source: "https://commons.wikimedia.org/wiki/File:Denisova_Phalanx_distalis.jpg" }
+    - { url: /images/extra/denisovan-2.webp, credit: "Dongju Zhang, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Xiahe jaw from the Tibetan Plateau", source: "https://commons.wikimedia.org/wiki/File:Xiahe_mandible.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=NNusMHoSdss
@@ -366,6 +396,9 @@
     - recall
   image_url: /images/species/homo-floresiensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-floresiensis-1.webp, credit: "Rosino, CC BY-SA 2.0, via Wikimedia Commons", caption: "Liang Bua cave on Flores, Indonesia", source: "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_cave.jpg" }
+    - { url: /images/extra/homo-floresiensis-2.webp, credit: "Ray from Queens, USA, CC BY-SA 2.0, via Wikimedia Commons", caption: "The LB1 skull of Homo floresiensis (cast)", source: "https://commons.wikimedia.org/wiki/File:LB1_skull.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=t_sFlHFgcFY
@@ -399,6 +432,9 @@
     - recall
   image_url: /images/species/homo-naledi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-naledi-1.webp, credit: "Simon Fraser University, CC BY 2.0, via Wikimedia Commons", caption: "Scientists working in the Rising Star cave system, South Africa", source: "https://commons.wikimedia.org/wiki/File:Rising_star_cave_exploration_(14054047275).jpg" }
+    - { url: /images/extra/homo-naledi-2.webp, credit: "Lee Roger Berger research team, CC BY 4.0, via Wikimedia Commons", caption: "Homo naledi fossils laid out by body part", source: "https://commons.wikimedia.org/wiki/File:Homo_naledi_skeletal_specimens.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=6B4XEmFZ3M4
@@ -416,6 +452,9 @@
     - recall
   image_url: /images/species/homo-sapiens.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  extra_images:
+    - { url: /images/extra/homo-sapiens-1.webp, credit: "GuillaumeG, CC BY-SA 4.0, via Wikimedia Commons", caption: "Omo Kibish skull, Ethiopia (reproduction)", source: "https://commons.wikimedia.org/wiki/File:Omo_Kibish_-_MCN_4152_(cropped).jpg" }
+    - { url: /images/extra/homo-sapiens-2.webp, credit: "Rept0n1x, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cro-Magnon skull from France, an early modern European (cast)", source: "https://commons.wikimedia.org/wiki/File:Homo_sapiens_sapiens_(Cro-Magnon_Man),_World_Museum_Liverpool_(1).JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=eC4T-dD9C6o
@@ -478,6 +517,9 @@
       src: https://www.youtube.com/watch?v=tA91YHaNTpc
       title: "Levallois core technology: an alternative way of making stone tools"
       credit: AncientCraftUK (Dr James Dilley), YouTube
+  extra_images:
+    - { url: /images/extra/levallois-mousterian-1.webp, credit: "Didier Descouens, CC BY-SA 3.0, via Wikimedia Commons", caption: "Levallois core, shaped so one blow strikes off a planned flake", source: "https://commons.wikimedia.org/wiki/File:Lithic_core_Levalois_MHNT_PRE_2004.0.86.fond.jpg" }
+    - { url: /images/extra/levallois-mousterian-2.webp, credit: "Vassil, CC0, via Wikimedia Commons", caption: "Mousterian point (Musée d'archéologie nationale, France)", source: "https://commons.wikimedia.org/wiki/File:Pointe_moust%C3%A9rienne_Mus%C3%A9e_d%27arch%C3%A9ologie_nationale_01042018.jpg" }
 - id: middle-stone-age
   name: Middle Stone Age (Africa)
   category: culture
@@ -493,6 +535,9 @@
       src: https://www.youtube.com/watch?v=uNqYhWXC7aM
       title: Inside Africa's hidden history of early humans
       credit: BBC Studios, YouTube
+  extra_images:
+    - { url: /images/extra/middle-stone-age-1.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone spear point from Blombos Cave, about 71,000 years old", source: "https://commons.wikimedia.org/wiki/File:Blombos_point_white.JPG" }
+    - { url: /images/extra/middle-stone-age-2.webp, credit: "Nkansah Rexford, CC BY-SA 3.0, via Wikimedia Commons", caption: "Engraved ostrich eggshell from Diepkloof Rock Shelter, about 60,000 years old", source: "https://commons.wikimedia.org/wiki/File:Iziko_engraving_ostrich_eggshell.JPG" }
 # Spans of the next three from English Wikipedia: Micoquian@1349026510, Szeletian@1379782690, Châtelperronian@1337735389.
 - id: micoquian
   name: Micoquian
@@ -531,6 +576,9 @@
     - road
   image_url: /images/cultures/chatelperronian.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/chatelperronian-1.webp, credit: "Rios-Garaizar et al., PLOS ONE 2022, CC BY 4.0, via Wikimedia Commons", caption: "Châtelperronian stone tools from Aranbaltza, Spain", source: "https://commons.wikimedia.org/wiki/File:Aranbaltza_Ch%C3%A2telperronian_lithic_assemblage.tiff" }
+    - { url: /images/extra/chatelperronian-2.webp, credit: "Caron et al., PLOS ONE 2011, CC BY 4.0, via Wikimedia Commons", caption: "Ornaments and bone tools from the Grotte du Renne, Arcy-sur-Cure", source: "https://commons.wikimedia.org/wiki/File:Grotte_du_Renne_ivory.png" }
 - id: aurignacian
   name: Aurignacian
   category: culture
@@ -546,6 +594,9 @@
       src: https://www.youtube.com/watch?v=LLyXCJH9Xzg
       title: How the Aurignacians conquered Ice Age Europe
       credit: WEON Earth, YouTube
+  extra_images:
+    - { url: /images/extra/aurignacian-1.webp, credit: "Dagmar Hollmann, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lion Man of Hohlenstein-Stadel, carved from mammoth ivory", source: "https://commons.wikimedia.org/wiki/File:Loewenmensch1.jpg" }
+    - { url: /images/extra/aurignacian-2.webp, credit: "Catatine, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Venus of Hohle Fels, about 40,000 years old", source: "https://commons.wikimedia.org/wiki/File:Venus_of_Hohle_Fels_URMU.jpg" }
 - id: gravettian
   name: Gravettian
   category: culture
@@ -561,6 +612,9 @@
       src: https://www.youtube.com/watch?v=YTn5KdsxZ0E
       title: "The Gravettian Culture: Ice Age mammoth hunters"
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/gravettian-1.webp, credit: "Matthias Kabel, CC BY 2.5, via Wikimedia Commons", caption: "The Venus of Willendorf, Austria", source: "https://commons.wikimedia.org/wiki/File:Venus_of_Willendorf_03.jpg" }
+    - { url: /images/extra/gravettian-2.webp, credit: "Petr Novák, CC BY-SA 2.5, via Wikimedia Commons", caption: "The Venus of Dolní Věstonice, fired clay, Moravia", source: "https://commons.wikimedia.org/wiki/File:Vestonicka_venuse.jpg" }
 - id: solutrean
   name: Solutrean
   category: culture
@@ -576,6 +630,9 @@
       src: https://www.youtube.com/watch?v=3aJJUk6Uy3g
       title: The Solutrean Culture
       credit: NORTH 02, YouTube
+  extra_images:
+    - { url: /images/extra/solutrean-1.webp, credit: "Vassil, CC0, via Wikimedia Commons", caption: "The Roche de Solutré in Burgundy, which gave the Solutrean its name", source: "https://commons.wikimedia.org/wiki/File:La_Roche_de_Solutr%C3%A9_26_10_2014_1.jpg" }
+    - { url: /images/extra/solutrean-2.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Solutrean laurel-leaf points, thinned by pressure flaking", source: "https://commons.wikimedia.org/wiki/File:Feuille_de_laurier_MHNT.PRE.2010.0.105.2.jpg" }
 - id: magdalenian
   name: Magdalenian
   category: culture
@@ -591,6 +648,9 @@
       src: https://www.youtube.com/watch?v=Ay6pJSVslAw
       title: The Magdalenian Culture
       credit: NORTH 02, YouTube
+  extra_images:
+    - { url: /images/extra/magdalenian-1.webp, credit: "Klaus D. Peter (derivative by Sémhur), CC BY-SA 4.0, via Wikimedia Commons", caption: "Spear-thrower carved as a crawling hyena, from La Madeleine", source: "https://commons.wikimedia.org/wiki/File:Propulseur_hy%C3%A8ne_rampante_-_La_Madeleine_-_Tursac_-_MNP.png" }
+    - { url: /images/extra/magdalenian-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Bison painted on the ceiling of Altamira, Spain", source: "https://commons.wikimedia.org/wiki/File:Altamira,_bison.jpg" }
 # Span from English Wikipedia: Epigravettian@1376524877.
 - id: epigravettian
   name: Epigravettian
@@ -633,6 +693,9 @@
       src: https://www.youtube.com/watch?v=QQr7iTkw8_Y
       title: The Clovis Culture
       credit: NORTH 02, YouTube
+  extra_images:
+    - { url: /images/extra/clovis-1.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Clovis point of chert from Sevier County, Utah", source: "https://commons.wikimedia.org/wiki/File:Clovis_point,_11500-9000_BC,_Sevier_County,_Utah,_chert_-_Natural_History_Museum_of_Utah_-_DSC07376.JPG" }
+    - { url: /images/extra/clovis-2.webp, credit: "SpringDraw, CC BY-SA 4.0, via Wikimedia Commons", caption: "Clovis points from the DeGraffenried cache, Texas", source: "https://commons.wikimedia.org/wiki/File:DeGraffenried_Clovis_Cache.tif" }
 - id: pre-pottery-neolithic
   name: Pre-Pottery Neolithic
   category: culture
@@ -819,6 +882,9 @@
       src: https://www.youtube.com/watch?v=zKZjlIhitRI
       title: Secrets of the Roman Empire
       credit: National Geographic, YouTube
+  extra_images:
+    - { url: /images/extra/roman-empire-1.webp, credit: "Justin Benttinen, CC BY-SA 4.0, via Wikimedia Commons", caption: "Augustus of Prima Porta (Vatican Museums)", source: "https://commons.wikimedia.org/wiki/File:Augustus_of_Prima_Porta.jpg" }
+    - { url: /images/extra/roman-empire-2.webp, credit: "Falk2, CC BY-SA 4.0, via Wikimedia Commons", caption: "Original paving of the Via Appia, Rome", source: "https://commons.wikimedia.org/wiki/File:L06_933_Via_Appia_antica,_Originalstra%C3%9Fenbelag.jpg" }
 - id: cardial
   name: Cardial culture
   category: culture
@@ -1164,6 +1230,9 @@
   narration: { src: narration/civilizations/new-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/new-kingdom-of-egypt-1.webp, credit: "Vyacheslav Argenberg, CC BY 4.0, via Wikimedia Commons", caption: "The Great Hypostyle Hall at Karnak, Luxor", source: "https://commons.wikimedia.org/wiki/File:Luxor,_Egypt,_Karnak,_Great_Hypostyle_Hall.jpg" }
+    - { url: /images/extra/new-kingdom-of-egypt-2.webp, credit: "Diego Delso, CC BY-SA 4.0, via Wikimedia Commons", caption: "The temple of Ramesses II at Abu Simbel", source: "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II,_Abu_Simbel,_Egipto,_2022-04-02,_DD_03.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ObCKrypZC68
@@ -1182,6 +1251,9 @@
   description: "On the island of Crete the Minoans built Europe's first great palaces, at Knossos, Phaistos and Malia: centres of storage, craft and ritual, decorated with vivid frescoes of bulls, dolphins and processions. They traded across the eastern Mediterranean with Egypt and the Levant, and wrote in a script, Linear A, that is still undeciphered. After about 1450 BCE most of the palaces were destroyed, and Knossos came under the control of Mycenaean Greeks from the mainland."
   image_url: /images/civilisations/minoan-civilization.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/minoan-civilization-1.webp, credit: "Wolfgang Moroder, CC BY-SA 3.0, via Wikimedia Commons", caption: "The west court of the palace at Knossos, Crete", source: "https://commons.wikimedia.org/wiki/File:Knossos_in_Crete_west_court.jpg" }
+    - { url: /images/extra/minoan-civilization-2.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The bull-leaping fresco from Knossos (Heraklion Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Bull_leaping_minoan_fresco_archmus_Heraklion.jpg" }
   narration: { src: narration/civilizations/minoan-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5981d1131c" }
   media:
     - kind: video
@@ -1332,6 +1404,9 @@
       src: https://www.youtube.com/watch?v=YPioTRAOAvU
       title: "Ancient Mesopotamia: The First Cities in History | Sumer and the Urban Revolution"
       credit: Topicus History, YouTube
+  extra_images:
+    - { url: /images/extra/sumerian-city-states-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Warka Vase from Uruk, about 3000 BCE (Iraq Museum)", source: "https://commons.wikimedia.org/wiki/File:Warka_Vase,_Iraq_Museum.jpg" }
+    - { url: /images/extra/sumerian-city-states-2.webp, credit: "Alli Khalil, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ziggurat of Ur", source: "https://commons.wikimedia.org/wiki/File:Ziggurat_of_Ur_Site_in_Nasiriyah_03.jpg" }
 - id: akkadian-empire
   description: "Around 2334 BCE Sargon of Akkad, a man of humble birth according to legend, conquered the Sumerian cities and created what is often called the world's first empire, stretching from the Persian Gulf towards the Mediterranean. His grandson Naram-Sin called himself king of the four quarters of the world and was worshipped as a god. Within two centuries the empire had collapsed, weakened by revolts, by raids from the Zagros mountains and, many believe, by a severe drought."
   narration: { src: narration/civilizations/akkadian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "912a730cb8" }
@@ -1340,6 +1415,9 @@
       src: https://www.youtube.com/watch?v=uNHkoGRc53Y
       title: "SARGON OF AKKAD - The Man Who Built the First Empire"
       credit: ChronoQuest, YouTube
+  extra_images:
+    - { url: /images/extra/akkadian-empire-1.webp, credit: "Eric de Redelijkheid, CC BY-SA 2.0, via Wikimedia Commons", caption: "Bronze head of an Akkadian ruler from Nineveh, perhaps Sargon or Naram-Sin", source: "https://commons.wikimedia.org/wiki/File:Bronze_head_of_an_Akkadian_ruler,_discovered_in_Nineveh_in_1931,_presumably_depicting_either_Sargon_or_Sargon%27s_grandson_Naram-Sin_(Rijksmuseum_van_Oudheden).jpg" }
+    - { url: /images/extra/akkadian-empire-2.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Victory stele of Naram-Sin (Louvre)", source: "https://commons.wikimedia.org/wiki/File:St%C3%A8le_de_Naram-Sin_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_SB_4_;_AS_6065.jpg" }
 - id: assyria
   description: A major ancient Mesopotamian civilization centered along the upper Tigris River in modern northern Iraq. Spanning Old, Middle, and Imperial periods, Assyria developed into a formidable military and commercial power renowned for sophisticated statecraft, monumental palaces, and the preservation of vast cuneiform libraries.
   media:
@@ -1369,6 +1447,9 @@
       src: https://www.youtube.com/watch?v=OusqE7gTUOI
       title: The Entire History Of The Hittites / Ancient History Documentary
       credit: History Time, YouTube
+  extra_images:
+    - { url: /images/extra/hittites-1.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Sphinx Gate at Hattusa", source: "https://commons.wikimedia.org/wiki/File:Sphinx_Gate,_Hattusa_01.jpg" }
+    - { url: /images/extra/hittites-2.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Hittite copy of the treaty with Egypt after Kadesh, about 1269 BCE (Istanbul)", source: "https://commons.wikimedia.org/wiki/File:Kadesh_Treaty,_written_in_Akkadian._1269_BCE._From_Bo%C4%9Fazk%C3%B6y,_Turkey._Clay_tablet._Museum_of_the_Ancient_Orient,_Istanbul,_Turkey.jpg" }
 - id: mitanni
   description: A powerful Hurrian-speaking kingdom centered in northern Syria and Upper Mesopotamia that flourished as a major Near Eastern empire during the mid-second millennium BCE. Renowned for horse breeding and chariot warfare, Mitanni rivaled Egypt and the Hittite Empire before falling to Assyrian and Hittite expansion.
   image_url: /images/civilisations/mitanni.webp
@@ -1400,6 +1481,9 @@
       src: https://www.youtube.com/watch?v=3BkIAZwM8U4
       title: A Brief History of the Phoenicians (1500 - 300 BC)
       credit: Captivating History, YouTube
+  extra_images:
+    - { url: /images/extra/phoenicia-1.webp, credit: "Наталия Данииловна Абрагамович, CC0, via Wikimedia Commons", caption: "King Luli of Tyre and Sidon escaping by sea in Phoenician ships, from an Assyrian relief", source: "https://commons.wikimedia.org/wiki/File:Elulay_escape.jpg" }
+    - { url: /images/extra/phoenicia-2.webp, credit: "O.Mustafin, public domain, via Wikimedia Commons", caption: "Sarcophagus of Ahiram of Byblos, with one of the earliest Phoenician alphabet inscriptions", source: "https://commons.wikimedia.org/wiki/File:Ahiram_Sarcophagus_1.JPG" }
 - id: kingdom-of-israel
   description: An Iron Age kingdom in the northern central highlands and fertile Jezreel Valley of the southern Levant, with Samaria as its prominent capital. Boasting significant agricultural wealth and international trade links, the kingdom was a major regional power before its destruction and population deportation by the Neo-Assyrian Empire in 720 BCE.
   media:
@@ -1422,6 +1506,9 @@
       src: https://www.youtube.com/watch?v=sW0O986C2t8
       title: "19. The Assyrians - Empire of Iron"
       credit: Fall of Civilizations, YouTube
+  extra_images:
+    - { url: /images/extra/neo-assyrian-empire-1.webp, credit: "APK, CC BY 4.0, via Wikimedia Commons", caption: "Lamassu guarding the throne room of the palace at Nimrud (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Lamassu_from_the_Throne_Room,_North-West_Palace_at_Nimrud,_British_Museum.jpg" }
+    - { url: /images/extra/neo-assyrian-empire-2.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Flood Tablet of the Epic of Gilgamesh, from Ashurbanipal's library", source: "https://commons.wikimedia.org/wiki/File:Tablet_XI_or_the_Flood_Tablet_of_the_Epic_of_Gilgamesh,_currently_housed_in_the_British_Museum_in_London.jpg" }
 - id: phrygia
   description: An influential Iron Age kingdom located in west-central Anatolia along the Sangarios River, centered at the legendary city of Gordion. Celebrated in Greek mythology for King Midas and the Gordian Knot, Phrygia was famed for advanced bronze metalworking, elaborate rock-cut tombs, and musical traditions before being overrun by Cimmerians and Lydians.
   media:
@@ -1693,6 +1780,9 @@
       src: https://www.youtube.com/watch?v=tbUCXGbaV6A
       title: "Athens vs Sparta: The Epic Rise of Greece’s Greatest City-States"
       credit: Speed Study, YouTube
+  extra_images:
+    - { url: /images/extra/greek-city-states-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "A hoplite on an Athenian red-figure vase", source: "https://commons.wikimedia.org/wiki/File:Flying-Angel_Painter_ARV_280_8_hoplite_with_helmet_greaves_shield_and_spear_(04).jpg" }
+    - { url: /images/extra/greek-city-states-2.webp, credit: "A.Savin, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Parthenon on the Acropolis of Athens", source: "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_35_Parthenon.jpg" }
 - id: macedonian-empire
   description: "Macedon, a kingdom on the northern edge of the Greek world, was turned into a military power by Philip the Second. His son Alexander, king at twenty, crossed into Asia in 334 BCE and in little more than ten years conquered the Persian Empire, Egypt and lands as far as the Indus, founding cities named Alexandria along the way. When he died in Babylon in 323 BCE, aged thirty-two, his generals fought over the empire and carved it into rival kingdoms that spread Greek language and culture across the east."
   narration: { src: narration/civilizations/macedonian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "51a1eaafb0" }
@@ -1701,10 +1791,16 @@
       src: https://www.youtube.com/watch?v=K7lb6KWBanI
       title: "The Greatest General in History? Alexander the Great (All Parts)"
       credit: Epic History, YouTube
+  extra_images:
+    - { url: /images/extra/macedonian-empire-1.webp, credit: "Sarah Murray, public domain, via Wikimedia Commons", caption: "The tomb of Philip II at Vergina (Aigai)", source: "https://commons.wikimedia.org/wiki/File:Facade_of_Philip_II_tomb_Vergina_Greece.jpg" }
+    - { url: /images/extra/macedonian-empire-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Alexander at the battle of Issus, mosaic from Pompeii", source: "https://commons.wikimedia.org/wiki/File:Alexander_(Battle_of_Issus)_Mosaic.jpg" }
 - id: olmec-civilization
   description: "On the humid Gulf Coast of Mexico the Olmecs created one of the first complex societies of Mesoamerica. At San Lorenzo and later La Venta they built earthen platforms and plazas, and carved colossal heads from basalt boulders brought from mountains many kilometres away, probably portraits of their rulers. Their art, their ball game and their reverence for jade and the jaguar shaped the Maya and the cultures that followed them. By around 400 BCE their great centres had been abandoned."
   image_url: /images/civilisations/olmec-civilization.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/olmec-civilization-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Colossal head from San Lorenzo, Veracruz", source: "https://commons.wikimedia.org/wiki/File:Olmec_Colossal_Head,_San_Lorenzo,_Veracruz,_1200-600_BC.jpg" }
+    - { url: /images/extra/olmec-civilization-2.webp, credit: "Hiart, CC0, via Wikimedia Commons", caption: "Olmec jade mask, about 800 BCE", source: "https://commons.wikimedia.org/wiki/File:Olmec_jade_mask_from_Veracruz,_c._800_BCE.jpg" }
   narration: { src: narration/civilizations/olmec-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6ad3d987f1" }
   media:
     - kind: video
@@ -1735,6 +1831,9 @@
       src: https://www.youtube.com/watch?v=ZoH2UQZBaPY
       title: "Cyrus the Great - Rise of the Achaemenid Empire"
       credit: Kings and Generals, YouTube
+  extra_images:
+    - { url: /images/extra/achaemenid-empire-1.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "The Cyrus Cylinder (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Cyrus_Cylinder,_Babylon,_Iraq,_mid_500s_BC,_cuneiform_on_clay_-_British_Museum_-_DSC01316.jpg" }
+    - { url: /images/extra/achaemenid-empire-2.webp, credit: "Phillip Maiwald (Nikopol), CC BY-SA 3.0, via Wikimedia Commons", caption: "Delegations bringing tribute on the Apadana stairs at Persepolis", source: "https://commons.wikimedia.org/wiki/File:Persepolis_stairs_of_the_Apadana_relief.jpg" }
 - id: peloponnesian-league
   description: A major military confederation of Greek city-states in the Peloponnese, founded and led by Sparta from the 6th to 4th centuries BCE. Formed to ensure mutual security and check rival Argive power, the league formed the core of the Hellenic alliance against Persia and ultimately defeated the Athenian Empire in the Peloponnesian War.
   media:
@@ -2116,6 +2215,9 @@
       src: https://www.youtube.com/watch?v=Ed6UZtVTI64
       title: "Ashoka the Great - Rise of the Mauryan Empire Documentary"
       credit: Kings and Generals, YouTube
+  extra_images:
+    - { url: /images/extra/maurya-empire-1.webp, credit: "Yann Forget, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lion Capital of Ashoka from Sarnath", source: "https://commons.wikimedia.org/wiki/File:Lion_Capital_of_Ashoka.jpg" }
+    - { url: /images/extra/maurya-empire-2.webp, credit: "เทวประภาส มากคล้าย, CC BY-SA 3.0, via Wikimedia Commons", caption: "Remains of Ashoka's pillar at Sarnath, still bearing one of his edicts", source: "https://commons.wikimedia.org/wiki/File:Sarnath_Ashoka_Pillar..jpg" }
 - id: anuradhapura
   description: The first major kingdom of ancient Sri Lanka, established around the historic capital city of Anuradhapura in 377 BCE by King Pandukabhaya. Flourishing for over a millennium, the kingdom engineered monumental hydraulic irrigation reservoirs (tanks) and celebrated Buddhist stupas, officially embracing Theravada Buddhism under King Devanampiya Tissa.
   media:
@@ -2225,6 +2327,9 @@
       src: https://www.youtube.com/watch?v=h-SC0vKIWV0
       title: "The Birth Of A Dynasty: China's First Emperor"
       credit: Odyssey - Ancient History Documentaries, YouTube
+  extra_images:
+    - { url: /images/extra/qin-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Qin standard bronze weight", source: "https://commons.wikimedia.org/wiki/File:Qin_Bronze_Weight.jpg" }
+    - { url: /images/extra/qin-dynasty-2.webp, credit: "Jmhullot, CC BY 3.0, via Wikimedia Commons", caption: "The terracotta army in Pit 1 at the First Emperor's tomb", source: "https://commons.wikimedia.org/wiki/File:Terracotta_Army,_View_of_Pit_1.jpg" }
 - id: han-dynasty
   description: "Out of the rebellions that ended the Qin, a former village official named Liu Bang founded the Han dynasty in 202 BCE. Over four centuries the Han built a lasting model for Chinese government, staffed by officials trained in Confucian learning, and their armies pushed into Central Asia, opening the trade routes later called the Silk Road. Paper was invented in the Han era. So central was this age that most Chinese people still call themselves the Han; the dynasty finally broke apart in 220 CE."
   narration: { src: narration/civilizations/han-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2c8c8b5fe0" }
@@ -2233,6 +2338,9 @@
       src: https://www.youtube.com/watch?v=5Vm4Fg26e20
       title: "The Han Dynasty Explained"
       credit: Captivating History, YouTube
+  extra_images:
+    - { url: /images/extra/han-dynasty-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Painted silk banner from Mawangdui tomb 1, 2nd century BCE", source: "https://commons.wikimedia.org/wiki/File:Mawangdui_silk_banner_from_tomb_no1.jpg" }
+    - { url: /images/extra/han-dynasty-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Western Han jade burial suit", source: "https://commons.wikimedia.org/wiki/File:Western_Han_Jade_Burial_Suit_-_2.jpg" }
 - id: gojoseon
   description: The first kingdom of ancient Korea, traditionally established in the Liaoning and northwestern Korean Peninsula around the Taedong River basin. Developing a distinctive Bronze and Iron Age culture characterized by mandolin-shaped daggers and dolmen tombs, Gojoseon challenged Yan and Han China before falling to Emperor Wu of Han in 108 BCE.
   media:
