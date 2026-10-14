@@ -145,7 +145,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   (validator-checked: file exists, credit, `at` increasing). For now shown only while a tour holds on that card:
   `at` = seconds after the card opens (when the narration starts) to switch; untimed ones share the hold evenly
   (`src/tours/tourPicture.ts`). Shown whole (contain), fading in. Later: arrows on the card to step through them.
-  hominin-divergence: the Toumaï cranium photo, then the Sahelanthropus picture (Rob's order). Every other event
+  hominin-divergence: Didier Descouens' Commons photo of the Toumaï cranium (replaced Rob's untraceable chad.png),
+  then the Sahelanthropus picture (Rob's order). Every other event
   (14 Oct 2026): two real photos from Wikimedia Commons (free licences only; no NC/ND), 900 px WebP in
   `public/images/events/extra/<event id>-<n>.webp`; `credit` is "Author, licence, via Wikimedia Commons" and
   `source` the Commons file page (the card's credit links to it). Weak spots Rob accepted: Lomekwi (no tool photos on

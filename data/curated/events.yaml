@@ -20,7 +20,7 @@
   image_url: /images/events/divergence-hominin-lineage.webp
   image_credit: AI-generated illustration
   extra_images:
-    - { url: /images/events/hominin-divergence-toumai-cranium.webp, credit: "Photograph; source and licence to confirm", caption: "Toumaï cranium (Sahelanthropus tchadensis)" }
+    - { url: /images/events/extra/hominin-divergence-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Toumaï cranium (TM 266-01-060-1), Sahelanthropus tchadensis", source: "https://commons.wikimedia.org/wiki/File:Sahelanthropus_tchadensis_-_TM_266-01-060-1.jpg" }
     - { url: /images/species/sahelanthropus.webp, credit: "AI-generated illustration, not a scientific reconstruction", caption: Sahelanthropus tchadensis }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=DZv8VyIQ7YU", title: "Seven million years of human evolution", credit: "American Museum of Natural History, YouTube" }
