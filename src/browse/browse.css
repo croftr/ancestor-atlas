@@ -237,13 +237,13 @@
   .br-totals dt { font-size: 0.64rem; }
   .br-totals dd { font-size: 1.05rem; }
 }
-/* Desktop: the counts sit to the right of the title when there is room, and drop under it when there is not.
+/* Desktop: the counts sit just after the title when there is room, and drop under it when there is not.
    The title block can narrow to 18rem first (its subtitle wraps under the heading) before the counts give way.
    Filters and controls always take a full row of their own. */
 @media (min-width: 761px) {
   .ev-header:has(> .br-totals) { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; }
-  .ev-header:has(> .br-totals) > .ev-title { flex: 1 1 18rem; min-width: 0; }
-  .ev-header:has(> .br-totals) > .br-totals { margin: 0 0 0 auto; }
+  .ev-header:has(> .br-totals) > .ev-title { flex: 1 1 18rem; min-width: 0; max-width: max-content; }
+  .ev-header:has(> .br-totals) > .br-totals { margin: 0; }
   .ev-header:has(> .br-totals) > :not(.ev-title, .br-totals) { flex: 0 0 100%; min-width: 0; margin-top: 0; }
 }
 .sp-note { font-size: 0.78rem; margin: 10px 0 0; }
