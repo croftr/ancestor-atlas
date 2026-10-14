@@ -68,7 +68,7 @@ for (const e of entityList) {
           else lastAt = x.at;
         }
       }
-      if (!e.image_url) warn(`entity ${id}: has extra_images but no main image_url`);
+      if (!e.image_url && !e.fallback_image && !e.parent_id) warn(`entity ${id}: has extra_images but no main picture (own, group's or stand-in)`);
     }
   }
   if (e.fallback_image) {

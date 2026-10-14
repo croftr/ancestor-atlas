@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { pictureIndexAt, pictureTimes } from "./tourPicture";
+import { pictureIndexAt, pictureTimes, tourPictureFor } from "./tourPicture";
+import type { Entity } from "../types";
 
 const x = (at?: number) => ({ url: "/images/x.webp", credit: "c", at });
 
@@ -24,4 +25,15 @@ describe("pictureIndexAt", () => {
     expect(pictureIndexAt(extras, 4_000, 20_000)).toBe(1);
     expect(pictureIndexAt(extras, 9_000, 20_000)).toBe(2);
   });
+});
+
+describe("tourPictureFor", () => {
+  const extras = [{ url: "/a.webp", credit: "a" }, { url: "/b.webp", credit: "b" }];
+  const civ = { id: "c", extra_images: extras } as unknown as Entity; // no picture of its own (shows its group's)
+  it("shows the main picture at index 0", () => expect(tourPictureFor(civ, { entity: "c", index: 0 })).toBeUndefined());
+  it("finds extras even without an own picture", () => {
+    expect(tourPictureFor(civ, { entity: "c", index: 1 })?.url).toBe("/a.webp");
+    expect(tourPictureFor(civ, { entity: "c", index: 2 })?.url).toBe("/b.webp");
+  });
+  it("ignores another entity's stop", () => expect(tourPictureFor(civ, { entity: "x", index: 1 })).toBeUndefined());
 });

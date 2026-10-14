@@ -8,10 +8,18 @@ export interface Picture {
   source?: string;
 }
 
-/** The main picture then the extras, in order. Empty when there is no main picture. */
+/**
+ * The main picture then the extras, in order. The main picture is the entity's own, else its shared
+ * stand-in; a civilization shown with its group's picture has none here (the card finds the group's),
+ * so the list then starts with the extras.
+ */
 export function entityPictures(entity: Entity): Picture[] {
-  if (!entity.image_url) return [];
-  return [{ url: entity.image_url, credit: entity.image_credit }, ...(entity.extra_images ?? [])];
+  const main = entity.image_url
+    ? { url: entity.image_url, credit: entity.image_credit }
+    : entity.fallback_image
+      ? { url: entity.fallback_image.url, credit: entity.fallback_image.credit }
+      : undefined;
+  return [...(main ? [main] : []), ...(entity.extra_images ?? [])];
 }
 
 /**
@@ -64,5 +72,6 @@ export function preloadPictures(entity: Entity | undefined) {
  */
 export function tourPictureFor(entity: Entity, current: { entity: string; index: number } | undefined): Picture | undefined {
   if (!current || current.entity !== entity.id || current.index === 0) return undefined;
-  return entityPictures(entity)[current.index];
+  // Index 0 is whatever main picture the card shows (own, group's or stand-in); then the extras.
+  return entity.extra_images?.[current.index - 1];
 }
