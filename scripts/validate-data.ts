@@ -51,6 +51,25 @@ for (const e of entityList) {
   else for (const s of e.source_ids) if (!sources.has(s)) err(`entity ${id}: unknown source ${s}`);
   if (e.color !== undefined && !HEX.test(e.color)) err(`entity ${id}: bad colour ${e.color}`);
   if (e.image_url && !e.image_credit) err(`entity ${id}: image_url needs an image_credit (author/licence, or "AI-generated")`);
+  if (e.extra_images !== undefined) {
+    if (!Array.isArray(e.extra_images)) err(`entity ${id}: extra_images must be a list`);
+    else {
+      let lastAt = -Infinity;
+      for (const x of e.extra_images) {
+        if (typeof x?.url !== "string" || !/^(\/images\/|https:\/\/)/.test(x.url))
+          err(`entity ${id}: extra image ${x?.url} must be a /images/... path or an https URL`);
+        else if (x.url.startsWith("/") && !existsSync(`public${x.url}`)) err(`entity ${id}: extra image ${x.url} not found in public/`);
+        if (x?.url && x.url === e.image_url) warn(`entity ${id}: extra image ${x.url} repeats the main picture`);
+        if (!x?.credit) err(`entity ${id}: extra image ${x?.url} needs a credit (author/licence, or "AI-generated")`);
+        if (x?.at !== undefined) {
+          if (typeof x.at !== "number" || !(x.at >= 0)) err(`entity ${id}: extra image ${x.url}: at must be seconds (0 or more)`);
+          else if (x.at <= lastAt) err(`entity ${id}: extra image ${x.url}: at must come after the previous picture's`);
+          else lastAt = x.at;
+        }
+      }
+      if (!e.image_url) warn(`entity ${id}: has extra_images but no main image_url`);
+    }
+  }
   if (e.fallback_image) {
     const f = e.fallback_image;
     if (!f.url || !f.credit || !f.label) err(`entity ${id}: fallback_image needs url, credit and label`);

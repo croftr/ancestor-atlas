@@ -7,6 +7,8 @@
 # coordinates. `date_source` pins the English Wikipedia revision the date was checked against.
 # `related` links to species / cultures / civilizations by id.
 # Optional media: `image_url` + `image_credit` (author and licence; required together).
+# Optional `extra_images`: more pictures after the main one, in order ({ url, credit, optional caption,
+# optional `at`: seconds into the narration to switch to it; untimed ones share the hold evenly). Tours only, for now.
 
 - id: hominin-divergence
   name: Divergence of the hominin lineage
@@ -17,6 +19,9 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Human_evolution
   image_url: /images/events/divergence-hominin-lineage.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/species/sahelanthropus.webp, credit: "AI-generated illustration, not a scientific reconstruction", caption: Sahelanthropus tchadensis }
+    - { url: /images/events/hominin-divergence-toumai-cranium.webp, credit: "Photograph; source and licence to confirm", caption: "Toumaï cranium (Sahelanthropus tchadensis)" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=DZv8VyIQ7YU", title: "Seven million years of human evolution", credit: "American Museum of Natural History, YouTube" }
   narration: { src: narration/events/hominin-divergence-v1.mp3, credit: "AI-generated narration", text_hash: "5260a9af38" }

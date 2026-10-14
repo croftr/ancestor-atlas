@@ -54,6 +54,8 @@ interface AppState {
     intro: boolean;
     /** The music may play: from the end of the announcement (or the start, from a later stop). */
     musicIn: boolean;
+    /** The picture showing on the stop's card (0 = main, then `extra_images`; tours/tourPicture.ts). */
+    picture?: { entity: string; index: number };
   } | null;
   setYear(y: number): void;
   toggleCategory(c: Category): void;

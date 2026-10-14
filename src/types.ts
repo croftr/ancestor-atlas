@@ -18,6 +18,11 @@ export interface Entity {
   region?: string; // civilizations: where most of the territory lay (scripts/lib/regions.ts), or set in entities.yaml
   image_url?: string; // optional WebP image asset URL
   image_credit?: string; // required with image_url: author/licence, or that it is AI-generated
+  /**
+   * More pictures after the main one (image_url stays the display picture), in the order they are
+   * shown. For now only shown while a tour holds on this entity's card (src/tours/tourPicture.ts).
+   */
+  extra_images?: ExtraImage[];
   /** Shared stand-in picture (picture-groups.yaml), shown until the entity has its own. */
   fallback_image?: { url: string; credit: string; label: string };
   // Events only
@@ -31,6 +36,17 @@ export interface Entity {
    * validator can warn when the text has changed since.
    */
   narration?: { src: string; credit: string; text_hash: string };
+}
+
+/**
+ * An extra picture. `at`: seconds after the card opens in a tour (when the narration starts) to switch
+ * to it; without one, the main picture and the extras share the stop's hold evenly.
+ */
+export interface ExtraImage {
+  url: string; // "/images/..." in public/, or an https URL
+  credit: string; // author/licence, or that it is AI-generated
+  caption?: string; // what it shows (alt text, and beside the credit)
+  at?: number;
 }
 
 /** A video or audio clip. `src` is a key in the media bucket ("events/x.mp4") or a full https URL. */

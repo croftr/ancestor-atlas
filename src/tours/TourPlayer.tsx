@@ -6,6 +6,7 @@ import { tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import { useWakeLock } from "./useWakeLock";
+import { pictureIndexAt, preloadPictures } from "./tourPicture";
 import {
   narrationState,
   pauseNarration,
@@ -153,8 +154,13 @@ export default function TourPlayer() {
     let cancelled = false;
     const nextEntity = tour.stops[index + 1] && data.entityById.get(tour.stops[index + 1].entity);
     if (nextEntity?.narration) preloadNarration(nextEntity.narration.src);
+    preloadPictures(entity);
+    preloadPictures(nextEntity);
     const patchTour = (p: Partial<NonNullable<ReturnType<typeof useStore.getState>["tour"]>>) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
+    // Extra pictures take turns on the card during the hold (tourPicture.ts); never stepping back.
+    let picture = 0;
+    patchTour({ picture: { entity: entity.id, index: 0 } });
 
     let from = yearToPos(useStore.getState().year);
     const to = yearToPos(target);
@@ -200,7 +206,11 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
-      } else if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
+      } else if (entity.extra_images?.length && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
+        picture = pictureIndexAt(entity.extra_images, elapsed, holdMs);
+        patchTour({ picture: { entity: entity.id, index: picture } });
+      }
+      if (arrived && elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
         if (index + 1 < tour.stops.length) patchTour({ index: index + 1, travel: true });
         else useStore.getState().stopTour(); // the last card stays open
         return;

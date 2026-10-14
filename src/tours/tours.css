@@ -186,3 +186,11 @@
 @media (max-width: 700px) {
   .app.view-globe.touring .nav-menu-btn { display: none; }
 }
+
+/* Extra pictures (extra_images) taking turns on a tour stop's card: fade in, and show whole, since
+   they may not match the frame's shape (a species picture on an event's square card). */
+.picture-in { animation: picture-in 0.6s ease both; }
+@keyframes picture-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .picture-in { animation: none; } }
+.info-image.info-image-extra { object-fit: contain; }
+.info-compact .ic-media img.ic-extra { object-fit: contain; -webkit-mask-image: none; mask-image: none; }

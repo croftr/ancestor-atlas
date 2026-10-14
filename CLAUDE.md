@@ -140,6 +140,12 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - Species: 4:3, 640x477 WebP (`public/images/species/`); civilizations and culture stage pictures: 4:3, 1200x900 WebP
   (`public/images/civilisations/`, `public/images/cultures/`). All shown in a 4:3 frame; events: square (see above). Every picture needs
   an `image_credit`. Civilization pictures are overlaid by id at the end of `entities.yaml`.
+- Extra pictures: `extra_images` on an event (events.yaml) or a species/culture/civilization (entities.yaml): an
+  ordered list of `{ url, credit, caption?, at? }` after the main `image_url`, which stays the display picture
+  (validator-checked: file exists, credit, `at` increasing). For now shown only while a tour holds on that card:
+  `at` = seconds after the card opens (when the narration starts) to switch; untimed ones share the hold evenly
+  (`src/tours/tourPicture.ts`). Shown whole (contain), fading in. Later: arrows on the card to step through them.
+  First use (14 Oct 2026): hominin-divergence shows the Sahelanthropus picture, then the Toumaï cranium photo.
 - Fallbacks on the info card: a civilization without a picture shows its group's ("Shows Ancient Egypt as a whole");
   cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
   (`public/images/cultures/`). The validator warns while a stage picture file is missing; the card then shows none.

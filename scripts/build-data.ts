@@ -3,7 +3,7 @@
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { parse as parseCsv } from "csv-parse/sync";
 import { parse as parseYaml } from "yaml";
-import { CATEGORIES, wikipediaUrl, type Category, type Entity, type FeatureProps, type Source } from "../src/types.ts";
+import { CATEGORIES, wikipediaUrl, type Category, type Entity, type ExtraImage, type FeatureProps, type Source } from "../src/types.ts";
 import { civColors } from "./lib/colors.ts";
 import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
@@ -101,6 +101,7 @@ interface CuratedEvent {
   date_source?: string;
   image_url?: string;
   image_credit?: string;
+  extra_images?: ExtraImage[];
   media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
   narration?: { src: string; credit: string; text_hash: string };
   places: { label: string; lat: number; lon: number; wikidata?: string; coord_source?: string; note?: string }[];
@@ -127,6 +128,7 @@ for (const ev of curatedEvents) {
     wikipedia_url: ev.wikipedia_url,
     image_url: ev.image_url,
     image_credit: ev.image_credit,
+    extra_images: ev.extra_images?.length ? ev.extra_images : undefined,
     media: ev.media?.length ? ev.media : undefined,
     narration: ev.narration,
     source_ids: [],

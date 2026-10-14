@@ -15,6 +15,7 @@ import { useMediaQuery } from "./useMediaQuery";
 import { videoCount } from "../youtube";
 import { globeUrl } from "../globeLink";
 import { CategoryBadge } from "./CategoryIcon";
+import { tourPictureFor } from "../tours/tourPicture";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -62,6 +63,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const openGroup = useStore((s) => s.openGroup);
   const jumpTo = useStore((s) => s.jumpTo);
   const stepFeature = useStore((s) => s.stepFeature);
+  const tourPicture = useStore((s) => s.tour?.picture);
 
   // A picture that failed to load (a stand-in not added yet) is left out.
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
@@ -163,12 +165,17 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         : entity.fallback_image
           ? { url: entity.fallback_image.url, name: entity.name, credit: entity.fallback_image.credit, note: `Shows ${entity.fallback_image.label}` }
           : undefined;
+  // During a tour, an extra picture may take the main one's place for part of the stop
+  // (extra_images; src/tours/tourPicture.ts). Shown whole, as it may not match this frame's shape.
+  const extra = tourPictureFor(entity, tourPicture);
+  const eventPicture = isEvent && extra ? extra : isEvent && entity.image_url ? { url: entity.image_url, credit: entity.image_credit } : undefined;
+  const shown = isEvent ? undefined : extra ? { url: extra.url, name: extra.caption ?? entity.name, credit: extra.credit, note: extra.caption } : picture;
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
   // Timeline on a small screen, shrunk: a thumbnail of the picture over the chart; tap to expand.
   if (view === "timeline" && stacked && minimised) {
-    const thumb = isEvent ? entity.image_url : picture?.url;
+    const thumb = isEvent ? eventPicture?.url : shown?.url;
     const showThumb = thumb && brokenImage !== thumb;
     return (
       <div className={`panel info-thumb${isEvent ? " square" : ""}`}>
@@ -211,7 +218,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // card, the name and dates beside the picture, with the site stepper along the bottom. A tap opens
   // the full card. During a tour it floats over the top of the globe; otherwise it sits above it.
   if (view === "globe" && stacked && minimised) {
-    const thumb = isEvent ? entity.image_url : picture?.url;
+    const thumb = isEvent ? eventPicture?.url : shown?.url;
     const showThumb = !!thumb && brokenImage !== thumb;
     const open = () => setMinimised(false);
     return (
@@ -232,7 +239,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </button>
         <button className="ic-media" onClick={open} tabIndex={-1} aria-hidden="true">
           {showThumb ? (
-            <img src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+            <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
           ) : (
             <span className="ic-media-blank">
               <CategoryBadge category={entity.category} size={40} decorative />
@@ -414,22 +421,25 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           </button>
         </div>
       )}
-      {isEvent && <EventImage event={entity} />}
-      {isEvent && entity.image_credit && <div className="muted image-credit">{entity.image_credit}</div>}
+      {isEvent && <EventImage event={entity} picture={extra} />}
+      {isEvent && eventPicture?.credit && (
+        <div className="muted image-credit">{[eventPicture.credit, extra?.caption].filter(Boolean).join(" · ")}</div>
+      )}
       {isEvent && <ListenButton entity={entity} />}
-      {picture && brokenImage !== picture.url && (
+      {shown && brokenImage !== shown.url && (
         <>
           <div className="info-media">
             <img
-              src={picture.url}
-              alt={picture.name}
-              className="info-image"
+              key={shown.url}
+              src={shown.url}
+              alt={shown.name}
+              className={`info-image${extra ? " info-image-extra picture-in" : ""}`}
               loading="lazy"
-              onError={() => setBrokenImage(picture.url)} // a stand-in not added yet: show nothing
+              onError={() => setBrokenImage(shown.url)} // a stand-in not added yet: show nothing
             />
           </div>
           {/* Credit below the frame (inside it, the cropped picture hid it). */}
-          <div className="muted image-credit">{[picture.credit, picture.note].filter(Boolean).join(" · ")}</div>
+          <div className="muted image-credit">{[shown.credit, shown.note].filter(Boolean).join(" · ")}</div>
         </>
       )}
       {!isEvent && <ListenButton entity={entity} />}
