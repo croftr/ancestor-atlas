@@ -237,14 +237,45 @@
   .br-totals dt { font-size: 0.64rem; }
   .br-totals dd { font-size: 1.05rem; }
 }
-/* Desktop: the counts sit just after the title when there is room, and drop under it when there is not.
-   The title block can narrow to 18rem first (its subtitle wraps under the heading) before the counts give way.
-   Filters and controls always take a full row of their own. */
-@media (min-width: 761px) {
-  .ev-header:has(> .br-totals) { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; }
-  .ev-header:has(> .br-totals) > .ev-title { flex: 1 1 18rem; min-width: 0; max-width: max-content; }
-  .ev-header:has(> .br-totals) > .br-totals { margin: 0; }
-  .ev-header:has(> .br-totals) > :not(.ev-title, .br-totals) { flex: 0 0 100%; min-width: 0; margin-top: 0; }
+/* Desktop: one joined panel holds the page's icon and heading as its first cell and the counts as the cells after
+   it, with the page's description text following the panel. .ev-title is unwrapped (display: contents) so its heading
+   and description can sit either side of the counts; DOM order, and so screen-reader order, is unchanged.
+   Filters and controls take a full row of their own below. Narrower windows keep the stacked layout. */
+@media (min-width: 1000px) {
+  .ev-header:has(> .br-totals) { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+  .ev-header:has(> .br-totals) > .ev-title { display: contents; }
+  .ev-header:has(> .br-totals) .ev-title h1 { order: 0; }
+  .ev-header:has(> .br-totals) > .br-totals { order: 1; }
+  .ev-header:has(> .br-totals) .ev-count { order: 2; flex: 1 1 12rem; max-width: 34rem; line-height: 1.4; }
+  .ev-header:has(> .br-totals) > :not(.ev-title, .br-totals) { order: 3; flex: 0 0 100%; min-width: 0; margin-top: 0; }
+
+  /* The panel: heading cell + count cells, no gap between them, dividers inside. */
+  .ev-header:has(> .br-totals) .ev-title h1 {
+    align-self: stretch;
+    gap: 10px;
+    margin: 0 -18px 0 0; /* close the flex gap so the heading cell meets the counts */
+    padding: 0 20px 0 14px;
+    font-size: 1.3rem;
+    background: color-mix(in srgb, var(--accent) 12%, rgba(255, 255, 255, 0.03));
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, rgba(255, 255, 255, 0.08));
+    border-right: 0;
+    border-radius: 12px 0 0 12px;
+  }
+  .ev-header:has(> .br-totals) > .br-totals {
+    margin: 0;
+    gap: 0;
+    flex-wrap: nowrap;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0 12px 12px 0;
+  }
+  .ev-header:has(> .br-totals) > .br-totals > div {
+    padding: 7px 18px;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
 }
 .sp-note { font-size: 0.78rem; margin: 10px 0 0; }
 .sp-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
