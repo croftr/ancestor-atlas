@@ -9,7 +9,7 @@ export const CARD_MIN = 300;
 export const CARD_LEAVE = 480;
 
 /** The nav rail's width (`--nav-w`), 0 where it is hidden. */
-function navWidth(): number {
+export function navWidth(): number {
   const app = document.querySelector(".app");
   return app ? parseFloat(getComputedStyle(app).getPropertyValue("--nav-w")) || 0 : 0;
 }

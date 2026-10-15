@@ -8,7 +8,7 @@ import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground from "./SpaceBackground";
-import { cardWidthPx } from "../ui/cardWidth";
+import { cardWidthPx, navWidth } from "../ui/cardWidth";
 
 /** How far from a tap (CSS px) a marker still counts as tapped: touch, and mouse. */
 const TAP_SLOP_TOUCH = 14;
@@ -39,6 +39,11 @@ function bottomInset(el: HTMLElement): number {
   const slider = document.querySelector(".time-slider");
   if (!slider) return 0;
   return Math.max(0, Math.round(el.getBoundingClientRect().bottom - slider.getBoundingClientRect().top));
+}
+
+/** Large screens: the nav rail covering the map's left edge, kept as its left padding. */
+function leftInset(): number {
+  return window.matchMedia?.(STACKED_QUERY).matches ? 0 : navWidth();
 }
 
 /**
@@ -177,13 +182,14 @@ export default function MapView() {
         ],
       },
     });
-    map.setPadding({ top: 0, left: 0, right: rightInset(useStore.getState()), bottom: inset });
+    map.setPadding({ top: 0, left: leftInset(), right: rightInset(useStore.getState()), bottom: inset });
     // Keep the insets in step as the window resizes (or crosses into the stacked layout).
     map.on("resize", () => {
       const bottom = bottomInset(container);
       const right = rightInset(useStore.getState());
+      const left = leftInset();
       const p = map.getPadding();
-      if (bottom !== p.bottom || right !== p.right) map.setPadding({ ...p, bottom, right });
+      if (bottom !== p.bottom || right !== p.right || left !== p.left) map.setPadding({ ...p, bottom, right, left });
     });
     // The card opening, closing or being resized: glide the globe to the centre of the space left
     // (at once while dragging, so it follows the handle). Not in the middle of a flight, which
@@ -255,7 +261,8 @@ export default function MapView() {
         : {
             top: Math.min(70, ch * 0.1),
             bottom: Math.min(230, ch * 0.3),
-            left: wide ? 340 : 20,
+            // Clear of the legend (the rail's inset is in the map's padding already).
+            left: wide ? Math.max(20, 340 - (mapPadding.left ?? 0)) : 20,
             // Clear of the card: beyond its inset, a margin; with no card, room for one.
             right: mapPadding.right > 0 ? 68 : wide ? 420 : 20,
           };
