@@ -14,22 +14,25 @@ export default function EventImage({
   picture,
   className = "",
   children,
+  onClick,
 }: {
   event: Entity;
   picture?: Picture;
   className?: string;
   children?: ReactNode;
+  /** A tap on the picture (the info card opens the full-screen viewer). Not on the placeholder. */
+  onClick?: () => void;
 }) {
   if (picture)
     return (
-      <div className={`ev-img ${className}`}>
+      <div className={`ev-img ${className}`} onClick={onClick}>
         <img key={picture.url} className="picture-in" src={picture.url} alt={picture.caption ?? event.name} />
         {children}
       </div>
     );
   if (event.image_url)
     return (
-      <div className={`ev-img ${className}`}>
+      <div className={`ev-img ${className}`} onClick={onClick}>
         <img key={event.image_url} src={event.image_url} alt={event.name} loading="lazy" />
         {children}
       </div>

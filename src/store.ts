@@ -57,6 +57,12 @@ interface AppState {
     /** The picture showing on the stop's card (0 = main, then `extra_images`; tours/tourPicture.ts). */
     picture?: { entity: string; index: number };
   } | null;
+  /**
+   * The full-screen picture viewer (ui/PictureViewer.tsx) is open over the card. During a tour it
+   * stays on from stop to stop (hidden while the globe travels); otherwise a new pick closes it.
+   */
+  pictureViewer: boolean;
+  setPictureViewer(open: boolean): void;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -103,6 +109,8 @@ export const useStore = create<AppState>((set, get) => ({
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
+  pictureViewer: false,
+  setPictureViewer: (open) => set({ pictureViewer: open }),
   setYear: (y) => set({ year: snapYear(y) }), // leaves a tour playing: only its pause button pauses it
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
   setIntroOpen: (open) => {
@@ -112,8 +120,14 @@ export const useStore = create<AppState>((set, get) => ({
     set({ introOpen: open });
   },
   select: (id, hits) =>
-    set((s) => ({ selectedId: id, groupId: null, hits: id === null ? [] : (hits ?? s.hits) })),
-  openGroup: (entityId) => set({ selectedId: null, hits: [], groupId: entityId }),
+    set((s) => ({
+      selectedId: id,
+      groupId: null,
+      hits: id === null ? [] : (hits ?? s.hits),
+      pictureViewer: s.tour ? s.pictureViewer : false,
+    })),
+  openGroup: (entityId) =>
+    set((s) => ({ selectedId: null, hits: [], groupId: entityId, pictureViewer: s.tour ? s.pictureViewer : false })),
   jumpTo: (entityId) => {
     const d = getData();
     const f = d?.featuresOf.get(entityId)?.[0];
@@ -184,6 +198,7 @@ export const useStore = create<AppState>((set, get) => ({
     if (!t) return;
     set((s) => ({
       playing: false,
+      pictureViewer: false,
       selectedId: null,
       hits: [],
       groupId: null,

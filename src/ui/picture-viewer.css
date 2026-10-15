@@ -1,0 +1,142 @@
+/* Full-screen picture viewer (PictureViewer.tsx), opened from the info card's picture. */
+.pv {
+  position: fixed; inset: 0; z-index: 55;
+  background: #04060c; color: #f0f4fc;
+  overflow: hidden;
+  animation: pv-in 0.28s ease both;
+  /* Room for the header above and the caption below the picture. */
+  --pv-top: 76px; --pv-bottom: 112px;
+}
+.pv-touring { --pv-bottom: 148px; }
+@keyframes pv-in { from { opacity: 0; } to { opacity: 1; } }
+
+.pv-ambient { position: absolute; inset: 0; pointer-events: none; }
+.pv-ambient img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.15);
+  filter: blur(48px) brightness(0.5) saturate(1.3);
+}
+/* Darker towards the top and bottom, where the text sits. */
+.pv-ambient::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(4, 6, 12, 0.7), transparent 22%, transparent 70%, rgba(4, 6, 12, 0.85));
+}
+
+.pv-stage {
+  position: absolute; inset: var(--pv-top) 72px var(--pv-bottom);
+}
+/* Fills the stage, shown whole (scaled up if need be); the shadow follows the picture itself. */
+.pv-img {
+  width: 100%; height: 100%;
+  object-fit: contain; display: block;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.6));
+  animation: pv-img-in 0.5s ease both;
+}
+@keyframes pv-img-in { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+/* On a tour, each picture drifts slowly closer while the narration plays. */
+.pv-img.pv-drift { animation: picture-in 0.6s ease both, pv-drift 26s linear both; }
+@keyframes pv-drift { from { scale: 1; } to { scale: 1.07; } }
+
+.pv-head {
+  position: absolute; top: 16px; left: 20px; right: 80px;
+  display: flex; align-items: center; gap: 12px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+.pv-title { min-width: 0; }
+.pv-title h2 {
+  margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400;
+  font-size: 1.45rem; line-height: 1.2;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pv-date { font-size: 0.85rem; color: #b8c3dc; }
+
+.pv-close, .pv-arrow, .pv-tour button {
+  display: grid; place-items: center; padding: 0; cursor: pointer;
+  color: #f0f4fc;
+  background: rgba(14, 19, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.pv-close:hover, .pv-arrow:hover, .pv-tour button:hover:not(:disabled) { background: rgba(24, 32, 60, 0.92); border-color: rgba(255, 255, 255, 0.45); }
+.pv-close:focus-visible, .pv-arrow:focus-visible, .pv-tour button:focus-visible, .pv-dot:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.pv-close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; }
+.pv-arrow {
+  position: absolute; top: calc((var(--pv-top) + 100% - var(--pv-bottom)) / 2); translate: 0 -50%;
+  width: 48px; height: 48px; border-radius: 50%;
+}
+.pv-prev { left: 14px; }
+.pv-next { right: 14px; }
+
+.pv-foot {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0 20px max(16px, env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-align: center;
+}
+.pv-caption { max-width: 720px; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); }
+.pv-caption-text { font-size: 1rem; line-height: 1.4; }
+.pv-credit { font-size: 0.78rem; color: #9aa6c0; margin-top: 2px; }
+.pv-credit a { color: inherit; }
+
+.pv-dots { display: flex; gap: 8px; }
+.pv-dot {
+  width: 8px; height: 8px; padding: 0; border-radius: 50%; border: none;
+  background: rgba(255, 255, 255, 0.35);
+  transition: background 0.2s ease, width 0.2s ease;
+}
+button.pv-dot { cursor: pointer; }
+.pv-dot.active { background: #fff; width: 22px; border-radius: 4px; }
+
+.pv-tour {
+  display: grid; grid-template-columns: repeat(3, auto) 1fr; align-items: center; gap: 4px 8px;
+  width: min(440px, 100%);
+  padding: 8px 12px 6px; border-radius: 12px;
+  background: rgba(10, 14, 28, 0.6); border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.pv-tour button { width: 34px; height: 34px; border-radius: 50%; }
+.pv-tour button:disabled { opacity: 0.35; cursor: default; }
+.pv-tour .pv-tour-play { width: 40px; height: 40px; background: rgba(195, 155, 255, 0.25); border-color: rgba(195, 155, 255, 0.55); }
+.pv-tour-text { font-size: 0.8rem; color: #c8d2e8; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pv-tour-progress { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.pv-tour-progress span {
+  display: block; height: 100%; background: #c39bff; transform-origin: left;
+  animation: tour-hold linear forwards;
+}
+
+/* Phones: the picture takes the full width; arrows sit over its edges. */
+@media (max-width: 700px) {
+  .pv { --pv-top: 68px; --pv-bottom: 104px; }
+  .pv-touring { --pv-bottom: 140px; }
+  .pv-stage { left: 0; right: 0; }
+  .pv-head { top: max(12px, env(safe-area-inset-top)); left: 14px; right: 68px; }
+  .pv-title h2 { font-size: 1.2rem; }
+  .pv-close { top: max(12px, env(safe-area-inset-top)); right: 12px; }
+  .pv-arrow { width: 40px; height: 40px; }
+  .pv-prev { left: 8px; }
+  .pv-next { right: 8px; }
+  .pv-caption-text { font-size: 0.92rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv, .pv-img, .pv-img.pv-drift { animation: none; }
+}
+
+/* The way in: a picture on the card that opens the viewer. */
+.pv-open { cursor: zoom-in; }
+.pv-open-hint {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center; padding: 0;
+  color: #f0f4fc; background: rgba(14, 19, 36, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  opacity: 0; transition: opacity 0.18s ease, background 0.15s ease;
+  cursor: pointer;
+}
+.pv-open:hover .pv-open-hint, .pv-open-hint:focus-visible { opacity: 1; }
+.pv-open-hint:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
+/* No hover on touch screens, and during a tour: always show it. */
+@media (hover: none) { .pv-open-hint { opacity: 1; } }
+.app.touring .pv-open-hint { opacity: 1; }

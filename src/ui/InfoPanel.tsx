@@ -17,6 +17,7 @@ import { globeUrl } from "../globeLink";
 import { CategoryBadge } from "./CategoryIcon";
 import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "./PictureNav";
+import PictureViewer from "./PictureViewer";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -65,6 +66,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const jumpTo = useStore((s) => s.jumpTo);
   const stepFeature = useStore((s) => s.stepFeature);
   const tourPicture = useStore((s) => s.tour?.picture);
+  const viewerOpen = useStore((s) => s.pictureViewer);
+  const setViewerOpen = useStore((s) => s.setPictureViewer);
 
   // A picture that failed to load (a stand-in not added yet) is left out.
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
@@ -208,6 +211,43 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             note: manualPic.caption ?? (curIndex === 0 ? picture?.note : undefined),
           }
         : picture;
+  // The full-screen viewer (PictureViewer.tsx) shows the same pictures as the card, on the same
+  // one: the tour's (index 0 is the main picture, then the extras) or the one stepped to by hand.
+  const viewerPictures = pictures.filter((p) => p.url !== brokenImage);
+  const hasMain = viewerPictures.length > (entity.extra_images?.length ?? 0);
+  const viewerIndex = isTouring
+    ? Math.max(0, (tourPicture?.entity === entity.id ? tourPicture.index : 0) - (hasMain ? 0 : 1))
+    : viewerPictures.length
+      ? manualIndex % viewerPictures.length
+      : 0;
+  const canView = viewerPictures.length > 0;
+  const viewer = viewerOpen && canView && (
+    <PictureViewer
+      entity={entity}
+      date={isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}
+      pictures={viewerPictures}
+      index={viewerIndex}
+      onIndex={setManualIndex}
+    />
+  );
+  const openViewer = () => setViewerOpen(true);
+  // On the card's picture: a tap anywhere on it, or this button (keyboard), opens the viewer.
+  const viewerHint = canView && (
+    <button
+      className="pv-open-hint"
+      onClick={(e) => {
+        e.stopPropagation();
+        openViewer();
+      }}
+      aria-label="View pictures full screen"
+      title="View full screen"
+    >
+      <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true">
+        <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
@@ -260,6 +300,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     const showThumb = !!thumb && brokenImage !== thumb;
     const open = () => setMinimised(false);
     return (
+      <>
+      {viewer}
       <div
         ref={cardRef}
         key={entity.id}
@@ -275,7 +317,14 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           </span>
           <span className="ic-date">{isEvent && entity.date_text ? entity.date_text : shortRange(entity.start_year, entity.end_year)}</span>
         </button>
-        <button className="ic-media" onClick={open} tabIndex={-1} aria-hidden="true">
+        {/* The picture opens the full-screen viewer; the name beside it opens the card. */}
+        <button
+          className="ic-media"
+          onClick={showThumb && canView ? openViewer : open}
+          aria-label={showThumb && canView ? "View pictures full screen" : undefined}
+          tabIndex={showThumb && canView ? 0 : -1}
+          aria-hidden={showThumb && canView ? undefined : true}
+        >
           {showThumb ? (
             <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
           ) : (
@@ -315,11 +364,14 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           </div>
         )}
       </div>
+      </>
     );
   }
   const shrinkToThumb = view === "timeline";
 
   return (
+    <>
+    {viewer}
     <div
       ref={cardRef}
       className={`panel info-panel${minimised ? " minimised" : ""}`}
@@ -460,7 +512,13 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </div>
       )}
       {isEvent && (
-        <EventImage event={entity} picture={extra}>
+        <EventImage
+          event={entity}
+          picture={extra}
+          className={canView ? "pv-open" : ""}
+          onClick={canView ? openViewer : undefined}
+        >
+          {viewerHint}
           {hasMultiplePictures && (
             <PictureNav
               count={pictures.length}
@@ -478,7 +536,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       {isEvent && <ListenButton entity={entity} />}
       {shown && brokenImage !== shown.url && (
         <>
-          <div className="info-media">
+          <div className="info-media pv-open" onClick={canView ? openViewer : undefined}>
+            {viewerHint}
             <img
               key={shown.url}
               src={shown.url}
@@ -626,5 +685,6 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </div>
       )}
     </div>
+    </>
   );
 }
