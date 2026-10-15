@@ -159,6 +159,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   until the viewer steps by hand (then the pictures stay put for that stop; the narration and tour are untouched),
   carries a small bar (previous picture, pause, next picture), and stays on from stop to stop (hidden while the globe
   travels) until closed; Escape closes only the viewer.
+  On the globe (desktop) the globe itself shrinks into a round window at the viewer's top left (`miniGlobe` in
+  `src/map/MapView.tsx`, store `miniGlobe`, `MINI_GLOBE` in config): the same map, CSS-scaled and clipped to a circle
+  above the viewer (no second WebGL map), following the camera; a tap on its ring goes back to the globe.
   hominin-divergence: Didier Descouens' Commons photo of the Toumaï cranium (replaced Rob's untraceable chad.png),
   then the Orrorin femur cast (Jonathan Chen) to match the narration's second half. Every other event
   (14 Oct 2026): two real photos from Wikimedia Commons (free licences only; no NC/ND), 900 px WebP in

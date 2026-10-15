@@ -687,3 +687,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (max-width: 900px) {
   .welcome-hint { top: auto; bottom: 128px; }
 }
+/* The globe shrunk into the picture viewer's corner (map/MapView.tsx, miniGlobe): above the viewer,
+   which takes the clicks (its ring over the globe closes it). */
+.map-wrap.mini { z-index: 60; pointer-events: none; }

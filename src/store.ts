@@ -69,6 +69,11 @@ interface AppState {
    */
   cardWidth: number | null;
   setCardWidth(w: number | null): void;
+  /**
+   * The picture viewer is showing over the globe (desktop): the globe shrinks into a small round
+   * window at its top left (map/MapView.tsx, `MINI_GLOBE`), as a reminder of where the pictures are.
+   */
+  miniGlobe: boolean;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -118,6 +123,7 @@ export const useStore = create<AppState>((set, get) => ({
   pictureViewer: false,
   setPictureViewer: (open) => set({ pictureViewer: open }),
   cardWidth: null,
+  miniGlobe: false,
   setCardWidth: (w) => set({ cardWidth: w }),
   setYear: (y) => set({ year: snapYear(y) }), // leaves a tour playing: only its pause button pauses it
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),

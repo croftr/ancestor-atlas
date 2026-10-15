@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import { useStore } from "../store";
-import { BASEMAP_THEMES, CATEGORY_STYLE, STACKED_QUERY } from "../config";
+import { BASEMAP_THEMES, CATEGORY_STYLE, MINI_GLOBE, STACKED_QUERY } from "../config";
 import { type FeatureProps } from "../types";
 import { ANCHOR_SOURCE_ID, ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_PX, SOURCE_ID, timeFilter } from "./layers";
 import { polygonAnchor } from "./anchor";
@@ -50,6 +50,77 @@ function rightInset(state: ReturnType<typeof useStore.getState>): number {
   if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
   const open = state.selectedId !== null || state.groupId !== null || state.tour !== null;
   return open ? cardWidthPx(state.cardWidth) : 0;
+}
+
+const MINI_MS = 600;
+
+/**
+ * Shrinks the map into a small round window (or puts it back): no second map, just the same one
+ * scaled down by the GPU and clipped to a circle around the globe, above the picture viewer. The
+ * camera is untouched, so the globe comes back exactly as it was. Follows the camera while small
+ * (a tour's flight may still be landing when the viewer opens).
+ */
+function miniGlobe(map: maplibregl.Map, wrap: HTMLElement) {
+  let on = false;
+  let settle = 0;
+  const place = () => {
+    const { clientWidth: w, clientHeight: h } = map.getContainer();
+    const { left = 0, right = 0, top = 0, bottom = 0 } = map.getPadding();
+    // The globe is centred in the padded area; its radius in px is 512 · 2^zoom / 2π.
+    const cx = left + (w - left - right) / 2;
+    const cy = top + (h - top - bottom) / 2;
+    const radius = (512 * 2 ** map.getZoom()) / (2 * Math.PI);
+    // Zoomed in, the globe overflows the screen: show a round window on its middle instead.
+    const r = Math.min(radius * 1.02, 0.45 * Math.min(w, h));
+    const k = MINI_GLOBE.size / 2 / r;
+    const tx = MINI_GLOBE.left + MINI_GLOBE.size / 2 - cx * k;
+    const ty = MINI_GLOBE.top + MINI_GLOBE.size / 2 - cy * k;
+    wrap.style.transform = `translate(${tx}px, ${ty}px) scale(${k})`;
+    wrap.style.clipPath = `circle(${r}px at ${cx}px ${cy}px)`;
+  };
+  const onMove = () => on && place();
+  map.on("move", onMove);
+  map.on("resize", onMove);
+  const reduceMotion = () => window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const set = (next: boolean) => {
+    if (next === on) return;
+    on = next;
+    clearTimeout(settle);
+    const { clientWidth: w, clientHeight: h } = map.getContainer();
+    const all = `circle(${Math.hypot(w, h)}px at ${w / 2}px ${h / 2}px)`;
+    const ms = reduceMotion() ? 0 : MINI_MS;
+    if (on) {
+      // From full size (no transition), then glide into the corner.
+      wrap.style.transition = "none";
+      wrap.style.transformOrigin = "0 0";
+      wrap.style.clipPath = all;
+      wrap.classList.add("mini");
+      void wrap.offsetWidth;
+      wrap.style.transition = `transform ${ms}ms cubic-bezier(0.3, 0.7, 0.2, 1), clip-path ${ms}ms cubic-bezier(0.3, 0.7, 0.2, 1)`;
+      place();
+      // Once there, follow the camera directly.
+      settle = window.setTimeout(() => (wrap.style.transition = "none"), ms);
+    } else {
+      // Back to full size, under the page again at once (the viewer has gone).
+      wrap.classList.remove("mini");
+      wrap.style.transition = `transform ${ms}ms ease, clip-path ${ms}ms ease`;
+      wrap.style.transform = "";
+      wrap.style.clipPath = all;
+      settle = window.setTimeout(() => {
+        wrap.style.transition = "";
+        wrap.style.clipPath = "";
+        wrap.style.transformOrigin = "";
+      }, ms);
+    }
+  };
+  return {
+    set,
+    dispose: () => {
+      clearTimeout(settle);
+      map.off("move", onMove);
+      map.off("resize", onMove);
+    },
+  };
 }
 
 /**
@@ -298,7 +369,11 @@ export default function MapView() {
       map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
     }
 
+    const mini = miniGlobe(map, container.parentElement!);
+    if (useStore.getState().miniGlobe) mini.set(true);
+
     const unsubscribe = useStore.subscribe((state, prev) => {
+      if (state.miniGlobe !== prev.miniGlobe) mini.set(state.miniGlobe);
       if (state.basemap !== prev.basemap) {
         const t = BASEMAP_THEMES[state.basemap];
         map.setPaintProperty("bg", "background-color", t.bg);
@@ -341,6 +416,7 @@ export default function MapView() {
 
     return () => {
       unsubscribe();
+      mini.dispose();
       cancelAnimationFrame(raf);
       map.remove();
     };

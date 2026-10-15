@@ -140,3 +140,16 @@ button.pv-dot { cursor: pointer; }
 /* No hover on touch screens, and during a tour: always show it. */
 @media (hover: none) { .pv-open-hint { opacity: 1; } }
 .app.touring .pv-open-hint { opacity: 1; }
+
+/* The small globe at the top left (map/MapView.tsx draws it above the viewer): the title moves
+   beside it; this ring sits over it, and a tap goes back to the globe. */
+.pv-has-mini .pv-head { left: calc(20px + var(--mini-size) + 16px); top: 20px; }
+.pv-mini {
+  position: fixed; z-index: 61; padding: 0; border-radius: 50%; cursor: pointer;
+  background: none; border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 0 4px rgba(4, 6, 12, 0.35), 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: pv-in 0.4s 0.3s ease both;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pv-mini:hover { border-color: rgba(142, 197, 255, 0.8); box-shadow: 0 0 0 4px rgba(142, 197, 255, 0.18), 0 10px 30px rgba(0, 0, 0, 0.5); }
+.pv-mini:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 3px; }

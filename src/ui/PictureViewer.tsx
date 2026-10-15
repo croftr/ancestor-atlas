@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties, type TouchEvent } from
 import { createPortal } from "react-dom";
 import { useStore } from "../store";
 import { tourById } from "../tours/tours";
+import { MINI_GLOBE } from "../config";
 import { CategoryBadge } from "./CategoryIcon";
 import { creditLine } from "./PictureNav";
 import type { Entity } from "../types";
@@ -24,6 +25,9 @@ const Chevron = ({ dir }: { dir: -1 | 1 }) => (
  * the pictures stay where they are put, and the narration plays on untouched. The viewer stays
  * on from stop to stop (the info card hides it while the globe travels); a small bar pauses the
  * tour (Space too) and steps the pictures. Escape closes the viewer, not the tour.
+ *
+ * `miniGlobe` (over the globe, on desktop): the globe shrinks into a small round window at the top
+ * left (map/MapView.tsx), showing where the pictures belong; a tap on it goes back to the globe.
  */
 export default function PictureViewer({
   entity,
@@ -31,7 +35,9 @@ export default function PictureViewer({
   pictures,
   index,
   onIndex,
+  miniGlobe = false,
 }: {
+  miniGlobe?: boolean;
   entity: Entity;
   date: string;
   pictures: Picture[];
@@ -70,6 +76,12 @@ export default function PictureViewer({
     return () => window.removeEventListener("keydown", onKey, true);
   }, [setOpen]);
 
+  useEffect(() => {
+    if (!miniGlobe) return;
+    useStore.setState({ miniGlobe: true });
+    return () => useStore.setState({ miniGlobe: false });
+  }, [miniGlobe]);
+
   // Focus moves into the viewer and back to where it was when it closes.
   const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -99,8 +111,10 @@ export default function PictureViewer({
   const label = picture.caption ? `${entity.name}: ${picture.caption}` : entity.name;
 
   return createPortal(
+    <>
     <div
-      className={`pv${touring ? " pv-touring" : ""}`}
+      className={`pv${touring ? " pv-touring" : ""}${miniGlobe ? " pv-has-mini" : ""}`}
+      style={{ "--mini-size": `${MINI_GLOBE.size}px` } as CSSProperties}
       role="dialog"
       aria-modal="true"
       aria-label={`${entity.name}: pictures`}
@@ -206,7 +220,18 @@ export default function PictureViewer({
           </div>
         )}
       </footer>
-    </div>,
+    </div>
+    {/* A ring round the small globe (drawn by the map above the viewer); a tap goes back to it. */}
+    {miniGlobe && (
+      <button
+        className="pv-mini"
+        style={{ left: MINI_GLOBE.left, top: MINI_GLOBE.top, width: MINI_GLOBE.size, height: MINI_GLOBE.size }}
+        onClick={() => setOpen(false)}
+        aria-label="Back to the globe"
+        title="Back to the globe"
+      />
+    )}
+    </>,
     document.body,
   );
 }

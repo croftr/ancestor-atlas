@@ -235,6 +235,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       pictures={viewerPictures}
       index={viewerIndex}
       onIndex={setManualIndex}
+      miniGlobe={view === "globe" && !stacked}
     />
   );
   const openViewer = () => setViewerOpen(true);

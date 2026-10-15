@@ -67,3 +67,6 @@ export const MEDIA_BASE = (
   (import.meta.env.VITE_MEDIA_BASE as string | undefined) ?? "https://robs-ancestors-atlas.s3.eu-west-2.amazonaws.com"
 ).replace(/\/+$/, "");
 export const mediaUrl = (src: string) => (/^https?:\/\//.test(src) ? src : `${MEDIA_BASE}/${src.replace(/^\/+/, "")}`);
+
+/** The small globe at the top left while the picture viewer is open (map/MapView.tsx, ui/PictureViewer.tsx). */
+export const MINI_GLOBE = { left: 20, top: 20, size: 168 };
