@@ -11,6 +11,8 @@ import { eventsAbout, pictureOf, typing } from "./browse";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import ListenButton from "../audio/ListenButton";
+import { entityPictures, preloadPictures } from "../tours/tourPicture";
+import { PictureNav, creditLine } from "../ui/PictureNav";
 import "./browse.css";
 
 /**
@@ -24,6 +26,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   const [broken, setBroken] = useState<string | null>(null);
   const [current, setCurrent] = useState<number | null>(null);
   const [failed, setFailed] = useState<string | null>(null);
+  const [picIndex, setPicIndex] = useState(0);
 
   const media = entity.media ?? [];
   const clip = current === null ? undefined : media[current];
@@ -39,7 +42,19 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   const events = eventsAbout(entity, data);
   const sources = entity.source_ids.flatMap((id) => data.sourceById.get(id) ?? []);
   const picture = pictureOf(entity, data);
-  const credit = clip ? clip.credit : (picture?.note ? `${picture.note}. ${picture.credit}` : picture?.credit);
+  const pictures = entityPictures(entity, parent);
+  const hasMultiplePictures = pictures.length > 1;
+  const curPicIndex = hasMultiplePictures ? picIndex % pictures.length : 0;
+  const currentPic = hasMultiplePictures ? pictures[curPicIndex] : undefined;
+  const isExtra = curPicIndex > 0;
+  const shown = currentPic
+    ? {
+        url: currentPic.url,
+        name: currentPic.caption ?? entity.name,
+        credit: currentPic.credit,
+        note: currentPic.caption ?? (curPicIndex === 0 ? picture?.note : undefined),
+      }
+    : picture;
   const style = CATEGORY_STYLE[entity.category];
   const color = entity.color ?? style.color;
   const approximate = entity.source_ids.includes("recall");
@@ -52,6 +67,8 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   useEffect(() => {
     setCurrent(null);
     setFailed(null);
+    setPicIndex(0);
+    preloadPictures(entity);
     closeRef.current?.focus({ preventScroll: true });
   }, [entity.id]);
   useEffect(() => {
@@ -117,9 +134,24 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
                 </button>
               )}
             </div>
-          ) : picture && broken !== picture.url ? (
+          ) : shown && broken !== shown.url ? (
             <div className="br-img large">
-              <img src={picture.url} alt={entity.name} onError={() => setBroken(picture.url)} />
+              <img
+                key={shown.url}
+                src={shown.url}
+                alt={entity.name}
+                className={isExtra ? "info-image-extra picture-in" : undefined}
+                onError={() => setBroken(shown.url)}
+              />
+              {hasMultiplePictures && (
+                <PictureNav
+                  count={pictures.length}
+                  current={curPicIndex}
+                  onPrev={() => setPicIndex((idx) => (idx - 1 + pictures.length) % pictures.length)}
+                  onNext={() => setPicIndex((idx) => (idx + 1) % pictures.length)}
+                  onSelect={(idx) => setPicIndex(idx)}
+                />
+              )}
             </div>
           ) : (
             <div className="br-img large br-ph" style={{ "--swatch": color } as CSSProperties} role="img" aria-label={`${entity.name} (no picture yet)`}>
@@ -129,7 +161,11 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
           {clip?.kind === "audio" && (
             <audio key={clip.src} className="ev-audio" src={mediaUrl(clip.src)} controls autoPlay preload="none" onError={() => setFailed(clip.title)} />
           )}
-          {credit && <div className="muted image-credit">{credit}</div>}
+          {clip ? (
+            <div className="muted image-credit">{clip.credit}</div>
+          ) : shown?.credit ? (
+            <div className="muted image-credit">{creditLine(shown.credit, shown.note, isExtra ? currentPic?.source : undefined)}</div>
+          ) : null}
           {failed && <div className="ev-media-error">Couldn't load “{failed}”.</div>}
           {media.length > 0 && (
             <div className="ev-media-list">

@@ -15,24 +15,8 @@ import { useMediaQuery } from "./useMediaQuery";
 import { videoCount } from "../youtube";
 import { globeUrl } from "../globeLink";
 import { CategoryBadge } from "./CategoryIcon";
-import { tourPictureFor } from "../tours/tourPicture";
-
-/** A picture's credit (linked to where it came from, if known), then what it shows. */
-function creditLine(credit: string | undefined, note: string | undefined, source: string | undefined) {
-  return (
-    <>
-      {source && credit ? (
-        <a href={source} target="_blank" rel="noopener noreferrer">
-          {credit}
-        </a>
-      ) : (
-        credit
-      )}
-      {credit && note ? " · " : ""}
-      {note}
-    </>
-  );
-}
+import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPicture";
+import { PictureNav, creditLine } from "./PictureNav";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -182,11 +166,43 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         : entity.fallback_image
           ? { url: entity.fallback_image.url, name: entity.name, credit: entity.fallback_image.credit, note: `Shows ${entity.fallback_image.label}` }
           : undefined;
-  // During a tour, an extra picture may take the main one's place for part of the stop
-  // (extra_images; src/tours/tourPicture.ts). Shown whole, as it may not match this frame's shape.
-  const extra = tourPictureFor(entity, tourPicture);
-  const eventPicture = isEvent && extra ? extra : isEvent && entity.image_url ? { url: entity.image_url, credit: entity.image_credit } : undefined;
-  const shown = isEvent ? undefined : extra ? { url: extra.url, name: extra.caption ?? entity.name, credit: extra.credit, note: extra.caption } : picture;
+  const isTouring = useStore((s) => s.tour !== null);
+  const [manualIndex, setManualIndex] = useState(0);
+
+  useEffect(() => {
+    setManualIndex(0);
+    preloadPictures(entity);
+  }, [entity.id]);
+
+  const pictures = entityPictures(entity, parent);
+  const hasMultiplePictures = !isTouring && pictures.length > 1;
+  const curIndex = hasMultiplePictures ? manualIndex % pictures.length : 0;
+  const manualPic = hasMultiplePictures ? pictures[curIndex] : undefined;
+  const tourExtra = tourPictureFor(entity, tourPicture);
+
+  // In tour mode: pictures rotate automatically via tour.picture.
+  // In non-tour mode: user can manually rotate through pictures if >1 available.
+  const extra = isTouring ? tourExtra : curIndex > 0 ? manualPic : undefined;
+  const eventPicture = isEvent
+    ? isTouring
+      ? tourExtra ?? (entity.image_url ? { url: entity.image_url, credit: entity.image_credit } : undefined)
+      : manualPic ?? (entity.image_url ? { url: entity.image_url, credit: entity.image_credit } : undefined)
+    : undefined;
+
+  const shown = isEvent
+    ? undefined
+    : isTouring
+      ? tourExtra
+        ? { url: tourExtra.url, name: tourExtra.caption ?? entity.name, credit: tourExtra.credit, note: tourExtra.caption }
+        : picture
+      : manualPic
+        ? {
+            url: manualPic.url,
+            name: manualPic.caption ?? entity.name,
+            credit: manualPic.credit,
+            note: manualPic.caption ?? (curIndex === 0 ? picture?.note : undefined),
+          }
+        : picture;
   // Recalled (not source-backed) data must never look like sourced data.
   const approximate = feature ? feature.source_id === "recall" : entity.source_ids.includes("recall");
 
@@ -438,7 +454,19 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           </button>
         </div>
       )}
-      {isEvent && <EventImage event={entity} picture={extra} />}
+      {isEvent && (
+        <EventImage event={entity} picture={extra}>
+          {hasMultiplePictures && (
+            <PictureNav
+              count={pictures.length}
+              current={curIndex}
+              onPrev={() => setManualIndex((i) => (i - 1 + pictures.length) % pictures.length)}
+              onNext={() => setManualIndex((i) => (i + 1) % pictures.length)}
+              onSelect={(idx) => setManualIndex(idx)}
+            />
+          )}
+        </EventImage>
+      )}
       {isEvent && eventPicture?.credit && (
         <div className="muted image-credit">{creditLine(eventPicture.credit, extra?.caption, extra?.source)}</div>
       )}
@@ -454,6 +482,15 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
               loading="lazy"
               onError={() => setBrokenImage(shown.url)} // a stand-in not added yet: show nothing
             />
+            {hasMultiplePictures && (
+              <PictureNav
+                count={pictures.length}
+                current={curIndex}
+                onPrev={() => setManualIndex((i) => (i - 1 + pictures.length) % pictures.length)}
+                onNext={() => setManualIndex((i) => (i + 1) % pictures.length)}
+                onSelect={(idx) => setManualIndex(idx)}
+              />
+            )}
           </div>
           {/* Credit below the frame (inside it, the cropped picture hid it). */}
           <div className="muted image-credit">{creditLine(shown.credit, shown.note, extra?.source)}</div>

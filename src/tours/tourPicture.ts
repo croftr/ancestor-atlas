@@ -9,16 +9,22 @@ export interface Picture {
 }
 
 /**
- * The main picture then the extras, in order. The main picture is the entity's own, else its shared
- * stand-in; a civilization shown with its group's picture has none here (the card finds the group's),
- * so the list then starts with the extras.
+ * The main picture then the extras, in order. The main picture is the entity's own, else its group's
+ * or shared stand-in; followed by any `extra_images`.
  */
-export function entityPictures(entity: Entity): Picture[] {
-  const main = entity.image_url
-    ? { url: entity.image_url, credit: entity.image_credit }
-    : entity.fallback_image
-      ? { url: entity.fallback_image.url, credit: entity.fallback_image.credit }
-      : undefined;
+export function entityPictures(entity: Entity, parent?: Entity): Picture[] {
+  const isEvent = entity.category === "event";
+  const main: Picture | undefined = isEvent
+    ? entity.image_url
+      ? { url: entity.image_url, credit: entity.image_credit }
+      : undefined
+    : entity.image_url
+      ? { url: entity.image_url, credit: entity.image_credit }
+      : parent?.image_url
+        ? { url: parent.image_url, credit: parent.image_credit, caption: `Shows ${parent.name} as a whole` }
+        : entity.fallback_image
+          ? { url: entity.fallback_image.url, credit: entity.fallback_image.credit, caption: `Shows ${entity.fallback_image.label}` }
+          : undefined;
   return [...(main ? [main] : []), ...(entity.extra_images ?? [])];
 }
 

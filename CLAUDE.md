@@ -144,7 +144,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   ordered list of `{ url, credit, caption?, at? }` after the main `image_url`, which stays the display picture
   (validator-checked: file exists, credit, `at` increasing). For now shown only while a tour holds on that card:
   `at` = seconds after the card opens (when the narration starts) to switch; untimed ones share the hold evenly
-  (`src/tours/tourPicture.ts`). Shown whole (contain), fading in. Later: arrows on the card to step through them.
+  (`src/tours/tourPicture.ts`). Shown whole (contain), fading in. In non-tour mode, small arrow buttons and dot indicators
+  (`src/ui/PictureNav.tsx`) let the user manually rotate through the pictures whenever an item has more than 1 picture.
   hominin-divergence: Didier Descouens' Commons photo of the Toumaï cranium (replaced Rob's untraceable chad.png),
   then the Orrorin femur cast (Jonathan Chen) to match the narration's second half. Every other event
   (14 Oct 2026): two real photos from Wikimedia Commons (free licences only; no NC/ND), 900 px WebP in

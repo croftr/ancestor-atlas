@@ -1,5 +1,6 @@
 import type { Entity } from "../types";
 import type { Picture } from "../tours/tourPicture";
+import type { ReactNode } from "react";
 import "./events-page.css";
 
 /**
@@ -8,17 +9,29 @@ import "./events-page.css";
  * over a horizon, with the event's name and date. `picture`: one of its extra pictures to show in
  * place of the main one (a tour moving through them).
  */
-export default function EventImage({ event, picture, className = "" }: { event: Entity; picture?: Picture; className?: string }) {
+export default function EventImage({
+  event,
+  picture,
+  className = "",
+  children,
+}: {
+  event: Entity;
+  picture?: Picture;
+  className?: string;
+  children?: ReactNode;
+}) {
   if (picture)
     return (
       <div className={`ev-img ${className}`}>
         <img key={picture.url} className="picture-in" src={picture.url} alt={picture.caption ?? event.name} />
+        {children}
       </div>
     );
   if (event.image_url)
     return (
       <div className={`ev-img ${className}`}>
         <img key={event.image_url} src={event.image_url} alt={event.name} loading="lazy" />
+        {children}
       </div>
     );
   return (
@@ -29,6 +42,7 @@ export default function EventImage({ event, picture, className = "" }: { event: 
         <span className="ev-ph-name">{event.name}</span>
         {event.date_text && <span className="ev-ph-date">{event.date_text.replace(/\s*\(.*\)$/, "")}</span>}
       </div>
+      {children}
     </div>
   );
 }

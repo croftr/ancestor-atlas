@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pictureIndexAt, pictureTimes, tourPictureFor } from "./tourPicture";
+import { entityPictures, pictureIndexAt, pictureTimes, tourPictureFor } from "./tourPicture";
 import type { Entity } from "../types";
 
 const x = (at?: number) => ({ url: "/images/x.webp", credit: "c", at });
@@ -36,4 +36,45 @@ describe("tourPictureFor", () => {
     expect(tourPictureFor(civ, { entity: "c", index: 2 })?.url).toBe("/b.webp");
   });
   it("ignores another entity's stop", () => expect(tourPictureFor(civ, { entity: "x", index: 1 })).toBeUndefined());
+});
+
+describe("entityPictures", () => {
+  const extras = [{ url: "/extra1.webp", credit: "e1" }, { url: "/extra2.webp", credit: "e2" }];
+
+  it("includes own image and extras", () => {
+    const e = { id: "e", image_url: "/main.webp", image_credit: "mc", extra_images: extras } as unknown as Entity;
+    const pics = entityPictures(e);
+    expect(pics).toHaveLength(3);
+    expect(pics[0]).toEqual({ url: "/main.webp", credit: "mc" });
+    expect(pics[1]).toEqual(extras[0]);
+    expect(pics[2]).toEqual(extras[1]);
+  });
+
+  it("inherits parent image for civilization without own image", () => {
+    const parent = { id: "p", name: "Parent", image_url: "/p.webp", image_credit: "pc" } as unknown as Entity;
+    const civ = { id: "c", extra_images: extras } as unknown as Entity;
+    const pics = entityPictures(civ, parent);
+    expect(pics).toHaveLength(3);
+    expect(pics[0]).toEqual({ url: "/p.webp", credit: "pc", caption: "Shows Parent as a whole" });
+    expect(pics[1]).toEqual(extras[0]);
+    expect(pics[2]).toEqual(extras[1]);
+  });
+
+  it("uses fallback_image when no own or parent image", () => {
+    const cult = { id: "cu", fallback_image: { url: "/f.webp", credit: "fc", label: "Early" }, extra_images: extras } as unknown as Entity;
+    const pics = entityPictures(cult);
+    expect(pics).toHaveLength(3);
+    expect(pics[0]).toEqual({ url: "/f.webp", credit: "fc", caption: "Shows Early" });
+    expect(pics[1]).toEqual(extras[0]);
+  });
+
+  it("returns single picture when no extras", () => {
+    const e = { id: "e", image_url: "/main.webp", image_credit: "mc" } as unknown as Entity;
+    expect(entityPictures(e)).toEqual([{ url: "/main.webp", credit: "mc" }]);
+  });
+
+  it("returns empty when no image and no extras", () => {
+    const e = { id: "e" } as unknown as Entity;
+    expect(entityPictures(e)).toEqual([]);
+  });
 });

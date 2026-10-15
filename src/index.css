@@ -273,6 +273,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .info-panel::-webkit-scrollbar-thumb:hover { background-color: rgba(170, 188, 230, 0.5); }
 .info-media {
+  position: relative;
   margin: 10px 0 8px;
   border-radius: 8px;
   overflow: hidden;
@@ -286,6 +287,83 @@ button { font: inherit; color: inherit; cursor: pointer; }
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.info-image.info-image-extra,
+.br-img img.info-image-extra {
+  object-fit: contain;
+}
+
+/* Picture stepper: small arrows and dots over an entity/event picture with multiple images */
+.pic-nav {
+  pointer-events: none;
+}
+.pic-nav-btn {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(14, 19, 36, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #f0f4fc;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, color 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+.pic-nav-btn:hover {
+  background: rgba(18, 26, 50, 0.95);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+.pic-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+.pic-nav-btn:focus-visible {
+  outline: 2px solid #8ec5ff;
+  outline-offset: 1px;
+}
+.pic-nav-prev {
+  left: 8px;
+}
+.pic-nav-next {
+  right: 8px;
+}
+.pic-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+  pointer-events: auto;
+}
+.pic-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.pic-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+.pic-dot.active {
+  background: #fff;
+  transform: scale(1.25);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
 }
 .info-panel h2 { margin: 2px 0 4px; font-size: 1.2rem; }
 .info-panel .info-head { padding-right: 28px; } /* clear of the close button, now the name is the top line */

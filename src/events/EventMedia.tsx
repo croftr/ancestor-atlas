@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { mediaUrl } from "../config";
 import { youtubeId } from "../youtube";
 import type { Entity } from "../types";
 import EventImage from "./EventImage";
+import { entityPictures, preloadPictures } from "../tours/tourPicture";
+import { PictureNav, creditLine } from "../ui/PictureNav";
 
 /**
  * The detail view's media column: the event's picture, with a button per video or audio clip.
@@ -13,9 +15,21 @@ export default function EventMedia({ event }: { event: Entity }) {
   const media = event.media ?? [];
   const [current, setCurrent] = useState<number | null>(null);
   const [failed, setFailed] = useState<string | null>(null);
+  const [picIndex, setPicIndex] = useState(0);
+
+  useEffect(() => {
+    setPicIndex(0);
+    preloadPictures(event);
+  }, [event.id]);
+
+  const pictures = entityPictures(event);
+  const hasMultiplePictures = pictures.length > 1;
+  const curPicIndex = hasMultiplePictures ? picIndex % pictures.length : 0;
+  const currentPic = hasMultiplePictures ? pictures[curPicIndex] : undefined;
+  const isExtra = curPicIndex > 0;
+
   const clip = current === null ? undefined : media[current];
   const ytId = clip?.kind === "video" ? youtubeId(clip.src) : null;
-  const credit = clip ? clip.credit : event.image_credit;
   const choose = (i: number) => {
     setFailed(null);
     setCurrent(current === i ? null : i);
@@ -55,12 +69,28 @@ export default function EventMedia({ event }: { event: Entity }) {
           )}
         </div>
       ) : (
-        <EventImage event={event} className="large" />
+        <EventImage event={event} picture={isExtra ? currentPic : undefined} className="large">
+          {hasMultiplePictures && (
+            <PictureNav
+              count={pictures.length}
+              current={curPicIndex}
+              onPrev={() => setPicIndex((i) => (i - 1 + pictures.length) % pictures.length)}
+              onNext={() => setPicIndex((i) => (i + 1) % pictures.length)}
+              onSelect={(idx) => setPicIndex(idx)}
+            />
+          )}
+        </EventImage>
       )}
       {clip?.kind === "audio" && (
         <audio key={clip.src} className="ev-audio" src={mediaUrl(clip.src)} controls autoPlay preload="none" onError={() => setFailed(clip.title)} />
       )}
-      {credit && <div className="muted image-credit">{credit}</div>}
+      {clip ? (
+        <div className="muted image-credit">{clip.credit}</div>
+      ) : currentPic ? (
+        <div className="muted image-credit">{creditLine(currentPic.credit, isExtra ? currentPic.caption : undefined, isExtra ? currentPic.source : undefined)}</div>
+      ) : event.image_credit ? (
+        <div className="muted image-credit">{event.image_credit}</div>
+      ) : null}
       {failed && <div className="ev-media-error">Couldn't load “{failed}”.</div>}
       {media.length > 0 && (
         <div className="ev-media-list">
