@@ -8,6 +8,7 @@ import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground from "./SpaceBackground";
+import { cardWidthPx } from "../ui/cardWidth";
 
 /** How far from a tap (CSS px) a marker still counts as tapped: touch, and mouse. */
 const TAP_SLOP_TOUCH = 14;
@@ -38,6 +39,17 @@ function bottomInset(el: HTMLElement): number {
   const slider = document.querySelector(".time-slider");
   if (!slider) return 0;
   return Math.max(0, Math.round(el.getBoundingClientRect().bottom - slider.getBoundingClientRect().top));
+}
+
+/**
+ * Large screens: the width the info card covers on the right, kept as the map's right padding so
+ * the globe centres in the space left of it (and follows its resize handle). During a tour the
+ * inset stays while the card is closed between stops, so the globe doesn't slide to and fro.
+ */
+function rightInset(state: ReturnType<typeof useStore.getState>): number {
+  if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
+  const open = state.selectedId !== null || state.groupId !== null || state.tour !== null;
+  return open ? cardWidthPx(state.cardWidth) : 0;
 }
 
 /**
@@ -94,12 +106,28 @@ export default function MapView() {
         ],
       },
     });
-    map.setPadding({ top: 0, left: 0, right: 0, bottom: inset });
-    // Keep that inset in step as the window resizes (or crosses into the stacked layout).
+    map.setPadding({ top: 0, left: 0, right: rightInset(useStore.getState()), bottom: inset });
+    // Keep the insets in step as the window resizes (or crosses into the stacked layout).
     map.on("resize", () => {
       const bottom = bottomInset(container);
-      if (bottom !== map.getPadding().bottom) map.setPadding({ ...map.getPadding(), bottom });
+      const right = rightInset(useStore.getState());
+      const p = map.getPadding();
+      if (bottom !== p.bottom || right !== p.right) map.setPadding({ ...p, bottom, right });
     });
+    // The card opening, closing or being resized: glide the globe to the centre of the space left
+    // (at once while dragging, so it follows the handle). Not in the middle of a flight, which
+    // would stop it: then once it ends.
+    const syncRight = (animate: boolean) => {
+      const right = rightInset(useStore.getState());
+      if (right === map.getPadding().right) return;
+      const padding = { ...map.getPadding(), right };
+      if (!animate) map.setPadding(padding);
+      else if (map.isMoving()) map.once("moveend", () => syncRight(true));
+      else {
+        const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+        map.easeTo({ padding, duration: reduceMotion ? 0 : 450 });
+      }
+    };
     // Fallback if the style-level projection is rejected.
     map.on("style.load", () => {
       try {
@@ -148,6 +176,8 @@ export default function MapView() {
       const { clientWidth: cw, clientHeight: ch } = map.getContainer();
       const stacked = window.matchMedia?.(STACKED_QUERY).matches;
       const wide = cw > 900;
+      // The card's inset becomes the map's padding with this flight (it may be opening with it).
+      const mapPadding = { ...map.getPadding(), right: rightInset(useStore.getState()) };
       const padding = stacked
         ? // During a tour the compact card floats over the top of the globe (InfoPanel, info-compact).
           { top: useStore.getState().tour ? 150 : 16, bottom: 16, left: 16, right: 16 }
@@ -155,25 +185,37 @@ export default function MapView() {
             top: Math.min(70, ch * 0.1),
             bottom: Math.min(230, ch * 0.3),
             left: wide ? 340 : 20,
-            right: wide ? 420 : 20,
+            // Clear of the card: beyond its inset, a margin; with no card, room for one.
+            right: mapPadding.right > 0 ? 68 : wide ? 420 : 20,
           };
       // The map's own padding (the slider inset) counts towards this already.
-      padding.bottom = Math.max(0, padding.bottom - (map.getPadding().bottom ?? 0));
-      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-      try {
-        if (turn) {
-          // Era chips: turn the globe to the place(s), zooming out only if they don't fit.
-          const cam = map.cameraForBounds(
+      padding.bottom = Math.max(0, padding.bottom - (mapPadding.bottom ?? 0));
+      // Frame the target for the new padding, then fly there while the padding moves to it.
+      const camera = (maxZoom: number) => {
+        const before = map.getPadding();
+        map.setPadding(mapPadding);
+        try {
+          return map.cameraForBounds(
             [
               [w, s],
               [e, n],
             ],
-            { padding, maxZoom: map.getZoom() },
+            { padding, maxZoom },
           );
+        } finally {
+          map.setPadding(before);
+        }
+      };
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      try {
+        if (turn) {
+          // Era chips: turn the globe to the place(s), zooming out only if they don't fit.
+          const cam = camera(map.getZoom());
           if (cam?.center) {
             map.easeTo({
               center: cam.center,
               zoom: Math.min(cam.zoom ?? map.getZoom(), map.getZoom()),
+              padding: mapPadding,
               duration: reduceMotion ? 0 : 1400,
               essential: true,
             });
@@ -182,30 +224,22 @@ export default function MapView() {
         }
         if (gentle) {
           // Stepping through sites: glide to the next one and keep the user's zoom (at least 3).
-          const cam = map.cameraForBounds(
-            [
-              [w, s],
-              [e, n],
-            ],
-            { padding, maxZoom: Math.max(map.getZoom(), 3) },
-          );
+          const cam = camera(Math.max(map.getZoom(), 3));
           if (cam?.center) {
             map.easeTo({
               center: cam.center,
               zoom: Math.min(cam.zoom ?? map.getZoom(), Math.max(map.getZoom(), 3)),
+              padding: mapPadding,
               duration: reduceMotion ? 0 : 900,
               essential: true,
             });
             return;
           }
         }
-        map.fitBounds(
-          [
-            [w, s],
-            [e, n],
-          ],
-          { padding, maxZoom: 4, duration: reduceMotion ? 0 : 1600, essential: true },
-        );
+        const cam = camera(4);
+        if (cam?.center)
+          map.flyTo({ center: cam.center, zoom: cam.zoom, padding: mapPadding, duration: reduceMotion ? 0 : 1600, essential: true });
+        else map.flyTo({ center: [(w + e) / 2, (s + n) / 2], zoom: 2, padding: mapPadding });
       } catch {
         map.flyTo({ center: [(w + e) / 2, (s + n) / 2], zoom: 2 });
       }
@@ -280,6 +314,12 @@ export default function MapView() {
           }
         }
       }
+      const cardChanged =
+        state.cardWidth !== prev.cardWidth ||
+        (state.selectedId !== null || state.groupId !== null) !== (prev.selectedId !== null || prev.groupId !== null) ||
+        (state.tour !== null) !== (prev.tour !== null);
+      // A flight in this same change takes the new inset with it.
+      if (cardChanged && !(state.flyTo && state.flyTo !== prev.flyTo)) syncRight(!document.body.classList.contains("card-resizing"));
       if (state.flyTo && state.flyTo !== prev.flyTo) {
         const { bbox, gentle, turn } = state.flyTo;
         // On small screens the info card opening resizes the globe; frame the target in the new size.

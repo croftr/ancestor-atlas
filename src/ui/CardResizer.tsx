@@ -1,19 +1,10 @@
 import { useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useStore } from "../store";
+import { CARD_MIN, clampCardWidth, maxCardWidth } from "./cardWidth";
 import "./card-resizer.css";
 
-const MIN = 300;
-/** Room always left beside the card for the globe or the timeline chart. */
-const LEAVE = 480;
 const STEP = 24;
-
-/** The widest the card may be in this window (the CSS clamps the same way). */
-function maxWidth(): number {
-  const app = document.querySelector(".app");
-  const nav = app ? parseFloat(getComputedStyle(app).getPropertyValue("--nav-w")) || 0 : 0;
-  return Math.max(MIN, window.innerWidth - nav - LEAVE);
-}
-const clamp = (w: number) => Math.round(Math.min(maxWidth(), Math.max(MIN, w)));
+const clamp = clampCardWidth;
 
 /**
  * A drag handle on the info card's left edge (desktop only; hidden where the card stacks): drag to
@@ -75,8 +66,8 @@ export default function CardResizer({ panel }: { panel: HTMLElement | null }) {
       aria-orientation="vertical"
       aria-label="Card width"
       aria-valuenow={width}
-      aria-valuemin={MIN}
-      aria-valuemax={maxWidth()}
+      aria-valuemin={CARD_MIN}
+      aria-valuemax={maxCardWidth()}
       tabIndex={0}
       title="Drag to resize the card · double-click to reset"
       onPointerDown={onPointerDown}

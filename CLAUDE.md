@@ -108,6 +108,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `cardWidth` in the store (in memory only: kept for the visit, reset by a reload, Rob's call). CSS clamps it to
   300 px .. window minus rail minus 480 px (`--card-user-w` -> `--card-w` in `ui/sidenav.css`; `--card-tl-w` on the
   timeline); the time slider, search and timeline chart make room. Double-click resets; arrow keys when focused.
+  The globe centres in the space left of the card: the map's right padding is the card's width (`rightInset` in
+  `src/map/MapView.tsx`, limits in `src/ui/cardWidth.ts`), eased on open/close, live while dragging, carried by
+  flights, and kept on through a whole tour.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
   goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
