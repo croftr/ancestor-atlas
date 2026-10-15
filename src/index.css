@@ -691,10 +691,68 @@ button { font: inherit; color: inherit; cursor: pointer; }
    which takes the clicks (its ring over the globe closes it). */
 .map-wrap.mini { z-index: 60; pointer-events: none; }
 
-/* Climate under the slider (ClimateStrip.tsx): LR04 δ18O, ice blue to amber. Same inset as the span band. */
-.climate-strip { height: 5px; margin: 3px 8px 0; border-radius: 2px; overflow: hidden; }
-.climate-strip canvas { display: block; width: 100%; height: 100%; opacity: 0.85; }
-.year-sub .sea-level { font-size: 0.75rem; }
+/* Climate under the slider (ClimateStrip.tsx): LR04 δ18O, ice blue to amber. Same inset as the span band.
+   A button: a click opens the climate popover there. */
+.climate-strip {
+  position: relative; display: block; width: calc(100% - 16px); height: 9px; margin: 4px 8px 0; padding: 0;
+  border: none; border-radius: 3px; background: rgba(0, 0, 0, 0.3); overflow: hidden; cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.climate-strip canvas { display: block; width: 100%; height: 100%; opacity: 0.9; transition: opacity 0.15s ease; }
+.climate-strip:hover canvas, .climate-strip:focus-visible canvas { opacity: 1; }
+.climate-strip:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.climate-label {
+  position: absolute; left: 4px; top: 50%; transform: translateY(-50%); font-size: 7.5px; line-height: 1;
+  letter-spacing: 0.08em; text-transform: uppercase; color: #8b95ab; pointer-events: none;
+}
+.climate-hover { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 4px rgba(0, 0, 0, 0.8); pointer-events: none; }
+
+/* Under the year: the Marine Isotope Stage and sea level, opening the climate popover. */
+.climate-open {
+  display: inline-flex; align-items: center; gap: 6px; padding: 1px 8px 1px 2px; border: none; border-radius: 999px;
+  background: transparent; color: #8b95ab; font-size: 0.75rem; cursor: pointer;
+}
+.climate-open:hover { background: rgba(255, 255, 255, 0.08); color: #cbd3e6; }
+.mis-badge { padding: 0 6px; border-radius: 999px; font-weight: 600; font-size: 0.7rem; line-height: 1.6; }
+.mis-badge.cold { background: rgba(196, 228, 255, 0.16); color: #c4e4ff; }
+.mis-badge.warm { background: rgba(222, 146, 78, 0.18); color: #f0b27a; }
+
+/* The climate popover (ClimatePopover.tsx), above the slider, pointing at its moment (--at). */
+.climate-popover {
+  position: absolute; bottom: calc(100% + 10px); left: clamp(8px, calc(var(--at) - 170px), calc(100% - 348px));
+  z-index: 30; width: 340px; max-width: calc(100vw - 24px); padding: 14px 16px 12px; outline: none;
+  background: rgba(17, 24, 42, 0.97); color: #e8ecf4; border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55); font-size: 0.85rem; text-align: left;
+}
+.climate-popover::after {
+  content: ""; position: absolute; bottom: -7px; left: clamp(16px, calc(var(--at) - clamp(8px, calc(var(--at) - 170px), calc(100% - 348px))), 324px);
+  width: 12px; height: 12px; margin-left: -6px; transform: rotate(45deg);
+  background: rgba(17, 24, 42, 0.97); border-right: 1px solid rgba(255, 255, 255, 0.14); border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.cp-close { position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; padding: 0; border: none; border-radius: 50%; background: transparent; color: #cbd3e6; }
+.cp-close:hover { background: rgba(255, 255, 255, 0.1); }
+.cp-when { font-size: 1.05rem; font-weight: 600; padding-right: 28px; }
+.cp-state { display: flex; align-items: center; gap: 6px; margin: 2px 0 8px; color: #cbd3e6; }
+.cp-swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.cp-facts { margin: 0; display: grid; gap: 8px; }
+.cp-facts dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: #8b95ab; }
+.cp-facts dd { margin: 1px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.cp-facts dd strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.cp-facts dd .muted { font-size: 0.78rem; }
+.cp-stage-kind { font-size: 0.75rem; padding: 0 6px; border-radius: 999px; }
+.cp-stage-kind.cold { background: rgba(196, 228, 255, 0.16); color: #c4e4ff; }
+.cp-stage-kind.warm { background: rgba(222, 146, 78, 0.18); color: #f0b27a; }
+.cp-note { flex-basis: 100%; font-size: 0.8rem; color: #cbd3e6; }
+.cp-chart { display: block; width: 100%; height: auto; margin-top: 10px; }
+.cp-chart .cp-cold { fill: rgba(140, 190, 255, 0.13); }
+.cp-chart .cp-zero { stroke: rgba(255, 255, 255, 0.25); stroke-dasharray: 3 3; }
+.cp-chart .cp-line { fill: none; stroke: #f0b27a; stroke-width: 1.6; stroke-linejoin: round; }
+.cp-chart .cp-now { stroke: #fff; stroke-width: 1.5; }
+.cp-chart .cp-axis { fill: #8b95ab; font-size: 9px; }
+.cp-legend { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; margin-top: 2px; }
+.cp-key.cold { width: 12px; height: 8px; border-radius: 2px; background: rgba(140, 190, 255, 0.3); }
+.cp-foot { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 10px; }
+.cp-src { font-size: 0.72rem; line-height: 1.35; }
 
 /* A migration route's popup on the globe (MapView.tsx, routePopup). */
 .route-popup .maplibregl-popup-content {

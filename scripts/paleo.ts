@@ -1,10 +1,9 @@
-// Builds the Ice Age geography layers and the climate strip from data/raw/paleo (scripts/fetch/paleo.ts):
+// Builds the Ice Age geography layers from data/raw/paleo (scripts/fetch/paleo.ts):
 //   npm run data:paleo
 // Writes, all committed (not part of the data build or its fingerprint):
 //   public/data/paleo/index.json        which snapshot to draw for each age, its sea level, and the sources
 //   public/data/paleo/<snapshot>.json   GeoJSON: `land` (dry land then that is sea today), `sea` (sea then that
 //                                       is land today) and `ice` (grounded ice sheets)
-//   public/data/climate.json            LR04 benthic δ18O and the Spratt & Lisiecki sea level, by age
 //
 // Snapshots:
 // - 0–80 ka, every 2,500 years: Gowan et al. 2021 (PaleoMIST 1.0). Its deformed base topography (relative to the
@@ -13,10 +12,11 @@
 // - 80–798 ka: Spratt & Lisiecki 2016 global sea level, applied evenly to ETOPO (no isostasy, no ice sheets),
 //   rounded to 10 m so ages with about the same sea level share one snapshot.
 // - Older: nothing (today's coastlines).
-// All ages count back from 1950 (ka); the app converts the slider year.
+// All ages count back from 1950 (ka); the app converts the slider year. The climate strip is scripts/climate.ts.
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import h5wasm from "h5wasm/node";
 import { contours } from "d3-contour";
+import { table } from "./lib/paleo-table.ts";
 
 const RAW = "data/raw/paleo";
 const OUT = "public/data/paleo";
@@ -69,26 +69,10 @@ function gowanSeaLevel(t: number): number {
   return d[d.length >> 1];
 }
 
-// --- Spratt & Lisiecki 2016, LR04 --------------------------------------------------------------------
-function table(file: string, header: RegExp, cols: number[]): number[][] {
-  const lines = readFileSync(`${RAW}/${file}`, "utf8").split("\n");
-  const start = lines.findIndex((l) => header.test(l));
-  const rows: number[][] = [];
-  for (const line of lines.slice(start + 1)) {
-    const v = line.trim().split(/\s+/).map(Number);
-    if (v.length < Math.max(...cols) + 1 || v.some((x, i) => cols.includes(i) && !Number.isFinite(x))) {
-      if (rows.length) break; // end of the table
-      continue;
-    }
-    rows.push(cols.map((i) => v[i]));
-  }
-  return rows;
-}
+// --- Spratt & Lisiecki 2016 ----------------------------------------------------------------------------
 // ka, sea level (m relative to today): the long stack (0–798 ka, five records).
 const seaLevel = table("spratt2016.txt", /^age_calkaBP\t/, [0, 5]);
-// ka, δ18O (‰): LR04, 0–5,320 ka.
-const lr04 = table("lisiecki2005.txt", /^\s*Time\s+d18O\s+Error/, [0, 1]);
-if (seaLevel.length < 790 || lr04.length < 2100) throw new Error(`short tables: ${seaLevel.length}, ${lr04.length}`);
+if (seaLevel.length < 790) throw new Error(`short sea level table: ${seaLevel.length}`);
 
 // --- Contouring ------------------------------------------------------------------------------------
 type Ring = [number, number][];
@@ -328,12 +312,6 @@ const SOURCES = [
     url: "https://doi.org/10.25921/fd45-gt74",
     licence: "Public domain (US Government)",
   },
-  {
-    name: "Climate strip: LR04 benthic δ18O stack",
-    citation: "Lisiecki, L.E. & Raymo, M.E., 2005. A Pliocene-Pleistocene stack of 57 globally distributed benthic δ18O records. Paleoceanography 20: PA1003.",
-    url: "https://doi.org/10.1029/2004PA001071",
-    licence: "NOAA NCEI Paleoclimatology archive (free use, cite the authors)",
-  },
 ];
 
 writeFileSync(`${OUT}/index.json`, JSON.stringify({ snapshots, ranges: ranges.map(([a, b, id]) => [round3(a), round3(b), id]), sources: SOURCES }, null, 1));
@@ -341,15 +319,6 @@ function round3(v: number) {
   return Math.round(v * 1000) / 1000;
 }
 
-// Climate strip: δ18O by ka, and sea level by ka (for the tooltip).
-writeFileSync(
-  "public/data/climate.json",
-  JSON.stringify({
-    d18o: lr04.map(([ka, v]) => [ka, v]),
-    sea_level: seaLevel.map(([ka, v]) => [ka, Math.round(v)]),
-  }),
-);
-
 const files = readdirSync(OUT);
 const bytes = files.reduce((s, f) => s + readFileSync(`${OUT}/${f}`).length, 0);
-console.log(`Wrote ${files.length} files to ${OUT} (${(bytes / 1e6).toFixed(1)} MB), ${ranges.length} ranges, and public/data/climate.json`);
+console.log(`Wrote ${files.length} files to ${OUT} (${(bytes / 1e6).toFixed(1)} MB), ${ranges.length} ranges`);

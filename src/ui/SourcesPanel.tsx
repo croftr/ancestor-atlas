@@ -1,6 +1,7 @@
 import { useData } from "../map/data";
 import { usePaleo } from "../map/paleo";
 import { ROUTES } from "../routes/routes";
+import { useClimate } from "../time/climate";
 
 /**
  * Data sources and credits, shown from the side menu (it replaces the legend's "Data sources"
@@ -9,6 +10,7 @@ import { ROUTES } from "../routes/routes";
 export default function SourcesContent() {
   const data = useData();
   const paleo = usePaleo();
+  const climate = useClimate();
   const routeSources = [...new Map(ROUTES.map((r) => [r.source.url, r.source])).values()];
   return (
     <div className="sources-panel">
@@ -25,7 +27,7 @@ export default function SourcesContent() {
       </ul>
       <div className="settings-label sources-map-label">Ice Age geography and climate</div>
       <ul className="sources-list">
-        {(paleo?.sources ?? []).map((s) => (
+        {[...(paleo?.sources ?? []), ...(climate?.sources ?? [])].map((s) => (
           <li key={s.url}>
             <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="muted">· {s.licence}</span>
             <div className="muted">{s.citation}</div>

@@ -9,6 +9,10 @@
 //                       HTTP range requests so only this 35 MB file is downloaded.
 //   spratt2016.txt      Spratt & Lisiecki 2016 sea level stack, 0–798 ka (NOAA NCEI paleo archive).
 //   lisiecki2005.txt    LR04 benthic δ18O stack, 0–5.32 Ma (NOAA NCEI paleo archive).
+//   LR04_MISboundaries.txt  Marine Isotope Stage boundaries on the LR04 age model (Lisiecki's site).
+//   friedrich2016temp.txt   Friedrich et al. 2016 global surface temperature, 0–783 ka (NOAA NCEI).
+//   LGMR_GMST_climo.nc      Osman et al. 2021 Last Glacial Maximum reanalysis, global mean surface
+//                           temperature, 0–24 ka (NOAA NCEI).
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { inflateRawSync } from "node:zlib";
 
@@ -127,6 +131,9 @@ async function gowan() {
 
 await text("spratt2016.txt", `${NCEI}/spratt2016/spratt2016.txt`);
 await text("lisiecki2005.txt", `${NCEI}/lisiecki2005/lisiecki2005.txt`);
+await text("LR04_MISboundaries.txt", "https://lorraine-lisiecki.com/LR04_MISboundaries.txt");
+await text("friedrich2016temp.txt", "https://www.ncei.noaa.gov/pub/data/paleo/reconstructions/friedrich2016/friedrich2016temp.txt");
+await text("LGMR_GMST_climo.nc", "https://www.ncei.noaa.gov/pub/data/paleo/reconstructions/osman2021/LGMR_GMST_climo.nc");
 await gowan();
 await etopo();
-console.log("Done. Next: npm run data:paleo");
+console.log("Done. Next: npm run data:paleo and npm run data:climate");

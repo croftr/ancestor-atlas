@@ -137,8 +137,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 
 - Coastlines and ice sheets of the slider's year: `npm run data:fetch:paleo` (ETOPO 2022 at 0.1° over OPeNDAP; the
   35 MB 1° grid out of Gowan et al.'s 3.7 GB PANGAEA zip by HTTP range requests; Spratt & Lisiecki 2016; LR04) then
-  `npm run data:paleo` (`scripts/paleo.ts`, ~15 min) writes `public/data/paleo/` (index.json + 49 GeoJSON snapshots,
-  ~0.6 MB each, loaded one at a time) and `public/data/climate.json`. Committed; outside `data:build` and its
+  `npm run data:paleo` (`scripts/paleo.ts`, ~11 min) writes `public/data/paleo/` (index.json + 49 GeoJSON snapshots,
+  ~0.6 MB each, loaded one at a time); rerun `npm run data:climate` after it. Committed; outside `data:build` and its
   fingerprint. Snapshots: 0–80 ka every 2.5 kyr from Gowan (topography change + grounded ice); 80–798 ka from the
   Spratt & Lisiecki sea level in 10 m steps (no ice); older none. Only ocean-connected sea counts (flood fill from
   `SEEDS`: open ocean plus Mediterranean, Black Sea, Baltic, Red Sea; never the Caspian). Land then is drawn under
@@ -146,7 +146,13 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   (`paleo-ice`; `ice` colour per theme in `BASEMAP_THEMES`). `src/map/paleo.ts` picks the snapshot; the slider shows
   "Sea level −120 m". Settings toggle (store `paleo`, remembered).
 - Climate strip under the slider (`src/ui/ClimateStrip.tsx`, `src/time/climate.ts`): LR04 δ18O coloured amber (warm)
-  to ice blue, along the slider's own scale; hover for climate and sea level. Blank before 5.32 Ma.
+  to ice blue, along the slider's own scale. Blank before 5.32 Ma. A click opens `ClimatePopover.tsx` for that moment
+  (with "Go to"); the "MIS 2 · Sea level −120 m" badge under the year opens it following the slider. It shows global
+  temperature (Osman 2021 0–24 ka, Friedrich 2016 model 24–783 ka, both vs pre-industrial; they agree within 0.5 °C at
+  the join), sea level (Gowan 0–80 ka, Spratt & Lisiecki beyond with 95% range; the two disagree at 80 ka, −10 vs
+  −33 m), the MIS (1–104, then G1…TG6; even = cold; a few `STAGE_NOTES`), and a chart of the cycles around it.
+  Data: `npm run data:climate` (`scripts/climate.ts`, seconds; reads public/data/paleo/index.json for Gowan's sea
+  level). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
 - Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle
   of each site's range); `via` points only shape the line. Lines grow with the slider, arrowhead while growing,
   hidden after `until` (end of the Ice Age). Tap a route for a popup (name, description, source). Settings toggle

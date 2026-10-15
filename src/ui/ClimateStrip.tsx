@@ -3,15 +3,17 @@ import { climateColor, climateWords, kaOf, useClimate, valueAt } from "../time/c
 import { formatYear, yearAtPos } from "../time/scale";
 
 /**
- * A thin band under the time slider coloured by the LR04 δ18O stack: ice blue in ice ages, amber when
- * warm, along the slider's own (uneven) time scale. Blank before the record (5.32 Ma). Hovering says
- * what the climate was and, within the last 800,000 years, the sea level.
+ * A band under the time slider coloured by the LR04 δ18O stack: ice blue in ice ages, amber when warm,
+ * along the slider's own (uneven) time scale. Blank before the record (5.32 Ma). Hovering marks the spot
+ * and says what the climate was; a click (`onPick`: the year there and its position, 0–1) opens the
+ * climate popover. From the keyboard it opens on the slider's year.
  */
-export default function ClimateStrip() {
+export default function ClimateStrip({ onPick }: { onPick: (year: number | null, pos: number) => void }) {
   const climate = useClimate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [width, setWidth] = useState(0);
   const [tip, setTip] = useState("");
+  const [hover, setHover] = useState<number | null>(null);
 
   useEffect(() => {
     const el = canvasRef.current;
@@ -37,11 +39,14 @@ export default function ClimateStrip() {
     }
   }, [climate, width]);
 
+  const posOf = (clientX: number) => {
+    const r = canvasRef.current!.getBoundingClientRect();
+    return Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+  };
   const describe = (clientX: number) => {
     const el = canvasRef.current;
     if (!el || !climate) return "";
-    const r = el.getBoundingClientRect();
-    const year = yearAtPos(Math.min(1, Math.max(0, (clientX - r.left) / r.width)));
+    const year = yearAtPos(posOf(clientX));
     const ka = kaOf(year);
     const v = valueAt(climate.d18o, ka);
     if (v === undefined) return `${formatYear(Math.round(year))}: before the climate record`;
@@ -51,13 +56,32 @@ export default function ClimateStrip() {
   };
 
   return (
-    <div className="climate-strip" title={tip || "Climate: ice blue in ice ages, amber when warm (LR04 δ18O)"}>
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
-        onPointerMove={(e) => setTip(describe(e.clientX))}
-        onPointerLeave={() => setTip("")}
-      />
-    </div>
+    <button
+      type="button"
+      className="climate-strip"
+      title={tip ? `${tip}. Click for more.` : "Climate: ice blue in ice ages, amber when warm. Click for details."}
+      aria-label="Climate through time: open details for the slider's year"
+      onPointerMove={(e) => {
+        setTip(describe(e.clientX));
+        setHover(posOf(e.clientX));
+      }}
+      onPointerLeave={() => {
+        setTip("");
+        setHover(null);
+      }}
+      onClick={(e) => {
+        // A real click points at a moment; Enter/Space (detail 0) opens on the slider's year.
+        if (e.detail === 0) onPick(null, -1);
+        else {
+          const pos = posOf(e.clientX);
+          onPick(yearAtPos(pos), pos);
+        }
+      }}
+    >
+      <canvas ref={canvasRef} aria-hidden="true" />
+      {/* In the stretch before the record begins (5.32 Ma). */}
+      <span className="climate-label" aria-hidden="true">Climate</span>
+      {hover !== null && <span className="climate-hover" style={{ left: `${hover * 100}%` }} aria-hidden="true" />}
+    </button>
   );
 }

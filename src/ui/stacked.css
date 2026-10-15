@@ -186,7 +186,11 @@
   .app.view-globe .span-track,
   .app.view-globe .ticks { grid-column: 1 / -1; }
 
-  .app.view-globe .climate-strip { height: 4px; margin: -2px 10px 4px; }
+  .app.view-globe .climate-strip { width: calc(100% - 20px); height: 7px; margin: -2px 10px 4px; }
+  .app.view-globe .climate-label { display: none; }
+  /* Phones: the popover spans the slider panel. */
+  .app.view-globe .climate-popover { left: 0; right: 0; width: auto; max-width: none; }
+  .app.view-globe .climate-popover::after { left: var(--at); }
 
   .app.view-globe .span-track { height: 3px; margin: -4px 10px 2px; }
   .app.view-globe .span-band { height: 3px; }

@@ -6,6 +6,8 @@ import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
 import EraIcon from "./EraIcon";
 import ClimateStrip from "./ClimateStrip";
+import ClimatePopover from "./ClimatePopover";
+import { kaOf, stageAt, stageName, useClimate, valueAt } from "../time/climate";
 import { usePaleo, snapshotAt } from "../map/paleo";
 import TourBar, { TourPicker } from "../tours/TourBar";
 import { beginTour } from "../tours/TourPlayer";
@@ -68,6 +70,14 @@ export default function TimeSlider() {
   const showPaleo = useStore((s) => s.paleo);
   const snapshot = paleo && showPaleo ? snapshotAt(paleo, year) : null;
   const seaLevel = snapshot ? paleo!.snapshots[snapshot].sea_level : 0;
+  // The Marine Isotope Stage of the slider's year, which opens the climate popover.
+  const climate = useClimate();
+  const stage = climate ? stageAt(climate.mis, Math.max(0, kaOf(year))) : undefined;
+  // Sea level as the record has it (the globe draws it in 10 m steps beyond 80,000 years).
+  const recordSea = climate && snapshot ? valueAt(climate.sea_level, Math.max(0, kaOf(year))) : undefined;
+  const seaShown = Math.round(recordSea ?? seaLevel);
+  // The climate popover: a moment picked on the strip, or (year null) following the slider.
+  const [climatePick, setClimatePick] = useState<{ year: number | null; left: number } | null>(null);
 
   // The era the year falls in ("Early Homo"), as on the timeline and Events page. On small
   // screens it's also the button that opens the jump-to shortcuts (hidden there for space).
@@ -183,11 +193,21 @@ export default function TimeSlider() {
             <span className="era-name">{era.label}</span>
           ))}
         <span className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</span>
-        {Math.abs(seaLevel) >= 10 && (
-          <span className="muted sea-level" title="Global sea level then, compared with today (the coastlines on the globe)">
-            Sea level {seaLevel < 0 ? "−" : "+"}
-            {Math.abs(seaLevel)} m
-          </span>
+        {(stage || Math.abs(seaShown) >= 10) && (
+          <button
+            className="climate-open"
+            onClick={() => setClimatePick((p) => (p?.year === null ? null : { year: null, left: yearToPos(year) }))}
+            aria-expanded={climatePick?.year === null}
+            title="Climate then: temperature, sea level and Marine Isotope Stage"
+          >
+            {stage && <span className={`mis-badge ${stage.cold ? "cold" : "warm"}`}>{stageName(stage.stage)}</span>}
+            {Math.abs(seaShown) >= 10 && (
+              <span className="sea-level">
+                Sea level {seaShown < 0 ? "−" : "+"}
+                {Math.abs(seaShown)} m
+              </span>
+            )}
+          </button>
         )}
       </div>
       {touring ? (
@@ -227,7 +247,10 @@ export default function TimeSlider() {
           onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
         />
       </div>
-      <ClimateStrip />
+      <ClimateStrip onPick={(y, pos) => setClimatePick({ year: y, left: pos < 0 ? yearToPos(year) : pos })} />
+      {climatePick && climate && (
+        <ClimatePopover climate={climate} year={climatePick.year} left={climatePick.year === null ? yearToPos(year) : climatePick.left} onClose={() => setClimatePick(null)} />
+      )}
       <div className="span-track">
         {spanEntity && (
           <div

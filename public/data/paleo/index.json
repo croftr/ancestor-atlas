@@ -1538,12 +1538,6 @@
    "citation": "NOAA National Centers for Environmental Information, 2022. ETOPO 2022 15 Arc-Second Global Relief Model. https://doi.org/10.25921/fd45-gt74",
    "url": "https://doi.org/10.25921/fd45-gt74",
    "licence": "Public domain (US Government)"
-  },
-  {
-   "name": "Climate strip: LR04 benthic δ18O stack",
-   "citation": "Lisiecki, L.E. & Raymo, M.E., 2005. A Pliocene-Pleistocene stack of 57 globally distributed benthic δ18O records. Paleoceanography 20: PA1003.",
-   "url": "https://doi.org/10.1029/2004PA001071",
-   "licence": "NOAA NCEI Paleoclimatology archive (free use, cite the authors)"
   }
  ]
 }

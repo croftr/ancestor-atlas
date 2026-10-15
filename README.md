@@ -35,7 +35,7 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🏛️ **Early Civilizations & Polities**: Watch early city-states, kingdoms, and civilizations emerge, grow, and interact across the globe.
 - 🧊 **Ice Age Coastlines & Ice Sheets**: The globe redraws its coastlines as sea level rose and fell: Beringia, Sunda, Sahul and Doggerland appear as dry land, and the great ice sheets spread over North America and northern Europe (sea level for the last 800,000 years; ice sheets for the last 80,000).
 - 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas, each route growing as the slider passes the dated fossil sites it joins.
-- 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years; hover it for the climate and sea level at any moment.
+- 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years. Click it (or the stage badge under the year) for the global temperature, sea level and Marine Isotope Stage of that moment, with a small chart of the glacial cycles around it.
 - 🤝 **Who Lived When**: Each species card lists the other species alive at the same time.
 - 🔍 **Instant Search**: Search across any species, fossil discovery, archaeological site, or civilization to jump directly to it in space and time.
 - 🎨 **Custom Globe Themes**: Choose from multiple basemap styles (including dark globe, parchment, and blueprint themes) to suit your viewing preference.
@@ -101,7 +101,8 @@ npm run data:report       # Generate QA report & work list (data/build/qa-report
 npm run sites:candidates  # Search Wikidata items for unsourced sites
 npm run sites:sync        # Synchronise coordinates for confirmed Wikidata items
 npm run data:fetch:paleo  # Download the Ice Age geography and climate inputs (ETOPO, Gowan et al., sea level, LR04)
-npm run data:paleo        # Build public/data/paleo/ (coastlines, ice) and public/data/climate.json (slow: ~15 min)
+npm run data:paleo        # Build public/data/paleo/ (coastlines, ice; slow: ~11 min)
+npm run data:climate      # Build public/data/climate.json (climate strip and popover; needs public/data/paleo)
 npm test                  # Run automated test suites (Vitest)
 ```
 
@@ -177,8 +178,14 @@ Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm r
   1079–1092), applied evenly to ETOPO in 10 m steps (no ice sheets, no isostasy). Older: today's coastlines.
 - Only sea joined to the ocean counts (a flood fill from the open ocean and the enclosed seas), so lakes and inland
   basins such as the Caspian and the Dead Sea are left alone.
-- **Climate strip**: Lisiecki, L.E. & Raymo, M.E., 2005. A Pliocene-Pleistocene stack of 57 globally distributed benthic
-  δ18O records. *Paleoceanography* 20: PA1003.
+- **Climate strip and popover** (`npm run data:climate`, `scripts/climate.ts`):
+  - Colour and Marine Isotope Stages: Lisiecki, L.E. & Raymo, M.E., 2005. A Pliocene-Pleistocene stack of 57 globally
+    distributed benthic δ18O records. *Paleoceanography* 20: PA1003 (stage boundaries from Lisiecki's LR04 site).
+  - Global temperature against pre-industrial: Osman, M.B. et al., 2021. Globally resolved surface temperatures since
+    the Last Glacial Maximum. *Nature* 599: 239–244 (0–24 ka); Friedrich, T. et al., 2016. Nonlinear climate
+    sensitivity and its implications for future greenhouse warming. *Science Advances* 2: e1501923 (24–783 ka, the
+    model reconstruction, against its own 0 ka). Older: not shown.
+  - Sea level: Gowan et al. 2021 for 0–80 ka (as on the globe); Spratt & Lisiecki 2016 with its 95% range beyond.
 - **Migration routes** (`src/routes/routes.ts`): hand-picked like the tours. Each route joins dated sites already on the
   globe (so each date and place carries that site's source); `via` points only bend the line along a coast or strait.
   The direction of each route follows Wikipedia's *Early human migrations* (pinned revision).
