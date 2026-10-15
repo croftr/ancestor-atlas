@@ -80,9 +80,9 @@
   image_url: /images/events/out-of-africa.webp
   image_credit: AI-generated illustration
   extra_images:
-    - { url: /images/events/extra/out-of-africa-dmanisi-1.webp, credit: "Guy Bar-Oz, CC BY-SA 3.0, via Wikimedia Commons", caption: "Dmanisi Skull 5 as it lay in the ground", source: "https://commons.wikimedia.org/wiki/File:Skull_in_dmanisi_archaeological_site.JPG" }
-    - { url: /images/events/extra/out-of-africa-dmanisi-2.webp, credit: "Kober, CC0, via Wikimedia Commons", caption: "Dmanisi Skull 5 and its jaw, National Museum of Georgia", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_hominin_skull_D4500_and_mandible_D2600._National_Museum_of_Georgia.jpg" }
     - { url: /images/events/extra/out-of-africa-dmanisi-3.webp, credit: "Saioa López, Lucy van Dorp & Garrett Hellenthal, CC BY 3.0, via Wikimedia Commons", caption: "Putative migration waves out of Africa", source: "https://commons.wikimedia.org/wiki/File:Putative_migration_waves_out_of_Africa.png" }
+    - { url: /images/events/extra/out-of-africa-dmanisi-2.webp, credit: "Kober, CC0, via Wikimedia Commons", caption: "Dmanisi Skull 5 and its jaw, National Museum of Georgia", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_hominin_skull_D4500_and_mandible_D2600._National_Museum_of_Georgia.jpg" }
+    - { url: /images/events/extra/out-of-africa-dmanisi-1.webp, credit: "Guy Bar-Oz, CC BY-SA 3.0, via Wikimedia Commons", caption: "Dmanisi Skull 5 as it lay in the ground", source: "https://commons.wikimedia.org/wiki/File:Skull_in_dmanisi_archaeological_site.JPG" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=9btN6H7H3Rg", title: "When Did Hominins First Leave Africa?", credit: "Stefan Milo, YouTube" }
   narration: { src: narration/events/out-of-africa-dmanisi-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4d3c64072e" }
