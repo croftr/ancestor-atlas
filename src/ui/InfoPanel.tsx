@@ -19,6 +19,7 @@ import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPi
 import { PictureNav, creditLine } from "./PictureNav";
 import PictureViewer from "./PictureViewer";
 import CardResizer from "./CardResizer";
+import { contemporaries } from "./contemporaries";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -176,6 +177,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const isEvent = entity.category === "event";
   const noun = entity.category === "civilization" ? "Period" : isEvent ? "Place" : "Site";
   const related = (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
+  const sameTime = contemporaries(entity, data.entities);
   const siteCultures = asList(feature?.culture_ids).flatMap((id) => data.entityById.get(id) ?? []);
   // Own picture; else the group's (e.g. Ancient Egypt); else a shared stand-in (picture-groups.yaml).
   // The last two say what they show.
@@ -581,6 +583,24 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
                 className="chip"
                 onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))}
                 title={formatRange(r.start_year, r.end_year)}
+              >
+                <CategoryBadge category={r.category} size={16} />
+                {r.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      {sameTime.length > 0 && (
+        <div className="related">
+          <div className="muted">Alive at the same time:</div>
+          <div className="also">
+            {sameTime.map(({ entity: r, from, to }) => (
+              <button
+                key={r.id}
+                className="chip"
+                onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))}
+                title={`Both alive ${formatRange(from, to)}`}
               >
                 <CategoryBadge category={r.category} size={16} />
                 {r.name}

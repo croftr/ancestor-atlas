@@ -133,6 +133,31 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
    timeout); many later cultures have no features in the committed data (needs a full build on the XRONOS machine).
    `npm run audio:upload -- --dry-run` shows any clips still to upload.
 
+## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
+
+- Coastlines and ice sheets of the slider's year: `npm run data:fetch:paleo` (ETOPO 2022 at 0.1° over OPeNDAP; the
+  35 MB 1° grid out of Gowan et al.'s 3.7 GB PANGAEA zip by HTTP range requests; Spratt & Lisiecki 2016; LR04) then
+  `npm run data:paleo` (`scripts/paleo.ts`, ~15 min) writes `public/data/paleo/` (index.json + 49 GeoJSON snapshots,
+  ~0.6 MB each, loaded one at a time) and `public/data/climate.json`. Committed; outside `data:build` and its
+  fingerprint. Snapshots: 0–80 ka every 2.5 kyr from Gowan (topography change + grounded ice); 80–798 ka from the
+  Spratt & Lisiecki sea level in 10 m steps (no ice); older none. Only ocean-connected sea counts (flood fill from
+  `SEEDS`: open ocean plus Mediterranean, Black Sea, Baltic, Red Sea; never the Caspian). Land then is drawn under
+  the Natural Earth land (`paleo-land`, tucked 20 m under today's coast), sea then over it (`paleo-sea`), ice on top
+  (`paleo-ice`; `ice` colour per theme in `BASEMAP_THEMES`). `src/map/paleo.ts` picks the snapshot; the slider shows
+  "Sea level −120 m". Settings toggle (store `paleo`, remembered).
+- Climate strip under the slider (`src/ui/ClimateStrip.tsx`, `src/time/climate.ts`): LR04 δ18O coloured amber (warm)
+  to ice blue, along the slider's own scale; hover for climate and sea level. Blank before 5.32 Ma.
+- Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle
+  of each site's range); `via` points only shape the line. Lines grow with the slider, arrowhead while growing,
+  hidden after `until` (end of the Ice Age). Tap a route for a popup (name, description, source). Settings toggle
+  (store `routes`). `routes.test.ts` checks every site exists in the committed features. Candidates not done (need
+  sourced waypoints): farming into Europe, the Austronesian expansion, the Bantu expansion.
+- "Alive at the same time" chips on species cards and species pages (`src/ui/contemporaries.ts`).
+- `data:paleo` deletes and rewrites `public/data/paleo/`: restart a running Vite dev server afterwards (it serves the
+  folder's files as missing until then).
+- Seen in headless Chrome with all of this switched off, so not caused by it: a thin curved line across the globe's
+  southern half, and a straight-edged wedge over the Bay of Biscay at some zooms. Not checked in a real browser.
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points

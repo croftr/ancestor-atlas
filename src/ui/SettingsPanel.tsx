@@ -18,6 +18,10 @@ export default function SettingsContent() {
 
   const basemap = useStore((s) => s.basemap);
   const setBasemap = useStore((s) => s.setBasemap);
+  const paleo = useStore((s) => s.paleo);
+  const setPaleo = useStore((s) => s.setPaleo);
+  const routes = useStore((s) => s.routes);
+  const setRoutes = useStore((s) => s.setRoutes);
 
   return (
     <div className="settings-group">
@@ -37,6 +41,21 @@ export default function SettingsContent() {
           </button>
         ))}
       </div>
+      <div className="settings-label">On the globe</div>
+      <label className="settings-check">
+        <input type="checkbox" checked={paleo} onChange={(e) => setPaleo(e.target.checked)} />
+        <span>
+          Coastlines and ice sheets of the time
+          <span className="muted">Sea level for the last 800,000 years; ice sheets for the last 80,000.</span>
+        </span>
+      </label>
+      <label className="settings-check">
+        <input type="checkbox" checked={routes} onChange={(e) => setRoutes(e.target.checked)} />
+        <span>
+          Migration routes
+          <span className="muted">How modern humans spread out of Africa, drawn as the time slider passes each site.</span>
+        </span>
+      </label>
       {hasKeyboard && (
         <>
           <div className="settings-label">Keyboard shortcuts</div>

@@ -154,3 +154,10 @@
   border: 1px solid rgba(255, 255, 255, 0.2); border-bottom-width: 2px; border-radius: 4px; color: #e8ecf4;
 }
 .settings-group .theme-options + .settings-label { margin-top: 16px; }
+
+/* A checkbox setting with a line of explanation under its label. */
+.settings-group .settings-check + .settings-label { margin-top: 16px; }
+.settings-check + .settings-check { margin-top: 10px; }
+.settings-check { display: flex; gap: 8px; align-items: flex-start; font-size: 0.9em; cursor: pointer; }
+.settings-check input { margin-top: 3px; accent-color: #67a0ff; }
+.settings-check .muted { display: block; font-size: 0.85em; margin-top: 2px; }

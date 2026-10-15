@@ -18,6 +18,26 @@ function loadBasemap(): string {
   return DEFAULT_BASEMAP;
 }
 
+const PALEO_KEY = "history-globe.paleo";
+const ROUTES_KEY = "history-globe.routes";
+
+/** A layer setting that is on unless turned off in Settings (remembered per browser). */
+function loadOn(key: string): boolean {
+  try {
+    return localStorage.getItem(key) !== "off";
+  } catch {
+    return true;
+  }
+}
+
+function saveOn(key: string, on: boolean) {
+  try {
+    localStorage.setItem(key, on ? "on" : "off");
+  } catch {
+    /* storage unavailable */
+  }
+}
+
 const isIntroHash = () =>
   typeof window !== "undefined" && /^(#\/?(intro|about))$/i.test(window.location.hash);
 
@@ -30,6 +50,10 @@ interface AppState {
   groupId: string | null;
   playing: boolean;
   basemap: string;
+  /** Draw the coastlines and ice sheets of the time (map/paleo.ts). */
+  paleo: boolean;
+  /** Draw the migration routes (routes/routes.ts). */
+  routes: boolean;
   introOpen: boolean;
   /** Camera request for the map; a new object each time so repeated requests still fire. */
   /** `gentle`: pan there without zooming out (stepping through sites). */
@@ -106,6 +130,8 @@ interface AppState {
   stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
   setBasemap(name: string): void;
+  setPaleo(on: boolean): void;
+  setRoutes(on: boolean): void;
   setIntroOpen(open: boolean): void;
 }
 
@@ -117,6 +143,8 @@ export const useStore = create<AppState>((set, get) => ({
   groupId: null,
   playing: false,
   basemap: loadBasemap(),
+  paleo: loadOn(PALEO_KEY),
+  routes: loadOn(ROUTES_KEY),
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
@@ -274,5 +302,13 @@ export const useStore = create<AppState>((set, get) => ({
       /* storage unavailable */
     }
     set({ basemap: name });
+  },
+  setPaleo: (on) => {
+    saveOn(PALEO_KEY, on);
+    set({ paleo: on });
+  },
+  setRoutes: (on) => {
+    saveOn(ROUTES_KEY, on);
+    set({ routes: on });
   },
 }));

@@ -27,6 +27,11 @@ export function snapYear(year: number): number {
   return clampYear(1 - bce);
 }
 
+/** The year at a slider position, not snapped to a step (for drawing along the slider). */
+export function yearAtPos(pos: number): number {
+  return 1 - posToBce(pos);
+}
+
 export function posToYear(pos: number): number {
   return Math.round(snapYear(1 - posToBce(pos)));
 }

@@ -5,6 +5,8 @@ import { erasFor } from "../timeline/layout";
 import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
 import EraIcon from "./EraIcon";
+import ClimateStrip from "./ClimateStrip";
+import { usePaleo, snapshotAt } from "../map/paleo";
 import TourBar, { TourPicker } from "../tours/TourBar";
 import { beginTour } from "../tours/TourPlayer";
 import {
@@ -60,6 +62,12 @@ export default function TimeSlider() {
   const spanRight = spanEntity ? yearToPos(spanEntity.end_year) : 0;
 
   const resolution = STEPS[segmentOfBce(1 - year)];
+
+  // Sea level of the coastlines on the globe (when it differs noticeably from today's).
+  const paleo = usePaleo();
+  const showPaleo = useStore((s) => s.paleo);
+  const snapshot = paleo && showPaleo ? snapshotAt(paleo, year) : null;
+  const seaLevel = snapshot ? paleo!.snapshots[snapshot].sea_level : 0;
 
   // The era the year falls in ("Early Homo"), as on the timeline and Events page. On small
   // screens it's also the button that opens the jump-to shortcuts (hidden there for space).
@@ -175,6 +183,12 @@ export default function TimeSlider() {
             <span className="era-name">{era.label}</span>
           ))}
         <span className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</span>
+        {Math.abs(seaLevel) >= 10 && (
+          <span className="muted sea-level" title="Global sea level then, compared with today (the coastlines on the globe)">
+            Sea level {seaLevel < 0 ? "−" : "+"}
+            {Math.abs(seaLevel)} m
+          </span>
+        )}
       </div>
       {touring ? (
         <TourBar />
@@ -213,6 +227,7 @@ export default function TimeSlider() {
           onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
         />
       </div>
+      <ClimateStrip />
       <div className="span-track">
         {spanEntity && (
           <div

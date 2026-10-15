@@ -13,6 +13,7 @@ import { CategoryBadge } from "../ui/CategoryIcon";
 import ListenButton from "../audio/ListenButton";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "../ui/PictureNav";
+import { contemporaries } from "../ui/contemporaries";
 import "./browse.css";
 
 /**
@@ -40,6 +41,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
   const features = entity.group ? members.flatMap((m) => data.featuresOf.get(m.id) ?? []) : (data.featuresOf.get(entity.id) ?? []);
   const xronos = features.filter((f) => f.source_id === "xronos").length;
   const events = eventsAbout(entity, data);
+  const sameTime = contemporaries(entity, data.entities);
   const sources = entity.source_ids.flatMap((id) => data.sourceById.get(id) ?? []);
   const picture = pictureOf(entity, data);
   const pictures = entityPictures(entity, parent);
@@ -226,6 +228,20 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
                   <button key={ev.id} className="chip" onClick={() => navigate("events", ev.id)} title={ev.date_text}>
                     <CategoryBadge category="event" size={16} decorative />
                     {ev.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {sameTime.length > 0 && (
+            <div className="related">
+              <div className="muted">Alive at the same time:</div>
+              <div className="also">
+                {sameTime.map(({ entity: r, from, to }) => (
+                  <button key={r.id} className="chip" onClick={() => navigate(page, r.id)} title={`Both alive ${formatRange(from, to)}`}>
+                    <CategoryBadge category="species" size={16} decorative />
+                    {r.name}
                   </button>
                 ))}
               </div>

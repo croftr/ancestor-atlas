@@ -45,14 +45,16 @@ export interface BasemapTheme {
   bg: string;
   fill: string;
   line: string;
+  /** Ice sheets of the time (map/paleo.ts). */
+  ice: string;
 }
 
 export const BASEMAP_THEMES: Record<string, BasemapTheme> = {
-  slate: { label: "Slate", bg: "#3b4f66", fill: "#8d9bab", line: "#c3ccd6" },
-  atlas: { label: "Atlas", bg: "#a9c6d9", fill: "#ece3c8", line: "#9c8f69" },
-  natural: { label: "Natural", bg: "#8fb3c4", fill: "#b9c79a", line: "#6f8a5c" },
-  dusk: { label: "Dusk", bg: "#1f3a54", fill: "#d9c9a3", line: "#8a7b57" },
-  night: { label: "Night", bg: "#0a1424", fill: "#2a3652", line: "#5b6f96" },
+  slate: { label: "Slate", bg: "#3b4f66", fill: "#8d9bab", line: "#c3ccd6", ice: "#e8eff6" },
+  atlas: { label: "Atlas", bg: "#a9c6d9", fill: "#ece3c8", line: "#9c8f69", ice: "#ffffff" },
+  natural: { label: "Natural", bg: "#8fb3c4", fill: "#b9c79a", line: "#6f8a5c", ice: "#f2f7fa" },
+  dusk: { label: "Dusk", bg: "#1f3a54", fill: "#d9c9a3", line: "#8a7b57", ice: "#eef3f8" },
+  night: { label: "Night", bg: "#0a1424", fill: "#2a3652", line: "#5b6f96", ice: "#9fb2d1" },
 };
 
 export const DEFAULT_BASEMAP = "dusk";

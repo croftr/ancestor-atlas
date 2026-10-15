@@ -9,6 +9,11 @@ import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground from "./SpaceBackground";
 import { cardWidthPx, navWidth } from "../ui/cardWidth";
+import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
+import { ROUTES } from "../routes/routes";
+import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
+
+const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
 /** How far from a tap (CSS px) a marker still counts as tapped: touch, and mouse. */
 const TAP_SLOP_TOUCH = 14;
@@ -28,6 +33,28 @@ function iconImage(path: string, ink: string): { data: ImageData; pixelRatio: nu
   ctx.fill(new Path2D(path), "evenodd");
   return { data: ctx.getImageData(0, 0, px, px), pixelRatio };
 }
+
+/** A route's arrowhead (pointing north; rotated by bearing), as an SDF image so each route colours it. */
+function arrowImage(): { data: ImageData; pixelRatio: number } | null {
+  const pixelRatio = Math.max(1, Math.ceil(window.devicePixelRatio || 1));
+  const px = 18 * pixelRatio;
+  const ctx = document.createElement("canvas").getContext("2d");
+  if (!ctx) return null;
+  ctx.canvas.width = ctx.canvas.height = px;
+  ctx.scale(px / 18, px / 18);
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.moveTo(9, 1.5);
+  ctx.lineTo(16, 16);
+  ctx.lineTo(9, 12);
+  ctx.lineTo(2, 16);
+  ctx.closePath();
+  ctx.fill();
+  return { data: ctx.getImageData(0, 0, px, px), pixelRatio };
+}
+
+/** Route layers, under the markers. */
+const ROUTE_LAYERS = ["route-casing", "route-line", "route-head"];
 
 /**
  * Large screens: the height the time slider covers at the bottom of the map. Kept as the map's
@@ -55,6 +82,26 @@ function rightInset(state: ReturnType<typeof useStore.getState>): number {
   if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
   const open = state.selectedId !== null || state.groupId !== null || state.tour !== null;
   return open ? cardWidthPx(state.cardWidth) : 0;
+}
+
+/** What a route is and where it comes from, when it is tapped. */
+function routePopup(route: (typeof ROUTES)[number]): maplibregl.Popup {
+  const el = document.createElement("div");
+  const h = document.createElement("strong");
+  h.textContent = route.name;
+  const p = document.createElement("p");
+  p.textContent = route.description;
+  const note = document.createElement("div");
+  note.className = "muted";
+  note.append("Joins dated sites on the globe (each card has its source); the line between them is a sketch. Route: ");
+  const a = document.createElement("a");
+  a.href = route.source.url;
+  a.target = "_blank";
+  a.rel = "noreferrer";
+  a.textContent = route.source.label;
+  note.append(a);
+  el.append(h, p, note);
+  return new maplibregl.Popup({ className: "route-popup", maxWidth: "320px", focusAfterOpen: false }).setDOMContent(el);
 }
 
 const MINI_MS = 600;
@@ -169,15 +216,35 @@ export default function MapView() {
             data: "/data/basemap/land.geojson",
             attribution: "Land outlines: Natural Earth (public domain)",
           },
+          // The coastlines and ice sheets of the slider's year (map/paleo.ts), set as the year changes.
+          paleo: { type: "geojson", data: EMPTY },
         },
         layers: [
           { id: "bg", type: "background", paint: { "background-color": theme.bg } },
+          // Land then that is sea today, under today's land; today's coastline stays drawn across it.
+          { id: "paleo-land", type: "fill", source: "paleo", filter: ["==", ["get", "kind"], "land"], paint: { "fill-color": theme.fill } },
           { id: "land-fill", type: "fill", source: "land", paint: { "fill-color": theme.fill } },
+          // Sea then over today's land (land pressed down by the ice sheets, or higher seas).
+          { id: "paleo-sea", type: "fill", source: "paleo", filter: ["==", ["get", "kind"], "sea"], paint: { "fill-color": theme.bg } },
           {
             id: "land-line",
             type: "line",
             source: "land",
             paint: { "line-color": theme.line, "line-width": 0.8 },
+          },
+          {
+            id: "paleo-ice",
+            type: "fill",
+            source: "paleo",
+            filter: ["==", ["get", "kind"], "ice"],
+            paint: { "fill-color": theme.ice, "fill-opacity": 0.82 },
+          },
+          {
+            id: "paleo-ice-line",
+            type: "line",
+            source: "paleo",
+            filter: ["==", ["get", "kind"], "ice"],
+            paint: { "line-color": theme.ice, "line-width": 1, "line-opacity": 0.9 },
           },
         ],
       },
@@ -217,6 +284,40 @@ export default function MapView() {
     let loaded = false;
     let prevSelected: string | null = null;
     let raf = 0;
+
+    // Migration routes: each one's timed line, built once the sites are loaded; redrawn as the year moves.
+    let routeLines: { route: (typeof ROUTES)[number]; points: TimedPoint[] }[] | null = null;
+    const applyRoutes = () => {
+      const data = getData();
+      if (!data) return;
+      routeLines ??= ROUTES.flatMap((route) => {
+        try {
+          const points = timeline(route, (id) => {
+            const f = data.features.find((x) => x.id === id);
+            const b = data.bboxOf.get(id);
+            return f && b ? { lon: b[0], lat: b[1], start_year: f.start_year, end_year: f.end_year } : undefined;
+          });
+          return [{ route, points }];
+        } catch (e) {
+          console.warn(e);
+          return [];
+        }
+      });
+      const { year, routes } = useStore.getState();
+      (map.getSource("routes") as maplibregl.GeoJSONSource | undefined)?.setData(routes ? routesGeoJSON(routeLines, year) : EMPTY);
+    };
+
+    // Coastlines and ice sheets: swap the snapshot when the year crosses into another one.
+    let paleoShown: string | null = null;
+    const applyPaleo = () => {
+      loadPaleo().then((index) => {
+        const { year, paleo } = useStore.getState();
+        const id = index && paleo ? snapshotAt(index, year) : null;
+        if (id === paleoShown) return;
+        paleoShown = id;
+        (map.getSource("paleo") as maplibregl.GeoJSONSource | undefined)?.setData(id ? paleoUrl(id) : EMPTY);
+      });
+    };
 
     const applyFilters = () => {
       const { year } = useStore.getState();
@@ -328,10 +429,46 @@ export default function MapView() {
         const image = iconImage(CATEGORY_PATH[category], CATEGORY_STYLE[category].ink);
         if (image) map.addImage(name, image.data, { pixelRatio: image.pixelRatio });
       }
+      const arrow = arrowImage();
+      if (arrow) map.addImage("route-arrow", arrow.data, { pixelRatio: arrow.pixelRatio, sdf: true });
+      map.addSource("routes", { type: "geojson", data: EMPTY });
+      map.addLayer({
+        id: "route-casing",
+        type: "line",
+        source: "routes",
+        filter: ["!=", ["get", "head"], true],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "rgba(10, 14, 26, 0.7)", "line-width": 6.5 },
+      });
+      map.addLayer({
+        id: "route-line",
+        type: "line",
+        source: "routes",
+        filter: ["!=", ["get", "head"], true],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": ["get", "color"], "line-width": 3.5 },
+      });
+      map.addLayer({
+        id: "route-head",
+        type: "symbol",
+        source: "routes",
+        filter: ["==", ["get", "head"], true],
+        layout: {
+          "icon-image": "route-arrow",
+          "icon-size": 1.4,
+          "icon-rotate": ["get", "bearing"],
+          "icon-rotation-alignment": "map",
+          "icon-allow-overlap": true,
+          "icon-ignore-placement": true,
+        },
+        paint: { "icon-color": ["get", "color"], "icon-halo-color": "rgba(10, 14, 26, 0.8)", "icon-halo-width": 2 },
+      });
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
       loaded = true;
+      applyPaleo();
+      loadData().then(applyRoutes);
       applyFilters();
       applyVisibility();
       applySelection();
@@ -367,11 +504,21 @@ export default function MapView() {
       const sorted = [...seen.values()]
         .sort((a, b) => Math.round(a.dist / 6) - Math.round(b.dist / 6) || a.rank - b.rank)
         .map((x) => x.props);
-      if (sorted.length === 0) useStore.getState().select(null);
-      else useStore.getState().select(sorted[0].id, sorted);
+      if (sorted.length === 0) {
+        useStore.getState().select(null);
+        const route = map.queryRenderedFeatures(
+          [
+            [x - r, y - r],
+            [x + r, y + r],
+          ],
+          { layers: ROUTE_LAYERS },
+        )[0];
+        const found = route && ROUTES.find((rt) => rt.id === route.properties.id);
+        if (found) routePopup(found).setLngLat(e.lngLat).addTo(map);
+      } else useStore.getState().select(sorted[0].id, sorted);
     });
 
-    for (const id of INTERACTIVE_LAYERS) {
+    for (const id of [...INTERACTIVE_LAYERS, "route-line"]) {
       map.on("mouseenter", id, () => (map.getCanvas().style.cursor = "pointer"));
       map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
     }
@@ -386,6 +533,10 @@ export default function MapView() {
         map.setPaintProperty("bg", "background-color", t.bg);
         map.setPaintProperty("land-fill", "fill-color", t.fill);
         map.setPaintProperty("land-line", "line-color", t.line);
+        map.setPaintProperty("paleo-land", "fill-color", t.fill);
+        map.setPaintProperty("paleo-sea", "fill-color", t.bg);
+        map.setPaintProperty("paleo-ice", "fill-color", t.ice);
+        map.setPaintProperty("paleo-ice-line", "line-color", t.ice);
       }
       if (state.year !== prev.year || state.enabled !== prev.enabled) {
         // Auto-deselect if the selected entity is no longer visible.
@@ -417,6 +568,8 @@ export default function MapView() {
         cancelAnimationFrame(raf);
         raf = requestAnimationFrame(applyFilters);
       }
+      if (state.year !== prev.year || state.paleo !== prev.paleo) applyPaleo();
+      if (state.year !== prev.year || state.routes !== prev.routes) applyRoutes();
       if (state.enabled !== prev.enabled) applyVisibility();
       if (state.selectedId !== prev.selectedId) applySelection();
     });

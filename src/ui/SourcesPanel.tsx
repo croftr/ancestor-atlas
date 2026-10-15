@@ -1,4 +1,6 @@
 import { useData } from "../map/data";
+import { usePaleo } from "../map/paleo";
+import { ROUTES } from "../routes/routes";
 
 /**
  * Data sources and credits, shown from the side menu (it replaces the legend's "Data sources"
@@ -6,6 +8,8 @@ import { useData } from "../map/data";
  */
 export default function SourcesContent() {
   const data = useData();
+  const paleo = usePaleo();
+  const routeSources = [...new Map(ROUTES.map((r) => [r.source.url, r.source])).values()];
   return (
     <div className="sources-panel">
       <p className="muted sources-intro">
@@ -16,6 +20,21 @@ export default function SourcesContent() {
           <li key={s.id}>
             <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="muted">· {s.licence}</span>
             <div className="muted">{s.citation}</div>
+          </li>
+        ))}
+      </ul>
+      <div className="settings-label sources-map-label">Ice Age geography and climate</div>
+      <ul className="sources-list">
+        {(paleo?.sources ?? []).map((s) => (
+          <li key={s.url}>
+            <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="muted">· {s.licence}</span>
+            <div className="muted">{s.citation}</div>
+          </li>
+        ))}
+        {routeSources.map((s) => (
+          <li key={s.url}>
+            Migration routes: <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a> <span className="muted">· CC BY-SA 4.0</span>
+            <div className="muted">Each route joins dated sites on the globe, which carry their own sources.</div>
           </li>
         ))}
       </ul>

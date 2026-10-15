@@ -33,6 +33,10 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🦴 **Ancient Hominid Fossil Sites**: Discover the real-world locations where famous fossils were found — from *Sahelanthropus* and *Australopithecus* ("Lucy") to *Homo erectus*, Neanderthals, and early *Homo sapiens* — complete with artist reconstructions, fossil details, and geological contexts.
 - 🪨 **Archaeological Cultures & Prehistoric Sites**: See where ancient tools, rock art, and early cultural traditions appeared across Africa, Europe, Asia, Oceania, and the Americas.
 - 🏛️ **Early Civilizations & Polities**: Watch early city-states, kingdoms, and civilizations emerge, grow, and interact across the globe.
+- 🧊 **Ice Age Coastlines & Ice Sheets**: The globe redraws its coastlines as sea level rose and fell: Beringia, Sunda, Sahul and Doggerland appear as dry land, and the great ice sheets spread over North America and northern Europe (sea level for the last 800,000 years; ice sheets for the last 80,000).
+- 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas, each route growing as the slider passes the dated fossil sites it joins.
+- 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years; hover it for the climate and sea level at any moment.
+- 🤝 **Who Lived When**: Each species card lists the other species alive at the same time.
 - 🔍 **Instant Search**: Search across any species, fossil discovery, archaeological site, or civilization to jump directly to it in space and time.
 - 🎨 **Custom Globe Themes**: Choose from multiple basemap styles (including dark globe, parchment, and blueprint themes) to suit your viewing preference.
 
@@ -96,6 +100,8 @@ npm run data:check        # Verify public/data matches curated inputs (runs on b
 npm run data:report       # Generate QA report & work list (data/build/qa-report.md)
 npm run sites:candidates  # Search Wikidata items for unsourced sites
 npm run sites:sync        # Synchronise coordinates for confirmed Wikidata items
+npm run data:fetch:paleo  # Download the Ice Age geography and climate inputs (ETOPO, Gowan et al., sea level, LR04)
+npm run data:paleo        # Build public/data/paleo/ (coastlines, ice) and public/data/climate.json (slow: ~15 min)
 npm test                  # Run automated test suites (Vitest)
 ```
 
@@ -157,6 +163,25 @@ assemblages whose culture maps through the `road` rows of `culture-labels.csv`, 
 the same clipping, merging and 2 km rules. Cite: Kandel, A.W. et al., 2023. The ROCEEH Out of Africa Database (ROAD): A large-scale
 research database serves as an indispensable tool for human evolutionary studies. *PLOS ONE* 18(8): e0289513.
 https://doi.org/10.1371/journal.pone.0289513
+
+### Ice Age Geography, Climate and Routes
+
+Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm run data:fetch:paleo` into
+`data/raw/paleo/`, and committed; they are not part of `data:build` or its fingerprint.
+
+- **Coastlines and ice, 0–80 ka**: Gowan, E.J. et al., 2021. A new global ice sheet reconstruction for the past 80 000
+  years. *Nature Communications* 12: 1199 (PaleoMIST 1.0, CC BY 4.0; data https://doi.org/10.1594/PANGAEA.905800). Its
+  1° deformed topography change, every 2,500 years, is added to ETOPO 2022's present-day relief at 0.1° (NOAA NCEI,
+  public domain, https://doi.org/10.25921/fd45-gt74); ice is its grounded ice thickness.
+- **Coastlines, 80–800 ka**: the Spratt, R.M. & Lisiecki, L.E., 2016 sea level stack (*Climate of the Past* 12:
+  1079–1092), applied evenly to ETOPO in 10 m steps (no ice sheets, no isostasy). Older: today's coastlines.
+- Only sea joined to the ocean counts (a flood fill from the open ocean and the enclosed seas), so lakes and inland
+  basins such as the Caspian and the Dead Sea are left alone.
+- **Climate strip**: Lisiecki, L.E. & Raymo, M.E., 2005. A Pliocene-Pleistocene stack of 57 globally distributed benthic
+  δ18O records. *Paleoceanography* 20: PA1003.
+- **Migration routes** (`src/routes/routes.ts`): hand-picked like the tours. Each route joins dated sites already on the
+  globe (so each date and place carries that site's source); `via` points only bend the line along a coast or strait.
+  The direction of each route follows Wikipedia's *Early human migrations* (pinned revision).
 
 ### Provenance Rules
 
