@@ -125,12 +125,24 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  if (!data) return null;
+  const isTouring = useStore((s) => s.tour !== null);
+  const [manualIndex, setManualIndex] = useState(0);
+
   const feature = selectedId ? hits.find((h) => h.id === selectedId) : undefined;
-  const entity: Entity | undefined = groupId
-    ? data.entityById.get(groupId)
-    : feature && data.entityById.get(feature.entity_id);
-  if (!entity) return null;
+  const entity: Entity | undefined = data
+    ? groupId
+      ? data.entityById.get(groupId)
+      : feature
+        ? data.entityById.get(feature.entity_id)
+        : undefined
+    : undefined;
+
+  useEffect(() => {
+    setManualIndex(0);
+    if (entity) preloadPictures(entity);
+  }, [entity?.id]);
+
+  if (!data || !entity) return null;
 
   const style = CATEGORY_STYLE[entity.category];
   const parent = entity.parent_id ? data.entityById.get(entity.parent_id) : undefined;
@@ -166,13 +178,6 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         : entity.fallback_image
           ? { url: entity.fallback_image.url, name: entity.name, credit: entity.fallback_image.credit, note: `Shows ${entity.fallback_image.label}` }
           : undefined;
-  const isTouring = useStore((s) => s.tour !== null);
-  const [manualIndex, setManualIndex] = useState(0);
-
-  useEffect(() => {
-    setManualIndex(0);
-    preloadPictures(entity);
-  }, [entity.id]);
 
   const pictures = entityPictures(entity, parent);
   const hasMultiplePictures = !isTouring && pictures.length > 1;
