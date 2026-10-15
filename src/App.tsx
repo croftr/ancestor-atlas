@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type CSSProperties } from "react";
 import MapView from "./map/MapView";
 import Legend from "./ui/Legend";
 import InfoPanel from "./ui/InfoPanel";
@@ -42,8 +42,13 @@ export default function App() {
   // An open info card on the globe: the time slider narrows so the two never overlap.
   const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null);
   const touring = useStore((s) => s.tour !== null);
+  // The card's width as dragged (desktop); the CSS clamps it to the window (ui/sidenav.css).
+  const cardWidth = useStore((s) => s.cardWidth);
   return (
-    <div className={`app view-${view}${view === "globe" && hasCard ? " has-card" : ""}${touring ? " touring" : ""}`}>
+    <div
+      className={`app view-${view}${view === "globe" && hasCard ? " has-card" : ""}${touring ? " touring" : ""}`}
+      style={cardWidth ? ({ "--card-user-w": `${cardWidth}px` } as CSSProperties) : undefined}
+    >
       {/* Small screens stack the globe page in a scrolling column (search, legend, card, globe,
           slider): see ui/stacked.css. Elsewhere the wrapper is display: contents. */}
       <div className="globe-page">

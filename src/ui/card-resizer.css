@@ -1,0 +1,26 @@
+/* The info card's resize handle (CardResizer.tsx): a strip over the card's left edge. */
+.card-resize {
+  position: absolute; top: 8px; right: calc(var(--card-w) - 6px); z-index: 26;
+  width: 12px; max-height: calc(100vh - 16px);
+  cursor: col-resize; touch-action: none;
+  display: grid; place-items: center;
+}
+/* A thin line along the edge, showing on hover, focus and while dragging. */
+.card-resize::before {
+  content: ""; position: absolute; top: 12px; bottom: 12px; left: 5px; width: 2px; border-radius: 1px;
+  background: #8ec5ff; opacity: 0; transition: opacity 0.15s ease;
+}
+.card-resize-grip {
+  position: relative; width: 6px; height: 36px; border-radius: 3px;
+  background: rgba(14, 19, 36, 0.9); border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  opacity: 0; transition: opacity 0.15s ease;
+}
+.card-resize:hover::before, .card-resize:focus-visible::before, .card-resize.dragging::before { opacity: 0.7; }
+.card-resize:hover .card-resize-grip, .card-resize:focus-visible .card-resize-grip, .card-resize.dragging .card-resize-grip { opacity: 1; }
+.card-resize:focus-visible { outline: none; }
+/* While dragging: the resize cursor everywhere and no text selection. */
+body.card-resizing { cursor: col-resize; user-select: none; -webkit-user-select: none; }
+body.card-resizing iframe { pointer-events: none; }
+/* Where the card stacks (ui/stacked.css), its width is the screen's: no handle. */
+@media (max-width: 900px) { .card-resize { display: none; } }

@@ -63,6 +63,12 @@ interface AppState {
    */
   pictureViewer: boolean;
   setPictureViewer(open: boolean): void;
+  /**
+   * The info card's width (px) as dragged by its handle on desktop (ui/CardResizer.tsx); null = the
+   * default. Kept in memory only: it lasts the visit, and a reload starts from the default again.
+   */
+  cardWidth: number | null;
+  setCardWidth(w: number | null): void;
   setYear(y: number): void;
   toggleCategory(c: Category): void;
   select(id: string | null, hits?: FeatureProps[]): void;
@@ -111,6 +117,8 @@ export const useStore = create<AppState>((set, get) => ({
   tour: null,
   pictureViewer: false,
   setPictureViewer: (open) => set({ pictureViewer: open }),
+  cardWidth: null,
+  setCardWidth: (w) => set({ cardWidth: w }),
   setYear: (y) => set({ year: snapYear(y) }), // leaves a tour playing: only its pause button pauses it
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
   setIntroOpen: (open) => {

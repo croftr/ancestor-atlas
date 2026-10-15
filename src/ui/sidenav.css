@@ -96,11 +96,19 @@
 .app .legend-dock { left: calc(var(--nav-w) + 18px); }
 .app .search { left: calc(50% + var(--nav-w) / 2); }
 .app .time-slider { left: calc(50% + var(--nav-w) / 2); width: min(calc(100% - 120px - var(--nav-w)), 1100px); }
-/* With the info card open, the slider centres in the space between the rail and the card. */
-.app { --card-w: 352px; }
+/* With the info card open, the slider centres in the space between the rail and the card. The card
+   is 352px unless dragged wider or narrower (--card-user-w, ui/CardResizer.tsx), always leaving the
+   globe at least 480px. */
+.app { --card-w: clamp(300px, var(--card-user-w, 352px), max(300px, 100vw - var(--nav-w) - 480px)); }
 .app.has-card .time-slider {
   left: calc(var(--nav-w) + (100% - var(--nav-w) - var(--card-w)) / 2);
   width: min(calc(100% - var(--nav-w) - var(--card-w) - 48px), 1100px);
+}
+/* The search stays clear of a widened card: narrower, and moved left if it would reach it. */
+.app.has-card .search {
+  --search-w: clamp(240px, calc(100vw - var(--nav-w) - var(--card-w) - 368px), 380px);
+  width: var(--search-w);
+  left: min(calc(50% + var(--nav-w) / 2), calc(100% - var(--card-w) - 16px - var(--search-w) / 2));
 }
 /* The map's attribution moves left of the card too. */
 .app.has-card .maplibregl-ctrl-bottom-right { right: var(--card-w); }

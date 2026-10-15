@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type TouchEvent } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type TouchEvent } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE } from "../config";
 import { formatRange, formatYear } from "../time/scale";
@@ -18,6 +18,7 @@ import { CategoryBadge } from "./CategoryIcon";
 import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "./PictureNav";
 import PictureViewer from "./PictureViewer";
+import CardResizer from "./CardResizer";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -104,6 +105,12 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // changes while the card is scrolled out of view (say, after tapping the globe below it),
   // bring the card's top back into view.
   const cardRef = useRef<HTMLDivElement>(null);
+  // The full card's element, for its resize handle (desktop), which follows its height.
+  const [panelEl, setPanelEl] = useState<HTMLDivElement | null>(null);
+  const panelRef = useCallback((el: HTMLDivElement | null) => {
+    cardRef.current = el;
+    setPanelEl(el);
+  }, []);
   // Small screens: a quick sideways swipe on the card steps through the sites; a swipe down on
   // its title minimises it (globe). Slow drags and mostly-vertical moves are left to scrolling.
   const swipe = useRef<{ x: number; y: number; t: number; onHead: boolean } | null>(null);
@@ -372,8 +379,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   return (
     <>
     {viewer}
+    {!stacked && <CardResizer panel={panelEl} />}
     <div
-      ref={cardRef}
+      ref={panelRef}
       className={`panel info-panel${minimised ? " minimised" : ""}`}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}

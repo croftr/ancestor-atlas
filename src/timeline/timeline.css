@@ -235,10 +235,12 @@
 .tl-tip-name { font-weight: 700; margin-bottom: 2px; }
 
 /* Info card on this page: beside the chart, which narrows to make room for it. */
-.timeline-page { --card-w: 0px; }
-.timeline-page.has-card { --card-w: 356px; }
+/* 340px wide unless dragged (--card-user-w, ui/CardResizer.tsx), leaving the chart at least 480px. */
+.timeline-page { --card-w: 0px; --card-tl-w: clamp(300px, var(--card-user-w, 340px), max(300px, 100vw - var(--nav-w) - 480px)); }
+.timeline-page.has-card { --card-w: calc(16px + var(--card-tl-w)); }
 .tl-main, .tl-overview { margin-right: calc(16px + var(--card-w)); }
-.timeline-page .info-panel { top: 92px; right: 16px; width: 340px; max-height: calc(100vh - 104px); z-index: 25; }
+.timeline-page .info-panel { top: 92px; right: 16px; width: var(--card-tl-w); max-height: calc(100vh - 104px); z-index: 25; }
+.timeline-page .card-resize { top: 92px; right: calc(16px + var(--card-tl-w) - 6px); }
 @media (max-width: 900px) {
   /* Too narrow to share: the card floats over the chart instead. */
   .timeline-page.has-card { --card-w: 0px; }
