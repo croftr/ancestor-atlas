@@ -89,7 +89,7 @@ button.pv-dot { cursor: pointer; }
 .pv-dot.active { background: #fff; width: 22px; border-radius: 4px; }
 
 .pv-tour {
-  display: grid; grid-template-columns: repeat(3, auto) 1fr; align-items: center; gap: 4px 8px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
   width: min(440px, 100%);
   padding: 8px 12px 6px; border-radius: 12px;
   background: rgba(10, 14, 28, 0.6); border: 1px solid rgba(255, 255, 255, 0.12);
@@ -98,8 +98,8 @@ button.pv-dot { cursor: pointer; }
 .pv-tour button { width: 34px; height: 34px; border-radius: 50%; }
 .pv-tour button:disabled { opacity: 0.35; cursor: default; }
 .pv-tour .pv-tour-play { width: 40px; height: 40px; background: rgba(195, 155, 255, 0.25); border-color: rgba(195, 155, 255, 0.55); }
-.pv-tour-text { font-size: 0.8rem; color: #c8d2e8; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pv-tour-progress { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.pv-tour-text { flex: 1; min-width: 0; font-size: 0.8rem; color: #c8d2e8; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pv-tour-progress { flex: 0 0 100%; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
 .pv-tour-progress span {
   display: block; height: 100%; background: #c39bff; transform-origin: left;
   animation: tour-hold linear forwards;

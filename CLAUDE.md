@@ -148,9 +148,10 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   (`src/ui/PictureNav.tsx`) let the user manually rotate through the pictures whenever an item has more than 1 picture.
   Tapping the card's picture (or its expand button; on phones the compact card's picture) opens the full-screen viewer
   (`src/ui/PictureViewer.tsx`, store `pictureViewer`): the picture whole over a blurred copy of itself, caption and credit.
-  Outside tours it steps by arrows/dots/keys/swipes. In a tour it follows the narration's picture timing with a slow
-  drift, carries a small pause/prev/next bar, and stays on from stop to stop (hidden while the globe travels) until
-  closed; Escape closes only the viewer.
+  It steps by arrows/dots/keys/swipes. In a tour it follows the narration's picture timing with a slow drift
+  until the viewer steps by hand (then the pictures stay put for that stop; the narration and tour are untouched),
+  carries a small bar (previous picture, pause, next picture), and stays on from stop to stop (hidden while the globe
+  travels) until closed; Escape closes only the viewer.
   hominin-divergence: Didier Descouens' Commons photo of the Toumaï cranium (replaced Rob's untraceable chad.png),
   then the Orrorin femur cast (Jonathan Chen) to match the narration's second half. Every other event
   (14 Oct 2026): two real photos from Wikimedia Commons (free licences only; no NC/ND), 900 px WebP in

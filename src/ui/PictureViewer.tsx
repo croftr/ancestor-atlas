@@ -1,4 +1,4 @@
-import { useEffect, useRef, type CSSProperties, type TouchEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type TouchEvent } from "react";
 import { createPortal } from "react-dom";
 import { useStore } from "../store";
 import { tourById } from "../tours/tours";
@@ -18,11 +18,12 @@ const Chevron = ({ dir }: { dir: -1 | 1 }) => (
  * A card's pictures full screen: the picture shown whole over a blurred, darkened copy of itself,
  * with its caption and credit. Opened by tapping the picture on the info card.
  *
- * Outside a tour the viewer steps through the pictures (arrows, dots, keys, swipes) and a tap
- * beside the picture closes it. During a tour the pictures change with the narration as on the
- * card, slowly drifting closer, and the viewer stays on from stop to stop (the info card hides it
- * while the globe travels); arrows and Space still drive the tour, and a small bar pauses it.
- * Escape closes the viewer, not the tour.
+ * The viewer steps through the pictures (arrows, dots, keys, swipes). Outside a tour a tap beside
+ * the picture closes it. During a tour the pictures change with the narration as on the card,
+ * slowly drifting closer, until the viewer steps through them by hand: from then on, at this stop,
+ * the pictures stay where they are put, and the narration plays on untouched. The viewer stays
+ * on from stop to stop (the info card hides it while the globe travels); a small bar pauses the
+ * tour (Space too) and steps the pictures. Escape closes the viewer, not the tour.
  */
 export default function PictureViewer({
   entity,
@@ -41,19 +42,26 @@ export default function PictureViewer({
   const tour = useStore((s) => s.tour);
   const touring = tour !== null;
   const count = pictures.length;
-  const picture = pictures[Math.min(Math.max(0, index), count - 1)];
-  const step = (d: number) => onIndex((index + d + count) % count);
+  // On a tour, a picture picked by hand (for this stop) overrides the narration's timing; the tour
+  // itself is not touched. Outside a tour the card follows the viewer (`onIndex`).
+  const [picked, setPicked] = useState<{ entity: string; index: number } | null>(null);
+  const shownIndex = touring && picked?.entity === entity.id ? picked.index : index;
+  const picture = pictures[Math.min(Math.max(0, shownIndex), count - 1)];
+  const go = (i: number) => (touring ? setPicked({ entity: entity.id, index: i }) : onIndex(i));
+  const step = (d: number) => go((shownIndex + d + count) % count);
 
-  // Escape closes the viewer only (not the card, not the tour); outside a tour the arrows step
-  // through the pictures rather than moving the time slider. Captured before the app's own keys.
-  const keyState = useRef({ touring, step, count });
-  keyState.current = { touring, step, count };
+  // Escape closes the viewer only (not the card, not the tour); the arrows step through the
+  // pictures, rather than moving the time slider or the tour. Captured before the app's own keys.
+  const keyState = useRef({ step, count });
+  keyState.current = { step, count };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const k = keyState.current;
       if (e.key === "Escape") setOpen(false);
-      else if (!k.touring && k.count > 1 && (e.key === "ArrowLeft" || e.key === "ArrowRight"))
-        k.step(e.key === "ArrowLeft" ? -1 : 1);
+      // (Always kept here, even with one picture, so they never jump the tour to another stop.)
+      else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        if (k.count > 1) k.step(e.key === "ArrowLeft" ? -1 : 1);
+      }
       else return;
       e.preventDefault();
       e.stopImmediatePropagation();
@@ -70,7 +78,7 @@ export default function PictureViewer({
     return () => before?.focus?.({ preventScroll: true });
   }, []);
 
-  // Touch: swipe sideways for the next picture (outside a tour), swipe down to close.
+  // Touch: swipe sideways for the next picture, swipe down to close.
   const swipe = useRef<{ x: number; y: number; t: number } | null>(null);
   const onTouchStart = (e: TouchEvent) => {
     if (e.touches.length !== 1) return;
@@ -82,7 +90,7 @@ export default function PictureViewer({
     if (!s || Date.now() - s.t > 600) return;
     const dx = e.changedTouches[0].clientX - s.x;
     const dy = e.changedTouches[0].clientY - s.y;
-    if (!touring && count > 1 && Math.abs(dx) > 50 && Math.abs(dx) > 2 * Math.abs(dy)) step(dx < 0 ? 1 : -1);
+    if (count > 1 && Math.abs(dx) > 50 && Math.abs(dx) > 2 * Math.abs(dy)) step(dx < 0 ? 1 : -1);
     else if (dy > 80 && dy > 2 * Math.abs(dx)) setOpen(false);
   };
 
@@ -149,33 +157,26 @@ export default function PictureViewer({
           </div>
         )}
         {count > 1 && (
-          <div className="pv-dots" role={touring ? undefined : "tablist"} aria-label="Pictures">
-            {pictures.map((p, i) =>
-              touring ? (
-                <span key={p.url + i} className={`pv-dot${i === index ? " active" : ""}`} aria-hidden="true" />
-              ) : (
-                <button
-                  key={p.url + i}
-                  className={`pv-dot${i === index ? " active" : ""}`}
-                  onClick={() => onIndex(i)}
-                  role="tab"
-                  aria-selected={i === index}
-                  aria-label={`Picture ${i + 1} of ${count}`}
-                />
-              ),
-            )}
+          <div className="pv-dots" role="tablist" aria-label="Pictures">
+            {pictures.map((p, i) => (
+              <button
+                key={p.url + i}
+                className={`pv-dot${i === shownIndex ? " active" : ""}`}
+                onClick={() => go(i)}
+                role="tab"
+                aria-selected={i === shownIndex}
+                aria-label={`Picture ${i + 1} of ${count}`}
+              />
+            ))}
           </div>
         )}
         {tour && tourInfo && (
           <div className="pv-tour">
-            <button
-              onClick={() => useStore.getState().tourGo(tour.index - 1)}
-              disabled={tour.index === 0}
-              aria-label="Previous stop"
-              title="Previous stop (←)"
-            >
-              <Chevron dir={-1} />
-            </button>
+            {count > 1 && (
+              <button onClick={() => step(-1)} aria-label="Previous picture" title="Previous picture (←)">
+                <Chevron dir={-1} />
+              </button>
+            )}
             <button
               className="pv-tour-play"
               onClick={() => useStore.getState().pauseTour(!tour.paused)}
@@ -186,14 +187,11 @@ export default function PictureViewer({
                 {tour.paused ? <path fill="currentColor" d="M4.5 2.5v11L13.5 8z" /> : <path fill="currentColor" d="M4 2.5h3v11H4zM9 2.5h3v11H9z" />}
               </svg>
             </button>
-            <button
-              onClick={() => useStore.getState().tourGo(tour.index + 1)}
-              disabled={tour.index >= tourInfo.stops.length - 1}
-              aria-label="Next stop"
-              title="Next stop (→)"
-            >
-              <Chevron dir={1} />
-            </button>
+            {count > 1 && (
+              <button onClick={() => step(1)} aria-label="Next picture" title="Next picture (→)">
+                <Chevron dir={1} />
+              </button>
+            )}
             <span className="pv-tour-text">
               {tourInfo.title} · {tour.index + 1} of {tourInfo.stops.length}
             </span>
