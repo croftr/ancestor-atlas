@@ -130,7 +130,7 @@ async function generateRaw(e: CuratedSpecies): Promise<string> {
  * audio track. Crop the centre 4:3 frame back to 640x480 and strip audio so frame 0 matches the WebP
  * portrait pixel-for-pixel.
  */
-function encodeVideo(input: string, out: string): number {
+function encodeVideo(input: string, out: string, imagePath?: string): number {
   mkdirSync(out.slice(0, out.lastIndexOf("/")), { recursive: true });
   execFileSync(
     "ffmpeg",
@@ -158,6 +158,34 @@ function encodeVideo(input: string, out: string): number {
     ],
     { stdio: "inherit" },
   );
+
+  if (imagePath && existsSync(out)) {
+    // Overwrite the still image with frame 0 of the final cropped video so the transition is 100% seamless
+    execFileSync(
+      "ffmpeg",
+      [
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        out,
+        "-vframes",
+        "1",
+        "-vf",
+        "select=eq(n\\,0)",
+        "-c:v",
+        "libwebp",
+        "-lossless",
+        "0",
+        "-q:v",
+        "90",
+        imagePath,
+      ],
+      { stdio: "inherit" },
+    );
+  }
+
   return Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out], { encoding: "utf8" }));
 }
 
@@ -238,7 +266,8 @@ for (const e of targets) {
     console.error(`✗ ${e.id}: ${(err as Error).message}\n  Stopping here; the videos above are kept.`);
     break;
   }
-  const seconds = encodeVideo(rawPath, out);
+  const imgPath = e.image_url?.startsWith("/") ? `public${e.image_url}` : undefined;
+  const seconds = encodeVideo(rawPath, out, imgPath);
   const kb = (statSync(out).size / 1024).toFixed(0);
   const uploaded = upload(out, key);
   console.log(`${uploaded ? "✓" : "…"} ${e.id}: ${key} (${seconds.toFixed(1)} s, ${kb} KB)${uploaded ? "" : " not uploaded"}`);

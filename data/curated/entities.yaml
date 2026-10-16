@@ -10,7 +10,7 @@
     - recall
   image_url: /images/species/sahelanthropus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
-  video: { src: video/species/sahelanthropus-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  video: { src: video/species/sahelanthropus-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/sahelanthropus-1.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Cast of the Toumaï skull from the side", source: "https://commons.wikimedia.org/wiki/File:Sahelenthropus_tchadensis-MGL_95214-P4150636-black.jpg" }
     - { url: /images/extra/sahelanthropus-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Front view of the Toumaï skull (cast), showing its heavy brow ridge and small canine teeth", source: "https://commons.wikimedia.org/wiki/File:Sahelanthropus_tchadensis_-_TM_266-01-060-1.jpg" }
@@ -65,6 +65,7 @@
     - recall
   image_url: /images/species/ardipithecus-ramidus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/ardipithecus-ramidus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/ardipithecus-ramidus-1.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Middle Awash in Ethiopia's Afar region; Aramis lies within it", source: "https://commons.wikimedia.org/wiki/File:Middle_Awash_map.jpg" }
     - { url: /images/extra/ardipithecus-ramidus-2.webp, credit: "Sailko, CC BY 3.0, via Wikimedia Commons", caption: "Ardi's skeleton (cast), 4.4 million years old", source: "https://commons.wikimedia.org/wiki/File:Resti_di_ardipithecus_ramidus_detto_ardi,_da_aramis_(afar),_4,4_milioni_di_anni_fa_01.jpg" }
@@ -103,6 +104,7 @@
     - recall
   image_url: /images/species/australopithecus-afarensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-afarensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-afarensis-1.webp, credit: "Commons user 120, CC BY 2.5, via Wikimedia Commons", caption: "Cast of Lucy's skeleton, about 40 percent complete", source: "https://commons.wikimedia.org/wiki/File:Lucy_blackbg.jpg" }
     - { url: /images/extra/australopithecus-afarensis-4.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Australopithecus afarensis skull (cast), with its small braincase and projecting face", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_afarensis_skull_-_Naturmuseum_Senckenberg_-_DSC02102.JPG" }
@@ -232,6 +234,7 @@
     - recall
   image_url: /images/species/paranthropus-boisei.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/paranthropus-boisei-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/paranthropus-boisei-1.webp, credit: "Guérin Nicolas, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cast of OH 5, the skull Mary Leakey found at Olduvai in 1959", source: "https://commons.wikimedia.org/wiki/File:Paranthropus_boisei_(University_of_Zurich).JPG" }
     - { url: /images/extra/paranthropus-boisei-3.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Peninj jaw of Paranthropus boisei from Tanzania, showing its huge flat molars (cast)", source: "https://commons.wikimedia.org/wiki/File:Peninj_mandible_replica.jpg" }
@@ -270,6 +273,7 @@
     - recall
   image_url: /images/species/homo-habilis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-habilis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-habilis-2.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "OH 7 (replica): the jaw from Olduvai that defined Homo habilis in 1964", source: "https://commons.wikimedia.org/wiki/File:OH_7_replica_01.JPG" }
     - { url: /images/extra/homo-habilis-4.webp, credit: "Geni, CC BY-SA 4.0, via Wikimedia Commons", caption: "Oldowan stone chopping tool from Olduvai Gorge, Tanzania (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Olduvai_stone_chopping_tool_british_museum.JPG" }
@@ -308,6 +312,7 @@
     - recall
   image_url: /images/species/homo-erectus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-erectus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-erectus-3.webp, credit: "Gerbil, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skull 5 from Dmanisi in Georgia, about 1.8 million years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_fossils_D4500_%2B_D2600.jpg" }
     - { url: /images/extra/homo-erectus-1.webp, credit: "Vicpeters, CC BY 4.0, via Wikimedia Commons", caption: "Turkana Boy, about 1.5 million years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Turkana_boy_cast.jpg" }
@@ -330,6 +335,7 @@
     - recall
   image_url: /images/species/homo-antecessor.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-antecessor-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-antecessor-1.webp, credit: "Malopez 21, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Gran Dolina dig in the Sierra de Atapuerca, Spain", source: "https://commons.wikimedia.org/wiki/File:Atapuerca,_excavaci%C3%B3n_TD.jpg" }
     - { url: /images/extra/homo-antecessor-3.webp, credit: "José-Manuel Benito, public domain, via Wikimedia Commons", caption: "Facial bone fragment (ATD6-69) of Homo antecessor from Gran Dolina, combining a modern-looking midface with primitive teeth", source: "https://commons.wikimedia.org/wiki/File:Homo_antecessor.jpg" }
@@ -352,6 +358,7 @@
     - recall
   image_url: /images/species/homo-heidelbergensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-heidelbergensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-heidelbergensis-1.webp, credit: "Gerbil, CC BY 3.0, via Wikimedia Commons", caption: "The Mauer jaw, found near Heidelberg in 1907", source: "https://commons.wikimedia.org/wiki/File:Mandibel_from_Mauer.JPG" }
     - { url: /images/extra/homo-heidelbergensis-3.webp, credit: "Günter Bechly, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Steinheim skull from Germany, with its strong brow ridge and large braincase", source: "https://commons.wikimedia.org/wiki/File:Homo_steinheimensis,_holotype.jpg" }
@@ -374,6 +381,7 @@
     - recall
   image_url: /images/species/neanderthal.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/neanderthal-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/neanderthal-1.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "Model of the Sima de los Huesos shaft, Museum of Human Evolution, Burgos", source: "https://commons.wikimedia.org/wiki/File:MEH_Sima_de_los_Huesos_29-04-2012_9-38-44_1466x2073.JPG" }
     - { url: /images/extra/neanderthal-3.webp, credit: "José-Manuel Benito, CC BY-SA 2.5, via Wikimedia Commons", caption: "Cranium 5 ('Miguelón') from the Sima de los Huesos in Atapuerca, Spain, about 430,000 years old", source: "https://commons.wikimedia.org/wiki/File:Homo_heidelbergensis-Cranium_-5.jpg" }
@@ -396,6 +404,7 @@
     - recall
   image_url: /images/species/denisovan.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/denisovan-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/denisovan-3.webp, credit: "ЧуваевНиколай, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Denisova Cave in Siberia's Altai Mountains", source: "https://commons.wikimedia.org/wiki/File:Turist_den-peschera.jpg" }
     - { url: /images/extra/denisovan-1.webp, credit: "Thilo Parg, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Denisova finger bone, whose DNA revealed the Denisovans (replica)", source: "https://commons.wikimedia.org/wiki/File:Denisova_Phalanx_distalis.jpg" }
@@ -418,6 +427,7 @@
     - recall
   image_url: /images/species/homo-floresiensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-floresiensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-floresiensis-1.webp, credit: "Rosino, CC BY-SA 2.0, via Wikimedia Commons", caption: "Liang Bua cave on Flores, Indonesia", source: "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_cave.jpg" }
     - { url: /images/extra/homo-floresiensis-3.webp, credit: "Emőke Dénes, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of the LB1 skeleton of Homo floresiensis, standing about a metre tall", source: "https://commons.wikimedia.org/wiki/File:Em_-_Homo_floresiensis_woman_-_3.jpg" }
@@ -456,6 +466,7 @@
     - recall
   image_url: /images/species/homo-naledi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-naledi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-naledi-1.webp, credit: "Simon Fraser University, CC BY 2.0, via Wikimedia Commons", caption: "Scientists working in the Rising Star cave system, South Africa", source: "https://commons.wikimedia.org/wiki/File:Rising_star_cave_exploration_(14054047275).jpg" }
     - { url: /images/extra/homo-naledi-2.webp, credit: "Lee Roger Berger research team, CC BY 4.0, via Wikimedia Commons", caption: "Homo naledi fossils laid out by body part", source: "https://commons.wikimedia.org/wiki/File:Homo_naledi_skeletal_specimens.jpg" }
@@ -478,6 +489,7 @@
     - recall
   image_url: /images/species/homo-sapiens.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-sapiens-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-sapiens-3.webp, credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Jebel Irhoud 1 skull from Morocco, about 315,000 years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg" }
     - { url: /images/extra/homo-sapiens-1.webp, credit: "GuillaumeG, CC BY-SA 4.0, via Wikimedia Commons", caption: "Omo Kibish skull, Ethiopia (reproduction)", source: "https://commons.wikimedia.org/wiki/File:Omo_Kibish_-_MCN_4152_(cropped).jpg" }
