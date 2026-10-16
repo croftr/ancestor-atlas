@@ -31,8 +31,9 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
   description, in every tour and outside tours (the Listen button). If a description is too thin to
   narrate, rewrite the description itself; there is no per-tour text.
 - After the last stop comes the epilogue: the globe redraws the journey as a thread through every stop while
-  an end card shows the stops, the span and the tour's `closing` line (one or two sentences in `tours.ts`, shown
-  but not narrated), and the music plays on, then fades. Give a new tour a `closing` line.
+  an end card shows the stops, the span and the tour's `closing` line (one or two sentences in `tours.ts`), read
+  aloud once the thread is drawn; the music plays on, then fades. Give a new tour a `closing` line and narrate it:
+  `npm run audio:narrate -- --closing <tour id>` (about 100–180 characters).
 - Link to a tour: `#/tour/<id>` (waits for a tap, since browsers only play sound after one).
 
 ## Before you start (once)

@@ -251,7 +251,7 @@
 .tour-end-closing {
   margin: 4px auto 16px; max-width: 34ch;
   font-family: Georgia, "Times New Roman", serif; font-size: 1.02rem; line-height: 1.55; font-style: italic; color: #e9dfc8;
-  animation: tour-end-fade 2s 4s ease both;
+  animation: tour-end-fade 1.6s ease both; /* delay: EndCard, when the line is read */
 }
 .tour-end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .tour-end-actions button {

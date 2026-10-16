@@ -6,7 +6,7 @@ import { tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import EndCard from "./EndCard";
-import { EPILOGUE_MS, MUSIC_FADE_S, MUSIC_HOLD_MS, trailPoints } from "./epilogue";
+import { AFTER_CLOSING_MS, closingAt, MUSIC_FADE_S, MUSIC_HOLD_MS, trailPoints } from "./epilogue";
 import { useWakeLock } from "./useWakeLock";
 import { pictureIndexAt, preloadPictures } from "./tourPicture";
 import {
@@ -232,7 +232,8 @@ export default function TourPlayer() {
   }, [data, id, index, travel, intro, epilogue]);
 
   // The epilogue: close the card and let the globe draw the journey again (map/MapView.tsx) under
-  // the end card, while the music plays on at full level, then fades away. The end card stays.
+  // the end card; once it is drawn, the closing line is read (if narrated) over the music, which plays
+  // on at full level, then fades away. The end card stays.
   useEffect(() => {
     if (!data || id === undefined || !epilogue) return;
     const tour = tourById(id);
@@ -242,7 +243,16 @@ export default function TourPlayer() {
     useStore.getState().select(null);
     useStore.getState().setPictureViewer(false);
     useStore.setState((s) => (s.tour ? { tour: { ...s.tour, trail: trailPoints(tour, data) } } : {}));
-    patchTour({ phase: "hold", holdMs: EPILOGUE_MS, musicIn: true });
+    const voice = tour.closing ? tour.closingNarration : undefined;
+    if (voice) preloadNarration(voice.src);
+    const speakAt = closingAt(tour.stops.length);
+    // When the music starts its fade: set when the closing line ends (an estimate until then).
+    let fadeAt = MUSIC_HOLD_MS;
+    let spoken = false;
+    const hold = () => patchTour({ phase: "hold", holdMs: fadeAt + MUSIC_FADE_S * 1000 });
+    hold();
+    patchTour({ musicIn: true });
+    let cancelled = false;
     let elapsed = 0;
     let last = performance.now();
     let raf = 0;
@@ -251,15 +261,34 @@ export default function TourPlayer() {
       if (!s.tour) return;
       if (!s.tour.paused) elapsed += now - last;
       last = now;
-      if (!s.tour.musicOut && elapsed >= MUSIC_HOLD_MS) {
+      if (voice && !spoken && elapsed >= speakAt) {
+        spoken = true;
+        playNarration(voice.src)
+          .then((seconds) => {
+            if (cancelled || !Number.isFinite(seconds)) return;
+            if (useStore.getState().tour?.paused) pauseNarration();
+            fadeAt = Math.max(MUSIC_HOLD_MS, speakAt + seconds * 1000 + AFTER_CLOSING_MS);
+            hold();
+          })
+          .catch(() => {}); // blocked or missing: the music fades at MUSIC_HOLD_MS
+      }
+      const reading = voice && narrationState().playing && narrationState().src === voice.src;
+      if (!s.tour.musicOut && elapsed >= fadeAt && !reading) {
         patchTour({ musicOut: true });
         stopMusic(MUSIC_FADE_S);
+        // Later than planned (the closing line ran on): move the tour bar's end to match.
+        if (elapsed - fadeAt > 500) hold();
+        fadeAt = elapsed;
       }
-      if (elapsed >= EPILOGUE_MS) return patchTour({ done: true });
+      if (s.tour.musicOut && elapsed >= fadeAt + MUSIC_FADE_S * 1000) return patchTour({ done: true });
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      stopNarration();
+    };
   }, [data, id, epilogue]);
 
   // Pausing the tour pauses its narration and music; the music fades out when the tour ends.

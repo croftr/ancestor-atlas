@@ -104,9 +104,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   thread (`trail` layers in `MapView.tsx`; schedule and great-circle geometry in `src/tours/epilogue.ts`), then
   turns slowly; touching the globe hands the camera back. `EndCard.tsx` sits in the card's place (phones: over the
   top, the globe fitted below it): stop pictures light as the thread reaches them (tap one to go back to that stop),
-  span, the tour's `closing` line (shown, not narrated; written by Claude, Rob to review), Watch again / More tours /
-  Explore the globe. Music plays on 17 s then fades over 12 s (`stopMusic(seconds)`); the card stays until the
-  viewer chooses.
+  span, the tour's `closing` line (written by Claude, Rob approved), Watch again / More tours / Explore the globe.
+  Once the thread is drawn the closing line appears and `closingNarration` reads it (stops' voice and model;
+  `npm run audio:narrate -- --closing <id>|all`, key `narration/tours/<id>-closing-v<n>.mp3`; `--stale` covers it).
+  Music plays on at least 17 s and 4 s past the closing line, then fades over 12 s (`stopMusic(seconds)`); the card
+  stays until the viewer chooses.
 - Phones (globe): a pick, and every tour stop, opens the compact card (`.info-compact` in `InfoPanel.tsx`,
   `ui/stacked.css`): badge, name (serif), short date range, the picture filling the right edge (events square,
   never faded or covered), and the site stepper; a tap opens the full card, whose minimise button returns to it.

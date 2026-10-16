@@ -17,16 +17,23 @@ export const TRAIL_DELAY_MS = 2_600;
 /** Time from one stop to the next: one beat each, so a long tour draws faster (at most TRAIL_MAX_MS in all). */
 const BEAT_MS = 1_400;
 const TRAIL_MAX_MS = 14_000;
-/** The music plays on at full level this long, then fades over MUSIC_FADE_S; the epilogue is then over. */
+/**
+ * The music plays on at full level at least this long, and until AFTER_CLOSING_MS after the closing
+ * line has been read; then it fades over MUSIC_FADE_S, and the epilogue is over.
+ */
 export const MUSIC_HOLD_MS = 17_000;
+export const AFTER_CLOSING_MS = 4_000;
 export const MUSIC_FADE_S = 12;
-export const EPILOGUE_MS = MUSIC_HOLD_MS + MUSIC_FADE_S * 1000;
+/** The closing line appears on the end card (and is read, if narrated) this long after the thread reaches the last stop. */
+const CLOSING_AFTER_MS = 1_500;
 
 export type LngLat = [number, number];
 
 export const beatMs = (n: number) => (n <= 1 ? 0 : Math.min(BEAT_MS, TRAIL_MAX_MS / (n - 1)));
 /** When the thread reaches stop `i` of `n` (ms into the epilogue). */
 export const reachedAt = (i: number, n: number) => TRAIL_DELAY_MS + i * beatMs(n);
+/** When the closing line comes, for a tour of `n` stops: once the thread is drawn. */
+export const closingAt = (n: number) => reachedAt(Math.max(0, n - 1), n) + CLOSING_AFTER_MS;
 
 /** Where each stop sits on the globe: the middle of what its card showed (that site, or the entity's features then). */
 export function trailPoints(tour: Tour, d: Data): LngLat[] {

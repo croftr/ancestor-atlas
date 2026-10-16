@@ -5,7 +5,7 @@ import { navigate } from "../route";
 import { formatYear } from "../time/scale";
 import { stopMusic } from "../audio/music";
 import { minutes, stopsOf } from "./summary";
-import { reachedAt, spanWords } from "./epilogue";
+import { closingAt, reachedAt, spanWords } from "./epilogue";
 import { beginTour } from "./TourPlayer";
 import type { Tour } from "./tours";
 
@@ -61,7 +61,12 @@ export default function EndCard({ tour }: { tour: Tour }) {
           </li>
         ))}
       </ol>
-      {tour.closing && <p className="tour-end-closing">{tour.closing}</p>}
+      {/* Appears once the thread is drawn, as the narrator (if any) begins to read it. */}
+      {tour.closing && (
+        <p className="tour-end-closing" style={{ animationDelay: `${closingAt(n)}ms` }}>
+          {tour.closing}
+        </p>
+      )}
       <div className="tour-end-actions">
         <button
           className="tour-end-primary"

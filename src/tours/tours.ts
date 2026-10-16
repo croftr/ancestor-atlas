@@ -8,7 +8,8 @@ import type { Category } from "../types";
  * `music`: background track, a bucket key (music/tours/<id>-v<n>.mp3; set by `npm run audio:music`).
  * `announcement`: the title card's voice-over, reading announcementText (narration/tours/<id>-v<n>.mp3;
  * set by `npm run audio:narrate -- --announce <id>`; `text_hash` is that text's fingerprint when recorded).
- * `closing`: a line or two for the end card, after the last stop (shown, not narrated).
+ * `closing`: a line or two for the end card, after the last stop; `closingNarration` reads it in the epilogue
+ * (narration/tours/<id>-closing-v<n>.mp3; `npm run audio:narrate -- --closing <id>|all`).
  * Stops run oldest first. src/tours/tours.test.ts checks every stop lands on something visible.
  */
 export interface TourStop {
@@ -26,6 +27,7 @@ export interface Tour {
   music?: { src: string; credit: string };
   announcement?: { src: string; credit: string; text_hash: string };
   closing?: string;
+  closingNarration?: { src: string; credit: string; text_hash: string };
   stops: TourStop[];
 }
 

@@ -47,6 +47,16 @@ describe.each(TOURS)("tour $id", (tour) => {
       console.warn(`tour ${tour.id}: the announcement no longer matches its title`);
   });
 
+  it("names its closing narration by the bucket convention, with a credit, for its closing line", () => {
+    if (!tour.closingNarration) return;
+    expect(tour.closing).toBeTruthy();
+    expect(tour.closingNarration.src).toMatch(new RegExp(`^narration/tours/${tour.id}-closing-v\\d+\\.mp3$`));
+    expect(tour.closingNarration.credit).toBeTruthy();
+    // An edited closing line leaves the recording behind (npm run audio:narrate -- --stale re-records it).
+    if (tour.closingNarration.text_hash !== textHash(tour.closing!))
+      console.warn(`tour ${tour.id}: the closing narration no longer matches its closing line`);
+  });
+
   it("runs oldest first", () => {
     const years = tour.stops.map((s) => s.year ?? byId.get(s.entity)?.year ?? 0);
     expect(years).toEqual([...years].sort((a, b) => a - b));
