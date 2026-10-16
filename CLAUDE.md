@@ -188,7 +188,10 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   Data: `npm run data:climate` (`scripts/climate.ts`, seconds; reads public/data/paleo/index.json for Gowan's sea
   level). Climate panel: a Settings option (store `climatePanel`, remembered, on by default; not offered on small
   screens) keeps the same details (`ClimateFacts` in `ClimatePopover.tsx`) open under the legend, following the
-  slider (`src/ui/ClimatePanel.tsx`). The legend and the panel stay on during tours (desktop). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
+  slider (`src/ui/ClimatePanel.tsx`). The legend and the panel stay on during tours (desktop).
+  Left column (`src/ui/Legend.tsx`): legend, Ancient DNA panel (with the DNA layer), climate panel, each a Settings
+  option, all on by default; the legend's is store `legendPanel` (off: the panels start at the corner, and on phones
+  no legend at all). The corner toggle hides and shows the whole column (Rob's call, 16 Oct 2026). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
 - Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle
   of each site's range); `via` points only shape the line. Lines grow with the slider, arrowhead while growing,
   hidden after `until` (end of the Ice Age). Tap a route for a popup (name, description, source). Settings toggle
@@ -209,7 +212,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - AADR v66.p1 (CC0, Harvard Dataverse): `npm run data:dna` (pinned file id + MD5 in `scripts/fetch/aadr.ts`; downloads
   only when missing) then `scripts/ingest/aadr.ts` -> `public/data/dna.json` (committed, ~1.4 MB, outside
   `data:build`; loaded only when the layer is on). Rules and citation in the README. Shared types in `src/dna/types.ts`.
-- Client in `src/dna/`: Settings toggle (store `dna`, off by default, remembered), colour mode in the legend's DNA row
+- Client in `src/dna/`: Settings toggle (store `dna`, on by default since 16 Oct 2026 (Rob: every left panel on by default), remembered), colour mode in the legend's DNA row
   (`dnaColour`: y | mt | plain), `DnaCard.tsx` opened by `dnaSite` (shown only while no other card is open; a tap opens
   it only when a DNA site is nearer than any other marker). Colours: three families per mode
   (`haplogroups.ts`; validated colour-blind-safe all-pairs, which caps a map at three) plus grey "other" and hollow

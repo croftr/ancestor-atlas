@@ -25,6 +25,8 @@ export default function SettingsContent() {
   const setRoutes = useStore((s) => s.setRoutes);
   const dna = useStore((s) => s.dna);
   const setDna = useStore((s) => s.setDna);
+  const legendPanel = useStore((s) => s.legendPanel);
+  const setLegendPanel = useStore((s) => s.setLegendPanel);
   const climatePanel = useStore((s) => s.climatePanel);
   const setClimatePanel = useStore((s) => s.setClimatePanel);
   // The climate panel needs room beside the globe: not offered on small screens.
@@ -68,6 +70,13 @@ export default function SettingsContent() {
         <span>
           Ancient DNA
           <span className="muted">Over 9,000 sampled ancient genomes, coloured by father's or mother's line (Allen Ancient DNA Resource).</span>
+        </span>
+      </label>
+      <label className="settings-check">
+        <input type="checkbox" checked={legendPanel} onChange={(e) => setLegendPanel(e.target.checked)} />
+        <span>
+          Legend
+          <span className="muted">What is on the map now, by category, with switches to show or hide each one.</span>
         </span>
       </label>
       {!stacked && (

@@ -34,6 +34,7 @@ function loadDnaColour(): DnaColour {
   return "y";
 }
 const CLIMATE_PANEL_KEY = "history-globe.climate-panel";
+const LEGEND_PANEL_KEY = "history-globe.legend-panel";
 
 /** A layer setting that is on unless turned off in Settings (remembered per browser). */
 function loadOn(key: string): boolean {
@@ -68,13 +69,15 @@ interface AppState {
   paleo: boolean;
   /** Draw the migration routes (routes/routes.ts). */
   routes: boolean;
-  /** Draw the ancient DNA sites (dna/; off unless switched on, as its data is a separate download). */
+  /** Draw the ancient DNA sites (dna/; on unless switched off; its data is a separate download). */
   dna: boolean;
   dnaColour: DnaColour;
   /** The ancient DNA site whose card is open (shown only while no other card is). */
   dnaSite: string | null;
   /** Keep the climate details open under the legend, following the slider (desktop; ui/ClimatePanel.tsx). */
   climatePanel: boolean;
+  /** Show the legend panel (top left; ui/Legend.tsx). */
+  legendPanel: boolean;
   introOpen: boolean;
   /** Camera request for the map; a new object each time so repeated requests still fire. */
   /** `gentle`: pan there without zooming out (stepping through sites). */
@@ -172,6 +175,7 @@ interface AppState {
   setDnaColour(mode: DnaColour): void;
   openDnaSite(id: string | null): void;
   setClimatePanel(on: boolean): void;
+  setLegendPanel(on: boolean): void;
   setIntroOpen(open: boolean): void;
 }
 
@@ -188,16 +192,11 @@ export const useStore = create<AppState>((set, get) => ({
   basemap: loadBasemap(),
   paleo: loadOn(PALEO_KEY),
   routes: loadOn(ROUTES_KEY),
-  dna: (() => {
-    try {
-      return localStorage.getItem(DNA_KEY) === "on";
-    } catch {
-      return false;
-    }
-  })(),
+  dna: loadOn(DNA_KEY),
   dnaColour: loadDnaColour(),
   dnaSite: null,
   climatePanel: loadOn(CLIMATE_PANEL_KEY),
+  legendPanel: loadOn(LEGEND_PANEL_KEY),
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
@@ -386,5 +385,9 @@ export const useStore = create<AppState>((set, get) => ({
   setClimatePanel: (on) => {
     saveOn(CLIMATE_PANEL_KEY, on);
     set({ climatePanel: on });
+  },
+  setLegendPanel: (on) => {
+    saveOn(LEGEND_PANEL_KEY, on);
+    set({ legendPanel: on });
   },
 }));

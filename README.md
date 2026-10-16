@@ -193,7 +193,7 @@ Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm r
 
 ### Ancient DNA (AADR)
 
-The Ancient DNA layer (off by default; Settings) shows genomes from the Allen Ancient DNA Resource, release v66.p1
+The Ancient DNA layer (on by default; Settings) shows genomes from the Allen Ancient DNA Resource, release v66.p1
 (CC0, https://doi.org/10.7910/DVN/FFIDCW). `npm run data:dna` downloads the pinned annotation table once into
 `data/raw/aadr/` (checksum-checked) and runs `scripts/ingest/aadr.ts`, which writes `public/data/dna.json` (committed;
 outside `data:build` and its fingerprint, loaded only when the layer is switched on).

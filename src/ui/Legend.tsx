@@ -18,7 +18,7 @@ interface ActiveEntityItem {
 
 const COLLAPSED_KEY = "history-globe.legend-collapsed";
 
-/** Remembered per browser (desktop only: small screens always show the compact legend). */
+/** The corner toggle hides every panel in the column; remembered per browser (desktop only: small screens have no toggle). */
 function loadCollapsed(): boolean {
   try {
     return localStorage.getItem(COLLAPSED_KEY) === "1";
@@ -45,6 +45,10 @@ export default function Legend() {
   const select = useStore((s) => s.select);
   const openGroup = useStore((s) => s.openGroup);
   const jumpTo = useStore((s) => s.jumpTo);
+
+  const legendOn = useStore((s) => s.legendPanel);
+  const dnaOn = useStore((s) => s.dna);
+  const climateOn = useStore((s) => s.climatePanel);
 
   const data = useData();
   const features = data?.features;
@@ -161,21 +165,25 @@ export default function Legend() {
     }
   };
 
+  // Nothing turned on in Settings: no column at all (the DNA panel comes with the DNA layer). Small
+  // screens show the DNA key inside the legend and no climate panel, so the legend decides there.
+  if (stacked ? !legendOn : !legendOn && !dnaOn && !climateOn) return null;
+
   return (
-    <div className={`legend-dock${collapsed ? " collapsed" : ""}`}>
+    <div className={`legend-dock${collapsed ? " collapsed" : ""}${legendOn ? "" : " no-legend"}`}>
       <button
         type="button"
         className="legend-toggle"
         onClick={toggleCollapsed}
         aria-expanded={!collapsed}
-        aria-controls="legend-panel"
-        aria-label={collapsed ? "Show legend panel" : "Hide legend panel"}
-        title={collapsed ? "Show panel" : "Hide panel"}
+        aria-label={collapsed ? "Show the panels" : "Hide the panels"}
+        title={collapsed ? "Show panels" : "Hide panels"}
       >
         <svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true">
           <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
+      {legendOn && (
       <div id="legend-panel" className="panel legend" aria-hidden={collapsed} inert={collapsed}>
         <WhenLine year={year} className="legend-when" />
         <div className="legend-cats">
@@ -248,8 +256,10 @@ export default function Legend() {
         </div>
         {stacked && <DnaLegend />}
       </div>
-      {!stacked && <DnaLegend panel />}
-      <ClimatePanel />
+      )}
+      {/* The toggle hides the whole column, not just the legend. */}
+      {!stacked && !collapsed && <DnaLegend panel />}
+      {!collapsed && <ClimatePanel />}
     </div>
   );
 }
