@@ -47,19 +47,18 @@
 /* Between stops the globe can be empty for a moment: no "nothing on the map" note during a tour. */
 .app.touring .empty-state:not(.loading-state) { display: none; }
 
-/* While a tour plays the globe goes cinematic: the search and legend fade away (the nav rail stays,
-   so nothing shifts) and the welcome hint goes. Small screens take them out of the stacked column
-   below. */
-.app .search,
-.app .legend-dock { transition: opacity 0.4s ease, visibility 0s linear 0s; }
+/* While a tour plays the globe goes cinematic: the search fades away (the nav rail stays, so nothing
+   shifts) and the welcome hint goes. The legend and the climate panel stay, so what is on the map and
+   the climate can be followed through the tour. Small screens take the search and legend out of the
+   stacked column below. */
+.app .search { transition: opacity 0.4s ease, visibility 0s linear 0s; }
 .app.touring .welcome-hint { display: none; }
-.app.touring .search,
-.app.touring .legend-dock {
+.app.touring .search {
   opacity: 0; visibility: hidden; pointer-events: none;
   transition: opacity 0.4s ease, visibility 0s linear 0.4s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .app .search, .app .legend-dock { transition: none; }
+  .app .search { transition: none; }
 }
 
 /* The title card before the first stop: over the globe, fading in and out across its hold. */

@@ -79,58 +79,15 @@ function MiniChart({ climate, ka }: { climate: Climate; ka: number }) {
 }
 
 /**
- * The climate at one moment, over the time slider: global temperature, sea level, the Marine Isotope
- * Stage, and a small chart of the glacial cycles around it. Opened from the climate strip (a fixed
- * moment) or the stage readout under the year (`year` null: follows the slider).
+ * The climate at one moment: the year, global temperature, sea level, the Marine Isotope Stage and
+ * a small chart of the glacial cycles around it. Shared by the popover and the climate panel.
  */
-export default function ClimatePopover({
-  climate,
-  year: fixedYear,
-  left,
-  onClose,
-}: {
-  climate: Climate;
-  year: number | null;
-  /** Where to point, as a fraction of the slider's width. */
-  left: number;
-  onClose: () => void;
-}) {
-  const sliderYear = useStore((s) => s.year);
-  const setYear = useStore((s) => s.setYear);
-  const year = fixedYear ?? sliderYear;
+export function ClimateFacts({ climate, year }: { climate: Climate; year: number }) {
   const at = climateAt(climate, year);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && (e.stopPropagation(), onClose());
-    const onDown = (e: PointerEvent) => {
-      const t = e.target as Element | null;
-      if (ref.current?.contains(t) || t?.closest(".climate-strip, .climate-open")) return;
-      onClose();
-    };
-    window.addEventListener("keydown", onKey, true);
-    window.addEventListener("pointerdown", onDown);
-    ref.current?.focus();
-    return () => {
-      window.removeEventListener("keydown", onKey, true);
-      window.removeEventListener("pointerdown", onDown);
-    };
-  }, [onClose]);
-
   const stage = at.stage;
   const note = stage && STAGE_NOTES[stage.stage];
-  const target = snapYear(Math.round(year));
-
   return (
-    <div
-      ref={ref}
-      className="climate-popover"
-      role="dialog"
-      aria-label={`Climate ${formatYear(Math.round(year))}`}
-      tabIndex={-1}
-      style={{ "--at": `${Math.min(92, Math.max(8, left * 100))}%` } as React.CSSProperties}
-    >
-      <button className="cp-close" onClick={onClose} aria-label="Close">✕</button>
+    <>
       <div className="cp-when">
         {formatYear(Math.round(year))}
         {/* Deep time already reads "… million years ago". */}
@@ -189,6 +146,61 @@ export default function ClimatePopover({
       <div className="cp-legend muted">
         <span className="cp-key cold" /> cold stages · up is warmer
       </div>
+    </>
+  );
+}
+
+/**
+ * The climate at one moment, over the time slider: global temperature, sea level, the Marine Isotope
+ * Stage, and a small chart of the glacial cycles around it. Opened from the climate strip (a fixed
+ * moment) or the stage readout under the year (`year` null: follows the slider).
+ */
+export default function ClimatePopover({
+  climate,
+  year: fixedYear,
+  left,
+  onClose,
+}: {
+  climate: Climate;
+  year: number | null;
+  /** Where to point, as a fraction of the slider's width. */
+  left: number;
+  onClose: () => void;
+}) {
+  const sliderYear = useStore((s) => s.year);
+  const setYear = useStore((s) => s.setYear);
+  const year = fixedYear ?? sliderYear;
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && (e.stopPropagation(), onClose());
+    const onDown = (e: PointerEvent) => {
+      const t = e.target as Element | null;
+      if (ref.current?.contains(t) || t?.closest(".climate-strip, .climate-open")) return;
+      onClose();
+    };
+    window.addEventListener("keydown", onKey, true);
+    window.addEventListener("pointerdown", onDown);
+    ref.current?.focus();
+    return () => {
+      window.removeEventListener("keydown", onKey, true);
+      window.removeEventListener("pointerdown", onDown);
+    };
+  }, [onClose]);
+
+  const target = snapYear(Math.round(year));
+
+  return (
+    <div
+      ref={ref}
+      className="climate-popover"
+      role="dialog"
+      aria-label={`Climate ${formatYear(Math.round(year))}`}
+      tabIndex={-1}
+      style={{ "--at": `${Math.min(92, Math.max(8, left * 100))}%` } as React.CSSProperties}
+    >
+      <button className="cp-close" onClick={onClose} aria-label="Close">✕</button>
+      <ClimateFacts climate={climate} year={year} />
 
       <div className="cp-foot">
         {fixedYear !== null && target !== sliderYear && (

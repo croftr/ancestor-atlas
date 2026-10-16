@@ -1,4 +1,5 @@
-import { BASEMAP_THEMES } from "../config";
+import { BASEMAP_THEMES, STACKED_QUERY } from "../config";
+import { useMediaQuery } from "./useMediaQuery";
 import { useStore } from "../store";
 
 /** The keyboard shortcuts the app already listens for (TimeSlider, InfoPanel, SearchBox). */
@@ -22,6 +23,10 @@ export default function SettingsContent() {
   const setPaleo = useStore((s) => s.setPaleo);
   const routes = useStore((s) => s.routes);
   const setRoutes = useStore((s) => s.setRoutes);
+  const climatePanel = useStore((s) => s.climatePanel);
+  const setClimatePanel = useStore((s) => s.setClimatePanel);
+  // The climate panel needs room beside the globe: not offered on small screens.
+  const stacked = useMediaQuery(STACKED_QUERY);
 
   return (
     <div className="settings-group">
@@ -56,6 +61,15 @@ export default function SettingsContent() {
           <span className="muted">How modern humans spread out of Africa, drawn as the time slider passes each site.</span>
         </span>
       </label>
+      {!stacked && (
+        <label className="settings-check">
+          <input type="checkbox" checked={climatePanel} onChange={(e) => setClimatePanel(e.target.checked)} />
+          <span>
+            Climate panel
+            <span className="muted">Global temperature, sea level and Ice Age stage under the legend, changing as time plays and in tours.</span>
+          </span>
+        </label>
+      )}
       {hasKeyboard && (
         <>
           <div className="settings-label">Keyboard shortcuts</div>

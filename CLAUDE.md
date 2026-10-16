@@ -112,8 +112,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   (`leftInset`), its right padding the card's width (`rightInset` in
   `src/map/MapView.tsx`, limits in `src/ui/cardWidth.ts`), eased on open/close, live while dragging, carried by
   flights, and kept on through a whole tour.
-- While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar and legend fade out and the welcome hint
-  goes; on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
+- While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar fades out and the welcome hint goes (the
+  legend and climate panel stay, Rob's call 16 Oct 2026; phones still drop the legend); on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
 ### Tour polish: next up (as of 13 Oct 2026)
 
@@ -152,7 +152,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   the join), sea level (Gowan 0–80 ka, Spratt & Lisiecki beyond with 95% range; the two disagree at 80 ka, −10 vs
   −33 m), the MIS (1–104, then G1…TG6; even = cold; a few `STAGE_NOTES`), and a chart of the cycles around it.
   Data: `npm run data:climate` (`scripts/climate.ts`, seconds; reads public/data/paleo/index.json for Gowan's sea
-  level). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
+  level). Climate panel: a Settings option (store `climatePanel`, remembered, off by default; not offered on small
+  screens) keeps the same details (`ClimateFacts` in `ClimatePopover.tsx`) open under the legend, following the
+  slider (`src/ui/ClimatePanel.tsx`). The legend and the panel stay on during tours (desktop). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
 - Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle
   of each site's range); `via` points only shape the line. Lines grow with the slider, arrowhead while growing,
   hidden after `until` (end of the Ice Age). Tap a route for a popup (name, description, source). Settings toggle

@@ -115,6 +115,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   .legend, .legend-dock.collapsed .legend, .legend-toggle { transition: none; }
 }
+/* With the climate panel on (ClimatePanel.tsx, desktop only) the legend and the panel share one
+   column of one width, kept clear of the time slider; the legend scrolls first when the window is
+   short. A collapsed legend leaves the column, so the panel moves up to the corner. */
+.legend-dock:has(.climate-panel) { display: flex; flex-direction: column; gap: 10px; width: 320px; max-height: calc(100vh - 290px); }
+.legend-dock:has(.climate-panel) .legend { min-width: 0; max-width: none; max-height: none; min-height: 140px; flex: 0 10 auto; }
+.legend-dock.collapsed:has(.climate-panel) .legend { position: absolute; top: 0; left: 0; width: 100%; }
+.climate-panel { position: relative; flex: 0 1 auto; min-height: 0; overflow-y: auto; font-size: 0.85rem; padding: 12px 14px 10px; }
+.climate-panel .cp-close { top: 6px; right: 6px; }
 .legend-category { margin-bottom: 2px; }
 .legend-row { display: flex; align-items: center; gap: 4px; padding: 1px 0; }
 .legend-checkbox {
@@ -237,16 +245,19 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-style: italic;
 }
 .legend-breakdown-list::-webkit-scrollbar,
-.legend::-webkit-scrollbar {
+.legend::-webkit-scrollbar,
+.climate-panel::-webkit-scrollbar {
   width: 4px;
 }
 .legend-breakdown-list::-webkit-scrollbar-thumb,
-.legend::-webkit-scrollbar-thumb {
+.legend::-webkit-scrollbar-thumb,
+.climate-panel::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
 .legend-breakdown-list::-webkit-scrollbar-thumb:hover,
-.legend::-webkit-scrollbar-thumb:hover {
+.legend::-webkit-scrollbar-thumb:hover,
+.climate-panel::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 .swatch { display: inline-block; width: 12px; height: 12px; flex: none; }

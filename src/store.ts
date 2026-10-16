@@ -20,6 +20,7 @@ function loadBasemap(): string {
 
 const PALEO_KEY = "history-globe.paleo";
 const ROUTES_KEY = "history-globe.routes";
+const CLIMATE_PANEL_KEY = "history-globe.climate-panel";
 
 /** A layer setting that is on unless turned off in Settings (remembered per browser). */
 function loadOn(key: string): boolean {
@@ -27,6 +28,15 @@ function loadOn(key: string): boolean {
     return localStorage.getItem(key) !== "off";
   } catch {
     return true;
+  }
+}
+
+/** A setting that is off unless turned on in Settings (remembered per browser). */
+function loadOff(key: string): boolean {
+  try {
+    return localStorage.getItem(key) === "on";
+  } catch {
+    return false;
   }
 }
 
@@ -54,6 +64,8 @@ interface AppState {
   paleo: boolean;
   /** Draw the migration routes (routes/routes.ts). */
   routes: boolean;
+  /** Keep the climate details open under the legend, following the slider (desktop; ui/ClimatePanel.tsx). */
+  climatePanel: boolean;
   introOpen: boolean;
   /** Camera request for the map; a new object each time so repeated requests still fire. */
   /** `gentle`: pan there without zooming out (stepping through sites). */
@@ -132,6 +144,7 @@ interface AppState {
   setBasemap(name: string): void;
   setPaleo(on: boolean): void;
   setRoutes(on: boolean): void;
+  setClimatePanel(on: boolean): void;
   setIntroOpen(open: boolean): void;
 }
 
@@ -145,6 +158,7 @@ export const useStore = create<AppState>((set, get) => ({
   basemap: loadBasemap(),
   paleo: loadOn(PALEO_KEY),
   routes: loadOn(ROUTES_KEY),
+  climatePanel: loadOff(CLIMATE_PANEL_KEY),
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
@@ -310,5 +324,9 @@ export const useStore = create<AppState>((set, get) => ({
   setRoutes: (on) => {
     saveOn(ROUTES_KEY, on);
     set({ routes: on });
+  },
+  setClimatePanel: (on) => {
+    saveOn(CLIMATE_PANEL_KEY, on);
+    set({ climatePanel: on });
   },
 }));

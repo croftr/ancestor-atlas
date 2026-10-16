@@ -5,6 +5,7 @@ import { CATEGORY_STYLE, STACKED_QUERY } from "../config";
 import { isActive, useData } from "../map/data";
 import { CategoryBadge } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
+import ClimatePanel from "./ClimatePanel";
 
 interface ActiveEntityItem {
   id: string;
@@ -246,6 +247,7 @@ export default function Legend() {
           })}
         </div>
       </div>
+      <ClimatePanel />
     </div>
   );
 }
