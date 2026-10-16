@@ -122,7 +122,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   prompts; `-- <id>` to redo one) generates 22 s loops (`eleven_text_to_sound_v2`, `loop: true`), normalises to
   -16 LUFS stereo 96 kbps (the first 0.75 s blended under the end, so the join never clicks), uploads to
   `ambience/<category>/<id>-v<n>.mp3` and sets `sound`. The API key needs the Sound Effects permission. Levels at
-  the top of `src/audio/ambience.ts`. All 29 events made 16 Oct 2026 (Rob to review by ear); Lomekwi needed a second
+  the top of `src/audio/ambience.ts`. All events but hominin-divergence (removed, Rob's call) made 16 Oct 2026 (Rob to review by ear); Lomekwi needed a second
   prompt (the first came back a near-silent rumble).
 - Phones (globe): a pick, and every tour stop, opens the compact card (`.info-compact` in `InfoPanel.tsx`,
   `ui/stacked.css`): badge, name (serif), short date range, the picture filling the right edge (events square,

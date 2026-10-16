@@ -12,10 +12,7 @@ export interface Ambience {
 }
 
 export const AMBIENCE: Record<string, Ambience> = {
-  "hominin-divergence": {
-    prompt: "Late Miocene African woodland beside a lake at midday: insects humming, warm wind in grass and leaves, distant birds, occasional far-off ape calls, no human voices",
-    sound: { src: "ambience/events/hominin-divergence-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e2fe2ea6c6" },
-  },
+  // hominin-divergence: no sound (Rob's call, 16 Oct 2026).
   "lomekwian-tools": {
     prompt: "Close, clear knocks of a heavy stone hammering a large stone core, sharp chips cracking off, by a lake with small waves lapping and birds calling",
     sound: { src: "ambience/events/lomekwian-tools-v3.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1ef4be460b" },
