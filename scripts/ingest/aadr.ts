@@ -14,12 +14,13 @@
 // public/data/dna.json.
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
-import type { DnaData, DnaPerson, DnaSite } from "../../src/dna/types.ts";
+import type { DnaCultureCounts, DnaData, DnaPerson, DnaSite } from "../../src/dna/types.ts";
 import { distanceKm } from "../lib/qa.ts";
 
 const ANNO = "data/raw/aadr/v66.p1_1240K.aadr.PUB.anno";
 const RELEASE = "v66.p1";
 const OUT = "public/data/dna.json";
+const OUT_CULTURES = "public/data/dna-cultures.json";
 const LABELS = "data/curated/culture-labels.csv";
 const ENTITIES = "public/data/entities.json";
 const PASS = /^(pass|provisional_pass|merge_pass)$/i;
@@ -188,6 +189,14 @@ function main() {
 
   const data: DnaData = { release: RELEASE, pubs, sites };
   writeFileSync(OUT, JSON.stringify(data) + "\n");
+  // How many genomes and sites each culture has: small, so culture cards can say so without loading dna.json.
+  const perCulture: DnaCultureCounts = {};
+  for (const s of sites) {
+    const here = new Set<string>();
+    for (const p of s.people) if (p[9]) (here.add(p[9]), ((perCulture[p[9]] ??= [0, 0])[0] += 1));
+    for (const c of here) perCulture[c][1] += 1;
+  }
+  writeFileSync(OUT_CULTURES, JSON.stringify(Object.fromEntries(Object.entries(perCulture).sort())) + "\n");
   console.log(
     `AADR ${RELEASE}: ${stats.rows} rows; ${stats.recent} after 1 CE or present-day, ${stats.failed} not passing, ${stats.noCoords} without coordinates, ` +
       `${stats.duplicates} extra rows for the same person -> ${best.size} people at ${sites.length} sites, ${pubs.length} publications; ` +

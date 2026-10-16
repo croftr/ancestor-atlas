@@ -14,6 +14,7 @@ import ListenButton from "../audio/ListenButton";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "../ui/PictureNav";
 import { contemporaries } from "../ui/contemporaries";
+import DnaCultureLink from "../dna/DnaCultureLink";
 import TourVideo from "../ui/TourVideo";
 import "./browse.css";
 
@@ -205,6 +206,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
           <p>{entity.description}</p>
 
           {mapLine && <div className="muted br-mapline">{mapLine}</div>}
+          {entity.category === "culture" && <DnaCultureLink cultureId={entity.id} />}
 
           {members.length > 0 && (
             <div className="related">

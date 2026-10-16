@@ -44,6 +44,9 @@ export type DnaPerson = [
   culture: string,
 ];
 
+/** public/data/dna-cultures.json: culture entity id -> [people linked to it, sites with any of them]. */
+export type DnaCultureCounts = Record<string, [people: number, sites: number]>;
+
 export const AADR_CITATION =
   "Mallick, S. et al. The Allen Ancient DNA Resource (AADR): a curated compendium of ancient human genomes. Scientific Data (2024). https://doi.org/10.1038/s41597-024-03031-7";
 export const AADR_DATASET_URL = "https://doi.org/10.7910/DVN/FFIDCW";

@@ -213,6 +213,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   "not known". Map layers `dna-sites` / `dna-selected` sit above territories, under the other markers.
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
   dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.
+- Culture cards and pages show "N ancient genomes from M sites · Show on the globe" (`DnaCultureLink.tsx`, counts
+  from the small `public/data/dna-cultures.json`, written by the ingest); while a culture card is open and the layer
+  is on, its genome sites are ringed in the culture colour (`dna-culture` layer).
 - Not yet checked on phones.
 
 ## Civilization regions

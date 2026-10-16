@@ -61,3 +61,4 @@
 .dna-key li { display: flex; align-items: center; gap: 5px; }
 .dna-swatch.hollow { background: transparent; box-shadow: inset 0 0 0 1.5px #c9c6bd, 0 0 0 1px rgba(10, 14, 26, 0.75); }
 .dna-card a { color: #9ec5f4; }
+.dna-culture-link { margin: 6px 0 10px; font-size: 0.85rem; }

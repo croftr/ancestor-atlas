@@ -357,8 +357,15 @@ export default function MapView() {
         if (d && dna) (map.getSource("dna") as maplibregl.GeoJSONSource | undefined)?.setData(dnaGeoJSON(d, year, dnaColour));
       });
     };
-    const applyDnaSelection = () =>
-      map.getLayer("dna-selected") && map.setFilter("dna-selected", ["==", ["get", "id"], useStore.getState().dnaSite ?? ""]);
+    // The open DNA site gets a white ring; while a culture's card is open, its genome sites get a ring in its colour.
+    const applyDnaSelection = () => {
+      if (!map.getLayer("dna-selected")) return;
+      const { dnaSite, selectedId, hits } = useStore.getState();
+      map.setFilter("dna-selected", ["==", ["get", "id"], dnaSite ?? ""]);
+      const f = selectedId ? hits.find((h) => h.id === selectedId) : undefined;
+      const culture = f?.category === "culture" ? f.entity_id : "";
+      map.setFilter("dna-culture", culture ? ["in", `|${culture}|`, ["get", "cultures"]] : ["==", ["get", "id"], ""]);
+    };
 
     // Coastlines and ice sheets: swap the snapshot when the year crosses into another one.
     let paleoShown: string | null = null;
@@ -552,6 +559,21 @@ export default function MapView() {
             "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, ["+", 3, dnaRadius(0.7)], 6, ["+", 3, dnaRadius(1.3)]],
             "circle-stroke-color": "#ffffff",
             "circle-stroke-width": 2.5,
+          },
+        },
+        firstMarker,
+      );
+      map.addLayer(
+        {
+          id: "dna-culture",
+          type: "circle",
+          source: "dna",
+          filter: ["==", ["get", "id"], ""],
+          paint: {
+            "circle-color": "rgba(0, 0, 0, 0)",
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, ["+", 2.5, dnaRadius(0.7)], 6, ["+", 2.5, dnaRadius(1.3)]],
+            "circle-stroke-color": CATEGORY_STYLE.culture.color,
+            "circle-stroke-width": 2,
           },
         },
         firstMarker,
@@ -906,7 +928,7 @@ export default function MapView() {
       if (state.year !== prev.year || state.paleo !== prev.paleo) applyPaleo();
       if (state.year !== prev.year || state.routes !== prev.routes) applyRoutes();
       if (state.year !== prev.year || state.dna !== prev.dna || state.dnaColour !== prev.dnaColour) applyDna();
-      if (state.dnaSite !== prev.dnaSite) applyDnaSelection();
+      if (state.dnaSite !== prev.dnaSite || state.selectedId !== prev.selectedId) applyDnaSelection();
       if (state.enabled !== prev.enabled) applyVisibility();
       if (state.selectedId !== prev.selectedId) applySelection();
     });

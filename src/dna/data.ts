@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { DnaData, DnaPerson, DnaSite } from "./types";
+import type { DnaCultureCounts, DnaData, DnaPerson, DnaSite } from "./types";
 import { siteColour, type DnaColour } from "./haplogroups";
 
 let data: DnaData | null = null;
@@ -33,7 +33,30 @@ export function useDna(on = true): DnaData | null {
   return d;
 }
 
-export const aliveAt = (p: DnaPerson, year: number) => p[1] <= year && year <= p[2];
+let counts: DnaCultureCounts | null = null;
+let countsPromise: Promise<DnaCultureCounts> | null = null;
+
+/** How many genomes link to `cultureId` ([people, sites]), from the small dna-cultures.json; null until loaded or if none. */
+export function useDnaCultureCount(cultureId: string | undefined): [number, number] | null {
+  const [c, setC] = useState<DnaCultureCounts | null>(counts);
+  useEffect(() => {
+    if (counts) return;
+    let alive = true;
+    countsPromise ??= fetch("/data/dna-cultures.json")
+      .then((r) => r.json() as Promise<DnaCultureCounts>)
+      .catch(() => ({}));
+    countsPromise.then((x) => {
+      counts = x;
+      if (alive) setC(x);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+  return (cultureId && c?.[cultureId]) || null;
+}
+
+export const aliveAt =(p: DnaPerson, year: number) => p[1] <= year && year <= p[2];
 
 /** The sites with anyone dated to `year`, as map points sized by how many and coloured by `mode`. */
 export function dnaGeoJSON(d: DnaData, year: number, mode: DnaColour): GeoJSON.FeatureCollection {
@@ -42,10 +65,12 @@ export function dnaGeoJSON(d: DnaData, year: number, mode: DnaColour): GeoJSON.F
     if (s.start > year || s.end < year) continue;
     const now = s.people.filter((p) => aliveAt(p, year));
     if (!now.length) continue;
+    // `cultures`: "|a|b|", the cultures of the people here now, so the open culture card can ring its sites.
+    const cultures = [...new Set(now.map((p) => p[9]).filter(Boolean))];
     features.push({
       type: "Feature",
       geometry: { type: "Point", coordinates: [s.lon, s.lat] },
-      properties: { id: s.id, n: now.length, color: siteColour(now, mode) },
+      properties: { id: s.id, n: now.length, color: siteColour(now, mode), cultures: cultures.length ? `|${cultures.join("|")}|` : "" },
     });
   }
   return { type: "FeatureCollection", features };

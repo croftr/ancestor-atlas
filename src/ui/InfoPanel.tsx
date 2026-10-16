@@ -21,6 +21,7 @@ import PictureViewer from "./PictureViewer";
 import CardResizer from "./CardResizer";
 import TourVideo from "./TourVideo";
 import { contemporaries } from "./contemporaries";
+import DnaCultureLink from "../dna/DnaCultureLink";
 
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
@@ -578,6 +579,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       )}
       {!isEvent && <ListenButton entity={entity} />}
       <p>{entity.description}</p>
+      {entity.category === "culture" && <DnaCultureLink cultureId={entity.id} />}
       {related.length > 0 && (
         <div className="related">
           <div className="muted">Related:</div>
