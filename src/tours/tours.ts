@@ -42,6 +42,7 @@ export const TOURS: Tour[] = [
     blurb: "From the first stone tools to paper: the breakthroughs that shaped the human story.",
     music: { src: "music/tours/events-and-inventions-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     announcement: { src: "narration/tours/events-and-inventions-v4.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "11a7f7e233" },
+    closingNarration: { src: "narration/tours/events-and-inventions-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8964ee6826" },
     stops: [
       { entity: "hominin-divergence" },
       { entity: "lomekwian-tools" },
@@ -82,6 +83,7 @@ export const TOURS: Tour[] = [
     layers: ["species", "event"],
     music: { src: "music/tours/human-evolution-v2.mp3", credit: "Music: \"Apeman Suite\" by Paul Lawler" },
     announcement: { src: "narration/tours/human-evolution-v4.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c754f74f96" },
+    closingNarration: { src: "narration/tours/human-evolution-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "1b16a01764" },
     stops: [
       { entity: "sahelanthropus", year: -6_999_999, site: "sahelanthropus@1" },
       { entity: "ardipithecus-ramidus", year: -4_399_999, site: "ardipithecus-ramidus@1" },
@@ -108,6 +110,7 @@ export const TOURS: Tour[] = [
     layers: ["species", "culture", "event"],
     music: { src: "music/tours/out-of-africa-v2.mp3", credit: "Music: \"Apeman Suite\" by Paul Lawler" },
     announcement: { src: "narration/tours/out-of-africa-v3.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "cce3d2ec85" },
+    closingNarration: { src: "narration/tours/out-of-africa-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "56adc2ccb1" },
     stops: [
       { entity: "out-of-africa-dmanisi" },
       { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },
@@ -128,6 +131,7 @@ export const TOURS: Tour[] = [
     layers: ["culture", "event"],
     music: { src: "music/tours/ice-age-artists-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     announcement: { src: "narration/tours/ice-age-artists-v4.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "086e08cb08" },
+    closingNarration: { src: "narration/tours/ice-age-artists-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e27fb66e5f" },
     stops: [
       { entity: "lomekwian-tools" },
       { entity: "oldowan-tools" },
@@ -153,6 +157,7 @@ export const TOURS: Tour[] = [
     layers: ["civilization", "event"],
     music: { src: "music/tours/civilizations-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     announcement: { src: "narration/tours/civilizations-v3.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "eacdbe73ce" },
+    closingNarration: { src: "narration/tours/civilizations-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "0e830f7708" },
     stops: [
       { entity: "sumerian-city-states", year: -2_899 },
       { entity: "great-pyramid" },
