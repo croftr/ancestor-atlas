@@ -32,6 +32,7 @@
     - recall
   image_url: /images/species/orrorin-tugenensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/orrorin-tugenensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=7Wq6XqyqQ34
@@ -48,6 +49,7 @@
     - recall
   image_url: /images/species/ardipithecus-kadabba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/ardipithecus-kadabba-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=qRY68467GPg
@@ -87,6 +89,7 @@
     - recall
   image_url: /images/species/australopithecus-anamensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-anamensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=XHBef_2dvqE
@@ -126,6 +129,7 @@
     - recall
   image_url: /images/species/kenyanthropus-platyops.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/kenyanthropus-platyops-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Se54pYWiDd8
@@ -144,6 +148,7 @@
     - literature
   image_url: /images/species/australopithecus-bahrelghazali.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-bahrelghazali-v1.mp4, credit: "AI-generated video (Google Veo)" }
 - id: australopithecus-deyiremeda
   name: Australopithecus deyiremeda
   category: species
@@ -157,6 +162,7 @@
     - literature
   image_url: /images/species/australopithecus-deyiremeda.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-deyiremeda-v1.mp4, credit: "AI-generated video (Google Veo)" }
 - id: australopithecus-africanus
   name: Australopithecus africanus
   category: species
@@ -168,6 +174,7 @@
     - recall
   image_url: /images/species/australopithecus-africanus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-africanus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=pwW40Dj5Sro
@@ -184,6 +191,7 @@
     - recall
   image_url: /images/species/australopithecus-garhi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-garhi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=9ExOy42Hc50
@@ -217,6 +225,7 @@
     - recall
   image_url: /images/species/paranthropus-aethiopicus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/paranthropus-aethiopicus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=EpNgX8wRW8c
@@ -256,6 +265,7 @@
     - recall
   image_url: /images/species/paranthropus-robustus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/paranthropus-robustus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=lzBwFh0dYIs
@@ -295,6 +305,7 @@
     - recall
   image_url: /images/species/homo-rudolfensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-rudolfensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=xuJPm1NBoIc
@@ -449,6 +460,7 @@
     - recall
   image_url: /images/species/homo-luzonensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/homo-luzonensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mBnzNpbaqS4
