@@ -80,9 +80,10 @@
   image_url: /images/events/out-of-africa.webp
   image_credit: AI-generated illustration
   extra_images:
-    - { url: /images/events/extra/out-of-africa-dmanisi-3.webp, credit: "Saioa López, Lucy van Dorp & Garrett Hellenthal, CC BY 3.0, via Wikimedia Commons", caption: "Putative migration waves out of Africa", source: "https://commons.wikimedia.org/wiki/File:Putative_migration_waves_out_of_Africa.png" }
-    - { url: /images/events/extra/out-of-africa-dmanisi-2.webp, credit: "Kober, CC0, via Wikimedia Commons", caption: "Dmanisi Skull 5 and its jaw, National Museum of Georgia", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_hominin_skull_D4500_and_mandible_D2600._National_Museum_of_Georgia.jpg" }
     - { url: /images/events/extra/out-of-africa-dmanisi-1.webp, credit: "Guy Bar-Oz, CC BY-SA 3.0, via Wikimedia Commons", caption: "Dmanisi Skull 5 as it lay in the ground", source: "https://commons.wikimedia.org/wiki/File:Skull_in_dmanisi_archaeological_site.JPG" }
+    - { url: /images/events/extra/out-of-africa-dmanisi-2.webp, credit: "Kober, CC0, via Wikimedia Commons", caption: "Dmanisi Skull 5 and its jaw, National Museum of Georgia", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_hominin_skull_D4500_and_mandible_D2600._National_Museum_of_Georgia.jpg" }
+    - { url: /images/events/extra/out-of-africa-dmanisi-3.webp, credit: "Saioa López, Lucy van Dorp & Garrett Hellenthal, CC BY 3.0, via Wikimedia Commons", caption: "Putative migration waves out of Africa", source: "https://commons.wikimedia.org/wiki/File:Putative_migration_waves_out_of_Africa.png" }
+    - { url: /images/events/extra/out-of-africa-dmanisi-4.webp, credit: "Gerbil, CC BY-SA 3.0, via Wikimedia Commons", caption: "Oldowan stone tool from Dmanisi (right, replica) beside a later Acheulean handaxe", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_stone_tool_1.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=9btN6H7H3Rg", title: "When Did Hominins First Leave Africa?", credit: "Stefan Milo, YouTube" }
   narration: { src: narration/events/out-of-africa-dmanisi-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4d3c64072e" }
@@ -158,7 +159,9 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/symbolic-culture-1.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 3.0, via Wikimedia Commons", caption: "Blombos Cave on the southern Cape coast, South Africa", source: "https://commons.wikimedia.org/wiki/File:Blombos.jpg" }
+    - { url: /images/events/extra/symbolic-culture-3.webp, credit: "Chris S. Henshilwood, CC BY-SA 4.0, via Wikimedia Commons", caption: "Red ochre plaque from Blombos Cave engraved with a cross-hatched geometric pattern, about 75,000 years old", source: "https://commons.wikimedia.org/wiki/File:Blombo.jpg" }
     - { url: /images/events/extra/symbolic-culture-2.webp, credit: "Chris Henshilwood & Francesco d'Errico, CC BY 2.5, via Wikimedia Commons", caption: "Shell beads from Blombos Cave, pierced for stringing, about 75,000 years old", source: "https://commons.wikimedia.org/wiki/File:BBC-shell-beads.jpg" }
+    - { url: /images/events/extra/symbolic-culture-4.webp, credit: "Kari Janne Stenersen, CC BY-SA 2.5, via Wikimedia Commons", caption: "Middle Stone Age deposit layers inside Blombos Cave", source: "https://commons.wikimedia.org/wiki/File:Blombos_Cave_-_deposit_layers.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=z2XsBYYM8kk", title: "Blombos Cave: the birth of symbolic thinking", credit: "Origins & Empires, YouTube" }
   narration: { src: narration/events/symbolic-culture-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "953f0dde52" }
@@ -178,6 +181,8 @@
   image_url: /images/events/seafaring-to-sahul.webp
   image_credit: AI-generated illustration
   extra_images:
+    - { url: /images/events/extra/sahul-seafaring-3.webp, credit: "Kanguole, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sunda, Wallacea and the Pleistocene continent of Sahul (Australia and New Guinea)", source: "https://commons.wikimedia.org/wiki/File:Map_of_Sunda_and_Sahul.svg" }
+    - { url: /images/events/extra/sahul-seafaring-4.webp, credit: "Dietmar Rabich, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Arnhem Land escarpment at Nadap Lookout in Kakadu, near Madjedbebe", source: "https://commons.wikimedia.org/wiki/File:Kakadu_(AU),_Kakadu_National_Park,_Nadap_Lookout_--_2019_--_4180.jpg" }
     - { url: /images/events/extra/sahul-seafaring-1.webp, credit: "Dietmar Rabich, CC BY-SA 4.0, via Wikimedia Commons", caption: "Rock art at Ubirr in western Arnhem Land, near Madjedbebe", source: "https://commons.wikimedia.org/wiki/File:Kakadu_(AU),_Kakadu_National_Park,_Ubirr_Rock_Art_--_2019_--_4169.jpg" }
     - { url: /images/events/extra/sahul-seafaring-2.webp, credit: "Rueparadis, CC BY-SA 4.0, via Wikimedia Commons", caption: "The eroded lunette at Lake Mungo, where some of Australia's oldest human remains were found", source: "https://commons.wikimedia.org/wiki/File:Lake_Mungo_lunette.jpg" }
   media:
@@ -199,8 +204,10 @@
   image_url: /images/events/archaic-human-admixture.webp
   image_credit: AI-generated illustration
   extra_images:
+    - { url: /images/events/extra/archaic-human-admixture-3.webp, credit: "Max Planck Institute for Evolutionary Anthropology, public domain, via Wikimedia Commons", caption: "Extracting ancient DNA from a Neanderthal bone in a clean room at Leipzig", source: "https://commons.wikimedia.org/wiki/File:Neanderthal_DNA_extraction.jpg" }
     - { url: /images/events/extra/archaic-human-admixture-1.webp, credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Oase 2 skull, Romania: a jaw from the same cave carried DNA from a Neanderthal four to six generations back", source: "https://commons.wikimedia.org/wiki/File:Oase_2_skull_(Homo_sapiens).jpg" }
     - { url: /images/events/extra/archaic-human-admixture-2.webp, credit: "Yuriy59, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Denisova Cave in the Altai Mountains, Russia", source: "https://commons.wikimedia.org/wiki/File:Denisova_cave_03.jpg" }
+    - { url: /images/events/extra/archaic-human-admixture-4.webp, credit: "Dongju Zhang, CC BY-SA 4.0, via Wikimedia Commons", caption: "Baishiya Karst Cave on the Tibetan Plateau, where Denisovan remains and DNA were found at high altitude", source: "https://commons.wikimedia.org/wiki/File:Baishiya_Karst_Cave.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=rXN-KEULia8", title: "Does Neanderthal DNA put a ceiling on Out of Africa?", credit: "Stefan Milo, YouTube" }
     - { kind: video, src: "https://www.youtube.com/watch?v=5JzoalkMW6I", title: "Denny: The Incredible Hybrid of Neanderthal and Denisovan", credit: "Evo Inception, YouTube" }
@@ -221,7 +228,9 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/figurative-cave-art-1.webp, credit: "Anhar Karim, CC BY-SA 4.0, via Wikimedia Commons", caption: "Leang Karampuang in the Maros karst, Sulawesi", source: "https://commons.wikimedia.org/wiki/File:Karampuang,_a_cave_which_has_world%27s_oldest_cave_painting.jpg" }
+    - { url: /images/events/extra/figurative-cave-art-3.webp, credit: "Oktaviana et al., CC BY 4.0, via Wikimedia Commons", caption: "The painted panel at Leang Karampuang, showing human-like figures and a wild pig, at least 51,200 years old", source: "https://commons.wikimedia.org/wiki/File:Oldest_painting_in_the_world_in_Leang_Karampuang.jpg" }
     - { url: /images/events/extra/figurative-cave-art-2.webp, credit: "Oktaviana, CC BY-SA 4.0, via Wikimedia Commons", caption: "Painted pig at nearby Leang Tedongnge, at least 45,500 years old, with a tracing", source: "https://commons.wikimedia.org/wiki/File:Leang_Tedongnge_rock_art_panel_credit_AA_Oktaviana-01.jpg" }
+    - { url: /images/events/extra/figurative-cave-art-4.webp, credit: "Cahyo, CC BY-SA 3.0, via Wikimedia Commons", caption: "Hand stencils on the wall of nearby Pettakere Cave in the Maros karst", source: "https://commons.wikimedia.org/wiki/File:Hands_in_Pettakere_Cave.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=b-wAYtBxn7E", title: "Oldest cave art found in Sulawesi", credit: "Griffith University, YouTube" }
   narration: { src: narration/events/figurative-cave-art-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f3ac340078" }
@@ -265,7 +274,9 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/peopling-of-the-americas-1.webp, credit: "U.S. Geological Survey, public domain, via Wikimedia Commons", caption: "Human footprints at White Sands, New Mexico", source: "https://commons.wikimedia.org/wiki/File:Human_fossil_tracks_at_White_Sands_New_Mexico.jpg" }
+    - { url: /images/events/extra/peopling-of-the-americas-3.webp, credit: "U.S. Geological Survey, public domain, via Wikimedia Commons", caption: "Excavating and dating the fossil human trackways at White Sands", source: "https://commons.wikimedia.org/wiki/File:White_Sands_Fossil_Footprints.png" }
     - { url: /images/events/extra/peopling-of-the-americas-2.webp, credit: "Rodolfo Ditzel Lacoa, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Monte Verde site in southern Chile", source: "https://commons.wikimedia.org/wiki/File:Monte_Verde_1.JPG" }
+    - { url: /images/events/extra/peopling-of-the-americas-4.webp, credit: "Bureau of Land Management, public domain, via Wikimedia Commons", caption: "Paisley Caves in Oregon, another pre-Clovis site with human remains over 14,000 years old", source: "https://commons.wikimedia.org/wiki/File:Paisley_caves_-_Fossil_Cave5.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=U7VQbRsRxLg", title: "Ice Age Footprints", credit: "PBS America, YouTube" }
   narration: { src: narration/events/peopling-of-the-americas-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6521a21a2d" }

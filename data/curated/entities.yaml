@@ -453,7 +453,9 @@
   image_url: /images/species/homo-sapiens.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   extra_images:
+    - { url: /images/extra/homo-sapiens-3.webp, credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Jebel Irhoud 1 skull from Morocco, about 315,000 years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg" }
     - { url: /images/extra/homo-sapiens-1.webp, credit: "GuillaumeG, CC BY-SA 4.0, via Wikimedia Commons", caption: "Omo Kibish skull, Ethiopia (reproduction)", source: "https://commons.wikimedia.org/wiki/File:Omo_Kibish_-_MCN_4152_(cropped).jpg" }
+    - { url: /images/extra/homo-sapiens-4.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Skhul 5 skull from Mount Carmel, an early modern human outside Africa, about 95,000 years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Skhul_5_cast,_norma_frontalis.jpg" }
     - { url: /images/extra/homo-sapiens-2.webp, credit: "Rept0n1x, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cro-Magnon skull from France, an early modern European (cast)", source: "https://commons.wikimedia.org/wiki/File:Homo_sapiens_sapiens_(Cro-Magnon_Man),_World_Museum_Liverpool_(1).JPG" }
   media:
     - kind: video
@@ -595,8 +597,10 @@
       title: How the Aurignacians conquered Ice Age Europe
       credit: WEON Earth, YouTube
   extra_images:
+    - { url: /images/extra/aurignacian-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Aurignacian stone blade scraper from the type site at Aurignac, excavated by Édouard Lartet in 1861", source: "https://commons.wikimedia.org/wiki/File:Lame_Aurignac_Lartet_global_N%C2%B0II.jpg" }
     - { url: /images/extra/aurignacian-1.webp, credit: "Dagmar Hollmann, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lion Man of Hohlenstein-Stadel, carved from mammoth ivory", source: "https://commons.wikimedia.org/wiki/File:Loewenmensch1.jpg" }
     - { url: /images/extra/aurignacian-2.webp, credit: "Catatine, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Venus of Hohle Fels, about 40,000 years old", source: "https://commons.wikimedia.org/wiki/File:Venus_of_Hohle_Fels_URMU.jpg" }
+    - { url: /images/extra/aurignacian-4.webp, credit: "Thomas T., CC BY-SA 2.0, via Wikimedia Commons", caption: "Horses, aurochs and rhinoceroses painted in Chauvet Cave, France (replica)", source: "https://commons.wikimedia.org/wiki/File:Chauvet%C2%B4s_cave_horses.jpg" }
 - id: gravettian
   name: Gravettian
   category: culture
@@ -696,6 +700,8 @@
   extra_images:
     - { url: /images/extra/clovis-1.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Clovis point of chert from Sevier County, Utah", source: "https://commons.wikimedia.org/wiki/File:Clovis_point,_11500-9000_BC,_Sevier_County,_Utah,_chert_-_Natural_History_Museum_of_Utah_-_DSC07376.JPG" }
     - { url: /images/extra/clovis-2.webp, credit: "SpringDraw, CC BY-SA 4.0, via Wikimedia Commons", caption: "Clovis points from the DeGraffenried cache, Texas", source: "https://commons.wikimedia.org/wiki/File:DeGraffenried_Clovis_Cache.tif" }
+    - { url: /images/extra/clovis-3.webp, credit: "James St. John, CC BY 2.0, via Wikimedia Commons", caption: "Columbian mammoth from Dent, Colorado, the first mammoth skeleton found with Clovis points", source: "https://commons.wikimedia.org/wiki/File:Columbian_mammoth_discovered_with_Clovis_points.jpg" }
+    - { url: /images/extra/clovis-4.webp, credit: "Alohateam, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Murray Springs Clovis site in Arizona, a mammoth-hunting camp", source: "https://commons.wikimedia.org/wiki/File:Murray_Springs_Clovis_Site.jpg" }
 - id: pre-pottery-neolithic
   name: Pre-Pottery Neolithic
   category: culture
