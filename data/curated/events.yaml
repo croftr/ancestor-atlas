@@ -467,6 +467,8 @@
   extra_images:
     - { url: /images/events/extra/great-pyramid-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Ivory statuette of Khufu, the only complete figure of the king known", source: "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Statuette_Cheops_03_(cropped).jpg" }
     - { url: /images/events/extra/great-pyramid-2.webp, credit: "Eduard Spelterini, public domain, via Wikimedia Commons", caption: "The Giza pyramids from a balloon, about 1904; Khufu's is on the right", source: "https://commons.wikimedia.org/wiki/File:Spelterini_Pyramids.jpg" }
+    - { url: /images/events/extra/great-pyramid-3.webp, credit: "CaptMondo, CC BY 2.5, via Wikimedia Commons", caption: "Limestone casing stone from the Great Pyramid of Giza (British Museum)", source: "https://commons.wikimedia.org/wiki/File:KhufuPyramidCasingStone-BritishMuseum-August19-08.jpg" }
+    - { url: /images/events/extra/great-pyramid-4.webp, credit: "Keith Adler, CC BY-SA 4.0, via Wikimedia Commons", caption: "The corbelled Grand Gallery inside the Great Pyramid of Giza", source: "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza_Grand_Gallery.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=dWq0iC4YqbE", title: "Building the Great Pyramid of Giza", credit: "National Geographic UK, YouTube" }
   narration: { src: narration/events/great-pyramid-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3e1d57afc1" }
@@ -484,8 +486,10 @@
   image_url: /images/events/indus-cities.webp
   image_credit: AI-generated illustration
   extra_images:
-    - { url: /images/events/extra/indus-cities-1.webp, credit: "Saqib Qayyum, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Bath at Mohenjo-daro", source: "https://commons.wikimedia.org/wiki/File:Mohenjo-daro.jpg" }
+    - { url: /images/events/extra/indus-cities-3.webp, credit: "Comrogues, CC BY 2.0, via Wikimedia Commons", caption: "Standardized baked-brick walls and straight streets at Mohenjo-daro", source: "https://commons.wikimedia.org/wiki/File:Mohenjo-daro-2010.jpg" }
     - { url: /images/events/extra/indus-cities-2.webp, credit: "Prof Ranga Sai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Manholes in the drainage network at Dholavira, another Indus city", source: "https://commons.wikimedia.org/wiki/File:Manholes_at_Dholavira_water_management_network.jpg" }
+    - { url: /images/events/extra/indus-cities-4.webp, credit: "Bhajish Bharathan, CC BY-SA 4.0, via Wikimedia Commons", caption: "Stepped stone water reservoir at the Indus city of Dholavira", source: "https://commons.wikimedia.org/wiki/File:Water_reservoir_at_Dholavira_site.jpg" }
+    - { url: /images/events/extra/indus-cities-1.webp, credit: "Saqib Qayyum, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Bath at Mohenjo-daro", source: "https://commons.wikimedia.org/wiki/File:Mohenjo-daro.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=CmOjLH0rs9U", title: "The Indus civilization: the discovery that changes everything", credit: "Show Me the World, YouTube" }
   narration: { src: narration/events/indus-cities-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e8561d65ec" }
@@ -525,6 +529,8 @@
   extra_images:
     - { url: /images/events/extra/code-of-hammurabi-1.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "The Code of Hammurabi stele (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg" }
     - { url: /images/events/extra/code-of-hammurabi-2.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "Hammurabi before the sun god Shamash, at the top of the stele", source: "https://commons.wikimedia.org/wiki/File:P1050771_Louvre_code_Hammurabi_bas_relief_rwk.JPG" }
+    - { url: /images/events/extra/code-of-hammurabi-3.webp, credit: "Rmashhadi, public domain, via Wikimedia Commons", caption: "Close-up of the Akkadian cuneiform legal judgments chiselled into the diorite stele", source: "https://commons.wikimedia.org/wiki/File:Detail_of_the_Code_of_Hammurabi,_SB_8_(56).jpg" }
+    - { url: /images/events/extra/code-of-hammurabi-4.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Diorite royal head known as the Head of Hammurabi (Louvre)", source: "https://commons.wikimedia.org/wiki/File:T%C3%AAte_royale_dite_t%C3%AAte_de_Hammurabi_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_SB_95.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=QEko2CMykuk", title: "The Code of Hammurabi", credit: "NBC News Learn, YouTube" }
   narration: { src: narration/events/code-of-hammurabi-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "c1918d0e7b" }
@@ -563,6 +569,8 @@
   extra_images:
     - { url: /images/events/extra/sea-peoples-1.webp, credit: "Antonio Beato, CC0, via Wikimedia Commons", caption: "The naval battle relief on the north wall at Medinet Habu, photographed by Antonio Beato, late 1800s", source: "https://commons.wikimedia.org/wiki/File:Theban_region,_Medinet_Habu,_19th_century_pictures,_1870-1896,_photo_44_of_51_-_Archivio_fotografico_Museo_Egizio,_Turin_INV10_001.jpg" }
     - { url: /images/events/extra/sea-peoples-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Drawing of the naval battle against the Sea Peoples, Medinet Habu", source: "https://commons.wikimedia.org/wiki/File:Medinet_Habu_Ramses_III._Tempel_Nordostwand_Abzeichnung_01.jpg" }
+    - { url: /images/events/extra/sea-peoples-3.webp, credit: "Rémih, CC BY-SA 3.0, via Wikimedia Commons", caption: "Captive Sea Peoples with feathered headdresses carved on the walls of Medinet Habu", source: "https://commons.wikimedia.org/wiki/File:Bas_relief_de_prisonniers_philistins_sur_la_facade_sud_du_deuxi%C3%A8me_pyl%C3%B4ne_(2).JPG" }
+    - { url: /images/events/extra/sea-peoples-4.webp, credit: "Hanay, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine bichrome pottery bowl from the southern Levantine coast", source: "https://commons.wikimedia.org/wiki/File:Philistine_pottery_Drinking_bowl.JPG" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=cLk8CUiovIk", title: "Eric Cline on the Sea Peoples invasion of ancient Egypt", credit: "The Ancients (History Hit), YouTube" }
   narration: { src: narration/events/sea-peoples-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "a6dd477f3c" }
