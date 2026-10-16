@@ -6,6 +6,7 @@ import { isActive, useData } from "../map/data";
 import { CategoryBadge } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
 import ClimatePanel from "./ClimatePanel";
+import { WhenLine } from "./ClimatePopover";
 
 interface ActiveEntityItem {
   id: string;
@@ -175,9 +176,7 @@ export default function Legend() {
         </svg>
       </button>
       <div id="legend-panel" className="panel legend" aria-hidden={collapsed} inert={collapsed}>
-        <div className="legend-brand">
-          <h1>Ancestor Atlas</h1>
-        </div>
+        <WhenLine year={year} className="legend-when" />
         <div className="legend-cats">
           {CATEGORIES.map((c) => {
             const items = breakdown[c];

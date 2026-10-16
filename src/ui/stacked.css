@@ -70,7 +70,7 @@
     transform: none;
   }
   .app.view-globe .legend-toggle,
-  .app.view-globe .legend-brand,
+  .app.view-globe .legend-when,
   .app.view-globe .legend-shape,
   .app.view-globe .count-word { display: none; }
   .app.view-globe .legend-cats {

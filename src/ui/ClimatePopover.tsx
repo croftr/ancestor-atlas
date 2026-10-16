@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useStore } from "../store";
-import { STAGE_NOTES, climateAt, climateColor, climateWords, stageName, type Climate } from "../time/climate";
+import { STAGE_NOTES, climateAt, kaOf, climateColor, climateWords, stageName, type Climate } from "../time/climate";
 import { formatYear, snapYear } from "../time/scale";
 
 /** Rounds to `n` significant figures. */
@@ -82,17 +82,25 @@ function MiniChart({ climate, ka }: { climate: Climate; ka: number }) {
  * The climate at one moment: the year, global temperature, sea level, the Marine Isotope Stage and
  * a small chart of the glacial cycles around it. Shared by the popover and the climate panel.
  */
+/** The moment as a heading: "20,000 BCE · 21,900 years ago". Also the legend's heading. */
+export function WhenLine({ year, className = "cp-when" }: { year: number; className?: string }) {
+  const ka = Math.max(0, kaOf(year));
+  return (
+    <div className={className}>
+      {formatYear(Math.round(year))}
+      {/* Deep time already reads "… million years ago". */}
+      {ka < 1000 && <span className="muted"> · {agoText(ka)}</span>}
+    </div>
+  );
+}
+
 export function ClimateFacts({ climate, year }: { climate: Climate; year: number }) {
   const at = climateAt(climate, year);
   const stage = at.stage;
   const note = stage && STAGE_NOTES[stage.stage];
   return (
     <>
-      <div className="cp-when">
-        {formatYear(Math.round(year))}
-        {/* Deep time already reads "… million years ago". */}
-        {at.ka < 1000 && <span className="muted"> · {agoText(at.ka)}</span>}
-      </div>
+      <WhenLine year={year} />
       {at.d18o !== undefined && (
         <div className="cp-state">
           <span className="cp-swatch" style={{ background: climateColor(at.d18o) }} />
