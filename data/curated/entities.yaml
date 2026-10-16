@@ -1179,6 +1179,16 @@
       src: https://www.youtube.com/watch?v=hTmt6PUryT0
       title: Which ancient society really invented the wheel?
       credit: Dan Davis History, YouTube
+# Span from English Wikipedia: Yamnaya_culture@1377652974.
+- id: yamnaya
+  name: Yamnaya culture
+  category: culture
+  start_year: -3299
+  end_year: -2599
+  description: "Late Copper Age to early Bronze Age culture of the Pontic–Caspian steppe, between the Southern Bug, Dniester and Ural rivers, c. 3300–2600 BCE. Also called the Pit Grave culture, after its burials in simple pits under kurgan mounds. Its herders used ox-drawn carts and wagons, and ancient DNA shows that people of Yamnaya ancestry spread far into Europe and Asia; they are widely linked to the spread of Indo-European languages."
+  wikipedia_url: https://en.wikipedia.org/wiki/Yamnaya_culture
+  wikidata: Q426737
+  source_ids: []
 # Span from English Wikipedia: Azilian@1373678621.
 - id: azilian
   name: Azilian

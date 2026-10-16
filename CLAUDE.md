@@ -212,7 +212,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   (`haplogroups.ts`; validated colour-blind-safe all-pairs, which caps a map at three) plus grey "other" and hollow
   "not known". Map layers `dna-sites` / `dna-selected` sit above territories, under the other markers.
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
-  dropped if the date misses the culture's span by 500+ years). There is no Yamnaya culture entity yet.
+  dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.
 - Not yet checked on phones.
 
 ## Civilization regions
@@ -317,6 +317,11 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
 - Cultures added 12 Oct 2026 (same clean-label rule): Epigravettian, Azilian, Maglemosian, Capsian, Halaf, Ubaid,
   Hinkelstein/Grossgartach (one entity), Stichbandkeramik, Rössen. Not mapped: Tardigravettian, Romanellian,
   Federmesser/Azilian, Neolithic of Capsian Tradition, Libyco-Capsian, Pre-/Proto-Halaf, Planig-Friedberg.
+- Yamnaya added 16 Oct 2026 (span 3300–2600 BCE, Wikipedia revision in entities.yaml; Copper and Bronze Age stage
+  picture): 22 XRONOS sites from Hungary and Bulgaria to the southern Urals ("Pit Grave" and "Yamnaya" labels; the
+  outlier label `Yamnaya_Bulgaria_outlier` is not mapped). Ozera (UA) is dropped by the country check (its XRONOS
+  coordinates lie in Serbia); not yet checked by hand. AADR: only the exact `Yamnaya` part (not ProtoYamnaya or
+  LateYamnaya).
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or
