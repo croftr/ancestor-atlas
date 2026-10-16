@@ -702,10 +702,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
    which takes the clicks (its ring over the globe closes it). */
 .map-wrap.mini { z-index: 60; pointer-events: none; }
 
-/* Climate under the slider (ClimateStrip.tsx): LR04 δ18O, ice blue to amber. Same inset as the span band.
+/* Climate under the ticks (ClimateStrip.tsx): LR04 δ18O, ice blue to amber. Same inset as the span band.
    A button: a click opens the climate popover there. */
 .climate-strip {
-  position: relative; display: block; width: calc(100% - 16px); height: 9px; margin: 4px 8px 0; padding: 0;
+  position: relative; display: block; width: calc(100% - 16px); height: 9px; margin: 2px 8px 6px; padding: 0;
   border: none; border-radius: 3px; background: rgba(0, 0, 0, 0.3); overflow: hidden; cursor: pointer;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }

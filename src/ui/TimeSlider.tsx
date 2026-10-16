@@ -247,10 +247,6 @@ export default function TimeSlider() {
           onChange={(e) => setYear(posToYear(Number(e.target.value) / 10000))}
         />
       </div>
-      <ClimateStrip onPick={(y, pos) => setClimatePick({ year: y, left: pos < 0 ? yearToPos(year) : pos })} />
-      {climatePick && climate && (
-        <ClimatePopover climate={climate} year={climatePick.year} left={climatePick.year === null ? yearToPos(year) : climatePick.left} onClose={() => setClimatePick(null)} />
-      )}
       <div className="span-track">
         {spanEntity && (
           <div
@@ -272,6 +268,10 @@ export default function TimeSlider() {
           </span>
         ))}
       </div>
+      <ClimateStrip onPick={(y, pos) => setClimatePick({ year: y, left: pos < 0 ? yearToPos(year) : pos })} />
+      {climatePick && climate && (
+        <ClimatePopover climate={climate} year={climatePick.year} left={climatePick.year === null ? yearToPos(year) : climatePick.left} onClose={() => setClimatePick(null)} />
+      )}
       <div id="era-shortcuts" className={`chips${shortcutsOpen ? " open" : ""}`} style={touring ? { display: "none" } : undefined}>
         {presets.map((e) => (
           <button
