@@ -19,16 +19,34 @@
   label: Ice Age hunter-gatherers in general
   image_url: /images/cultures/ice-age-hunters.webp
   image_credit: AI-generated illustration
-  members: [aurignacian, gravettian, solutrean, epigravettian, magdalenian, azilian, maglemosian, capsian, clovis]
+  members: [aurignacian, gravettian, solutrean, epigravettian, magdalenian]
+
+- id: mesolithic-europe
+  label: post-glacial European hunter-gatherers in general
+  image_url: /images/cultures/mesolithic-europe.webp
+  image_credit: AI-generated illustration
+  members: [azilian, maglemosian, ertebolle]
 
 - id: early-farmers
-  label: early farming communities in general
+  label: early European farming communities in general
   image_url: /images/cultures/early-farmers.webp
   image_credit: AI-generated illustration
   members:
-    [natufian, pre-pottery-neolithic, starcevo-koros-cris, cardial, linear-pottery, vinca, lengyel, chasseen,
-     michelsberg, funnelbeaker, cucuteni-trypillia, ertebolle, badarian, naqada, halaf, ubaid,
+    [starcevo-koros-cris, cardial, linear-pottery, vinca, lengyel, chasseen,
+     michelsberg, funnelbeaker, cucuteni-trypillia,
      hinkelstein-grossgartach, stichbandkeramik, rossen]
+
+- id: neolithic-near-east
+  label: Neolithic communities of the Near East in general
+  image_url: /images/cultures/neolithic-near-east.webp
+  image_credit: AI-generated illustration
+  members: [natufian, pre-pottery-neolithic, halaf, ubaid]
+
+- id: predynastic-egypt
+  label: Predynastic Egypt in general
+  image_url: /images/cultures/predynastic-egypt.webp
+  image_credit: AI-generated illustration
+  members: [badarian, naqada]
 
 - id: copper-bronze-europe
   label: Copper and Bronze Age Europe in general

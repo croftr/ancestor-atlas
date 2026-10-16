@@ -751,6 +751,8 @@
   end_year: -9681
   description: "Around 13,000 years ago a distinctive way of making stone spear points spread across North America. Clovis points, named after finds near Clovis, New Mexico, in the 1930s, have a channel struck from the base so they could be bound to a shaft, and they turn up from the Atlantic coast to the Rockies, sometimes beside the bones of mammoths. Clovis was long thought to mark the first Americans, but older sites such as Monte Verde in Chile show people had arrived thousands of years before."
   narration: { src: narration/cultures/clovis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "20e58f3384" }
+  image_url: /images/cultures/clovis.webp
+  image_credit: AI-generated illustration
   wikipedia_url: https://en.wikipedia.org/wiki/Clovis_culture
   source_ids:
     - recall
@@ -1255,6 +1257,8 @@
   start_year: -8999
   end_year: -5399
   description: Epipalaeolithic tradition of Algeria and Tunisia, c. 9000–5400 BCE, named after Gafsa (Latin Capsa). Divided into the Typical and Upper Capsian; its people hunted a wide range of animals, from aurochs to hares and snails, and made ostrich-eggshell beads and containers and figurative and abstract rock art.
+  image_url: /images/cultures/capsian.webp
+  image_credit: AI-generated illustration
   wikipedia_url: https://en.wikipedia.org/wiki/Capsian_culture
   wikidata: Q766150
   source_ids: []
