@@ -1212,6 +1212,8 @@
   end_year: -1899
   description: "In the southern Urals, around four thousand years ago, the Sintashta culture built fortified settlements ringed by walls and ditches, and mined and worked copper on a scale unusual for steppe peoples. In its graves lie the oldest known chariots, light two-wheeled vehicles with spoked wheels, buried with their horses. Ancient DNA shows its people descended largely from the Corded Ware groups of eastern Europe, and many researchers see them as early speakers of the Indo-Iranian languages."
   narration: { src: narration/cultures/sintashta-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1ce04c2c27" }
+  image_url: /images/cultures/sintashta.webp
+  image_credit: AI-generated illustration
   wikipedia_url: https://en.wikipedia.org/wiki/Sintashta_culture
   wikidata: Q656393
   source_ids: []
