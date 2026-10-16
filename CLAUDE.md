@@ -88,7 +88,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - A stop may set `site` (a feature id) to frame and open the card on one place. Tours can mix categories.
 - Tours (Oct 2026): Events and inventions (all 29 events; a draft for Rob to trim); Human evolution (13 species + 2
   events); Out of Africa (9); Ice Age artists and toolmakers (14); Rise and fall of civilizations (15 civilizations +
-  4 events, Sumer to Rome). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
+  4 events, Sumer to Rome); Out of the steppe (`steppe-migration`, 16 Oct 2026: the wheel + 7 steppe-descended
+  cultures, Yamnaya to Andronovo; `dna: "y"` turns the ancient DNA layer on for the tour and puts the viewer's setting
+  back after). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
   narration-length paragraphs for them (Rob to review). Music: Human evolution and Out of Africa have "Apeman Suite" by Paul Lawler (16 Oct 2026; no licence for it, see backlog item 5); the others share "Adrift Among Infinite Stars" (Scott Buckley, CC BY 4.0).
 - Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,
   blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
@@ -325,6 +327,10 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   outlier label `Yamnaya_Bulgaria_outlier` is not mapped). Ozera (UA) is dropped by the country check (its XRONOS
   coordinates lie in Serbia); not yet checked by hand. AADR: only the exact `Yamnaya` part (not ProtoYamnaya or
   LateYamnaya).
+- Afanasievo, Sintashta and Andronovo added 16 Oct 2026 for the steppe tour (spans from Wikipedia, revisions in
+  entities.yaml): few XRONOS dates, all on genome-sampled burials (Afanasievo 2 sites, Sintashta 4, Andronovo 1:
+  Kytmanovo). No pictures yet (Rob to provide). The steppe tour also rewrote Yamnaya, Corded Ware, Bell Beaker and
+  Únětice as narration-length paragraphs (Rob to review).
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

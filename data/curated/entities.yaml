@@ -988,7 +988,8 @@
   category: culture
   start_year: -2899
   end_year: -2299
-  description: Broad Late Neolithic to early Bronze Age horizon across northern and central Europe, named after pottery decorated with cord impressions and known for single burials under mounds. Includes the Single Grave culture of southern Scandinavia, northern Germany and the Low Countries.
+  description: "Across northern and central Europe, from the Rhine to the Volga, people of the Corded Ware culture buried their dead singly under round mounds, men lying on their right side and women on their left, with pots decorated by pressing cord into the wet clay. Ancient DNA from these graves shows a sudden change: about three quarters of their ancestry came from the steppe herders of the east, mixed with that of Europe's earlier farmers. Most of their men carried the father's line R1a."
+  narration: { src: narration/cultures/corded-ware-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9caffb21cc" }
   wikipedia_url: https://en.wikipedia.org/wiki/Corded_Ware_culture
   wikidata: Q933996
   source_ids: []
@@ -1002,7 +1003,8 @@
   category: culture
   start_year: -2799
   end_year: -1649
-  description: Archaeological culture of western and central Europe at the start of the Bronze Age, named after its inverted-bell drinking vessels. It varied strongly by region and lasted until between about 2300 and 1650 BCE depending on the area.
+  description: "The Bell Beaker culture is named after its drinking cups, shaped like an upturned bell, found in graves from Portugal to Hungary and from Sicily to Scotland. It probably began in Iberia, but in central Europe it was taken up by people of steppe descent. When they reached Britain, around 2450 BCE, about nine tenths of the island's ancestry was replaced within a few centuries. The Amesbury Archer, buried near Stonehenge with gold ornaments and copper knives, had grown up in the Alps."
+  narration: { src: narration/cultures/bell-beaker-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3c66f9b81f" }
   wikipedia_url: https://en.wikipedia.org/wiki/Bell_Beaker_culture
   wikidata: Q470867
   source_ids: []
@@ -1072,7 +1074,8 @@
   category: culture
   start_year: -2299
   end_year: -1599
-  description: Early Bronze Age culture of central Europe, c. 2300–1600 BCE, centred on Bohemia, Moravia, central Germany and western Poland. Named after the village of Únětice near Prague; the Nebra sky disc belongs to its world.
+  description: "In the heart of central Europe, from Bohemia and Saxony to western Poland, the Únětice culture of the Early Bronze Age grew rich on bronze and on trade in amber and salt. Its rulers were buried under great mounds such as Leubingen, with gold and bronze weapons, and the Nebra sky disc, the oldest known picture of the night sky, comes from its world. Its people descended from both the Corded Ware and the Bell Beaker groups: steppe ancestry, now settled in the middle of Europe."
+  narration: { src: narration/cultures/unetice-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "7c6fc818e5" }
   wikipedia_url: https://en.wikipedia.org/wiki/Únětice_culture
   wikidata: Q773818
   source_ids: []
@@ -1185,9 +1188,43 @@
   category: culture
   start_year: -3299
   end_year: -2599
-  description: "Late Copper Age to early Bronze Age culture of the Pontic–Caspian steppe, between the Southern Bug, Dniester and Ural rivers, c. 3300–2600 BCE. Also called the Pit Grave culture, after its burials in simple pits under kurgan mounds. Its herders used ox-drawn carts and wagons, and ancient DNA shows that people of Yamnaya ancestry spread far into Europe and Asia; they are widely linked to the spread of Indo-European languages."
+  description: "On the grasslands north of the Black and Caspian Seas, around five thousand years ago, herders of the Yamnaya culture buried their dead in pits beneath earth mounds called kurgans, often sprinkled with red ochre. They lived with their herds of cattle and sheep and carried their homes on ox-drawn wagons. Ancient DNA shows that their descendants spread far into Europe and Asia within a few centuries, and many researchers link them to the spread of the Indo-European languages."
+  narration: { src: narration/cultures/yamnaya-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "56c906996e" }
   wikipedia_url: https://en.wikipedia.org/wiki/Yamnaya_culture
   wikidata: Q426737
+  source_ids: []
+# Span from English Wikipedia: Afanasievo_culture@1369190797.
+- id: afanasievo
+  name: Afanasievo culture
+  category: culture
+  start_year: -3299
+  end_year: -2499
+  description: "In the Altai Mountains and the Minusinsk Basin of southern Siberia, more than two thousand kilometres east of the Volga, people of the Afanasievo culture built the same kind of kurgan graves as the Yamnaya herders far to the west. Their genomes are almost indistinguishable from the Yamnaya's, so this was a migration across the steppe, not just a shared fashion. Some researchers think they spoke an early form of Tocharian, an Indo-European language written much later in western China."
+  narration: { src: narration/cultures/afanasievo-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0c2302c412" }
+  wikipedia_url: https://en.wikipedia.org/wiki/Afanasievo_culture
+  wikidata: Q80974
+  source_ids: []
+# Span from English Wikipedia: Sintashta_culture@1375603158.
+- id: sintashta
+  name: Sintashta culture
+  category: culture
+  start_year: -2199
+  end_year: -1899
+  description: "In the southern Urals, around four thousand years ago, the Sintashta culture built fortified settlements ringed by walls and ditches, and mined and worked copper on a scale unusual for steppe peoples. In its graves lie the oldest known chariots, light two-wheeled vehicles with spoked wheels, buried with their horses. Ancient DNA shows its people descended largely from the Corded Ware groups of eastern Europe, and many researchers see them as early speakers of the Indo-Iranian languages."
+  narration: { src: narration/cultures/sintashta-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1ce04c2c27" }
+  wikipedia_url: https://en.wikipedia.org/wiki/Sintashta_culture
+  wikidata: Q656393
+  source_ids: []
+# Span from English Wikipedia: Andronovo_culture@1379425534.
+- id: andronovo
+  name: Andronovo culture
+  category: culture
+  start_year: -1999
+  end_year: -1149
+  description: "From the southern Urals to the upper Yenisei in Siberia, and south into Central Asia, the Andronovo culture spread a way of life built on cattle, horses and bronze across the steppe in the second millennium BCE. Its people buried their dead crouched in stone-lined graves with richly decorated pottery. Closely related to the Sintashta people before them, they carried steppe ancestry deep into Asia, and scholars agree they spoke Indo-Iranian languages, the family that later gave us Sanskrit and Persian."
+  narration: { src: narration/cultures/andronovo-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d42c3acbcb" }
+  wikipedia_url: https://en.wikipedia.org/wiki/Andronovo_culture
+  wikidata: Q459376
   source_ids: []
 # Span from English Wikipedia: Azilian@1373678621.
 - id: azilian

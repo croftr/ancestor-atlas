@@ -93,6 +93,8 @@ interface AppState {
     phase: "travel" | "hold";
     holdMs: number;
     restore: Record<Category, boolean>;
+    /** The viewer's ancient DNA layer and colour before a tour that sets them (`dna` on the tour), put back after. */
+    restoreDna: { dna: boolean; dnaColour: DnaColour };
     /** Opened from a link: waits for a tap on "Start tour" (browsers only play sound after one). */
     gate: boolean;
     /** The title card before the first stop (announced, if the tour has an announcement). */
@@ -172,6 +174,9 @@ interface AppState {
   setClimatePanel(on: boolean): void;
   setIntroOpen(open: boolean): void;
 }
+
+/** What a tour ending puts back: the viewer's layers, and their ancient DNA layer setting. */
+const afterTour = (t: NonNullable<AppState["tour"]>) => ({ enabled: t.restore, ...t.restoreDna });
 
 export const useStore = create<AppState>((set, get) => ({
   year: -1_799_999,
@@ -294,6 +299,8 @@ export const useStore = create<AppState>((set, get) => ({
       hits: [],
       groupId: null,
       enabled: t.layers ? (Object.fromEntries(CATEGORIES.map((c) => [c, t.layers!.includes(c)])) as Record<Category, boolean>) : s.enabled,
+      ...(t.dna && { dna: true, dnaColour: t.dna }),
+      dnaSite: null,
       tour: {
         id,
         index: Math.min(Math.max(0, opts.index ?? 0), t.stops.length - 1),
@@ -306,11 +313,12 @@ export const useStore = create<AppState>((set, get) => ({
         phase: "travel",
         holdMs: 0,
         restore: s.tour?.restore ?? s.enabled,
+        restoreDna: s.tour?.restoreDna ?? { dna: s.dna, dnaColour: s.dnaColour },
       },
     }));
   },
   openGate: () => set((s) => (s.tour ? { tour: { ...s.tour, gate: false, paused: false } } : {})),
-  stopTour: () => set((s) => (s.tour ? { tour: null, enabled: s.tour.restore } : {})),
+  stopTour: () => set((s) => (s.tour ? { tour: null, ...afterTour(s.tour) } : {})),
   pauseTour: (paused) => set((s) => (s.tour && s.tour.paused !== paused ? { tour: { ...s.tour, paused } } : {})),
   tourGo: (index) =>
     set((s) => {
@@ -343,7 +351,7 @@ export const useStore = create<AppState>((set, get) => ({
       flyTo: bbox ? { bbox, gentle: true } : s.flyTo,
     });
   },
-  setPlaying: (p) => set((s) => ({ playing: p, ...(p && s.tour && { tour: null, enabled: s.tour.restore }) })),
+  setPlaying: (p) => set((s) => ({ playing: p, ...(p && s.tour && { tour: null, ...afterTour(s.tour) }) })),
   setBasemap: (name) => {
     if (!BASEMAP_THEMES[name]) return;
     try {

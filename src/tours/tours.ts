@@ -1,10 +1,12 @@
 import type { Category } from "../types";
+import type { DnaColour } from "../dna/haplogroups";
 
 /**
  * Guided tours: the globe plays forward and stops at each entity in turn, turning to it and opening
  * its card. A stop lands on `year` if given, else the entity's best year (an event's `year`).
  * `hold` is how long the card stays up, in seconds (default: from the length of its description).
  * `layers`: the categories shown during the tour (default: all); the viewer's own come back after.
+ * `dna`: show the ancient DNA layer during the tour, coloured by "y", "mt" or "plain".
  * `music`: background track, a bucket key (music/tours/<id>-v<n>.mp3; set by `npm run audio:music`).
  * `announcement`: the title card's voice-over, reading announcementText (narration/tours/<id>-v<n>.mp3;
  * set by `npm run audio:narrate -- --announce <id>`; `text_hash` is that text's fingerprint when recorded).
@@ -24,6 +26,8 @@ export interface Tour {
   title: string;
   blurb: string;
   layers?: Category[];
+  /** Turn the ancient DNA layer on for the tour, coloured this way (the viewer's own setting comes back after). */
+  dna?: DnaColour;
   music?: { src: string; credit: string };
   announcement?: { src: string; credit: string; text_hash: string };
   closing?: string;
@@ -178,6 +182,27 @@ export const TOURS: Tour[] = [
       { entity: "qin-dynasty", year: -209 },
       { entity: "han-dynasty", year: -99 },
       { entity: "roman-empire", year: -9 },
+    ],
+  },
+  {
+    id: "steppe-migration",
+    title: "Out of the steppe",
+    closing: "Within two thousand years, the descendants of the steppe herders had reached from Ireland to India. Their languages still carry the traces, and so do our genomes.",
+    blurb: "How herders from the grasslands north of the Black Sea spread across Europe and Asia, traced in their graves and their ancient DNA.",
+    layers: ["culture", "event"],
+    dna: "y",
+    announcement: { src: "narration/tours/steppe-migration-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "accd7da6dd" },
+    closingNarration: { src: "narration/tours/steppe-migration-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "2e073949b3" },
+    music: { src: "music/tours/steppe-migration-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    stops: [
+      { entity: "invention-of-the-wheel" },
+      { entity: "yamnaya", year: -2_999, site: "yamnaya@x:lopatino" },
+      { entity: "afanasievo", year: -2_979, site: "afanasievo@x:river-kuyum" },
+      { entity: "corded-ware", year: -2_499, site: "corded-ware@x:esperstedt" },
+      { entity: "bell-beaker", year: -2_299, site: "bell-beaker@x:amesbury" },
+      { entity: "unetice", year: -1_999, site: "unetice@x:esperstedt" },
+      { entity: "sintashta", year: -1_949, site: "sintashta@x:bulanovo" },
+      { entity: "andronovo", year: -1_599, site: "andronovo@x:kytmanovo" },
     ],
   },
 ];
