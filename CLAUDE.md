@@ -143,7 +143,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 6. Rob reviews the 36 rewritten descriptions (species, cultures, civilizations; commits fd9cc09, c537034, fe91b57,
    9303da5); an edit makes that narration stale (`npm run audio:narrate -- --stale`).
 7. Housekeeping: `scripts/ingest/cliopatria.test.ts` times out at 5 s on most full runs (passes with a longer
-   timeout); many later cultures have no features in the committed data (needs a full build on the XRONOS machine).
+   timeout). The committed data is a full build with XRONOS (16 Oct 2026, 5,006 features); a build without the
+   XRONOS export drops most culture points, so don't commit one.
    `npm run audio:upload -- --dry-run` shows any clips still to upload.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)

@@ -56,8 +56,8 @@ in `TourBar.tsx`) and `src/audio/` (narration and music players, Listen button).
 - Prefer entities that are already narrated where they fit the story (all events are; so are the
   species and cultures in existing tours): free, and the voice is consistent.
 - Every stop must be on the globe at its year. The data is in `public/data/entities.json` and
-  `public/data/features.geojson`. Many Neolithic and later cultures (Ubaid, Halaf, Vinča, …) have no
-  features in the committed data yet (an incomplete local build; see CLAUDE.md), so they cannot be stops.
+  `public/data/features.geojson`. Since the full rebuild of 16 Oct 2026 the Neolithic and later cultures
+  (Ubaid, Halaf, Vinča, …) have features too, so they can be stops.
 - For species and cultures with many sites, pick a `site` (the type site or the famous one) and a
   `year` inside that site's range; snap years to the slider (100,000-year steps before 1 Ma, 10,000 to
   100 ka, 1,000 to 10 ka, 100 to 3000 BCE, 10 after) and write them as astronomical years
