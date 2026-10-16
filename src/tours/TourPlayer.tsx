@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useStore } from "../store";
 import { isActive, unionBBox, useData } from "../map/data";
 import { posToYear, yearToPos } from "../time/scale";
 import { tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
+import EndCard from "./EndCard";
+import { EPILOGUE_MS, MUSIC_FADE_S, MUSIC_HOLD_MS, trailPoints } from "./epilogue";
 import { useWakeLock } from "./useWakeLock";
 import { pictureIndexAt, preloadPictures } from "./tourPicture";
 import {
@@ -24,6 +26,9 @@ export function beginTour(start: () => void) {
   primeMusic();
   start();
 }
+
+/** Ending the tour from the end card (or Escape): the music, still playing, fades this slowly. */
+const END_FADE_S = 4;
 
 /** After a narration ends, the card stays up this long before the tour moves on. */
 const AFTER_NARRATION_MS = 1_500;
@@ -58,6 +63,7 @@ export default function TourPlayer() {
   const travel = useStore((s) => s.tour?.travel);
   const intro = useStore((s) => s.tour?.intro);
   const gate = useStore((s) => s.tour?.gate);
+  const epilogue = useStore((s) => s.tour?.epilogue);
 
   // The title card: set the slider just before the first stop and turn the globe towards it, while
   // the announcement plays (or for INTRO_MS); then on to the first stop. Waits behind the gate.
@@ -140,7 +146,7 @@ export default function TourPlayer() {
   }, [data, id, intro, gate]);
 
   useEffect(() => {
-    if (!data || id === undefined || index === undefined || intro) return;
+    if (!data || id === undefined || index === undefined || intro || epilogue) return;
     const tour = tourById(id);
     const stop = tour?.stops[index];
     const target = stop && stopYear(stop, data);
@@ -212,7 +218,7 @@ export default function TourPlayer() {
       }
       if (arrived && elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
         if (index + 1 < tour.stops.length) patchTour({ index: index + 1, travel: true });
-        else useStore.getState().stopTour(); // the last card stays open
+        else useStore.getState().tourGo(index + 1); // the epilogue
         return;
       }
       raf = requestAnimationFrame(tick);
@@ -223,7 +229,38 @@ export default function TourPlayer() {
       cancelAnimationFrame(raf);
       stopNarration();
     };
-  }, [data, id, index, travel, intro]);
+  }, [data, id, index, travel, intro, epilogue]);
+
+  // The epilogue: close the card and let the globe draw the journey again (map/MapView.tsx) under
+  // the end card, while the music plays on at full level, then fades away. The end card stays.
+  useEffect(() => {
+    if (!data || id === undefined || !epilogue) return;
+    const tour = tourById(id);
+    if (!tour) return;
+    const patchTour = (p: { phase?: "hold"; holdMs?: number; musicOut?: boolean; done?: boolean; musicIn?: boolean }) =>
+      useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
+    useStore.getState().select(null);
+    useStore.getState().setPictureViewer(false);
+    useStore.setState((s) => (s.tour ? { tour: { ...s.tour, trail: trailPoints(tour, data) } } : {}));
+    patchTour({ phase: "hold", holdMs: EPILOGUE_MS, musicIn: true });
+    let elapsed = 0;
+    let last = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const s = useStore.getState();
+      if (!s.tour) return;
+      if (!s.tour.paused) elapsed += now - last;
+      last = now;
+      if (!s.tour.musicOut && elapsed >= MUSIC_HOLD_MS) {
+        patchTour({ musicOut: true });
+        stopMusic(MUSIC_FADE_S);
+      }
+      if (elapsed >= EPILOGUE_MS) return patchTour({ done: true });
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [data, id, epilogue]);
 
   // Pausing the tour pauses its narration and music; the music fades out when the tour ends.
   const paused = useStore((s) => s.tour?.paused);
@@ -233,22 +270,30 @@ export default function TourPlayer() {
     else resumeNarration();
   }, [paused]);
   // Keep the screen on while the tour plays (not while paused, or waiting behind its Start button).
-  useWakeLock(id !== undefined && paused === false && !gate);
+  const done = useStore((s) => s.tour?.done);
+  useWakeLock(id !== undefined && paused === false && !gate && !done);
   const musicIn = useStore((s) => s.tour?.musicIn);
+  const musicOut = useStore((s) => s.tour?.musicOut);
   useEffect(() => {
     const music = id === undefined ? undefined : tourById(id)?.music;
     if (!music || paused === undefined) return;
     if (paused) pauseMusic();
-    else if (musicIn) startMusic(music.src);
-  }, [id, paused, musicIn]);
-  useEffect(() => () => stopMusic(), [id]);
+    else if (musicIn && !musicOut) startMusic(music.src);
+  }, [id, paused, musicIn, musicOut]);
+  // Ended from the epilogue, the music (still playing) is let go gently; mid-tour, quickly.
+  // (The ref is set in an effect, so the cleanup below still sees the epilogue the tour ended in.)
+  const inEpilogue = useRef(false);
+  useEffect(() => () => stopMusic(inEpilogue.current ? END_FADE_S : undefined), [id]);
+  useEffect(() => {
+    inEpilogue.current = !!epilogue;
+  }, [epilogue]);
 
   // Only the pause button (or Space) pauses a tour: touching the globe, the card or anything else
   // in the app leaves it playing (Rob's call, Oct 2026).
 
   const tour = id === undefined ? undefined : tourById(id);
   if (!tour) return null;
-  if (!gate) return intro ? <TitleCard tour={tour} /> : null;
+  if (!gate) return intro ? <TitleCard tour={tour} /> : epilogue ? <EndCard tour={tour} /> : null;
   // A tour opened from a link waits for a tap: browsers only play sound after one.
   const title = tour.title;
   return (

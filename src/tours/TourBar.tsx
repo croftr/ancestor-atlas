@@ -113,19 +113,20 @@ export default function TourBar() {
   const t = tour && tourById(tour.id);
   if (!tour || !t) return null;
   const stop = t.stops[tour.index];
-  const name = data?.entityById.get(stop.entity)?.name ?? "";
-  const last = t.stops.length - 1;
+  const name = (stop && data?.entityById.get(stop.entity)?.name) ?? "";
+  // Next goes on from the last stop to the epilogue (index = the number of stops).
+  const end = t.stops.length;
 
   return (
     <div className="tour-bar">
       <div className="tour-bar-text">
         <span className="tour-bar-title">{t.title}</span>
         <span className="tour-bar-stop" aria-live="polite">
-          {tour.intro ? "Introduction" : `${tour.index + 1} of ${t.stops.length}: ${name}`}
+          {tour.intro ? "Introduction" : tour.epilogue ? "Journey's end" : `${tour.index + 1} of ${t.stops.length}: ${name}`}
         </span>
         {/* Small screens: just the tour and where it has got to (the stop's name is on its strip). */}
         <span className="tour-bar-compact">
-          {tour.intro ? "Intro" : `${tour.index + 1}/${t.stops.length}`} · {t.title}
+          {tour.intro ? "Intro" : tour.epilogue ? "The end" : `${tour.index + 1}/${t.stops.length}`} · {t.title}
         </span>
       </div>
       <div className="controls tour-controls">
@@ -135,7 +136,7 @@ export default function TourBar() {
         <button className="ctl-play" onClick={() => (tour.gate ? beginTour(openGate) : pauseTour(!tour.paused))} title={tour.paused ? "Resume" : "Pause"} aria-label={tour.paused ? "Resume tour" : "Pause tour"}>
           <Icon d={tour.paused ? ICON.play : ICON.pause} />
         </button>
-        <button onClick={() => tourGo(tour.index + 1)} disabled={tour.index === last} title="Next stop" aria-label="Next stop">
+        <button onClick={() => tourGo(tour.index + 1)} disabled={tour.index >= end} title="Next stop" aria-label="Next stop">
           <Icon d={ICON.next} />
         </button>
         {t.music && (

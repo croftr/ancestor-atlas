@@ -83,6 +83,15 @@ interface AppState {
     musicIn: boolean;
     /** The picture showing on the stop's card (0 = main, then `extra_images`; tours/tourPicture.ts). */
     picture?: { entity: string; index: number };
+    /**
+     * After the last stop (`index` is then the number of stops): the end card, and the journey drawn
+     * again on the globe through `trail`, the stops' places (tours/epilogue.ts). `musicOut`: the music
+     * has begun its last fade; `done`: it has gone, and the end card waits for the viewer.
+     */
+    epilogue?: boolean;
+    trail?: [number, number][];
+    musicOut?: boolean;
+    done?: boolean;
   } | null;
   /**
    * The full-screen picture viewer (ui/PictureViewer.tsx) is open over the card. During a tour it
@@ -125,7 +134,10 @@ interface AppState {
   /** End the tour and put the viewer's layers back. */
   stopTour(): void;
   pauseTour(paused: boolean): void;
-  /** Cut straight to a stop (Back / Next). During the title card, Next skips it to the first stop. */
+  /**
+   * Cut straight to a stop (Back / Next). During the title card, Next skips it to the first stop; the
+   * index after the last stop is the epilogue.
+   */
   tourGo(index: number): void;
   /** End the title card and play on to the first stop. */
   skipIntro(): void;
@@ -273,8 +285,9 @@ export const useStore = create<AppState>((set, get) => ({
       const t = s.tour && tourById(s.tour.id);
       if (!s.tour || !t) return {};
       if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {};
-      if (index < 0 || index >= t.stops.length) return {};
-      return { tour: { ...s.tour, index, travel: false, phase: "travel", holdMs: 0 } };
+      if (index < 0 || index > t.stops.length) return {};
+      const { trail: _t, musicOut: _m, done: _d, ...rest } = s.tour;
+      return { tour: { ...rest, index, epilogue: index === t.stops.length, travel: false, phase: "travel", holdMs: 0 } };
     }),
   skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {})),
   stepFeature: (dir) => {

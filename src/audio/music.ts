@@ -28,8 +28,11 @@ let gain: GainNode | null = null;
 let audio: HTMLAudioElement | null = null;
 let src: string | null = null;
 let stopTimer = 0;
+/** Fading out for good (stopMusic): nothing brings it back up. `stopAt`: when that fade ends. */
+let stopping = false;
+let stopAt = 0;
 
-const target = () => (muted || !src ? 0 : narrationState().playing ? DUCKED : LEVEL);
+const target = () => (muted || !src || stopping ? 0 : narrationState().playing ? DUCKED : LEVEL);
 
 function ramp(to: number, seconds: number) {
   if (gain && ctx) {
@@ -38,6 +41,20 @@ function ramp(to: number, seconds: number) {
     gain.gain.setValueAtTime(gain.gain.value, now);
     gain.gain.linearRampToValueAtTime(to, now + seconds);
   } else if (audio) audio.volume = to; // no Web Audio: no fade
+}
+
+/**
+ * A long fade to silence that sounds even: steady at first in gain, then the tail in decibels, so it
+ * neither lingers loud nor drops off a cliff at the end.
+ */
+function fadeAway(seconds: number) {
+  if (!gain || !ctx || gain.gain.value < 0.01) return ramp(0, seconds);
+  const g = gain.gain;
+  const now = ctx.currentTime;
+  g.cancelScheduledValues(now);
+  g.setValueAtTime(g.value, now);
+  g.linearRampToValueAtTime(g.value * 0.3, now + seconds * 0.6);
+  g.exponentialRampToValueAtTime(0.0005, now + seconds);
 }
 
 /** Call from a tap (starting a tour), so the music may start later without one. */
@@ -51,7 +68,8 @@ export function primeMusic() {
 
 export function startMusic(key: string) {
   window.clearTimeout(stopTimer);
-  if (src === key && audio) return resumeMusic();
+  if (src === key && audio && !stopping) return resumeMusic();
+  stopping = false;
   stopNow();
   src = key;
   audio = new Audio();
@@ -65,7 +83,7 @@ export function startMusic(key: string) {
 }
 
 export function resumeMusic() {
-  if (!audio) return;
+  if (!audio || stopping) return;
   window.clearTimeout(stopTimer);
   ctx?.resume().catch(() => {});
   audio.play().catch(() => {}); // blocked without a tap: stays silent
@@ -77,18 +95,25 @@ export function pauseMusic() {
   ramp(0, DUCK);
   const a = audio;
   window.clearTimeout(stopTimer);
-  stopTimer = window.setTimeout(() => a.pause(), DUCK * 1000);
+  // Paused in its last fade: that was the end of it.
+  stopTimer = window.setTimeout(() => (stopping ? stopNow() : a.pause()), DUCK * 1000);
 }
 
-/** Fade out and let go of the track. */
-export function stopMusic() {
+/** Fade out over `seconds` and let go of the track; never slows a fade already under way. */
+export function stopMusic(seconds = FADE_OUT) {
   if (!audio) return;
-  ramp(0, FADE_OUT);
+  const end = performance.now() + seconds * 1000;
+  if (stopping && stopAt <= end) return;
+  stopping = true;
+  stopAt = end;
+  if (seconds > FADE_OUT) fadeAway(seconds);
+  else ramp(0, seconds);
   window.clearTimeout(stopTimer);
-  stopTimer = window.setTimeout(stopNow, FADE_OUT * 1000);
+  stopTimer = window.setTimeout(stopNow, seconds * 1000);
 }
 
 function stopNow() {
+  stopping = false;
   audio?.pause();
   audio?.removeAttribute("src");
   audio = null;

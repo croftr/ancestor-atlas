@@ -8,6 +8,7 @@ import type { Category } from "../types";
  * `music`: background track, a bucket key (music/tours/<id>-v<n>.mp3; set by `npm run audio:music`).
  * `announcement`: the title card's voice-over, reading announcementText (narration/tours/<id>-v<n>.mp3;
  * set by `npm run audio:narrate -- --announce <id>`; `text_hash` is that text's fingerprint when recorded).
+ * `closing`: a line or two for the end card, after the last stop (shown, not narrated).
  * Stops run oldest first. src/tours/tours.test.ts checks every stop lands on something visible.
  */
 export interface TourStop {
@@ -24,6 +25,7 @@ export interface Tour {
   layers?: Category[];
   music?: { src: string; credit: string };
   announcement?: { src: string; credit: string; text_hash: string };
+  closing?: string;
   stops: TourStop[];
 }
 
@@ -34,6 +36,7 @@ export const TOURS: Tour[] = [
   {
     id: "events-and-inventions",
     title: "Events and inventions",
+    closing: "None of these was a single moment. Each was learned, taught and handed on by people whose names we will never know, over more than a hundred thousand generations.",
     blurb: "From the first stone tools to paper: the breakthroughs that shaped the human story.",
     music: { src: "music/tours/events-and-inventions-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     announcement: { src: "narration/tours/events-and-inventions-v4.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "11a7f7e233" },
@@ -72,6 +75,7 @@ export const TOURS: Tour[] = [
   {
     id: "human-evolution",
     title: "Human evolution",
+    closing: "For most of this story, several kinds of human shared the Earth. Today only one of them is left to look back on the others.",
     blurb: "Seven million years of our family tree: the first upright apes, the first toolmakers, and the many kinds of human who shared the world with ours.",
     layers: ["species", "event"],
     music: { src: "music/tours/human-evolution-v2.mp3", credit: "Music: \"Apeman Suite\" by Paul Lawler" },
@@ -97,6 +101,7 @@ export const TOURS: Tour[] = [
   {
     id: "out-of-africa",
     title: "Out of Africa",
+    closing: "Everyone alive today descends from these journeys. The map we have just crossed is a family tree.",
     blurb: "How our ancestors left Africa and reached every continent, from the first steps into Asia to the peopling of the Americas.",
     layers: ["species", "culture", "event"],
     music: { src: "music/tours/out-of-africa-v2.mp3", credit: "Music: \"Apeman Suite\" by Paul Lawler" },
@@ -116,6 +121,7 @@ export const TOURS: Tour[] = [
   {
     id: "ice-age-artists",
     title: "Ice Age artists and toolmakers",
+    closing: "Their hands are still on the cave walls. Across forty thousand years and more, they are still telling us they were here.",
     blurb: "From the first sharp flakes of stone to the painted caves of the Ice Age: how our ancestors learned to make tools, ornaments, music and art.",
     layers: ["culture", "event"],
     music: { src: "music/tours/ice-age-artists-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
@@ -140,6 +146,7 @@ export const TOURS: Tour[] = [
   {
     id: "civilizations",
     title: "Rise and fall of civilizations",
+    closing: "Every empire on this map fell. What outlasted them were the things they shared: writing, roads, laws, ideas and stories.",
     blurb: "From the first cities of Sumer to the Roman Empire: how the great civilizations of the ancient world rose, flourished and fell.",
     layers: ["civilization", "event"],
     music: { src: "music/tours/civilizations-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },

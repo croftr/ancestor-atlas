@@ -12,6 +12,7 @@ import { navWidth, stageInset } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
 import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
+import { trail, type LngLat, type TrailFrame } from "../tours/epilogue";
 
 const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
@@ -51,6 +52,36 @@ function arrowImage(): { data: ImageData; pixelRatio: number } | null {
   ctx.closePath();
   ctx.fill();
   return { data: ctx.getImageData(0, 0, px, px), pixelRatio };
+}
+
+/** A tour's epilogue: the journey drawn again as a thread of light (tours/epilogue.ts), over the markers. */
+const TRAIL_GOLD = "#ffd98a";
+/** A stop's ripple as the thread reaches it: grows and fades over this long (ms). */
+const RIPPLE_MS = 1_600;
+/** The globe's slow turn once the thread is drawn (degrees a second), and how gently the camera follows. */
+const SPIN_DEG_S = 2.4;
+const FOLLOW_MS = 1_100;
+const FIRST_TURN_MS = 600;
+const SETTLE_MS = 3_000;
+const ZOOM_MS = 1_000;
+
+/** The epilogue's thread as GeoJSON: the line, a ripple and a dot at each stop reached, and the moving head. */
+function trailGeoJSON(frame: TrailFrame): GeoJSON.FeatureCollection {
+  const pt = (coordinates: LngLat, properties: Record<string, unknown>): GeoJSON.Feature => ({
+    type: "Feature",
+    geometry: { type: "Point", coordinates },
+    properties,
+  });
+  const line: GeoJSON.Feature[] =
+    frame.line.length > 1 ? [{ type: "Feature", geometry: { type: "LineString", coordinates: frame.line }, properties: { kind: "line" } }] : [];
+  return {
+    type: "FeatureCollection",
+    features: [
+      ...line,
+      ...frame.reached.map((r) => pt(r.at, { kind: "stop", age: Math.min(r.age, RIPPLE_MS) })),
+      ...(frame.head ? [pt(frame.head, { kind: "head" })] : []),
+    ],
+  };
 }
 
 /** Route layers, under the markers. */
@@ -467,7 +498,60 @@ export default function MapView() {
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
+      map.addSource("trail", { type: "geojson", data: EMPTY });
+      const isLine: maplibregl.FilterSpecification = ["==", ["get", "kind"], "line"];
+      const isStop: maplibregl.FilterSpecification = ["==", ["get", "kind"], "stop"];
+      map.addLayer({
+        id: "trail-glow",
+        type: "line",
+        source: "trail",
+        filter: isLine,
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": TRAIL_GOLD, "line-width": 14, "line-blur": 10, "line-opacity": 0.6 },
+      });
+      map.addLayer({
+        id: "trail-line",
+        type: "line",
+        source: "trail",
+        filter: isLine,
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "#fff4d6", "line-width": 2.8, "line-opacity": 1 },
+      });
+      map.addLayer({
+        id: "trail-ripple",
+        type: "circle",
+        source: "trail",
+        filter: isStop,
+        paint: {
+          "circle-color": "rgba(0, 0, 0, 0)",
+          "circle-radius": ["interpolate", ["linear"], ["get", "age"], 0, 4, RIPPLE_MS, 30],
+          "circle-stroke-color": TRAIL_GOLD,
+          "circle-stroke-width": ["interpolate", ["linear"], ["get", "age"], 0, 3, RIPPLE_MS, 0.5],
+          "circle-stroke-opacity": ["interpolate", ["linear"], ["get", "age"], 0, 0.9, RIPPLE_MS, 0],
+        },
+      });
+      map.addLayer({
+        id: "trail-stop",
+        type: "circle",
+        source: "trail",
+        filter: isStop,
+        paint: {
+          "circle-color": "#fff4d6",
+          "circle-radius": ["interpolate", ["linear"], ["get", "age"], 0, 8, 500, 4.5],
+          "circle-stroke-color": TRAIL_GOLD,
+          "circle-stroke-width": 2,
+        },
+      });
+      map.addLayer({
+        id: "trail-head",
+        type: "circle",
+        source: "trail",
+        filter: ["==", ["get", "kind"], "head"],
+        paint: { "circle-color": "#fffaf0", "circle-radius": 9, "circle-blur": 1, "circle-opacity": 0.95 },
+      });
       loaded = true;
+      const trailNow = useStore.getState().tour?.trail;
+      if (trailNow) startEpilogue(trailNow);
       applyPaleo();
       loadData().then(applyRoutes);
       applyFilters();
@@ -524,6 +608,92 @@ export default function MapView() {
       map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
     }
 
+    // A tour's epilogue: draw its thread on the epilogue's clock (frozen while paused), with the
+    // camera pulling back to the whole globe and following the thread's head, then turning slowly.
+    // Touching the globe hands the camera back to the viewer; the thread draws on.
+    let epilogueRaf = 0;
+    let epilogueOff = () => {};
+    const stopEpilogue = () => {
+      cancelAnimationFrame(epilogueRaf);
+      epilogueOff();
+      epilogueOff = () => {};
+      (map.getSource("trail") as maplibregl.GeoJSONSource | undefined)?.setData(EMPTY);
+      // Small screens: give back the room the end card took at the top.
+      if (map.getPadding().top) map.easeTo({ padding: { ...map.getPadding(), top: 0 }, duration: 450 });
+    };
+    /** Small screens: the end card floats over the top of the globe; the room below it (px from the map's top). */
+    const endCardRoom = () => {
+      if (!window.matchMedia?.(STACKED_QUERY).matches) return 0;
+      const card = document.querySelector(".tour-end");
+      return card ? Math.max(0, Math.round(card.getBoundingClientRect().bottom - container!.getBoundingClientRect().top)) : 0;
+    };
+    function startEpilogue(points: LngLat[]) {
+      stopEpilogue();
+      const path = trail(points);
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      const fullZoom = Math.max(1.2, initialZoom(container!, bottomInset(container!)) - 0.25);
+      // The whole globe, or (small screens) as much as fits under the end card.
+      const wholeGlobe = (top: number) => {
+        if (!top) return fullZoom;
+        const room = Math.min(container!.clientWidth * 0.92, container!.clientHeight - top - 24);
+        return room > 0 ? Math.min(fullZoom, Math.log2((room * Math.PI) / 512)) : fullZoom;
+      };
+      let follow = !reduceMotion;
+      const release = () => (follow = false);
+      const events = ["mousedown", "touchstart", "wheel", "dragstart"] as const;
+      for (const e of events) map.on(e, release);
+      epilogueOff = () => events.forEach((e) => map.off(e, release));
+      if (reduceMotion)
+        requestAnimationFrame(() => {
+          const top = endCardRoom();
+          map.jumpTo({ zoom: wholeGlobe(top), padding: { ...map.getPadding(), top } });
+        });
+      let elapsed = reduceMotion ? path.end + 60_000 : 0;
+      let spin = 0;
+      let last = performance.now();
+      const frame = (now: number) => {
+        const dt = Math.min(100, now - last);
+        last = now;
+        const tour = useStore.getState().tour;
+        if (!tour?.trail) return;
+        const running = !tour.paused;
+        if (running) elapsed += dt;
+        const f = path.at(elapsed);
+        (map.getSource("trail") as maplibregl.GeoJSONSource | undefined)?.setData(trailGeoJSON(f));
+        // Not while the last stop's flight (or the card's padding) is still easing: it would stop it.
+        if (follow && running && !map.isEasing()) {
+          const c = map.getCenter();
+          const z = map.getZoom();
+          let lng = c.lng;
+          let lat = c.lat;
+          // Turn to the first stop, follow the thread's head, then settle on the last stop before turning.
+          const reached = f.reached[f.reached.length - 1];
+          const toward = elapsed < path.end + SETTLE_MS ? (f.head ?? reached?.at ?? points[0]) : null;
+          if (toward) {
+            // Keeping the globe's middle nearer the equator; quicker at first, to reach the first stop in time.
+            const k = 1 - Math.exp(-dt / (reached ? FOLLOW_MS : FIRST_TURN_MS));
+            lng += ((((toward[0] - lng + 180) % 360) + 360) % 360 - 180) * k;
+            lat += (toward[1] * 0.6 - lat) * k;
+          } else {
+            // Drawn: the globe turns slowly under the thread, easing in, and comes to rest once the music has gone.
+            spin += ((tour.done ? 0 : 1) - spin) * (1 - Math.exp(-dt / 2_500));
+            lng -= SPIN_DEG_S * spin * (dt / 1000);
+          }
+          const room = endCardRoom();
+          const kz = 1 - Math.exp(-dt / ZOOM_MS);
+          const p = map.getPadding();
+          const pTop = p.top ?? 0;
+          map.jumpTo({
+            center: [lng, lat],
+            zoom: z + (wholeGlobe(room) - z) * kz,
+            padding: { ...p, top: Math.abs(room - pTop) < 1 ? room : pTop + (room - pTop) * kz },
+          });
+        }
+        epilogueRaf = requestAnimationFrame(frame);
+      };
+      epilogueRaf = requestAnimationFrame(frame);
+    }
+
     const mini = miniGlobe(map, container.parentElement!);
     if (useStore.getState().miniGlobe) mini.set(true);
 
@@ -565,6 +735,10 @@ export default function MapView() {
         else flyTo(bbox, gentle, turn);
       }
       if (!loaded) return;
+      if (state.tour?.trail !== prev.tour?.trail) {
+        if (state.tour?.trail) startEpilogue(state.tour.trail);
+        else stopEpilogue();
+      }
       if (state.year !== prev.year) {
         cancelAnimationFrame(raf);
         raf = requestAnimationFrame(applyFilters);
@@ -577,6 +751,7 @@ export default function MapView() {
 
     return () => {
       unsubscribe();
+      stopEpilogue();
       mini.dispose();
       cancelAnimationFrame(raf);
       map.remove();
