@@ -22,3 +22,13 @@ export const clampCardWidth = (w: number) => Math.round(Math.min(maxCardWidth(),
 
 /** The card's width now: as dragged (`cardWidth` in the store) or the default, within the limits. */
 export const cardWidthPx = (cardWidth: number | null) => clampCardWidth(cardWidth ?? CARD_DEFAULT);
+
+/**
+ * The room kept clear on the right for the open card, when centring the globe and the time slider:
+ * that of a card of the default width, however wide the card is dragged, so they stay put while it
+ * is resized and a wider card covers the space beside the globe. Only when the card's edge would
+ * come within half of CARD_LEAVE of their centre do they move left, just enough to keep that gap.
+ * The CSS does the same for the slider (`--stage-r` in ui/sidenav.css).
+ */
+export const stageInset = (cardWidth: number | null) =>
+  Math.max(cardWidthPx(null), 2 * cardWidthPx(cardWidth) + CARD_LEAVE + navWidth() - window.innerWidth);

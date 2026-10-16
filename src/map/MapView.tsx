@@ -8,7 +8,7 @@ import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground from "./SpaceBackground";
-import { cardWidthPx, navWidth } from "../ui/cardWidth";
+import { navWidth, stageInset } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
 import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
@@ -74,14 +74,15 @@ function leftInset(): number {
 }
 
 /**
- * Large screens: the width the info card covers on the right, kept as the map's right padding so
- * the globe centres in the space left of it (and follows its resize handle). During a tour the
+ * Large screens: the room kept for the info card on the right, as the map's right padding: a
+ * default-width card's, so the globe stays put while the card is dragged wider (`stageInset`), and
+ * moves only when the card's edge comes close to its centre. During a tour the
  * inset stays while the card is closed between stops, so the globe doesn't slide to and fro.
  */
 function rightInset(state: ReturnType<typeof useStore.getState>): number {
   if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
   const open = state.selectedId !== null || state.groupId !== null || state.tour !== null;
-  return open ? cardWidthPx(state.cardWidth) : 0;
+  return open ? stageInset(state.cardWidth) : 0;
 }
 
 /** What a route is and where it comes from, when it is tapped. */
@@ -258,8 +259,8 @@ export default function MapView() {
       const p = map.getPadding();
       if (bottom !== p.bottom || right !== p.right || left !== p.left) map.setPadding({ ...p, bottom, right, left });
     });
-    // The card opening, closing or being resized: glide the globe to the centre of the space left
-    // (at once while dragging, so it follows the handle). Not in the middle of a flight, which
+    // The card opening or closing (or dragged close to the globe's centre): glide the globe to its
+    // new centre (at once while dragging, so it follows the handle). Not in the middle of a flight, which
     // would stop it: then once it ends.
     const syncRight = (animate: boolean) => {
       const right = rightInset(useStore.getState());
