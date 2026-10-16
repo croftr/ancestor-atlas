@@ -109,6 +109,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `npm run audio:narrate -- --closing <id>|all`, key `narration/tours/<id>-closing-v<n>.mp3`; `--stale` covers it).
   Music plays on at least 17 s and 4 s past the closing line, then fades over 12 s (`stopMusic(seconds)`); the card
   stays until the viewer chooses.
+- During a tour (added 16 Oct 2026): the path so far is drawn on the globe, faint dashed gold with a dark casing
+  (`tour-path` layers in `MapView.tsx`, `pathSoFar` in `epilogue.ts`); each new leg draws in over 1.8 s as the globe
+  turns to the stop; Back / Next put it straight in place. While the slider travels between stops an intertitle
+  says how much time passes ("40,000 years later", "Meanwhile" for none; `TimeGap.tsx`, `tour.gap`), from the
+  stop before's year; it stays 1.6 s past arrival, then fades.
 - Phones (globe): a pick, and every tour stop, opens the compact card (`.info-compact` in `InfoPanel.tsx`,
   `ui/stacked.css`): badge, name (serif), short date range, the picture filling the right edge (events square,
   never faded or covered), and the site stepper; a tap opens the full card, whose minimise button returns to it.

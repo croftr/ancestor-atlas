@@ -37,7 +37,10 @@ export const closingAt = (n: number) => reachedAt(Math.max(0, n - 1), n) + CLOSI
 
 /** Where each stop sits on the globe: the middle of what its card showed (that site, or the entity's features then). */
 export function trailPoints(tour: Tour, d: Data): LngLat[] {
-  return tour.stops.flatMap((stop) => {
+  // One point per stop, in step with the stops (a stop with nothing on the map, which tours.test.ts
+  // rules out, would take the one before it).
+  let prev: LngLat = [0, 0];
+  return tour.stops.map((stop) => {
     const year = stopYear(stop, d);
     const all = d.featuresOf.get(stop.entity) ?? [];
     const on = all.filter((f) => (stop.site ? f.id === stop.site : year !== null && isActive(f, year)));
@@ -46,7 +49,8 @@ export function trailPoints(tour: Tour, d: Data): LngLat[] {
       return b ? [b] : [];
     });
     const box = unionBBox(boxes);
-    return box ? [centre(box)] : [];
+    prev = box ? centre(box) : prev;
+    return prev;
   });
 }
 
@@ -115,21 +119,48 @@ export function trail(points: LngLat[]) {
           line.push(...arc.slice(1));
           continue;
         }
-        // Part way along this arc: up to the point between two of its vertices.
-        const x = ease(t) * (arc.length - 1);
-        const j = Math.floor(x);
-        line.push(...arc.slice(1, j + 1));
-        const [a, b] = [arc[j], arc[Math.min(j + 1, arc.length - 1)]];
-        const f = x - j;
-        const [ua, ub] = unwrap([a, b]);
-        head = [ua[0] + (ub[0] - ua[0]) * f, a[1] + (b[1] - a[1]) * f];
-        line.push(head);
+        const part = partway(arc, ease(t));
+        line.push(...part.slice(1));
+        head = part[part.length - 1];
         break;
       }
       return { line: unwrap(line), head, reached };
     },
   };
 }
+
+/** The first `t` (0–1) of an arc: its vertices up to there, ending at the point between two of them. */
+function partway(arc: LngLat[], t: number): LngLat[] {
+  const x = Math.min(1, Math.max(0, t)) * (arc.length - 1);
+  const j = Math.floor(x);
+  const out = arc.slice(0, j + 1);
+  if (j < arc.length - 1) {
+    const [ua, ub] = unwrap([arc[j], arc[j + 1]]);
+    const f = x - j;
+    out.push([ua[0] + (ub[0] - ua[0]) * f, ua[1] + (ub[1] - ua[1]) * f]);
+  }
+  return out;
+}
+
+/**
+ * The path a tour has taken so far, drawn faintly on the globe while it plays (map/MapView.tsx): the
+ * first `reached` stops joined up, the newest leg drawn `t` (0–1) of the way (eased). The epilogue
+ * then retraces it all as the bright thread.
+ */
+export function pathSoFar(points: LngLat[], reached: number, t = 1): { line: LngLat[]; head: LngLat | null; stops: LngLat[] } {
+  const n = Math.min(reached, points.length);
+  if (n === 0) return { line: [], head: null, stops: [] };
+  const line: LngLat[] = [points[0]];
+  for (let i = 1; i < n; i++) {
+    const arc = greatCircle(points[i - 1], points[i]);
+    line.push(...(i === n - 1 && t < 1 ? partway(arc, ease(t)) : arc).slice(1));
+  }
+  const drawing = n > 1 && t < 1;
+  return { line: unwrap(line), head: drawing ? line[line.length - 1] : null, stops: points.slice(0, drawing ? n - 1 : n) };
+}
+
+/** The caption while the slider travels between two stops: "40,000 years later", or "Meanwhile" for none. */
+export const gapWords = (years: number) => (years <= 0 ? "Meanwhile" : `${spanWords(years)} later`);
 
 /** A span of years in words for the end card: "7 million years", "45,000 years", "3,500 years". */
 export function spanWords(years: number): string {

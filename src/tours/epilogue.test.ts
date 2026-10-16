@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { greatCircle, reachedAt, spanWords, trail, TRAIL_DELAY_MS, unwrap, type LngLat } from "./epilogue";
+import { gapWords, greatCircle, pathSoFar, reachedAt, spanWords, trail, TRAIL_DELAY_MS, unwrap, type LngLat } from "./epilogue";
 
 describe("greatCircle", () => {
   it("runs from a to b along the shorter way round", () => {
@@ -60,5 +60,34 @@ describe("spanWords", () => {
     expect(spanWords(287_400)).toBe("290,000 years");
     expect(spanWords(3_449)).toBe("3,400 years");
     expect(spanWords(1)).toBe("1 year");
+  });
+});
+
+describe("pathSoFar", () => {
+  const points: LngLat[] = [
+    [0, 0],
+    [40, 0],
+    [40, 30],
+  ];
+  it("is empty before the first stop, a lone stop after it", () => {
+    expect(pathSoFar(points, 0)).toEqual({ line: [], head: null, stops: [] });
+    expect(pathSoFar(points, 1)).toEqual({ line: [[0, 0]], head: null, stops: [[0, 0]] });
+  });
+  it("draws the newest leg part way, its stop not yet marked", () => {
+    const half = pathSoFar(points, 2, 0.5);
+    expect(half.stops).toEqual([[0, 0]]);
+    expect(half.head![0]).toBeCloseTo(20, 0);
+    const done = pathSoFar(points, 3);
+    expect(done.head).toBeNull();
+    expect(done.stops).toHaveLength(3);
+    expect(done.line[done.line.length - 1][1]).toBeCloseTo(30);
+  });
+});
+
+describe("gapWords", () => {
+  it("says how much time passes", () => {
+    expect(gapWords(40_000)).toBe("40,000 years later");
+    expect(gapWords(1_200_000)).toBe("1.2 million years later");
+    expect(gapWords(0)).toBe("Meanwhile");
   });
 });

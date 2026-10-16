@@ -12,7 +12,8 @@ import { navWidth, stageInset } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
 import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
-import { trail, type LngLat, type TrailFrame } from "../tours/epilogue";
+import { pathSoFar, trail, trailPoints, type LngLat, type TrailFrame } from "../tours/epilogue";
+import { tourById } from "../tours/tours";
 
 const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
@@ -58,6 +59,8 @@ function arrowImage(): { data: ImageData; pixelRatio: number } | null {
 const TRAIL_GOLD = "#ffd98a";
 /** A stop's ripple as the thread reaches it: grows and fades over this long (ms). */
 const RIPPLE_MS = 1_600;
+/** While a tour plays, each new leg of its path is drawn over this long (ms), as the globe turns to the stop. */
+const PATH_DRAW_MS = 1_800;
 /** The globe's slow turn once the thread is drawn (degrees a second), and how gently the camera follows. */
 const SPIN_DEG_S = 2.4;
 const FOLLOW_MS = 1_100;
@@ -498,6 +501,39 @@ export default function MapView() {
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
+      // The path a tour has taken so far: faint, under the epilogue's bright thread.
+      map.addSource("tour-path", { type: "geojson", data: EMPTY });
+      // A dark casing under the gold, so it shows on pale land as well as on the sea.
+      map.addLayer({
+        id: "path-casing",
+        type: "line",
+        source: "tour-path",
+        filter: ["==", ["get", "kind"], "line"],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "rgba(10, 14, 26, 0.55)", "line-width": 4.5 },
+      });
+      map.addLayer({
+        id: "path-line",
+        type: "line",
+        source: "tour-path",
+        filter: ["==", ["get", "kind"], "line"],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": TRAIL_GOLD, "line-width": 2, "line-opacity": 0.95, "line-dasharray": [2, 1.6] },
+      });
+      map.addLayer({
+        id: "path-stop",
+        type: "circle",
+        source: "tour-path",
+        filter: ["==", ["get", "kind"], "stop"],
+        paint: { "circle-color": TRAIL_GOLD, "circle-radius": 3.5, "circle-opacity": 0.85, "circle-stroke-color": "rgba(10, 14, 26, 0.7)", "circle-stroke-width": 1 },
+      });
+      map.addLayer({
+        id: "path-head",
+        type: "circle",
+        source: "tour-path",
+        filter: ["==", ["get", "kind"], "head"],
+        paint: { "circle-color": "#fff4d6", "circle-radius": 6, "circle-blur": 1, "circle-opacity": 0.9 },
+      });
       map.addSource("trail", { type: "geojson", data: EMPTY });
       const isLine: maplibregl.FilterSpecification = ["==", ["get", "kind"], "line"];
       const isStop: maplibregl.FilterSpecification = ["==", ["get", "kind"], "stop"];
@@ -550,8 +586,8 @@ export default function MapView() {
         paint: { "circle-color": "#fffaf0", "circle-radius": 9, "circle-blur": 1, "circle-opacity": 0.95 },
       });
       loaded = true;
-      const trailNow = useStore.getState().tour?.trail;
-      if (trailNow) startEpilogue(trailNow);
+      applyPath();
+      if (useStore.getState().tour?.epilogue) startEpilogue(pathPoints);
       applyPaleo();
       loadData().then(applyRoutes);
       applyFilters();
@@ -608,6 +644,56 @@ export default function MapView() {
       map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
     }
 
+    // While a tour plays: the path so far, one leg added (drawn as the globe turns) as each stop's card
+    // opens. Back / Next and starting from a later stop put it straight in place.
+    let pathPoints: LngLat[] = [];
+    let pathTour: string | null = null;
+    let pathShown = 0;
+    let pathRaf = 0;
+    const setPath = (p: ReturnType<typeof pathSoFar>) => {
+      const pt = (coordinates: LngLat, kind: string): GeoJSON.Feature => ({ type: "Feature", geometry: { type: "Point", coordinates }, properties: { kind } });
+      (map.getSource("tour-path") as maplibregl.GeoJSONSource | undefined)?.setData({
+        type: "FeatureCollection",
+        features: [
+          ...(p.line.length > 1 ? [{ type: "Feature", geometry: { type: "LineString", coordinates: p.line }, properties: { kind: "line" } } as GeoJSON.Feature] : []),
+          ...p.stops.map((s) => pt(s, "stop")),
+          ...(p.head ? [pt(p.head, "head")] : []),
+        ],
+      });
+    };
+    function applyPath() {
+      const t = useStore.getState().tour;
+      const d = getData();
+      if (!t || !d) {
+        if (pathTour === null) return;
+        cancelAnimationFrame(pathRaf);
+        pathTour = null;
+        pathShown = 0;
+        pathPoints = [];
+        return setPath({ line: [], head: null, stops: [] });
+      }
+      if (t.id !== pathTour) {
+        const tour = tourById(t.id);
+        pathPoints = tour ? trailPoints(tour, d) : [];
+        pathTour = t.id;
+        pathShown = -1;
+      }
+      const reached = t.epilogue ? pathPoints.length : t.intro ? 0 : t.index + (t.phase === "hold" ? 1 : 0);
+      if (reached === pathShown) return;
+      cancelAnimationFrame(pathRaf);
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      const grow = reached === pathShown + 1 && reached > 1 && !reduceMotion;
+      pathShown = reached;
+      if (!grow) return setPath(pathSoFar(pathPoints, reached));
+      const start = performance.now();
+      const step = (now: number) => {
+        const k = Math.min(1, (now - start) / PATH_DRAW_MS);
+        setPath(pathSoFar(pathPoints, reached, k));
+        if (k < 1) pathRaf = requestAnimationFrame(step);
+      };
+      pathRaf = requestAnimationFrame(step);
+    }
+
     // A tour's epilogue: draw its thread on the epilogue's clock (frozen while paused), with the
     // camera pulling back to the whole globe and following the thread's head, then turning slowly.
     // Touching the globe hands the camera back to the viewer; the thread draws on.
@@ -655,7 +741,7 @@ export default function MapView() {
         const dt = Math.min(100, now - last);
         last = now;
         const tour = useStore.getState().tour;
-        if (!tour?.trail) return;
+        if (!tour?.epilogue) return;
         const running = !tour.paused;
         if (running) elapsed += dt;
         const f = path.at(elapsed);
@@ -735,9 +821,13 @@ export default function MapView() {
         else flyTo(bbox, gentle, turn);
       }
       if (!loaded) return;
-      if (state.tour?.trail !== prev.tour?.trail) {
-        if (state.tour?.trail) startEpilogue(state.tour.trail);
-        else stopEpilogue();
+      if (state.tour !== prev.tour) {
+        applyPath();
+        const epilogue = state.tour?.epilogue ? state.tour.id : null;
+        if (epilogue !== (prev.tour?.epilogue ? prev.tour.id : null)) {
+          if (epilogue) startEpilogue(pathPoints);
+          else stopEpilogue();
+        }
       }
       if (state.year !== prev.year) {
         cancelAnimationFrame(raf);
@@ -752,6 +842,7 @@ export default function MapView() {
     return () => {
       unsubscribe();
       stopEpilogue();
+      cancelAnimationFrame(pathRaf);
       mini.dispose();
       cancelAnimationFrame(raf);
       map.remove();

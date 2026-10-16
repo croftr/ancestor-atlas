@@ -6,7 +6,8 @@ import { tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import EndCard from "./EndCard";
-import { AFTER_CLOSING_MS, closingAt, MUSIC_FADE_S, MUSIC_HOLD_MS, trailPoints } from "./epilogue";
+import { AFTER_CLOSING_MS, closingAt, MUSIC_FADE_S, MUSIC_HOLD_MS } from "./epilogue";
+import TimeGap from "./TimeGap";
 import { useWakeLock } from "./useWakeLock";
 import { pictureIndexAt, preloadPictures } from "./tourPicture";
 import {
@@ -178,7 +179,7 @@ export default function TourPlayer() {
 
     const arrive = () => {
       useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
-      patchTour({ phase: "hold", holdMs });
+      patchTour({ phase: "hold", holdMs, gap: undefined });
       if (entity.narration && !stop.hold)
         playNarration(entity.narration.src)
           .then((seconds) => {
@@ -191,7 +192,9 @@ export default function TourPlayer() {
     };
     if (travelMs > 0) {
       useStore.getState().select(null);
-      patchTour({ phase: "travel", holdMs });
+      // How long has passed since the stop before (shown over the globe while the slider travels).
+      const before = index > 0 ? stopYear(tour.stops[index - 1], data) : null;
+      patchTour({ phase: "travel", holdMs, gap: before === null ? undefined : Math.max(0, target - before) });
     } else arrive();
 
     let elapsed = 0;
@@ -242,7 +245,6 @@ export default function TourPlayer() {
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     useStore.getState().select(null);
     useStore.getState().setPictureViewer(false);
-    useStore.setState((s) => (s.tour ? { tour: { ...s.tour, trail: trailPoints(tour, data) } } : {}));
     const voice = tour.closing ? tour.closingNarration : undefined;
     if (voice) preloadNarration(voice.src);
     const speakAt = closingAt(tour.stops.length);
@@ -322,7 +324,7 @@ export default function TourPlayer() {
 
   const tour = id === undefined ? undefined : tourById(id);
   if (!tour) return null;
-  if (!gate) return intro ? <TitleCard tour={tour} /> : epilogue ? <EndCard tour={tour} /> : null;
+  if (!gate) return intro ? <TitleCard tour={tour} /> : epilogue ? <EndCard tour={tour} /> : <TimeGap />;
   // A tour opened from a link waits for a tap: browsers only play sound after one.
   const title = tour.title;
   return (
