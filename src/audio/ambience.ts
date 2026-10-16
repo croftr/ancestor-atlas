@@ -6,7 +6,8 @@ import { narrationState, subscribeNarration } from "./narration";
  * A tour stop's ambient sound (tours/ambience.ts): a quiet loop under the narration and music while
  * the card is up, fading in as it opens and out as the tour moves on. Decoded into a buffer and looped
  * by Web Audio, which is seamless (an element's loop leaves a gap); the music's audio context, so it
- * needs the same tap to start, and the music button mutes it too. Without Web Audio it stays silent.
+ * needs the same tap to start. In a tour the music button mutes it too; under a Listen button (no music
+ * button there) it always plays. Without Web Audio it stays silent.
  */
 const LEVEL = 0.5; // between narrations, relative to full volume (mastered to -16 LUFS like the voice)
 const DUCKED = 0.24; // while narration plays: about 12 dB under the voice
@@ -32,10 +33,10 @@ function load(key: string): Promise<AudioBuffer | null> {
   return p;
 }
 
-let current: { key: string; gain: GainNode; source?: AudioBufferSourceNode } | null = null;
+let current: { key: string; gain: GainNode; source?: AudioBufferSourceNode; muteable: boolean } | null = null;
 let paused = false;
 
-const target = () => (musicMuted() || paused ? 0 : narrationState().playing ? DUCKED : LEVEL);
+const target = () => ((current?.muteable && musicMuted()) || paused ? 0 : narrationState().playing ? DUCKED : LEVEL);
 
 function ramp(gain: GainNode, to: number, seconds: number) {
   const ctx = audioContext();
@@ -51,15 +52,19 @@ export function preloadAmbience(key: string) {
   load(key);
 }
 
-/** Start a stop's sound (fading out any other); the same one again carries on. */
-export function startAmbience(key: string) {
+/**
+ * Start a sound (fading out any other); the same one again carries on. `muteable`: the tour's music
+ * button mutes it (in a tour; not under a Listen button, which has no such button).
+ */
+export function startAmbience(key: string, { muteable = true } = {}) {
   const ctx = audioContext();
   if (!ctx || current?.key === key) return;
   stopAmbience();
+  ctx.resume().catch(() => {});
   const gain = ctx.createGain();
   gain.gain.value = 0;
   gain.connect(ctx.destination);
-  const playing: NonNullable<typeof current> = { key, gain };
+  const playing: NonNullable<typeof current> = { key, gain, muteable };
   current = playing;
   load(key).then((buffer) => {
     if (!buffer || current !== playing) return;

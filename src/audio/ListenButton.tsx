@@ -1,14 +1,22 @@
 import { useEffect, useRef } from "react";
 import { pauseNarration, playNarration, resumeNarration, stopNarration, useNarration } from "./narration";
+import { pauseAmbience, startAmbience, stopAmbience } from "./ambience";
+import { primeMusic } from "./music";
+import { AMBIENCE } from "../tours/ambience";
 import type { Entity } from "../types";
 import { useStore } from "../store";
 import "./listen.css";
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
+/** After the narration ends, the entity's sound plays on this long, then fades out over AMBIENCE_FADE_S. */
+const AMBIENCE_AFTER_MS = 1_500;
+const AMBIENCE_FADE_S = 3;
+
 /**
- * "Listen": plays the entity's narration (pause and resume on the same button). Nothing loads until pressed.
- * Hidden while a tour plays: the tour reads each stop itself.
+ * "Listen": plays the entity's narration (pause and resume on the same button), with its ambient sound
+ * under it if it has one (tours/ambience.ts), as in a tour. Nothing loads until pressed. Hidden while a
+ * tour plays: the tour reads each stop itself.
  */
 export default function ListenButton({ entity }: { entity: Entity }) {
   const n = useNarration();
@@ -16,20 +24,38 @@ export default function ListenButton({ entity }: { entity: Entity }) {
   const started = useRef(false);
   const mine = narration !== undefined && n.src === narration.src;
   const touring = useStore((s) => s.tour !== null);
+  const sound = AMBIENCE[entity.id]?.sound;
 
-  // Leaving the card stops a clip this button started (a tour stops its own).
+  // Leaving the card stops a clip this button started (a tour stops its own), and its sound.
   useEffect(
     () => () => {
-      if (started.current) stopNarration();
+      if (!started.current) return;
+      stopNarration();
+      stopAmbience();
+      started.current = false;
     },
     [narration?.src],
   );
+
+  // The sound follows the narration: paused with it, and fading away a moment after it ends.
+  useEffect(() => {
+    if (!started.current || !sound || !mine) return;
+    if (n.playing) return pauseAmbience(false);
+    if (!n.ended) return pauseAmbience(true);
+    const t = window.setTimeout(() => stopAmbience(AMBIENCE_FADE_S), AMBIENCE_AFTER_MS);
+    return () => window.clearTimeout(t);
+  }, [sound, mine, n.playing, n.ended]);
 
   if (!narration || touring) return null;
   const playing = mine && n.playing;
   const onClick = () => {
     if (playing) return pauseNarration();
     started.current = true;
+    if (sound) {
+      primeMusic(); // the sound plays through Web Audio, which needs this tap to start
+      pauseAmbience(false);
+      startAmbience(sound.src, { muteable: false });
+    }
     if (mine && n.time > 0 && !n.ended) resumeNarration();
     else playNarration(narration.src).catch(() => {});
   };
