@@ -736,6 +736,9 @@
   start_year: -13050
   end_year: -9050
   description: Late Epipalaeolithic culture of the Levant, with some of the earliest semi-permanent villages and intensive wild-cereal harvesting just before farming began.
+  image_url: /images/cultures/natufian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Epipaleolithic hillside hamlet with circular stone pit dwellings, mortars, and wild cereal harvesting"
   wikipedia_url: https://en.wikipedia.org/wiki/Natufian_culture
   source_ids:
     - recall
@@ -744,6 +747,9 @@
       src: https://www.youtube.com/watch?v=W56dxT_P3jI
       title: Who were the Natufian people?
       credit: Anthromedia, YouTube
+  extra_images:
+    - { url: /images/extra/natufian-1.webp, credit: "British Museum, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Ain Sakhri lovers figurine, c. 9000 BCE, the oldest known carving of a couple embracing (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Ain_Sakhri_lovers_figurine.jpg" }
+    - { url: /images/extra/natufian-2.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Natufian carved bone sickle handle and human figurine from El-Wad Terrace (Musée d'Archéologie Nationale)", source: "https://commons.wikimedia.org/wiki/File:Moulages_de_sculptures_natoufiennes_-_El_Wad_MAN.jpg" }
 - id: clovis
   name: Clovis
   category: culture
@@ -753,6 +759,7 @@
   narration: { src: narration/cultures/clovis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "20e58f3384" }
   image_url: /images/cultures/clovis.webp
   image_credit: AI-generated illustration
+  image_caption: "Paleo-Indian hunters with atlatls and fluted points stalking Columbian mammoths"
   wikipedia_url: https://en.wikipedia.org/wiki/Clovis_culture
   source_ids:
     - recall
@@ -786,6 +793,9 @@
   start_year: -5500
   end_year: -4950
   description: First farming culture of central Europe, with long timber houses and pottery decorated with linear incised patterns.
+  image_url: /images/cultures/linear-pottery.webp
+  image_credit: AI-generated illustration
+  image_caption: "Early Neolithic village with monumental timber longhouses and incised linear pottery"
   wikipedia_url: https://en.wikipedia.org/wiki/Linear_Pottery_culture
   source_ids:
     - recall
@@ -794,6 +804,9 @@
       src: https://www.youtube.com/watch?v=Fbm80SzraRw
       title: The enormous longhouses of the Linear Pottery Culture
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/linear-pottery-1.webp, credit: "Einsamer Schütze, CC BY-SA 3.0, via Wikimedia Commons", caption: "Globular ceramic vessel with incised linear band decoration, Linear Pottery culture", source: "https://commons.wikimedia.org/wiki/File:LBK-Pottery.jpg" }
+    - { url: /images/extra/linear-pottery-2.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "Linear Pottery ceramic vessel from Brunn am Gebirge, Austria (Natural History Museum Vienna)", source: "https://commons.wikimedia.org/wiki/File:NHM_-_Linearbandkeramik_Brunn_1.jpg" }
 - id: ancient-egypt
   name: Ancient Egypt
   category: civilization
@@ -1007,6 +1020,9 @@
   end_year: -1649
   description: "The Bell Beaker culture is named after its drinking cups, shaped like an upturned bell, found in graves from Portugal to Hungary and from Sicily to Scotland. It probably began in Iberia, but in central Europe it was taken up by people of steppe descent. When they reached Britain, around 2450 BCE, about nine tenths of the island's ancestry was replaced within a few centuries. The Amesbury Archer, buried near Stonehenge with gold ornaments and copper knives, had grown up in the Alps."
   narration: { src: narration/cultures/bell-beaker-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3c66f9b81f" }
+  image_url: /images/cultures/bell-beaker.webp
+  image_credit: AI-generated illustration
+  image_caption: "Archer and metalworker community crafting copper daggers and decorated beakers by a round barrow"
   wikipedia_url: https://en.wikipedia.org/wiki/Bell_Beaker_culture
   wikidata: Q470867
   source_ids: []
@@ -1015,6 +1031,9 @@
       src: https://www.youtube.com/watch?v=njbWu6tWfng
       title: "Meet the Bell Beakers: the culture that changed Europe"
       credit: Celtic History Decoded, YouTube
+  extra_images:
+    - { url: /images/extra/bell-beaker-1.webp, credit: "British Museum, CC BY-SA 2.0, via Wikimedia Commons", caption: "Decorated ceramic Bell Beaker with stone wristguard and copper dagger from Barnack (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Bell_Beaker_1a.jpg" }
+    - { url: /images/extra/bell-beaker-2.webp, credit: "Ethan Doyle White, CC BY-SA 4.0, via Wikimedia Commons", caption: "Grave goods of the Amesbury Archer including gold hair tresses and copper knives (Salisbury Museum)", source: "https://commons.wikimedia.org/wiki/File:The_Amesbury_Archer.JPG" }
 - id: badarian
   name: Badarian culture
   category: culture
@@ -1086,6 +1105,9 @@
       src: https://www.youtube.com/watch?v=5fcEHA2ABeo
       title: "Kings of Bronze Age Europe: the Únětice Culture"
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/unetice-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "The Nebra Sky Disc, c. 1600 BCE, State Museum of Prehistory, Halle", source: "https://commons.wikimedia.org/wiki/File:1600_Himmelsscheibe_von_Nebra_sky_disk_anagoria.jpg" }
+    - { url: /images/extra/unetice-2.webp, credit: "SMAC Chemnitz, CC BY-SA 4.0, via Wikimedia Commons", caption: "Únětice bronze axe hoard from Cunnersdorf (State Museum of Archaeology Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Bronzezeit_045.jpg" }
 - id: cucuteni-trypillia
   name: Cucuteni–Trypillia culture
   category: culture
@@ -1195,6 +1217,9 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Yamnaya_culture
   wikidata: Q426737
   source_ids: []
+  extra_images:
+    - { url: /images/extra/yamnaya-1.webp, credit: "Valeriy Sayenko, CC BY-SA 4.0, via Wikimedia Commons", caption: "Yamnaya pit grave excavation showing crouched skeleton sprinkled with red ochre (Zlatopillia, Ukraine)", source: "https://commons.wikimedia.org/wiki/File:Tomb_of_Yamnaya_(Ochre_Grave)_culture_2.jpg" }
+    - { url: /images/extra/yamnaya-2.webp, credit: "Odessa Archaeological Museum, CC BY-SA 4.0, via Wikimedia Commons", caption: "Anthropomorphic kurgan stela of the Yamnaya culture (Odessa Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Yamna_culture_Stelae_Odessa.jpg" }
 # Span from English Wikipedia: Afanasievo_culture@1369190797.
 - id: afanasievo
   name: Afanasievo culture
@@ -1216,9 +1241,13 @@
   narration: { src: narration/cultures/sintashta-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1ce04c2c27" }
   image_url: /images/cultures/sintashta.webp
   image_credit: AI-generated illustration
+  image_caption: "Fortified circular settlement in the southern Urals with early spoked-wheel chariot"
   wikipedia_url: https://en.wikipedia.org/wiki/Sintashta_culture
   wikidata: Q656393
   source_ids: []
+  extra_images:
+    - { url: /images/extra/sintashta-1.webp, credit: "Russian Archaeological Expedition, CC BY-SA 4.0, via Wikimedia Commons", caption: "Aerial view of the circular fortified settlement of Arkaim in the southern Urals", source: "https://commons.wikimedia.org/wiki/File:%D0%90%D1%80%D0%BA%D0%B0%D0%B8%D0%BC_2015_(cropped).jpg" }
+    - { url: /images/extra/sintashta-2.webp, credit: "Museum of Archaeology and Ethnography Ufa, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze axes and maces of the Sintashta culture (Museum of Archaeology and Ethnography, Ufa)", source: "https://commons.wikimedia.org/wiki/File:Mace,_axe_-_Sintashta_culture_-_Museum_of_Archeology_and_Ethnography,_Ufa.jpg" }
 # Span from English Wikipedia: Andronovo_culture@1379425534.
 - id: andronovo
   name: Andronovo culture
@@ -1259,6 +1288,7 @@
   description: Epipalaeolithic tradition of Algeria and Tunisia, c. 9000–5400 BCE, named after Gafsa (Latin Capsa). Divided into the Typical and Upper Capsian; its people hunted a wide range of animals, from aurochs to hares and snails, and made ostrich-eggshell beads and containers and figurative and abstract rock art.
   image_url: /images/cultures/capsian.webp
   image_credit: AI-generated illustration
+  image_caption: "Maghreb camp centered on a snail-shell midden with engraved ostrich eggshells"
   wikipedia_url: https://en.wikipedia.org/wiki/Capsian_culture
   wikidata: Q766150
   source_ids: []

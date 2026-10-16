@@ -16,10 +16,10 @@ export function entityPictures(entity: Entity, parent?: Entity): Picture[] {
   const isEvent = entity.category === "event";
   const main: Picture | undefined = isEvent
     ? entity.image_url
-      ? { url: entity.image_url, credit: entity.image_credit }
+      ? { url: entity.image_url, credit: entity.image_credit, caption: entity.image_caption }
       : undefined
     : entity.image_url
-      ? { url: entity.image_url, credit: entity.image_credit }
+      ? { url: entity.image_url, credit: entity.image_credit, caption: entity.image_caption }
       : parent?.image_url
         ? { url: parent.image_url, credit: parent.image_credit, caption: `Shows ${parent.name} as a whole` }
         : entity.fallback_image

@@ -18,6 +18,7 @@ export interface Entity {
   region?: string; // civilizations: where most of the territory lay (scripts/lib/regions.ts), or set in entities.yaml
   image_url?: string; // optional WebP image asset URL
   image_credit?: string; // required with image_url: author/licence, or that it is AI-generated
+  image_caption?: string; // optional description of what the illustration depicts
   /**
    * More pictures after the main one (image_url stays the display picture), in the order they are
    * shown. For now only shown while a tour holds on this entity's card (src/tours/tourPicture.ts).

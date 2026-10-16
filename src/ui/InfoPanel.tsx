@@ -23,6 +23,23 @@ import TourVideo from "./TourVideo";
 import { contemporaries } from "./contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
 
+const cultureSrcSet = (url?: string) => {
+  if (url && url.startsWith("/images/cultures/") && !url.includes("-600.webp")) {
+    return {
+      srcSet: `${url.replace(/\.webp$/, "-600.webp")} 600w, ${url} 1200w`,
+      sizes: "(max-width: 640px) 100vw, 450px",
+    };
+  }
+  return {};
+};
+
+const cultureThumbSrc = (url?: string) => {
+  if (url && url.startsWith("/images/cultures/") && !url.includes("-600.webp")) {
+    return url.replace(/\.webp$/, "-600.webp");
+  }
+  return url;
+};
+
 const Ref = ({ r }: { r: RefLink }) =>
   r.href ? <a href={r.href} target="_blank" rel="noreferrer">{r.label}</a> : <>{r.label}</>;
 
@@ -186,7 +203,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const picture: { url: string; name: string; credit?: string; note?: string } | undefined = isEvent
     ? undefined
     : entity.image_url
-      ? { url: entity.image_url, name: entity.name, credit: entity.image_credit }
+      ? { url: entity.image_url, name: entity.name, credit: entity.image_credit, note: entity.image_caption }
       : parent?.image_url
         ? { url: parent.image_url, name: parent.name, credit: parent.image_credit, note: `Shows ${parent.name} as a whole` }
         : entity.fallback_image
@@ -271,7 +288,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       <div className={`panel info-thumb${isEvent ? " square" : ""}`}>
         <button className="info-thumb-open" onClick={() => setMinimised(false)} aria-label={`Open card: ${entity.name}`} title="Open card">
           <span className="info-thumb-media" style={showThumb ? undefined : { background: entity.color ?? style.color }}>
-            {showThumb && <img src={thumb} alt="" onError={() => setBrokenImage(thumb)} />}
+            {showThumb && <img src={cultureThumbSrc(thumb)} alt="" onError={() => setBrokenImage(thumb)} />}
             <svg className="info-thumb-expand" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
               <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -339,7 +356,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         >
           {showThumb ? (
             <>
-              <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+              <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={cultureThumbSrc(thumb)} alt="" onError={() => setBrokenImage(thumb)} />
               {!extra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
             </>
           ) : (
@@ -557,6 +574,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             <img
               key={shown.url}
               src={shown.url}
+              {...cultureSrcSet(shown.url)}
               alt={shown.name}
               className={`info-image${extra ? " info-image-extra picture-in" : ""}`}
               loading="lazy"
