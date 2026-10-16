@@ -193,7 +193,7 @@ export const TOURS: Tour[] = [
     dna: "y",
     announcement: { src: "narration/tours/steppe-migration-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "accd7da6dd" },
     closingNarration: { src: "narration/tours/steppe-migration-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "2e073949b3" },
-    music: { src: "music/tours/steppe-migration-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    music: { src: "music/tours/steppe-migration-v2.mp3", credit: "Music: \"good-dungeon-music\" (credit to confirm)" },
     stops: [
       { entity: "invention-of-the-wheel" },
       { entity: "yamnaya", year: -2_999, site: "yamnaya@x:lopatino" },
