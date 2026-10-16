@@ -7,6 +7,7 @@ import { CategoryBadge } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
 import ClimatePanel from "./ClimatePanel";
 import { WhenLine } from "./ClimatePopover";
+import DnaLegend from "../dna/DnaLegend";
 
 interface ActiveEntityItem {
   id: string;
@@ -245,6 +246,7 @@ export default function Legend() {
             );
           })}
         </div>
+        <DnaLegend />
       </div>
       <ClimatePanel />
     </div>

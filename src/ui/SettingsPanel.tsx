@@ -23,6 +23,8 @@ export default function SettingsContent() {
   const setPaleo = useStore((s) => s.setPaleo);
   const routes = useStore((s) => s.routes);
   const setRoutes = useStore((s) => s.setRoutes);
+  const dna = useStore((s) => s.dna);
+  const setDna = useStore((s) => s.setDna);
   const climatePanel = useStore((s) => s.climatePanel);
   const setClimatePanel = useStore((s) => s.setClimatePanel);
   // The climate panel needs room beside the globe: not offered on small screens.
@@ -59,6 +61,13 @@ export default function SettingsContent() {
         <span>
           Migration routes
           <span className="muted">How modern humans spread out of Africa, drawn as the time slider passes each site.</span>
+        </span>
+      </label>
+      <label className="settings-check">
+        <input type="checkbox" checked={dna} onChange={(e) => setDna(e.target.checked)} />
+        <span>
+          Ancient DNA
+          <span className="muted">Over 9,000 sampled ancient genomes, coloured by father's or mother's line (Allen Ancient DNA Resource).</span>
         </span>
       </label>
       {!stacked && (

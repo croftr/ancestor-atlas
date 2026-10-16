@@ -201,6 +201,20 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   pole (rewrites `public/data/basemap/land.geojson` in place; rerunning changes nothing). Run it again if the
   basemap is ever replaced. The thin curved line across the southern half was probably Antarctica's; not rechecked.
 
+## Ancient DNA layer (added 16 Oct 2026)
+
+- AADR v66.p1 (CC0, Harvard Dataverse): `npm run data:dna` (pinned file id + MD5 in `scripts/fetch/aadr.ts`; downloads
+  only when missing) then `scripts/ingest/aadr.ts` -> `public/data/dna.json` (committed, ~1.4 MB, outside
+  `data:build`; loaded only when the layer is on). Rules and citation in the README. Shared types in `src/dna/types.ts`.
+- Client in `src/dna/`: Settings toggle (store `dna`, off by default, remembered), colour mode in the legend's DNA row
+  (`dnaColour`: y | mt | plain), `DnaCard.tsx` opened by `dnaSite` (shown only while no other card is open; a tap opens
+  it only when a DNA site is nearer than any other marker). Colours: three families per mode
+  (`haplogroups.ts`; validated colour-blind-safe all-pairs, which caps a map at three) plus grey "other" and hollow
+  "not known". Map layers `dna-sites` / `dna-selected` sit above territories, under the other markers.
+- Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
+  dropped if the date misses the culture's span by 500+ years). There is no Yamnaya culture entity yet.
+- Not yet checked on phones.
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points

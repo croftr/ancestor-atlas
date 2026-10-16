@@ -14,6 +14,8 @@ import { ROUTES } from "../routes/routes";
 import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
 import { pathSoFar, trail, trailPoints, type LngLat, type TrailFrame } from "../tours/epilogue";
 import { tourById } from "../tours/tours";
+import { dnaGeoJSON, loadDna } from "../dna/data";
+import { NONE_COLOR } from "../dna/haplogroups";
 
 const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
@@ -87,6 +89,9 @@ function trailGeoJSON(frame: TrailFrame): GeoJSON.FeatureCollection {
   };
 }
 
+/** Ancient DNA sites (dna/): above the territories, under the other markers. */
+const DNA_LAYER = "dna-sites";
+
 /** Route layers, under the markers. */
 const ROUTE_LAYERS = ["route-casing", "route-line", "route-head"];
 
@@ -115,7 +120,7 @@ function leftInset(): number {
  */
 function rightInset(state: ReturnType<typeof useStore.getState>): number {
   if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
-  const open = state.selectedId !== null || state.groupId !== null || state.tour !== null;
+  const open = state.selectedId !== null || state.groupId !== null || state.dnaSite !== null || state.tour !== null;
   return open ? stageInset(state.cardWidth) : 0;
 }
 
@@ -342,6 +347,19 @@ export default function MapView() {
       (map.getSource("routes") as maplibregl.GeoJSONSource | undefined)?.setData(routes ? routesGeoJSON(routeLines, year) : EMPTY);
     };
 
+    // Ancient DNA: the sites with anyone dated to the slider's year (the data loads when the layer is first switched on).
+    const applyDna = () => {
+      const { dna } = useStore.getState();
+      const source = map.getSource("dna") as maplibregl.GeoJSONSource | undefined;
+      if (!dna) return source?.setData(EMPTY);
+      loadDna().then((d) => {
+        const { year, dna, dnaColour } = useStore.getState();
+        if (d && dna) (map.getSource("dna") as maplibregl.GeoJSONSource | undefined)?.setData(dnaGeoJSON(d, year, dnaColour));
+      });
+    };
+    const applyDnaSelection = () =>
+      map.getLayer("dna-selected") && map.setFilter("dna-selected", ["==", ["get", "id"], useStore.getState().dnaSite ?? ""]);
+
     // Coastlines and ice sheets: swap the snapshot when the year crosses into another one.
     let paleoShown: string | null = null;
     const applyPaleo = () => {
@@ -501,6 +519,43 @@ export default function MapView() {
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
+      // Ancient DNA sites: sized by how many people date to the year, coloured by haplogroup (dna/haplogroups.ts),
+      // with a dark ring so they read on pale land; a white ring marks the open one.
+      const firstMarker = LAYER_DEFS.find((d) => d.category !== "civilization")?.spec.id;
+      map.addSource("dna", { type: "geojson", data: EMPTY });
+      const dnaRadius = (k: number): maplibregl.ExpressionSpecification =>
+        ["*", k, ["min", 11, ["+", 3, ["*", 1.4, ["sqrt", ["get", "n"]]]]]];
+      map.addLayer(
+        {
+          id: DNA_LAYER,
+          type: "circle",
+          source: "dna",
+          paint: {
+            "circle-color": ["get", "color"],
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, dnaRadius(0.7), 6, dnaRadius(1.3)],
+            // Hollow (nothing called): a pale ring instead of the dark one.
+            "circle-stroke-color": ["case", ["==", ["get", "color"], NONE_COLOR], "#c9c6bd", "rgba(10, 14, 26, 0.75)"],
+            "circle-stroke-width": ["case", ["==", ["get", "color"], NONE_COLOR], 1.5, 1.2],
+            "circle-opacity": 0.9,
+          },
+        },
+        firstMarker,
+      );
+      map.addLayer(
+        {
+          id: "dna-selected",
+          type: "circle",
+          source: "dna",
+          filter: ["==", ["get", "id"], ""],
+          paint: {
+            "circle-color": "rgba(0, 0, 0, 0)",
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, ["+", 3, dnaRadius(0.7)], 6, ["+", 3, dnaRadius(1.3)]],
+            "circle-stroke-color": "#ffffff",
+            "circle-stroke-width": 2.5,
+          },
+        },
+        firstMarker,
+      );
       // The path a tour has taken so far: faint, under the epilogue's bright thread.
       map.addSource("tour-path", { type: "geojson", data: EMPTY });
       // A dark casing under the gold, so it shows on pale land as well as on the sea.
@@ -589,6 +644,8 @@ export default function MapView() {
       applyPath();
       if (useStore.getState().tour?.epilogue) startEpilogue(pathPoints);
       applyPaleo();
+      applyDna();
+      applyDnaSelection();
       loadData().then(applyRoutes);
       applyFilters();
       applyVisibility();
@@ -622,9 +679,21 @@ export default function MapView() {
         }
         seen.set(props.id, { props, rank: INTERACTIVE_LAYERS.indexOf(f.layer.id), dist });
       }
-      const sorted = [...seen.values()]
-        .sort((a, b) => Math.round(a.dist / 6) - Math.round(b.dist / 6) || a.rank - b.rank)
-        .map((x) => x.props);
+      const ranked = [...seen.values()].sort((a, b) => Math.round(a.dist / 6) - Math.round(b.dist / 6) || a.rank - b.rank);
+      const sorted = ranked.map((x) => x.props);
+      // An ancient DNA site opens its own card when it is nearer than any other marker (equally near: the marker).
+      const dnaHit = map
+        .queryRenderedFeatures([[x - r, y - r], [x + r, y + r]], { layers: map.getLayer(DNA_LAYER) ? [DNA_LAYER] : [] })
+        .map((f) => {
+          const p = map.project(f.geometry.type === "Point" ? (f.geometry.coordinates as [number, number]) : e.lngLat);
+          return { id: String(f.properties.id), dist: Math.hypot(p.x - x, p.y - y) };
+        })
+        .filter((h) => h.dist <= r * 1.5)
+        .sort((a, b) => a.dist - b.dist)[0];
+      if (dnaHit && (!ranked.length || Math.round(dnaHit.dist / 6) < Math.round(ranked[0].dist / 6))) {
+        useStore.getState().openDnaSite(dnaHit.id);
+        return;
+      }
       if (sorted.length === 0) {
         useStore.getState().select(null);
         const route = map.queryRenderedFeatures(
@@ -639,7 +708,7 @@ export default function MapView() {
       } else useStore.getState().select(sorted[0].id, sorted);
     });
 
-    for (const id of [...INTERACTIVE_LAYERS, "route-line"]) {
+    for (const id of [...INTERACTIVE_LAYERS, "route-line", DNA_LAYER]) {
       map.on("mouseenter", id, () => (map.getCanvas().style.cursor = "pointer"));
       map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
     }
@@ -806,7 +875,8 @@ export default function MapView() {
       }
       const cardChanged =
         state.cardWidth !== prev.cardWidth ||
-        (state.selectedId !== null || state.groupId !== null) !== (prev.selectedId !== null || prev.groupId !== null) ||
+        (state.selectedId !== null || state.groupId !== null || state.dnaSite !== null) !==
+          (prev.selectedId !== null || prev.groupId !== null || prev.dnaSite !== null) ||
         (state.tour !== null) !== (prev.tour !== null);
       // A flight in this same change takes the new inset with it.
       if (cardChanged && !(state.flyTo && state.flyTo !== prev.flyTo)) syncRight(!document.body.classList.contains("card-resizing"));
@@ -835,6 +905,8 @@ export default function MapView() {
       }
       if (state.year !== prev.year || state.paleo !== prev.paleo) applyPaleo();
       if (state.year !== prev.year || state.routes !== prev.routes) applyRoutes();
+      if (state.year !== prev.year || state.dna !== prev.dna || state.dnaColour !== prev.dnaColour) applyDna();
+      if (state.dnaSite !== prev.dnaSite) applyDnaSelection();
       if (state.enabled !== prev.enabled) applyVisibility();
       if (state.selectedId !== prev.selectedId) applySelection();
     });

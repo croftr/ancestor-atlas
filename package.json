@@ -16,6 +16,7 @@
     "data:paleo": "tsx scripts/paleo.ts",
     "data:climate": "tsx scripts/climate.ts",
     "data:ingest:road": "tsx scripts/ingest/road.ts",
+    "data:dna": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/fetch/aadr.ts && tsx scripts/ingest/aadr.ts",
     "data:build": "tsx scripts/build-data.ts && tsx scripts/validate-data.ts && tsx scripts/report-data.ts",
     "data:report": "tsx scripts/report-data.ts",
     "sites:candidates": "tsx scripts/fetch/site-candidates.ts",

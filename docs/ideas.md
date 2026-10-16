@@ -26,8 +26,9 @@ dropped. Tour polish items already in CLAUDE.md's backlog are not repeated here.
 
 ## New data
 
-- [ ] **Ancient DNA layer.** The Allen Ancient DNA Resource (AADR): thousands of dated, located genomes. Shows the
-  Steppe migration and the spread of farming directly. Check licence and citation terms first.
+- [x] **Ancient DNA layer.** Done 16 Oct 2026: AADR v66.p1 (CC0), see README "Ancient DNA (AADR)". Possible next
+  steps: a Yamnaya culture entity (AADR has ~290 Yamnaya genomes, the key Steppe group, but there is no culture to
+  link them to), a tour on the Steppe migration, and checking the layer on phones.
 - [ ] **Remaining migration routes:** farming into Europe, the Austronesian expansion, the Bantu expansion.
 - [ ] **Interbreeding events:** Neanderthal and Denisovan gene flow, drawn as links between species ranges.
 - [ ] **New tours from existing data:** Peopling of the Americas, Neanderthal life, Domestication and the first

@@ -35,6 +35,7 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🏛️ **Early Civilizations & Polities**: Watch early city-states, kingdoms, and civilizations emerge, grow, and interact across the globe.
 - 🧊 **Ice Age Coastlines & Ice Sheets**: The globe redraws its coastlines as sea level rose and fell: Beringia, Sunda, Sahul and Doggerland appear as dry land, and the great ice sheets spread over North America and northern Europe (sea level for the last 800,000 years; ice sheets for the last 80,000).
 - 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas, each route growing as the slider passes the dated fossil sites it joins.
+- 🧬 **Ancient DNA**: Over 9,000 sampled ancient genomes, coloured by father's or mother's line, so you can watch lineages such as R1b sweep across Europe after 3000 BCE. Each site lists the people sampled there with their haplogroups, dates and publications.
 - 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years. Click it (or the stage badge under the year) for the global temperature, sea level and Marine Isotope Stage of that moment, with a small chart of the glacial cycles around it.
 - 🤝 **Who Lived When**: Each species card lists the other species alive at the same time.
 - 🔍 **Instant Search**: Search across any species, fossil discovery, archaeological site, or civilization to jump directly to it in space and time.
@@ -189,6 +190,22 @@ Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm r
 - **Migration routes** (`src/routes/routes.ts`): hand-picked like the tours. Each route joins dated sites already on the
   globe (so each date and place carries that site's source); `via` points only bend the line along a coast or strait.
   The direction of each route follows Wikipedia's *Early human migrations* (pinned revision).
+
+### Ancient DNA (AADR)
+
+The Ancient DNA layer (off by default; Settings) shows genomes from the Allen Ancient DNA Resource, release v66.p1
+(CC0, https://doi.org/10.7910/DVN/FFIDCW). `npm run data:dna` downloads the pinned annotation table once into
+`data/raw/aadr/` (checksum-checked) and runs `scripts/ingest/aadr.ts`, which writes `public/data/dna.json` (committed;
+outside `data:build` and its fingerprint, loaded only when the layer is switched on).
+
+- Individuals dated before 1 CE with coordinates and an AADR assessment of Pass, PROVISIONAL_PASS or MERGE_PASS; one
+  row per individual (the one with most SNPs). About 9,500 people at 2,200 sites (same coordinates, merged within 1 km).
+- Date ranges: AADR's mean ± 2 SD for direct radiocarbon dates; the full archaeological range for contextual ones.
+- AADR group labels link to cultures through the `aadr` rows of `culture-labels.csv` (exact "_"-parts only).
+- A site is coloured by the commonest Y or mtDNA haplogroup family among the people dated to the slider's year (three
+  families each, the rest grey; hollow when none is called); its card lists everyone with their original publication.
+- Cite: Mallick, S. et al., 2024. The Allen Ancient DNA Resource (AADR): a curated compendium of ancient human genomes.
+  *Scientific Data*. https://doi.org/10.1038/s41597-024-03031-7, and the original publication of each genome.
 
 ### Provenance Rules
 

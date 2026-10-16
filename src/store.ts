@@ -5,6 +5,7 @@ import { getData, isActive, unionBBox, type BBox } from "./map/data";
 import { bestYear, navOrder, sliderYearFor } from "./search/search";
 import { BASEMAP_THEMES, DEFAULT_BASEMAP } from "./config";
 import { tourById } from "./tours/tours";
+import type { DnaColour } from "./dna/haplogroups";
 
 const BASEMAP_KEY = "history-globe.basemap";
 
@@ -20,6 +21,18 @@ function loadBasemap(): string {
 
 const PALEO_KEY = "history-globe.paleo";
 const ROUTES_KEY = "history-globe.routes";
+const DNA_KEY = "history-globe.dna";
+const DNA_COLOUR_KEY = "history-globe.dna-colour";
+
+function loadDnaColour(): DnaColour {
+  try {
+    const v = localStorage.getItem(DNA_COLOUR_KEY);
+    if (v === "y" || v === "mt" || v === "plain") return v;
+  } catch {
+    /* storage unavailable */
+  }
+  return "y";
+}
 const CLIMATE_PANEL_KEY = "history-globe.climate-panel";
 
 /** A layer setting that is on unless turned off in Settings (remembered per browser). */
@@ -55,6 +68,11 @@ interface AppState {
   paleo: boolean;
   /** Draw the migration routes (routes/routes.ts). */
   routes: boolean;
+  /** Draw the ancient DNA sites (dna/; off unless switched on, as its data is a separate download). */
+  dna: boolean;
+  dnaColour: DnaColour;
+  /** The ancient DNA site whose card is open (shown only while no other card is). */
+  dnaSite: string | null;
   /** Keep the climate details open under the legend, following the slider (desktop; ui/ClimatePanel.tsx). */
   climatePanel: boolean;
   introOpen: boolean;
@@ -148,6 +166,9 @@ interface AppState {
   setBasemap(name: string): void;
   setPaleo(on: boolean): void;
   setRoutes(on: boolean): void;
+  setDna(on: boolean): void;
+  setDnaColour(mode: DnaColour): void;
+  openDnaSite(id: string | null): void;
   setClimatePanel(on: boolean): void;
   setIntroOpen(open: boolean): void;
 }
@@ -162,6 +183,15 @@ export const useStore = create<AppState>((set, get) => ({
   basemap: loadBasemap(),
   paleo: loadOn(PALEO_KEY),
   routes: loadOn(ROUTES_KEY),
+  dna: (() => {
+    try {
+      return localStorage.getItem(DNA_KEY) === "on";
+    } catch {
+      return false;
+    }
+  })(),
+  dnaColour: loadDnaColour(),
+  dnaSite: null,
   climatePanel: loadOn(CLIMATE_PANEL_KEY),
   introOpen: isIntroHash(),
   flyTo: null,
@@ -182,12 +212,13 @@ export const useStore = create<AppState>((set, get) => ({
   select: (id, hits) =>
     set((s) => ({
       selectedId: id,
+      dnaSite: null,
       groupId: null,
       hits: id === null ? [] : (hits ?? s.hits),
       pictureViewer: s.tour ? s.pictureViewer : false,
     })),
   openGroup: (entityId) =>
-    set((s) => ({ selectedId: null, hits: [], groupId: entityId, pictureViewer: s.tour ? s.pictureViewer : false })),
+    set((s) => ({ selectedId: null, hits: [], groupId: entityId, dnaSite: null, pictureViewer: s.tour ? s.pictureViewer : false })),
   jumpTo: (entityId) => {
     const d = getData();
     const f = d?.featuresOf.get(entityId)?.[0];
@@ -330,6 +361,20 @@ export const useStore = create<AppState>((set, get) => ({
     saveOn(ROUTES_KEY, on);
     set({ routes: on });
   },
+  setDna: (on) => {
+    saveOn(DNA_KEY, on);
+    set((s) => ({ dna: on, dnaSite: on ? s.dnaSite : null }));
+  },
+  setDnaColour: (mode) => {
+    try {
+      localStorage.setItem(DNA_COLOUR_KEY, mode);
+    } catch {
+      /* storage unavailable */
+    }
+    set({ dnaColour: mode });
+  },
+  openDnaSite: (id) =>
+    set((s) => ({ dnaSite: id, ...(id && { selectedId: null, hits: [], groupId: null, pictureViewer: s.tour ? s.pictureViewer : false }) })),
   setClimatePanel: (on) => {
     saveOn(CLIMATE_PANEL_KEY, on);
     set({ climatePanel: on });
