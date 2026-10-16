@@ -74,6 +74,24 @@ async function generate(id: string): Promise<string> {
   return path;
 }
 
+/**
+ * Generated loops mostly join cleanly, but not always (16 Oct 2026: 2 of 29 clicked at the join).
+ * Blend the clip's first SEAM_S under its end: the loop then starts SEAM_S in and its end flows into
+ * that same moment, whatever the generator did.
+ */
+const SEAM_S = 0.75;
+function closeSeam(input: string, id: string): string {
+  const out = `data/build/audio/sfx/looped-${id}.wav`;
+  execFileSync(
+    "ffmpeg",
+    ["-hide_banner", "-loglevel", "error", "-y", "-i", input, "-filter_complex",
+      `[0]asplit[a][b];[a]atrim=0:${SEAM_S},asetpts=PTS-STARTPTS[head];[b]atrim=${SEAM_S},asetpts=PTS-STARTPTS[body];` +
+      `[body][head]acrossfade=d=${SEAM_S}:c1=tri:c2=tri`, out],
+    { stdio: "inherit" },
+  );
+  return out;
+}
+
 /** Upload to a key that must not exist yet. False if it could not (the command to run is printed). */
 function upload(out: string, key: string): boolean {
   if (flag("--no-upload")) return false;
@@ -108,7 +126,7 @@ for (const id of targets) {
   const out = `data/build/audio/${key}`;
   let source: string;
   try {
-    source = await generate(id);
+    source = closeSeam(await generate(id), id);
   } catch (err) {
     console.error(`✗ ${id}: ${(err as Error).message}\n  Stopping here; the sounds above are kept. Run the same command again later for the rest.`);
     break;
