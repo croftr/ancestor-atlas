@@ -12,7 +12,7 @@
     "data:fetch": "tsx scripts/fetch/cliopatria.ts && tsx scripts/fetch/wikidata.ts",
     "data:fetch:wikipedia": "tsx scripts/fetch/wikipedia.ts",
     "data:fetch:pbdb": "tsx scripts/fetch/pbdb.ts",
-    "data:fetch:paleo": "NODE_USE_ENV_PROXY=1 tsx scripts/fetch/paleo.ts",
+    "data:fetch:paleo": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/fetch/paleo.ts",
     "data:paleo": "tsx scripts/paleo.ts",
     "data:climate": "tsx scripts/climate.ts",
     "data:ingest:road": "tsx scripts/ingest/road.ts",
@@ -22,9 +22,9 @@
     "sites:sync": "tsx scripts/sync-site-coords.ts",
     "data:check": "tsx scripts/check-data-fresh.ts",
     "data:describe": "tsx scripts/describe.ts",
-    "audio:narrate": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",
+    "audio:narrate": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",
     "audio:music": "tsx scripts/audio/music.ts",
-    "audio:upload": "NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts"
+    "audio:upload": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",
@@ -41,6 +41,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "cross-env": "^7.0.3",
     "csv-parse": "^7.0.3",
     "d3-contour": "^4.0.2",
     "h5wasm": "^0.10.3",

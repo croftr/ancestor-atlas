@@ -21,7 +21,7 @@ import { parse as parseYaml } from "yaml";
 import { NARRATION_FOLDER, textHash } from "../lib/text-hash.ts";
 import { TOURS, announcementText } from "../../src/tours/tours.ts";
 import { fingerprint, META_PATH } from "../lib/fingerprint.ts";
-import { BUCKET, encode, uploadArgs, uploadCommand } from "./encode.ts";
+import { BUCKET, REGION, encode, uploadArgs, uploadCommand } from "./encode.ts";
 
 const EVENTS = "data/curated/events.yaml";
 const CURATED_ENTITIES = "data/curated/entities.yaml";
@@ -197,7 +197,7 @@ function trimTail(input: string, id: string): string {
 /** Upload to a key that must not exist yet. False if it could not (the command to run is printed). */
 function upload(out: string, key: string): boolean {
   if (flag("--no-upload")) return false;
-  const head = spawnSync("aws", ["s3api", "head-object", "--bucket", BUCKET, "--key", key], { encoding: "utf8" });
+  const head = spawnSync("aws", ["s3api", "head-object", "--bucket", BUCKET, "--key", key, "--region", REGION], { encoding: "utf8" });
   if (head.status === 0) fail(`s3://${BUCKET}/${key} already exists (keys are never overwritten)`);
   if (!/Not Found|404/.test(head.stderr)) {
     console.error(`! could not reach S3 (${head.stderr.trim().split("\n").at(-1)}); log in to AWS, or upload by hand:`);
