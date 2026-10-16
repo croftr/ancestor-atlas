@@ -117,10 +117,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   says how much time passes ("40,000 years later", "Meanwhile" for none; `TimeGap.tsx`, `tour.gap`), from the
   stop before's year; it stays 1.6 s past arrival, then fades.
 - Ambient sound per stop (added 16 Oct 2026; events only for now): `AMBIENCE` in `src/tours/ambience.ts` (entity id ->
-  ElevenLabs `prompt`, plus `sound` once made), played by `src/audio/ambience.ts`: a seamless Web Audio loop (decoded
-  buffer, random start point) fading in as the card opens and out as the tour moves on, ducked under narration, on
+  ElevenLabs `prompt`, plus `sound` once made), played by `src/audio/ambience.ts`: a short burst (decoded buffer, random start
+  point), 2 s after the card opens, about 3 s at full level, then faded out (Rob's call, 16 Oct 2026: playing all
+  through the narration was too long; `DELAY`/`HOLD`/fades at the top of that file), ducked under narration, on
   the music's audio context; the tour bar's music button mutes both. The Listen button (card and event page) plays
-  it too, under the narration, pausing with it and fading 1.5 s after it ends (not muted by the tour's music button). `npm run audio:ambience` (missing or stale
+  it too, the same way, pausing with it (a resume carries on, a replay starts it again) (not muted by the tour's music button). `npm run audio:ambience` (missing or stale
   prompts; `-- <id>` to redo one) generates 22 s loops (`eleven_text_to_sound_v2`, `loop: true`), normalises to
   -16 LUFS stereo 96 kbps (the first 0.75 s blended under the end, so the join never clicks), uploads to
   `ambience/<category>/<id>-v<n>.mp3` and sets `sound`. The API key needs the Sound Effects permission. Levels at

@@ -1,6 +1,6 @@
 /**
- * Ambient sound for a tour stop: a quiet loop under the narration and music while the stop's card is up
- * (src/audio/ambience.ts plays it). Keyed by entity id, so any tour stopping there gets it; events for
+ * Ambient sound for a tour stop: a few seconds under the narration, starting a couple of seconds after
+ * the stop's card opens (src/audio/ambience.ts plays it; timings at the top of that file). Keyed by entity id, so any tour stopping there gets it; events for
  * now. `prompt` is what was asked of ElevenLabs' sound generator; `sound` is set by
  * `npm run audio:ambience` (key ambience/<category>/<id>-v<n>.mp3, `prompt_hash` the prompt's
  * fingerprint when generated, so an edited prompt shows as stale). An entry without `sound` plays nothing.

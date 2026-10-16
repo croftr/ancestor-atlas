@@ -9,7 +9,7 @@ import "./listen.css";
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
-/** After the narration ends, the entity's sound plays on this long, then fades out over AMBIENCE_FADE_S. */
+/** If the narration ends before the sound's short burst does, the sound plays on this long, then fades out over AMBIENCE_FADE_S. */
 const AMBIENCE_AFTER_MS = 1_500;
 const AMBIENCE_FADE_S = 3;
 
@@ -37,7 +37,7 @@ export default function ListenButton({ entity }: { entity: Entity }) {
     [narration?.src],
   );
 
-  // The sound follows the narration: paused with it, and fading away a moment after it ends.
+  // The sound's burst follows the narration: paused with it, and fading away a moment after it ends.
   useEffect(() => {
     if (!started.current || !sound || !mine) return;
     if (n.playing) return pauseAmbience(false);
@@ -51,13 +51,14 @@ export default function ListenButton({ entity }: { entity: Entity }) {
   const onClick = () => {
     if (playing) return pauseNarration();
     started.current = true;
+    if (mine && n.time > 0 && !n.ended) return resumeNarration(); // the sound (if still to come) resumes with it
     if (sound) {
       primeMusic(); // the sound plays through Web Audio, which needs this tap to start
+      stopAmbience(0.3); // a replay starts the burst again
       pauseAmbience(false);
       startAmbience(sound.src, { muteable: false });
     }
-    if (mine && n.time > 0 && !n.ended) resumeNarration();
-    else playNarration(narration.src).catch(() => {});
+    playNarration(narration.src).catch(() => {});
   };
   const label = mine && n.failed ? "Narration unavailable" : playing ? "Pause" : mine && n.time > 0 && !n.ended ? "Resume" : "Listen";
 
