@@ -89,7 +89,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - Tours (Oct 2026): Events and inventions (all 29 events; a draft for Rob to trim); Human evolution (13 species + 2
   events); Out of Africa (9); Ice Age artists and toolmakers (14); Rise and fall of civilizations (15 civilizations +
   4 events, Sumer to Rome). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
-  narration-length paragraphs for them (Rob to review). All tours reuse one music track for now.
+  narration-length paragraphs for them (Rob to review). Music: Human evolution has "Apeman Suite" by Paul Lawler (16 Oct 2026; no licence for it, see backlog item 5); the others share "Adrift Among Infinite Stars" (Scott Buckley, CC BY 4.0).
 - Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,
   blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
   (`startTour(id, { index })`). The time bar's Tours menu shows a thumbnail and running time, and links to the page.
@@ -127,7 +127,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
    like them; the code was reverted (commit 9badd1f). Don't bring them back unless he asks.
 3. Done 13 Oct 2026: Tours page and a better Tours menu (see above).
 4. Events and inventions still runs all 29 events: Rob to pick the stops to keep.
-5. Music: every tour reuses one track (separate keys, so each can be swapped); the 6:45 loop seam is audible on
+5. Music: Human evolution plays "Apeman Suite" by Paul Lawler (key human-evolution-v2, 6:22); Rob believes it is not
+   licensed, so swap it for a licensed track (or get permission) before relying on it publicly. The other four
+   share "Adrift Among Infinite Stars" (separate keys, so each can be swapped); its 6:45 loop seam is audible on
    longer tours. Levels and the dip under narration are untested by ear on phones (iOS Web Audio, the Start tour tap).
 6. Rob reviews the 36 rewritten descriptions (species, cultures, civilizations; commits fd9cc09, c537034, fe91b57,
    9303da5); an edit makes that narration stale (`npm run audio:narrate -- --stale`).
