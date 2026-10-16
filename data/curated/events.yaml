@@ -40,8 +40,10 @@
   image_url: /images/events/earliest-stone-tools.webp
   image_credit: AI-generated illustration
   extra_images:
-    - { url: /images/events/extra/lomekwian-tools-1.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Kenyanthropus platyops skull (cast), found at Lomekwi: a possible maker of the tools", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus_platyops-MGL_95210-P5030042-black.jpg" }
+    - { url: /images/events/extra/lomekwian-tools-3.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Where Lomekwi lies on the western side of Lake Turkana in Kenya", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus-Lomekwi.jpg" }
     - { url: /images/events/extra/lomekwian-tools-2.webp, credit: "NASA, public domain, via Wikimedia Commons", caption: "Lake Turkana from space; Lomekwi lies near its western shore", source: "https://commons.wikimedia.org/wiki/File:Lake_turkana_satellite.jpg" }
+    - { url: /images/events/extra/lomekwian-tools-4.webp, credit: "Predatorywasp, CC0, via Wikimedia Commons", caption: "Cobble-strewn shore of Lake Turkana", source: "https://commons.wikimedia.org/wiki/File:Southern_Shore_of_Lake_Turkana,_Kenya.jpg" }
+    - { url: /images/events/extra/lomekwian-tools-1.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Kenyanthropus platyops skull (cast), found at Lomekwi: a possible maker of the tools", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus_platyops-MGL_95210-P5030042-black.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=NhM-2P93hoI", title: "The oldest archaeological site in the world", credit: "Stefan Milo, YouTube" }
   narration: { src: narration/events/lomekwian-tools-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "7926749546" }
@@ -60,7 +62,9 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/oldowan-tools-1.webp, credit: "David R. Braun, CC BY-SA 2.0, via Wikimedia Commons", caption: "Oldowan tools from Bokol Dora 1, Ethiopia, about 2.6 million years old", source: "https://commons.wikimedia.org/wiki/File:Bokol_Dora_Stone_Tool_(cropped).jpg" }
+    - { url: /images/events/extra/oldowan-tools-4.webp, credit: "Suyash Dwivedi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Oldowan hammerstones, choppers and sharp-edged flakes", source: "https://commons.wikimedia.org/wiki/File:Oldowan_toolkit.jpg" }
     - { url: /images/events/extra/oldowan-tools-2.webp, credit: "Archaeomoonwalker, CC BY 3.0, via Wikimedia Commons", caption: "Oldowan chopper from Olduvai Gorge, about 1.8 million years old (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Olduvai_Chopper.JPG" }
+    - { url: /images/events/extra/oldowan-tools-3.webp, credit: "Gerbil, CC BY 3.0, via Wikimedia Commons", caption: "Fossil and tool beds at Olduvai Gorge, Tanzania, which gave the Oldowan its name", source: "https://commons.wikimedia.org/wiki/File:Olduvai_Gorge,_fossil_sites.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=uVTQBQfbqJc", title: "The Oldowan stone tool", credit: "Historic Concepts, YouTube" }
   narration: { src: narration/events/oldowan-tools-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5d31d95d74" }
@@ -102,7 +106,9 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/acheulean-handaxes-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Handaxe from Saint-Acheul, France, the site that gave the Acheulean its name", source: "https://commons.wikimedia.org/wiki/File:Biface_de_St_Acheul_MHNT.jpg" }
+    - { url: /images/events/extra/acheulean-handaxes-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Both faces of a symmetrical flint handaxe collected by Jacques Boucher de Perthes in the Somme valley", source: "https://commons.wikimedia.org/wiki/File:Biface_de_Boucher_de_Perthes_MHNT.jpg" }
     - { url: /images/events/extra/acheulean-handaxes-2.webp, credit: "John Atherton, CC BY-SA 2.0, via Wikimedia Commons", caption: "Archaeologists at an Acheulean site near Still Bay, South Africa", source: "https://commons.wikimedia.org/wiki/File:Archaeologists_at_an_Acheulean_surface_site_near_the_Stillbay_turnoff_---_about_10_km_from_Riversdale,_South_Africa_(1555302026).jpg" }
+    - { url: /images/events/extra/acheulean-handaxes-4.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Spread of Acheulean handaxes across Africa, western Europe and southern Asia", source: "https://commons.wikimedia.org/wiki/File:Biface_Extension.png" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=BwmpNKWGdGw", title: "Acheulean technology and how to make a handaxe", credit: "Nicci Sherwood, YouTube" }
   narration: { src: narration/events/acheulean-handaxes-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e6e0e6e8da" }
@@ -252,6 +258,8 @@
   extra_images:
     - { url: /images/events/extra/earliest-musical-instruments-1.webp, credit: "Tomatenpflanze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Griffon vulture bone flute from Hohle Fels, about 40,000 years old", source: "https://commons.wikimedia.org/wiki/File:Fl%C3%B6te_aus_G%C3%A4nsegeierknochen_vom_Hohle_Fels_im_urmu.jpg" }
     - { url: /images/events/extra/earliest-musical-instruments-2.webp, credit: "Thilo Parg, CC BY-SA 3.0, via Wikimedia Commons", caption: "Swan bone flute from Geissenklösterle", source: "https://commons.wikimedia.org/wiki/File:Floete_Schwanenknochen_Geissenkloesterle_Blaubeuren.jpg" }
+    - { url: /images/events/extra/earliest-musical-instruments-3.webp, credit: "Dr. Eugen Lehle, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Hohle Fels cave in the Swabian Jura, Germany", source: "https://commons.wikimedia.org/wiki/File:Hohler_Fels.jpg" }
+    - { url: /images/events/extra/earliest-musical-instruments-4.webp, credit: "Thilo Parg, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Geissenklösterle rock shelter in the Ach valley, where bone and mammoth-ivory flutes were found", source: "https://commons.wikimedia.org/wiki/File:Abri_Gei%C3%9Fenkl%C3%B6sterle_Achtal_Blaubeuren_2.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=obTQG1i4A78", title: "Playing the 35,000-year-old Hohle Fels bone flute replica", credit: "Albin Paulus, YouTube" }
     - { kind: video, src: "https://www.youtube.com/watch?v=dqjxtstlHA0", title: "Hohle Fels Cave flute", credit: "Odd Quartet, YouTube" }
@@ -297,8 +305,10 @@
   image_url: /images/events/invention-of-pottery.webp
   image_credit: AI-generated illustration
   extra_images:
+    - { url: /images/events/extra/first-pottery-3.webp, credit: "Zhangzhugang, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Xianrendong Cave in Jiangxi, China, where 20,000-year-old pottery was found", source: "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8816.jpg" }
     - { url: /images/events/extra/first-pottery-1.webp, credit: "Zhangzhugang, CC BY-SA 3.0, via Wikimedia Commons", caption: "Inside Xianrendong Cave, Jiangxi, China", source: "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8805.jpg" }
     - { url: /images/events/extra/first-pottery-2.webp, credit: "Prof. Gary Lee Todd, CC BY-SA 4.0, via Wikimedia Commons", caption: "Reconstructed pot from Yuchanyan Cave, Hunan, about 18,000 years old", source: "https://commons.wikimedia.org/wiki/File:The_Pot_of_Yuchanyan._Hunan_Museum.jpg" }
+    - { url: /images/events/extra/first-pottery-4.webp, credit: "Mccunicano, CC BY-SA 4.0, via Wikimedia Commons", caption: "Potsherds from Odai Yamamoto I in Japan, about 16,500–14,000 years old, used by Ice Age foragers", source: "https://commons.wikimedia.org/wiki/File:Odai_Yamamoto_I_potsherds.jpg" }
   media:
     - { kind: video, src: "https://www.youtube.com/watch?v=2taUjbCb3N8", title: "The world's first pottery is older than you think", credit: "Dan Davis History, YouTube" }
   narration: { src: narration/events/first-pottery-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "c7346f774b" }

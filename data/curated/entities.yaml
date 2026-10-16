@@ -520,7 +520,9 @@
       title: "Levallois core technology: an alternative way of making stone tools"
       credit: AncientCraftUK (Dr James Dilley), YouTube
   extra_images:
+    - { url: /images/extra/levallois-mousterian-3.webp, credit: "Vincent Mourre, CC BY-SA 3.0, via Wikimedia Commons", caption: "The lower rock shelter at Le Moustier in the Dordogne, which gave the Mousterian its name", source: "https://commons.wikimedia.org/wiki/File:Le_Moustier_inf.jpg" }
     - { url: /images/extra/levallois-mousterian-1.webp, credit: "Didier Descouens, CC BY-SA 3.0, via Wikimedia Commons", caption: "Levallois core, shaped so one blow strikes off a planned flake", source: "https://commons.wikimedia.org/wiki/File:Lithic_core_Levalois_MHNT_PRE_2004.0.86.fond.jpg" }
+    - { url: /images/extra/levallois-mousterian-4.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Mousterian flint side-scrapers (racloirs) from Le Moustier", source: "https://commons.wikimedia.org/wiki/File:Alain_Reverdit_-_Industrie_lithique_-_Le_Moustier_(Dordogne).jpg" }
     - { url: /images/extra/levallois-mousterian-2.webp, credit: "Vassil, CC0, via Wikimedia Commons", caption: "Mousterian point (Musée d'archéologie nationale, France)", source: "https://commons.wikimedia.org/wiki/File:Pointe_moust%C3%A9rienne_Mus%C3%A9e_d%27arch%C3%A9ologie_nationale_01042018.jpg" }
 - id: middle-stone-age
   name: Middle Stone Age (Africa)
@@ -538,6 +540,8 @@
       title: Inside Africa's hidden history of early humans
       credit: BBC Studios, YouTube
   extra_images:
+    - { url: /images/extra/middle-stone-age-3.webp, credit: "F. Brodbeck & G. Porraz, CC BY 4.0, via Wikimedia Commons", caption: "Middle Stone Age flake tools and points from Sibudu Cave, South Africa", source: "https://commons.wikimedia.org/wiki/File:10.1371_journal.pone.0098359.g003.jpg" }
+    - { url: /images/extra/middle-stone-age-4.webp, credit: "Andrew Hall, CC BY-SA 3.0, via Wikimedia Commons", caption: "Excavations inside one of the Pinnacle Point caves at Mossel Bay, South Africa", source: "https://commons.wikimedia.org/wiki/File:Pinnacle_Point_Archaeological_Site,_Mossel_Bay_South_Africa.jpg" }
     - { url: /images/extra/middle-stone-age-1.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone spear point from Blombos Cave, about 71,000 years old", source: "https://commons.wikimedia.org/wiki/File:Blombos_point_white.JPG" }
     - { url: /images/extra/middle-stone-age-2.webp, credit: "Nkansah Rexford, CC BY-SA 3.0, via Wikimedia Commons", caption: "Engraved ostrich eggshell from Diepkloof Rock Shelter, about 60,000 years old", source: "https://commons.wikimedia.org/wiki/File:Iziko_engraving_ostrich_eggshell.JPG" }
 # Spans of the next three from English Wikipedia: Micoquian@1349026510, Szeletian@1379782690, Châtelperronian@1337735389.
@@ -579,8 +583,10 @@
   image_url: /images/cultures/chatelperronian.webp
   image_credit: AI-generated illustration
   extra_images:
+    - { url: /images/extra/chatelperronian-3.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 4.0, via Wikimedia Commons", caption: "Entrance to the Grotte des Fées at Châtelperron, the type site of the Châtelperronian", source: "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telperron_-_grotte_des_f%C3%A9es_-_1.jpg" }
     - { url: /images/extra/chatelperronian-1.webp, credit: "Rios-Garaizar et al., PLOS ONE 2022, CC BY 4.0, via Wikimedia Commons", caption: "Châtelperronian stone tools from Aranbaltza, Spain", source: "https://commons.wikimedia.org/wiki/File:Aranbaltza_Ch%C3%A2telperronian_lithic_assemblage.tiff" }
     - { url: /images/extra/chatelperronian-2.webp, credit: "Caron et al., PLOS ONE 2011, CC BY 4.0, via Wikimedia Commons", caption: "Ornaments and bone tools from the Grotte du Renne, Arcy-sur-Cure", source: "https://commons.wikimedia.org/wiki/File:Grotte_du_Renne_ivory.png" }
+    - { url: /images/extra/chatelperronian-4.webp, credit: "Pueblopassingby, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cave at the prehistoric site of Arcy-sur-Cure in Burgundy", source: "https://commons.wikimedia.org/wiki/File:Grotte_des_F%C3%A9es-_03.jpg" }
 - id: aurignacian
   name: Aurignacian
   category: culture
@@ -617,8 +623,10 @@
       title: "The Gravettian Culture: Ice Age mammoth hunters"
       credit: Dan Davis History, YouTube
   extra_images:
+    - { url: /images/extra/gravettian-3.webp, credit: "Momotarou2012, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstruction of a hut framed with mammoth bones, after the Gravettian site of Mezhyrich in Ukraine", source: "https://commons.wikimedia.org/wiki/File:Dwelling_made_with_mammoth_bones.jpg" }
     - { url: /images/extra/gravettian-1.webp, credit: "Matthias Kabel, CC BY 2.5, via Wikimedia Commons", caption: "The Venus of Willendorf, Austria", source: "https://commons.wikimedia.org/wiki/File:Venus_of_Willendorf_03.jpg" }
     - { url: /images/extra/gravettian-2.webp, credit: "Petr Novák, CC BY-SA 2.5, via Wikimedia Commons", caption: "The Venus of Dolní Věstonice, fired clay, Moravia", source: "https://commons.wikimedia.org/wiki/File:Vestonicka_venuse.jpg" }
+    - { url: /images/extra/gravettian-4.webp, credit: "Alissa Mittnik, Chuan-Chao Wang, Jiří Svoboda & Johannes Krause, CC BY 4.0, via Wikimedia Commons", caption: "The triple burial at Dolní Věstonice in Moravia, about 31,000 years old", source: "https://commons.wikimedia.org/wiki/File:Dolni_Vestonice_burial_DV13-DV14-DV15.jpg" }
 - id: solutrean
   name: Solutrean
   category: culture
@@ -637,6 +645,8 @@
   extra_images:
     - { url: /images/extra/solutrean-1.webp, credit: "Vassil, CC0, via Wikimedia Commons", caption: "The Roche de Solutré in Burgundy, which gave the Solutrean its name", source: "https://commons.wikimedia.org/wiki/File:La_Roche_de_Solutr%C3%A9_26_10_2014_1.jpg" }
     - { url: /images/extra/solutrean-2.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Solutrean laurel-leaf points, thinned by pressure flaking", source: "https://commons.wikimedia.org/wiki/File:Feuille_de_laurier_MHNT.PRE.2010.0.105.2.jpg" }
+    - { url: /images/extra/solutrean-3.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "Solutrean bone tools and pressure-flaked laurel-leaf points from Solutré", source: "https://commons.wikimedia.org/wiki/File:Solutrean_tools_22000_17000_Crot_du_Charnier_Solutre_Pouilly_Saone_et_Loire_France.jpg" }
+    - { url: /images/extra/solutrean-4.webp, credit: "Falconaumanni, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone slab engraved with a hind from the Cova del Parpalló, Valencia, Spain", source: "https://commons.wikimedia.org/wiki/File:Grabado_Gravetense_Cova_del_Parpall%C3%B3_(1).JPG" }
 - id: magdalenian
   name: Magdalenian
   category: culture
@@ -654,7 +664,9 @@
       credit: NORTH 02, YouTube
   extra_images:
     - { url: /images/extra/magdalenian-1.webp, credit: "Klaus D. Peter (derivative by Sémhur), CC BY-SA 4.0, via Wikimedia Commons", caption: "Spear-thrower carved as a crawling hyena, from La Madeleine", source: "https://commons.wikimedia.org/wiki/File:Propulseur_hy%C3%A8ne_rampante_-_La_Madeleine_-_Tursac_-_MNP.png" }
+    - { url: /images/extra/magdalenian-4.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Barbed Magdalenian harpoons carved from reindeer antler, from Fontalès, France", source: "https://commons.wikimedia.org/wiki/File:Harpons_de_Fontal%C3%A9s_MHNT.PRE.2011.0.654.jpg" }
     - { url: /images/extra/magdalenian-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Bison painted on the ceiling of Altamira, Spain", source: "https://commons.wikimedia.org/wiki/File:Altamira,_bison.jpg" }
+    - { url: /images/extra/magdalenian-3.webp, credit: "Herb Neufeld, CC BY 2.0, via Wikimedia Commons", caption: "The Swimming Reindeer, carved from mammoth tusk at Montastruc, France (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Sleeping_Reindeer_-_horizontal.jpg" }
 # Span from English Wikipedia: Epigravettian@1376524877.
 - id: epigravettian
   name: Epigravettian
