@@ -114,6 +114,13 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   turns to the stop; Back / Next put it straight in place. While the slider travels between stops an intertitle
   says how much time passes ("40,000 years later", "Meanwhile" for none; `TimeGap.tsx`, `tour.gap`), from the
   stop before's year; it stays 1.6 s past arrival, then fades.
+- Ambient sound per stop (added 16 Oct 2026; events only for now): `AMBIENCE` in `src/tours/ambience.ts` (entity id ->
+  ElevenLabs `prompt`, plus `sound` once made), played by `src/audio/ambience.ts`: a seamless Web Audio loop (decoded
+  buffer, random start point) fading in as the card opens and out as the tour moves on, ducked under narration, on
+  the music's audio context; the tour bar's music button mutes both. `npm run audio:ambience` (missing or stale
+  prompts; `-- <id>` to redo one) generates 22 s loops (`eleven_text_to_sound_v2`, `loop: true`), normalises to
+  -16 LUFS stereo 96 kbps, uploads to `ambience/<category>/<id>-v<n>.mp3` and sets `sound`. The API key needs the
+  Sound Effects permission. Levels at the top of `src/audio/ambience.ts`.
 - Phones (globe): a pick, and every tour stop, opens the compact card (`.info-compact` in `InfoPanel.tsx`,
   `ui/stacked.css`): badge, name (serif), short date range, the picture filling the right edge (events square,
   never faded or covered), and the site stepper; a tap opens the full card, whose minimise button returns to it.

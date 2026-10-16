@@ -139,12 +139,13 @@ export default function TourBar() {
         <button onClick={() => tourGo(tour.index + 1)} disabled={tour.index >= end} title="Next stop" aria-label="Next stop">
           <Icon d={ICON.next} />
         </button>
+        {/* Mutes the background sounds of the stops (audio/ambience.ts) as well as the music. */}
         {t.music && (
           <button
             onClick={() => setMusicMuted(!musicMuted)}
             aria-pressed={!musicMuted}
-            title={`${musicMuted ? "Music off" : "Music on"} · ${t.music.credit}`}
-            aria-label="Background music"
+            title={`${musicMuted ? "Music and sounds off" : "Music and sounds on"} · ${t.music.credit}`}
+            aria-label="Background music and sounds"
           >
             <Icon d={musicMuted ? ICON.musicOff : ICON.music} />
           </button>

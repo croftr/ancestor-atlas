@@ -131,6 +131,16 @@ export function setMusicMuted(m: boolean) {
   muteListeners.forEach((l) => l());
 }
 
+/** The tour's sound mix shares one audio context and one mute (the tour bar's music button): ambience.ts. */
+export const audioContext = () => ctx;
+export const musicMuted = () => muted;
+export function subscribeMusicMuted(l: () => void) {
+  muteListeners.add(l);
+  return () => {
+    muteListeners.delete(l);
+  };
+}
+
 export const useMusicMuted = () =>
   useSyncExternalStore(
     (l) => {

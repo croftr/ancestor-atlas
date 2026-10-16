@@ -20,6 +20,8 @@ import {
   stopNarration,
 } from "../audio/narration";
 import { pauseMusic, primeMusic, startMusic, stopMusic } from "../audio/music";
+import { pauseAmbience, preloadAmbience, startAmbience, stopAmbience } from "../audio/ambience";
+import { AMBIENCE } from "./ambience";
 
 /** From a tap: lets the tour's sound play (narration and music), then starts the tour. */
 export function beginTour(start: () => void) {
@@ -163,6 +165,11 @@ export default function TourPlayer() {
     if (nextEntity?.narration) preloadNarration(nextEntity.narration.src);
     preloadPictures(entity);
     preloadPictures(nextEntity);
+    // The stop's ambient sound, if it has one (tours/ambience.ts), comes in as its card opens.
+    const sound = AMBIENCE[entity.id]?.sound;
+    const nextSound = nextEntity && AMBIENCE[nextEntity.id]?.sound;
+    if (sound) preloadAmbience(sound.src);
+    if (nextSound) preloadAmbience(nextSound.src);
     const patchTour = (p: Partial<NonNullable<ReturnType<typeof useStore.getState>["tour"]>>) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     // Extra pictures take turns on the card during the hold (tourPicture.ts); never stepping back.
@@ -180,6 +187,7 @@ export default function TourPlayer() {
     const arrive = () => {
       useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
       patchTour({ phase: "hold", holdMs, gap: undefined });
+      if (sound) startAmbience(sound.src);
       if (entity.narration && !stop.hold)
         playNarration(entity.narration.src)
           .then((seconds) => {
@@ -231,6 +239,7 @@ export default function TourPlayer() {
       cancelled = true;
       cancelAnimationFrame(raf);
       stopNarration();
+      stopAmbience();
     };
   }, [data, id, index, travel, intro, epilogue]);
 
@@ -299,6 +308,7 @@ export default function TourPlayer() {
     if (paused === undefined) return;
     if (paused) pauseNarration();
     else resumeNarration();
+    pauseAmbience(paused);
   }, [paused]);
   // Keep the screen on while the tour plays (not while paused, or waiting behind its Start button).
   const done = useStore((s) => s.tour?.done);

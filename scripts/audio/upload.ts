@@ -1,4 +1,4 @@
-// Upload every narration and music clip the app refers to that is not in the bucket yet:
+// Upload every narration, music and ambience clip the app refers to that is not in the bucket yet:
 //   npm run audio:upload [-- --dry-run]
 // Checks each key over the bucket's public URL (no AWS login needed for that), then uploads the
 // missing ones from data/build/audio with `aws s3 cp`. Keys are never overwritten (year-long cache).
@@ -6,8 +6,8 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { MEDIA_BASE_DEFAULT, uploadArgs } from "./encode.ts";
 
-const files = ["data/curated/events.yaml", "data/curated/entities.yaml", "src/tours/tours.ts"];
-const keys = [...new Set(files.flatMap((f) => readFileSync(f, "utf8").match(/\b(?:narration|music)\/[a-z]+\/[a-z0-9-]+-v\d+\.mp3/g) ?? []))].sort();
+const files = ["data/curated/events.yaml", "data/curated/entities.yaml", "src/tours/tours.ts", "src/tours/ambience.ts"];
+const keys = [...new Set(files.flatMap((f) => readFileSync(f, "utf8").match(/\b(?:narration|music|ambience)\/[a-z]+\/[a-z0-9-]+-v\d+\.mp3/g) ?? []))].sort();
 
 const missing: string[] = [];
 await Promise.all(

@@ -24,6 +24,7 @@
     "data:describe": "tsx scripts/describe.ts",
     "audio:narrate": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",
     "audio:music": "tsx scripts/audio/music.ts",
+    "audio:ambience": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/ambience.ts",
     "audio:upload": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts"
   },
   "dependencies": {
