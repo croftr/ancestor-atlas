@@ -246,8 +246,9 @@ export default function Legend() {
             );
           })}
         </div>
-        <DnaLegend />
+        {stacked && <DnaLegend />}
       </div>
+      {!stacked && <DnaLegend panel />}
       <ClimatePanel />
     </div>
   );

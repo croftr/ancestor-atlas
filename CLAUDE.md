@@ -218,6 +218,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   card), sites-now count, a one-line intro, switch labelled Father's line / Mother's line / Sites only, a key with a
   few plain words per colour (`short` in `haplogroups.ts`), and a "What are father's and mother's lines?" explainer.
   No Hide button: the layer is switched only in Settings (Rob's call).
+  On desktop it is a panel of its own in the legend's column, beside the climate panel (`.dna-panel`; the column
+  in index.css shrinks the legend first, then the climate panel, the DNA panel last, so it shows in full unless the
+  window is too short); on small screens it stays at the foot of the compact legend.
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
   dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.
 - Culture cards and pages show "N ancient genomes from M sites · Show on the globe" (`DnaCultureLink.tsx`, counts

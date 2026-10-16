@@ -110,13 +110,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   .legend, .legend-dock.collapsed .legend, .legend-toggle { transition: none; }
 }
-/* With the climate panel on (ClimatePanel.tsx, desktop only) the legend and the panel share one
-   column of one width, kept clear of the time slider; the legend scrolls first when the window is
-   short. A collapsed legend leaves the column, so the panel moves up to the corner. */
-.legend-dock:has(.climate-panel) { display: flex; flex-direction: column; gap: 10px; width: 320px; max-height: calc(100vh - 290px); }
-.legend-dock:has(.climate-panel) .legend { min-width: 0; max-width: none; max-height: none; min-height: 140px; flex: 0 10 auto; }
-.legend-dock.collapsed:has(.climate-panel) .legend { position: absolute; top: 0; left: 0; width: 100%; }
-.climate-panel { position: relative; flex: 0 1 auto; min-height: 0; overflow-y: auto; font-size: 0.85rem; padding: 12px 14px 10px; }
+/* With the climate panel or the ancient DNA panel on (ClimatePanel.tsx, dna/DnaLegend.tsx; desktop only) the
+   legend and the panels share one column of one width, kept clear of the time slider. When the window is short the
+   legend scrolls first, then the climate panel, and the DNA panel last (it grows to fit its text until then).
+   A collapsed legend leaves the column, so the panels move up to the corner. */
+.legend-dock:has(.climate-panel, .dna-panel) { display: flex; flex-direction: column; gap: 10px; width: 320px; max-height: calc(100vh - 290px); }
+.legend-dock:has(.climate-panel, .dna-panel) .legend { min-width: 0; max-width: none; max-height: none; min-height: 140px; flex: 0 10 auto; }
+.legend-dock.collapsed:has(.climate-panel, .dna-panel) .legend { position: absolute; top: 0; left: 0; width: 100%; }
+.climate-panel { position: relative; flex: 0 4 auto; min-height: 0; overflow-y: auto; font-size: 0.85rem; padding: 12px 14px 10px; }
+.dna-panel { position: relative; flex: 0 1 auto; min-height: 0; overflow-y: auto; }
 .climate-panel .cp-close { top: 6px; right: 6px; }
 .legend-dock:not(.collapsed) .climate-panel .cp-when { display: none; }
 .climate-panel .cp-state { padding-right: 28px; }

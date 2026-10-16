@@ -18,9 +18,10 @@ const MODES: [DnaColour, string, string][] = [
   ["plain", "Sites only", "One colour for every site"],
 ];
 
-/** Under the legend while the ancient DNA layer is on (switched in Settings): what the dots are, the colour switch
- * and its key, and a short explainer for newcomers. */
-export default function DnaLegend() {
+/** While the ancient DNA layer is on (switched in Settings): what the dots are, the colour switch and its key, and a
+ * short explainer for newcomers. `panel`: a panel of its own in the legend's column (desktop); otherwise a section at
+ * the foot of the legend (small screens). */
+export default function DnaLegend({ panel = false }: { panel?: boolean }) {
   const on = useStore((s) => s.dna);
   const mode = useStore((s) => s.dnaColour);
   const setMode = useStore((s) => s.setDnaColour);
@@ -33,7 +34,7 @@ export default function DnaLegend() {
   if (!on) return null;
   const classes = classesFor(mode);
   return (
-    <div className="dna-legend">
+    <section className={panel ? "panel dna-legend dna-panel" : "dna-legend"} aria-label="Ancient DNA">
       <div className="dna-legend-head">
         <DnaBadge size={22} />
         <span className="dna-legend-title">Ancient DNA</span>
@@ -93,6 +94,6 @@ export default function DnaLegend() {
           Anatolia brought G2 and H; herders from the steppe brought R1b and R1a after 3000 BCE.
         </p>
       </details>
-    </div>
+    </section>
   );
 }

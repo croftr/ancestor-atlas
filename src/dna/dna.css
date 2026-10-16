@@ -45,6 +45,8 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
 }
+/* Desktop: a panel of its own in the legend's column (layout in index.css, beside the climate panel). */
+.dna-panel { margin-top: 0; padding: 12px 10px 12px; border-top: 0; }
 .dna-legend-head { display: flex; align-items: center; gap: 6px; padding: 0 4px; }
 .dna-legend-title { font-weight: 600; white-space: nowrap; }
 .dna-legend-count {
