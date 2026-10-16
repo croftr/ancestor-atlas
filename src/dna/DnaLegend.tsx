@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useStore } from "../store";
 import { aliveAt, useDna } from "./data";
 import { DnaBadge } from "./DnaIcon";
@@ -27,6 +27,7 @@ export default function DnaLegend({ panel = false }: { panel?: boolean }) {
   const setMode = useStore((s) => s.setDnaColour);
   const year = useStore((s) => s.year);
   const d = useDna(on);
+  const [tip, setTip] = useState(false);
   const sitesNow = useMemo(
     () => (d ? d.sites.filter((s) => s.start <= year && year <= s.end && s.people.some((p) => aliveAt(p, year))).length : null),
     [d, year],
@@ -38,13 +39,27 @@ export default function DnaLegend({ panel = false }: { panel?: boolean }) {
       <div className="dna-legend-head">
         <DnaBadge size={22} />
         <span className="dna-legend-title">Ancient DNA</span>
+        {/* What the dots are: shown on hover or focus, and kept open by a click (for touch). */}
+        <button
+          type="button"
+          className={`dna-info${tip ? " open" : ""}`}
+          aria-label="About this layer"
+          aria-expanded={tip}
+          aria-describedby="dna-info-tip"
+          onClick={() => setTip((t) => !t)}
+          onBlur={() => setTip(false)}
+        >
+          i
+        </button>
+        <span id="dna-info-tip" role="tooltip" className="dna-info-tip">
+          Each dot is a burial site where the DNA of people from this time has been read. Tap one to see who was found.
+        </span>
         {sitesNow !== null && (
           <span className="dna-legend-count">
             {sitesNow.toLocaleString()} {sitesNow === 1 ? "site" : "sites"} now
           </span>
         )}
       </div>
-      <p className="dna-legend-intro">Each dot is a burial site where the DNA of people from this time has been read. Tap one to see who was found.</p>
       <div className="dna-modes" role="radiogroup" aria-label="Colour ancient DNA sites by">
         {MODES.map(([m, label, tip]) => (
           <button key={m} role="radio" aria-checked={m === mode} className={m === mode ? "active" : ""} onClick={() => setMode(m)} title={tip}>

@@ -215,7 +215,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   (`haplogroups.ts`; validated colour-blind-safe all-pairs, which caps a map at three) plus grey "other" and hollow
   "not known". Map layers `dna-sites` / `dna-selected` sit above territories, under the other markers.
 - Legend section (`DnaLegend.tsx`, redone 16 Oct 2026 for non-experts): helix badge (`DnaIcon.tsx`, also on the site
-  card), sites-now count, a one-line intro, switch labelled Father's line / Mother's line / Sites only, a key with a
+  card), sites-now count, an "i" button whose tooltip says what the dots are (hover, focus or tap), switch labelled Father's line / Mother's line / Sites only, a key with a
   few plain words per colour (`short` in `haplogroups.ts`), and a "What are father's and mother's lines?" explainer.
   No Hide button: the layer is switched only in Settings (Rob's call).
   On desktop it is a panel of its own in the legend's column, beside the climate panel (`.dna-panel`; the column
