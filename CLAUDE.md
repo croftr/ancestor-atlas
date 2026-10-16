@@ -152,7 +152,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   the join), sea level (Gowan 0–80 ka, Spratt & Lisiecki beyond with 95% range; the two disagree at 80 ka, −10 vs
   −33 m), the MIS (1–104, then G1…TG6; even = cold; a few `STAGE_NOTES`), and a chart of the cycles around it.
   Data: `npm run data:climate` (`scripts/climate.ts`, seconds; reads public/data/paleo/index.json for Gowan's sea
-  level). Climate panel: a Settings option (store `climatePanel`, remembered, off by default; not offered on small
+  level). Climate panel: a Settings option (store `climatePanel`, remembered, on by default; not offered on small
   screens) keeps the same details (`ClimateFacts` in `ClimatePopover.tsx`) open under the legend, following the
   slider (`src/ui/ClimatePanel.tsx`). The legend and the panel stay on during tours (desktop). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
 - Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle

@@ -31,15 +31,6 @@ function loadOn(key: string): boolean {
   }
 }
 
-/** A setting that is off unless turned on in Settings (remembered per browser). */
-function loadOff(key: string): boolean {
-  try {
-    return localStorage.getItem(key) === "on";
-  } catch {
-    return false;
-  }
-}
-
 function saveOn(key: string, on: boolean) {
   try {
     localStorage.setItem(key, on ? "on" : "off");
@@ -158,7 +149,7 @@ export const useStore = create<AppState>((set, get) => ({
   basemap: loadBasemap(),
   paleo: loadOn(PALEO_KEY),
   routes: loadOn(ROUTES_KEY),
-  climatePanel: loadOff(CLIMATE_PANEL_KEY),
+  climatePanel: loadOn(CLIMATE_PANEL_KEY),
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
