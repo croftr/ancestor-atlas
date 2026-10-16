@@ -6,6 +6,7 @@ import { useData } from "../map/data";
 import { aliveAt, dnaSiteById, useDna } from "./data";
 import { classOf, classesFor, OTHER_COLOR } from "./haplogroups";
 import { AADR_CITATION, AADR_DATASET_URL, type DnaData, type DnaPerson } from "./types";
+import { DnaIcon } from "./DnaIcon";
 import "./dna.css";
 
 const SEX: Record<string, string> = { M: "Male", F: "Female", U: "Sex unknown" };
@@ -33,16 +34,16 @@ function Person({ p, d }: { p: DnaPerson; d: DnaData }) {
       <div className="muted">{dateText}</div>
       <div className="dna-haplos">
         {sex === "M" && (
-          <span title="Y-chromosome haplogroup (father's line)">
-            <Swatch h={y} mode="y" />Y: {y || "not called"}
+          <span title="Y-chromosome haplogroup: passed from father to son">
+            <Swatch h={y} mode="y" />Father's line (Y): {y || "not known"}
           </span>
         )}
-        <span title="Mitochondrial haplogroup (mother's line)">
-          <Swatch h={mt} mode="mt" />mt: {mt || "not called"}
+        <span title="Mitochondrial (mtDNA) haplogroup: passed from a mother to all her children">
+          <Swatch h={mt} mode="mt" />Mother's line (mt): {mt || "not known"}
         </span>
       </div>
       <div className="dna-group">
-        <span className="muted">Group:</span> {group}
+        <span className="muted" title="The label the study gave this person's group">Group:</span> {group}
         {cultureName && (
           <>
             {" · "}
@@ -95,7 +96,10 @@ export default function DnaCard() {
         ✕
       </button>
       <div className="info-head">
-        <div className="dna-kicker">Ancient DNA</div>
+        <div className="dna-kicker">
+          <DnaIcon size={16} />
+          Ancient DNA
+        </div>
         <h2>{s.name}</h2>
         <div className="muted">{s.place ? `${s.place}, ${s.country}` : s.country}</div>
         <div className="muted">{formatRange(s.start, s.end)}</div>

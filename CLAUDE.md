@@ -214,6 +214,10 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   it only when a DNA site is nearer than any other marker). Colours: three families per mode
   (`haplogroups.ts`; validated colour-blind-safe all-pairs, which caps a map at three) plus grey "other" and hollow
   "not known". Map layers `dna-sites` / `dna-selected` sit above territories, under the other markers.
+- Legend section (`DnaLegend.tsx`, redone 16 Oct 2026 for non-experts): helix badge (`DnaIcon.tsx`, also on the site
+  card), sites-now count, a one-line intro, switch labelled Father's line / Mother's line / Sites only, a key with a
+  few plain words per colour (`short` in `haplogroups.ts`), and a "What are father's and mother's lines?" explainer.
+  No Hide button: the layer is switched only in Settings (Rob's call).
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
   dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.
 - Culture cards and pages show "N ancient genomes from M sites · Show on the globe" (`DnaCultureLink.tsx`, counts

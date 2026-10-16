@@ -1,5 +1,8 @@
 /* Ancient DNA layer: the site card (DnaCard.tsx) and the legend's key (DnaLegend.tsx). */
 .dna-kicker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -42,23 +45,41 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
 }
-.dna-legend-head { display: flex; align-items: center; gap: 8px; }
+.dna-legend-head { display: flex; align-items: center; gap: 6px; padding: 0 4px; }
 .dna-legend-title { font-weight: 600; white-space: nowrap; }
-.dna-modes { display: flex; gap: 3px; flex: 1; }
+.dna-legend-count {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: #b8c1d6;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+.dna-legend-intro { margin: 6px 4px 8px; font-size: 0.8rem; line-height: 1.4; color: #c9cfdc; }
+.dna-modes { display: flex; gap: 3px; margin: 0 4px; }
 .dna-modes button {
   flex: 1;
-  padding: 2px 4px;
+  padding: 3px 4px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  white-space: nowrap;
   cursor: pointer;
 }
+.dna-modes button:hover { background: rgba(255, 255, 255, 0.08); }
 .dna-modes button.active { background: rgba(144, 133, 233, 0.3); border-color: #9085e9; }
-.dna-key { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 0.8rem; }
-.dna-key li { display: flex; align-items: center; gap: 5px; }
+.dna-legend-note { margin: 6px 4px 0; font-size: 0.76rem; line-height: 1.35; }
+.dna-key { list-style: none; margin: 6px 4px 0; padding: 0; display: grid; gap: 3px; font-size: 0.8rem; }
+.dna-key li { display: flex; align-items: baseline; gap: 6px; line-height: 1.3; }
+.dna-key .dna-swatch { align-self: center; }
+.dna-key-label { font-weight: 600; white-space: nowrap; }
+.dna-key .muted { font-size: 0.76rem; }
+.dna-explain { margin: 8px 4px 0; font-size: 0.78rem; line-height: 1.45; }
+.dna-explain summary { cursor: pointer; color: #9ec5f4; }
+.dna-explain summary:hover { text-decoration: underline; }
+.dna-explain p { margin: 6px 0 0; color: #c9cfdc; }
 .dna-swatch.hollow { background: transparent; box-shadow: inset 0 0 0 1.5px #c9c6bd, 0 0 0 1px rgba(10, 14, 26, 0.75); }
 .dna-card a { color: #9ec5f4; }
 .dna-culture-link { margin: 6px 0 10px; font-size: 0.85rem; }

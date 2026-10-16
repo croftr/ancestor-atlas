@@ -10,6 +10,8 @@ export type DnaColour = "y" | "mt" | "plain";
 export interface HaploClass {
   key: string;
   label: string;
+  /** A few plain words for the legend; `note` is the fuller tooltip. */
+  short: string;
   note: string;
   color: string;
   test: (h: string) => boolean;
@@ -22,14 +24,14 @@ export const NONE_COLOR = "rgba(0, 0, 0, 0)";
 
 const CLASSES: Record<Exclude<DnaColour, "plain">, HaploClass[]> = {
   y: [
-    { key: "R1b", label: "R1b", note: "Spread west with Steppe ancestry after 3000 BCE; most common in western Europe today", color: "#2a78d6", test: (h) => /^R1b/.test(h) },
-    { key: "R1a", label: "R1a", note: "Spread with Steppe ancestry into eastern Europe, Central and South Asia", color: "#eb6834", test: (h) => /^R1a/.test(h) },
-    { key: "IG", label: "I and G", note: "I: Europe's hunter-gatherers; G2: the first farmers from Anatolia", color: "#1baf7a", test: (h) => /^[IG]\d?/.test(h) && !/^IJ/.test(h) },
+    { key: "R1b", label: "R1b", short: "steppe herders, then western Europe", note: "Spread west with Steppe ancestry after 3000 BCE; most common in western Europe today", color: "#2a78d6", test: (h) => /^R1b/.test(h) },
+    { key: "R1a", label: "R1a", short: "steppe herders, then east and south", note: "Spread with Steppe ancestry into eastern Europe, Central and South Asia", color: "#eb6834", test: (h) => /^R1a/.test(h) },
+    { key: "IG", label: "I and G", short: "hunter-gatherers and first farmers", note: "I: Europe's hunter-gatherers; G2: the first farmers from Anatolia", color: "#1baf7a", test: (h) => /^[IG]\d?/.test(h) && !/^IJ/.test(h) },
   ],
   mt: [
-    { key: "U", label: "U", note: "U5 and U2 were common among Europe's hunter-gatherers", color: "#2a78d6", test: (h) => /^U/.test(h) },
-    { key: "H", label: "H and V", note: "Common among Europe's farmers and later peoples; H is Europe's commonest today", color: "#eb6834", test: (h) => /^(H|V|HV)/.test(h) },
-    { key: "EA", label: "East Eurasian", note: "A–G, M, Y and Z: lineages of East, Central and South Asia and the Americas", color: "#1baf7a", test: (h) => /^([A-G]|M|Y|Z)/.test(h) && !/^(HV)/.test(h) },
+    { key: "U", label: "U", short: "Europe's hunter-gatherers", note: "U5 and U2 were common among Europe's hunter-gatherers", color: "#2a78d6", test: (h) => /^U/.test(h) },
+    { key: "H", label: "H and V", short: "farmers and later peoples", note: "Common among Europe's farmers and later peoples; H is Europe's commonest today", color: "#eb6834", test: (h) => /^(H|V|HV)/.test(h) },
+    { key: "EA", label: "East Eurasian", short: "Asia and the Americas", note: "A–G, M, Y and Z: lineages of East, Central and South Asia and the Americas", color: "#1baf7a", test: (h) => /^([A-G]|M|Y|Z)/.test(h) && !/^(HV)/.test(h) },
   ],
 };
 
