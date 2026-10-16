@@ -168,8 +168,12 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - "Alive at the same time" chips on species cards and species pages (`src/ui/contemporaries.ts`).
 - `data:paleo` deletes and rewrites `public/data/paleo/`: restart a running Vite dev server afterwards (it serves the
   folder's files as missing until then).
-- Seen in headless Chrome with all of this switched off, so not caused by it: a thin curved line across the globe's
-  southern half, and a straight-edged wedge over the Bay of Biscay at some zooms. Not checked in a real browser.
+- Fixed 16 Oct 2026: the straight-edged wedge over western Europe (Norway to Spain, at some zooms) came from the
+  basemap, not these layers. Natural Earth's Eurasia, Wrangel Island, a Fiji sliver and Antarctica were joined across
+  ±180° by edges that run right round the world, which crossed Norway's coast (and Antarctica's own) and broke the
+  fill's triangulation. `npx tsx scripts/basemap.ts` splits them at the antimeridian and closes Antarctica through the
+  pole (rewrites `public/data/basemap/land.geojson` in place; rerunning changes nothing). Run it again if the
+  basemap is ever replaced. The thin curved line across the southern half was probably Antarctica's; not rechecked.
 
 ## Civilization regions
 
