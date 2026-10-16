@@ -10,6 +10,7 @@
     - recall
   image_url: /images/species/sahelanthropus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/sahelanthropus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/sahelanthropus-1.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Cast of the Toumaï skull from the side", source: "https://commons.wikimedia.org/wiki/File:Sahelenthropus_tchadensis-MGL_95214-P4150636-black.jpg" }
     - { url: /images/extra/sahelanthropus-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Front view of the Toumaï skull (cast), showing its heavy brow ridge and small canine teeth", source: "https://commons.wikimedia.org/wiki/File:Sahelanthropus_tchadensis_-_TM_266-01-060-1.jpg" }
@@ -197,6 +198,7 @@
     - recall
   image_url: /images/species/australopithecus-sediba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  video: { src: video/species/australopithecus-sediba-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Y7Q3EGYI78M

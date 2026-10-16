@@ -14,6 +14,7 @@ import ListenButton from "../audio/ListenButton";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "../ui/PictureNav";
 import { contemporaries } from "../ui/contemporaries";
+import TourVideo from "../ui/TourVideo";
 import "./browse.css";
 
 /**
@@ -145,6 +146,7 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
                 className={isExtra ? "info-image-extra picture-in" : undefined}
                 onError={() => setBroken(shown.url)}
               />
+              {!isExtra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
               {hasMultiplePictures && (
                 <PictureNav
                   count={pictures.length}

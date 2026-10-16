@@ -300,6 +300,19 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .br-img img.info-image-extra {
   object-fit: contain;
 }
+.tour-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.tour-video.visible {
+  opacity: 1;
+}
 
 /* Picture stepper: small arrows and dots over an entity/event picture with multiple images */
 .pic-nav {

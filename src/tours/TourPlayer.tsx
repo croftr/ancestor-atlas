@@ -223,7 +223,7 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
-      } else if (entity.extra_images?.length && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
+      } else if (entity.extra_images?.length && (!entity.video || elapsed >= 5_500) && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
         picture = pictureIndexAt(entity.extra_images, elapsed, holdMs);
         patchTour({ picture: { entity: entity.id, index: picture } });
       }

@@ -31,6 +31,12 @@ export interface Entity {
   related_ids?: string[]; // species / cultures / civilizations the event concerns
   media?: MediaItem[]; // videos and audio, hosted outside the repo (see mediaUrl in config.ts)
   /**
+   * Animated version of the main picture (`image_url`), played muted once a second after the picture
+   * is shown (card, picture viewer, species page; on a tour, a second after the stop opens). `src`: bucket key (`video/<category>/<id>-v<n>.mp4`), see
+   * scripts/video/species.ts.
+   */
+  video?: { src: string; credit: string };
+  /**
    * The description read aloud (Listen button; played by tours). `src`: bucket key, see
    * scripts/audio/narrate.ts. `text_hash`: textHash() of the description that was recorded, so the
    * validator can warn when the text has changed since.

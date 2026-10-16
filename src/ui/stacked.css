@@ -298,7 +298,8 @@
     border-radius: 0;
     background: #05080f;
   }
-  .ic-media img {
+  .ic-media img,
+  .ic-media .tour-video {
     display: block;
     width: 100%;
     height: 100%;
@@ -307,7 +308,8 @@
     mask-image: linear-gradient(to right, transparent, #000 22px);
   }
   /* Event pictures have their title painted in: shown whole, no fade. */
-  .info-compact.square .ic-media img { -webkit-mask-image: none; mask-image: none; }
+  .info-compact.square .ic-media img,
+  .info-compact.square .ic-media .tour-video { -webkit-mask-image: none; mask-image: none; }
   .ic-media-blank {
     display: grid;
     place-items: center;

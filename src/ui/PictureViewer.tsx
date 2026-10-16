@@ -5,6 +5,7 @@ import { tourById } from "../tours/tours";
 import { MINI_GLOBE } from "../config";
 import { CategoryBadge } from "./CategoryIcon";
 import { creditLine } from "./PictureNav";
+import TourVideo from "./TourVideo";
 import type { Entity } from "../types";
 import type { Picture } from "../tours/tourPicture";
 import "./picture-viewer.css";
@@ -132,11 +133,12 @@ export default function PictureViewer({
       >
         <img
           key={picture.url}
-          className={`pv-img picture-in${touring ? " pv-drift" : ""}`}
+          className={`pv-img picture-in${touring && !(shownIndex === 0 && entity.video) ? " pv-drift" : ""}`}
           src={picture.url}
           alt={label}
           style={touring && tour?.phase === "hold" ? ({ animationPlayState: tour.paused ? "running, paused" : "running, running" } as CSSProperties) : undefined}
         />
+        {shownIndex === 0 && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
       </div>
 
       <header className="pv-head">

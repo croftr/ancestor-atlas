@@ -99,6 +99,13 @@ for (const e of entityList) {
     else if (n.text_hash !== textHash(e.description))
       warn(`entity ${id}: description changed since narration ${n.src} was recorded (re-record, or set text_hash: ${textHash(e.description)} if the words still match)`);
   }
+  if (e.video !== undefined) {
+    const v = e.video;
+    const folder = NARRATION_FOLDER[e.category as keyof typeof NARRATION_FOLDER];
+    if (v?.src !== undefined && !new RegExp(`^video/${folder}/${id}-v\\d+\\.mp4$`).test(v.src))
+      err(`entity ${id}: video src ${v.src} should be video/${folder}/${id}-v<n>.mp4`);
+    if (!v?.src || !v?.credit) err(`entity ${id}: video needs src and credit`);
+  }
   if (e.category === "event") {
     if (!Number.isInteger(e.year) || e.year < e.start_year || e.year > e.end_year) err(`event ${id}: year must be an integer within start_year..end_year`);
     if (typeof e.date_text !== "string" || !e.date_text) err(`event ${id}: missing date_text`);

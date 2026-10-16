@@ -25,7 +25,8 @@
     "audio:narrate": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",
     "audio:music": "tsx scripts/audio/music.ts",
     "audio:ambience": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/ambience.ts",
-    "audio:upload": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts"
+    "audio:upload": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts",
+    "video:species": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/video/species.ts"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",

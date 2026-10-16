@@ -19,6 +19,7 @@ import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPi
 import { PictureNav, creditLine } from "./PictureNav";
 import PictureViewer from "./PictureViewer";
 import CardResizer from "./CardResizer";
+import TourVideo from "./TourVideo";
 import { contemporaries } from "./contemporaries";
 
 const Ref = ({ r }: { r: RefLink }) =>
@@ -336,7 +337,10 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           aria-hidden={showThumb && canView ? undefined : true}
         >
           {showThumb ? (
-            <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+            <>
+              <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={thumb} alt="" onError={() => setBrokenImage(thumb)} />
+              {!extra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
+            </>
           ) : (
             <span className="ic-media-blank">
               <CategoryBadge category={entity.category} size={40} decorative />
@@ -557,6 +561,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
               loading="lazy"
               onError={() => setBrokenImage(shown.url)} // a stand-in not added yet: show nothing
             />
+            {!extra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
             {hasMultiplePictures && (
               <PictureNav
                 count={pictures.length}
