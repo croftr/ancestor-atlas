@@ -118,7 +118,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   stop before's year; it stays 1.6 s past arrival, then fades.
 - Ambient sound per stop (added 16 Oct 2026; events only for now): `AMBIENCE` in `src/tours/ambience.ts` (entity id ->
   ElevenLabs `prompt`, plus `sound` once made), played by `src/audio/ambience.ts`: a short burst (decoded buffer, random start
-  point), 2 s after the card opens, about 3 s at full level, then faded out (Rob's call, 16 Oct 2026: playing all
+  point), 2 s after the card opens, about 5 s at full level, then faded out (Rob's call, 16 Oct 2026: playing all
   through the narration was too long; `DELAY`/`HOLD`/fades at the top of that file), ducked under narration, on
   the music's audio context; the tour bar's music button mutes both. The Listen button (card and event page) plays
   it too, the same way, pausing with it (a resume carries on, a replay starts it again) (not muted by the tour's music button). `npm run audio:ambience` (missing or stale
