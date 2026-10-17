@@ -94,6 +94,30 @@ function trailGeoJSON(frame: TrailFrame): GeoJSON.FeatureCollection {
 /** Ancient DNA sites (dna/): above the territories, under the other markers. */
 const DNA_LAYER = "dna-sites";
 
+/**
+ * Large screens: the globe slid aside by the viewer (right-drag or Shift+drag), kept within reach:
+ * at least 160 px of open space stays around its centre, so it can't be pushed off the screen.
+ */
+function clampOffset(el: HTMLElement, [dx, dy]: [number, number]): [number, number] {
+  const mx = Math.max(0, (el.clientWidth - leftInset() - 160) / 2);
+  const my = Math.max(0, (el.clientHeight - bottomInset(el) - 160) / 2);
+  return [Math.round(Math.max(-mx, Math.min(mx, dx))), Math.round(Math.max(-my, Math.min(my, dy)))];
+}
+
+/**
+ * Large screens: the map's padding, the rail and the slider's insets plus the viewer's slide.
+ * The globe centres in the padded area, so padding one side by twice the offset moves it by the offset.
+ */
+function globePadding(el: HTMLElement, offset: [number, number]) {
+  const [x, y] = clampOffset(el, offset);
+  return {
+    left: leftInset() + 2 * Math.max(0, x),
+    right: 2 * Math.max(0, -x),
+    top: 2 * Math.max(0, y),
+    bottom: bottomInset(el) + 2 * Math.max(0, -y),
+  };
+}
+
 /** Route layers, under the markers. */
 const ROUTE_LAYERS = ["route-casing", "route-line", "route-head"];
 
@@ -265,6 +289,10 @@ export default function MapView() {
       center: [30, 20],
       zoom: initialZoom(container, inset),
       maxZoom: 6, // no point zooming into detail the basemap (and the data) doesn't have
+      // Right-drag and Shift+drag slide the globe aside instead (below), in place of MapLibre's
+      // tilt-and-turn and box zoom.
+      dragRotate: false,
+      boxZoom: false,
       attributionControl: false, // credits are in the side menu's Sources panel
       style: {
         version: 8,
@@ -313,13 +341,66 @@ export default function MapView() {
     // The globe stays centred beside the rail whether or not the info card is open (Rob's call, 17 Oct
     // 2026): the card covers the space on the right, as the legend column does on the left.
     map.setPadding({ top: 0, left: leftInset(), right: 0, bottom: inset });
+    const isStacked = () => !!window.matchMedia?.(STACKED_QUERY).matches;
     // Keep the insets in step as the window resizes (or crosses into the stacked layout).
     map.on("resize", () => {
+      if (!isStacked()) {
+        const next = globePadding(container, useStore.getState().globeOffset);
+        const p = map.getPadding();
+        if (next.left !== p.left || next.right !== p.right || next.top !== p.top || next.bottom !== p.bottom) map.setPadding(next);
+        return;
+      }
+      // Small screens: no slide (the panels are stacked around the globe); the top is the tour's.
+      if (useStore.getState().globeOffset.some((v) => v !== 0)) useStore.getState().setGlobeOffset([0, 0]);
       const bottom = bottomInset(container);
       const left = leftInset();
       const p = map.getPadding();
-      if (bottom !== p.bottom || left !== p.left) map.setPadding({ ...p, bottom, left });
+      if (bottom !== p.bottom || left !== p.left || p.right) map.setPadding({ ...p, bottom, left, right: 0 });
     });
+
+    // Right-drag or Shift+drag slides the globe aside (desktop), out from under a card or panel;
+    // Recentre (below) puts it back. Caught before MapLibre sees the press, so it neither turns the
+    // globe nor (after a Shift+drag) counts as a click on a marker.
+    let slide: { x: number; y: number; from: [number, number]; moved: boolean } | null = null;
+    const slideMove = (e: MouseEvent) => {
+      if (!slide) return;
+      const dx = e.clientX - slide.x;
+      const dy = e.clientY - slide.y;
+      if (!slide.moved && Math.hypot(dx, dy) < 3) return;
+      slide.moved = true;
+      useStore.getState().setGlobeOffset(clampOffset(container, [slide.from[0] + dx, slide.from[1] + dy]));
+    };
+    const swallowClick = (e: MouseEvent) => {
+      e.stopPropagation();
+      e.preventDefault();
+    };
+    const slideEnd = () => {
+      window.removeEventListener("mousemove", slideMove);
+      window.removeEventListener("mouseup", slideEnd);
+      container.classList.remove("globe-sliding");
+      if (slide?.moved) {
+        container.addEventListener("click", swallowClick, { capture: true, once: true });
+        setTimeout(() => container.removeEventListener("click", swallowClick, { capture: true }), 0);
+      }
+      slide = null;
+    };
+    const slideStart = (e: MouseEvent) => {
+      // Not on small screens, under the picture viewer, or in a tour (which frames each stop itself).
+      const st = useStore.getState();
+      if (isStacked() || st.miniGlobe || st.tour) return;
+      if (!(e.button === 2 || (e.button === 0 && e.shiftKey))) return;
+      e.stopPropagation();
+      e.preventDefault();
+      slide = { x: e.clientX, y: e.clientY, from: useStore.getState().globeOffset, moved: false };
+      container.classList.add("globe-sliding");
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("mouseup", slideEnd);
+    };
+    const noMenu = (e: MouseEvent) => {
+      if (!isStacked()) e.preventDefault();
+    };
+    container.addEventListener("mousedown", slideStart, true);
+    container.addEventListener("contextmenu", noMenu);
     // Fallback if the style-level projection is rejected.
     map.on("style.load", () => {
       try {
@@ -972,6 +1053,15 @@ export default function MapView() {
           }
         }
       }
+      // The globe slid aside or recentred: follow the drag at once, glide back on Recentre. With a
+      // flight in the same change (a tour starting), the flight takes the new padding with it.
+      if (state.globeOffset !== prev.globeOffset && !isStacked()) {
+        const padding = globePadding(container, state.globeOffset);
+        const flying = state.flyTo && state.flyTo !== prev.flyTo;
+        const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+        if (slide || flying || reduceMotion) map.setPadding(padding);
+        else map.easeTo({ padding, duration: 450 });
+      }
       if (state.flyTo && state.flyTo !== prev.flyTo) {
         const { bbox, gentle, turn } = state.flyTo;
         // On small screens the info card opening resizes the globe; frame the target in the new size.
@@ -1006,6 +1096,9 @@ export default function MapView() {
 
     return () => {
       unsubscribe();
+      slideEnd();
+      container.removeEventListener("mousedown", slideStart, true);
+      container.removeEventListener("contextmenu", noMenu);
       stopEpilogue();
       cancelAnimationFrame(pathRaf);
       mini.dispose();
@@ -1041,7 +1134,24 @@ export default function MapView() {
       {showEmpty && (
         <div className="empty-state">No mapped entities at this point in time.</div>
       )}
+      <RecentreButton />
     </div>
   );
 }
 
+/** Shown while the globe is slid aside (desktop): glides it back to the middle. */
+function RecentreButton() {
+  const moved = useStore((s) => s.globeOffset[0] !== 0 || s.globeOffset[1] !== 0);
+  const touring = useStore((s) => s.tour !== null);
+  const recentre = useStore((s) => s.setGlobeOffset);
+  if (!moved || touring) return null;
+  return (
+    <button type="button" className="panel globe-recentre" onClick={() => recentre([0, 0])} title="Put the globe back in the middle">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="8" cy="8" r="1.8" fill="currentColor" />
+      </svg>
+      Recentre
+    </button>
+  );
+}

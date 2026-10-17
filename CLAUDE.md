@@ -150,6 +150,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   either, and the card covers the space on the right. The map's left padding is the rail's width (`leftInset` in
   `src/map/MapView.tsx`), its right padding 0; flights still frame their target clear of the card (420 px on the
   right). The slider and search narrow from both ends to keep clear of the card (`.has-card` in `ui/sidenav.css`).
+  Moving the globe by hand (added 17 Oct 2026, desktop only, not in tours): right-drag or Shift+drag slides the globe
+  aside (store `globeOffset`, in memory; MapLibre's dragRotate and boxZoom are off). It is map padding
+  (`globePadding` in `MapView.tsx`: twice the offset on one side), so zoom, rotation and flights centre on the new
+  spot. A Recentre button under the search glides it back; starting a tour resets it.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar fades out and the welcome hint goes (the
   legend and climate panel stay, Rob's call 16 Oct 2026; phones still drop the legend); on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 

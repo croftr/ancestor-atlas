@@ -133,6 +133,13 @@ interface AppState {
   cardWidth: number | null;
   setCardWidth(w: number | null): void;
   /**
+   * How far (px, right and down) the globe has been slid from its usual centre by right-drag or
+   * Shift+drag (map/MapView.tsx; desktop only). [0, 0] = centred; Recentre and starting a tour put it back.
+   * Kept in memory only.
+   */
+  globeOffset: [number, number];
+  setGlobeOffset(o: [number, number]): void;
+  /**
    * The picture viewer is showing over the globe (desktop): the globe shrinks into a small round
    * window at its top left (map/MapView.tsx, `MINI_GLOBE`), as a reminder of where the pictures are.
    */
@@ -210,6 +217,8 @@ export const useStore = create<AppState>((set, get) => ({
   cardWidth: null,
   miniGlobe: false,
   setCardWidth: (w) => set({ cardWidth: w }),
+  globeOffset: [0, 0],
+  setGlobeOffset: (o) => set({ globeOffset: o }),
   setYear: (y) => set({ year: snapYear(y) }), // leaves a tour playing: only its pause button pauses it
   toggleCategory: (c) => set((s) => ({ enabled: { ...s.enabled, [c]: !s.enabled[c] } })),
   setIntroOpen: (open) => {
@@ -299,6 +308,7 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => ({
       playing: false,
       pictureViewer: false,
+      globeOffset: [0, 0],
       selectedId: null,
       hits: [],
       groupId: null,

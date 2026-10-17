@@ -49,6 +49,11 @@ export default function WelcomeHint() {
         <li>
           <strong>{tap} a marker</strong> on the globe to learn about it.
         </li>
+        {tap === "Click" && (
+          <li>
+            <strong>Right-drag</strong> (or Shift+drag) to move the globe aside.
+          </li>
+        )}
       </ul>
       <div className="welcome-actions">
         <button

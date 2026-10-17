@@ -9,6 +9,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .app.view-globe { background: #02040a; }
 .globe-page { display: contents; } /* small screens: a scrolling column (ui/stacked.css) */
 .map-wrap { position: absolute; inset: 0; }
+/* The globe being slid aside (right-drag or Shift+drag, map/MapView.tsx), and the button that puts it back,
+   under the search bar. */
+.globe-sliding, .globe-sliding canvas { cursor: move !important; }
+.globe-recentre {
+  position: absolute; top: 62px; left: calc(50% + var(--nav-w, 0px) / 2); transform: translateX(-50%); z-index: 5;
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px;
+  font: inherit; font-size: 0.82rem; font-weight: 600; color: #e6ebf5; cursor: pointer;
+}
+.globe-recentre:hover { background: rgba(40, 52, 80, 0.95); }
+.globe-recentre:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
 
 /* Space backdrop for the globe */
 .space-background {
