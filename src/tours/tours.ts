@@ -38,6 +38,9 @@ export interface Tour {
 /** What the title card's announcement says: the tour's title (the blurb is only shown). */
 export const announcementText = (t: Pick<Tour, "title">) => `${t.title}.`;
 
+/** Played at the end of every tour, straight after the closing line is read; the music fades away under it. */
+export const OUTRO = "music/tours/outro-v1.mp3";
+
 export const TOURS: Tour[] = [
   {
     id: "events-and-inventions",
