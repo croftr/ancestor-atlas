@@ -205,6 +205,31 @@ export const TOURS: Tour[] = [
       { entity: "andronovo", year: -1_599, site: "andronovo@x:kytmanovo" },
     ],
   },
+  {
+    id: "domestication",
+    title: "Taming the wild",
+    closing: "Farming was invented again and again, on almost every continent. Nearly everything we eat today was first grown or herded by the people of these few places.",
+    blurb: "How people in many parts of the world, each on their own, turned wild plants and animals into crops and herds, from the first dogs to the chicken.",
+    layers: ["culture", "event"],
+    announcement: { src: "narration/tours/domestication-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "3a87d8574b" },
+    closingNarration: { src: "narration/tours/domestication-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "97d12fd67f" },
+    stops: [
+      { entity: "dog-domestication" },
+      { entity: "birth-of-agriculture" },
+      { entity: "cattle-and-pigs" },
+      { entity: "maize-and-squash" },
+      { entity: "rice-and-millet" },
+      { entity: "new-guinea-farming" },
+      { entity: "dairying" },
+      { entity: "andean-domestication" },
+      { entity: "linear-pottery", year: -5_299, site: "linear-pottery@x:bylany" },
+      { entity: "sorghum-and-millet" },
+      { entity: "bantu-farmers", year: -2_499, site: "bantu-farmers@1" },
+      { entity: "horse-domestication" },
+      { entity: "chicken-domestication" },
+      { entity: "lapita", year: -1_399, site: "lapita@1" },
+    ],
+  },
 ];
 
 export const tourById = (id: string) => TOURS.find((t) => t.id === id);

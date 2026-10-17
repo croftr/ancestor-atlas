@@ -807,7 +807,7 @@
   category: culture
   start_year: -5500
   end_year: -4950
-  description: First farming culture of central Europe, with long timber houses and pottery decorated with linear incised patterns.
+  description: "Around 5500 BCE farming reached the heart of Europe. From the middle Danube, the people of the Linear Pottery culture spread along the rivers about fifteen hundred kilometres in less than four centuries, reaching from the Paris Basin in the west to Ukraine in the east. They grew einkorn and emmer wheat, peas, lentils and flax, kept cattle, and lived in timber longhouses that were the largest free-standing buildings in the world at the time. Their genomes show they descended from the first farmers of Anatolia."
   image_url: /images/cultures/linear-pottery.webp
   image_credit: AI-generated illustration
   image_caption: "Early Neolithic village with monumental timber longhouses and incised linear pottery"
@@ -1328,7 +1328,7 @@
   category: culture
   start_year: -1599
   end_year: -499
-  description: "Around 3,500 years ago a seafaring people appeared suddenly in the Bismarck Archipelago north of New Guinea, making red pottery stamped with fine toothed patterns. Within a few centuries their outrigger canoes had carried them thousands of kilometres east, to islands no one had ever reached: Vanuatu, New Caledonia, Fiji, and by about 900 BCE Tonga and Samoa. Their ancestors came from Taiwan and the northern Philippines, and their descendants became the Polynesians. At Teouma in Vanuatu, the oldest cemetery in the Pacific, the dead were buried with their skulls removed and cone shell rings in their place."
+  description: "Around 3,500 years ago a seafaring people appeared suddenly in the Bismarck Archipelago north of New Guinea, making red pottery stamped with fine toothed patterns. Within a few centuries their outrigger canoes had carried them thousands of kilometres east, to islands no one had ever reached: Vanuatu, New Caledonia, Fiji, and by about 900 BCE Tonga and Samoa. They took pigs, dogs and chickens with them, and taro, yams, bananas and breadfruit to plant. Their ancestors came from Taiwan and the northern Philippines, and their descendants became the Polynesians."
   wikipedia_url: https://en.wikipedia.org/wiki/Lapita_culture
   wikidata: Q1021436
   source_ids: []
