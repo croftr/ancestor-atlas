@@ -396,6 +396,8 @@
   description: "Around 10,500 years ago, farmers in the upper Tigris and Euphrates valleys began breeding the animals they had long hunted. Wild aurochs were slowly turned into smaller, tamer herds of cattle, and wild boar became the first pigs. At Çayönü in southeastern Turkey, one of the places where pigs may first have been domesticated, the bones show cattle managed for centuries before they grew any smaller. Pigs were domesticated a second time, separately, in China about 8,000 years ago."
   related: [pre-pottery-neolithic]
   wikipedia_url: https://en.wikipedia.org/wiki/Cattle
+  image_url: /images/events/cattle-and-pigs.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/cattle-and-pigs-1.webp, credit: "Eldrichr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Skeleton of an aurochs, the wild ancestor of cattle (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:Aurochs,_Danish_National_Museum.jpg" }
     - { url: /images/events/extra/cattle-and-pigs-2.webp, credit: "Krähenstein, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone foundations of a grill-plan building at Çayönü, southeastern Turkey", source: "https://commons.wikimedia.org/wiki/File:Cay%C3%B6n%C3%BC_-_Grillplangeb%C3%A4ude.jpg" }
@@ -432,6 +434,8 @@
   date_text: c. 10,000–8,000 years ago
   description: "China was one of the places where farming began on its own. In the north, on the foothills of the Taihang Mountains, people of the Cishan culture were growing broomcorn millet perhaps 10,000 years ago, and stored it in deep pits that could hold a tonne. To the south, rice was domesticated from wild rice in the Yangtze River basin about 9,000 years ago. At Jiahu, between the two, villagers grew both, and brewed a drink from rice, honey and hawthorn."
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_rice_cultivation
+  image_url: /images/events/rice-and-millet.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/rice-and-millet-1.webp, credit: "Huangchenhai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carbonized Neolithic rice from the Longqiuzhuang site, China", source: "https://commons.wikimedia.org/wiki/File:Carbonized_Rice.jpg" }
     - { url: /images/events/extra/rice-and-millet-2.webp, credit: "Editor at Large, CC BY-SA 2.5, via Wikimedia Commons", caption: "Grinding stone and roller of the Peiligang culture, about 5500–5000 BCE, for milling grain", source: "https://commons.wikimedia.org/wiki/File:CMOC_Treasures_of_Ancient_China_exhibit_-_millstone_and_roller.jpg" }
@@ -469,6 +473,8 @@
   description: "Animals were first kept for meat, but within a few thousand years farmers had learned to milk them. Traces of milk fat soaked into the walls of cooking pots show that people in northwestern Anatolia were milking their herds by the seventh millennium BCE. Dairying spread with farming into Europe, where clay sieves for making cheese appear in Kuyavia, in Poland, by 5500 BCE. Over the following millennia a genetic change that lets adults digest milk became common among Europeans."
   related: [starcevo-koros-cris, linear-pottery]
   wikipedia_url: https://en.wikipedia.org/wiki/Milk
+  image_url: /images/events/dairying.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/dairying-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Milking cows and making dairy products, on a Sumerian frieze from the temple of Ninhursag at Tell al-'Ubaid, 2800–2600 BCE (Iraq Museum)", source: "https://commons.wikimedia.org/wiki/File:Sumerian_scene,_milking_cows_and_making_dairy_products._From_the_facade_of_the_Temple_of_Ninhursag_at_Tell_al-%27Ubaid,_Iraq,_2800-2600_BCE._Iraq_Museum.jpg" }
     - { url: /images/events/extra/dairying-2.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Detail of a Sumerian dairy frieze from Tell al-'Ubaid: a man milks a cow, with her calf beside her", source: "https://commons.wikimedia.org/wiki/File:Frise_laiterie_-_%C3%A9table.jpg" }
@@ -488,6 +494,8 @@
   date_text: c. 10,000–6,000 years ago
   description: "Around Lake Titicaca, high in the Andes of southern Peru and Bolivia, farmers domesticated the potato from a wild species between 7,000 and 10,000 years ago. On the high grasslands, herders tamed the wild camelids around 6,000 to 7,000 years ago: the guanaco became the llama, a pack animal, and the vicuña the alpaca, kept for its fine wool. Guinea pigs were domesticated in the Andes too. Together they became the foundations of Andean life, up to the time of the Inca."
   wikipedia_url: https://en.wikipedia.org/wiki/Potato
+  image_url: /images/events/andean-domestication.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/andean-domestication-1.webp, credit: "Thayne Tuason, CC BY 4.0, via Wikimedia Commons", caption: "Potato varieties at the market in Huancayo, Peru", source: "https://commons.wikimedia.org/wiki/File:Mercado_Modelo_de_Huancayo_Peru-_Solanum_tuberosum_varieties_V.jpg" }
     - { url: /images/events/extra/andean-domestication-2.webp, credit: "Matthew Straubmuller, CC BY 2.0, via Wikimedia Commons", caption: "Llamas on the shore of Lake Titicaca, Bolivia", source: "https://commons.wikimedia.org/wiki/File:Llamas_at_Lake_Titicaca_(8360967487).jpg" }
@@ -591,6 +599,8 @@
   date_text: 3500–3000 BCE (sorghum); 2500–2000 BCE (pearl millet)
   description: "Africa domesticated crops of its own. Sorghum was bred from a wild grass in eastern Sudan, between the Atbara and Gash rivers, more than 5,000 years ago; grains from a site near Kassala date to 3500–3000 BCE. Pearl millet followed in the Sahel of West Africa, grown in northern Mali by 2500–2000 BCE and later at Dhar Tichitt in Mauritania. Most sorghum tolerates heat and drought, and both crops later spread to India, where they are still grown."
   wikipedia_url: https://en.wikipedia.org/wiki/Sorghum
+  image_url: /images/events/sorghum-and-millet.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/sorghum-and-millet-1.webp, credit: "RamboSD, CC BY 4.0, via Wikimedia Commons", caption: "A sorghum crop in White Nile State, Sudan", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85_%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A_%D9%81%D9%8A_%D9%88%D9%84%D8%A7%D9%8A%D8%A9_%D8%A7%D9%84%D9%86%D9%8A%D9%84_%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6_%D8%AE%D8%B1%D9%8A%D9%81_2024_%D9%85%D8%AD%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%B0%D8%B1%D8%A9_13.jpg" }
     - { url: /images/events/extra/sorghum-and-millet-2.webp, credit: "Shanmugamp7, CC BY-SA 3.0, via Wikimedia Commons", caption: "A field of pearl millet", source: "https://commons.wikimedia.org/wiki/File:Pearl_millet_-_Pennisetum_glaucum.jpg" }
@@ -653,6 +663,8 @@
   description: "On the steppes of Kazakhstan, people of the Botai culture kept great numbers of horses around 3500 BCE, and even milked them, but DNA shows their horses were the ancestors of Przewalski's horse, not of ours. Today's domestic horses descend from a population bred around 2200 BCE in the Volga–Don region of southern Russia. Pulling light chariots with spoked wheels and carrying riders, these horses soon spread across Eurasia, changing travel, trade and war."
   related: [sintashta]
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_horse
+  image_url: /images/events/horse-domestication.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/horse-domestication-1.webp, credit: "IAEA Imagebank, CC BY-SA 2.0, via Wikimedia Commons", caption: "Przewalski's horse, descended from the horses herded at Botai", source: "https://commons.wikimedia.org/wiki/File:Przewalski%27s_Horse_(02710137).jpg" }
     - { url: /images/events/extra/horse-domestication-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Horse skull with bronze chariot fittings, from a Shang dynasty chariot burial at Yinxu, Anyang, China", source: "https://commons.wikimedia.org/wiki/File:Shang_Chariot_%26_Horse_Skull.jpg" }
@@ -713,6 +725,8 @@
   date_text: 1650–1250 BCE (oldest known domestic chicken bones)
   description: "Every chicken alive descends from the red junglefowl, a wild bird of Southeast Asia. Genetic studies once put its domestication about 8,000 years ago, but a 2022 reassessment of ancient bones found the oldest known domestic chickens at Ban Non Wat in northeastern Thailand, dated to between 1650 and 1250 BCE. From Southeast Asia chickens were carried across Asia, Africa and Europe, and they are now among the most common domesticated animals in the world."
   wikipedia_url: https://en.wikipedia.org/wiki/Chicken
+  image_url: /images/events/chicken-domestication.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/chicken-domestication-1.webp, credit: "dhfischer, CC BY 4.0, via Wikimedia Commons", caption: "Red junglefowl, the wild ancestor of the chicken, in Khao Yai, Thailand", source: "https://commons.wikimedia.org/wiki/File:Gallus_gallus,_Khao_Yai_Lam_Ta_Khong,_Thailand_477443293.jpg" }
     - { url: /images/events/extra/chicken-domestication-2.webp, credit: "Alison Kyra Carter, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavating a Neolithic burial at Ban Non Wat, Thailand", source: "https://commons.wikimedia.org/wiki/File:Excavation_at_Ban_Non_wat.jpg" }
