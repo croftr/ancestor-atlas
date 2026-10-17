@@ -89,6 +89,10 @@ export default function TimeSlider() {
   const seaShown = Math.round(recordSea ?? seaLevel);
   // The climate popover, following the slider.
   const [climateOpen, setClimateOpen] = useState(false);
+  // A tour hides the line with its button (tours.css), so close it too.
+  useEffect(() => {
+    if (touring) setClimateOpen(false);
+  }, [touring]);
 
   // The era the year falls in ("Early Homo"), as on the timeline and Events page. On small
   // screens it's also the button that opens the jump-to shortcuts (hidden there for space).

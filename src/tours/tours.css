@@ -61,6 +61,14 @@
   .app .search { transition: none; }
 }
 
+/* The time bar slims down too, to the year, the tour bar and the track: the line under the year (era,
+   step, play speed, climate badge), the era marks, the span band and the ticks go until the tour ends. */
+.app.touring .time-slider .year-sub,
+.app.touring .time-slider .preset-marks,
+.app.touring .time-slider .span-track,
+.app.touring .time-slider .ticks { display: none; }
+.app.touring .time-slider .range-wrap { margin-bottom: 2px; }
+
 /* The title card before the first stop: over the globe, fading in and out across its hold. */
 .tour-title-wrap {
   position: absolute; inset: 0 0 180px; z-index: 15; padding: 16px; pointer-events: none;
