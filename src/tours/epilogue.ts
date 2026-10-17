@@ -18,12 +18,13 @@ export const TRAIL_DELAY_MS = 2_600;
 const BEAT_MS = 1_400;
 const TRAIL_MAX_MS = 14_000;
 /**
- * The music plays on at full level at least this long, and until AFTER_CLOSING_MS after the closing
- * line has been read; then it fades over MUSIC_FADE_S, and the epilogue is over.
+ * The music plays on at least this long, and until AFTER_CLOSING_MS after the closing line has been
+ * read; then it stops (over MUSIC_STOP_S), and OUTRO_GAP_MS later the outro plays (tours.ts).
  */
 export const MUSIC_HOLD_MS = 17_000;
 export const AFTER_CLOSING_MS = 4_000;
-export const MUSIC_FADE_S = 12;
+export const MUSIC_STOP_S = 0.4;
+export const OUTRO_GAP_MS = 1_000;
 /** The closing line appears on the end card (and is read, if narrated) this long after the thread reaches the last stop. */
 const CLOSING_AFTER_MS = 1_500;
 

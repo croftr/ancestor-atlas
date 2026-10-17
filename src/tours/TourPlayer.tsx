@@ -6,7 +6,7 @@ import { OUTRO, tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import EndCard from "./EndCard";
-import { AFTER_CLOSING_MS, closingAt, MUSIC_FADE_S, MUSIC_HOLD_MS } from "./epilogue";
+import { AFTER_CLOSING_MS, closingAt, MUSIC_HOLD_MS, MUSIC_STOP_S, OUTRO_GAP_MS } from "./epilogue";
 import TimeGap from "./TimeGap";
 import { useWakeLock } from "./useWakeLock";
 import { pictureIndexAt, preloadPictures } from "./tourPicture";
@@ -244,8 +244,9 @@ export default function TourPlayer() {
   }, [data, id, index, travel, intro, epilogue]);
 
   // The epilogue: close the card and let the globe draw the journey again (map/MapView.tsx) under
-  // the end card; once it is drawn, the closing line is read (if narrated) over the music, which plays
-  // on at full level; then the outro plays and the music fades away under it. The end card stays.
+  // the end card; once it is drawn, the closing line is read (if narrated) over the music. The music
+  // plays on until AFTER_CLOSING_MS past the line (at least MUSIC_HOLD_MS), then stops, and after a
+  // moment's silence the outro plays. The end card stays.
   useEffect(() => {
     if (!data || id === undefined || !epilogue) return;
     const tour = tourById(id);
@@ -258,13 +259,20 @@ export default function TourPlayer() {
     if (voice) preloadNarration(voice.src);
     preloadNarration(OUTRO);
     const speakAt = closingAt(tour.stops.length);
-    // When the music starts its fade, and how long it takes: set when the closing line ends (an estimate
-    // until then), then when the outro starts (the fade lasts as long as the outro).
-    let fadeAt = MUSIC_HOLD_MS;
-    let fadeS = MUSIC_FADE_S;
+    // Lengths (s) as they become known, for the tour bar's estimate of the end.
+    let voiceS = voice ? 10 : 0;
+    let outroS = 6;
     let spoken = false;
+    let voiceFailed = false;
+    let lineEnd: number | null = null; // when the closing line ended (or would have)
+    let outroAt = Infinity; // set when the music stops
     let outro = false;
-    const hold = () => patchTour({ phase: "hold", holdMs: fadeAt + fadeS * 1000 });
+    let outroFailed = false;
+    const fadeAt = (end: number) => Math.max(MUSIC_HOLD_MS, end + AFTER_CLOSING_MS);
+    const hold = () => {
+      const stop = outroAt < Infinity ? outroAt - OUTRO_GAP_MS : fadeAt(lineEnd ?? speakAt + voiceS * 1000);
+      patchTour({ phase: "hold", holdMs: stop + OUTRO_GAP_MS + outroS * 1000 });
+    };
     hold();
     patchTour({ musicIn: true });
     let cancelled = false;
@@ -282,37 +290,34 @@ export default function TourPlayer() {
           .then((seconds) => {
             if (cancelled || !Number.isFinite(seconds)) return;
             if (useStore.getState().tour?.paused) pauseNarration();
-            fadeAt = Math.max(MUSIC_HOLD_MS, speakAt + seconds * 1000 + AFTER_CLOSING_MS);
+            voiceS = seconds;
             hold();
           })
-          .catch(() => {}); // blocked or missing: the music fades at MUSIC_HOLD_MS
+          .catch(() => (voiceFailed = true)); // blocked or missing: on as if it had been read
       }
-      // The outro: straight after the closing line ends (or fails), or where it would have been read.
       const n = narrationState();
-      if (!outro && (voice ? spoken && n.src === voice.src && (n.ended || n.failed) : elapsed >= speakAt)) {
+      if (lineEnd === null) {
+        const read = voice ? spoken && (voiceFailed || (n.src === voice.src && (n.ended || n.failed))) : elapsed >= speakAt;
+        if (read) lineEnd = elapsed;
+      }
+      // The music stops (quickly, so it doesn't run into the silence), then the outro after OUTRO_GAP_MS.
+      if (!s.tour.musicOut && lineEnd !== null && elapsed >= fadeAt(lineEnd)) {
+        patchTour({ musicOut: true });
+        stopMusic(MUSIC_STOP_S);
+        outroAt = elapsed + OUTRO_GAP_MS;
+        hold();
+      }
+      if (!outro && elapsed >= outroAt) {
         outro = true;
-        const at = elapsed;
         playNarration(OUTRO)
           .then((seconds) => {
             if (cancelled || !Number.isFinite(seconds)) return;
             if (useStore.getState().tour?.paused) pauseNarration();
-            if (useStore.getState().tour?.musicOut) return;
-            fadeAt = Math.max(MUSIC_HOLD_MS, at);
-            fadeS = seconds;
-            hold();
+            outroS = seconds;
           })
-          .catch(() => {}); // blocked or missing: the music fades as it would without one
+          .catch(() => (outroFailed = true));
       }
-      const reading = voice && n.playing && n.src === voice.src;
-      if (!s.tour.musicOut && elapsed >= fadeAt && !reading) {
-        patchTour({ musicOut: true });
-        stopMusic(fadeS);
-        // Later than planned (the closing line ran on): move the tour bar's end to match.
-        if (elapsed - fadeAt > 500) hold();
-        fadeAt = elapsed;
-      }
-      const outroPlaying = n.playing && n.src === OUTRO;
-      if (s.tour.musicOut && elapsed >= fadeAt + fadeS * 1000 && !outroPlaying) return patchTour({ done: true });
+      if (outro && (outroFailed || (n.src === OUTRO && (n.ended || n.failed)))) return patchTour({ done: true });
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
