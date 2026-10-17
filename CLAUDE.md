@@ -31,7 +31,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Curated sites (`data/curated/species-sites.csv`, `culture-sites.csv`)
 
-- 199 rows: 174 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent).
+- 208 rows: 183 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent).
+- Added 17 Oct 2026 for the migration routes: cultures Early Bantu-speaking farmers (Shum Laka, Katuruka), Dapenkeng
+  (Fengbitou) and Lapita (Talepakemalai/Mussau, Teouma, Site 13, Moturiki, Nukuleka, Mulifanua), Wikidata coordinates
+  (several place-level) and dates from pinned Wikipedia revisions; descriptions written from those articles (Rob to
+  review); no pictures or narration yet.
 - Added 12 Oct 2026: A. bahrelghazali (Koro Toro) and A. deyiremeda (Woranso-Mille), both place-level points without
   pictures yet; Denisovan sites Harbin (Homo longi holotype, kept as Denisovan per the 2025 protein/mtDNA work, so the
   Denisovan span now starts 309 ka), Penghu 1 and Tam Ngu Hao 2. H. ergaster stays in H. erectus (Rob's call).
@@ -199,9 +203,15 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   no legend at all). The corner toggle hides and shows the whole column (Rob's call, 16 Oct 2026). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
 - Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle
   of each site's range); `via` points only shape the line. Lines grow with the slider, arrowhead while growing,
-  hidden after `until` (end of the Ice Age). Tap a route for a popup (name, description, source). Settings toggle
-  (store `routes`). `routes.test.ts` checks every site exists in the committed features. Candidates not done (need
-  sourced waypoints): farming into Europe, the Austronesian expansion, the Bantu expansion.
+  hidden after `until` (end of the Ice Age for these). Tap a route for a popup (name, description, source). Settings
+  toggle (store `routes`). `routes.test.ts` checks every site exists in the committed features and dates run forward.
+  Added 17 Oct 2026: farming into Europe (Danube and Mediterranean, from Çatalhöyük over XRONOS Starčevo, Linear
+  Pottery and Cardial points, ids `entity@x:slug`; until 4000 BCE), the Austronesian expansion (Fengbitou to Nukuleka,
+  via the Marianas), and the Bantu eastern stream (Shum Laka to Katuruka); the last two stay up to the end of the
+  timeline. Not drawn, because the globe ends at 1 CE (Rob's call: stop there): the Polynesian Triangle (Hawaiʻi,
+  Rapa Nui, Aotearoa, 700–1300 CE; anchor sites with Wikipedia dates were found: Faʻahia, Hane, Ka Lae, Anakena,
+  Wairau Bar) and the Bantu route on to South Africa (Lydenburg Heads, Broederstroom). The Bantu western stream has no
+  dated site with a source (nothing in Angola or Gabon on Wikipedia).
 - "Alive at the same time" chips on species cards and species pages (`src/ui/contemporaries.ts`).
 - `data:paleo` deletes and rewrites `public/data/paleo/`: restart a running Vite dev server afterwards (it serves the
   folder's files as missing until then).

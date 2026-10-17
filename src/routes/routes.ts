@@ -9,6 +9,8 @@
  * The routes are a picture of where people had reached by when, not tracks anyone walked.
  */
 
+import { MAX_YEAR } from "../time/scale";
+
 export type Waypoint = { site: string } | { via: [lon: number, lat: number]; place: string };
 
 export interface Route {
@@ -28,8 +30,26 @@ const EARLY_MIGRATIONS = {
   url: "https://en.wikipedia.org/w/index.php?title=Early_human_migrations&oldid=1377121594",
 };
 
+const NEOLITHIC_EUROPE = {
+  label: "Wikipedia: Neolithic Europe (revision 1378383755, 4 Oct 2026)",
+  url: "https://en.wikipedia.org/w/index.php?title=Neolithic_Europe&oldid=1378383755",
+};
+
+const LAPITA = {
+  label: "Wikipedia: Lapita culture (revision 1374201618, 10 Sep 2026)",
+  url: "https://en.wikipedia.org/w/index.php?title=Lapita_culture&oldid=1374201618",
+};
+
+const BANTU = {
+  label: "Wikipedia: Bantu expansion (revision 1380028392, 13 Oct 2026)",
+  url: "https://en.wikipedia.org/w/index.php?title=Bantu_expansion&oldid=1380028392",
+};
+
 /** End of the last Ice Age, roughly: the routes have done their work by then. */
 const ICE_AGE_END = 1 - 9_700;
+
+/** Farming has reached Britain and Scandinavia by about 4000 BCE. */
+const FARMING_DONE = 1 - 4_000;
 
 export const ROUTES: Route[] = [
   {
@@ -129,6 +149,85 @@ export const ROUTES: Route[] = [
       { via: [-80.5, -4.0], place: "Pacific coast of South America" },
       { via: [-71.6, -30.0], place: "Pacific coast of South America" },
       { site: "homo-sapiens@14" }, // Monte Verde, 14.5 ka
+    ],
+  },
+  {
+    id: "farming-danube",
+    name: "Farming into Europe: the Danube route",
+    description:
+      "Farming reached Europe from Anatolia. Early farmers were in Greece by about 6500 BCE and soon afterwards in the Balkans (the Starčevo–Körös–Criș culture). Their descendants, the Linear Pottery farmers, then carried it up the Danube and across central Europe as far as the Paris Basin by about 5300 BCE. Farming spread about a kilometre a year, carried mostly by the farmers themselves rather than taken up by the hunter-gatherers already there.",
+    color: "#f6bd60",
+    until: FARMING_DONE,
+    source: NEOLITHIC_EUROPE,
+    waypoints: [
+      { site: "pre-pottery-neolithic@x:catalhoyuk-east" }, // Çatalhöyük, 7400–6900 BCE
+      { via: [29.0, 40.2], place: "Sea of Marmara" },
+      { via: [25.0, 42.2], place: "Thrace" },
+      { site: "starcevo-koros-cris@x:grivac-kragujevac" }, // Grivac, Serbia, 6200–6000 BCE
+      { site: "starcevo-koros-cris@x:gyalaret-szilagyi" }, // Gyálarét, Hungary, 6050–5850 BCE
+      { site: "linear-pottery@x:brno-ivanovice" }, // Brno-Ivanovice, 5600–5400 BCE
+      { site: "linear-pottery@x:goddelau" }, // Goddelau, Rhine, 5540–5250 BCE
+      { site: "linear-pottery@x:juvigny-les-grands-traquiers" }, // Juvigny, Champagne, 5570–5130 BCE
+    ],
+  },
+  {
+    id: "farming-mediterranean",
+    name: "Farming into Europe: along the Mediterranean",
+    description:
+      "A second wave of farmers travelled by boat along the northern shores of the Mediterranean, from the Aegean round Italy to southern France, Spain and Portugal. They are known for Cardial pottery, decorated by pressing the edge of a cockle shell into the wet clay. Ancient DNA traces them, like the Danube farmers, back to the first farmers of Anatolia.",
+    color: "#f6bd60",
+    until: FARMING_DONE,
+    source: NEOLITHIC_EUROPE,
+    waypoints: [
+      { site: "pre-pottery-neolithic@x:catalhoyuk-east" }, // Çatalhöyük, 7400–6900 BCE
+      { via: [28.0, 37.6], place: "Western Anatolia" },
+      { via: [23.0, 37.4], place: "Peloponnese" },
+      { via: [19.5, 39.4], place: "Ionian Sea" },
+      { via: [17.5, 40.6], place: "Apulia" },
+      { via: [16.2, 38.9], place: "Calabria" },
+      { via: [11.2, 42.4], place: "Tyrrhenian coast" },
+      { site: "cardial@x:grotta-pollera" }, // Grotta Pollera, Liguria, 5850–5650 BCE
+      { site: "cardial@x:pont-de-roque-haute" }, // Pont de Roque Haute, Languedoc, 5800–5600 BCE
+      { site: "cardial@x:cova-del-montgo" }, // Cova del Montgó, Valencia, 5590–5390 BCE
+      { via: [-5.6, 36.0], place: "Strait of Gibraltar" },
+      { via: [-9.0, 37.0], place: "Cape St Vincent" },
+      { site: "cardial@x:gruta-do-almonda" }, // Gruta do Almonda, Portugal, 5510–5310 BCE
+    ],
+  },
+  {
+    id: "austronesian",
+    name: "The Austronesian expansion: out of Taiwan",
+    description:
+      "From Taiwan, farmers and fishers speaking Austronesian languages sailed south to the Batanes Islands and Luzon by about 2200 BCE. Their descendants crossed to the Mariana Islands and the Bismarck Archipelago, where the Lapita culture appears around 1350 BCE, then sailed out past the last inhabited islands to Vanuatu, Fiji and, by about 900 BCE, Tonga and Samoa. Another branch, not drawn here, went west as far as Madagascar.",
+    color: "#56cfe1",
+    until: MAX_YEAR,
+    source: LAPITA,
+    waypoints: [
+      { site: "dapenkeng@1" }, // Fengbitou, Taiwan, 4000–2500 BCE
+      { via: [121.9, 20.45], place: "Batanes Islands" },
+      { via: [121.7, 17.6], place: "Cagayan Valley, Luzon" },
+      { via: [145.75, 15.2], place: "Mariana Islands" },
+      { site: "lapita@1" }, // Talepakemalai, Mussau, 1600–1200 BCE
+      { via: [166.0, -10.3], place: "Reef Islands" },
+      { site: "lapita@2" }, // Teouma, Vanuatu, 1250–1050 BCE
+      { via: [178.75, -17.75], place: "Fiji" },
+      { site: "lapita@5" }, // Nukuleka, Tonga, c. 888 BCE
+    ],
+  },
+  {
+    id: "bantu-east",
+    name: "The Bantu expansion: the eastern stream",
+    description:
+      "Bantu-speaking farmers spread out from the highlands between Cameroon and Nigeria. One stream went east around the northern edge of the rainforest and reached the lands west of Lake Victoria by about 500 BCE, where they were smelting iron. From there farmers went on south through Malawi and Zimbabwe, reaching South Africa by around 300 CE, after the globe's timeline ends. A western stream, not drawn here for want of a dated site on the globe, went south through the rainforest and along the Atlantic coast to central Angola by about 500 BCE.",
+    color: "#e76f51",
+    until: MAX_YEAR,
+    source: BANTU,
+    waypoints: [
+      { site: "bantu-farmers@1" }, // Shum Laka, Cameroon, 3000–1000 BCE
+      { via: [18.6, 4.4], place: "Ubangi River" },
+      { via: [25.2, 2.8], place: "Northern edge of the rainforest" },
+      { via: [29.6, 0.2], place: "Albertine Rift" },
+      { site: "bantu-farmers@2" }, // Katuruka, Tanzania, 5th century BCE
     ],
   },
 ];

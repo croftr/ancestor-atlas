@@ -34,7 +34,7 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🪨 **Archaeological Cultures & Prehistoric Sites**: See where ancient tools, rock art, and early cultural traditions appeared across Africa, Europe, Asia, Oceania, and the Americas.
 - 🏛️ **Early Civilizations & Polities**: Watch early city-states, kingdoms, and civilizations emerge, grow, and interact across the globe.
 - 🧊 **Ice Age Coastlines & Ice Sheets**: The globe redraws its coastlines as sea level rose and fell: Beringia, Sunda, Sahul and Doggerland appear as dry land, and the great ice sheets spread over North America and northern Europe (sea level for the last 800,000 years; ice sheets for the last 80,000).
-- 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas, each route growing as the slider passes the dated fossil sites it joins.
+- 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas; then farming spread into Europe, Austronesian seafarers sailed out of Taiwan across the Pacific, and Bantu-speaking farmers spread across Africa. Each route grows as the slider passes the dated sites it joins.
 - 🧬 **Ancient DNA**: Over 9,000 sampled ancient genomes, coloured by father's or mother's line, so you can watch lineages such as R1b sweep across Europe after 3000 BCE. Each site lists the people sampled there with their haplogroups, dates and publications.
 - 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years. Click it (or the stage badge under the year) for the global temperature, sea level and Marine Isotope Stage of that moment, with a small chart of the glacial cycles around it.
 - 🤝 **Who Lived When**: Each species card lists the other species alive at the same time.
@@ -189,7 +189,8 @@ Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm r
   - Sea level: Gowan et al. 2021 for 0–80 ka (as on the globe); Spratt & Lisiecki 2016 with its 95% range beyond.
 - **Migration routes** (`src/routes/routes.ts`): hand-picked like the tours. Each route joins dated sites already on the
   globe (so each date and place carries that site's source); `via` points only bend the line along a coast or strait.
-  The direction of each route follows Wikipedia's *Early human migrations* (pinned revision).
+  The direction of each route follows a pinned Wikipedia revision: *Early human migrations* (Out of Africa),
+  *Neolithic Europe* (farming), *Lapita culture* (Austronesian expansion) and *Bantu expansion*.
 
 ### Ancient DNA (AADR)
 
