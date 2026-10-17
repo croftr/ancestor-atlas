@@ -165,8 +165,8 @@ export function ClimateFacts({ climate, year, gauged = false }: { climate: Clima
 
 /**
  * The climate at one moment, over the time slider: global temperature, sea level, the Marine Isotope
- * Stage, and a small chart of the glacial cycles around it. Opened from the climate strip (a fixed
- * moment) or the stage readout under the year (`year` null: follows the slider).
+ * Stage, and a small chart of the glacial cycles around it. Opened from the stage readout under the
+ * year (`year` null: follows the slider) or for a fixed moment.
  */
 export default function ClimatePopover({
   climate,
@@ -189,7 +189,7 @@ export default function ClimatePopover({
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && (e.stopPropagation(), onClose());
     const onDown = (e: PointerEvent) => {
       const t = e.target as Element | null;
-      if (ref.current?.contains(t) || t?.closest(".climate-strip, .climate-open")) return;
+      if (ref.current?.contains(t) || t?.closest(".climate-open")) return;
       onClose();
     };
     window.addEventListener("keydown", onKey, true);

@@ -5,7 +5,6 @@ import { erasFor } from "../timeline/layout";
 import { useMediaQuery } from "./useMediaQuery";
 import { useData } from "../map/data";
 import EraIcon from "./EraIcon";
-import ClimateStrip from "./ClimateStrip";
 import ClimatePopover from "./ClimatePopover";
 import { kaOf, stageAt, stageName, useClimate, valueAt } from "../time/climate";
 import { usePaleo, snapshotAt } from "../map/paleo";
@@ -88,8 +87,8 @@ export default function TimeSlider() {
   // Sea level as the record has it (the globe draws it in 10 m steps beyond 80,000 years).
   const recordSea = climate && snapshot ? valueAt(climate.sea_level, Math.max(0, kaOf(year))) : undefined;
   const seaShown = Math.round(recordSea ?? seaLevel);
-  // The climate popover: a moment picked on the strip, or (year null) following the slider.
-  const [climatePick, setClimatePick] = useState<{ year: number | null; left: number } | null>(null);
+  // The climate popover, following the slider.
+  const [climateOpen, setClimateOpen] = useState(false);
 
   // The era the year falls in ("Early Homo"), as on the timeline and Events page. On small
   // screens it's also the button that opens the jump-to shortcuts (hidden there for space).
@@ -231,8 +230,8 @@ export default function TimeSlider() {
         {(stage || Math.abs(seaShown) >= 10) && (
           <button
             className="climate-open"
-            onClick={() => setClimatePick((p) => (p?.year === null ? null : { year: null, left: yearToPos(year) }))}
-            aria-expanded={climatePick?.year === null}
+            onClick={() => setClimateOpen((o) => !o)}
+            aria-expanded={climateOpen}
             title="Climate then: temperature, sea level and Marine Isotope Stage"
           >
             {stage && <span className={`mis-badge ${stage.cold ? "cold" : "warm"}`}>{stageName(stage.stage)}</span>}
@@ -303,9 +302,8 @@ export default function TimeSlider() {
           </span>
         ))}
       </div>
-      <ClimateStrip onPick={(y, pos) => setClimatePick({ year: y, left: pos < 0 ? yearToPos(year) : pos })} />
-      {climatePick && climate && (
-        <ClimatePopover climate={climate} year={climatePick.year} left={climatePick.year === null ? yearToPos(year) : climatePick.left} onClose={() => setClimatePick(null)} />
+      {climateOpen && climate && (
+        <ClimatePopover climate={climate} year={null} left={yearToPos(year)} onClose={() => setClimateOpen(false)} />
       )}
       <div id="era-shortcuts" className={`chips${shortcutsOpen ? " open" : ""}`} style={touring ? { display: "none" } : undefined}>
         {presets.map((e) => (

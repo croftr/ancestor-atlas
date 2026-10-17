@@ -198,9 +198,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   the Natural Earth land (`paleo-land`, tucked 20 m under today's coast), sea then over it (`paleo-sea`), ice on top
   (`paleo-ice`; `ice` colour per theme in `BASEMAP_THEMES`). `src/map/paleo.ts` picks the snapshot; the slider shows
   "Sea level −120 m". Settings toggle (store `paleo`, remembered).
-- Climate strip under the slider (`src/ui/ClimateStrip.tsx`, `src/time/climate.ts`): LR04 δ18O coloured amber (warm)
-  to ice blue, along the slider's own scale. Blank before 5.32 Ma. A click opens `ClimatePopover.tsx` for that moment
-  (with "Go to"); the "MIS 2 · Sea level −120 m" badge under the year opens it following the slider. It shows global
+- Climate popover (`src/ui/ClimatePopover.tsx`, data in `src/time/climate.ts`): the "MIS 2 · Sea level −120 m" badge
+  under the year opens it following the slider. (The climate strip under the slider was removed 17 Oct 2026 to make
+  the play bar shorter, Rob's call: the panel and the tour gauges show the same.) It shows global
   temperature (Osman 2021 0–24 ka, Friedrich 2016 model 24–783 ka, both vs pre-industrial; they agree within 0.5 °C at
   the join), sea level (Gowan 0–80 ka, Spratt & Lisiecki beyond with 95% range; the two disagree at 80 ka, −10 vs
   −33 m), the MIS (1–104, then G1…TG6; even = cold; a few `STAGE_NOTES`), and a chart of the cycles around it.

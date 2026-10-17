@@ -37,7 +37,7 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas; then farming spread into Europe, Austronesian seafarers sailed out of Taiwan across the Pacific, and Bantu-speaking farmers spread across Africa. Each route grows as the slider passes the dated sites it joins.
 - 🧬 **Interbreeding**: See when Neanderthals, Denisovans and modern humans had children together, from the first modern human DNA in Neanderthals 250,000 years ago to Denny, a Neanderthal–Denisovan child, and the Neanderthal and Denisovan DNA many people carry today.
 - 🧬 **Ancient DNA**: Over 9,000 sampled ancient genomes, coloured by father's or mother's line, so you can watch lineages such as R1b sweep across Europe after 3000 BCE. Each site lists the people sampled there with their haplogroups, dates and publications.
-- 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years. Click it (or the stage badge under the year) for the global temperature, sea level and Marine Isotope Stage of that moment, with a small chart of the glacial cycles around it.
+- 🌡️ **Climate**: The stage badge under the year, the climate panel and, during tours, the gauges at the top show the global temperature, sea level and Marine Isotope Stage of the moment, with a small chart of the glacial cycles around it.
 - 🤝 **Who Lived When**: Each species card lists the other species alive at the same time.
 - 🔍 **Instant Search**: Search across any species, fossil discovery, archaeological site, or civilization to jump directly to it in space and time.
 - 🎨 **Custom Globe Themes**: Choose from multiple basemap styles (including dark globe, parchment, and blueprint themes) to suit your viewing preference.
@@ -104,7 +104,7 @@ npm run sites:candidates  # Search Wikidata items for unsourced sites
 npm run sites:sync        # Synchronise coordinates for confirmed Wikidata items
 npm run data:fetch:paleo  # Download the Ice Age geography and climate inputs (ETOPO, Gowan et al., sea level, LR04)
 npm run data:paleo        # Build public/data/paleo/ (coastlines, ice; slow: ~11 min)
-npm run data:climate      # Build public/data/climate.json (climate strip and popover; needs public/data/paleo)
+npm run data:climate      # Build public/data/climate.json (climate popover, panel and tour gauges; needs public/data/paleo)
 npm test                  # Run automated test suites (Vitest)
 ```
 
@@ -180,7 +180,7 @@ Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm r
   1079–1092), applied evenly to ETOPO in 10 m steps (no ice sheets, no isostasy). Older: today's coastlines.
 - Only sea joined to the ocean counts (a flood fill from the open ocean and the enclosed seas), so lakes and inland
   basins such as the Caspian and the Dead Sea are left alone.
-- **Climate strip and popover** (`npm run data:climate`, `scripts/climate.ts`):
+- **Climate popover, panel and tour gauges** (`npm run data:climate`, `scripts/climate.ts`):
   - Colour and Marine Isotope Stages: Lisiecki, L.E. & Raymo, M.E., 2005. A Pliocene-Pleistocene stack of 57 globally
     distributed benthic δ18O records. *Paleoceanography* 20: PA1003 (stage boundaries from Lisiecki's LR04 site).
   - Global temperature against pre-industrial: Osman, M.B. et al., 2021. Globally resolved surface temperatures since

@@ -738,22 +738,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
    which takes the clicks (its ring over the globe closes it). */
 .map-wrap.mini { z-index: 60; pointer-events: none; }
 
-/* Climate under the ticks (ClimateStrip.tsx): LR04 δ18O, ice blue to amber. Same inset as the span band.
-   A button: a click opens the climate popover there. */
-.climate-strip {
-  position: relative; display: block; width: calc(100% - 16px); height: 9px; margin: 2px 8px 6px; padding: 0;
-  border: none; border-radius: 3px; background: rgba(0, 0, 0, 0.3); overflow: hidden; cursor: pointer;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-.climate-strip canvas { display: block; width: 100%; height: 100%; opacity: 0.9; transition: opacity 0.15s ease; }
-.climate-strip:hover canvas, .climate-strip:focus-visible canvas { opacity: 1; }
-.climate-strip:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
-.climate-label {
-  position: absolute; left: 4px; top: 50%; transform: translateY(-50%); font-size: 7.5px; line-height: 1;
-  letter-spacing: 0.08em; text-transform: uppercase; color: #8b95ab; pointer-events: none;
-}
-.climate-hover { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 4px rgba(0, 0, 0, 0.8); pointer-events: none; }
-
 /* Under the year: the Marine Isotope Stage and sea level, opening the climate popover. */
 .climate-open {
   display: inline-flex; align-items: center; gap: 6px; padding: 1px 8px 1px 2px; border: none; border-radius: 999px;
