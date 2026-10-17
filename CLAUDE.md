@@ -161,7 +161,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   sea of the time (−130..+20 m; the exposed shelf glows gold), the ice in words on a tab below. The climate panel then
   leaves those three out (`ClimateFacts gauged`), keeping the MIS and the chart; they come back when the tour ends.
   Shown only where a record reaches (Rob's call, 17 Oct 2026). Before the temperature record (783 ka) back to 5.32 Ma
-  the thermometer is a simple one read from LR04 δ18O: no degrees, "Cold (glacial)" / "Warm" (the MIS) with the ice
+  the thermometer is a simple one read from LR04 δ18O: no degrees, "Cold (glacial)" / "Warm" (the MIS; "Cooler stage" for a cold stage with no more ice than today, δ18O < 3.5‰) with the ice
   words under it, gold tick at today's ice; the sea gauge shows only where sea level is known (798 ka). The panel's
   warm/cold chip moves up to it too. The "40,000 years later" intertitle drops below it.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar fades out and the welcome hint goes (the

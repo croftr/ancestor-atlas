@@ -36,6 +36,11 @@ const D18O_WARM = 2.6;
 /** Today's LR04 value, marked on the simple thermometer as the gold tick. */
 const D18O_TODAY = 3.2;
 const iceFill = (d: number) => (D18O_COLD - d) / (D18O_COLD - D18O_WARM);
+/**
+ * The simple thermometer's word for the stage. A cold stage of the warm Pliocene held no more ice than
+ * today, so "glacial" would contradict the ice words under it: there it is a cooler stage.
+ */
+const stageWord = (cold: boolean, d: number) => (!cold ? "Warm" : d < 3.5 ? "Cooler stage" : "Cold (glacial)");
 /** The simple thermometer's colour: the exact one's palette at the same fill, so the two read alike. */
 const iceColor = (d: number) => tempColor(T_MIN + iceFill(d) * (T_MAX - T_MIN));
 
@@ -151,7 +156,7 @@ export default function ClimateHud() {
             <div className="hud-read">
               <span className="hud-label">Climate</span>
               <strong className="hud-value" style={{ color: iceColor(d) }}>
-                {at.stage ? (at.stage.cold ? "Cold (glacial)" : "Warm") : climateWords(d)}
+                {at.stage ? stageWord(at.stage.cold, d) : climateWords(d)}
               </strong>
               <span className="hud-sub">{at.stage ? climateWords(d) : "from the ice record"}</span>
             </div>
