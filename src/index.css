@@ -412,6 +412,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .year-readout { font-size: 1.8rem; font-weight: 600; }
 /* Under the year: the era it's in, and how far a step moves. */
 .year-sub { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.play-speed { margin-left: 10px; display: inline-flex; align-items: baseline; gap: 5px; }
+.play-speed select {
+  font: inherit; color: #e6ebf5; background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 5px; padding: 0 4px; cursor: pointer;
+}
+.play-speed select:hover { background: rgba(255, 255, 255, 0.16); }
+.play-speed option { background: #141b2d; color: #e6ebf5; }
 .era-name { font-size: 0.85rem; font-weight: 600; color: #8ec5ff; }
 .era-btn {
   display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px 2px 0; border: none; background: none;

@@ -30,6 +30,18 @@ const TICK_LABELS = ["10M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", 
 /** Narrow screens: the same ticks, shortened so neighbours don't run together. */
 const TICK_SHORT = ["10M yrs", "1M yrs", "100k yrs", "10k BCE", "3k BCE", "1 CE"];
 
+/** Play speeds: 1× crosses the whole slider in a minute. Remembered per browser. */
+const SPEEDS = [0.25, 0.5, 1, 2, 4];
+const SPEED_KEY = "history-globe.play-speed";
+function loadSpeed(): number {
+  try {
+    const v = Number(localStorage.getItem(SPEED_KEY));
+    return SPEEDS.includes(v) ? v : 1;
+  } catch {
+    return 1; // storage unavailable
+  }
+}
+
 /** Transport icons as SVG: emoji glyphs render inconsistently, and ▶ (play) and ▶ (step) look the same. */
 const Icon = ({ d }: { d: string }) => (
   <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
@@ -99,6 +111,17 @@ export default function TimeSlider() {
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
 
   // Play loop
+  const [speed, setSpeedState] = useState(loadSpeed);
+  const speedRef = useRef(speed);
+  speedRef.current = speed;
+  const setSpeed = (v: number) => {
+    setSpeedState(v);
+    try {
+      localStorage.setItem(SPEED_KEY, String(v));
+    } catch {
+      /* storage unavailable */
+    }
+  };
   const posRef = useRef(0);
   useEffect(() => {
     if (!playing) return;
@@ -114,7 +137,7 @@ export default function TimeSlider() {
     const tick = (now: number) => {
       const dt = now - last;
       last = now;
-      posRef.current += dt / 60000;
+      posRef.current += (dt / 60000) * speedRef.current;
       if (posRef.current >= 1) {
         setYear(MAX_YEAR);
         setPlaying(false);
@@ -192,7 +215,19 @@ export default function TimeSlider() {
           ) : (
             <span className="era-name">{era.label}</span>
           ))}
-        <span className="muted resolution">Each step: {resolution.toLocaleString("en-US")} years</span>
+        <span className="muted resolution">
+          Each step: {resolution.toLocaleString("en-US")} years
+          <label className="play-speed" title="How fast Play moves through time">
+            Speed
+            <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} aria-label="Play speed">
+              {SPEEDS.map((v) => (
+                <option key={v} value={v}>
+                  {v === 0.25 ? "¼" : v === 0.5 ? "½" : v}×
+                </option>
+              ))}
+            </select>
+          </label>
+        </span>
         {(stage || Math.abs(seaShown) >= 10) && (
           <button
             className="climate-open"
