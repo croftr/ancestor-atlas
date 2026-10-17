@@ -198,7 +198,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   level). Climate panel: a Settings option (store `climatePanel`, remembered, on by default; not offered on small
   screens) keeps the same details (`ClimateFacts` in `ClimatePopover.tsx`) open under the legend, following the
   slider (`src/ui/ClimatePanel.tsx`). The legend and the panel stay on during tours (desktop).
-  Left column (`src/ui/Legend.tsx`): legend, Ancient DNA panel (with the DNA layer), climate panel, each a Settings
+  Left column (`src/ui/Legend.tsx`): legend, climate panel, Ancient DNA panel (with the DNA layer; moved under the climate panel 17 Oct 2026), each a Settings
   option, all on by default; the legend's is store `legendPanel` (off: the panels start at the corner, and on phones
   no legend at all). The corner toggle hides and shows the whole column (Rob's call, 16 Oct 2026). Snyder 2016 and Clark 2024 (longer temperature records) were not openly downloadable here.
 - Migration routes (`src/routes/`): five Out of Africa routes joining existing H. sapiens sites (dated at the middle
@@ -236,8 +236,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   card), sites-now count, an "i" button whose tooltip says what the dots are (hover, focus or tap), switch labelled Father's line / Mother's line / Sites only, a key with a
   few plain words per colour (`short` in `haplogroups.ts`), and a "What are father's and mother's lines?" explainer.
   No Hide button: the layer is switched only in Settings (Rob's call).
-  On desktop it is a panel of its own in the legend's column, beside the climate panel (`.dna-panel`; the column
-  in index.css shrinks the legend first, then the climate panel, the DNA panel last, so it shows in full unless the
+  On desktop it is a panel of its own in the legend's column, under the climate panel (`.dna-panel`; the column
+  in index.css may be as tall as the window, nothing scrolling until the panels together need more, then it shrinks the legend first, then the climate panel, the DNA panel last, so it shows in full unless the
   window is too short); on small screens it stays at the foot of the compact legend.
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
   dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.

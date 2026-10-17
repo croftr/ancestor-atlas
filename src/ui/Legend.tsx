@@ -258,8 +258,8 @@ export default function Legend() {
       </div>
       )}
       {/* The toggle hides the whole column, not just the legend. */}
-      {!stacked && !collapsed && <DnaLegend panel />}
       {!collapsed && <ClimatePanel />}
+      {!stacked && !collapsed && <DnaLegend panel />}
     </div>
   );
 }
