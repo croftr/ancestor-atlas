@@ -684,6 +684,9 @@
   end_year: -15050
   description: "As the ice sheets neared their greatest extent, between about 24,000 and 17,000 years ago, people in France and Spain developed the Solutrean, named after the great rock of Solutré in Burgundy. Its makers mastered pressure flaking, pressing tiny flakes off a stone blank with a pointed bone tool to make thin, symmetrical 'laurel leaf' points, some too fine to have been used for hunting. At Parpalló in Spain they left thousands of small stone slabs engraved and painted with animals."
   narration: { src: narration/cultures/solutrean-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4adebe205a" }
+  image_url: /images/cultures/solutrean.webp
+  image_credit: AI-generated illustration
+  image_caption: "Periglacial winter camp beneath the Rock of Solutré with pressure-flaked laurel-leaf points and tailored fur sewing"
   wikipedia_url: https://en.wikipedia.org/wiki/Solutrean
   source_ids:
     - recall
@@ -704,6 +707,9 @@
   end_year: -9050
   description: "The Magdalenian, named after the rock shelter of La Madeleine in France, was the last great culture of the Ice Age in western Europe, from about 17,000 to 11,000 years ago. Its people followed herds of reindeer and horse, hurled spears with carved spear-throwers and fished with barbed antler harpoons. They painted the ceiling of Altamira in Spain and decorated many other caves, and carved lifelike animals into bone and antler. As the climate warmed and the reindeer moved north, their way of life gave way to new ones."
   narration: { src: narration/cultures/magdalenian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "95239209a2" }
+  image_url: /images/cultures/magdalenian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Late Ice Age reindeer hunter camp by a limestone cave with carved antler spear-throwers and harpoons"
   wikipedia_url: https://en.wikipedia.org/wiki/Magdalenian
   source_ids:
     - recall
@@ -779,6 +785,9 @@
   start_year: -9499
   end_year: -5050
   description: Early farming societies of the Levant and southeast Anatolia before pottery, including the monumental site Göbekli Tepe and the walled settlement at Jericho.
+  image_url: /images/cultures/pre-pottery-neolithic.webp
+  image_credit: AI-generated illustration
+  image_caption: "Megalithic circular enclosure with carved animal T-pillars and plastered ancestral skulls"
   wikipedia_url: https://en.wikipedia.org/wiki/Pre-Pottery_Neolithic
   source_ids:
     - recall
@@ -1005,6 +1014,9 @@
   end_year: -2299
   description: "Across northern and central Europe, from the Rhine to the Volga, people of the Corded Ware culture buried their dead singly under round mounds, men lying on their right side and women on their left, with pots decorated by pressing cord into the wet clay. Ancient DNA from these graves shows a sudden change: about three quarters of their ancestry came from the steppe herders of the east, mixed with that of Europe's earlier farmers. Most of their men carried the father's line R1a."
   narration: { src: narration/cultures/corded-ware-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9caffb21cc" }
+  image_url: /images/cultures/corded-ware.webp
+  image_credit: AI-generated illustration
+  image_caption: "Single barrow grave ritual with cord-impressed beaker and polished stone battle-axe alongside pastoralist camp"
   wikipedia_url: https://en.wikipedia.org/wiki/Corded_Ware_culture
   wikidata: Q933996
   source_ids: []
@@ -1114,6 +1126,9 @@
   start_year: -5049
   end_year: -2949
   description: Neolithic–Chalcolithic culture of Romania, Moldova and Ukraine, c. 5050–2950 BCE, famous for painted pottery and giant settlements of thousands of houses between the Carpathians and the Dnieper.
+  image_url: /images/cultures/cucuteni-trypillia.webp
+  image_credit: AI-generated illustration
+  image_caption: "Sprawling concentric mega-settlement with two-storey painted houses, polychrome pottery, and ritual burning"
   wikipedia_url: https://en.wikipedia.org/wiki/Cucuteni–Trypillia_culture
   wikidata: Q1162419
   source_ids: []
@@ -1128,6 +1143,9 @@
   start_year: -5399
   end_year: -4499
   description: Neolithic culture of the central Balkans, c. 5400–4500 BCE, named after the tell of Vinča-Belo Brdo near Belgrade. Known for large settlements, dark burnished pottery, figurines and early copper working.
+  image_url: /images/cultures/vinca.webp
+  image_credit: AI-generated illustration
+  image_caption: "Danube terrace tell settlement with early copper metallurgy, burnished pottery, and incised clay figurines"
   wikipedia_url: https://en.wikipedia.org/wiki/Vinča_culture
   wikidata: Q831336
   source_ids: []
