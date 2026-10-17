@@ -213,7 +213,7 @@ export const TOURS: Tour[] = [
     layers: ["culture", "event"],
     announcement: { src: "narration/tours/domestication-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "3a87d8574b" },
     closingNarration: { src: "narration/tours/domestication-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "97d12fd67f" },
-    music: { src: "music/tours/domestication-v2.mp3", credit: "Music: \"The Legend of Narmer\" by WombatNoisesAudio (chosic.com), CC BY 4.0" },
+    music: { src: "music/tours/domestication-v3.mp3", credit: "Music: \"Expedition\" by Alex-Productions (onsound.eu), CC BY 3.0" },
     stops: [
       { entity: "dog-domestication" },
       { entity: "birth-of-agriculture" },
