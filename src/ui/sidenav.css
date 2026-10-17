@@ -97,28 +97,18 @@
 .app .search { left: calc(50% + var(--nav-w) / 2); }
 .app .time-slider { left: calc(50% + var(--nav-w) / 2); width: min(calc(100% - 120px - var(--nav-w)), 1100px); }
 /* The card is 352px unless dragged wider or narrower (--card-user-w, ui/CardResizer.tsx), always
-   leaving at least 480px. With it open, the slider centres under the globe, in the space a
-   default-width card leaves (--stage-r), so neither moves while the card is dragged; they move left
-   only when the card's edge comes within 240px of their centre (stageInset in ui/cardWidth.ts). The
-   slider narrows from both ends to keep clear of a wider card. */
+   leaving at least 480px. It never moves the globe, the search or the slider (Rob's call, 17 Oct
+   2026): they stay centred beside the rail, as with no card, and the card covers the space on the
+   right. The slider and the search narrow from both ends to keep clear of it, down to a minimum
+   (a card dragged wider than that covers their right end). */
 .app {
   --card-w: clamp(300px, var(--card-user-w, 352px), max(300px, 100vw - var(--nav-w) - 480px));
-  --card-base: clamp(300px, 352px, max(300px, 100vw - var(--nav-w) - 480px));
-  --stage-r: max(var(--card-base), 2 * var(--card-w) + 480px + var(--nav-w) - 100vw);
 }
 .app.has-card .time-slider {
-  left: calc(var(--nav-w) + (100vw - var(--nav-w) - var(--stage-r)) / 2);
-  width: min(
-    calc(100vw - var(--nav-w) - var(--stage-r) - 48px),
-    calc(100vw - var(--nav-w) + var(--stage-r) - 2 * var(--card-w) - 48px),
-    1100px
-  );
+  width: min(calc(100% - 120px - var(--nav-w)), 1100px, max(420px, 100vw - var(--nav-w) - 2 * var(--card-w) - 48px));
 }
-/* The search stays clear of a widened card: narrower, and moved left if it would reach it. */
 .app.has-card .search {
-  --search-w: clamp(240px, calc(100vw - var(--nav-w) - var(--card-w) - 368px), 380px);
-  width: var(--search-w);
-  left: min(calc(50% + var(--nav-w) / 2), calc(100% - var(--card-w) - 16px - var(--search-w) / 2));
+  width: clamp(240px, calc(100vw - var(--nav-w) - 2 * var(--card-w) - 32px), 380px);
 }
 /* The map's attribution moves left of the card too. */
 .app.has-card .maplibregl-ctrl-bottom-right { right: var(--card-w); }

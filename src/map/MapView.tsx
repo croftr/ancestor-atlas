@@ -8,7 +8,7 @@ import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground from "./SpaceBackground";
-import { navWidth, stageInset } from "../ui/cardWidth";
+import { navWidth } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
 import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
@@ -116,18 +116,6 @@ function bottomInset(el: HTMLElement): number {
 /** Large screens: the nav rail covering the map's left edge, kept as its left padding. */
 function leftInset(): number {
   return window.matchMedia?.(STACKED_QUERY).matches ? 0 : navWidth();
-}
-
-/**
- * Large screens: the room kept for the info card on the right, as the map's right padding: a
- * default-width card's, so the globe stays put while the card is dragged wider (`stageInset`), and
- * moves only when the card's edge comes close to its centre. During a tour the
- * inset stays while the card is closed between stops, so the globe doesn't slide to and fro.
- */
-function rightInset(state: ReturnType<typeof useStore.getState>): number {
-  if (window.matchMedia?.(STACKED_QUERY).matches) return 0;
-  const open = state.selectedId !== null || state.groupId !== null || state.dnaSite !== null || state.tour !== null;
-  return open ? stageInset(state.cardWidth) : 0;
 }
 
 /** What a route is and where it comes from, when it is tapped. */
@@ -322,29 +310,16 @@ export default function MapView() {
         ],
       },
     });
-    map.setPadding({ top: 0, left: leftInset(), right: rightInset(useStore.getState()), bottom: inset });
+    // The globe stays centred beside the rail whether or not the info card is open (Rob's call, 17 Oct
+    // 2026): the card covers the space on the right, as the legend column does on the left.
+    map.setPadding({ top: 0, left: leftInset(), right: 0, bottom: inset });
     // Keep the insets in step as the window resizes (or crosses into the stacked layout).
     map.on("resize", () => {
       const bottom = bottomInset(container);
-      const right = rightInset(useStore.getState());
       const left = leftInset();
       const p = map.getPadding();
-      if (bottom !== p.bottom || right !== p.right || left !== p.left) map.setPadding({ ...p, bottom, right, left });
+      if (bottom !== p.bottom || left !== p.left) map.setPadding({ ...p, bottom, left });
     });
-    // The card opening or closing (or dragged close to the globe's centre): glide the globe to its
-    // new centre (at once while dragging, so it follows the handle). Not in the middle of a flight, which
-    // would stop it: then once it ends.
-    const syncRight = (animate: boolean) => {
-      const right = rightInset(useStore.getState());
-      if (right === map.getPadding().right) return;
-      const padding = { ...map.getPadding(), right };
-      if (!animate) map.setPadding(padding);
-      else if (map.isMoving()) map.once("moveend", () => syncRight(true));
-      else {
-        const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-        map.easeTo({ padding, duration: reduceMotion ? 0 : 450 });
-      }
-    };
     // Fallback if the style-level projection is rejected.
     map.on("style.load", () => {
       try {
@@ -468,8 +443,7 @@ export default function MapView() {
       const { clientWidth: cw, clientHeight: ch } = map.getContainer();
       const stacked = window.matchMedia?.(STACKED_QUERY).matches;
       const wide = cw > 900;
-      // The card's inset becomes the map's padding with this flight (it may be opening with it).
-      const mapPadding = { ...map.getPadding(), right: rightInset(useStore.getState()) };
+      const mapPadding = map.getPadding();
       const padding = stacked
         ? // During a tour the compact card floats over the top of the globe (InfoPanel, info-compact).
           { top: useStore.getState().tour ? 150 : 16, bottom: 16, left: 16, right: 16 }
@@ -478,8 +452,8 @@ export default function MapView() {
             bottom: Math.min(230, ch * 0.3),
             // Clear of the legend (the rail's inset is in the map's padding already).
             left: wide ? Math.max(20, 340 - (mapPadding.left ?? 0)) : 20,
-            // Clear of the card: beyond its inset, a margin; with no card, room for one.
-            right: mapPadding.right > 0 ? 68 : wide ? 420 : 20,
+            // Clear of the card (open or not, so the framing doesn't change as it opens).
+            right: wide ? 420 : 20,
           };
       // The map's own padding (the slider inset) counts towards this already.
       padding.bottom = Math.max(0, padding.bottom - (mapPadding.bottom ?? 0));
@@ -998,13 +972,6 @@ export default function MapView() {
           }
         }
       }
-      const cardChanged =
-        state.cardWidth !== prev.cardWidth ||
-        (state.selectedId !== null || state.groupId !== null || state.dnaSite !== null) !==
-          (prev.selectedId !== null || prev.groupId !== null || prev.dnaSite !== null) ||
-        (state.tour !== null) !== (prev.tour !== null);
-      // A flight in this same change takes the new inset with it.
-      if (cardChanged && !(state.flyTo && state.flyTo !== prev.flyTo)) syncRight(!document.body.classList.contains("card-resizing"));
       if (state.flyTo && state.flyTo !== prev.flyTo) {
         const { bbox, gentle, turn } = state.flyTo;
         // On small screens the info card opening resizes the globe; frame the target in the new size.

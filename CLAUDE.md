@@ -145,12 +145,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `cardWidth` in the store (in memory only: kept for the visit, reset by a reload, Rob's call). CSS clamps it to
   300 px .. window minus rail minus 480 px (`--card-user-w` -> `--card-w` in `ui/sidenav.css`; `--card-tl-w` on the
   timeline); the search and timeline chart make room. Double-click resets; arrow keys when focused.
-  On the globe, dragging does not move the globe or the time slider (Rob's call, 16 Oct 2026): they centre in the
-  space a default-width (352 px) card leaves, and a wider card covers the space beside the globe; only when the
-  card's edge comes within 240 px of their centre do they move left, just enough (`stageInset` in
-  `src/ui/cardWidth.ts`, `--stage-r` in `ui/sidenav.css`). The slider narrows from both ends to stay clear of the
-  card. The map's left padding is the rail's width (`leftInset`), its right padding `stageInset` (`rightInset` in
-  `src/map/MapView.tsx`), eased on open/close, live while dragging, carried by flights, and kept on through a whole tour.
+  On the globe the card never moves the globe, search or time slider (Rob's call, 17 Oct 2026, replacing the
+  16 Oct `stageInset` scheme): they stay centred beside the rail, as the legend column on the left never moves them
+  either, and the card covers the space on the right. The map's left padding is the rail's width (`leftInset` in
+  `src/map/MapView.tsx`), its right padding 0; flights still frame their target clear of the card (420 px on the
+  right). The slider and search narrow from both ends to keep clear of the card (`.has-card` in `ui/sidenav.css`).
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar fades out and the welcome hint goes (the
   legend and climate panel stay, Rob's call 16 Oct 2026; phones still drop the legend); on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 
