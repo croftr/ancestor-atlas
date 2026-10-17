@@ -6,7 +6,7 @@ import { OUTRO, tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import EndCard from "./EndCard";
-import { AFTER_CLOSING_MS, closingAt, MUSIC_HOLD_MS, MUSIC_STOP_S, OUTRO_GAP_MS } from "./epilogue";
+import { AFTER_CLOSING_MS, closingAt, MUSIC_FADE_S, MUSIC_HOLD_MS, OUTRO_GAP_MS } from "./epilogue";
 import TimeGap from "./TimeGap";
 import { useWakeLock } from "./useWakeLock";
 import { pictureIndexAt, preloadPictures } from "./tourPicture";
@@ -245,7 +245,7 @@ export default function TourPlayer() {
 
   // The epilogue: close the card and let the globe draw the journey again (map/MapView.tsx) under
   // the end card; once it is drawn, the closing line is read (if narrated) over the music. The music
-  // plays on until AFTER_CLOSING_MS past the line (at least MUSIC_HOLD_MS), then stops, and after a
+  // plays on until AFTER_CLOSING_MS past the line (at least MUSIC_HOLD_MS), then fades out, and after a
   // moment's silence the outro plays. The end card stays.
   useEffect(() => {
     if (!data || id === undefined || !epilogue) return;
@@ -270,8 +270,8 @@ export default function TourPlayer() {
     let outroFailed = false;
     const fadeAt = (end: number) => Math.max(MUSIC_HOLD_MS, end + AFTER_CLOSING_MS);
     const hold = () => {
-      const stop = outroAt < Infinity ? outroAt - OUTRO_GAP_MS : fadeAt(lineEnd ?? speakAt + voiceS * 1000);
-      patchTour({ phase: "hold", holdMs: stop + OUTRO_GAP_MS + outroS * 1000 });
+      const start = outroAt < Infinity ? outroAt : fadeAt(lineEnd ?? speakAt + voiceS * 1000) + MUSIC_FADE_S * 1000 + OUTRO_GAP_MS;
+      patchTour({ phase: "hold", holdMs: start + outroS * 1000 });
     };
     hold();
     patchTour({ musicIn: true });
@@ -300,11 +300,11 @@ export default function TourPlayer() {
         const read = voice ? spoken && (voiceFailed || (n.src === voice.src && (n.ended || n.failed))) : elapsed >= speakAt;
         if (read) lineEnd = elapsed;
       }
-      // The music stops (quickly, so it doesn't run into the silence), then the outro after OUTRO_GAP_MS.
+      // The music fades out, then a moment's silence (OUTRO_GAP_MS), then the outro.
       if (!s.tour.musicOut && lineEnd !== null && elapsed >= fadeAt(lineEnd)) {
         patchTour({ musicOut: true });
-        stopMusic(MUSIC_STOP_S);
-        outroAt = elapsed + OUTRO_GAP_MS;
+        stopMusic(MUSIC_FADE_S);
+        outroAt = elapsed + MUSIC_FADE_S * 1000 + OUTRO_GAP_MS;
         hold();
       }
       if (!outro && elapsed >= outroAt) {

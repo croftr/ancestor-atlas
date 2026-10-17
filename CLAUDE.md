@@ -120,8 +120,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   span, the tour's `closing` line (written by Claude, Rob approved), Watch again / More tours / Explore the globe.
   Once the thread is drawn the closing line appears and `closingNarration` reads it (stops' voice and model;
   `npm run audio:narrate -- --closing <id>|all`, key `narration/tours/<id>-closing-v<n>.mp3`; `--stale` covers it).
-  Music plays on at least 17 s and 4 s past the closing line (never fading before the line is read), then stops
-  (0.4 s), and 1 s later the outro plays (`OUTRO` in `tours.ts`, `music/tours/outro-v1.mp3`, every tour; timings in
+  Music plays on at least 17 s and 1 s past the closing line (never fading before the line is read), then fades
+  out over 3 s, and 1 s after it has gone the outro plays (`OUTRO` in `tours.ts`, `music/tours/outro-v1.mp3`, every tour; timings in
   `epilogue.ts`); the card stays until the viewer chooses.
 - During a tour (added 16 Oct 2026): the path so far is drawn on the globe, faint dashed gold with a dark casing
   (`tour-path` layers in `MapView.tsx`, `pathSoFar` in `epilogue.ts`); each new leg draws in over 1.8 s as the globe
