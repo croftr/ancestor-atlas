@@ -796,6 +796,9 @@
       src: https://www.youtube.com/watch?v=gyQqodlfLiA
       title: Stone Age temple mystery (Göbekli Tepe)
       credit: NOVA PBS Official, YouTube
+  extra_images:
+    - { url: /images/extra/pre-pottery-neolithic-1.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Plastered human skull from Jericho with modelled facial features and cowrie shell eyes, c. 8000 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Plastered_skull_from_Jericho_12741-42.jpg" }
+    - { url: /images/extra/pre-pottery-neolithic-2.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Monumental lime-plaster statue from 'Ain Ghazal, Jordan, c. 7500 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Ain_Ghazal_lime_plaster_statue_BM_1995.0125.1.jpg" }
 - id: linear-pottery
   name: Linear Pottery (LBK)
   category: culture
@@ -1025,6 +1028,9 @@
       src: https://www.youtube.com/watch?v=ecmeQT7R7rk
       title: The Corded Ware Culture (3000 BC - 2300 BC)
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/corded-ware-1.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Corded Ware ceramic beakers and amphora with twisted-cord impressions (State Museum of Archaeology Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Neolithikum_088.jpg" }
+    - { url: /images/extra/corded-ware-2.webp, credit: "Terker, CC BY-SA 3.0, via Wikimedia Commons", caption: "Polished stone boat-axe / battle-axe with drilled shaft-hole, Corded Ware culture", source: "https://commons.wikimedia.org/wiki/File:CordWareBoatAxe.jpg" }
 - id: bell-beaker
   name: Bell Beaker culture
   category: culture
@@ -1137,6 +1143,9 @@
       src: https://www.youtube.com/watch?v=Bk2Qbf1YQbI
       title: "Cucuteni-Trypillia Culture: ancient European civilization"
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/cucuteni-trypillia-1.webp, credit: "CristianChirita, CC BY 3.0, via Wikimedia Commons", caption: "Polychrome painted ceramic amphora with swirling spiral motifs, Cucuteni culture (Piatra Neamț Museum)", source: "https://commons.wikimedia.org/wiki/File:CucuteniTypicalCeramic.jpg" }
+    - { url: /images/extra/cucuteni-trypillia-2.webp, credit: "CristianChirita, CC0, via Wikimedia Commons", caption: "Ritual binocular ceramic vessel with bichrome painted spirals, Cucuteni–Trypillia culture", source: "https://commons.wikimedia.org/wiki/File:CucuteniPottery5.jpg" }
 - id: vinca
   name: Vinča culture
   category: culture
@@ -1154,6 +1163,9 @@
       src: https://www.youtube.com/watch?v=n7L7KZFrACc
       title: "Europe's first civilization: the Vinča Culture"
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/vinca-1.webp, credit: "Nikola Smolenski, CC BY-SA 3.0 rs, via Wikimedia Commons", caption: "The Lady of Vinča terracotta figurine, c. 4500 BCE (National Museum of Serbia, Belgrade)", source: "https://commons.wikimedia.org/wiki/File:Lady_of_Vinca.jpg" }
+    - { url: /images/extra/vinca-2.webp, credit: "FlorinCB, CC BY 3.0, via Wikimedia Commons", caption: "Inscribed discoid clay amulet tablet from Tărtăria with incised Vinča symbols, c. 5300 BCE", source: "https://commons.wikimedia.org/wiki/File:T%C4%83rt%C4%83ria_Amulet_Tablet.png" }
 - id: ertebolle
   name: Ertebølle culture
   category: culture
