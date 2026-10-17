@@ -94,7 +94,10 @@ export function WhenLine({ year, className = "cp-when" }: { year: number; classN
   );
 }
 
-/** `gauged`: the ice, temperature and sea level are showing at the top of the screen (tours/ClimateHud.tsx), so leave them out. */
+/**
+ * `gauged`: the ice, temperature (or warm/cold stage) and sea level are showing at the top of the screen
+ * (tours/ClimateHud.tsx), so leave them out.
+ */
 export function ClimateFacts({ climate, year, gauged = false }: { climate: Climate; year: number; gauged?: boolean }) {
   const at = climateAt(climate, year);
   const stage = at.stage;
@@ -145,7 +148,7 @@ export function ClimateFacts({ climate, year, gauged = false }: { climate: Clima
             <dt>Marine Isotope Stage</dt>
             <dd>
               <strong>{stageName(stage.stage)}</strong>
-              <span className={`cp-stage-kind ${stage.cold ? "cold" : "warm"}`}>{stage.cold ? "cold (glacial)" : "warm"}</span>
+              {!gauged && <span className={`cp-stage-kind ${stage.cold ? "cold" : "warm"}`}>{stage.cold ? "cold (glacial)" : "warm"}</span>}
               <span className="muted">
                 {agoText(stage.to).replace(" ago", "")} to {agoText(stage.from)}
               </span>

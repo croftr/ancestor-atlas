@@ -341,10 +341,6 @@
 }
 .hud-value.sea { color: #7cc4ff; }
 .hud-sub { font-size: 0.72rem; color: #8b95ab; }
-/* Before a record reaches: the gauge dims, the value reads "—". */
-.hud-gauge.no-record svg { opacity: 0.35; filter: grayscale(1); }
-.hud-gauge.no-record .hud-value { color: #6f7a92; text-shadow: none; }
-.hud-gauge.no-record .hud-sub { display: inline; }
 .hud-thermo { width: 30px; height: 64px; overflow: visible; }
 .hud-sea { width: 128px; height: 66px; border-radius: 8px; overflow: hidden; }
 .hud-glass { fill: rgba(255, 255, 255, 0.06); stroke: rgba(255, 255, 255, 0.28); stroke-width: 1; }

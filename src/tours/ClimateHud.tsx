@@ -16,8 +16,9 @@ const SEA_MAX = 20;
  * While a tour plays (desktop), the climate of the slider's moment takes the search bar's place at the
  * top: a thermometer and a cross-section of a coast with the sea of the time. The climate panel then
  * leaves those facts out (ClimatePanel.tsx). Not during the title card or behind the "Start tour" gate,
- * and only where there is a record to show (Rob's call): from about 800,000 years ago on. In the short
- * stretch where only the sea-level record reaches (783,000–798,000 years ago) the thermometer dims.
+ * and only where there is a record to show (Rob's call). Before the temperature record (783,000 years
+ * ago) the thermometer is a simpler one, read from the ice-volume record (LR04 δ18O, back to 5.3 million
+ * years): no degrees, just warm or cold stage and how much ice; the sea level shows only where it is known.
  */
 export function useClimateHud(): boolean {
   const showing = useStore((s) => !!s.tour && !s.tour.intro && !s.tour.gate);
@@ -26,8 +27,17 @@ export function useClimateHud(): boolean {
   const climate = useClimate();
   if (!showing || stacked || !climate) return false;
   const at = climateAt(climate, year);
-  return at.temperature !== undefined || at.sea !== undefined;
+  return at.temperature !== undefined || at.sea !== undefined || at.d18o !== undefined;
 }
+
+/** LR04 δ18O (‰) for the simple thermometer's empty and full ends: the deepest glacials and the warm Pliocene. */
+const D18O_COLD = 5.0;
+const D18O_WARM = 2.6;
+/** Today's LR04 value, marked on the simple thermometer as the gold tick. */
+const D18O_TODAY = 3.2;
+const iceFill = (d: number) => (D18O_COLD - d) / (D18O_COLD - D18O_WARM);
+/** The simple thermometer's colour: the exact one's palette at the same fill, so the two read alike. */
+const iceColor = (d: number) => tempColor(T_MIN + iceFill(d) * (T_MAX - T_MIN));
 
 /** Ice blue (cold) through slate to amber (warm), by °C against pre-industrial. */
 function tempColor(t: number): string {
@@ -45,14 +55,16 @@ function tempColor(t: number): string {
   return `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
 }
 
-function Thermometer({ t }: { t: number | undefined }) {
+/**
+ * `fill` 0..1 of the tube; `ticks` as fractions, `today` the gold one (0 °C, or today's ice), with
+ * `label` beside it when the scale is in degrees.
+ */
+function Thermometer({ fill, color, ticks, today, label }: { fill: number; color: string; ticks: number[]; today: number; label?: string }) {
   // Tube from y 6 to 54 (48 units), bulb below it.
   const top = 6;
   const len = 48;
-  const ty = (v: number) => top + len * (1 - (v - T_MIN) / (T_MAX - T_MIN));
-  const f = t === undefined ? 0 : Math.min(1, Math.max(0.02, (t - T_MIN) / (T_MAX - T_MIN)));
-  const color = t === undefined ? "rgba(255, 255, 255, 0.25)" : tempColor(t);
-  const ticks = [-8, -6, -4, -2, 0, 2];
+  const ty = (f: number) => top + len * (1 - f);
+  const f = Math.min(1, Math.max(0.02, fill));
   return (
     <svg className="hud-thermo" viewBox="0 0 34 72" aria-hidden="true">
       <rect className="hud-glass" x="8" y="2" width="10" height="58" rx="5" />
@@ -69,19 +81,20 @@ function Thermometer({ t }: { t: number | undefined }) {
       />
       <circle cx="13" cy="62" r="6" style={{ fill: color }} className="hud-thermo-bulb" />
       {ticks.map((v) => (
-        <line key={v} className={v === 0 ? "hud-tick zero" : "hud-tick"} x1="20" x2={v === 0 ? 27 : 24} y1={ty(v)} y2={ty(v)} />
+        <line key={v} className="hud-tick" x1="20" x2="24" y1={ty(v)} y2={ty(v)} />
       ))}
-      <text className="hud-tick-label" x="28" y={ty(0) + 3}>0</text>
+      <line className="hud-tick zero" x1="20" x2="27" y1={ty(today)} y2={ty(today)} />
+      {label && <text className="hud-tick-label" x="28" y={ty(today) + 3}>{label}</text>}
     </svg>
   );
 }
 
-function SeaSection({ m }: { m: number | undefined }) {
+function SeaSection({ m }: { m: number }) {
   const clip = useId();
   // Height in the section: today's sea near the top, the Ice Age's lowest near the bottom.
   const sy = (v: number) => 14 + ((SEA_MAX - v) * 52) / (SEA_MAX - SEA_MIN);
   const today = sy(0);
-  const level = m === undefined ? today : sy(Math.min(SEA_MAX, Math.max(SEA_MIN, m)));
+  const level = sy(Math.min(SEA_MAX, Math.max(SEA_MIN, m)));
   // A coast: hills on the right, the continental shelf sloping gently out under today's sea, then the deep.
   const surface = "M140,6 C126,6 114,10 104,17 C100,20 96,21 90,22 L34,58 C26,63 16,68 0,70";
   const land = `${surface} L0,72 L140,72 Z`;
@@ -100,7 +113,7 @@ function SeaSection({ m }: { m: number | undefined }) {
       </g>
       <path className="hud-land" d={land} />
       {/* The shore that was dry then and is under the sea today (the exposed shelf), or the reverse. */}
-      {m !== undefined && <path className={m < 0 ? "hud-shelf" : "hud-flooded"} d={surface} clipPath={`url(#${clip})`} />}
+      <path className={m < 0 ? "hud-shelf" : "hud-flooded"} d={surface} clipPath={`url(#${clip})`} />
       <line className="hud-today" x1="0" x2="140" y1={today} y2={today} />
       <text className="hud-today-label" x="136" y={today - 3} textAnchor="end">today</text>
     </svg>
@@ -115,32 +128,52 @@ export default function ClimateHud() {
   const at = climateAt(climate, year);
   const t = at.temperature;
   const m = at.sea?.m;
+  const d = at.d18o;
+  const tFill = (v: number) => (v - T_MIN) / (T_MAX - T_MIN);
   return (
     <div className="climate-hud" role="group" aria-label="Climate at this moment">
-      <div className={`hud-gauge${t === undefined ? " no-record" : ""}`}>
-        <Thermometer t={t} />
-        <div className="hud-read">
-          <span className="hud-label">Global temperature</span>
-          <strong className="hud-value" style={t !== undefined ? { color: tempColor(t) } : undefined}>
-            {t !== undefined ? signed(t, "°C", 1) : "—"}
-          </strong>
-          <span className="hud-sub">{t !== undefined ? "vs pre-industrial" : "no record this far back"}</span>
+      {t !== undefined ? (
+        <div className="hud-gauge">
+          <Thermometer fill={tFill(t)} color={tempColor(t)} ticks={[-8, -6, -4, -2, 2].map(tFill)} today={tFill(0)} label="0" />
+          <div className="hud-read">
+            <span className="hud-label">Global temperature</span>
+            <strong className="hud-value" style={{ color: tempColor(t) }}>
+              {signed(t, "°C", 1)}
+            </strong>
+            <span className="hud-sub">vs pre-industrial</span>
+          </div>
         </div>
-      </div>
-      {at.d18o !== undefined && (
+      ) : (
+        d !== undefined && (
+          // Beyond the temperature record: warm or cold, from the ice locked up on land (no degrees).
+          <div className="hud-gauge">
+            <Thermometer fill={iceFill(d)} color={iceColor(d)} ticks={[0.2, 0.4, 0.6, 0.8]} today={iceFill(D18O_TODAY)} />
+            <div className="hud-read">
+              <span className="hud-label">Climate</span>
+              <strong className="hud-value" style={{ color: iceColor(d) }}>
+                {at.stage ? (at.stage.cold ? "Cold (glacial)" : "Warm") : climateWords(d)}
+              </strong>
+              <span className="hud-sub">{at.stage ? climateWords(d) : "from the ice record"}</span>
+            </div>
+          </div>
+        )
+      )}
+      {t !== undefined && d !== undefined && (
         <div className="hud-state">
-          <span className="hud-swatch" style={{ background: climateColor(at.d18o) }} />
-          {climateWords(at.d18o)}
+          <span className="hud-swatch" style={{ background: climateColor(d) }} />
+          {climateWords(d)}
         </div>
       )}
-      <div className={`hud-gauge${m === undefined ? " no-record" : ""}`}>
-        <SeaSection m={m} />
-        <div className="hud-read">
-          <span className="hud-label">Sea level</span>
-          <strong className="hud-value sea">{m !== undefined ? signed(Math.round(m), "m") : "—"}</strong>
-          <span className="hud-sub">{m !== undefined ? "vs today" : "no record this far back"}</span>
+      {m !== undefined && (
+        <div className="hud-gauge">
+          <SeaSection m={m} />
+          <div className="hud-read">
+            <span className="hud-label">Sea level</span>
+            <strong className="hud-value sea">{signed(Math.round(m), "m")}</strong>
+            <span className="hud-sub">vs today</span>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
