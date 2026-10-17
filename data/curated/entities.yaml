@@ -1602,6 +1602,9 @@
       credit: Mapped History, YouTube
 - id: carthage
   description: A premier Phoenician maritime empire based in modern Tunisia, founded by Tyrian settlers in the 9th century BCE. Dominating western Mediterranean sea lanes through a vast commercial navy, wealthy trading colonies, and agricultural estates, Carthage fought epic conflicts with Syracuse and Rome during the Punic Wars before its destruction in 146 BCE.
+  image_url: /images/civilisations/carthage.webp
+  image_credit: AI-generated illustration
+  image_caption: "The circular military cothon harbor of Carthage lined with vaulted ship-sheds and Admiralty island, Punic quinqueremes, and the Byrsa citadel crowned by the Temple of Eshmun"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=01CZBhZM430
@@ -2707,6 +2710,9 @@
       credit: From History, YouTube
 - id: xiongnu
   description: A formidable pastoral nomadic confederation that unified the Mongolian steppe under Modu Chanyu in the late 3rd century BCE. Fielding hundreds of thousands of horse archers, the Xiongnu built the first great nomadic empire in Inner Asia, extracting trade and tribute from Han China and prompting the construction of the Great Wall.
+  image_url: /images/civilisations/xiongnu.webp
+  image_credit: AI-generated illustration
+  image_caption: "Xiongnu seasonal encampment on the Mongolian steppe with felt yurts, four-wheeled wagons, horse archers, a bronze ritual cauldron, and grazing livestock"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bFpQjWtpHcM

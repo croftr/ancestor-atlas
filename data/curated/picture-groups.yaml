@@ -105,17 +105,27 @@
 
 - id: carthage
   label: the Punic world and Carthage in general
-  image_url: /images/civilisations/phoenicia-carthage.webp
+  image_url: /images/civilisations/carthage.webp
   image_credit: AI-generated illustration
   members: [carthage]
 
-- id: ancient-levant-arabia
-  label: Ancient Levant and Arabia in general
-  image_url: /images/civilisations/ancient-levant-arabia.webp
+- id: ancient-israel-judah
+  label: ancient Israel and Judah in general
+  image_url: /images/civilisations/ancient-israel-judah.webp
   image_credit: AI-generated illustration
-  members:
-    [kingdom-of-israel, kingdom-of-judah, judea, philistia, nabataeans, sabaeans, hadhramaut,
-     minaeans, qataban, himyarite-kingdom]
+  members: [kingdom-of-israel, kingdom-of-judah, judea, philistia]
+
+- id: nabataean-kingdom
+  label: the Nabataean kingdom in general
+  image_url: /images/civilisations/nabataean-kingdom.webp
+  image_credit: AI-generated illustration
+  members: [nabataeans]
+
+- id: ancient-south-arabia
+  label: ancient South Arabia and the incense kingdoms in general
+  image_url: /images/civilisations/ancient-south-arabia.webp
+  image_credit: AI-generated illustration
+  members: [sabaeans, hadhramaut, minaeans, qataban, himyarite-kingdom]
 
 - id: hittite-anatolia
   label: Ancient Anatolia and the Caucasus in general
@@ -130,13 +140,13 @@
 
 - id: steppe-nomads
   label: Eurasian Steppe Nomads in general
-  image_url: /images/civilisations/steppe-nomads.webp
+  image_url: /images/civilisations/xiongnu.webp
   image_credit: AI-generated illustration
-  members: [scythia, xiongnu, yuezhi, wusun, indo-scythians]
+  members: [scythia, yuezhi, wusun, indo-scythians]
 
 - id: hellenistic-world
   label: the Hellenistic world in general
-  image_url: /images/civilisations/ancient-greece.webp
+  image_url: /images/civilisations/hellenistic-world.webp
   image_credit: AI-generated illustration
   members:
     [macedonian-empire, ptolemaic-kingdom, seleucid-empire, antigonid-macedonia,
