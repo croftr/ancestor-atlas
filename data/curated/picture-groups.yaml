@@ -89,21 +89,32 @@
      janapada-of-kuru, janapada-of-magadha, janapada-of-malla, janapada-of-matsya,
      janapada-of-pancala, janapada-of-surasena, janapada-of-vajji, janapada-of-vatsa,
      magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
-     shunga-empire, kanva-dynasty, satavahana-dynasty, kalinga, mahameghavahana-dynasty,
-     early-cheras, early-cholas, early-pandyas, anuradhapura]
+     shunga-empire, kanva-dynasty, satavahana-dynasty, kalinga, mahameghavahana-dynasty]
 
-- id: phoenicia-carthage
-  label: Phoenician and Carthaginian world in general
+- id: tamil-sangam
+  label: the Tamil Sangam and early South Indian kingdoms in general
+  image_url: /images/civilisations/tamil-sangam.webp
+  image_credit: AI-generated illustration
+  members: [early-cheras, early-cholas, early-pandyas, anuradhapura]
+
+- id: phoenicia
+  label: the Phoenician maritime world in general
+  image_url: /images/civilisations/phoenicia.webp
+  image_credit: AI-generated illustration
+  members: [phoenicia, phoenician-colonies]
+
+- id: carthage
+  label: the Punic world and Carthage in general
   image_url: /images/civilisations/phoenicia-carthage.webp
   image_credit: AI-generated illustration
-  members: [phoenicia, phoenician-colonies, carthage, philistia]
+  members: [carthage]
 
 - id: ancient-levant-arabia
   label: Ancient Levant and Arabia in general
   image_url: /images/civilisations/ancient-levant-arabia.webp
   image_credit: AI-generated illustration
   members:
-    [kingdom-of-israel, kingdom-of-judah, judea, nabataeans, sabaeans, hadhramaut,
+    [kingdom-of-israel, kingdom-of-judah, judea, philistia, nabataeans, sabaeans, hadhramaut,
      minaeans, qataban, himyarite-kingdom]
 
 - id: hittite-anatolia

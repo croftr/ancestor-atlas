@@ -167,7 +167,16 @@ export default function CivilizationsPage() {
                     <div className="cv-group-head">
                       <button className="cv-group-toggle" onClick={() => toggle(group.id)} aria-expanded={isOpen} disabled={filtering}>
                         <span className="br-img cv-group-img" style={{ "--swatch": group.color ?? CATEGORY_STYLE.civilization.color } as CSSProperties}>
-                          {pic && <img src={pic.url} alt="" loading="lazy" onError={(e) => (e.currentTarget.style.display = "none")} />}
+                          {pic && (
+                            <img
+                              src={pic.url}
+                              srcSet={`${pic.url.replace(/\.webp$/, "-600.webp")} 600w, ${pic.url} 1200w`}
+                              sizes="64px"
+                              alt=""
+                              loading="lazy"
+                              onError={(e) => (e.currentTarget.style.display = "none")}
+                            />
+                          )}
                         </span>
                         <span className="cv-group-text">
                           <span className="cv-group-name">{group.name}</span>
