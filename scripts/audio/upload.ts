@@ -10,10 +10,14 @@ const files = ["data/curated/events.yaml", "data/curated/entities.yaml", "src/to
 const keys = [...new Set(files.flatMap((f) => readFileSync(f, "utf8").match(/\b(?:narration|music|ambience)\/[a-z]+\/[a-z0-9-]+-v\d+\.mp3/g) ?? []))].sort();
 
 const missing: string[] = [];
+// A few at a time: all of them at once (130+) time out connecting.
+const queue = [...keys];
 await Promise.all(
-  keys.map(async (key) => {
-    const res = await fetch(`${MEDIA_BASE_DEFAULT}/${key}`, { method: "HEAD" });
-    if (res.status !== 200) missing.push(key);
+  Array.from({ length: 8 }, async () => {
+    for (let key; (key = queue.shift()); ) {
+      const res = await fetch(`${MEDIA_BASE_DEFAULT}/${key}`, { method: "HEAD" });
+      if (res.status !== 200) missing.push(key);
+    }
   }),
 );
 console.log(`${keys.length} clips referenced, ${missing.length} not in the bucket yet`);
