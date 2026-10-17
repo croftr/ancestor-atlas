@@ -15,8 +15,8 @@ dropped. Tour polish items already in CLAUDE.md's backlog are not repeated here.
 
 ## Features
 
-- [ ] **Family tree view.** A cladogram of the 26 species, built from their spans and the contemporaries data;
-  click a branch to jump the globe and slider there. Needs a sourced phylogeny (e.g. a recent review's cladogram).
+- [x] **Family tree view.** Done 17 Oct 2026: a List / Family tree switch on the Species page, see CLAUDE.md
+  "Family tree". Possible next steps: check the citations against the papers; draw interbreeding (below) on it.
 - [ ] **"Where and when?" game.** Show a picture; the player drops a pin and sets the slider; score on distance and
   years off. Reuses pictures, dated points and the slider.
 - [ ] **Build and share your own tour.** Tours are lists of entity ids, so a user's tour fits in the URL: an "add

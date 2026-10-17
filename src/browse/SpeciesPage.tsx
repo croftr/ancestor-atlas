@@ -5,7 +5,8 @@ import { navigate, useOpenItem } from "../route";
 import { formatRange, yearToPos } from "../time/scale";
 import { erasFor, firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity, FeatureProps } from "../types";
-import { summaryOf } from "./browse";
+import { scaleLabel, scaleTicks, summaryOf } from "./browse";
+import FamilyTree from "./FamilyTree";
 import EntityDetail from "./EntityDetail";
 import Totals from "./Totals";
 import { videoCount } from "../youtube";
@@ -13,8 +14,6 @@ import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
 
-/** Years marked on the shared time scale above the list (those inside the species' span). */
-const SCALE_YEARS = [-7_000_000, -5_000_000, -3_000_000, -2_000_000, -1_000_000, -500_000, -200_000, -100_000, -50_000];
 /**
  * Fossil finds at a site: the specimens ROAD catalogues there (FeatureProps.finds); a site without a ROAD record
  * stands for at least one fossil and counts as one.
@@ -25,19 +24,37 @@ const count = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString(
 const FINDS_NOTE =
   "Fossil finds are individual specimens (a skull, a jaw, a tooth) as catalogued in ROAD; a site with no ROAD record counts as one find.";
 
-/** "7M", "500k" (the scale's caption says "years ago"). */
-const scaleLabel = (year: number) => (-year >= 1_000_000 ? `${-year / 1_000_000}M` : `${-year / 1000}k`);
+/** List or family tree, remembered (a convenience: the list when storage is unavailable). */
+type Layout = "list" | "tree";
+const LAYOUT_KEY = "species-layout";
+const readLayout = (): Layout => {
+  try {
+    return localStorage.getItem(LAYOUT_KEY) === "tree" ? "tree" : "list";
+  } catch {
+    return "list";
+  }
+};
 
 /**
  * Species page (#/species): every species in the order it appeared, numbered, grouped by era
  * (as on the Events page). Each row's bar sits on one time scale shared by the whole page (the
  * time slider's compressed scale, so the recent species aren't slivers), which shows at a glance
- * who came when and who lived alongside whom.
+ * who came when and who lived alongside whom. The Family tree switch draws the same bars joined
+ * into a tree (FamilyTree.tsx).
  */
 export default function SpeciesPage() {
   const data = useData();
   const openId = useOpenItem();
   const [eraFilter, setEraFilter] = useState<string | null>(null);
+  const [layout, setLayoutState] = useState<Layout>(readLayout);
+  const setLayout = (l: Layout) => {
+    setLayoutState(l);
+    try {
+      localStorage.setItem(LAYOUT_KEY, l);
+    } catch {
+      // Not remembered; fine.
+    }
+  };
 
   const { species, eras, axis, tally } = useMemo(() => {
     const tally = new Map<string, { sites: number; finds: number }>();
@@ -66,13 +83,7 @@ export default function SpeciesPage() {
     const left = Math.max(0, at(s.start_year));
     return { left: `${left}%`, width: `${Math.max(1, Math.min(100 - left, at(s.end_year) - left))}%` };
   };
-  // Scale marks, oldest first, skipping any that would crowd the one before (the compressed
-  // scale bunches the millions together).
-  const ticks: { y: number; x: number }[] = [];
-  for (const y of SCALE_YEARS) {
-    const x = at(y);
-    if (x >= 2 && x <= 96 && (ticks.length === 0 || x - ticks[ticks.length - 1].x >= 12)) ticks.push({ y, x });
-  }
+  const ticks = scaleTicks(at);
 
   const shown = eras.filter((e) => eraFilter === null || e.label === eraFilter);
   const visible = shown.flatMap((e) => e.species);
@@ -104,79 +115,97 @@ export default function SpeciesPage() {
             { label: "Fossil finds", value: totalFinds, title: FINDS_NOTE },
           ]}
         />
-        <div className="ev-filters" role="group" aria-label="Filter by era">
-          <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
-            All eras
-          </button>
-          {eras.map((e) => (
-            <button
-              key={e.label}
-              className={`chip${eraFilter === e.label ? " active" : ""}`}
-              aria-pressed={eraFilter === e.label}
-              onClick={() => setEraFilter(eraFilter === e.label ? null : e.label)}
-            >
-              {e.label} <span className="ev-chip-count">{e.species.length}</span>
-            </button>
-          ))}
+        <div className="ev-filters">
+          <span className="sp-layout" role="group" aria-label="Show as">
+            {(["list", "tree"] as const).map((l) => (
+              <button key={l} className={`chip${layout === l ? " active" : ""}`} aria-pressed={layout === l} onClick={() => setLayout(l)}>
+                {l === "list" ? "List" : "Family tree"}
+              </button>
+            ))}
+          </span>
+          {/* The tree needs every species, so the era filter is for the list only. */}
+          {layout === "list" && (
+            <span className="sp-eras" role="group" aria-label="Filter by era">
+              <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
+                All eras
+              </button>
+              {eras.map((e) => (
+                <button
+                  key={e.label}
+                  className={`chip${eraFilter === e.label ? " active" : ""}`}
+                  aria-pressed={eraFilter === e.label}
+                  onClick={() => setEraFilter(eraFilter === e.label ? null : e.label)}
+                >
+                  {e.label} <span className="ev-chip-count">{e.species.length}</span>
+                </button>
+              ))}
+            </span>
+          )}
         </div>
       </header>
 
-      <main className="ev-main sp-main">
-        <p className="muted sp-note">{FINDS_NOTE}</p>
-        {/* The shared scale every row's bar is drawn on. */}
-        <div className="sp-scale" aria-hidden="true">
-          <span className="sp-scale-track">
-            {ticks.map((t) => (
-              <span key={t.y} className="sp-tick" style={{ left: `${t.x}%` }}>
-                {scaleLabel(t.y)}
-              </span>
-            ))}
-          </span>
-          <span className="sp-scale-caption">years ago</span>
-        </div>
-
-        {shown.map((era) => (
-          <section key={era.label} className="sp-era" aria-labelledby={`sp-era-${era.label}`}>
-            <h2 id={`sp-era-${era.label}`}>
-              {era.label}{" "}
-              <span className="muted">
-                {count(era.species.length, "species", "species")} · {count(era.sites, "fossil site")} · {count(era.finds, "fossil find")}
-              </span>
-            </h2>
-            <ol className="sp-list">
-              {era.species.map((s) => {
-                const { sites: n, finds } = tally.get(s.id) ?? { sites: 0, finds: 0 };
-                const order = species.indexOf(s) + 1;
-                const summary = summaryOf(s, firstSentence);
-                return (
-                  <li key={s.id}>
-                    <button className="sp-row" onClick={() => navigate("species", s.id)}>
-                      <span className="sp-order" aria-label={`Number ${order} to appear`}>{order}</span>
-                      <span className="br-img sp-img">
-                        {s.image_url && <img src={s.image_url} alt="" loading="lazy" onError={(e) => (e.currentTarget.style.display = "none")} />}
-                      </span>
-                      <span className="sp-text">
-                        <span className="sp-name">{s.name}</span>
-                        <span className="sp-date">{formatRange(s.start_year, s.end_year)}</span>
-                        <span className="br-bar sp-bar" aria-hidden>
-                          {ticks.map((t) => <i key={t.y} className="sp-grid" style={{ left: `${t.x}%` }} />)}
-                          <span style={bar(s)} />
+      {layout === "tree" ? (
+        <main className="ev-main ft-main">
+          <FamilyTree species={species} />
+        </main>
+      ) : (
+        <main className="ev-main sp-main">
+          <p className="muted sp-note">{FINDS_NOTE}</p>
+          {/* The shared scale every row's bar is drawn on. */}
+          <div className="sp-scale" aria-hidden="true">
+            <span className="sp-scale-track">
+              {ticks.map((t) => (
+                <span key={t.y} className="sp-tick" style={{ left: `${t.x}%` }}>
+                  {scaleLabel(t.y)}
+                </span>
+              ))}
+            </span>
+            <span className="sp-scale-caption">years ago</span>
+          </div>
+  
+          {shown.map((era) => (
+            <section key={era.label} className="sp-era" aria-labelledby={`sp-era-${era.label}`}>
+              <h2 id={`sp-era-${era.label}`}>
+                {era.label}{" "}
+                <span className="muted">
+                  {count(era.species.length, "species", "species")} · {count(era.sites, "fossil site")} · {count(era.finds, "fossil find")}
+                </span>
+              </h2>
+              <ol className="sp-list">
+                {era.species.map((s) => {
+                  const { sites: n, finds } = tally.get(s.id) ?? { sites: 0, finds: 0 };
+                  const order = species.indexOf(s) + 1;
+                  const summary = summaryOf(s, firstSentence);
+                  return (
+                    <li key={s.id}>
+                      <button className="sp-row" onClick={() => navigate("species", s.id)}>
+                        <span className="sp-order" aria-label={`Number ${order} to appear`}>{order}</span>
+                        <span className="br-img sp-img">
+                          {s.image_url && <img src={s.image_url} alt="" loading="lazy" onError={(e) => (e.currentTarget.style.display = "none")} />}
                         </span>
-                        <span className="sp-meta muted">
-                          Lived {shortDuration(s.end_year - s.start_year)}
-                          {n > 0 && <> · {count(n, "fossil site")} · <span title={FINDS_NOTE}>{count(finds, "fossil find")}</span></>}
-                          {s.media && s.media.length > 0 && <> · <span className="nowrap">{videoCount(s.media.length)}</span></>}
+                        <span className="sp-text">
+                          <span className="sp-name">{s.name}</span>
+                          <span className="sp-date">{formatRange(s.start_year, s.end_year)}</span>
+                          <span className="br-bar sp-bar" aria-hidden>
+                            {ticks.map((t) => <i key={t.y} className="sp-grid" style={{ left: `${t.x}%` }} />)}
+                            <span style={bar(s)} />
+                          </span>
+                          <span className="sp-meta muted">
+                            Lived {shortDuration(s.end_year - s.start_year)}
+                            {n > 0 && <> · {count(n, "fossil site")} · <span title={FINDS_NOTE}>{count(finds, "fossil find")}</span></>}
+                            {s.media && s.media.length > 0 && <> · <span className="nowrap">{videoCount(s.media.length)}</span></>}
+                          </span>
+                          {summary && <span className="sp-summary">{summary}</span>}
                         </span>
-                        {summary && <span className="sp-summary">{summary}</span>}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-          </section>
-        ))}
-      </main>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          ))}
+        </main>
+      )}
 
       {open && open.category === "species" && (
         <EntityDetail

@@ -231,6 +231,20 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   is on, its genome sites are ringed in the culture colour (`dna-culture` layer).
 - Not yet checked on phones.
 
+## Family tree (added 17 Oct 2026)
+
+- Species page switch List / Family tree (remembered in localStorage `species-layout`; the era chips are list-only).
+  `src/browse/FamilyTree.tsx` draws each species as a bar over its span, joined at branching points; time runs on
+  the fourth root of years ago (the slider's scale left the Pliocene branches too cramped). A name opens the
+  species, a bar shows it on the globe (`focusEntity`), a dot opens the branching point's notes (side panel on
+  desktop, bottom sheet under 1000 px).
+- The tree is in `src/browse/phylogeny.ts` (in the app, not the data pipeline). No single study places all 26
+  species, so it is built point by point (Rob's choice): each clade has `support` (supported | debated |
+  unresolved, drawn solid / dashed / dotted; unresolved = polytomy), a plain-words `note` and `refs` into `REFS`.
+  Branching points carry no split dates (drawn a step left of their oldest member). The citations were written
+  from recall: check them against the papers. `phylogeny.test.ts` checks every species is placed exactly once.
+  A new species must be added to the tree (the test fails until it is).
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points
