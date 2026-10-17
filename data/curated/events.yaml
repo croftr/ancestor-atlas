@@ -413,6 +413,8 @@
   date_text: c. 10,750–9,000 years ago
   description: "In the dry hills of Oaxaca in southern Mexico, people sheltering in Guilá Naquitz Cave were growing squash more than 10,000 years ago, the earliest known crop in the Americas. Maize took longer. It was bred from teosinte, a wild grass, about 9,000 years ago, most likely in the valley of the Balsas River, and from that single beginning it spread across the Americas. Planted with beans and squash, the Three Sisters, it became the staple of the Americas' farmers."
   wikipedia_url: https://en.wikipedia.org/wiki/Maize
+  image_url: /images/events/maize-and-squash.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/maize-and-squash-1.webp, credit: "John Doebley, CC BY 3.0, via Wikimedia Commons", caption: "Teosinte (top), a maize–teosinte hybrid (middle) and maize (bottom)", source: "https://commons.wikimedia.org/wiki/File:Maize-teosinte.jpg" }
     - { url: /images/events/extra/maize-and-squash-2.webp, credit: "Mbhufford, CC BY-SA 3.0, via Wikimedia Commons", caption: "Wild teosinte, the ancestor of maize, growing in Jalisco, Mexico", source: "https://commons.wikimedia.org/wiki/File:Teosinte_Jalisco.jpg" }
@@ -448,6 +450,8 @@
   date_text: c. 9,000 years ago (drainage ditches); bananas 6,900–6,400 years ago
   description: "High in the mountains of New Guinea, at Kuk Swamp, people began digging ditches to drain the wetland about 9,000 years ago, turning it into garden land for taro. Later, between 6,900 and 6,400 years ago, they planted bananas and sugar cane. New Guinea's farmers learned from no one: it is one of the few places in the world where agriculture was invented independently, and Kuk has been a UNESCO World Heritage Site since 2008."
   wikipedia_url: https://en.wikipedia.org/wiki/Kuk_Swamp
+  image_url: /images/events/new-guinea-farming.webp
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/events/extra/new-guinea-farming-1.webp, credit: "NASA/JPL, public domain, via Wikimedia Commons", caption: "Satellite view of the highland valley around the Kuk Early Agricultural Site, New Guinea", source: "https://commons.wikimedia.org/wiki/File:Kuk_New_Guinea_2002.jpg" }
     - { url: /images/events/extra/new-guinea-farming-2.webp, credit: "gailhampshire, CC BY 2.0, via Wikimedia Commons", caption: "A house and garden in the highlands of Enga Province, Papua New Guinea", source: "https://commons.wikimedia.org/wiki/File:Hut_with_vegetable_garden_(48889647148).jpg" }
