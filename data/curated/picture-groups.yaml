@@ -79,17 +79,31 @@
   image_credit: AI-generated illustration
   members: [roman-kingdom, roman-republic, roman-empire, italian-city-states]
 
-- id: ancient-india
-  label: Ancient India in general
+- id: mahajanapadas
+  label: the Mahajanapadas and early Vedic kingdoms in general
   image_url: /images/civilisations/ancient-india.webp
   image_credit: AI-generated illustration
   members:
     [mahajanapadas, janapada-of-anga, janapada-of-asmaka, janapada-of-avanti, janapada-of-cedi,
      janapada-of-gandhara, janapada-of-kamboja, janapada-of-kasi, janapada-of-kosala,
      janapada-of-kuru, janapada-of-magadha, janapada-of-malla, janapada-of-matsya,
-     janapada-of-pancala, janapada-of-surasena, janapada-of-vajji, janapada-of-vatsa,
-     magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
-     shunga-empire, kanva-dynasty, satavahana-dynasty, kalinga, mahameghavahana-dynasty]
+     janapada-of-pancala, janapada-of-surasena, janapada-of-vajji, janapada-of-vatsa]
+
+# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
+- id: imperial-magadha
+  label: Imperial Magadha and the Maurya dynasty in general
+  image_url: /images/civilisations/imperial-magadha.webp
+  image_credit: AI-generated illustration
+  members:
+    [magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
+     shunga-empire, kanva-dynasty]
+
+# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
+- id: deccan-kingdoms
+  label: ancient Deccan and Kalinga kingdoms in general
+  image_url: /images/civilisations/deccan-kingdoms.webp
+  image_credit: AI-generated illustration
+  members: [satavahana-dynasty, kalinga, mahameghavahana-dynasty]
 
 - id: tamil-sangam
   label: the Tamil Sangam and early South Indian kingdoms in general
@@ -127,32 +141,59 @@
   image_credit: AI-generated illustration
   members: [sabaeans, hadhramaut, minaeans, qataban, himyarite-kingdom]
 
-- id: hittite-anatolia
-  label: Ancient Anatolia and the Caucasus in general
+- id: anatolian-kingdoms
+  label: Ancient Anatolian kingdoms in general
   image_url: /images/civilisations/hittite-anatolia.webp
   image_credit: AI-generated illustration
+  members: [hittites, neo-hittite-states, phrygia, lydia, tabal-kingdom]
+
+# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
+- id: urartu-and-caucasus
+  label: Ancient Armenia, Urartu and the Caucasus in general
+  image_url: /images/civilisations/urartu-and-caucasus.webp
+  image_credit: AI-generated illustration
   members:
-    [hittites, neo-hittite-states, phrygia, lydia, tabal-kingdom, kingdom-of-urartu,
-     kingdom-of-armenia, kingdom-of-pontus, kingdom-of-cappadocia, kingdom-of-commagene,
-     kingdom-of-sophene, paphlagonia, galatia, colchis, lazica, caucasian-albania,
-     caucasian-iberia, kingdom-of-adiabene, kingdom-of-gordyene, kingdom-of-osroene,
+    [kingdom-of-urartu, kingdom-of-armenia, colchis, lazica, caucasian-albania,
+     caucasian-iberia]
+
+# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
+- id: hellenistic-anatolian-kingdoms
+  label: Hellenistic and Roman-era Anatolian kingdoms in general
+  image_url: /images/civilisations/hellenistic-anatolia.webp
+  image_credit: AI-generated illustration
+  members:
+    [kingdom-of-pontus, kingdom-of-cappadocia, kingdom-of-commagene, kingdom-of-sophene,
+     paphlagonia, galatia, kingdom-of-adiabene, kingdom-of-gordyene, kingdom-of-osroene,
      kingdom-of-bithynia]
 
 - id: steppe-nomads
   label: Eurasian Steppe Nomads in general
-  image_url: /images/civilisations/xiongnu.webp
+  image_url: /images/civilisations/steppe-nomads.webp
   image_credit: AI-generated illustration
   members: [scythia, yuezhi, wusun, indo-scythians]
 
-- id: hellenistic-world
-  label: the Hellenistic world in general
+- id: hellenistic-aegean
+  label: the Macedonian Empire and Aegean Hellenistic kingdoms in general
   image_url: /images/civilisations/hellenistic-world.webp
   image_credit: AI-generated illustration
   members:
-    [macedonian-empire, ptolemaic-kingdom, seleucid-empire, antigonid-macedonia,
-     antigonid-dynasty, greco-bactrian-kingdom, indo-greeks, kingdom-of-pergamon,
+    [macedonian-empire, antigonid-macedonia, antigonid-dynasty, kingdom-of-pergamon,
      kingdom-of-lysimachus, rhodes, sacred-band-of-thebes, greek-colonies,
      cimmerian-bosporus, molossians, perdiccas, polyperchon, laomedon]
+
+# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
+- id: ptolemaic-egypt
+  label: the Ptolemaic Kingdom of Egypt in general
+  image_url: /images/civilisations/ptolemaic-egypt.webp
+  image_credit: AI-generated illustration
+  members: [ptolemaic-kingdom]
+
+# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
+- id: eastern-hellenistic
+  label: the Seleucid Empire and Greco-Bactrian kingdoms in general
+  image_url: /images/civilisations/eastern-hellenistic.webp
+  image_credit: AI-generated illustration
+  members: [seleucid-empire, greco-bactrian-kingdom, indo-greeks]
 
 - id: ancient-korea
   label: Ancient Korea in general
