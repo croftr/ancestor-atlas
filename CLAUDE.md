@@ -48,9 +48,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Events (`data/curated/events.yaml`)
 
-- 38 major events (category `event`): 29 from Rob's list and additions, Oct 2026, plus 9 on domestication added 17 Oct
-  2026 for a planned domestication tour (cattle and pigs, Mesoamerica, China, New Guinea, milk, the Andes, Africa,
-  horse, chicken; Commons photos, narration and ambience done; title pictures from Rob to come). Each has a best `year` (optional `start_year`/`end_year`
+- 38 major events (category `event`): 29 from Rob's initial list plus 9 domestication events added 17 Oct 2026
+  (cattle and pigs, Mesoamerica, China, New Guinea, milk, the Andes, Africa, horse, chicken). All 38 events have
+  bespoke 1000x1000 square WebP title cards with painted serif titles in `public/images/events/`, authentic Commons
+  photos in `extra_images`, and narration/ambience. Each has a best `year` (optional `start_year`/`end_year`
   range), `date_text`, a paragraph `description`, `related` entity ids, and `places` (one globe point each).
 - Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
@@ -396,7 +397,22 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   point's date text names them and `data/build/xronos-set-aside.csv` lists them for review.
 - Dates on human remains also become H. sapiens points (60,000–10,000 BCE).
 - Each point links its XRONOS record and carries lab numbers, all publications (page cites merged) and the
-  compilations the dates came from.
+## Images & Illustration Queue
+
+- **Conventions**:
+  - **Events**: 1000×1000 square WebP (quality 85) in `public/images/events/`. Title is painted directly into the upper scene in warm cream serif lettering with subtle drop shadow.
+  - **Cultures & Civilizations**: 1200×900 (4:3) WebP in `public/images/cultures/` or `public/images/civilisations/`, plus a 600×450 companion (`<name>-600.webp`). NO painted lettering.
+  - **Authentic Museum Galleries (`extra_images`)**: High-res artifact photos from Wikimedia Commons (CC / Public Domain) in `public/images/extra/<id>-<n>.webp` (max dimension 1200px, quality 85). Every item needs `url`, `credit`, `caption`, and `source` (https URL).
+- **Check the Queue**: Run `npm run images:check` at any time to inspect placeholder groups and missing artwork.
+- **Pending AI Illustrations (6 Civilization Groups)**:
+  On 17 Oct 2026, oversized picture-groups were split and 6 new groups were assigned temporary placeholder cards pending AI image generation (e.g. after API quota reset on Tuesday 20 Oct 2026):
+  1. `imperial-magadha` -> `public/images/civilisations/imperial-magadha.webp` & `-600.webp`
+  2. `deccan-kingdoms` -> `public/images/civilisations/deccan-kingdoms.webp` & `-600.webp`
+  3. `urartu-and-caucasus` -> `public/images/civilisations/urartu-and-caucasus.webp` & `-600.webp`
+  4. `hellenistic-anatolian-kingdoms` -> `public/images/civilisations/hellenistic-anatolia.webp` & `-600.webp`
+  5. `ptolemaic-egypt` -> `public/images/civilisations/ptolemaic-egypt.webp` & `-600.webp`
+  6. `eastern-hellenistic` -> `public/images/civilisations/eastern-hellenistic.webp` & `-600.webp`
+  Detailed ready-to-copy generation prompts are saved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md). Once generated, overwrite the placeholder WebP files and their `-600.webp` counterparts, then run `npm run data:build` and commit.
 
 ## Possible next steps
 
