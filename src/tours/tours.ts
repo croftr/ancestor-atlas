@@ -213,6 +213,7 @@ export const TOURS: Tour[] = [
     layers: ["culture", "event"],
     announcement: { src: "narration/tours/domestication-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "3a87d8574b" },
     closingNarration: { src: "narration/tours/domestication-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "97d12fd67f" },
+    music: { src: "music/tours/domestication-v1.mp3", credit: "Music: \"Abandoned\" by Keys of Moon (soundcloud.com/keysofmoon), CC BY 4.0" },
     stops: [
       { entity: "dog-domestication" },
       { entity: "birth-of-agriculture" },
