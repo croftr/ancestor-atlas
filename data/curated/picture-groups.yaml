@@ -7,7 +7,7 @@
   label: early stone toolmakers in general
   image_url: /images/cultures/early-toolmakers.webp
   image_credit: AI-generated illustration
-  members: [lomekwian, oldowan]
+  members: [lomekwian, oldowan, acheulean]
 
 - id: middle-stone-age-toolmakers
   label: Middle Stone Age and Neanderthal toolmakers in general
@@ -19,7 +19,19 @@
   label: Ice Age hunter-gatherers in general
   image_url: /images/cultures/ice-age-hunters.webp
   image_credit: AI-generated illustration
-  members: [aurignacian, gravettian, epigravettian]
+  members: [aurignacian, gravettian, solutrean, magdalenian, epigravettian]
+
+- id: paleo-indian
+  label: Paleo-Indian traditions of the Americas in general
+  image_url: /images/cultures/clovis.webp
+  image_credit: AI-generated illustration
+  members: [clovis]
+
+- id: epipaleolithic-north-africa
+  label: Epipaleolithic North Africa in general
+  image_url: /images/cultures/capsian.webp
+  image_credit: AI-generated illustration
+  members: [capsian]
 
 - id: mesolithic-europe
   label: post-glacial European hunter-gatherers in general
@@ -27,20 +39,11 @@
   image_credit: AI-generated illustration
   members: [azilian, maglemosian, ertebolle]
 
-- id: early-farmers
-  label: early European farming communities in general
-  image_url: /images/cultures/early-farmers.webp
-  image_credit: AI-generated illustration
-  members:
-    [starcevo-koros-cris, lengyel, chasseen,
-     michelsberg, funnelbeaker,
-     hinkelstein-grossgartach, stichbandkeramik, rossen]
-
 - id: neolithic-near-east
   label: Neolithic communities of the Near East in general
   image_url: /images/cultures/neolithic-near-east.webp
   image_credit: AI-generated illustration
-  members: [halaf, ubaid]
+  members: [natufian, pre-pottery-neolithic, halaf, ubaid]
 
 - id: predynastic-egypt
   label: Predynastic Egypt in general
@@ -48,17 +51,26 @@
   image_credit: AI-generated illustration
   members: [badarian, naqada]
 
+- id: early-farmers
+  label: early European farming communities in general
+  image_url: /images/cultures/early-farmers.webp
+  image_credit: AI-generated illustration
+  members:
+    [starcevo-koros-cris, cardial, linear-pottery, vinca, lengyel, chasseen,
+     michelsberg, funnelbeaker, cucuteni-trypillia,
+     hinkelstein-grossgartach, stichbandkeramik, rossen]
+
 - id: copper-bronze-europe
   label: Copper and Bronze Age Europe in general
   image_url: /images/cultures/copper-bronze-europe.webp
   image_credit: AI-generated illustration
-  members: [baden, globular-amphora, unetice]
+  members: [baden, globular-amphora, corded-ware, bell-beaker, unetice]
 
 - id: bronze-age-steppe
   label: Bronze Age steppe herders in general
   image_url: /images/cultures/bronze-age-steppe.webp
   image_credit: AI-generated illustration
-  members: [yamnaya, afanasievo, andronovo]
+  members: [yamnaya, afanasievo, sintashta, andronovo]
 
 
 - id: ancient-rome
