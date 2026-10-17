@@ -48,7 +48,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Events (`data/curated/events.yaml`)
 
-- 29 major events (category `event`), from Rob's list and additions, Oct 2026. Each has a best `year` (optional `start_year`/`end_year`
+- 38 major events (category `event`): 29 from Rob's list and additions, Oct 2026, plus 9 on domestication added 17 Oct
+  2026 for a planned domestication tour (cattle and pigs, Mesoamerica, China, New Guinea, milk, the Andes, Africa,
+  horse, chicken; Commons photos, narration and ambience done; title pictures from Rob to come). Each has a best `year` (optional `start_year`/`end_year`
   range), `date_text`, a paragraph `description`, `related` entity ids, and `places` (one globe point each).
 - Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.

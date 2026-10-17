@@ -400,6 +400,7 @@
     - { url: /images/events/extra/cattle-and-pigs-1.webp, credit: "Eldrichr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Skeleton of an aurochs, the wild ancestor of cattle (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:Aurochs,_Danish_National_Museum.jpg" }
     - { url: /images/events/extra/cattle-and-pigs-2.webp, credit: "Krähenstein, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone foundations of a grill-plan building at Çayönü, southeastern Turkey", source: "https://commons.wikimedia.org/wiki/File:Cay%C3%B6n%C3%BC_-_Grillplangeb%C3%A4ude.jpg" }
   # Pigs: Pig@1377663363 (Tigris Basin; China c. 8,000 years ago); Çayönü@1373391462 (cattle management, possibly the first pigs).
+  narration: { src: narration/events/cattle-and-pigs-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "05c8f1324f" }
   date_source: wikipedia:Cattle@1379666444
   places:
     - { label: Çayönü, lat: 38.216, lon: 39.725, wikidata: Q272720 }
@@ -416,6 +417,7 @@
     - { url: /images/events/extra/maize-and-squash-1.webp, credit: "John Doebley, CC BY 3.0, via Wikimedia Commons", caption: "Teosinte (top), a maize–teosinte hybrid (middle) and maize (bottom)", source: "https://commons.wikimedia.org/wiki/File:Maize-teosinte.jpg" }
     - { url: /images/events/extra/maize-and-squash-2.webp, credit: "Mbhufford, CC BY-SA 3.0, via Wikimedia Commons", caption: "Wild teosinte, the ancestor of maize, growing in Jalisco, Mexico", source: "https://commons.wikimedia.org/wiki/File:Teosinte_Jalisco.jpg" }
   # Squash at Guilá Naquitz, 10,750–8,000 BP: Guilá_Naquitz_Cave@1364833915.
+  narration: { src: narration/events/maize-and-squash-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b58b13d8a4" }
   date_source: wikipedia:Maize@1380381805
   places:
     - { label: Guilá Naquitz Cave, lat: 16.97528, lon: -96.30889, wikidata: Q3120596 }
@@ -432,6 +434,7 @@
     - { url: /images/events/extra/rice-and-millet-1.webp, credit: "Huangchenhai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carbonized Neolithic rice from the Longqiuzhuang site, China", source: "https://commons.wikimedia.org/wiki/File:Carbonized_Rice.jpg" }
     - { url: /images/events/extra/rice-and-millet-2.webp, credit: "Editor at Large, CC BY-SA 2.5, via Wikimedia Commons", caption: "Grinding stone and roller of the Peiligang culture, about 5500–5000 BCE, for milling grain", source: "https://commons.wikimedia.org/wiki/File:CMOC_Treasures_of_Ancient_China_exhibit_-_millstone_and_roller.jpg" }
   # Millet: Cishan_culture@1333464586; Jiahu@1364837985 (7000–5700 BC, rice and millet).
+  narration: { src: narration/events/rice-and-millet-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "704ef61dc9" }
   date_source: wikipedia:History_of_rice_cultivation@1379921721
   places:
     - { label: Cishan, lat: 36.7, lon: 114.2, wikidata: Q978917, note: "place-level: the Cishan culture's Wikidata point" }
@@ -448,6 +451,7 @@
   extra_images:
     - { url: /images/events/extra/new-guinea-farming-1.webp, credit: "NASA/JPL, public domain, via Wikimedia Commons", caption: "Satellite view of the highland valley around the Kuk Early Agricultural Site, New Guinea", source: "https://commons.wikimedia.org/wiki/File:Kuk_New_Guinea_2002.jpg" }
     - { url: /images/events/extra/new-guinea-farming-2.webp, credit: "gailhampshire, CC BY 2.0, via Wikimedia Commons", caption: "A house and garden in the highlands of Enga Province, Papua New Guinea", source: "https://commons.wikimedia.org/wiki/File:Hut_with_vegetable_garden_(48889647148).jpg" }
+  narration: { src: narration/events/new-guinea-farming-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5f16783494" }
   date_source: wikipedia:Kuk_Swamp@1366154781
   places:
     - { label: Kuk Swamp, lat: -5.7825, lon: 144.33, wikidata: Q1165562 }
@@ -466,6 +470,7 @@
     - { url: /images/events/extra/dairying-2.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Detail of a Sumerian dairy frieze from Tell al-'Ubaid: a man milks a cow, with her calf beside her", source: "https://commons.wikimedia.org/wiki/File:Frise_laiterie_-_%C3%A9table.jpg" }
   # Northwestern Anatolia: Secondary_products_revolution@1325001129; Kuyavia, 5500 BC: Neolithic_Europe@1378383755;
   # lactase persistence: Lactase_persistence@1369975612.
+  narration: { src: narration/events/dairying-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ac0adf0feb" }
   date_source: wikipedia:Milk@1379624351
   places:
     - { label: Northwestern Anatolia, lat: 40.75, lon: 28.0, wikidata: Q35367, note: "region: the Sea of Marmara's Wikidata point" }
@@ -483,6 +488,7 @@
     - { url: /images/events/extra/andean-domestication-1.webp, credit: "Thayne Tuason, CC BY 4.0, via Wikimedia Commons", caption: "Potato varieties at the market in Huancayo, Peru", source: "https://commons.wikimedia.org/wiki/File:Mercado_Modelo_de_Huancayo_Peru-_Solanum_tuberosum_varieties_V.jpg" }
     - { url: /images/events/extra/andean-domestication-2.webp, credit: "Matthew Straubmuller, CC BY 2.0, via Wikimedia Commons", caption: "Llamas on the shore of Lake Titicaca, Bolivia", source: "https://commons.wikimedia.org/wiki/File:Llamas_at_Lake_Titicaca_(8360967487).jpg" }
   # Llamas, alpacas and guinea pigs: Domestication_of_vertebrates@1380130289.
+  narration: { src: narration/events/andean-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9a012fe6ab" }
   date_source: wikipedia:Potato@1378814806
   places:
     - { label: Lake Titicaca, lat: -15.825, lon: -69.325, wikidata: Q35342, note: "place-level: the lake's Wikidata point" }
@@ -585,6 +591,7 @@
     - { url: /images/events/extra/sorghum-and-millet-1.webp, credit: "RamboSD, CC BY 4.0, via Wikimedia Commons", caption: "A sorghum crop in White Nile State, Sudan", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85_%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A_%D9%81%D9%8A_%D9%88%D9%84%D8%A7%D9%8A%D8%A9_%D8%A7%D9%84%D9%86%D9%8A%D9%84_%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6_%D8%AE%D8%B1%D9%8A%D9%81_2024_%D9%85%D8%AD%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%B0%D8%B1%D8%A9_13.jpg" }
     - { url: /images/events/extra/sorghum-and-millet-2.webp, credit: "Shanmugamp7, CC BY-SA 3.0, via Wikimedia Commons", caption: "A field of pearl millet", source: "https://commons.wikimedia.org/wiki/File:Pearl_millet_-_Pennisetum_glaucum.jpg" }
   # Pearl millet: Pearl_millet@1362149378; Dhar Tichitt, 2000–300 BCE: Dhar_Tichitt@1370402705.
+  narration: { src: narration/events/sorghum-and-millet-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "a9bee3c62a" }
   date_source: wikipedia:Sorghum@1376796568
   places:
     - { label: Kassala, lat: 15.45, lon: 36.4, wikidata: Q686813, note: "place-level: the site is near the city of Kassala" }
@@ -646,6 +653,7 @@
     - { url: /images/events/extra/horse-domestication-1.webp, credit: "IAEA Imagebank, CC BY-SA 2.0, via Wikimedia Commons", caption: "Przewalski's horse, descended from the horses herded at Botai", source: "https://commons.wikimedia.org/wiki/File:Przewalski%27s_Horse_(02710137).jpg" }
     - { url: /images/events/extra/horse-domestication-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Horse skull with bronze chariot fittings, from a Shang dynasty chariot burial at Yinxu, Anyang, China", source: "https://commons.wikimedia.org/wiki/File:Shang_Chariot_%26_Horse_Skull.jpg" }
   # Botai: Botai_culture@1377173815.
+  narration: { src: narration/events/horse-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5603ce9780" }
   date_source: wikipedia:Domestication_of_the_horse@1378644603
   places:
     - { label: Volga–Don region, lat: 49.73333, lon: 44.11667, wikidata: Q3819, note: "region: Volgograd Oblast's Wikidata point, for the lower Volga–Don" }
@@ -704,6 +712,7 @@
   extra_images:
     - { url: /images/events/extra/chicken-domestication-1.webp, credit: "dhfischer, CC BY 4.0, via Wikimedia Commons", caption: "Red junglefowl, the wild ancestor of the chicken, in Khao Yai, Thailand", source: "https://commons.wikimedia.org/wiki/File:Gallus_gallus,_Khao_Yai_Lam_Ta_Khong,_Thailand_477443293.jpg" }
     - { url: /images/events/extra/chicken-domestication-2.webp, credit: "Alison Kyra Carter, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavating a Neolithic burial at Ban Non Wat, Thailand", source: "https://commons.wikimedia.org/wiki/File:Excavation_at_Ban_Non_wat.jpg" }
+  narration: { src: narration/events/chicken-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "67ca2a0a9b" }
   date_source: wikipedia:Ban_Non_Wat@1380235178
   places:
     - { label: Ban Non Wat, lat: 15.27442, lon: 102.2689, wikidata: Q806037 }

@@ -79,21 +79,27 @@ export const AMBIENCE: Record<string, Ambience> = {
   },
   "cattle-and-pigs": {
     prompt: "Neolithic village pen at morning: cattle lowing and shifting, pigs grunting and rooting in mud, a wooden gate creaking, birdsong",
+    sound: { src: "ambience/events/cattle-and-pigs-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "0813c9e747" },
   },
   "maize-and-squash": {
     prompt: "Dry hillside in southern Mexico: warm wind through tall grass and maize leaves, a stone hoe chopping soil, cicadas and distant birds",
+    sound: { src: "ambience/events/maize-and-squash-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "500e31e212" },
   },
   "rice-and-millet": {
     prompt: "Flooded rice paddy beside a river: water trickling between fields, frogs croaking, a wooden hoe splashing in mud, birds calling",
+    sound: { src: "ambience/events/rice-and-millet-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3ac0940378" },
   },
   "new-guinea-farming": {
     prompt: "Highland swamp garden in New Guinea: a digging stick cutting wet earth, water running in ditches, tropical birds and insects, light rain",
+    sound: { src: "ambience/events/new-guinea-farming-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a1aa432362" },
   },
   "dairying": {
     prompt: "Milk squirting rhythmically into a clay pot, a cow breathing and shifting its hooves, a calf calling, quiet farmyard behind",
+    sound: { src: "ambience/events/dairying-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c2de3945eb" },
   },
   "andean-domestication": {
     prompt: "High Andean grassland by a lake: cold wind, llamas humming softly, their footsteps on stony ground, a distant bird call",
+    sound: { src: "ambience/events/andean-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9dea1a9640" },
   },
   "copper-smelting": {
     prompt: "Small clay furnace roaring as leather bellows pump air in rhythmic gusts, charcoal crackling and hissing",
@@ -113,6 +119,7 @@ export const AMBIENCE: Record<string, Ambience> = {
   },
   "sorghum-and-millet": {
     prompt: "Hot savanna field at midday: dry sorghum stalks rustling in the wind, a stone grinding grain on a quern, weaver birds chattering",
+    sound: { src: "ambience/events/sorghum-and-millet-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "fbd4794bbf" },
   },
   "great-pyramid": {
     prompt: "Desert wind over sand, huge stone blocks dragged on wooden sledges, ropes creaking, rhythmic copper chisels on limestone",
@@ -124,6 +131,7 @@ export const AMBIENCE: Record<string, Ambience> = {
   },
   "horse-domestication": {
     prompt: "Open steppe: a herd of horses galloping past, hooves drumming, snorts and whinnies, wind over the grass",
+    sound: { src: "ambience/events/horse-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "12b3a0f054" },
   },
   "alphabetic-script": {
     prompt: "Desert mine in rocky hills: dry wind, a chisel scratching marks into sandstone, small stones falling, goats far away",
@@ -135,6 +143,7 @@ export const AMBIENCE: Record<string, Ambience> = {
   },
   "chicken-domestication": {
     prompt: "Tropical forest edge at dawn in Southeast Asia: a junglefowl rooster crowing, hens clucking and scratching in leaves, insects and birds",
+    sound: { src: "ambience/events/chicken-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a196add0fd" },
   },
   "iron-age": {
     prompt: "Blacksmith forging iron: heavy hammer strikes on hot metal, bellows breathing, sparks, a hiss of quenching in water",
