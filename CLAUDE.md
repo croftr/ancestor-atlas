@@ -287,6 +287,16 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   from recall: check them against the papers. `phylogeny.test.ts` checks every species is placed exactly once.
   A new species must be added to the tree (the test fails until it is).
 
+## Star background (`src/map/SpaceBackground.tsx`, added to 17 Oct 2026)
+
+- Shooting stars: one every 25–60 s (50–100 s in a tour; `METEOR_GAP`), under a second, across an upper corner heading
+  away from the globe; one in five brighter with a fading trail. Own canvas, nothing runs between them.
+- Climate tint: two glow layers (`.space-tint.cold` / `.warm` in index.css) faded in by the LR04 δ18O of the slider's
+  year (`useSkyTint`): icy blue in glacials, rose-amber in warm spells, neutral today and before the record.
+- Drift: the star canvases reach 40 px past each edge (`SKY_MARGIN`) and slide a little against the globe's
+  turning, then settle back (`--sky-x` / `--sky-y`, set in `MapView.tsx`).
+- Shooting stars and drift are off for reduced motion.
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points

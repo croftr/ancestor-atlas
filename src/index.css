@@ -33,13 +33,30 @@ button { font: inherit; color: inherit; cursor: pointer; }
     radial-gradient(ellipse 65% 45% at 60% 65%, rgba(75, 45, 25, 0.12) 0%, transparent 60%),
     radial-gradient(ellipse 95% 85% at 50% 50%, rgba(6, 12, 26, 0.35) 0%, rgba(2, 4, 10, 0.85) 100%);
 }
+/* The canvases reach SKY_MARGIN (40px) past each edge and drift a little as the globe turns
+   (--sky-x / --sky-y from map/MapView.tsx), like distant scenery. */
 .space-canvas {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
   display: block;
   pointer-events: none;
+  transform: translate3d(var(--sky-x, 0px), var(--sky-y, 0px), 0);
+}
+/* The sky's glow tinted by the climate of the moment (SpaceBackground.tsx, useSkyTint). */
+.space-tint { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 1.6s ease; }
+.space-tint.cold {
+  background-image:
+    radial-gradient(ellipse 75% 55% at 85% 18%, rgba(70, 150, 215, 0.24) 0%, rgba(40, 95, 150, 0.08) 45%, transparent 70%),
+    radial-gradient(ellipse 70% 60% at 15% 82%, rgba(110, 190, 235, 0.2) 0%, rgba(50, 110, 160, 0.07) 50%, transparent 75%),
+    linear-gradient(135deg, transparent 30%, rgba(90, 160, 220, 0.07) 50%, transparent 70%);
+}
+.space-tint.warm {
+  background-image:
+    radial-gradient(ellipse 75% 55% at 85% 18%, rgba(215, 110, 60, 0.34) 0%, rgba(140, 55, 50, 0.12) 45%, transparent 70%),
+    radial-gradient(ellipse 70% 60% at 15% 82%, rgba(200, 85, 100, 0.28) 0%, rgba(120, 45, 65, 0.1) 50%, transparent 75%),
+    linear-gradient(135deg, transparent 30%, rgba(210, 130, 70, 0.1) 50%, transparent 70%);
 }
 .space-canvas-twinkle-a {
   animation: space-twinkle-a 6s ease-in-out infinite alternate;
@@ -65,6 +82,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
     animation: none;
     opacity: 0.7;
   }
+  .space-tint { transition: none; }
 }
 .app:not(.view-globe) .space-background {
   display: none;

@@ -7,7 +7,7 @@ import { ANCHOR_SOURCE_ID, ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_
 import { polygonAnchor } from "./anchor";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
-import SpaceBackground from "./SpaceBackground";
+import SpaceBackground, { SKY_MARGIN } from "./SpaceBackground";
 import { navWidth } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
@@ -357,6 +357,42 @@ export default function MapView() {
       const p = map.getPadding();
       if (bottom !== p.bottom || left !== p.left || p.right) map.setPadding({ ...p, bottom, left, right: 0 });
     });
+
+    // The stars drift a little against the globe's turning, like distant scenery, then settle back
+    // (SpaceBackground.tsx; bounded, so the canvases' margin never shows). Off for reduced motion.
+    const sky = container.parentElement?.querySelector<HTMLElement>(".space-background");
+    let skyLastLng = map.getCenter().lng;
+    let skyLastLat = map.getCenter().lat;
+    let skyX = 0;
+    let skyY = 0;
+    let skyRaf = 0;
+    const SKY_PX_PER_DEG = 0.5;
+    const skyMax = SKY_MARGIN * 0.85;
+    const skyApply = () => {
+      sky?.style.setProperty("--sky-x", `${skyX.toFixed(1)}px`);
+      sky?.style.setProperty("--sky-y", `${skyY.toFixed(1)}px`);
+    };
+    const skySettle = () => {
+      skyX *= 0.94;
+      skyY *= 0.94;
+      if (Math.abs(skyX) + Math.abs(skyY) < 0.2) {
+        skyX = skyY = 0;
+        skyRaf = 0;
+      } else skyRaf = requestAnimationFrame(skySettle);
+      skyApply();
+    };
+    if (sky && !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches)
+      map.on("move", () => {
+        const c = map.getCenter();
+        const dLng = ((((c.lng - skyLastLng + 540) % 360) + 360) % 360) - 180;
+        skyLastLng = c.lng;
+        // Drag the globe right (the middle moves west) and the stars slide right too, but less.
+        skyX = Math.max(-skyMax, Math.min(skyMax, skyX - dLng * SKY_PX_PER_DEG));
+        skyY = Math.max(-skyMax, Math.min(skyMax, skyY + (c.lat - skyLastLat) * SKY_PX_PER_DEG));
+        skyLastLat = c.lat;
+        skyApply();
+        if (!skyRaf) skyRaf = requestAnimationFrame(skySettle);
+      });
 
     // Right-drag or Shift+drag slides the globe aside (desktop), out from under a card or panel;
     // Recentre (below) puts it back. Caught before MapLibre sees the press, so it neither turns the
@@ -1097,6 +1133,7 @@ export default function MapView() {
     return () => {
       unsubscribe();
       slideEnd();
+      cancelAnimationFrame(skyRaf);
       container.removeEventListener("mousedown", slideStart, true);
       container.removeEventListener("contextmenu", noMenu);
       stopEpilogue();
