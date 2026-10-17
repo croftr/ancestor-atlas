@@ -830,6 +830,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
   image_url: /images/civilisations/ancient-egypt.webp
   image_credit: AI-generated illustration
+  image_caption: "Nile riverbank life with a painted temple pylon and bustling market, with the Great Pyramids and Sphinx rising on the Giza plateau"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=YpKej05RgsY
@@ -852,6 +853,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Mesopotamia
   image_url: /images/civilisations/mesopotamia.webp
   image_credit: AI-generated illustration
+  image_caption: "Sumerian city along the Euphrates with a towering mudbrick ziggurat, river barges, and a scribe incising cuneiform clay tablets in the market"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=d2lJUOv0hLA
@@ -883,6 +885,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_China
   image_url: /images/civilisations/ancient-china.webp
   image_credit: AI-generated illustration
+  image_caption: "Early imperial capital with multi-tiered palace pavilions, canal bridge, and merchants trading jade ornaments, bronze ding vessels, and silk"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FwEkp4I75OA
@@ -915,6 +918,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_Iran
   image_url: /images/civilisations/persia.webp
   image_credit: AI-generated illustration
+  image_caption: "Persepolis ceremonial complex with double-bull capitals, the Apadana stairway, Persian Immortals guards, and the colossal Gate of All Nations"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=qRYdivPIWh4
@@ -938,6 +942,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Greece
   image_url: /images/civilisations/ancient-greece.webp
   image_credit: AI-generated illustration
+  image_caption: "Classical Athens with citizens and philosophers conversing in the Agora, overlooked by the Parthenon and Acropolis above the Saronic Gulf"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=oV0pOBij-wM
@@ -1382,6 +1387,7 @@
   description: The formative era of unified Egyptian civilization (First and Second Dynasties) following the unification of Upper and Lower Egypt under Narmer. Governing from the royal seat of Thinis and Memphis, this period consolidated divine kingship, codified hieroglyphic writing, established mortuary complexes at Abydos, and laid the foundations of pharaonic statecraft.
   image_url: /images/civilisations/early-dynastic-egypt.webp
   image_credit: AI-generated illustration
+  image_caption: "An early pharaoh before the whitewashed serekh palace facade at Memphis, with scribes recording cattle counts and mastaba tombs on the plateau"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=98wiu5DEABU
@@ -1391,6 +1397,7 @@
   description: Celebrated as the 'Age of the Pyramids', the Old Kingdom (Third to Sixth Dynasties) was an era of dynamic internal security, centralized pharaonic power, and monumental building along the Nile. Governed from Memphis, pharaohs marshaled royal labor to erect the Great Pyramids and the Sphinx at Giza, institutionalizing enduring religious and funerary traditions.
   image_url: /images/civilisations/old-kingdom.webp
   image_credit: AI-generated illustration
+  image_caption: "Construction of the Great Pyramid of Giza, showing teams of builders hauling stone on sledges and masons dressing Tura limestone casing beside the Sphinx"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vMieWZwJpDE
@@ -1400,6 +1407,7 @@
   description: The golden age of classical Egyptian civilization (Eleventh to Thirteenth Dynasties), reunified by Mentuhotep II following the First Intermediate Period. Ruled from Thebes and Itjtawy, this era is revered for classical Egyptian literature, monumental irrigation projects in the Faiyum oasis, fortress architecture in Nubia, and an expressive, reflective royal art style.
   image_url: /images/civilisations/middle-kingdom.webp
   image_credit: AI-generated illustration
+  image_caption: "Middle Kingdom Nile estate with domed granaries, canal excavation, scribes recording agricultural yields, and rock-cut tombs at Beni Hasan"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=8OrAJdwJ9sI
@@ -1409,6 +1417,7 @@
   description: Rulers of Levantine origin who established Egypt's Fifteenth Dynasty during the Second Intermediate Period, ruling from their fortified capital of Avaris in the eastern Nile Delta. Their presence introduced horse-drawn chariots, composite bows, and improved bronze metallurgy into Egypt before their expulsion by native Theban pharaohs.
   image_url: /images/civilisations/hyksos.webp
   image_credit: AI-generated illustration
+  image_caption: "The Delta capital of Avaris blending Canaanite and Egyptian culture, with horse-drawn chariots, bronze weapon smiths, and Syrian-style timber dwellings"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=9K-ionaiu1s
@@ -1419,6 +1428,7 @@
   narration: { src: narration/civilizations/new-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
+  image_caption: "Thebes during the Opet Festival, with priests carrying the sacred barque of Amun-Ra from a temple pylon flanked by colossal statues of Ramesses II"
   extra_images:
     - { url: /images/extra/new-kingdom-of-egypt-3.webp, credit: "Bjørn Christian Tørrissen, CC BY-SA 3.0, via Wikimedia Commons", caption: "The gold funerary mask of Pharaoh Tutankhamun (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Mask_of_Tutankhamun_2003-12-07.jpg" }
     - { url: /images/extra/new-kingdom-of-egypt-2.webp, credit: "Diego Delso, CC BY-SA 4.0, via Wikimedia Commons", caption: "The temple of Ramesses II at Abu Simbel", source: "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II,_Abu_Simbel,_Egipto,_2022-04-02,_DD_03.jpg" }
@@ -1433,6 +1443,7 @@
   description: A major Bronze Age urban civilization spanning modern Pakistan and northwestern India, centered along the Indus and Ghaggar-Hakra river basins. Renowned for sophisticated urban grid planning, baked-brick architecture, advanced hydraulic sanitation systems, and standardized weights at metropolises like Harappa and Mohenjo-daro, the civilization maintained extensive maritime trade with ancient Mesopotamia.
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
+  image_caption: "Planned Bronze Age city of Mohenjo-daro with baked-brick streets, covered drainage, ox carts, and the Citadel mound overlooking the Indus River"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=EK5fbdoEhZE
@@ -1442,6 +1453,7 @@
   description: "On the island of Crete the Minoans built Europe's first great palaces, at Knossos, Phaistos and Malia: centres of storage, craft and ritual, decorated with vivid frescoes of bulls, dolphins and processions. They traded across the eastern Mediterranean with Egypt and the Levant, and wrote in a script, Linear A, that is still undeciphered. After about 1450 BCE most of the palaces were destroyed, and Knossos came under the control of Mycenaean Greeks from the mainland."
   image_url: /images/civilisations/minoan-civilization.webp
   image_credit: AI-generated illustration
+  image_caption: "Palace of Knossos on Crete with downward-tapering red columns, dolphin frescoes, rooftop courtyards with storage pithoi, and Aegean trading galleys"
   extra_images:
     - { url: /images/extra/minoan-civilization-1.webp, credit: "Wolfgang Moroder, CC BY-SA 3.0, via Wikimedia Commons", caption: "The west court of the palace at Knossos, Crete", source: "https://commons.wikimedia.org/wiki/File:Knossos_in_Crete_west_court.jpg" }
     - { url: /images/extra/minoan-civilization-2.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The bull-leaping fresco from Knossos (Heraklion Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Bull_leaping_minoan_fresco_archmus_Heraklion.jpg" }
@@ -1457,6 +1469,7 @@
   description: A sophisticated pre-Roman civilization that flourished in Etruria (modern Tuscany, western Umbria, and northern Lazio) in central Italy. Organized into a wealthy confederation of independent city-states like Tarquinia and Veii, the Etruscans possessed advanced metalworking, terracotta sculpture, and divination traditions, deeply influencing early Roman culture, religion, and urban design.
   image_url: /images/civilisations/etruscans.webp
   image_credit: AI-generated illustration
+  image_caption: "Etruscan hilltop city with an aristocratic banquet, musicians playing aulos flutes, a terracotta-adorned temple, and rock-cut chamber tombs"
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=T22qDvgI930
@@ -1514,6 +1527,7 @@
 - id: mamertines
   description: A band of Campanian mercenary soldiers originally hired by Agathocles of Syracuse who mutinied, seized the strategic city of Messina in Sicily in 289 BCE, and conducted piracy. Their subsequent appeals for protection against Hiero II of Syracuse to both Carthage and Rome directly ignited the First Punic War in 264 BCE.
   image_url: /images/civilisations/mamertines.webp
+  image_caption: Campanian mercenaries holding the fortified harbor of Messana on the Strait of Sicily, guarding the strategic maritime gateway between Sicily and the Italian mainland.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -1523,6 +1537,7 @@
 - id: illyrian-kingdom
   description: An ancient Balkan confederation and kingdom of Illyrian tribes situated along the Adriatic coast in modern Albania, Montenegro, and Bosnia. Under rulers like King Agron and Queen Teuta, Illyria fielded formidable lembi warships that dominated Adriatic trade routes, triggering armed conflict and two wars with the Roman Republic.
   image_url: /images/civilisations/illyrian-kingdom.webp
+  image_caption: Adriatic coastal fortress of Scodra with swift lembi war galleys, chieftains in Illyrian bronze helmets trading silver ingots with Greek merchants.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -1553,6 +1568,7 @@
 - id: kingdom-of-kush
   description: A powerful ancient Nubian civilization centered along the Middle Nile in modern Sudan, with historic capitals at Kerma, Napata, and Meroë. Famed for archery, gold mining, and distinctive steep-sided pyramids, the Kushites conquered Egypt in the 8th century BCE to rule as the Twenty-Fifth Dynasty before later flourishing as an ironworking empire.
   image_url: /images/civilisations/kingdom-of-kush.webp
+  image_caption: Royal city of Meroë in Nubia with steep-sided sandstone pyramids, ironworking smiths, date palms, and caravan trade along the Upper Nile.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -1562,6 +1578,7 @@
 - id: cyrenaica
   description: A prosperous Greek settlement region on the Mediterranean coast of eastern Libya, founded in the 7th century BCE around the city of Cyrene. Renowned for its philosophers, horse racing, and monopoly on the prized medicinal plant silphium, Cyrenaica evolved from an independent monarchy into a Hellenistic kingdom before Roman annexation.
   image_url: /images/civilisations/cyrenaica.webp
+  image_caption: Greek colony of Cyrene on the Libyan plateau with the Temple of Apollo, theatre, and merchants weighing precious medicinal silphium on balance scales.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -1652,6 +1669,7 @@
 - id: mitanni
   description: A powerful Hurrian-speaking kingdom centered in northern Syria and Upper Mesopotamia that flourished as a major Near Eastern empire during the mid-second millennium BCE. Renowned for horse breeding and chariot warfare, Mitanni rivaled Egypt and the Hittite Empire before falling to Assyrian and Hittite expansion.
   image_url: /images/civilisations/mitanni.webp
+  image_caption: Hurrian capital of Washukanni with maryannu chariot warriors in pointed bronze helmets and scale armor driving war chariots outside fortified city walls.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -1948,6 +1966,7 @@
 - id: elam
   description: An ancient civilization centered in southwestern Iran across Khuzestan and the Zagros highlands, with principal capitals at Susa and Anshan. Contemporaries and frequent rivals of Sumer, Babylon, and Assyria, the Elamites developed their own Linear Elamite and cuneiform scripts, monumental brick ziggurats like Chogha Zanbil, and deeply influenced the rise of the Persian Empire.
   image_url: /images/civilisations/elam.webp
+  image_caption: Monumental baked-brick ziggurat of Chogha Zanbil with multi-tiered staircases, blue glazed bricks, and scribes holding cuneiform tablets.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2004,6 +2023,7 @@
 - id: olmec-civilization
   description: "On the humid Gulf Coast of Mexico the Olmecs created one of the first complex societies of Mesoamerica. At San Lorenzo and later La Venta they built earthen platforms and plazas, and carved colossal heads from basalt boulders brought from mountains many kilometres away, probably portraits of their rulers. Their art, their ball game and their reverence for jade and the jaguar shaped the Maya and the cultures that followed them. By around 400 BCE their great centres had been abandoned."
   image_url: /images/civilisations/olmec-civilization.webp
+  image_caption: La Venta ceremonial center in the Gulf lowlands, sculptors carving a colossal basalt head surrounded by jadeite-adorned rulers and earthen pyramids.
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/olmec-civilization-3.webp, credit: "Ruben Charles, CC BY 2.0, via Wikimedia Commons", caption: "Altar 4 from La Venta, Tabasco, showing an Olmec ruler emerging from a cave niche", source: "https://commons.wikimedia.org/wiki/File:Altar_4_La_Venta_(Ruben_Charles).jpg" }
@@ -2026,6 +2046,7 @@
 - id: median-kingdom
   description: An ancient Iranian tribal confederation and empire centered at Ecbatana (modern Hamadan, Iran) in the Zagros Mountains. Allying with Nabopolassar of Babylon to overthrow the Neo-Assyrian Empire in 612 BCE, the Medes controlled a vast territory from eastern Anatolia to the Iranian plateau before Cyrus the Great incorporated Media into the Achaemenid Empire.
   image_url: /images/civilisations/median-kingdom.webp
+  image_caption: Ecbatana with legendary concentric multicolored defensive walls, Median nobles with akinakes daggers and golden rhyton, and Nisean cavalry.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2055,6 +2076,7 @@
 - id: zapotec-civilization
   description: An advanced indigenous pre-Columbian civilization centered in the highland Valley of Oaxaca in southern Mexico. Ruling from the mountaintop acropolis city of Monte Albán, the Zapotecs developed the earliest known written glyphic script and calendar in Mesoamerica, terrace farming, and monumental ballcourts that flourished for over a millennium.
   image_url: /images/civilisations/zapotec-civilization.webp
+  image_caption: Mountaintop ceremonial center of Monte Albán overlooking the Oaxaca Valley, with Building J, Danzantes slabs, and priests holding grey-ware urns.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2106,6 +2128,7 @@
 - id: atropatene
   description: An ancient Iranian kingdom in northwestern Media (modern Iranian Azerbaijan) founded around 323 BCE by the Persian satrap Atropates, who successfully preserved his realm's independence amid the Wars of the Diadochi. Thriving as an autonomous Zoroastrian cultural center, Atropatene gave its name to modern Azerbaijan while skillfully maneuvering between Seleucid, Parthian, and Roman imperial spheres.
   image_url: /images/civilisations/atropatene.webp
+  image_caption: Takht-e Soleyman in Media Atropatene, fortified volcanic crater lake, Zoroastrian priests tending an eternal sacred fire, and cataphract cavalry.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2129,6 +2152,7 @@
 - id: au-lac
   description: An ancient proto-Vietnamese kingdom established in the Red River Delta of northern Vietnam by Thục Phán (King An Dương Vương) around 257 BCE. Centered on the monumental spiral-walled fortress of Cổ Loa, Âu Lạc was celebrated for bronze casting and sophisticated mechanical crossbow technology before being conquered by Nanyue.
   image_url: /images/civilisations/au-lac.webp
+  image_caption: Concentric spiral earthworks and moats of Cổ Loa Citadel in northern Vietnam, Dong Son bronze casters finishing an ornate ceremonial drum.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2145,6 +2169,7 @@
 - id: mayan-city-states
   description: A sophisticated Mesoamerican civilization spanning southeastern Mexico, Guatemala, Belize, and western Honduras. Organized into competing city-states like Tikal, Calakmul, and El Mirador, the Maya engineered tropical agriculture, developed the most fully articulated pre-Columbian hieroglyphic script, advanced astronomical mathematics, and monumental corbeled-vault architecture.
   image_url: /images/civilisations/mayan-city-states.webp
+  image_caption: Classic Maya city-state of Tikal with jungle pyramid-temples, carved stelae, lords in quetzal feather crests, and a scribe painting a screenfold codex.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2168,6 +2193,7 @@
 - id: great-yuan
   description: An urbanized Hellenistic civilization in the fertile Fergana Valley of Central Asia (modern Uzbekistan, Kyrgyzstan, and Tajikistan), recorded in Chinese chronicles as Dayuan ('Great Ionians'). Famed for walled cities and prized, blood-sweating 'Heavenly Horses', Dayuan fought the War of the Heavenly Horses (104–101 BCE) against Han China, initiating direct Chinese commercial ties to the West.
   image_url: /images/civilisations/great-yuan.webp
+  image_caption: Dayuan in the Fergana Valley, Central Asian horse breeders presenting a prized Heavenly Horse to Han Dynasty envoys bearing silk and bronze.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2184,6 +2210,7 @@
 - id: kingdom-of-axum
   description: A powerful maritime and trading empire centered in northern Ethiopia and Eritrea, flourishing along the Red Sea and Gulf of Aden. Positioned along spice and silk routes connecting Rome to India, Axum developed the Ge'ez script, erected colossal monolithic granite stelae, minted its own gold coinage, and adopted Christianity under King Ezana.
   image_url: /images/civilisations/kingdom-of-axum.webp
+  image_caption: Royal city of Axum in the Ethiopian highlands with carved monolithic granite stelae, Ta'akha Maryam stone-and-timber palace, and ivory trade.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2193,6 +2220,7 @@
 - id: teotihuacan
   description: A colossal pre-Columbian metropolis in the Valley of Mexico that was one of the largest cities in the ancient world, peaking around 400 CE. Known for its grid layout, apartment compounds, and monumental Pyramids of the Sun and Moon along the Avenue of the Dead, Teotihuacan projected profound cultural influence across Mesoamerica.
   image_url: /images/civilisations/teotihuacan.webp
+  image_caption: Avenue of the Dead toward the Pyramids of the Sun and Moon, workshops knapping green Pachuca obsidian and painting feathered serpent murals.
   image_credit: AI-generated illustration
   media:
     - kind: video
@@ -2504,6 +2532,7 @@
 - id: indo-parthians
   description: An ancient kingdom established around 19 CE when the Parthian general Gondophares broke away from the Arsacids to forge an independent realm spanning modern Afghanistan, Pakistan, and northwestern India. Governed from Taxila, the dynasty blended Parthian, Scythian, and Hellenistic cultural traditions, featuring prominently in early Christian apocrypha concerning Saint Thomas.
   image_url: /images/civilisations/indo-parthians.webp
+  image_caption: Taxila (Sirkap) blending Hellenistic and Indian architecture, King Gondophares conferring with Buddhist monks before the Double-Headed Eagle Stupa.
   image_credit: AI-generated illustration
   media:
     - kind: video
