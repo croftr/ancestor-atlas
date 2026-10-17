@@ -325,6 +325,11 @@
 @media (max-width: 900px) {
   .tour-gap-wrap { position: fixed; top: 22%; left: 0; right: 0; }
 }
+/* The tour's title at the very end (TourFinale.tsx) keeps the captions' place under the climate panel
+   while that panel goes, so it doesn't jump as the view goes back to normal. */
+@media (min-width: 901px) {
+  .app .tour-gap-wrap.tour-finale-wrap { top: max(13%, 128px); }
+}
 
 /* In a tour (desktop) the climate of the moment takes the search bar's place (ClimateHud.tsx): a
    thermometer and a coast in cross-section with the sea of the time, the ice in words on a tab below. */

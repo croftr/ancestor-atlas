@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useStore } from "../store";
 import { isActive, unionBBox, useData } from "../map/data";
 import { posToYear, yearToPos } from "../time/scale";
-import { OUTRO, tourById } from "./tours";
+import { OUTRO, OUTRO_LAST_NOTE_MS, tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import EndCard from "./EndCard";
@@ -246,12 +246,13 @@ export default function TourPlayer() {
   // The epilogue: close the card and let the globe draw the journey again (map/MapView.tsx) under
   // the end card; once it is drawn, the closing line is read (if narrated) over the music. The music
   // plays on until AFTER_CLOSING_MS past the line (at least MUSIC_HOLD_MS), then fades out, and after a
-  // moment's silence the outro plays. The end card stays.
+  // moment's silence the outro plays. At its last note the tour's title comes up over the globe
+  // (TourFinale.tsx), and when the outro has finished the tour ends by itself.
   useEffect(() => {
     if (!data || id === undefined || !epilogue) return;
     const tour = tourById(id);
     if (!tour) return;
-    const patchTour = (p: { phase?: "hold"; holdMs?: number; musicOut?: boolean; done?: boolean; musicIn?: boolean }) =>
+    const patchTour = (p: { phase?: "hold"; holdMs?: number; musicOut?: boolean; musicIn?: boolean }) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     useStore.getState().select(null);
     useStore.getState().setPictureViewer(false);
@@ -268,6 +269,8 @@ export default function TourPlayer() {
     let outroAt = Infinity; // set when the music stops
     let outro = false;
     let outroFailed = false;
+    let outroStart: number | null = null; // when the outro began playing
+    let finaleAt: number | null = null; // when the title came up
     const fadeAt = (end: number) => Math.max(MUSIC_HOLD_MS, end + AFTER_CLOSING_MS);
     const hold = () => {
       const start = outroAt < Infinity ? outroAt : fadeAt(lineEnd ?? speakAt + voiceS * 1000) + MUSIC_FADE_S * 1000 + OUTRO_GAP_MS;
@@ -314,10 +317,18 @@ export default function TourPlayer() {
             if (cancelled || !Number.isFinite(seconds)) return;
             if (useStore.getState().tour?.paused) pauseNarration();
             outroS = seconds;
+            outroStart = elapsed;
           })
           .catch(() => (outroFailed = true));
       }
-      if (outro && (outroFailed || (n.src === OUTRO && (n.ended || n.failed)))) return patchTour({ done: true });
+      if (outro && n.src === OUTRO && n.failed) outroFailed = true;
+      // The title at the outro's last note (or straight away without an outro); the tour ends with the outro.
+      if (finaleAt === null && (outroFailed || (outroStart !== null && elapsed >= outroStart + OUTRO_LAST_NOTE_MS))) {
+        finaleAt = elapsed;
+        useStore.setState({ tourFinale: { title: tour.title, key: Date.now() } });
+      }
+      const outroOver = outroFailed ? finaleAt !== null && elapsed >= finaleAt + OUTRO_LAST_NOTE_MS : n.src === OUTRO && n.ended;
+      if (finaleAt !== null && outroOver) return useStore.getState().stopTour();
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -337,8 +348,7 @@ export default function TourPlayer() {
     pauseAmbience(paused);
   }, [paused]);
   // Keep the screen on while the tour plays (not while paused, or waiting behind its Start button).
-  const done = useStore((s) => s.tour?.done);
-  useWakeLock(id !== undefined && paused === false && !gate && !done);
+  useWakeLock(id !== undefined && paused === false && !gate);
   const musicIn = useStore((s) => s.tour?.musicIn);
   const musicOut = useStore((s) => s.tour?.musicOut);
   useEffect(() => {

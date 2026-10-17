@@ -122,7 +122,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `npm run audio:narrate -- --closing <id>|all`, key `narration/tours/<id>-closing-v<n>.mp3`; `--stale` covers it).
   Music plays on at least 17 s and 1 s past the closing line (never fading before the line is read), then fades
   out over 3 s, and 1 s after it has gone the outro plays (`OUTRO` in `tours.ts`, `music/tours/outro-v1.mp3`, every tour; timings in
-  `epilogue.ts`); the card stays until the viewer chooses.
+  `epilogue.ts`). On the outro's last note (`OUTRO_LAST_NOTE_MS` in `tours.ts`, 2.75 s into outro-v1) the tour's
+  title comes up over the globe like the time captions (`TourFinale.tsx`, store `tourFinale`, which outlasts the
+  tour); when the outro has finished the tour ends by itself (Rob's call, 17 Oct 2026): time bar, climate panels and
+  end card go back to normal and the title fades. A new outro file needs its last note timed again.
 - During a tour (added 16 Oct 2026): the path so far is drawn on the globe, faint dashed gold with a dark casing
   (`tour-path` layers in `MapView.tsx`, `pathSoFar` in `epilogue.ts`); each new leg draws in over 1.8 s as the globe
   turns to the stop; Back / Next put it straight in place. While the slider travels between stops an intertitle

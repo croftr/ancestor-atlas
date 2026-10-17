@@ -1046,8 +1046,8 @@ export default function MapView() {
             lng += ((((toward[0] - lng + 180) % 360) + 360) % 360 - 180) * k;
             lat += (toward[1] * 0.6 - lat) * k;
           } else {
-            // Drawn: the globe turns slowly under the thread, easing in, and comes to rest once the music has gone.
-            spin += ((tour.done ? 0 : 1) - spin) * (1 - Math.exp(-dt / 2_500));
+            // Drawn: the globe turns slowly under the thread, easing in, and comes to rest as the music fades.
+            spin += ((tour.musicOut ? 0 : 1) - spin) * (1 - Math.exp(-dt / 2_500));
             lng -= SPIN_DEG_S * spin * (dt / 1000);
           }
           const room = endCardRoom();

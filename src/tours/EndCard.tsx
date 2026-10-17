@@ -26,8 +26,8 @@ const ICON = {
 /**
  * The end of a tour (its epilogue): over the globe as it draws the journey again, in the card's place.
  * Each stop's picture lights up as the thread on the globe reaches it (epilogue.ts keeps both on one
- * schedule); a picture goes back to that stop. Then: watch again, more tours, or explore. Stays until
- * the viewer chooses (or ends the tour).
+ * schedule); a picture goes back to that stop. Then: watch again, more tours, or explore. Closes when
+ * the tour ends by itself, after the outro (TourPlayer.tsx), unless the viewer chooses first.
  */
 export default function EndCard({ tour }: { tour: Tour }) {
   const data = useData();

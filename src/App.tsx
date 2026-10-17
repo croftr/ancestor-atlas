@@ -11,6 +11,7 @@ import WelcomeHint from "./ui/WelcomeHint";
 import IntroModal from "./ui/IntroModal";
 import TourPlayer from "./tours/TourPlayer";
 import ClimateHud from "./tours/ClimateHud";
+import TourFinale from "./tours/TourFinale";
 import ToursPage from "./tours/ToursPage";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
@@ -66,6 +67,7 @@ export default function App() {
             <TimeSlider />
             <WelcomeHint />
             <TourPlayer />
+            <TourFinale />
           </>
         )}
       </div>

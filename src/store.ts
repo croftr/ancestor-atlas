@@ -112,14 +112,18 @@ interface AppState {
     /**
      * After the last stop (`index` is then the number of stops): the end card, and the journey drawn
      * again on the globe (map/MapView.tsx, tours/epilogue.ts). `musicOut`: the music has begun its last
-     * fade; `done`: it has gone, and the end card waits for the viewer.
+     * fade. The tour ends by itself when the outro has played.
      */
     epilogue?: boolean;
     musicOut?: boolean;
-    done?: boolean;
     /** Years from the stop before to this one, while the slider travels there (the "40,000 years later" caption). */
     gap?: number;
   } | null;
+  /**
+   * The tour's title over the globe as it ends, from the outro's last note (tours/TourFinale.tsx); it
+   * outlasts the tour, fading as the view goes back to normal. `key` tells one ending from the next.
+   */
+  tourFinale: { title: string; key: number } | null;
   /**
    * The full-screen picture viewer (ui/PictureViewer.tsx) is open over the card. During a tour it
    * stays on from stop to stop (hidden while the globe travels); otherwise a new pick closes it.
@@ -212,6 +216,7 @@ export const useStore = create<AppState>((set, get) => ({
   introOpen: isIntroHash(),
   flyTo: null,
   tour: null,
+  tourFinale: null,
   pictureViewer: false,
   setPictureViewer: (open) => set({ pictureViewer: open }),
   cardWidth: null,
@@ -308,6 +313,7 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => ({
       playing: false,
       pictureViewer: false,
+      tourFinale: null,
       globeOffset: [0, 0],
       selectedId: null,
       hits: [],
@@ -340,7 +346,7 @@ export const useStore = create<AppState>((set, get) => ({
       if (!s.tour || !t) return {};
       if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {};
       if (index < 0 || index > t.stops.length) return {};
-      const { gap: _g, musicOut: _m, done: _d, ...rest } = s.tour;
+      const { gap: _g, musicOut: _m, ...rest } = s.tour;
       return { tour: { ...rest, index, epilogue: index === t.stops.length, travel: false, phase: "travel", holdMs: 0 } };
     }),
   skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {})),
