@@ -15,17 +15,15 @@ const SEA_MAX = 20;
 /**
  * While a tour plays (desktop), the climate of the slider's moment takes the search bar's place at the
  * top: a thermometer and a cross-section of a coast with the sea of the time. The climate panel then
- * leaves those facts out (ClimatePanel.tsx). Not during the title card or the "Start tour" gate, and
- * not where neither record reaches (before about 800,000 years ago).
+ * leaves those facts out (ClimatePanel.tsx). Shown at every stop of every tour (Rob's call), not only
+ * during the title card or behind the "Start tour" gate; where a record doesn't reach (temperature
+ * before 783,000 years ago, sea level before 798,000) its gauge dims and says so.
  */
 export function useClimateHud(): boolean {
   const showing = useStore((s) => !!s.tour && !s.tour.intro && !s.tour.gate);
-  const year = useStore((s) => s.year);
   const stacked = useMediaQuery(STACKED_QUERY);
   const climate = useClimate();
-  if (!showing || stacked || !climate) return false;
-  const at = climateAt(climate, year);
-  return at.temperature !== undefined || at.sea !== undefined;
+  return showing && !stacked && !!climate;
 }
 
 /** Ice blue (cold) through slate to amber (warm), by °C against pre-industrial. */
@@ -116,14 +114,14 @@ export default function ClimateHud() {
   const m = at.sea?.m;
   return (
     <div className="climate-hud" role="group" aria-label="Climate at this moment">
-      <div className="hud-gauge">
+      <div className={`hud-gauge${t === undefined ? " no-record" : ""}`}>
         <Thermometer t={t} />
         <div className="hud-read">
           <span className="hud-label">Global temperature</span>
           <strong className="hud-value" style={t !== undefined ? { color: tempColor(t) } : undefined}>
             {t !== undefined ? signed(t, "°C", 1) : "—"}
           </strong>
-          <span className="hud-sub">{t !== undefined ? "vs pre-industrial" : "not reconstructed"}</span>
+          <span className="hud-sub">{t !== undefined ? "vs pre-industrial" : "no record this far back"}</span>
         </div>
       </div>
       {at.d18o !== undefined && (
@@ -132,12 +130,12 @@ export default function ClimateHud() {
           {climateWords(at.d18o)}
         </div>
       )}
-      <div className="hud-gauge">
+      <div className={`hud-gauge${m === undefined ? " no-record" : ""}`}>
         <SeaSection m={m} />
         <div className="hud-read">
           <span className="hud-label">Sea level</span>
           <strong className="hud-value sea">{m !== undefined ? signed(Math.round(m), "m") : "—"}</strong>
-          <span className="hud-sub">{m !== undefined ? "vs today" : "not reconstructed"}</span>
+          <span className="hud-sub">{m !== undefined ? "vs today" : "no record this far back"}</span>
         </div>
       </div>
     </div>
