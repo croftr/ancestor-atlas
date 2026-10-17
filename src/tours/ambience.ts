@@ -66,8 +66,8 @@ export const AMBIENCE: Record<string, Ambience> = {
     sound: { src: "ambience/events/first-pottery-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d6c6957ecd" },
   },
   "dog-domestication": {
-    prompt: "Ice Age camp in a river valley at dusk: wolves howling far away, a dog panting and padding nearby, campfire crackling, wind",
-    sound: { src: "ambience/events/dog-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "dee6046a4e" },
+    prompt: "A lone wolf howling in the far distance across an empty Ice Age valley at night, echoing, soft wind, nothing else",
+    sound: { src: "ambience/events/dog-domestication-v2.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "491cb5d564" },
   },
   "gobekli-tepe": {
     prompt: "Windy limestone hilltop: steady wind, a stone chisel tapping on limestone, footsteps on rock, a bird of prey calling",
