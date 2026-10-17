@@ -28,7 +28,13 @@ dropped. Tour polish items already in CLAUDE.md's backlog are not repeated here.
 
 - [x] **Ancient DNA layer.** Done 16 Oct 2026: AADR v66.p1 (CC0), see README "Ancient DNA (AADR)". Possible next
   steps: checking the layer on phones. (Yamnaya culture, culture-card links and the "Out of the steppe" tour done.)
-- [ ] **Remaining migration routes:** farming into Europe, the Austronesian expansion, the Bantu expansion.
+- [x] **Remaining migration routes.** Done 17 Oct 2026: farming into Europe (Danube and Mediterranean), the
+  Austronesian expansion (Taiwan to Tonga), the Bantu eastern stream (Cameroon to Lake Victoria); see CLAUDE.md.
+  Possible next steps: pictures for the new Bantu, Dapenkeng and Lapita cultures; the Polynesian Triangle and the
+  Bantu route to South Africa once the timeline goes past 1 CE (below).
+- [ ] **Extend the timeline past 1 CE** (to about 1500 CE). Would let the Polynesian voyages (Hawaiʻi, Rapa Nui,
+  Aotearoa; anchor sites already found, see CLAUDE.md "Migration routes") and the Bantu expansion's southern half be
+  drawn. Touches the slider scale, era chips, tours, and thousands of Cliopatria polities now clipped at 1 CE.
 - [ ] **Interbreeding events:** Neanderthal and Denisovan gene flow, drawn as links between species ranges.
 - [ ] **New tours from existing data:** Peopling of the Americas, Neanderthal life, Domestication and the first
   farmers, Writing and the first cities.

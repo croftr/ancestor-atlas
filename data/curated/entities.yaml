@@ -1295,6 +1295,38 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Andronovo_culture
   wikidata: Q459376
   source_ids: []
+# Added 17 Oct 2026 for the migration routes (src/routes/routes.ts). Span from English Wikipedia:
+# Bantu_expansion@1380028392 (from c. 3000 BC in the Cameroon Grassfields); it went on to about 500 AD, but the globe
+# ends at 1 CE.
+- id: bantu-farmers
+  name: Early Bantu-speaking farmers
+  category: culture
+  start_year: -2999
+  end_year: 1
+  description: "Most of the languages spoken across Africa south of the equator are close relatives, the Bantu languages, because their speakers' ancestors spread out from one small homeland: the highlands between Cameroon and Nigeria. Over three thousand years farming villages moved south along the rivers and coasts of the rainforest and east around its northern edge. By about 500 BCE the eastern stream had reached Lake Victoria, where the Urewe culture made dimpled pottery and smelted iron, and by around 300 CE farmers had reached South Africa. Genomes show they mixed with the foragers and herders already living there."
+  wikipedia_url: https://en.wikipedia.org/wiki/Bantu_expansion
+  wikidata: Q130251
+  source_ids: []
+# Span from English Wikipedia: Dapenkeng_culture@1369287839.
+- id: dapenkeng
+  name: Dapenkeng culture
+  category: culture
+  start_year: -3999
+  end_year: -2499
+  description: "Between 4000 and 3000 BCE a new way of life appeared on the coasts of northern Taiwan and quickly spread around the island. The Dapenkeng people made thick, cord-marked pottery and polished adzes, fished, gathered shellfish, and later grew rice and millet. They had crossed the Taiwan Strait from mainland China, and most scholars think they spoke early Austronesian languages, the family whose speakers would later sail from Taiwan to Madagascar, Hawaii and New Zealand."
+  wikipedia_url: https://en.wikipedia.org/wiki/Dapenkeng_culture
+  wikidata: Q9884947
+  source_ids: []
+# Span from English Wikipedia: Lapita_culture@1374201618.
+- id: lapita
+  name: Lapita culture
+  category: culture
+  start_year: -1599
+  end_year: -499
+  description: "Around 3,500 years ago a seafaring people appeared suddenly in the Bismarck Archipelago north of New Guinea, making red pottery stamped with fine toothed patterns. Within a few centuries their outrigger canoes had carried them thousands of kilometres east, to islands no one had ever reached: Vanuatu, New Caledonia, Fiji, and by about 900 BCE Tonga and Samoa. Their ancestors came from Taiwan and the northern Philippines, and their descendants became the Polynesians. At Teouma in Vanuatu, the oldest cemetery in the Pacific, the dead were buried with their skulls removed and cone shell rings in their place."
+  wikipedia_url: https://en.wikipedia.org/wiki/Lapita_culture
+  wikidata: Q1021436
+  source_ids: []
 # Span from English Wikipedia: Azilian@1373678621.
 - id: azilian
   name: Azilian
