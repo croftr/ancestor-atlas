@@ -216,16 +216,19 @@ export default function TimeSlider() {
           ))}
         <span className="muted resolution">
           Each step: {resolution.toLocaleString("en-US")} years
-          <label className="play-speed" title="How fast Play moves through time">
-            Speed
-            <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} aria-label="Play speed">
-              {SPEEDS.map((v) => (
-                <option key={v} value={v}>
-                  {v === 0.25 ? "¼" : v === 0.5 ? "½" : v}×
-                </option>
-              ))}
-            </select>
-          </label>
+          {/* Tours set their own pace. */}
+          {!touring && (
+            <label className="play-speed" title="How fast Play moves through time">
+              Speed
+              <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} aria-label="Play speed">
+                {SPEEDS.map((v) => (
+                  <option key={v} value={v}>
+                    {v === 0.25 ? "¼" : v === 0.5 ? "½" : v}×
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
         </span>
         {(stage || Math.abs(seaShown) >= 10) && (
           <button
