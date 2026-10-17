@@ -120,7 +120,7 @@ interface AppState {
     gap?: number;
   } | null;
   /**
-   * The tour's title over the globe as it ends, from the outro's last note (tours/TourFinale.tsx); it
+   * The tour's title over the globe as it ends, from the start of the outro (tours/TourFinale.tsx); it
    * outlasts the tour, fading as the view goes back to normal. `key` tells one ending from the next.
    */
   tourFinale: { title: string; key: number } | null;

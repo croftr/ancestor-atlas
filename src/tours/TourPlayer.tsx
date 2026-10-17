@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useStore } from "../store";
 import { isActive, unionBBox, useData } from "../map/data";
 import { posToYear, yearToPos } from "../time/scale";
-import { OUTRO, OUTRO_LAST_NOTE_MS, tourById } from "./tours";
+import { OUTRO, tourById } from "./tours";
 import { holdSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
 import EndCard from "./EndCard";
@@ -41,6 +41,8 @@ const AFTER_NARRATION_MS = 1_500;
  * load): the card stays INTRO_MS and the music comes in after MUSIC_DELAY_MS.
  */
 const ANNOUNCE_DELAY_MS = 1_500;
+/** Without the outro (blocked or missing), the tour's title stays this long before the tour ends. */
+const FINALE_MS = 5_000;
 const AFTER_ANNOUNCEMENT_MS = 2_000;
 const INTRO_MS = 6_000;
 const MUSIC_DELAY_MS = 3_000;
@@ -246,8 +248,8 @@ export default function TourPlayer() {
   // The epilogue: close the card and let the globe draw the journey again (map/MapView.tsx) under
   // the end card; once it is drawn, the closing line is read (if narrated) over the music. The music
   // plays on until AFTER_CLOSING_MS past the line (at least MUSIC_HOLD_MS), then fades out, and after a
-  // moment's silence the outro plays. At its last note the tour's title comes up over the globe
-  // (TourFinale.tsx), and when the outro has finished the tour ends by itself.
+  // moment's silence the outro plays, and the tour's title comes up over the globe with it
+  // (TourFinale.tsx); when the outro has finished the tour ends by itself.
   useEffect(() => {
     if (!data || id === undefined || !epilogue) return;
     const tour = tourById(id);
@@ -322,12 +324,12 @@ export default function TourPlayer() {
           .catch(() => (outroFailed = true));
       }
       if (outro && n.src === OUTRO && n.failed) outroFailed = true;
-      // The title at the outro's last note (or straight away without an outro); the tour ends with the outro.
-      if (finaleAt === null && (outroFailed || (outroStart !== null && elapsed >= outroStart + OUTRO_LAST_NOTE_MS))) {
+      // The title as the outro starts (or where it would have); the tour ends with the outro.
+      if (finaleAt === null && (outroFailed || outroStart !== null)) {
         finaleAt = elapsed;
         useStore.setState({ tourFinale: { title: tour.title, key: Date.now() } });
       }
-      const outroOver = outroFailed ? finaleAt !== null && elapsed >= finaleAt + OUTRO_LAST_NOTE_MS : n.src === OUTRO && n.ended;
+      const outroOver = outroFailed ? finaleAt !== null && elapsed >= finaleAt + FINALE_MS : n.src === OUTRO && n.ended;
       if (finaleAt !== null && outroOver) return useStore.getState().stopTour();
       raf = requestAnimationFrame(tick);
     };

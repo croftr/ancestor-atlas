@@ -40,8 +40,6 @@ export const announcementText = (t: Pick<Tour, "title">) => `${t.title}.`;
 
 /** Played at the end of every tour, straight after the closing line is read; the music fades away under it. */
 export const OUTRO = "music/tours/outro-v1.mp3";
-/** When the outro's last note sounds (ms into outro-v1): the tour's title comes up then (TourFinale.tsx). */
-export const OUTRO_LAST_NOTE_MS = 2_750;
 
 export const TOURS: Tour[] = [
   {

@@ -7,7 +7,7 @@ const LEAVE_MS = 700;
 
 /**
  * The tour's title over the globe at the very end, in the style of the "40,000 years later" captions
- * (TimeGap.tsx): it comes up on the outro's last note (TourPlayer.tsx) and fades away as the tour ends
+ * (TimeGap.tsx): it comes up as the outro starts (TourPlayer.tsx) and fades away as the tour ends
  * and the time bar, climate panels and end card go back to how they are outside a tour.
  */
 export default function TourFinale() {
