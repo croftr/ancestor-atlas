@@ -160,7 +160,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   takes the search bar's place: a thermometer (°C vs pre-industrial, −8..+2) and a coast in cross-section with the
   sea of the time (−130..+20 m; the exposed shelf glows gold), the ice in words on a tab below. The climate panel then
   leaves those three out (`ClimateFacts gauged`), keeping the MIS and the chart; they come back when the tour ends.
-  Shown at every tour stop (Rob's call): where a record doesn't reach (before ~800 ka) that gauge dims, "—", "no record this far back". The "40,000 years later" intertitle drops below it.
+  Shown only where a record reaches (from ~800 ka; Rob's call, 17 Oct 2026, after trying it at every stop); where
+  only one does, the other gauge dims ("—", "no record this far back"). The "40,000 years later" intertitle drops below it.
 - While a tour plays (`.app.touring`, `src/tours/tours.css`) the search bar fades out and the welcome hint goes (the
   legend and climate panel stay, Rob's call 16 Oct 2026; phones still drop the legend); on phones the menu button goes too. The `/` and Ctrl+K search shortcuts are off. The nav rail stays.
 

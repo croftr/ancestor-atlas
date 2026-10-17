@@ -15,15 +15,18 @@ const SEA_MAX = 20;
 /**
  * While a tour plays (desktop), the climate of the slider's moment takes the search bar's place at the
  * top: a thermometer and a cross-section of a coast with the sea of the time. The climate panel then
- * leaves those facts out (ClimatePanel.tsx). Shown at every stop of every tour (Rob's call), not only
- * during the title card or behind the "Start tour" gate; where a record doesn't reach (temperature
- * before 783,000 years ago, sea level before 798,000) its gauge dims and says so.
+ * leaves those facts out (ClimatePanel.tsx). Not during the title card or behind the "Start tour" gate,
+ * and only where there is a record to show (Rob's call): from about 800,000 years ago on. In the short
+ * stretch where only the sea-level record reaches (783,000–798,000 years ago) the thermometer dims.
  */
 export function useClimateHud(): boolean {
   const showing = useStore((s) => !!s.tour && !s.tour.intro && !s.tour.gate);
+  const year = useStore((s) => s.year);
   const stacked = useMediaQuery(STACKED_QUERY);
   const climate = useClimate();
-  return showing && !stacked && !!climate;
+  if (!showing || stacked || !climate) return false;
+  const at = climateAt(climate, year);
+  return at.temperature !== undefined || at.sea !== undefined;
 }
 
 /** Ice blue (cold) through slate to amber (warm), by °C against pre-industrial. */
