@@ -808,6 +808,7 @@
   start_year: -5500
   end_year: -4950
   description: "Around 5500 BCE farming reached the heart of Europe. From the middle Danube, the people of the Linear Pottery culture spread along the rivers about fifteen hundred kilometres in less than four centuries, reaching from the Paris Basin in the west to Ukraine in the east. They grew einkorn and emmer wheat, peas, lentils and flax, kept cattle, and lived in timber longhouses that were the largest free-standing buildings in the world at the time. Their genomes show they descended from the first farmers of Anatolia."
+  narration: { src: narration/cultures/linear-pottery-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b2054134a8" }
   image_url: /images/cultures/linear-pottery.webp
   image_credit: AI-generated illustration
   image_caption: "Early Neolithic village with monumental timber longhouses and incised linear pottery"
@@ -1309,6 +1310,7 @@
   start_year: -2999
   end_year: 1
   description: "Most of the languages spoken across Africa south of the equator are close relatives, the Bantu languages, because their speakers' ancestors spread out from one small homeland: the highlands between Cameroon and Nigeria. Over three thousand years farming villages moved south along the rivers and coasts of the rainforest and east around its northern edge. By about 500 BCE the eastern stream had reached Lake Victoria, where the Urewe culture made dimpled pottery and smelted iron, and by around 300 CE farmers had reached South Africa. Genomes show they mixed with the foragers and herders already living there."
+  narration: { src: narration/cultures/bantu-farmers-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9fdfd4b17a" }
   image_url: /images/cultures/bantu-farmers.webp
   image_credit: Placeholder (pending AI generation)
   image_caption: "Early Bantu-speaking farming village with pearl millet fields, dimpled pottery, and early iron smelting"
@@ -1335,6 +1337,7 @@
   start_year: -1599
   end_year: -499
   description: "Around 3,500 years ago a seafaring people appeared suddenly in the Bismarck Archipelago north of New Guinea, making red pottery stamped with fine toothed patterns. Within a few centuries their outrigger canoes had carried them thousands of kilometres east, to islands no one had ever reached: Vanuatu, New Caledonia, Fiji, and by about 900 BCE Tonga and Samoa. They took pigs, dogs and chickens with them, and taro, yams, bananas and breadfruit to plant. Their ancestors came from Taiwan and the northern Philippines, and their descendants became the Polynesians."
+  narration: { src: narration/cultures/lapita-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "11a98ac96a" }
   image_url: /images/cultures/lapita.webp
   image_credit: Placeholder (pending AI generation)
   image_caption: "Lapita seafaring settlement on a tropical island coast with outrigger voyaging canoes and dentate-stamped pottery"
