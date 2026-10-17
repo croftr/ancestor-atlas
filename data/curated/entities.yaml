@@ -1605,6 +1605,11 @@
   image_url: /images/civilisations/carthage.webp
   image_credit: AI-generated illustration
   image_caption: "The circular military cothon harbor of Carthage lined with vaulted ship-sheds and Admiralty island, Punic quinqueremes, and the Byrsa citadel crowned by the Temple of Eshmun"
+  extra_images:
+    - { url: /images/extra/carthage-1.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Punic limestone votive stele from Carthage carved with the sacred Sign of Tanit, crescent moon, and raised arms (Louvre)", source: "https://commons.wikimedia.org/wiki/File:St%C3%A8le_d%C3%A9cor%C3%A9e_d%27un_signe_de_Tanit_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_AO_23068.jpg" }
+    - { url: /images/extra/carthage-2.webp, credit: "Rais67, public domain, via Wikimedia Commons", caption: "Terracotta grotesque grinning protective mask from the Punic necropolis of Carthage (Bardo National Museum)", source: "https://commons.wikimedia.org/wiki/File:Tunis_Bardo_Masque_10.jpg" }
+    - { url: /images/extra/carthage-3.webp, credit: "Jamie Heath, CC BY-SA 2.0, via Wikimedia Commons", caption: "Bronze naval rams (rostra) recovered from the seabed of the Battle of the Egadi Islands, 241 BCE (First Punic War)", source: "https://commons.wikimedia.org/wiki/File:Carthago_exhibition_-_Aegadi_Rams_(49340681036).jpg" }
+    - { url: /images/extra/carthage-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "Excavated residential quarters and multistory stone house foundations on the slopes of the Byrsa citadel, Carthage", source: "https://commons.wikimedia.org/wiki/File:Quartier_Punique.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=01CZBhZM430
@@ -1637,6 +1642,11 @@
       credit: History Leaks, YouTube
 - id: ptolemaic-kingdom
   description: The wealthy Hellenistic kingdom founded in Egypt by Ptolemy I Soter, Alexander the Great's companion general, which ruled from 305 to 30 BCE. Governed from Alexandria—a global capital of scholarship and commerce boasting the Great Library and Pharos lighthouse—the dynasty blended Greek and Egyptian traditions, concluding with Cleopatra VII's defeat by Octavian.
+  extra_images:
+    - { url: /images/extra/ptolemaic-kingdom-1.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Marble portrait bust of Ptolemy I Soter, founder of the Ptolemaic dynasty and companion general of Alexander the Great (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Ptolemy_I_Soter_Louvre_Ma849.jpg" }
+    - { url: /images/extra/ptolemaic-kingdom-2.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Monumental relief of Queen Cleopatra VII and her son Caesarion offering to the gods on the exterior wall of Dendera Temple", source: "https://commons.wikimedia.org/wiki/File:Dendera_Tempel_14.JPG" }
+    - { url: /images/extra/ptolemaic-kingdom-3.webp, credit: "M.ramadan2014, CC BY-SA 3.0, via Wikimedia Commons", caption: "Pylon and colonnade of the Temple of Isis at Philae, built during the Ptolemaic dynasty along the Upper Nile", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Isis_in_Philae.jpg" }
+    - { url: /images/extra/ptolemaic-kingdom-4.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold octodrachm of Queen Arsinoe II, minted in Alexandria during the reign of Ptolemy III (Fitzwilliam Museum)", source: "https://commons.wikimedia.org/wiki/File:Gold_coin_of_Arsinoe_Il,_Octodrachm,_Ptolemy_III_(246-221_BCE),_Fitzwilliam_Museum.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Hmz9e06DfSg
@@ -2032,6 +2042,11 @@
       credit: Germania Magna ENG, YouTube
 - id: mycenaean-greece
   description: The mainland Greek civilization of the Late Bronze Age, immortalized in Homeric epic poetry, centered at fortified citadels such as Mycenae, Tiryns, and Pylos. Governed by warrior-kings (wanakes), the Mycenaeans developed the Linear B syllabic script—the earliest attested Greek—and established trade networks across the Mediterranean before collapsing around 1200 BCE.
+  extra_images:
+    - { url: /images/extra/mycenaean-greece-1.webp, credit: "DieBuche, CC BY-SA 3.0, via Wikimedia Commons", caption: "The repoussé gold funerary mask known as the \"Mask of Agamemnon\", from Grave Circle A at Mycenae (National Archaeological Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Funeral_mask_of_Agamemnon-colorcorr.jpg" }
+    - { url: /images/extra/mycenaean-greece-2.webp, credit: "Berthold Werner, CC BY-SA 3.0, via Wikimedia Commons", caption: "The megalithic Lion Gate entrance and heraldic relief over the main approach to the citadel of Mycenae", source: "https://commons.wikimedia.org/wiki/File:Mykene_BW_2017-10-10_13-23-40.jpg" }
+    - { url: /images/extra/mycenaean-greece-3.webp, credit: "Zde, CC BY-SA 3.0, via Wikimedia Commons", caption: "Bronze dagger blade inlaid with gold, electrum, and niello showing a lion-hunt scene, Grave Circle A at Mycenae (NAM Athens)", source: "https://commons.wikimedia.org/wiki/File:Dagger_inlaid_Mycenaean_16_c_BC,_NAMA_394_1080834_a.jpg" }
+    - { url: /images/extra/mycenaean-greece-4.webp, credit: "Sharon Mollerus, CC BY 2.0, via Wikimedia Commons", caption: "The Mycenaean \"Warrior Vase\" (krater) depicting departing soldiers wearing helmets, corslets, greaves, and carrying spears and shields (NAM Athens)", source: "https://commons.wikimedia.org/wiki/File:Warrior_Vase.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=0HXSPu1UMZM
@@ -2088,6 +2103,11 @@
       credit: Luke Reagan, YouTube
 - id: scythia
   description: An expansive confederation of Iranian equestrian nomadic pastoralists who dominated the Pontic-Caspian steppe north of the Black Sea from the 7th to 3rd centuries BCE. Renowned as formidable mounted archers, the Scythians resisted Persian invasions by Darius the Great and left behind spectacular burial kurgans filled with intricate gold animal-style metallurgy.
+  extra_images:
+    - { url: /images/extra/scythia-1.webp, credit: "Curryfauvel, CC0, via Wikimedia Commons", caption: "Detail of the Royal Scythian golden pectoral from Tovsta Mohyla kurgan, showing nomadic pastoralists sewing a sheepskin fleece", source: "https://commons.wikimedia.org/wiki/File:Scythian_gold_pectoral_Tovsta_Mohyla_(detail_2).jpg" }
+    - { url: /images/extra/scythia-2.webp, credit: "sailko, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Kostromskaya Golden Stag, iconic Scythian animal-style shield plaque in hammered gold, early 6th century BCE (Hermitage)", source: "https://commons.wikimedia.org/wiki/File:Placca_cervo,_da_regione_di_krasnodar,_kostromskaja,_oro_fuso_e_cesellato,_inizio_VI_sec_ac.jpg" }
+    - { url: /images/extra/scythia-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Scythian gold plaque showing a reclining feline predator in dynamic coiled animal style, 6th century BCE (Hermitage)", source: "https://commons.wikimedia.org/wiki/File:Animal_style_1.jpg" }
+    - { url: /images/extra/scythia-4.webp, credit: "Curryfauvel, CC0, via Wikimedia Commons", caption: "Detail of the Tovsta Mohyla golden pectoral, showing realistic horses, foals, and cattle grazing on the steppe", source: "https://commons.wikimedia.org/wiki/File:Scythian_gold_pectoral_Tovsta_Mohyla_(detail_8).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=UuPNMQmwLAQ
