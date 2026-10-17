@@ -89,6 +89,10 @@ export default function TimeSlider() {
   const seaShown = Math.round(recordSea ?? seaLevel);
   // The climate popover, following the slider.
   const [climateOpen, setClimateOpen] = useState(false);
+  // A tour hides the line with its button (tours.css), so close it too.
+  useEffect(() => {
+    if (touring) setClimateOpen(false);
+  }, [touring]);
 
   // The era the year falls in ("Early Homo"), as on the timeline and Events page. On small
   // screens it's also the button that opens the jump-to shortcuts (hidden there for space).
@@ -216,19 +220,16 @@ export default function TimeSlider() {
           ))}
         <span className="muted resolution">
           Each step: {resolution.toLocaleString("en-US")} years
-          {/* Tours set their own pace. */}
-          {!touring && (
-            <label className="play-speed" title="How fast Play moves through time">
-              Speed
-              <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} aria-label="Play speed">
-                {SPEEDS.map((v) => (
-                  <option key={v} value={v}>
-                    {v === 0.25 ? "¼" : v === 0.5 ? "½" : v}×
-                  </option>
-                ))}
-              </select>
-            </label>
-          )}
+          <label className="play-speed" title="How fast Play moves through time">
+            Speed
+            <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} aria-label="Play speed">
+              {SPEEDS.map((v) => (
+                <option key={v} value={v}>
+                  {v === 0.25 ? "¼" : v === 0.5 ? "½" : v}×
+                </option>
+              ))}
+            </select>
+          </label>
         </span>
         {(stage || Math.abs(seaShown) >= 10) && (
           <button
