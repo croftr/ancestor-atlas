@@ -1476,6 +1476,11 @@
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
   image_caption: "Planned Bronze Age city of Mohenjo-daro with baked-brick streets, covered drainage, ox carts, and the Citadel mound overlooking the Indus River"
+  extra_images:
+    - { url: /images/extra/indus-valley-civilization-1.webp, credit: "Umair Shaikh Shaikh, CC BY-SA 2.0, via Wikimedia Commons", caption: "Steatite bust of the 'Priest-King' from Mohenjo-daro, wearing a trefoil-patterned cloak and fillet headband (National Museum of Pakistan, Karachi)", source: "https://commons.wikimedia.org/wiki/File:The_Priest_King_of_Moenjo_Daro.jpg" }
+    - { url: /images/extra/indus-valley-civilization-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze statuette of the 'Dancing Girl' from Mohenjo-daro, adorned with bangles and resting a hand on her hip (National Museum, New Delhi)", source: "https://commons.wikimedia.org/wiki/File:Bronze_%22Dancing_Girl,%22_Mohenjo-daro,_c._2500_BC.jpg" }
+    - { url: /images/extra/indus-valley-civilization-3.webp, credit: "Aadrit28, CC BY-SA 4.0, via Wikimedia Commons", caption: "Steatite 'Pashupati' seal from Mohenjo-daro showing a horned three-faced figure seated in yogic posture surrounded by animals (National Museum, New Delhi)", source: "https://commons.wikimedia.org/wiki/File:Pashupati_Seal_from_the_Harappan_Civilization.jpg" }
+    - { url: /images/extra/indus-valley-civilization-4.webp, credit: "Saqib Qayyum, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Bath of Mohenjo-daro, a sophisticated public water tank built with finely fitted baked brick sealed with natural bitumen", source: "https://commons.wikimedia.org/wiki/File:Great_bath_view_Mohenjodaro.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=EK5fbdoEhZE
@@ -1502,6 +1507,11 @@
   image_url: /images/civilisations/etruscans.webp
   image_credit: AI-generated illustration
   image_caption: "Etruscan hilltop city with an aristocratic banquet, musicians playing aulos flutes, a terracotta-adorned temple, and rock-cut chamber tombs"
+  extra_images:
+    - { url: /images/extra/etruscans-1.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "The Sarcophagus of the Spouses from Cerveteri, monumental painted terracotta funerary monument depicting a banquet couple (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Sarcophage_des_%C3%A9poux_-_Mus%C3%A9e_du_Louvre_AGER_Cp_5194.1.jpg" }
+    - { url: /images/extra/etruscans-2.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Chimera of Arezzo, Etruscan bronze masterpiece from c. 400 BCE depicting the mythical fire-breathing monster (National Archaeological Museum, Florence)", source: "https://commons.wikimedia.org/wiki/File:The_Chimera_of_Arezzo,_400_BC,_224249.jpg" }
+    - { url: /images/extra/etruscans-3.webp, credit: "Sailko, CC BY-SA 4.0, via Wikimedia Commons", caption: "Apollo of Veii, life-size painted terracotta statue from the roof of the Portonaccio temple, c. 510 BCE (National Etruscan Museum of Villa Giulia, Rome)", source: "https://commons.wikimedia.org/wiki/File:Decorazione_fittile_del_santuario_di_portonaccio,_510-500_ac_ca,_acroteri,_apollo_02.jpg" }
+    - { url: /images/extra/etruscans-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "Fresco of banqueting dancers and aulos musicians from the Tomb of the Leopards in the Monterozzi necropolis, Tarquinia, c. 480 BCE", source: "https://commons.wikimedia.org/wiki/File:Danseurs_et_musiciens,_tombe_des_l%C3%A9opards.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=T22qDvgI930
@@ -1602,6 +1612,11 @@
   image_url: /images/civilisations/kingdom-of-kush.webp
   image_caption: Royal city of Meroë in Nubia with steep-sided sandstone pyramids, ironworking smiths, date palms, and caravan trade along the Upper Nile.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/kingdom-of-kush-1.webp, credit: "Prioryman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Granite sphinx of King Taharqa, Twenty-Fifth Dynasty Kushite pharaoh of Egypt and Nubia (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Sphinx_of_Taharqo.jpg" }
+    - { url: /images/extra/kingdom-of-kush-2.webp, credit: "Hans Birger Nilsen, CC BY-SA 2.0, via Wikimedia Commons", caption: "Steep-sided sandstone royal burial pyramids of the Kushite rulers across the desert dunes at Meroë, Sudan", source: "https://commons.wikimedia.org/wiki/File:Among_the_pyramids_(34988567951).jpg" }
+    - { url: /images/extra/kingdom-of-kush-3.webp, credit: "José Luiz, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold shield ring with goddess Mut from the royal jewelry treasure of Kandake (Queen) Amanishakheto of Meroë (State Museum of Egyptian Art, Munich)", source: "https://commons.wikimedia.org/wiki/File:Treasure_from_the_pyramid_of_Queen_Amanishakheto_-_%C3%84gyptisches_Museum_-_Munich_-_Germany_2017.jpg" }
+    - { url: /images/extra/kingdom-of-kush-4.webp, credit: "Marcus Cyron, CC BY 3.0, via Wikimedia Commons", caption: "Colossal granite statue of King Aspelta of Kush from the temple of Amun at Jebel Barkal (Museum of Fine Arts, Boston)", source: "https://commons.wikimedia.org/wiki/File:MFA_Colossal_statue_of_King_Aspelta_01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=R9Z8t79YF5k
@@ -2203,6 +2218,11 @@
   image_url: /images/civilisations/mayan-city-states.webp
   image_caption: Classic Maya city-state of Tikal with jungle pyramid-temples, carved stelae, lords in quetzal feather crests, and a scribe painting a screenfold codex.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/mayan-city-states-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The mosaic jade funerary mask and collar of K'inich Janaab' Pakal, ruler of Palenque (National Museum of Anthropology, Mexico City)", source: "https://commons.wikimedia.org/wiki/File:Maya_Jade_Mask_%26_Burial_Artifacts_of_Kinich_Hanab_Pakal,_Ruler_of_Palenque,_615-683_AD.jpg" }
+    - { url: /images/extra/mayan-city-states-2.webp, credit: "Sailko, CC BY-SA 3.0, via Wikimedia Commons", caption: "Yaxchilan Lintel 24, high-relief limestone carving depicting Lady K'ab'al Xook performing a sacred royal bloodletting ritual in 709 CE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Maya,_lintel_24,_da_yaxchilan,_725.JPG" }
+    - { url: /images/extra/mayan-city-states-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Stela H of Copán, carved in 730 CE depicting Ruler 13 (Uaxaclajuun Ub'aah K'awiil) in full ceremonial regalia as the Maize God (Copán, Honduras)", source: "https://commons.wikimedia.org/wiki/File:MA_D297_Maya_stela_H,_Copan_Honduras.jpg" }
+    - { url: /images/extra/mayan-city-states-4.webp, credit: "Raymond Ostertag, CC BY-SA 2.5, via Wikimedia Commons", caption: "Temple I (Temple of the Great Jaguar) rising 47 meters above the Great Plaza in the Petén rainforest of Tikal, Guatemala", source: "https://commons.wikimedia.org/wiki/File:Tikal_Temple1_2006_08_11.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=z9YwfTerAdA
@@ -2244,6 +2264,11 @@
   image_url: /images/civilisations/kingdom-of-axum.webp
   image_caption: Royal city of Axum in the Ethiopian highlands with carved monolithic granite stelae, Ta'akha Maryam stone-and-timber palace, and ivory trade.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/kingdom-of-axum-1.webp, credit: "Ondřej Žváček, CC BY 2.5, via Wikimedia Commons", caption: "The 24-meter monolithic granite Stele of King Ezana (Obelisk of Axum), carved with multi-storey false architectural windows and doors (Northern Stelae Park, Axum)", source: "https://commons.wikimedia.org/wiki/File:Rome_Stele.jpg" }
+    - { url: /images/extra/kingdom-of-axum-2.webp, credit: "Ismoon, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold coin of King Ezana of Axum bearing the Christian cross, wheat stalks, and Greek inscription, c. 340 CE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Ezana_gold_coin_with_cross._British_Museum._1921,0316.1.jpg" }
+    - { url: /images/extra/kingdom-of-axum-3.webp, credit: "A. Davey, CC BY 2.0, via Wikimedia Commons", caption: "The Ezana Stone, a 4th-century trilingual stela inscribed in Ge'ez, Sabaean, and Greek detailing King Ezana's military campaigns (Axum, Ethiopia)", source: "https://commons.wikimedia.org/wiki/File:The_Ezana_Stone_(2840202630).jpg" }
+    - { url: /images/extra/kingdom-of-axum-4.webp, credit: "A.Savin, FAL (Free Art License), via Wikimedia Commons", caption: "The monumental stone and timber foundations of the Dungur palace complex in Axum, dating to the height of the Axumite Empire", source: "https://commons.wikimedia.org/wiki/File:ET_Axum_asv2018-01_img45_Dungur.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=LdSFpSarZkA
@@ -2254,6 +2279,11 @@
   image_url: /images/civilisations/teotihuacan.webp
   image_caption: Avenue of the Dead toward the Pyramids of the Sun and Moon, workshops knapping green Pachuca obsidian and painting feathered serpent murals.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/teotihuacan-1.webp, credit: "Peachseltzer, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Temple of the Feathered Serpent (Quetzalcoatl) at Teotihuacan, showing alternating high-relief carvings of feathered serpents and rain deities", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Feathered_Serpent_view_from_top_of_Adosada_platform_Teotihuacan.jpg" }
+    - { url: /images/extra/teotihuacan-2.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Carved green serpentine funerary mask from Teotihuacan, characteristic of classic highland Mesoamerican stone lapidary portraiture", source: "https://commons.wikimedia.org/wiki/File:Mask_Teotihuacan_sculpture-70.1999.12.1-DSC00140-black.jpg" }
+    - { url: /images/extra/teotihuacan-3.webp, credit: "Thomas Aleto, CC BY 2.0, via Wikimedia Commons", caption: "Mural of the Great Goddess of Teotihuacan from the Tepantitla apartment compound, depicted beneath an exuberant flowering tree of life", source: "https://commons.wikimedia.org/wiki/File:Great_Goddess_of_Teotihuacan_(T_Aleto).jpg" }
+    - { url: /images/extra/teotihuacan-4.webp, credit: "Daniel Case, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monumental Pyramid of the Sun rising over 65 meters above the Valley of Mexico along the Avenue of the Dead at Teotihuacan", source: "https://commons.wikimedia.org/wiki/File:Pyramid_of_the_Sun,_Teotihuacan,_from_path_to_parking_lot.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=aV6ZZZsCjK8
