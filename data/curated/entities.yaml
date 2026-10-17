@@ -546,6 +546,9 @@
   start_year: -1848050
   end_year: -338050
   description: Stone tool tradition best known for large, shaped hand axes, associated mainly with Homo erectus and later hominins. It lasted well over a million years across Africa, Europe and South Asia.
+  image_url: /images/cultures/acheulean.webp
+  image_credit: AI-generated illustration
+  image_caption: "Homo erectus flint knapper shaping symmetrical teardrop handaxes along a Pleistocene savanna river"
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   source_ids:
     - recall
@@ -988,6 +991,9 @@
   start_year: -5849
   end_year: -4499
   description: Early Neolithic culture of the western Mediterranean, named after pottery decorated by pressing cockle shells (Cardium) into the clay. Cardial communities spread farming rapidly along the coasts from Italy to Portugal.
+  image_url: /images/cultures/cardial.webp
+  image_credit: AI-generated illustration
+  image_caption: "Mediterranean coastal pioneer camp with dugout canoes, Cardium shell pottery stamping, and goat herding"
   wikipedia_url: https://en.wikipedia.org/wiki/Cardium_pottery
   wikidata: Q1035710
   source_ids: []

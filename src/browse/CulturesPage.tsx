@@ -113,7 +113,14 @@ export default function CulturesPage() {
               {s.picture && (
                 <figure className="cu-stage-fig">
                   <div className="br-img">
-                    <img src={s.picture.url} alt="" loading="lazy" onError={(e) => ((e.currentTarget.parentElement!.style.display = "none"))} />
+                    <img
+                      src={s.picture.url}
+                      srcSet={`${s.picture.url.replace(/\.webp$/, "-600.webp")} 600w, ${s.picture.url} 1200w`}
+                      sizes="(max-width: 640px) 100vw, 360px"
+                      alt=""
+                      loading="lazy"
+                      onError={(e) => ((e.currentTarget.parentElement!.style.display = "none"))}
+                    />
                   </div>
                   {s.picture.credit && <figcaption className="muted image-credit">{s.picture.credit}</figcaption>}
                 </figure>
@@ -141,6 +148,10 @@ export default function CulturesPage() {
                       <span className="cu-card-meta muted">
                         {shortDuration(c.end_year - c.start_year)}
                         {n > 0 && <> · {n.toLocaleString("en-US")} site{n === 1 ? "" : "s"}</>}
+                        {(() => {
+                          const picCount = (c.image_url ? 1 : 0) + (c.extra_images?.length ?? 0);
+                          return picCount > 0 ? <> · <span className="nowrap">{picCount === 1 ? "1 picture" : `${picCount} pictures`}</span></> : null;
+                        })()}
                         {c.media && c.media.length > 0 && <> · <span className="nowrap">{videoCount(c.media.length)}</span></>}
                       </span>
                       {summary && <span className="cu-card-summary">{summary}</span>}

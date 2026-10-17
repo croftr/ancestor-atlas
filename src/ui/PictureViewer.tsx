@@ -145,7 +145,7 @@ export default function PictureViewer({
         <CategoryBadge category={entity.category} size={26} decorative />
         <div className="pv-title">
           <h2>{entity.name}</h2>
-          <div className="pv-date">{date}</div>
+          <div className="pv-date">{date}{count > 1 && <> · {shownIndex + 1} of {count}</>}</div>
         </div>
       </header>
       <button ref={closeRef} className="pv-close" onClick={() => setOpen(false)} aria-label="Close pictures" title="Close (Esc)">

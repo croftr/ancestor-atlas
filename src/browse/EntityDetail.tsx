@@ -143,6 +143,12 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
               <img
                 key={shown.url}
                 src={shown.url}
+                {...(shown.url.startsWith("/images/cultures/") && !shown.url.includes("-600.webp")
+                  ? {
+                      srcSet: `${shown.url.replace(/\.webp$/, "-600.webp")} 600w, ${shown.url} 1200w`,
+                      sizes: "(max-width: 640px) 100vw, 600px",
+                    }
+                  : {})}
                 alt={entity.name}
                 className={isExtra ? "info-image-extra picture-in" : undefined}
                 onError={() => setBroken(shown.url)}
