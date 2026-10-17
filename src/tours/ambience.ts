@@ -77,6 +77,24 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Ripe wheat field in a breeze: rustling grain stalks, a flint sickle cutting stems, larks singing, goats bleating in the distance",
     sound: { src: "ambience/events/birth-of-agriculture-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9b11b9f397" },
   },
+  "cattle-and-pigs": {
+    prompt: "Neolithic village pen at morning: cattle lowing and shifting, pigs grunting and rooting in mud, a wooden gate creaking, birdsong",
+  },
+  "maize-and-squash": {
+    prompt: "Dry hillside in southern Mexico: warm wind through tall grass and maize leaves, a stone hoe chopping soil, cicadas and distant birds",
+  },
+  "rice-and-millet": {
+    prompt: "Flooded rice paddy beside a river: water trickling between fields, frogs croaking, a wooden hoe splashing in mud, birds calling",
+  },
+  "new-guinea-farming": {
+    prompt: "Highland swamp garden in New Guinea: a digging stick cutting wet earth, water running in ditches, tropical birds and insects, light rain",
+  },
+  "dairying": {
+    prompt: "Milk squirting rhythmically into a clay pot, a cow breathing and shifting its hooves, a calf calling, quiet farmyard behind",
+  },
+  "andean-domestication": {
+    prompt: "High Andean grassland by a lake: cold wind, llamas humming softly, their footsteps on stony ground, a distant bird call",
+  },
   "copper-smelting": {
     prompt: "Small clay furnace roaring as leather bellows pump air in rhythmic gusts, charcoal crackling and hissing",
     sound: { src: "ambience/events/copper-smelting-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9d4bf797ca" },
@@ -93,6 +111,9 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "A reed stylus pressing into soft clay tablets, quiet scratching and tapping in a mud-brick room, a distant busy city",
     sound: { src: "ambience/events/development-of-writing-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a70e71094a" },
   },
+  "sorghum-and-millet": {
+    prompt: "Hot savanna field at midday: dry sorghum stalks rustling in the wind, a stone grinding grain on a quern, weaver birds chattering",
+  },
   "great-pyramid": {
     prompt: "Desert wind over sand, huge stone blocks dragged on wooden sledges, ropes creaking, rhythmic copper chisels on limestone",
     sound: { src: "ambience/events/great-pyramid-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "19e15e33a7" },
@@ -101,6 +122,9 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Brick-paved riverside city: water running through drains, wooden cart wheels, birds, the gentle bustle of a market without speech",
     sound: { src: "ambience/events/indus-cities-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5d1d67bbeb" },
   },
+  "horse-domestication": {
+    prompt: "Open steppe: a herd of horses galloping past, hooves drumming, snorts and whinnies, wind over the grass",
+  },
   "alphabetic-script": {
     prompt: "Desert mine in rocky hills: dry wind, a chisel scratching marks into sandstone, small stones falling, goats far away",
     sound: { src: "ambience/events/alphabetic-script-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c4c236b4e7" },
@@ -108,6 +132,9 @@ export const AMBIENCE: Record<string, Ambience> = {
   "code-of-hammurabi": {
     prompt: "Chisel carving into hard black basalt, steady taps, a palace courtyard with a trickling fountain and birds",
     sound: { src: "ambience/events/code-of-hammurabi-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c6e39452ff" },
+  },
+  "chicken-domestication": {
+    prompt: "Tropical forest edge at dawn in Southeast Asia: a junglefowl rooster crowing, hens clucking and scratching in leaves, insects and birds",
   },
   "iron-age": {
     prompt: "Blacksmith forging iron: heavy hammer strikes on hot metal, bellows breathing, sparks, a hiss of quenching in water",
