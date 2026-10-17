@@ -148,12 +148,14 @@ licence allows the use and what attribution it asks for. Every tour so far uses 
 "Adrift Among Infinite Stars" (`temp/tour-music.mp3`, CC BY 4.0) under its own key, so each can be
 replaced alone. The mix (music level, dip under narration) is set at the top of `src/audio/music.ts`.
 
-### 6. Check, commit, push, upload
+### 6. Check, commit, upload
+
+On the tour's own branch (see CLAUDE.md's working agreements); merge and push when Rob asks.
 
 ```sh
 npx tsx scripts/check-data-fresh.ts && npx tsx scripts/validate-data.ts && npx tsc --noEmit && npx vitest run
 git add data/curated/entities.yaml data/curated/events.yaml public/data src/tours/tours.ts
-git commit && git push
+git commit
 npm run audio:upload        # Rob, with his AWS login: uploads every referenced clip missing from the bucket
 ```
 

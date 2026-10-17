@@ -5,8 +5,13 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Working agreements
 
-- Commit straight to `main`. Check `git status` first and stage only your own files: Rob often has uncommitted work
-  (README, `src/` UI, `src/index.css`, images). Never overwrite or sweep up his changes.
+- Work on a branch, not `main` (Rob's call, 17 Oct 2026, as the app grows): one branch per piece of work, named for it
+  (`family-tree`, `link-previews`), from an up-to-date `main`. When another agent is working in the same checkout, use
+  a git worktree so the two don't switch branches under each other. Merge into `main` and push only when Rob asks.
+- Check `git status` first and stage only your own files: Rob often has uncommitted work (README, `src/` UI,
+  `src/index.css`, images). Never overwrite or sweep up his changes.
+- `public/data` is built, so never hand-merge it: on a conflict there (or in `build-meta.json`), merge the sources,
+  then run `npm run data:build` and commit the result.
 - Never fetch from xronos.ch automatically. Rob downloads `data/raw/xronos/data.csv` by hand. The XRONOS team (Joe Roe,
   Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache it; no crawling or
   repeated requests (their robots.txt disallows the CSVs for that reason).
