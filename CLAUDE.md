@@ -404,14 +404,19 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   - **Cultures & Civilizations**: 1200×900 (4:3) WebP in `public/images/cultures/` or `public/images/civilisations/`, plus a 600×450 companion (`<name>-600.webp`). NO painted lettering.
   - **Authentic Museum Galleries (`extra_images`)**: High-res artifact photos from Wikimedia Commons (CC / Public Domain) in `public/images/extra/<id>-<n>.webp` (max dimension 1200px, quality 85). Every item needs `url`, `credit`, `caption`, and `source` (https URL).
 - **Check the Queue**: Run `npm run images:check` at any time to inspect placeholder groups and missing artwork.
-- **Pending AI Illustrations (6 Civilization Groups)**:
-  On 17 Oct 2026, oversized picture-groups were split and 6 new groups were assigned temporary placeholder cards pending AI image generation (e.g. after API quota reset on Tuesday 20 Oct 2026):
+- **Pending AI Illustrations (6 Civilization Groups & 3 Tour/Migration Cultures)**:
+  Assigned temporary placeholder cards pending AI image generation (e.g. after API quota reset on Tuesday 20 Oct 2026):
+  *Civilizations*:
   1. `imperial-magadha` -> `public/images/civilisations/imperial-magadha.webp` & `-600.webp`
   2. `deccan-kingdoms` -> `public/images/civilisations/deccan-kingdoms.webp` & `-600.webp`
   3. `urartu-and-caucasus` -> `public/images/civilisations/urartu-and-caucasus.webp` & `-600.webp`
   4. `hellenistic-anatolian-kingdoms` -> `public/images/civilisations/hellenistic-anatolia.webp` & `-600.webp`
   5. `ptolemaic-egypt` -> `public/images/civilisations/ptolemaic-egypt.webp` & `-600.webp`
   6. `eastern-hellenistic` -> `public/images/civilisations/eastern-hellenistic.webp` & `-600.webp`
+  *Cultures (Taming the Wild tour & Migration routes)*:
+  7. `bantu-farmers` -> `public/images/cultures/bantu-farmers.webp` & `-600.webp` (Domestication tour stop 11)
+  8. `lapita` -> `public/images/cultures/lapita.webp` & `-600.webp` (Domestication tour stop 14)
+  9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Detailed ready-to-copy generation prompts are saved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md). Once generated, overwrite the placeholder WebP files and their `-600.webp` counterparts, then run `npm run data:build` and commit.
 
 ## Possible next steps

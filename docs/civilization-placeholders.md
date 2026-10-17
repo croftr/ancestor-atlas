@@ -1,10 +1,10 @@
-# Civilization Picture Group Placeholders (Illustration Queue)
+# Illustration Placeholders & Generation Queue (Civilizations & Cultures)
 
-This file tracks newly split civilization picture groups currently using clean placeholder cards, awaiting bespoke 1200×900 (4:3) archaeological reconstruction illustrations when AI generation quota is available.
+This file tracks newly split civilization picture groups and newly added migration/tour cultures currently using clean placeholder cards, awaiting bespoke 1200×900 (4:3) archaeological reconstruction illustrations when AI generation quota is available.
 
 ---
 
-## Quick Summary
+## Quick Summary: Civilizations
 
 | Group ID | Label | Target File (1200×900 & 600×450) | Polities Included |
 | :--- | :--- | :--- | :--- |
@@ -14,6 +14,14 @@ This file tracks newly split civilization picture groups currently using clean p
 | **`hellenistic-anatolian-kingdoms`** | Hellenistic Anatolia | `public/images/civilisations/hellenistic-anatolia.webp` | Pontus, Cappadocia, Commagene, Bithynia, Galatia, Sophene, Osroene, Adiabene, Gordyene |
 | **`ptolemaic-egypt`** | Ptolemaic Egypt | `public/images/civilisations/ptolemaic-egypt.webp` | Ptolemaic Kingdom |
 | **`eastern-hellenistic`** | Eastern Hellenistic & Bactria | `public/images/civilisations/eastern-hellenistic.webp` | Seleucid Empire, Greco-Bactrian Kingdom, Indo-Greeks |
+
+## Quick Summary: Cultures (Domestication Tour & Migration Routes)
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`bantu-farmers`** | Early Bantu-speaking farmers | `public/images/cultures/bantu-farmers.webp` | "Taming the wild" tour (stop 11), Shum Laka, Katuruka, Urewe dimpled pottery, iron smelting |
+| **`lapita`** | Lapita culture | `public/images/cultures/lapita.webp` | "Taming the wild" tour (stop 14), Bismarck Archipelago, Teouma, voyaging canoes, dentate-stamped pottery |
+| **`dapenkeng`** | Dapenkeng culture | `public/images/cultures/dapenkeng.webp` | Austronesian migration route, Taiwan coastal settlements, cord-marked pottery, dugout canoes |
 
 ---
 
@@ -122,3 +130,59 @@ Scene:
 - Merchants from India, China, and Greece trading silk, lapis lazuli, and Hellenistic silver tetradrachm coins on stone verandas.
 Negative prompt: Absolutely no modern buildings, no text, no words, no watermarks, no Islamic minarets, no modern roads.
 ```
+
+---
+
+### 7. `bantu-farmers` (Early Bantu-speaking Farmers)
+- **Target File**: `public/images/cultures/bantu-farmers.webp` (+ `bantu-farmers-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting an Early Bantu-speaking agricultural settlement in the African Great Lakes or Cameroon highlands (c. 500 BCE, Urewe tradition).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm tropical savanna sunlight, lush acacia woodlands, deep atmospheric perspective.
+Scene:
+- A small village with clustered circular wattle-and-daub thatched houses: villagers weeding and harvesting fields of pearl millet, sorghum, and yams.
+- In the foreground: women potters shaping and firing distinctive Urewe earthenware vessels with geometric incised neck patterns and dimpled bases; children and fat-tailed goats nearby.
+- Under a grove of trees nearby: an early African bloomery iron furnace built of clay bricks and fitted with clay tuyere blowpipes; blacksmiths with tongs hammering spongy iron bloom on a stone anvil, red glowing coals and wisps of charcoal smoke.
+- In the distance: green rolling savanna hills under a bright African sky.
+Negative prompt: Absolutely no modern clothing, no text, no words, no watermarks, no colonial buildings, no modern steel tools, no plastic.
+```
+
+---
+
+### 8. `lapita` (Lapita Culture)
+- **Target File**: `public/images/cultures/lapita.webp` (+ `lapita-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Lapita seafaring coastal settlement in Remote Oceania (Santa Cruz, Vanuatu or early Fiji, c. 1000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, bright tropical South Pacific sunlight, clear turquoise lagoon water, vibrant coral sands.
+Scene:
+- A tropical island beach settlement with raised timber-and-thatch stilt houses overlooking a calm lagoon.
+- On the white coral sand: two large double-hulled ocean-going outrigger canoes (vaka) with woven pandanus crab-claw sails, freshly arrived from a long voyage.
+- Seafarers and islanders unloading provisions: coiled ropes, baskets of taro and breadfruit, and live Polynesian pigs and red junglefowl chickens.
+- In the foreground: Lapita women artisans meticulously pressing carved bone comb-stamps into wet red earthenware bowls, creating intricate dentate-stamped geometric faces, labyrinths, and cross-hatchings.
+- Coconut palms, screw-pines, and steep rainforest-cloaked volcanic peaks rising in the background.
+Negative prompt: Absolutely no modern motorboats, no metal tools, no modern fabrics, no text, no words, no watermarks, no European colonial elements.
+```
+
+---
+
+### 9. `dapenkeng` (Dapenkeng Culture)
+- **Target File**: `public/images/cultures/dapenkeng.webp` (+ `dapenkeng-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Neolithic Dapenkeng coastal settlement on the western coast of Taiwan (c. 3500 BCE, early Austronesian expansion).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, soft maritime morning sunlight, subtropical coastal lagoon and sandy estuary.
+Scene:
+- A coastal village of raised bamboo and timber huts with thatched roofs nestled between the seashore and forested hills.
+- On the sandy shore: fishermen hauling in heavy dugout canoes with outriggers, unloading woven fiber nets overflowing with fish, and baskets of harvested clams and oysters.
+- In the foreground: artisans grinding and polishing greenstone nephrite adzes and pressing twisted plant cord into wet clay to produce classic Dapenkeng cord-marked pottery pots.
+- Small garden terraces with early foxtail millet and tubers behind the dwellings; lush subtropical rainforest mountains visible in the background mist.
+Negative prompt: Absolutely no modern clothes, no text, no words, no watermarks, no Chinese dynastic temples, no modern fishing gear.
+```
+
