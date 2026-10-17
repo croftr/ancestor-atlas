@@ -20,7 +20,7 @@ export function agoText(ka: number, short = false): string {
   return `${years.toLocaleString("en-US")} years ago`;
 }
 
-const signed = (v: number, unit: string, digits = 0) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v).toFixed(digits)} ${unit}`;
+export const signed = (v: number, unit: string, digits = 0) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v).toFixed(digits)} ${unit}`;
 
 /**
  * The chart's window around an age (ka): wide enough to show a few stages either side, so the
@@ -94,14 +94,15 @@ export function WhenLine({ year, className = "cp-when" }: { year: number; classN
   );
 }
 
-export function ClimateFacts({ climate, year }: { climate: Climate; year: number }) {
+/** `gauged`: the ice, temperature and sea level are showing at the top of the screen (tours/ClimateHud.tsx), so leave them out. */
+export function ClimateFacts({ climate, year, gauged = false }: { climate: Climate; year: number; gauged?: boolean }) {
   const at = climateAt(climate, year);
   const stage = at.stage;
   const note = stage && STAGE_NOTES[stage.stage];
   return (
     <>
       <WhenLine year={year} />
-      {at.d18o !== undefined && (
+      {at.d18o !== undefined && !gauged && (
         <div className="cp-state">
           <span className="cp-swatch" style={{ background: climateColor(at.d18o) }} />
           {climateWords(at.d18o)}
@@ -109,32 +110,36 @@ export function ClimateFacts({ climate, year }: { climate: Climate; year: number
       )}
 
       <dl className="cp-facts">
-        <div>
-          <dt>Global temperature</dt>
-          {at.temperature !== undefined ? (
-            <dd>
-              <strong>{signed(at.temperature, "°C", 1)}</strong>
-              <span className="muted">compared with pre-industrial times</span>
-            </dd>
-          ) : (
-            <dd className="muted">Not reconstructed this far back (the records used here reach 783,000 years).</dd>
-          )}
-        </div>
-        <div>
-          <dt>Sea level</dt>
-          {at.sea ? (
-            <dd>
-              <strong>{signed(Math.round(at.sea.m), "m")}</strong>
-              <span className="muted">
-                {at.sea.lo !== undefined && at.sea.hi !== undefined
-                  ? `compared with today (95% range ${signed(Math.round(at.sea.lo), "m")} to ${signed(Math.round(at.sea.hi), "m")})`
-                  : "compared with today, as drawn on the globe"}
-              </span>
-            </dd>
-          ) : (
-            <dd className="muted">Not reconstructed this far back (the record used here reaches 798,000 years).</dd>
-          )}
-        </div>
+        {!gauged && (
+          <>
+            <div>
+              <dt>Global temperature</dt>
+              {at.temperature !== undefined ? (
+                <dd>
+                  <strong>{signed(at.temperature, "°C", 1)}</strong>
+                  <span className="muted">compared with pre-industrial times</span>
+                </dd>
+              ) : (
+                <dd className="muted">Not reconstructed this far back (the records used here reach 783,000 years).</dd>
+              )}
+            </div>
+            <div>
+              <dt>Sea level</dt>
+              {at.sea ? (
+                <dd>
+                  <strong>{signed(Math.round(at.sea.m), "m")}</strong>
+                  <span className="muted">
+                    {at.sea.lo !== undefined && at.sea.hi !== undefined
+                      ? `compared with today (95% range ${signed(Math.round(at.sea.lo), "m")} to ${signed(Math.round(at.sea.hi), "m")})`
+                      : "compared with today, as drawn on the globe"}
+                  </span>
+                </dd>
+              ) : (
+                <dd className="muted">Not reconstructed this far back (the record used here reaches 798,000 years).</dd>
+              )}
+            </div>
+          </>
+        )}
         {stage && (
           <div>
             <dt>Marine Isotope Stage</dt>

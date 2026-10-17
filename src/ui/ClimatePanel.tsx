@@ -3,6 +3,7 @@ import { STACKED_QUERY } from "../config";
 import { useClimate } from "../time/climate";
 import { ClimateFacts } from "./ClimatePopover";
 import { useMediaQuery } from "./useMediaQuery";
+import { useClimateHud } from "../tours/ClimateHud";
 
 /**
  * The climate popover's details kept open under the legend, following the slider as time plays and
@@ -14,13 +15,15 @@ export default function ClimatePanel() {
   const year = useStore((s) => s.year);
   const stacked = useMediaQuery(STACKED_QUERY);
   const climate = useClimate();
+  // In a tour the temperature and sea level move up to the top of the screen (tours/ClimateHud.tsx).
+  const gauged = useClimateHud();
   if (!on || stacked || !climate) return null;
   return (
     <section className="panel climate-panel" aria-label="Climate">
       <button className="cp-close" onClick={() => setOn(false)} aria-label="Close the climate panel" title="Close (turn back on in Settings)">
         ✕
       </button>
-      <ClimateFacts climate={climate} year={year} />
+      <ClimateFacts climate={climate} year={year} gauged={gauged} />
     </section>
   );
 }

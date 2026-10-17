@@ -318,3 +318,68 @@
 @media (max-width: 900px) {
   .tour-gap-wrap { position: fixed; top: 22%; left: 0; right: 0; }
 }
+
+/* In a tour (desktop) the climate of the moment takes the search bar's place (ClimateHud.tsx): a
+   thermometer and a coast in cross-section with the sea of the time, the ice in words on a tab below. */
+.climate-hud {
+  position: absolute; top: 12px; left: calc(50% + var(--nav-w, 0px) / 2); transform: translateX(-50%); z-index: 6;
+  display: flex; align-items: center; gap: 22px; padding: 8px 18px 14px 12px;
+  border-radius: 16px; pointer-events: none; white-space: nowrap;
+  background: linear-gradient(180deg, rgba(20, 28, 48, 0.88), rgba(10, 15, 28, 0.82));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  animation: hud-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes hud-in { from { opacity: 0; transform: translate(-50%, -12px); } }
+.hud-gauge { display: flex; align-items: center; gap: 8px; }
+.hud-gauge + .hud-gauge, .hud-state + .hud-gauge { padding-left: 20px; border-left: 1px solid rgba(255, 255, 255, 0.08); }
+.hud-read { display: flex; flex-direction: column; line-height: 1.15; }
+.hud-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #8b95ab; }
+.hud-value {
+  font-size: 1.55rem; font-weight: 650; font-variant-numeric: tabular-nums; color: #e6ebf5;
+  text-shadow: 0 0 14px currentColor; transition: color 0.4s ease;
+}
+.hud-value.sea { color: #7cc4ff; }
+.hud-sub { font-size: 0.72rem; color: #8b95ab; }
+.hud-thermo { width: 30px; height: 64px; overflow: visible; }
+.hud-sea { width: 128px; height: 66px; border-radius: 8px; overflow: hidden; }
+.hud-glass { fill: rgba(255, 255, 255, 0.06); stroke: rgba(255, 255, 255, 0.28); stroke-width: 1; }
+.hud-thermo-fill {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  transition: transform 0.4s ease, fill 0.4s ease;
+  filter: drop-shadow(0 0 3px currentColor);
+}
+.hud-thermo-bulb { transition: fill 0.4s ease; }
+.hud-tick { stroke: rgba(255, 255, 255, 0.3); stroke-width: 1; }
+.hud-tick.zero { stroke: #d6a05c; }
+.hud-tick-label { font-size: 7px; fill: #d6a05c; }
+.hud-water { transition: transform 0.4s ease; }
+.hud-water-body { fill: rgba(40, 110, 190, 0.75); }
+.hud-wave { fill: none; stroke: #9fd6ff; stroke-width: 1.2; opacity: 0.85; animation: hud-wave 3.2s linear infinite; }
+@keyframes hud-wave { to { transform: translateX(20px); } }
+.hud-land { fill: #3b4a63; stroke: rgba(255, 255, 255, 0.18); stroke-width: 0.8; }
+.hud-shelf { fill: none; stroke: #e2bd72; stroke-width: 3; stroke-linecap: round; filter: drop-shadow(0 0 3px rgba(226, 189, 114, 0.7)); }
+.hud-flooded { fill: none; stroke: #7cc4ff; stroke-width: 3; stroke-linecap: round; }
+.hud-today { stroke: rgba(255, 255, 255, 0.55); stroke-width: 0.8; stroke-dasharray: 3 2; }
+.hud-today-label { font-size: 7px; fill: rgba(255, 255, 255, 0.7); }
+/* The ice, in words, on a tab hanging from the bottom edge. */
+.hud-state {
+  position: absolute; left: 50%; bottom: -11px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 11px;
+  font-size: 0.74rem; color: #cbd3e6; border-radius: 999px;
+  background: rgba(14, 20, 36, 0.96); border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.hud-swatch { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 6px currentColor; transition: background 0.4s ease; }
+/* The "40,000 years later" intertitle drops below the gauges. */
+.app.touring:has(.climate-hud) .tour-gap-wrap { top: max(13%, 128px); }
+@media (max-width: 1180px) {
+  .hud-sub { display: none; }
+  .climate-hud { gap: 14px; }
+  .hud-gauge + .hud-gauge, .hud-state + .hud-gauge { padding-left: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .climate-hud { animation: none; }
+  .hud-wave { animation: none; }
+  .hud-thermo-fill, .hud-water, .hud-value { transition: none; }
+}

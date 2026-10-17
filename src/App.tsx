@@ -10,6 +10,7 @@ import PageTabs from "./ui/PageTabs";
 import WelcomeHint from "./ui/WelcomeHint";
 import IntroModal from "./ui/IntroModal";
 import TourPlayer from "./tours/TourPlayer";
+import ClimateHud from "./tours/ClimateHud";
 import ToursPage from "./tours/ToursPage";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
@@ -58,6 +59,7 @@ export default function App() {
         {view === "globe" && (
           <>
             <SearchBox />
+            <ClimateHud />
             <Legend />
             <InfoPanel />
             <DnaCard />
