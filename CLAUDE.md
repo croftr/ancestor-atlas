@@ -97,7 +97,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   taken again when the page comes back into view).
 - Sound needs a tap: the Tours menu primes audio; a tour opened from a link waits behind a "Start tour" button (`gate`).
 - A stop may set `site` (a feature id) to frame and open the card on one place. Tours can mix categories.
-- Tours (Oct 2026): Events and inventions (all 29 events; a draft for Rob to trim); Human evolution (13 species + 2
+- Tours (Oct 2026): Events and inventions (every event, oldest first: its stops come from `src/tours/event-ids.json`, written by `npm run data:build`, so a new event joins it after the next build; Rob's call, 17 Oct 2026); Human evolution (13 species + 2
   events); Out of Africa (9); Ice Age artists and toolmakers (14); Rise and fall of civilizations (15 civilizations +
   4 events, Sumer to Rome); Out of the steppe (`steppe-migration`, 16 Oct 2026: the wheel + 7 steppe-descended
   cultures, Yamnaya to Andronovo; `dna: "y"` turns the ancient DNA layer on for the tour and puts the viewer's setting
@@ -180,7 +180,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 2. Done 13 Oct 2026: title card and announcement. Intro videos were tried (Out of Africa) and dropped: Rob did not
    like them; the code was reverted (commit 9badd1f). Don't bring them back unless he asks.
 3. Done 13 Oct 2026: Tours page and a better Tours menu (see above).
-4. Events and inventions still runs all 29 events: Rob to pick the stops to keep.
+4. Done 17 Oct 2026: Events and inventions runs every event, picked up automatically (Rob chose all over a trimmed list).
 5. Music: Human evolution and Out of Africa play "Apeman Suite" by Paul Lawler (keys human-evolution-v2,
    out-of-africa-v2; 6:22); Rob believes it is not
    licensed, so swap it for a licensed track (or get permission) before relying on it publicly. The other three

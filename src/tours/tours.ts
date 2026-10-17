@@ -1,5 +1,7 @@
 import type { Category } from "../types";
 import type { DnaColour } from "../dna/haplogroups";
+/** Every event id, oldest first; written by `npm run data:build` (scripts/build-data.ts). */
+import EVENT_IDS from "./event-ids.json";
 
 /**
  * Guided tours: the globe plays forward and stops at each entity in turn, turning to it and opening
@@ -50,37 +52,8 @@ export const TOURS: Tour[] = [
     music: { src: "music/tours/events-and-inventions-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     announcement: { src: "narration/tours/events-and-inventions-v4.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "11a7f7e233" },
     closingNarration: { src: "narration/tours/events-and-inventions-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8964ee6826" },
-    stops: [
-      { entity: "hominin-divergence" },
-      { entity: "lomekwian-tools" },
-      { entity: "oldowan-tools" },
-      { entity: "out-of-africa-dmanisi" },
-      { entity: "acheulean-handaxes" },
-      { entity: "control-of-fire" },
-      { entity: "modern-humans-emerge" },
-      { entity: "symbolic-culture" },
-      { entity: "sahul-seafaring" },
-      { entity: "archaic-human-admixture" },
-      { entity: "figurative-cave-art" },
-      { entity: "earliest-musical-instruments" },
-      { entity: "peopling-of-the-americas" },
-      { entity: "first-pottery" },
-      { entity: "dog-domestication" },
-      { entity: "gobekli-tepe" },
-      { entity: "birth-of-agriculture" },
-      { entity: "copper-smelting" },
-      { entity: "invention-of-the-wheel" },
-      { entity: "bronze-age" },
-      { entity: "development-of-writing" },
-      { entity: "great-pyramid" },
-      { entity: "indus-cities" },
-      { entity: "alphabetic-script" },
-      { entity: "code-of-hammurabi" },
-      { entity: "iron-age" },
-      { entity: "sea-peoples" },
-      { entity: "minted-coinage" },
-      { entity: "papermaking" },
-    ],
+    // Every event, so a new one joins the tour with the next data build.
+    stops: EVENT_IDS.map((entity) => ({ entity })),
   },
   {
     id: "human-evolution",

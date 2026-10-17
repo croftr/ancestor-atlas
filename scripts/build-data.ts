@@ -422,6 +422,9 @@ writeFileSync(
 );
 writeFileSync(`${META_PATH}`, JSON.stringify({ inputs_hash: fingerprint().hash }) + "\n");
 writeFileSync(`${OUT}/sources.json`, JSON.stringify([...usedSources].sort().map((id) => sources.get(id)), null, 1) + "\n");
+// Every event, oldest first by best year: the Events and inventions tour stops at each (src/tours/tours.ts).
+const eventIds = entityList.filter((e) => e.category === "event").sort((a, b) => (a.year ?? a.start_year) - (b.year ?? b.start_year)).map((e) => e.id);
+writeFileSync("src/tours/event-ids.json", "[\n" + eventIds.map((id) => `  ${JSON.stringify(id)}`).join(",\n") + "\n]\n");
 
 // ---------- report ----------
 const kb = (p: string) => (statSync(p).size / 1024).toFixed(0) + " KB";
