@@ -12,6 +12,8 @@ import { navWidth, stageInset } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
 import { routesGeoJSON, timeline, type TimedPoint } from "../routes/geometry";
+import { GENE_FLOWS, type GeneFlow } from "../geneflow/geneflow";
+import { geneFlowGeoJSON } from "../geneflow/geometry";
 import { pathSoFar, trail, trailPoints, type LngLat, type TrailFrame } from "../tours/epilogue";
 import { tourById } from "../tours/tours";
 import { dnaGeoJSON, loadDna } from "../dna/data";
@@ -95,6 +97,10 @@ const DNA_LAYER = "dna-sites";
 /** Route layers, under the markers. */
 const ROUTE_LAYERS = ["route-casing", "route-line", "route-head"];
 
+/** Interbreeding layers (geneflow/), over the routes, under the markers. */
+const GENE_FLOW_LAYERS = ["gene-flow-casing", "gene-flow-line", "gene-flow-head", "gene-flow-ring"];
+const GENE_FLOW_COLOR = "#ff7eb6";
+
 /**
  * Large screens: the height the time slider covers at the bottom of the map. Kept as the map's
  * padding, so the globe centres in the open space above the slider instead of behind it.
@@ -141,6 +147,33 @@ function routePopup(route: (typeof ROUTES)[number]): maplibregl.Popup {
   a.textContent = route.source.label;
   note.append(a);
   el.append(h, p, note);
+  return new maplibregl.Popup({ className: "route-popup", maxWidth: "320px", focusAfterOpen: false }).setDOMContent(el);
+}
+
+/** An interbreeding episode and where it comes from, when it is tapped. */
+function geneFlowPopup(flow: GeneFlow): maplibregl.Popup {
+  const el = document.createElement("div");
+  const h = document.createElement("strong");
+  h.textContent = flow.name;
+  const when = document.createElement("div");
+  when.className = "muted";
+  when.textContent = flow.date_text;
+  const p = document.createElement("p");
+  p.textContent = flow.description;
+  const note = document.createElement("div");
+  note.className = "muted";
+  note.append(
+    "at" in flow.link
+      ? "Source: "
+      : "Genomes show that it happened and roughly when, not where: the line joins sites of the two species near where they could have met. Source: ",
+  );
+  const a = document.createElement("a");
+  a.href = flow.source.url;
+  a.target = "_blank";
+  a.rel = "noreferrer";
+  a.textContent = flow.source.label;
+  note.append(a);
+  el.append(h, when, p, note);
   return new maplibregl.Popup({ className: "route-popup", maxWidth: "320px", focusAfterOpen: false }).setDOMContent(el);
 }
 
@@ -347,6 +380,27 @@ export default function MapView() {
       (map.getSource("routes") as maplibregl.GeoJSONSource | undefined)?.setData(routes ? routesGeoJSON(routeLines, year) : EMPTY);
     };
 
+    // Interbreeding: the episodes whose sites are loaded, shown near their dates.
+    let geneFlows: GeneFlow[] | null = null;
+    const applyGeneFlow = () => {
+      const data = getData();
+      if (!data) return;
+      const at = (id: string): [number, number] | undefined => {
+        const b = data.bboxOf.get(id);
+        return b ? [b[0], b[1]] : undefined;
+      };
+      geneFlows ??= GENE_FLOWS.filter((g) => {
+        const ids = "at" in g.link ? [g.link.at] : [g.link.from, g.link.to];
+        const missing = ids.filter((id) => !at(id));
+        if (missing.length) console.warn(`gene flow ${g.id}: no site ${missing.join(", ")} on the globe`);
+        return !missing.length;
+      });
+      const { year, geneFlow } = useStore.getState();
+      (map.getSource("gene-flow") as maplibregl.GeoJSONSource | undefined)?.setData(
+        geneFlow ? geneFlowGeoJSON(geneFlows, at, year) : EMPTY,
+      );
+    };
+
     // Ancient DNA: the sites with anyone dated to the slider's year (the data loads when the layer is first switched on).
     const applyDna = () => {
       const { dna } = useStore.getState();
@@ -523,6 +577,50 @@ export default function MapView() {
         },
         paint: { "icon-color": ["get", "color"], "icon-halo-color": "rgba(10, 14, 26, 0.8)", "icon-halo-width": 2 },
       });
+      map.addSource("gene-flow", { type: "geojson", data: EMPTY });
+      map.addLayer({
+        id: "gene-flow-casing",
+        type: "line",
+        source: "gene-flow",
+        filter: ["==", ["geometry-type"], "MultiLineString"],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "rgba(10, 14, 26, 0.7)", "line-width": 5.5 },
+      });
+      map.addLayer({
+        id: "gene-flow-line",
+        type: "line",
+        source: "gene-flow",
+        filter: ["==", ["geometry-type"], "MultiLineString"],
+        layout: { "line-join": "round" },
+        paint: { "line-color": GENE_FLOW_COLOR, "line-width": 2.5, "line-dasharray": [2, 1.5] },
+      });
+      map.addLayer({
+        id: "gene-flow-head",
+        type: "symbol",
+        source: "gene-flow",
+        filter: ["==", ["get", "head"], true],
+        layout: {
+          "icon-image": "route-arrow",
+          "icon-size": 1.2,
+          "icon-rotate": ["get", "bearing"],
+          "icon-rotation-alignment": "map",
+          "icon-allow-overlap": true,
+          "icon-ignore-placement": true,
+        },
+        paint: { "icon-color": GENE_FLOW_COLOR, "icon-halo-color": "rgba(10, 14, 26, 0.8)", "icon-halo-width": 2 },
+      });
+      map.addLayer({
+        id: "gene-flow-ring",
+        type: "circle",
+        source: "gene-flow",
+        filter: ["==", ["get", "ring"], true],
+        paint: {
+          "circle-radius": 22, // beyond a finger's reach of the site marker inside it (TAP_SLOP_TOUCH), so a tap on it reaches the popup
+          "circle-color": "rgba(0, 0, 0, 0)",
+          "circle-stroke-color": GENE_FLOW_COLOR,
+          "circle-stroke-width": 2.5,
+        },
+      });
       map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
@@ -668,7 +766,10 @@ export default function MapView() {
       applyPaleo();
       applyDna();
       applyDnaSelection();
-      loadData().then(applyRoutes);
+      loadData().then(() => {
+        applyRoutes();
+        applyGeneFlow();
+      });
       applyFilters();
       applyVisibility();
       applySelection();
@@ -723,14 +824,16 @@ export default function MapView() {
             [x - r, y - r],
             [x + r, y + r],
           ],
-          { layers: ROUTE_LAYERS },
+          { layers: [...GENE_FLOW_LAYERS, ...ROUTE_LAYERS] },
         )[0];
+        const flow = route && GENE_FLOW_LAYERS.includes(route.layer.id) && GENE_FLOWS.find((g) => g.id === route.properties.id);
         const found = route && ROUTES.find((rt) => rt.id === route.properties.id);
-        if (found) routePopup(found).setLngLat(e.lngLat).addTo(map);
+        if (flow) geneFlowPopup(flow).setLngLat(e.lngLat).addTo(map);
+        else if (found) routePopup(found).setLngLat(e.lngLat).addTo(map);
       } else useStore.getState().select(sorted[0].id, sorted);
     });
 
-    for (const id of [...INTERACTIVE_LAYERS, "route-line", DNA_LAYER]) {
+    for (const id of [...INTERACTIVE_LAYERS, "route-line", "gene-flow-line", "gene-flow-ring", DNA_LAYER]) {
       map.on("mouseenter", id, () => (map.getCanvas().style.cursor = "pointer"));
       map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
     }
@@ -927,6 +1030,7 @@ export default function MapView() {
       }
       if (state.year !== prev.year || state.paleo !== prev.paleo) applyPaleo();
       if (state.year !== prev.year || state.routes !== prev.routes) applyRoutes();
+      if (state.year !== prev.year || state.geneFlow !== prev.geneFlow) applyGeneFlow();
       if (state.year !== prev.year || state.dna !== prev.dna || state.dnaColour !== prev.dnaColour) applyDna();
       if (state.dnaSite !== prev.dnaSite || state.selectedId !== prev.selectedId) applyDnaSelection();
       if (state.enabled !== prev.enabled) applyVisibility();

@@ -92,6 +92,12 @@ export function drawnAt(points: TimedPoint[], year: number, until: number): { li
   return { line, growing: false };
 }
 
+/** Points along the great circle from a to b (both included), about STEP_DEG apart. */
+export function greatCircle(a: [number, number], b: [number, number]): [number, number][] {
+  const n = Math.max(1, Math.ceil(angle(a, b) / RAD / STEP_DEG));
+  return Array.from({ length: n + 1 }, (_, k) => slerp(a, b, k / n));
+}
+
 /**
  * Splits a line where it crosses the antimeridian, so each piece stays within -180..180 and the
  * map doesn't draw it the long way round.

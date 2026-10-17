@@ -21,6 +21,7 @@ function loadBasemap(): string {
 
 const PALEO_KEY = "history-globe.paleo";
 const ROUTES_KEY = "history-globe.routes";
+const GENE_FLOW_KEY = "history-globe.gene-flow";
 const DNA_KEY = "history-globe.dna";
 const DNA_COLOUR_KEY = "history-globe.dna-colour";
 
@@ -69,6 +70,8 @@ interface AppState {
   paleo: boolean;
   /** Draw the migration routes (routes/routes.ts). */
   routes: boolean;
+  /** Draw interbreeding between human species (geneflow/geneflow.ts). */
+  geneFlow: boolean;
   /** Draw the ancient DNA sites (dna/; on unless switched off; its data is a separate download). */
   dna: boolean;
   dnaColour: DnaColour;
@@ -171,6 +174,7 @@ interface AppState {
   setBasemap(name: string): void;
   setPaleo(on: boolean): void;
   setRoutes(on: boolean): void;
+  setGeneFlow(on: boolean): void;
   setDna(on: boolean): void;
   setDnaColour(mode: DnaColour): void;
   openDnaSite(id: string | null): void;
@@ -192,6 +196,7 @@ export const useStore = create<AppState>((set, get) => ({
   basemap: loadBasemap(),
   paleo: loadOn(PALEO_KEY),
   routes: loadOn(ROUTES_KEY),
+  geneFlow: loadOn(GENE_FLOW_KEY),
   dna: loadOn(DNA_KEY),
   dnaColour: loadDnaColour(),
   dnaSite: null,
@@ -367,6 +372,10 @@ export const useStore = create<AppState>((set, get) => ({
   setRoutes: (on) => {
     saveOn(ROUTES_KEY, on);
     set({ routes: on });
+  },
+  setGeneFlow: (on) => {
+    saveOn(GENE_FLOW_KEY, on);
+    set({ geneFlow: on });
   },
   setDna: (on) => {
     saveOn(DNA_KEY, on);

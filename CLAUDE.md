@@ -222,6 +222,23 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   pole (rewrites `public/data/basemap/land.geojson` in place; rerunning changes nothing). Run it again if the
   basemap is ever replaced. The thin curved line across the southern half was probably Antarctica's; not rechecked.
 
+## Interbreeding (added 17 Oct 2026)
+
+- `src/geneflow/geneflow.ts`: seven hand-picked episodes (like the routes, in the app): an erectus-like lineage into
+  Denisovans (~350 ka, Hexian -> Harbin), early modern humans into Neanderthals (~250 ka, Misliya -> Apidima 2; and
+  120–100 ka, Qafzeh -> Tabun), Denny (~90 ka, a ring at Denisova Cave), Neanderthals into modern humans (65–47 ka,
+  Shanidar -> Manot), Denisovans into the ancestors of Papuans and Australians (54–44 ka, Tam Ngu Hao 2 -> Tabon),
+  Oase (~40 ka, Vindija -> Oase). Each has a date window, a description written from the pinned Wikipedia source, and
+  a link `{ from, to }` (donor site to receiving site) or `{ at }`. The sites only stand for the two populations
+  (the popup says so). Shown while the slider is within half a slider step of the window (`shownAt` in
+  `geometry.ts`), so each catches at least one stop; `geneflow.test.ts` checks that and that every site exists.
+- Drawn in `MapView.tsx` (`gene-flow-*` layers, pink dashed line with the routes' arrowhead at the receiving end;
+  the ring is 22 px so a tap on it misses the site marker inside). Tap for a popup. Settings toggle (store
+  `geneFlow`, on by default, remembered). Sources listed in the Sources panel.
+- Possible next: draw the episodes on the family tree too (ideas.md).
+- Wikipedia's *Neanderthal genetics* calls the Oase genome Oase 2; it was Oase 1 (Fu et al. 2015). The description
+  avoids naming the jaw.
+
 ## Ancient DNA layer (added 16 Oct 2026)
 
 - AADR v66.p1 (CC0, Harvard Dataverse): `npm run data:dna` (pinned file id + MD5 in `scripts/fetch/aadr.ts`; downloads

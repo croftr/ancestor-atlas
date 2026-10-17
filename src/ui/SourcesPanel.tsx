@@ -1,6 +1,7 @@
 import { useData } from "../map/data";
 import { usePaleo } from "../map/paleo";
 import { ROUTES } from "../routes/routes";
+import { GENE_FLOWS } from "../geneflow/geneflow";
 import { useClimate } from "../time/climate";
 
 /**
@@ -12,6 +13,7 @@ export default function SourcesContent() {
   const paleo = usePaleo();
   const climate = useClimate();
   const routeSources = [...new Map(ROUTES.map((r) => [r.source.url, r.source])).values()];
+  const geneFlowSources = [...new Map(GENE_FLOWS.map((g) => [g.source.url, g.source])).values()];
   return (
     <div className="sources-panel">
       <p className="muted sources-intro">
@@ -37,6 +39,11 @@ export default function SourcesContent() {
           <li key={s.url}>
             Migration routes: <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a> <span className="muted">· CC BY-SA 4.0</span>
             <div className="muted">Each route joins dated sites on the globe, which carry their own sources.</div>
+          </li>
+        ))}
+        {geneFlowSources.map((s) => (
+          <li key={s.url}>
+            Interbreeding: <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a> <span className="muted">· CC BY-SA 4.0</span>
           </li>
         ))}
       </ul>

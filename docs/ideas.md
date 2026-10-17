@@ -35,7 +35,8 @@ dropped. Tour polish items already in CLAUDE.md's backlog are not repeated here.
 - [ ] **Extend the timeline past 1 CE** (to about 1500 CE). Would let the Polynesian voyages (Hawaiʻi, Rapa Nui,
   Aotearoa; anchor sites already found, see CLAUDE.md "Migration routes") and the Bantu expansion's southern half be
   drawn. Touches the slider scale, era chips, tours, and thousands of Cliopatria polities now clipped at 1 CE.
-- [ ] **Interbreeding events:** Neanderthal and Denisovan gene flow, drawn as links between species ranges.
+- [x] **Interbreeding events.** Done 17 Oct 2026: seven episodes of gene flow drawn as links on the globe (Settings:
+  Interbreeding); see CLAUDE.md "Interbreeding". Possible next steps: draw them on the family tree.
 - [ ] **New tours from existing data:** Peopling of the Americas, Neanderthal life, Domestication and the first
   farmers, Writing and the first cities.
 

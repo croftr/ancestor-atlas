@@ -23,6 +23,8 @@ export default function SettingsContent() {
   const setPaleo = useStore((s) => s.setPaleo);
   const routes = useStore((s) => s.routes);
   const setRoutes = useStore((s) => s.setRoutes);
+  const geneFlow = useStore((s) => s.geneFlow);
+  const setGeneFlow = useStore((s) => s.setGeneFlow);
   const dna = useStore((s) => s.dna);
   const setDna = useStore((s) => s.setDna);
   const legendPanel = useStore((s) => s.legendPanel);
@@ -62,7 +64,14 @@ export default function SettingsContent() {
         <input type="checkbox" checked={routes} onChange={(e) => setRoutes(e.target.checked)} />
         <span>
           Migration routes
-          <span className="muted">How modern humans spread out of Africa, drawn as the time slider passes each site.</span>
+          <span className="muted">Modern humans out of Africa, farming into Europe, the Austronesian and Bantu expansions, drawn as the time slider passes each site.</span>
+        </span>
+      </label>
+      <label className="settings-check">
+        <input type="checkbox" checked={geneFlow} onChange={(e) => setGeneFlow(e.target.checked)} />
+        <span>
+          Interbreeding
+          <span className="muted">When Neanderthals, Denisovans and modern humans had children together, as their genomes show.</span>
         </span>
       </label>
       <label className="settings-check">

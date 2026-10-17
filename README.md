@@ -35,6 +35,7 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🏛️ **Early Civilizations & Polities**: Watch early city-states, kingdoms, and civilizations emerge, grow, and interact across the globe.
 - 🧊 **Ice Age Coastlines & Ice Sheets**: The globe redraws its coastlines as sea level rose and fell: Beringia, Sunda, Sahul and Doggerland appear as dry land, and the great ice sheets spread over North America and northern Europe (sea level for the last 800,000 years; ice sheets for the last 80,000).
 - 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas; then farming spread into Europe, Austronesian seafarers sailed out of Taiwan across the Pacific, and Bantu-speaking farmers spread across Africa. Each route grows as the slider passes the dated sites it joins.
+- 🧬 **Interbreeding**: See when Neanderthals, Denisovans and modern humans had children together, from the first modern human DNA in Neanderthals 250,000 years ago to Denny, a Neanderthal–Denisovan child, and the Neanderthal and Denisovan DNA many people carry today.
 - 🧬 **Ancient DNA**: Over 9,000 sampled ancient genomes, coloured by father's or mother's line, so you can watch lineages such as R1b sweep across Europe after 3000 BCE. Each site lists the people sampled there with their haplogroups, dates and publications.
 - 🌡️ **Climate Strip**: A band under the time slider shows ice ages and warm spells over the last 5.3 million years. Click it (or the stage badge under the year) for the global temperature, sea level and Marine Isotope Stage of that moment, with a small chart of the glacial cycles around it.
 - 🤝 **Who Lived When**: Each species card lists the other species alive at the same time.
@@ -191,6 +192,11 @@ Built by `npm run data:paleo` (`scripts/paleo.ts`) from inputs fetched by `npm r
   globe (so each date and place carries that site's source); `via` points only bend the line along a coast or strait.
   The direction of each route follows a pinned Wikipedia revision: *Early human migrations* (Out of Africa),
   *Neolithic Europe* (farming), *Lapita culture* (Austronesian expansion) and *Bantu expansion*.
+- **Interbreeding** (`src/geneflow/geneflow.ts`): seven episodes of gene flow between human species, each a dashed link
+  from a site of the donor species to a site of the receiving one (or a ring at one site, for Denny), shown near its
+  date. The genomes rarely say where it happened, so the sites stand for the two populations. Dates and descriptions
+  follow pinned revisions of Wikipedia's *Interbreeding between archaic and modern humans*, *Neanderthal genetics* and
+  *Denny (hybrid hominin)*.
 
 ### Ancient DNA (AADR)
 
