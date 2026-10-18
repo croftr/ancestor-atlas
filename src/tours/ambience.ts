@@ -169,4 +169,13 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Making paper by hand: water sloshing in a vat, wet pulp beaten with wooden mallets, a bamboo screen lifted and dripping, gentle rain outside",
     sound: { src: "ambience/events/papermaking-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d80a041fbe" },
   },
+  "cucuteni-trypillia": {
+    prompt: "Neolithic village by a river valley: crackling pottery kiln fire, a distant timber bonfire roaring softly, gentle breeze in grass, birds calling",
+    sound: { src: "ambience/cultures/cucuteni-trypillia-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6da13cb61e" },
+  },
+  carthage: {
+    prompt: "Ancient Mediterranean harbour: gentle waves lapping against stone quays, rhythmic wooden galley oars dipping in water, creaking ship timbers, distant gulls",
+    sound: { src: "ambience/civilizations/carthage-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a7b7c6bcd1" },
+  },
 };
+

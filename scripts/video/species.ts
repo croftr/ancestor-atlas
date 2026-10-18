@@ -67,6 +67,20 @@ const SCENE_PROMPTS: Record<string, string> = {
     "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'DOMESTICATION OF THE HORSE' at the top, the sky, the hills, and the riverside wooden houses completely still and unchanged. Across the steppe, the mounted horseman in the centre, the two horses pulling the spoked wooden chariot on the right, and the herd of horses on the left run forward through the tall grass with manes and tails flowing, kicking up light dust behind their hooves and chariot wheels, while white smoke drifts from the cottage chimneys in the background.",
   sintashta:
     "Living painting cinemagraph of a historical paleoart illustration, locked static camera with no camera movement or zoom. Keep the circular fortified timber-and-earth settlement, the steppe hills, and the two standing Bronze Age warriors in the right foreground completely still and unchanged. From the conical smelting furnaces and hearths inside the circular town, plumes of white smoke rise and drift steadily across the sky in the steppe wind. In the foreground, the two harnessed chariot horses hitched to the spoked wooden chariot shift their weight, toss their heads slightly, and swish their tails and manes in the breeze while cattle graze quietly in the pastures.",
+  "bronze-age":
+    "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'The Bronze Age' at the top, the stone workshop walls, the standing worker in the background, and the kneeling smith's body, hands, tongs, and tilted clay crucible completely still in their exact position without morphing. The thin golden-orange stream of molten bronze pouring from the crucible into the stone sword mould shimmers with a bright metallic glow and sends a few tiny, subtle golden sparks hopping gently off the stone mould, without any explosion or large smoke cloud. In the background on the left, the orange fire inside the workshop forge flickers warmly, while the sailboats in the distant harbour glide very slowly across the shimmering water.",
+  "first-pottery":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'Invention of Pottery' at the top, the sky, the sun, the rocky cliffs, the trees, and all four human figures completely still in their exact poses. In the centre middle ground, the low campfire around the clay pots flickers gently with warm orange flames that stay low around the pots without any black smoke column or flying debris rising into the sky. In the right foreground, the kneeling potter makes a very subtle, gentle motion with his fingers along the rim of the coiled clay pot while the river behind him ripples softly.",
+  "sea-peoples":
+    "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'Invasion of the Sea Peoples' at the top and all foreground warriors, weapons, shields, women, children, and oxen completely still and unchanged in their exact poses. In the right background, bright orange flames flicker and thick dark smoke billows upward from the burning fortified coastal citadel on the hill. On the left, white-crested sea waves roll and wash onto the beach while the wooden warships under sail rock gently on the water and small flames and smoke rise from the beach campfire.",
+  "birth-of-agriculture":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the two-line text title 'The Birth of Agriculture' at the top, the sky, the clouds, the rising sun on the horizon, and the distant rolling hills completely still and unchanged with no smoke or dust. Across the foreground and middle ground, the golden wheat stalks sway in gentle, continuous rhythmic waves in the morning breeze while the harvesters in the field make a subtle reaping motion among the grain.",
+  "earliest-musical-instruments":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'Earliest Musical Instruments (Paleolithic Bone Flutes)' at the top, the rock shelter overhang, the snowy mountains, and the seated listeners around the fire completely still and unchanged. In the foreground, the young Paleolithic musician holds the vulture-bone flute steady at his lips and gently moves his fingers over the flute holes. Behind him, the campfire flames flicker and dance warmly with rising sparks, casting warm flickering light across the circle, while the distant mammoth herd walks slowly across the snowy valley.",
+  "cucuteni-trypillia":
+    "Living painting cinemagraph of a historical paleoart illustration, locked static camera with no camera movement or zoom. Keep the kneeling woman painting the spiral ceramic pot in the foreground, the two standing villagers behind her, the painted vessels on the right, and the concentric rings of timber houses completely still and unchanged. In the upper right background, bright orange flames leap and a tall plume of dark smoke billows upward into the sky from the burning house in the ring-settlement. On the left, white smoke drifts upward from the dome-shaped pottery kiln, while the river in the valley shimmers gently.",
+  carthage:
+    "Living painting cinemagraph of a historical architectural illustration, locked static camera with no camera movement or zoom. Keep the circular stone Cothon harbour buildings, the central island pavilion, the city walls, the distant mountains, and the figures on the foreground terrace completely still and unchanged. The turquoise water inside the circular naval harbour and outer basin shimmers with gentle ripples as the Punic galleys in the harbour entrance channel glide slowly forward through the water with oars dipping rhythmically and soft white wakes trailing behind them, while ships under sail move gently on the open sea.",
 };
 
 interface CuratedEntity {
@@ -78,7 +92,10 @@ interface CuratedEntity {
   video?: { src: string; credit: string };
 }
 
-const curated = parseYaml(readFileSync(CURATED_ENTITIES, "utf8")) as CuratedEntity[];
+const curated = (parseYaml(readFileSync(CURATED_ENTITIES, "utf8")) as CuratedEntity[]).map((e) => ({
+  ...e,
+  category: e.category ?? "civilization",
+}));
 const curatedEvents = (parseYaml(readFileSync(CURATED_EVENTS, "utf8")) as Omit<CuratedEntity, "category">[]).map((e) => ({
   ...e,
   category: "event",
@@ -179,7 +196,7 @@ function encodeVideo(input: string, out: string, category: string, imagePath?: s
     category === "event"
       ? [
           "-filter_complex",
-          "[0:v]crop=ih:ih,scale=720:720:flags=lanczos,split[vid][first];[first]trim=end_frame=1,loop=-1:size=1,setpts=N/FRAME_RATE/TB,crop=720:250:0:0,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(gt(Y,220),255*(250-Y)/30,255)'[top];[vid][top]overlay=0:0:shortest=1",
+          "[0:v]crop=ih:ih,scale=720:720:flags=lanczos,split[vid][first];[first]trim=end_frame=1,loop=-1:size=1,setpts=N/FRAME_RATE/TB,crop=720:280:0:0,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(gt(Y,255),255*(280-Y)/25,255)'[top];[vid][top]overlay=0:0:shortest=1",
         ]
       : ["-vf", "crop=ih*4/3:ih,scale=640:480:flags=lanczos"];
   execFileSync(

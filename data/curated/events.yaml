@@ -264,6 +264,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Paleolithic_flute
   image_url: /images/events/earliest-musical-instruments.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/earliest-musical-instruments-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/earliest-musical-instruments-1.webp, credit: "Tomatenpflanze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Griffon vulture bone flute from Hohle Fels, about 40,000 years old", source: "https://commons.wikimedia.org/wiki/File:Fl%C3%B6te_aus_G%C3%A4nsegeierknochen_vom_Hohle_Fels_im_urmu.jpg" }
     - { url: /images/events/extra/earliest-musical-instruments-2.webp, credit: "Thilo Parg, CC BY-SA 3.0, via Wikimedia Commons", caption: "Swan bone flute from Geissenklösterle", source: "https://commons.wikimedia.org/wiki/File:Floete_Schwanenknochen_Geissenkloesterle_Blaubeuren.jpg" }
@@ -313,6 +314,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Xianren_Cave
   image_url: /images/events/invention-of-pottery.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/first-pottery-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/first-pottery-3.webp, credit: "Zhangzhugang, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Xianrendong Cave in Jiangxi, China, where 20,000-year-old pottery was found", source: "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8816.jpg" }
     - { url: /images/events/extra/first-pottery-1.webp, credit: "Zhangzhugang, CC BY-SA 3.0, via Wikimedia Commons", caption: "Inside Xianrendong Cave, Jiangxi, China", source: "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8805.jpg" }
@@ -379,6 +381,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Neolithic_Revolution
   image_url: /images/events/birth-of-agriculture.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/birth-of-agriculture-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/birth-of-agriculture-3.webp, credit: "Roger Culos, CC BY-SA 3.0, via Wikimedia Commons", caption: "Ears of emmer wheat (Triticum dicoccum), one of the Neolithic founder crops of the Fertile Crescent", source: "https://commons.wikimedia.org/wiki/File:Triticum_turgidum_subsp._dicoccum_MHNT.BOT.2015.2.36.jpg" }
     - { url: /images/events/extra/birth-of-agriculture-1.webp, credit: "Daderot, public domain, via Wikimedia Commons", caption: "Einkorn wheat, one of the founder crops", source: "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC07813.JPG" }
@@ -563,6 +566,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Bronze_Age
   image_url: /images/events/bronze-age.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/bronze-age-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/bronze-age-3.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Early Bronze Age stone casting moulds alongside cast bronze tools and weapons (Museum of Western Bohemia)", source: "https://commons.wikimedia.org/wiki/File:Stone_molds_for_bronze_casting,_Museum_of_Western_Bohemia,_187766.jpg" }
     - { url: /images/events/extra/bronze-age-1.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Copper-alloy figure of a worshipper from Khafajah, Iraq, Early Dynastic period", source: "https://commons.wikimedia.org/wiki/File:Support_in_the_form_of_a_nude_male_worshipper,_1_of_2,_Khafajah,_Temple_Oval_I,_Early_Dynastic_period,_2900-2700_BC,_copper_alloy_-_Oriental_Institute_Museum,_University_of_Chicago_-_DSC07456.JPG" }
@@ -773,6 +777,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sea_Peoples
   image_url: /images/events/sea-peoples.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/sea-peoples-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/sea-peoples-1.webp, credit: "Antonio Beato, CC0, via Wikimedia Commons", caption: "The naval battle relief on the north wall at Medinet Habu, photographed by Antonio Beato, late 1800s", source: "https://commons.wikimedia.org/wiki/File:Theban_region,_Medinet_Habu,_19th_century_pictures,_1870-1896,_photo_44_of_51_-_Archivio_fotografico_Museo_Egizio,_Turin_INV10_001.jpg" }
     - { url: /images/events/extra/sea-peoples-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Drawing of the naval battle against the Sea Peoples, Medinet Habu", source: "https://commons.wikimedia.org/wiki/File:Medinet_Habu_Ramses_III._Tempel_Nordostwand_Abzeichnung_01.jpg" }

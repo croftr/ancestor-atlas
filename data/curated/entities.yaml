@@ -1182,6 +1182,7 @@
   description: Neolithic–Chalcolithic culture of Romania, Moldova and Ukraine, c. 5050–2950 BCE, famous for painted pottery and giant settlements of thousands of houses between the Carpathians and the Dnieper.
   image_url: /images/cultures/cucuteni-trypillia.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/cucuteni-trypillia-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Sprawling concentric mega-settlement with two-storey painted houses, polychrome pottery, and ritual burning"
   wikipedia_url: https://en.wikipedia.org/wiki/Cucuteni–Trypillia_culture
   wikidata: Q1162419
@@ -1702,6 +1703,7 @@
   description: A premier Phoenician maritime empire based in modern Tunisia, founded by Tyrian settlers in the 9th century BCE. Dominating western Mediterranean sea lanes through a vast commercial navy, wealthy trading colonies, and agricultural estates, Carthage fought epic conflicts with Syracuse and Rome during the Punic Wars before its destruction in 146 BCE.
   image_url: /images/civilisations/carthage.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/carthage-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "The circular military cothon harbor of Carthage lined with vaulted ship-sheds and Admiralty island, Punic quinqueremes, and the Byrsa citadel crowned by the Temple of Eshmun"
   extra_images:
     - { url: /images/extra/carthage-1.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Punic limestone votive stele from Carthage carved with the sacred Sign of Tanit, crescent moon, and raised arms (Louvre)", source: "https://commons.wikimedia.org/wiki/File:St%C3%A8le_d%C3%A9cor%C3%A9e_d%27un_signe_de_Tanit_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_AO_23068.jpg" }
