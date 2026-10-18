@@ -1913,6 +1913,11 @@
       credit: PeriscopeFilm, YouTube
 - id: lydia
   description: A prosperous Iron Age kingdom in western Anatolia centered on the wealthy capital of Sardis along the Pactolus River. Renowned for inventiveness, the Lydians introduced the world's first standardized minted coinage stamped from electrum under King Alyattes and reached legendary opulence under King Croesus before falling to Cyrus the Great.
+  extra_images:
+    - { url: /images/extra/lydia-1.webp, credit: "Classical Numismatic Group, CC BY-SA 2.5, via Wikimedia Commons", caption: "Lydian electrum third-stater (trite) of King Alyattes from Sardis (c. 620–563 BCE), showing a roaring lion head with sunburst knob—among the world's earliest coins", source: "https://commons.wikimedia.org/wiki/File:Electrum_trite,_Alyattes,_Lydia,_620-563_BC.jpg" }
+    - { url: /images/extra/lydia-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Heavy gold stater of King Croesus (\"Croeseid\"), depicting confronted foreparts of a roaring lion and bull (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Gold_stater._Lydia._ca._560%E2%80%93546_B.C._The_Metropolitan_Museum_of_Art.jpg" }
+    - { url: /images/extra/lydia-3.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Classical Lydian carved marble winged sphinx from Sardis, 5th century BCE (Istanbul Archaeology Museum)", source: "https://commons.wikimedia.org/wiki/File:Istanbul_Archaeology_Museum_Sphinx,_Marble,_480-450_BC_Sardis_3577.jpg" }
+    - { url: /images/extra/lydia-4.webp, credit: "BabelStone, CC0, via Wikimedia Commons", caption: "Archaic Lydian marble tomb relief panel showing an elite horse and bridle, from the royal necropolis of Bin Tepe (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Britishmuseumbintepehorserelief.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=kHiBXEfrOhw
@@ -1960,6 +1965,11 @@
       credit: Schwerpunkt, YouTube
 - id: kingdom-of-armenia
   description: A major kingdom in the Armenian Highlands that reached imperial status under Tigranes the Great in the 1st century BCE, stretching from the Caspian to the Mediterranean. Buffering the Roman and Parthian empires, Armenia fostered a distinct national identity and became the world's first state to officially adopt Christianity in 301 CE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-armenia-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Silver tetradrachm of Tigranes II the Great (c. 95–55 BCE) wearing the Armenian tiara adorned with eight-pointed star and eagles, reverse showing the Tyche of Antioch", source: "https://commons.wikimedia.org/wiki/File:Tetradrachm_Tigranes_II.jpg" }
+    - { url: /images/extra/kingdom-of-armenia-2.webp, credit: "Kevork Berberian, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monumental Ionic Temple of Garni (1st century CE), colonnaded royal sanctuary of the Artaxiad/Arsacid kings of Armenia", source: "https://commons.wikimedia.org/wiki/File:The_Temple_of_Garni.JPG" }
+    - { url: /images/extra/kingdom-of-armenia-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Artaxias I royal boundary stele with Aramaic royal inscription (\"King Artaxias, son of Zariadres\"), 2nd century BCE (History Museum of Armenia)", source: "https://commons.wikimedia.org/wiki/File:Artaxias_Aramaic_border_stone.jpg" }
+    - { url: /images/extra/kingdom-of-armenia-4.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Damascus-mint tetradrachm of Tigranes the Great commemorating the Armenian expansion into Syria and the Levant", source: "https://commons.wikimedia.org/wiki/File:Tetradrachm_Tigranes_II_minted_in_Damascus.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mAsF1xwRS34
@@ -1995,6 +2005,11 @@
       credit: Study of Antiquity and the Middle Ages, YouTube
 - id: kingdom-of-pontus
   description: A powerful Hellenistic kingdom on the southern Black Sea coast of northern Anatolia, founded by the Persian Mithridatic dynasty. Melding Greek, Persian, and Anatolian cultures, Pontus expanded rapidly under King Mithridates VI Eupator, who waged three fierce wars against Roman hegemony before final defeat by Pompey.
+  extra_images:
+    - { url: /images/extra/kingdom-of-pontus-1.webp, credit: "Louvre Museum / Jastrow, public domain, via Wikimedia Commons", caption: "Marble portrait bust of King Mithridates VI Eupator Dionysos in the likeness of Alexander the Great (Louvre Museum, Paris)", source: "https://commons.wikimedia.org/wiki/File:Mithridates_VI_Louvre.jpg" }
+    - { url: /images/extra/kingdom-of-pontus-2.webp, credit: "British Museum, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Mithridates VI Eupator with diademed head and wind-blown hair (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Tetradrachm_of_Mithridates_VI_CM_SNG_BM_1038.jpg" }
+    - { url: /images/extra/kingdom-of-pontus-3.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Monumental rock-cut Tombs of the Kings of Pontus carved into the sheer limestone cliffs above Amaseia (Amasya, Turkey)", source: "https://commons.wikimedia.org/wiki/File:Kral_Kaya_Mezarlar%C4%B1,_Amasya_02.jpg" }
+    - { url: /images/extra/kingdom-of-pontus-4.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reverse of Mithridates VI tetradrachm showing Pegasus grazing beside the Pontic star and crescent within an ivy wreath", source: "https://commons.wikimedia.org/wiki/File:Mithradates_VI_Tetradrahmi.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=6yp8VbJAWv4
@@ -2251,6 +2266,11 @@
       credit: World of Antiquity, YouTube
 - id: odrysian-kingdom
   description: The largest and most powerful Thracian tribal state, founded by King Teres I in the 5th century BCE in modern Bulgaria, northern Greece, and European Turkey. Bridging the Greek and barbarian worlds through lavish cavalry forces and diplomatic marriages, the Odrysians dominated regional Balkan trade before fracturing under Macedonian and Roman pressure.
+  extra_images:
+    - { url: /images/extra/odrysian-kingdom-1.webp, credit: "National Archaeological Museum Sofia / MrPanyGoff, CC BY-SA 3.0, via Wikimedia Commons", caption: "Life-size cast bronze portrait head of King Seuthes III with alabaster eyes, from his royal tomb in the Golyama Kosmatka mound (Sofia)", source: "https://commons.wikimedia.org/wiki/File:National_Archaeological_Museum_Sofia_-_Bronze_Head_from_the_Golyama_Kosmatka_Tumulus_near_Shipka.jpg" }
+    - { url: /images/extra/odrysian-kingdom-2.webp, credit: "Pudelek, CC BY-SA 4.0, via Wikimedia Commons", caption: "Solid gold amphora-rhyton from the Panagyurishte gold treasure, depicting the Seven against Thebes and satyr handles, 4th–3rd century BCE (Plovdiv)", source: "https://commons.wikimedia.org/wiki/File:Panagyurishte_Treasure,_Amphora-Rhyton.jpg" }
+    - { url: /images/extra/odrysian-kingdom-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Hellenistic-Thracian painted dome fresco depicting a quadriga chariot race from the UNESCO Thracian Tomb of Kazanlak, 4th century BCE", source: "https://commons.wikimedia.org/wiki/File:Kazanlak-tomb-fresco-1.jpg" }
+    - { url: /images/extra/odrysian-kingdom-4.webp, credit: "Institute of Balkan Studies, CC BY-SA 4.0, via Wikimedia Commons", caption: "Thracian silver and silver-gilt phialai and pitchers from the Rogozen Treasure, decorated with mythological and hunting reliefs (Vratsa)", source: "https://commons.wikimedia.org/wiki/File:Rogozen_treasure.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=641pAxUD0So
@@ -2332,6 +2352,11 @@
       credit: 3388 Films, YouTube
 - id: greco-bactrian-kingdom
   description: An extraordinary Hellenistic kingdom established around 250 BCE by Diodotus I in Central Asia (modern Afghanistan, Uzbekistan, and Tajikistan). Renowned for opulent cities like Ai-Khanoum, magnificent Hellenistic coin minting, and fortified oasis settlements, the kingdom bridged Greek Mediterranean culture with India and the Steppe, eventually expanding south to create the Indo-Greek Kingdom.
+  extra_images:
+    - { url: /images/extra/greco-bactrian-kingdom-1.webp, credit: "Cabinet des Médailles, public domain, via Wikimedia Commons", caption: "The 20-stater gold medallion of King Eucratides I (c. 171–145 BCE, 169 g), the largest gold coin minted in the ancient world (Cabinet des Médailles, Paris)", source: "https://commons.wikimedia.org/wiki/File:EucratidesStatere.jpg" }
+    - { url: /images/extra/greco-bactrian-kingdom-2.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver tetradrachm of Demetrius I of Bactria wearing an elephant-skin scalp, with Herakles resting on the reverse", source: "https://commons.wikimedia.org/wiki/File:Demetrios_I_Baktria_Tetradrachm_200-185_BC.jpg" }
+    - { url: /images/extra/greco-bactrian-kingdom-3.webp, credit: "Marco Prins / Jona Lendering, CC0, via Wikimedia Commons", caption: "Greek inscription of the Delphic Maxims brought from Delphi by Clearchus of Soli and set up in the Heroon of Kineas at Ai-Khanoum", source: "https://commons.wikimedia.org/wiki/File:Ai_Khanum,_inscription.jpg" }
+    - { url: /images/extra/greco-bactrian-kingdom-4.webp, credit: "Musée Guimet, public domain, via Wikimedia Commons", caption: "Bronze statuette of Herakles crowning himself, excavated from the Hellenistic temple sanctuary at Ai-Khanoum (National Museum of Afghanistan)", source: "https://commons.wikimedia.org/wiki/File:HeraklesStatuette.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ZyxX_vsDzL0

@@ -419,7 +419,7 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
-  Curated and wired 80 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
+  Curated and wired 100 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
   *Civilizations*:
   - `nabataeans` (4 images: Al-Khazneh Treasury, painted fine ware pottery, Ad-Deir Monastery, King Aretas IV & Shaqilath drachm)
   - `sabaeans` (4 images: Marib Dam masonry gates, Bar'an temple pillars, alabaster funerary stele, Nashqum bronze nobleman statue)
@@ -431,6 +431,11 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   - `parthian-empire` (4 images: Shami bronze statue of a Parthian prince, Old Nisa carved ivory rhytons, silver drachm of Mithridates II in tiara, Hatra high-relief Nergal carving)
   - `shang-dynasty` (4 images: Yinxu inscribed ox scapula oracle bone, monumental 832 kg Houmuwu Ding, Fu Hao tomb carved jade phoenix, Fu Hao royal bronze owl zun)
   - `xiongnu` (4 images: Noin-Ula kurgan 6 embroidered griffin & elk carpet, Noin-Ula fire altar priest silk hanging, British Museum openwork animal-style belt buckle, bronze steppe cauldron)
+  - `greco-bactrian-kingdom` (4 images: 20-stater gold medallion of Eucratides I, Demetrius I elephant-scalp tetradrachm, Ai-Khanoum Delphic Maxims inscription stele, Ai-Khanoum temple Herakles statuette)
+  - `lydia` (4 images: King Alyattes roaring lion electrum trite, King Croesus lion-and-bull gold stater, Sardis classical marble winged sphinx, Bin Tepe archaic horse tomb relief)
+  - `kingdom-of-armenia` (4 images: Tigranes the Great silver tetradrachm with tiara, Temple of Garni Ionic royal sanctuary, Artaxias I Aramaic boundary stele, Tigranes Damascus-mint tetradrachm)
+  - `kingdom-of-pontus` (4 images: Mithridates VI Eupator Louvre marble bust, Mithridates VI British Museum tetradrachm, Amasya monumental rock-cut royal tombs, Mithridates VI grazing Pegasus coin reverse)
+  - `odrysian-kingdom` (4 images: King Seuthes III bronze portrait head from Golyama Kosmatka, Panagyurishte gold amphora-rhyton, Kazanlak Thracian Tomb chariot race fresco, Rogozen Treasure silver phialai)
   *Cultures & Stone Tool Traditions*:
   - `acheulean` (4 images: Saint-Acheul type biface, Boxgrove flint handaxe, Olorgesailie handaxe accumulation in situ, Atapuerca "Excalibur" red quartzite biface)
   - `naqada` (4 images: D-ware buff jar with boats & animal standards, fish-shaped cosmetic palette, ripple-flaked bifacial flint knife, sculpted limestone hippopotamus)
