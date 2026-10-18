@@ -23,8 +23,11 @@ import TourVideo from "./TourVideo";
 import { contemporaries } from "./contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
 
+const hasCompanion600 = (url?: string): url is string =>
+  !!url && (url.startsWith("/images/cultures/") || url.startsWith("/images/civilisations/")) && !url.includes("-600.webp");
+
 const cultureSrcSet = (url?: string) => {
-  if (url && url.startsWith("/images/cultures/") && !url.includes("-600.webp")) {
+  if (hasCompanion600(url)) {
     return {
       srcSet: `${url.replace(/\.webp$/, "-600.webp")} 600w, ${url} 1200w`,
       sizes: "(max-width: 640px) 100vw, 450px",
@@ -34,7 +37,7 @@ const cultureSrcSet = (url?: string) => {
 };
 
 const cultureThumbSrc = (url?: string) => {
-  if (url && url.startsWith("/images/cultures/") && !url.includes("-600.webp")) {
+  if (hasCompanion600(url)) {
     return url.replace(/\.webp$/, "-600.webp");
   }
   return url;
