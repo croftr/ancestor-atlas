@@ -1,0 +1,97 @@
+// The promo video's timeline (docs/promo-video.md): music, shots and voiceover lines. Read by the other
+// scripts in scripts/promo/, so a change here re-times the narration, music and edit together.
+// Working files live in data/build/promo/ (gitignored); source clips and the music in data/raw/promo/ (gitignored).
+
+/**
+ * The music: "The Miracle of Flight" by Scott Buckley (CC BY 4.0, 3:32, about 119 BPM), with one cut.
+ * Its accents fall every 6 beats (UNIT, about 3.03 s; `npx tsx scripts/promo/beats.ts` finds them).
+ * The track's quiet opening plays under the cold open, then on the title it cuts from its accent at 9.77 s
+ * to the accent at 133.84 s in the full section and plays on to the composer's own ending: the final
+ * chord lands at 73.3 s in the video, on the end card, and rings out under it.
+ */
+export const MUSIC = {
+  url: "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/08/sb_themiracleofflight.mp3",
+  file: "data/raw/promo/music/sb_themiracleofflight.mp3",
+  credit: "\"The Miracle of Flight\" by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au",
+  /** Track time of the first accent used (beat #1). */
+  grid: 0.186,
+  beat: 0.50428,
+  /** The cut: track time CUT_FROM is followed by track time CUT_TO. */
+  cutFrom: 9.768,
+  cutTo: 133.835,
+};
+
+export const UNIT = 6 * MUSIC.beat;
+/** Video time of accent `n` (0 = the start of the video's first full unit, 0.69 s; 3 = the title hit). */
+export const accent = (n: number) => MUSIC.grid + MUSIC.beat + n * UNIT;
+
+/** Video length: the final chord's ring-out, faded over the last FADE_S. */
+export const LENGTH_S = 82;
+export const FADE_S = 2.5;
+
+export interface Shot {
+  /** Shot number in docs/promo-video.md. */
+  n: number;
+  /** Video time the shot starts (an accent); it runs to the next shot. */
+  at: number;
+  what: string;
+}
+
+export const SHOTS: Shot[] = [
+  { n: 1, at: 0, what: "Footprints in volcanic ash (generated A)" },
+  { n: 2, at: accent(1), what: "Hand stencil (generated B)" },
+  { n: 3, at: accent(2), what: "Fire to stars (generated C), into the app's starfield" },
+  { n: 4, at: accent(3), what: "Title over the globe" },
+  { n: 5, at: accent(4), what: "Time slider sweep, species spreading" },
+  { n: 6, at: accent(6), what: "Ice sheets and falling seas" },
+  { n: 7, at: accent(8), what: "Out of Africa routes" },
+  { n: 8, at: accent(9), what: "Interbreeding lines" },
+  { n: 9, at: accent(10), what: "Family tree" },
+  { n: 10, at: accent(11), what: "Thousands of sites" },
+  { n: 11, at: accent(13), what: "Civilizations" },
+  { n: 12, at: accent(14), what: "Ancient DNA" },
+  { n: 13, at: accent(15), what: "Tours page and title card" },
+  { n: 14, at: accent(16), what: "A narrated tour stop" },
+  { n: 15, at: accent(18), what: "Picture viewer and the gold thread" },
+  { n: 16, at: accent(20), what: "Sources and museum photos" },
+  { n: 17, at: accent(24), what: "End card: ancestoratlas.com" },
+];
+
+export interface Line {
+  shot: number;
+  /** Seconds from the start of the video when the line starts. */
+  at: number;
+  text: string;
+  /** What the narrator is given to read, when it differs from the text (a web address, say). */
+  spoken?: string;
+}
+
+const shotAt = (n: number) => SHOTS.find((s) => s.n === n)!.at;
+
+export const LINES: Line[] = [
+  { shot: 1, at: 0.9, text: "Seven million years." },
+  { shot: 2, at: shotAt(2) + 0.4, text: "Ten thousand generations." },
+  { shot: 3, at: shotAt(3) + 0.5, text: "One story." },
+  { shot: 4, at: shotAt(4) + 0.6, text: "This is Ancestor Atlas." },
+  { shot: 5, at: shotAt(5) + 0.4, text: "The whole human story, on one living globe." },
+  { shot: 6, at: shotAt(6) + 0.4, text: "Watch the ice sheets grow and the seas fall." },
+  { shot: 7, at: shotAt(7) + 0.2, text: "Follow our ancestors out of Africa," },
+  { shot: 8, at: shotAt(8) + 0.2, text: "see where we met Neanderthals and Denisovans," },
+  { shot: 9, at: shotAt(9) + 0.6, text: "trace the family tree," },
+  { shot: 10, at: shotAt(10) + 0.3, text: "and explore thousands of real sites, from the first stone tools…" },
+  { shot: 11, at: shotAt(11) + 0.1, text: "…to the empires of the ancient world." },
+  { shot: 12, at: shotAt(12) + 0.4, text: "Even ancient DNA." },
+  { shot: 13, at: shotAt(13) + 0.3, text: "Or sit back, and take a guided tour." },
+  { shot: 14, at: shotAt(14) + 1.2, text: "Narrated journeys across time…" },
+  { shot: 15, at: shotAt(15) + 0.3, text: "…from our first steps to the first cities." },
+  { shot: 16, at: shotAt(16) + 0.6, text: "Every site sourced. Every date cited. Built on real research, for curious minds of every age." },
+  {
+    shot: 17,
+    at: shotAt(17) + 0.8,
+    text: "Ancestor Atlas. Explore it free, at ancestoratlas.com.",
+    spoken: "Ancestor Atlas. Explore it free, at ancestor atlas dot com.",
+  },
+];
+
+/** Narration speed-up applied after recording (1 = as the app's tours read). */
+export const TEMPO = 1;
