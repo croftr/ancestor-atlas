@@ -621,6 +621,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza
   image_url: /images/events/great-pyramid.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/great-pyramid-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/great-pyramid-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Ivory statuette of Khufu, the only complete figure of the king known", source: "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Statuette_Cheops_03_(cropped).jpg" }
     - { url: /images/events/extra/great-pyramid-2.webp, credit: "Eduard Spelterini, public domain, via Wikimedia Commons", caption: "The Giza pyramids from a balloon, about 1904; Khufu's is on the right", source: "https://commons.wikimedia.org/wiki/File:Spelterini_Pyramids.jpg" }
