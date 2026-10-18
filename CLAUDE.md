@@ -419,7 +419,7 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
-  Curated and wired 100 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
+  Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
   *Civilizations*:
   - `nabataeans` (4 images: Al-Khazneh Treasury, painted fine ware pottery, Ad-Deir Monastery, King Aretas IV & Shaqilath drachm)
   - `sabaeans` (4 images: Marib Dam masonry gates, Bar'an temple pillars, alabaster funerary stele, Nashqum bronze nobleman statue)
@@ -436,6 +436,10 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   - `kingdom-of-armenia` (4 images: Tigranes the Great silver tetradrachm with tiara, Temple of Garni Ionic royal sanctuary, Artaxias I Aramaic boundary stele, Tigranes Damascus-mint tetradrachm)
   - `kingdom-of-pontus` (4 images: Mithridates VI Eupator Louvre marble bust, Mithridates VI British Museum tetradrachm, Amasya monumental rock-cut royal tombs, Mithridates VI grazing Pegasus coin reverse)
   - `odrysian-kingdom` (4 images: King Seuthes III bronze portrait head from Golyama Kosmatka, Panagyurishte gold amphora-rhyton, Kazanlak Thracian Tomb chariot race fresco, Rogozen Treasure silver phialai)
+  - `old-kingdom-of-egypt` (4 images: diorite statue of Khafre enthroned with Horus falcon, Menkaure and Khamerernebty II dyad, Louvre Seated Scribe, Rahotep and Nofret painted statues)
+  - `middle-kingdom-of-egypt` (4 images: Senusret III red granite portrait head, Sithathoryunet gold cloisonné pectoral, King Hor wooden Ka statue, Beni Hasan Aamu caravan mural)
+  - `zhou-dynasty` (4 images: Mao Gong Ding bronze cauldron with 500-char inscription, Marquis Yi of Zeng 65 chime bells, Da Ke Ding ritual tripod, Western Zhou jade dragon pendant)
+  - `roman-republic` (4 images: Capitoline Brutus bronze portrait head, Ides of March EID MAR denarius, Battle of the Egadi Islands bronze warship rostrum, Altar of Domitius Ahenobarbus census relief)
   *Cultures & Stone Tool Traditions*:
   - `acheulean` (4 images: Saint-Acheul type biface, Boxgrove flint handaxe, Olorgesailie handaxe accumulation in situ, Atapuerca "Excalibur" red quartzite biface)
   - `naqada` (4 images: D-ware buff jar with boats & animal standards, fish-shaped cosmetic palette, ripple-flaked bifacial flint knife, sculpted limestone hippopotamus)
@@ -443,6 +447,8 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   - `andronovo` (4 images: incised geometric ceramic vessels, bronze socketed axe-adze & dagger, Tamgaly sacred bull petroglyph, Seima-Turbino warrior-skier figurine)
   - `halaf` (4 images: Arpachiyah polychrome rosette plate, seated terracotta female fertility statuette, geometric cross bowl, carved labyrinth stamp seal)
   - `ubaid` (4 images: lizard-headed nursing mother terracotta figurine, Louvre campaniform lattice beaker, baked clay agricultural sickle, carinated painted bowl)
+  - `bantu-farmers` (4 images: Lydenburg terracotta ceremonial head with neck rings, crested Lydenburg head, early Iron Age ceramic vessel fragments, small Lydenburg head)
+  - `lapita` (4 images: Bourewa dentate-stamped pottery face sherd, Bourewa carved shell rings, Port Vila reconstructed cooking jar, Solomon Islands stamped sherd cast)
   *Hominin Species*:
   - `australopithecus-africanus` (4 images: Taung Child skull & endocast cast, Mrs. Ples Sts 5 cranium, Little Foot StW 573 skeleton, Sts 14 pelvis & spine)
   - `australopithecus-sediba` (4 images: MH1 "Karabo" juvenile cranium, MH2 right hand bones, MH2 reconstructed pelvis, MH1 partial skeleton)

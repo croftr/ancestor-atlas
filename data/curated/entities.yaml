@@ -997,6 +997,11 @@
   description: The transformative era of classical Roman civilization governed under an unwritten constitution balancing consuls, the Senate, and popular assemblies from 509 to 27 BCE. Expanding relentlessly across Italy and the Mediterranean through disciplined legions and strategic diplomacy, the Republic ultimately fractured through internal civil wars, paving the way for the autocratic Roman Empire.
   category: civilization
   wikidata: Q17167
+  extra_images:
+    - { url: /images/extra/roman-republic-1.webp, credit: "Capitoline Museums / Sailko, CC0, via Wikimedia Commons", caption: "The Capitoline Brutus (c. 4th–3rd century BCE), bronze portrait head traditionally identified as Lucius Junius Brutus, founder of the Roman Republic (Capitoline Museums, Rome)", source: "https://commons.wikimedia.org/wiki/File:Capitoline_Brutus_Musei_Capitolini.jpg" }
+    - { url: /images/extra/roman-republic-2.webp, credit: "Classical Numismatic Group / Public domain, via Wikimedia Commons", caption: "Silver denarius struck by Marcus Junius Brutus in 42 BCE celebrating the assassination of Julius Caesar, reverse showing the cap of liberty between daggers and EID·MAR", source: "https://commons.wikimedia.org/wiki/File:Brutus_Eid_Mar.jpg" }
+    - { url: /images/extra/roman-republic-3.webp, credit: "Flavio / RPM Nautical Foundation, CC BY 2.0, via Wikimedia Commons", caption: "Bronze warship battering ram (rostrum) recovered from the seabed of the Battle of the Egadi Islands (241 BCE), which sealed the Roman victory over Carthage in the First Punic War", source: "https://commons.wikimedia.org/wiki/File:Egadi_rostrum_of_ancient_ship.jpg" }
+    - { url: /images/extra/roman-republic-4.webp, credit: "Louvre Museum / Jastrow, public domain, via Wikimedia Commons", caption: "Marble relief from the Altar of Domitius Ahenobarbus (late 2nd century BCE), depicting a Roman civic census and the solemn suovetaurilia sacrifice to Mars (Louvre Museum)", source: "https://commons.wikimedia.org/wiki/File:Altar_Domitius_Ahenobarbus_Louvre_n1.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=k_0mYX1nHmI
@@ -1357,6 +1362,11 @@
   image_url: /images/cultures/bantu-farmers.webp
   image_credit: AI-generated illustration
   image_caption: "Early Bantu-speaking farming village with pearl millet fields, dimpled pottery, and early iron smelting"
+  extra_images:
+    - { url: /images/extra/bantu-farmers-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sculpted terracotta ceremonial head with incised neck rings from the Lydenburg assemblage (c. 500 CE), among the earliest known Iron Age sculptures in southern Africa (Iziko South African Museum)", source: "https://commons.wikimedia.org/wiki/File:Castle_of_Good_Hope_-_Lydenburg_Head_1.jpg" }
+    - { url: /images/extra/bantu-farmers-2.webp, credit: "Rexford Nkansah, CC BY 3.0, via Wikimedia Commons", caption: "Monumental Lydenburg terracotta head surmounted by a modeled animal crest, representing early Bantu ritual traditions (Iziko South African Museum)", source: "https://commons.wikimedia.org/wiki/File:Iziko_Lydenburg_Heads_1.JPG" }
+    - { url: /images/extra/bantu-farmers-3.webp, credit: "Rexford Nkansah, CC BY 3.0, via Wikimedia Commons", caption: "Incised ceramic sherds and associated archaeological vessel fragments from the early Iron Age Lydenburg site in South Africa (Iziko South African Museum)", source: "https://commons.wikimedia.org/wiki/File:Iziko_Lydenburg_Heads_Pottery_fragments.JPG" }
+    - { url: /images/extra/bantu-farmers-4.webp, credit: "Rexford Nkansah, CC BY 3.0, via Wikimedia Commons", caption: "Small terracotta ceremonial head with pierced earlobes and notched temporal bands from the Lydenburg assemblage (Iziko South African Museum)", source: "https://commons.wikimedia.org/wiki/File:Iziko_Lydenburg_Heads_2.JPG" }
   wikipedia_url: https://en.wikipedia.org/wiki/Bantu_expansion
   wikidata: Q130251
   source_ids: []
@@ -1384,6 +1394,11 @@
   image_url: /images/cultures/lapita.webp
   image_credit: AI-generated illustration
   image_caption: "Lapita seafaring settlement on a tropical island coast with outrigger voyaging canoes and dentate-stamped pottery"
+  extra_images:
+    - { url: /images/extra/lapita-1.webp, credit: "Patrick Nunn, CC BY-SA 4.0, via Wikimedia Commons", caption: "Lapita earthenware potsherd with intricate dentate-stamped human face motif (c. 1000 BCE), excavated from the Bourewa settlement site on Viti Levu, Fiji", source: "https://commons.wikimedia.org/wiki/File:Lapita_potsherd_from_Fiji_with_face_design.jpg" }
+    - { url: /images/extra/lapita-2.webp, credit: "Patrick Nunn, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carved Conus shell rings and personal ornaments excavated from the Bourewa Lapita coastal settlement in southwest Viti Levu, Fiji", source: "https://commons.wikimedia.org/wiki/File:Shell_jewellery_from_the_Bourewa_Lapita_site%2C_Fiji.jpg" }
+    - { url: /images/extra/lapita-3.webp, credit: "Torbenbrinker, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstructed Lapita globular cooking jar with distinctive toothed comb-stamp impressions around the neck and shoulder (Vanuatu National Museum, Port Vila)", source: "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg" }
+    - { url: /images/extra/lapita-4.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Cast of a Lapita dentate-stamped ceramic vessel sherd showing stylized winged and geometric motifs, Santa Cruz Islands, Solomon Islands (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Cast_of_a_Pot_Sherd_MET_vs1980_153_2.jpg" }
   wikipedia_url: https://en.wikipedia.org/wiki/Lapita_culture
   wikidata: Q1021436
   source_ids: []
@@ -1501,6 +1516,11 @@
   image_url: /images/civilisations/old-kingdom.webp
   image_credit: AI-generated illustration
   image_caption: "Construction of the Great Pyramid of Giza, showing teams of builders hauling stone on sledges and masons dressing Tura limestone casing beside the Sphinx"
+  extra_images:
+    - { url: /images/extra/old-kingdom-of-egypt-1.webp, credit: "Jon Bodsworth, Copyrighted free use, via Wikimedia Commons", caption: "Diorite statue of Pharaoh Khafre enthroned, protected from behind by the falcon wings of Horus, 4th Dynasty, from Giza (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Khafre_statue.jpg" }
+    - { url: /images/extra/old-kingdom-of-egypt-2.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Greywacke dyad statue of King Menkaure and Queen Khamerernebty II (c. 2490–2472 BCE), 4th Dynasty, from the Menkaure Valley Temple (MFA Boston)", source: "https://commons.wikimedia.org/wiki/File:King_Menkaura_and_queen-11.1738-IMG_4930-white.jpg" }
+    - { url: /images/extra/old-kingdom-of-egypt-3.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "The Seated Scribe (c. 2600 BCE), painted limestone sculpture with rock crystal and magnesite inlaid eyes from Saqqara (Louvre Museum, Paris)", source: "https://commons.wikimedia.org/wiki/File:The_seated_scribe-E_3023-IMG_4267-gradient-contrast.jpg" }
+    - { url: /images/extra/old-kingdom-of-egypt-4.webp, credit: "Djehouty, CC BY-SA 4.0, via Wikimedia Commons", caption: "Painted limestone statues of Prince Rahotep and his wife Nofret with preserved lifelike pigments and crystal eyes, from Meidum, 4th Dynasty (Cairo Museum)", source: "https://commons.wikimedia.org/wiki/File:%C3%84gyptisches_Museum_Kairo_2016-03-29_Rahotep_Nofret_01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vMieWZwJpDE
@@ -1511,6 +1531,11 @@
   image_url: /images/civilisations/middle-kingdom.webp
   image_credit: AI-generated illustration
   image_caption: "Middle Kingdom Nile estate with domed granaries, canal excavation, scribes recording agricultural yields, and rock-cut tombs at Beni Hasan"
+  extra_images:
+    - { url: /images/extra/middle-kingdom-of-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Red granite portrait head of Pharaoh Senusret III (c. 1878–1840 BCE), 12th Dynasty, portraying the somber, reflective royal countenance characteristic of Middle Kingdom sculpture (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Face_of_Senwosret_III_MET_LC-26_7_1394_EGDP026357.jpg" }
+    - { url: /images/extra/middle-kingdom-of-egypt-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Cloisonné gold pectoral of Princess Sithathoryunet inlaid with turquoise, lapis lazuli, and carnelian, from El-Lahun, 12th Dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Pectoral_and_Necklace_of_Sithathoryunet_with_the_Name_of_Senwosret_II_MET_16.1.3a_b_EGDP019658.jpg" }
+    - { url: /images/extra/middle-kingdom-of-egypt-3.webp, credit: "Prof. Mortel, CC BY 2.0, via Wikimedia Commons", caption: "Carved wooden Ka statue of King Hor (Auibre Hor), 13th Dynasty, discovered intact within its shrine in the royal tomb at Dahshur (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Statue_of_the_ka_of_Awibra_Hor_from_Dahshur%2C_13th_Dynasty%2C_first_half_of_17th_century_BCE%3B_Egyptian_Museum%2C_Cairo_%281%29.jpg" }
+    - { url: /images/extra/middle-kingdom-of-egypt-4.webp, credit: "Norman de Garis Davies / Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Facsimile of the tomb mural of Khnumhotep II at Beni Hasan (12th Dynasty, c. 1890 BCE), showing a caravan of West Asiatic 'Aamu' traders bringing kohl and goods to Egypt", source: "https://commons.wikimedia.org/wiki/File:Leaders_of_the_Aamu_of_Shu_MET_DT272586.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=8OrAJdwJ9sI
@@ -2775,6 +2800,11 @@
       credit: Bronze Goblet, YouTube
 - id: zhou-dynasty
   description: The longest-lasting dynasty in Chinese history (1046–256 BCE), which overthrew the Shang and established the political doctrine of the 'Mandate of Heaven'. Initially ruling through a decentralized feudal network of kinship fiefs (fengjian), the Western Zhou fostered classical Chinese cultural, ritual, and philosophical foundations.
+  extra_images:
+    - { url: /images/extra/zhou-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The Mao Gong Ding (Duke Mao Tripod), late Western Zhou Dynasty bronze ritual vessel carrying a 500-character commemorative inscription, the longest bronze inscription from antiquity (National Palace Museum, Taipei)", source: "https://commons.wikimedia.org/wiki/File:Bronze_Mao_Gong_Ding%2C_Late_Western_Zhou.jpg" }
+    - { url: /images/extra/zhou-dynasty-2.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Bianzhong of Marquis Yi of Zeng (c. 433 BCE), monumental ritual set of 65 two-tone tuned bronze bells mounted on lacquered timber racks (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:20230208_Chime_bells_of_Marquis_Yi_of_Zeng.jpg" }
+    - { url: /images/extra/zhou-dynasty-3.webp, credit: "CC BY-SA 3.0, via Wikimedia Commons", caption: "The Da Ke Ding (c. 10th century BCE), monumental Western Zhou ritual bronze cauldron cast under King Xiao with taotie wave patterns and 290-character inscription (Shanghai Museum)", source: "https://commons.wikimedia.org/wiki/File:Da_Ke_ding.jpg" }
+    - { url: /images/extra/zhou-dynasty-4.webp, credit: "Gary Lee Todd, CC0, via Wikimedia Commons", caption: "Carved nephrite jade arched dragon pendant (huang), Western Zhou Dynasty, exhibiting incised double-line decorative carving (Shaanxi History Museum)", source: "https://commons.wikimedia.org/wiki/File:Western_Zhou_Jade_07.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=sqppiHdirc0
