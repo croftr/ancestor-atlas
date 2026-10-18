@@ -72,6 +72,35 @@
   background: #000;
 }
 
+/* Switch between the videos, under the player */
+.intro-videos {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.intro-video-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8ecf4;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.intro-video-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+/* As the events page's video buttons (.ev-media-btn) */
+.intro-video-btn[aria-pressed="true"] {
+  border-color: #c39bff;
+  background: rgba(195, 155, 255, 0.35);
+}
+.intro-video-btn .muted {
+  margin-left: 4px;
+}
+
 /* Modal text and content */
 .intro-body {
   margin-top: 18px;

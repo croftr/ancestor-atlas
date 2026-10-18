@@ -1,11 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { mediaUrl } from "../config";
 import { useStore } from "../store";
 import "./intro-modal.css";
 
+/** The videos, newest first (the first plays when the dialog opens). Keys in the media bucket. */
+const VIDEOS = [
+  // Made Oct 2026 with scripts/promo (docs/promo-video.md).
+  { key: "events/promo-video-v2.mp4", label: "Trailer", length: "1:22", aria: "Ancestor Atlas trailer" },
+  { key: "events/promo-video.mp4", label: "First intro", length: "1:52", aria: "Ancestor Atlas first intro video" },
+];
+
 export default function IntroModal() {
   const setIntroOpen = useStore((s) => s.setIntroOpen);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const [shown, setShown] = useState(0);
+  const video = VIDEOS[shown];
 
   useEffect(() => {
     closeRef.current?.focus({ preventScroll: true });
@@ -36,13 +45,22 @@ export default function IntroModal() {
 
         <div className="intro-player">
           <video
-            src={mediaUrl("events/promo-video.mp4")}
+            key={video.key}
+            src={mediaUrl(video.key)}
             controls
             autoPlay
             playsInline
             preload="metadata"
-            aria-label="Ancestor Atlas promotional video"
+            aria-label={video.aria}
           />
+        </div>
+
+        <div className="intro-videos" role="group" aria-label="Choose a video">
+          {VIDEOS.map((v, i) => (
+            <button key={v.key} className="intro-video-btn" aria-pressed={i === shown} onClick={() => setShown(i)}>
+              {v.label} <span className="muted">{v.length}</span>
+            </button>
+          ))}
         </div>
 
         <div className="intro-body">

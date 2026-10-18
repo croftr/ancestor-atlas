@@ -136,3 +136,7 @@ All in `scripts/promo/`; working files in `data/build/promo/`, the generated cli
 2. `npx vite --port 5179`, then `npx tsx scripts/promo/film.ts all` (or shot ids): the app shots, about 0.2 s a frame.
 3. `npx tsx scripts/promo/titles.ts`: the on-screen text as transparent PNGs.
 4. `npx tsx scripts/promo/edit.ts` (`--draft` for a quick check): `promo.mp4`.
+5. For the web: `ffmpeg -i data/build/promo/promo.mp4 -c:v libx264 -preset slow -crf 22 -maxrate 3M -bufsize 6M
+   -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart data/build/promo/promo-video-v2.mp4` (about 20 MB),
+   uploaded to a new key (`events/promo-video-v<n>.mp4`; never overwrite one) and listed first in `VIDEOS` in
+   `src/ui/IntroModal.tsx`, where the Intro video dialog offers it as "Trailer" beside the first intro video.
