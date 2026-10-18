@@ -93,9 +93,10 @@ const after = LENGTH_S - MUSIC.cutFrom;
 ff([
   "-i", MUSIC.file,
   "-filter_complex",
-  `[0]atrim=0:${MUSIC.cutFrom},asetpts=N/SR/TB,afade=t=out:st=${MUSIC.openingFade[0]}:d=${MUSIC.openingFade[1] - MUSIC.openingFade[0]}[a];` +
-    `[0]atrim=${MUSIC.cutTo - 0.005}:${MUSIC.cutTo + after},asetpts=N/SR/TB,afade=t=in:d=0.005,` +
-    `afade=t=out:st=${after - FADE_S}:d=${FADE_S}[b];[a][b]concat=n=2:v=0:a=1`,
+  // The opening plays on to the end of the crossfade; the full section starts a crossfade early, so CUT_TO lands at CUT_FROM.
+  `[0]atrim=0:${MUSIC.cutFrom},asetpts=N/SR/TB[a];` +
+    `[0]atrim=${MUSIC.cutTo - MUSIC.crossfade}:${MUSIC.cutTo + after},asetpts=N/SR/TB,afade=t=out:st=${after + MUSIC.crossfade - FADE_S}:d=${FADE_S}[b];` +
+    `[a][b]acrossfade=d=${MUSIC.crossfade}:c1=qsin:c2=qsin`,
   "-ar", "44100", "-ac", "2", music,
 ]);
 
@@ -115,17 +116,19 @@ async function sfx(e: Sfx, i: number): Promise<string> {
     writeFileSync(raw, Buffer.from(await res.arrayBuffer()));
   }
   const trimmed = `${OUT}/sfx/${i}.wav`;
-  ff(["-i", raw, "-af", `silenceremove=start_periods=1:start_threshold=-40dB,volume=${e.gain}`, "-ar", "44100", "-ac", "2", trimmed]);
+  const trim = e.endAt ? "areverse,silenceremove=start_periods=1:start_threshold=-40dB,areverse" : "silenceremove=start_periods=1:start_threshold=-40dB";
+  ff(["-i", raw, "-af", `${trim},volume=${e.gain}`, "-ar", "44100", "-ac", "2", trimmed]);
   return trimmed;
 }
 const effects: string[] = [];
 for (const [i, e] of SFX.entries()) effects.push(await sfx(e, i));
+const startOf = (e: Sfx, i: number) => Math.max(0, e.endAt ? e.at - duration(effects[i]) : e.at);
 
 console.log("Mix");
 const inputs = [...clips, ...effects].flatMap((c) => ["-i", c]);
 const delays = LINES.map((l, i) => `[${i + 1}]adelay=${Math.round(l.at * 1000)}:all=1[v${i}]`).join(";");
 const voices = LINES.map((_, i) => `[v${i}]`).join("");
-const fx = SFX.map((e, i) => `[${LINES.length + 1 + i}]adelay=${Math.round(e.at * 1000)}:all=1[f${i}]`).join(";");
+const fx = SFX.map((e, i) => `[${LINES.length + 1 + i}]adelay=${Math.round(startOf(e, i) * 1000)}:all=1[f${i}]`).join(";");
 const fxLabels = SFX.map((_, i) => `[f${i}]`).join("");
 const wav = `${OUT}/roughcut.wav`;
 ff([

@@ -3,11 +3,12 @@
 // Working files live in data/build/promo/ (gitignored); source clips and the music in data/raw/promo/ (gitignored).
 
 /**
- * The music: "The Miracle of Flight" by Scott Buckley (CC BY 4.0, 3:32, about 119 BPM), with one cut.
+ * The music: "The Miracle of Flight" by Scott Buckley (CC BY 4.0, 3:32, about 119 BPM), with one join.
  * Its accents fall every 6 beats (UNIT, about 3.03 s; `npx tsx scripts/promo/beats.ts` finds them).
- * The track's quiet opening plays under the cold open, then on the title it cuts from its accent at 9.77 s
- * to the accent at 133.84 s in the full section and plays on to the composer's own ending: the final
- * chord lands at 73.3 s in the video, on the end card, and rings out under it.
+ * The track's quiet opening plays under the cold open, rise and all, then crossfades over one unit into the full
+ * section, both on the beat grid, and plays on to the composer's own ending: the final chord lands at 73.3 s in
+ * the video, on the end card, and rings out under it. (A hard cut on the title, then a boom and a riser over
+ * a gap, all sounded wrong to Rob, 18 Oct 2026; the opening's own rise into a crossfade was his idea.)
  */
 export const MUSIC = {
   url: "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/08/sb_themiracleofflight.mp3",
@@ -16,19 +17,18 @@ export const MUSIC = {
   /** Track time of the first accent used (beat #1). */
   grid: 0.186,
   beat: 0.50428,
-  /** The cut: track time CUT_FROM is followed by track time CUT_TO. */
-  cutFrom: 9.768,
-  cutTo: 133.835,
-  /**
-   * The opening swells towards its own chord at the cut, which clashed with the full section (Rob, 18 Oct 2026):
-   * it fades out over these seconds instead, leaving a breath of silence before the hit.
-   */
-  openingFade: [8.4, 9.25] as [number, number],
+  /** The join: the full section is fully in at track time CUT_FROM, playing from track time CUT_TO. */
+  cutFrom: 12.794,
+  cutTo: 136.861,
+  /** Seconds before CUT_FROM that the crossfade starts (one unit). */
+  crossfade: 3.026,
 };
 
 export interface Sfx {
-  /** Video time of the sound's attack (its leading silence is trimmed). */
+  /** Video time of the sound's attack (its leading silence is trimmed), or with `endAt`, of its end. */
   at: number;
+  /** Place the sound so it ends here instead (a riser into a hit); its trailing silence is trimmed. */
+  endAt?: boolean;
   prompt: string;
   seconds: number;
   /** Level in the mix (1 = as generated). */
@@ -36,14 +36,7 @@ export interface Sfx {
 }
 
 /** Sound effects (ElevenLabs sound generation), cached by prompt in data/build/promo/sfx. */
-export const SFX: Sfx[] = [
-  {
-    at: 9.768,
-    prompt: "Deep cinematic trailer impact: a single huge low boom with a sub-bass drop and a long dark reverb tail, no music",
-    seconds: 5,
-    gain: 0.5,
-  },
-];
+export const SFX: Sfx[] = [];
 
 export const UNIT = 6 * MUSIC.beat;
 /** Video time of accent `n` (0 = the start of the video's first full unit, 0.69 s; 3 = the title hit). */
