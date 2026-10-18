@@ -64,16 +64,35 @@ export interface Line {
   text: string;
   /** What the narrator is given to read, when it differs from the text (a web address, say). */
   spoken?: string;
+  /** How it is read, when not as the app's narration (the cold open is slower, with more weight). */
+  delivery?: Delivery;
 }
+
+export interface Delivery {
+  /** ElevenLabs model (default: the app's narration model). */
+  model?: string;
+  /** Voice settings over the voice's saved ones (speed 0.7–1.2, style 0–1); not for eleven_v3. */
+  speed?: number;
+  style?: number;
+  /** eleven_v3 direction tags put before the text, e.g. "[slowly]". */
+  tag?: string;
+}
+
+/** Two ways to read the cold open, to compare by ear (`audio.ts --opening <name>`); the first is used. */
+export const OPENINGS: Record<string, Delivery> = {
+  slow: { speed: 0.82, style: 0.2 },
+  v3: { model: "eleven_v3", tag: "[serious] [slowly]" },
+};
+const opening = Object.values(OPENINGS)[0];
 
 const shotAt = (n: number) => SHOTS.find((s) => s.n === n)!.at;
 
 export const LINES: Line[] = [
-  { shot: 1, at: 0.9, text: "Seven million years." },
-  { shot: 2, at: shotAt(2) + 0.4, text: "Ten thousand generations." },
-  { shot: 3, at: shotAt(3) + 0.5, text: "One story." },
-  { shot: 4, at: shotAt(4) + 0.6, text: "This is Ancestor Atlas." },
-  { shot: 5, at: shotAt(5) + 0.4, text: "The whole human story, on one living globe." },
+  { shot: 1, at: 0.5, text: "Seven million years.", delivery: opening },
+  { shot: 2, at: shotAt(2) + 0.2, text: "Ten thousand generations.", delivery: opening },
+  { shot: 3, at: shotAt(3) + 0.3, text: "One story.", delivery: opening },
+  { shot: 4, at: shotAt(4) + 0.5, text: "This is Ancestor Atlas.", delivery: opening },
+  { shot: 5, at: shotAt(5) + 0.7, text: "The whole human story, on one living globe." },
   { shot: 6, at: shotAt(6) + 0.4, text: "Watch the ice sheets grow and the seas fall." },
   { shot: 7, at: shotAt(7) + 0.2, text: "Follow our ancestors out of Africa," },
   { shot: 8, at: shotAt(8) + 0.2, text: "see where we met Neanderthals and Denisovans," },

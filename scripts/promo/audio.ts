@@ -1,6 +1,7 @@
 // The promo's sound: narration lines, the music edit, and a mix of the two.
 //   npx tsx scripts/promo/audio.ts            make what's missing and write the rough-cut mix
 //   npx tsx scripts/promo/audio.ts --redo <shot>…   record those lines again (a new take)
+//   npx tsx scripts/promo/audio.ts --opening <name> read the cold open another way (OPENINGS in timeline.ts)
 // Narration: the app's narrator (ELEVENLABS_VOICE_ID and model, no voice settings, as narrate.ts), one clip per line with the
 // lines either side passed as context so the takes join up; cached in data/build/promo/vo by text, so only new or
 // changed lines cost anything. Silence is trimmed so a line starts speaking at its `at`, and the takes are sped up
@@ -11,7 +12,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { encode } from "../audio/encode.ts";
-import { FADE_S, LENGTH_S, LINES, MUSIC, TEMPO, type Line } from "./timeline.ts";
+import { FADE_S, LENGTH_S, LINES, MUSIC, OPENINGS, TEMPO, type Delivery, type Line } from "./timeline.ts";
 
 const OUT = "data/build/promo";
 const API = "https://api.elevenlabs.io/v1";
@@ -26,6 +27,8 @@ const key = process.env.ELEVENLABS_API_KEY || fail("set ELEVENLABS_API_KEY in .e
 const voice = process.env.ELEVENLABS_VOICE_ID || fail("set ELEVENLABS_VOICE_ID in .env.local");
 const args = process.argv.slice(2);
 const redo = args.includes("--redo") ? args.filter((a) => /^\d+$/.test(a)).map(Number) : [];
+const openingName = args[args.indexOf("--opening") + 1];
+const opening: Delivery | undefined = args.includes("--opening") ? (OPENINGS[openingName] ?? fail(`no opening "${openingName}"`)) : undefined;
 
 async function api(path: string, init: RequestInit = {}): Promise<Response> {
   const res = await fetch(`${API}${path}`, { ...init, headers: { "xi-api-key": key, ...init.headers } });
@@ -39,10 +42,23 @@ const spoken = (l: Line) => l.spoken ?? l.text;
 
 mkdirSync(`${OUT}/vo`, { recursive: true });
 
+let saved: object | undefined;
+/** The voice's saved settings with a line's own speed and style over them (read once, only when needed). */
+async function settings(d: Delivery): Promise<object | undefined> {
+  if (d.speed === undefined && d.style === undefined) return undefined;
+  saved ??= (await (await api(`/voices/${voice}/settings`)).json()) as object;
+  return { ...saved, ...(d.speed !== undefined && { speed: d.speed }), ...(d.style !== undefined && { style: d.style }) };
+}
+
 async function line(l: Line, i: number): Promise<string> {
-  const previous_text = LINES.slice(Math.max(0, i - 2), i).map(spoken).join(" ") || undefined;
-  const next_text = LINES[i + 1] ? spoken(LINES[i + 1]) : undefined;
-  const body = { text: spoken(l), model_id: MODEL, previous_text, next_text };
+  const d = (l.delivery && opening) ?? l.delivery ?? {};
+  const model = d.model ?? MODEL;
+  // eleven_v3 takes direction tags but no neighbouring text.
+  const v3 = model === "eleven_v3";
+  const previous_text = v3 ? undefined : LINES.slice(Math.max(0, i - 2), i).map(spoken).join(" ") || undefined;
+  const next_text = v3 || !LINES[i + 1] ? undefined : spoken(LINES[i + 1]);
+  const text = d.tag ? `${d.tag} ${spoken(l)}` : spoken(l);
+  const body = { text, model_id: model, voice_settings: v3 ? undefined : await settings(d), previous_text, next_text };
   const take = redo.includes(l.shot) ? `-${Date.now()}` : "";
   const hash = createHash("sha256").update(JSON.stringify(body)).digest("hex").slice(0, 10);
   const raw = `${OUT}/vo/${l.shot}-${hash}.mp3`;
