@@ -19,7 +19,31 @@ export const MUSIC = {
   /** The cut: track time CUT_FROM is followed by track time CUT_TO. */
   cutFrom: 9.768,
   cutTo: 133.835,
+  /**
+   * The opening swells towards its own chord at the cut, which clashed with the full section (Rob, 18 Oct 2026):
+   * it fades out over these seconds instead, leaving a breath of silence before the hit.
+   */
+  openingFade: [8.4, 9.25] as [number, number],
 };
+
+export interface Sfx {
+  /** Video time of the sound's attack (its leading silence is trimmed). */
+  at: number;
+  prompt: string;
+  seconds: number;
+  /** Level in the mix (1 = as generated). */
+  gain: number;
+}
+
+/** Sound effects (ElevenLabs sound generation), cached by prompt in data/build/promo/sfx. */
+export const SFX: Sfx[] = [
+  {
+    at: 9.768,
+    prompt: "Deep cinematic trailer impact: a single huge low boom with a sub-bass drop and a long dark reverb tail, no music",
+    seconds: 5,
+    gain: 0.5,
+  },
+];
 
 export const UNIT = 6 * MUSIC.beat;
 /** Video time of accent `n` (0 = the start of the video's first full unit, 0.69 s; 3 = the title hit). */
@@ -80,8 +104,8 @@ export interface Delivery {
 
 /** Two ways to read the cold open, to compare by ear (`audio.ts --opening <name>`); the first is used. */
 export const OPENINGS: Record<string, Delivery> = {
+  v3: { model: "eleven_v3", tag: "[serious] [slowly]" }, // Rob's pick, 18 Oct 2026
   slow: { speed: 0.82, style: 0.2 },
-  v3: { model: "eleven_v3", tag: "[serious] [slowly]" },
 };
 const opening = Object.values(OPENINGS)[0];
 

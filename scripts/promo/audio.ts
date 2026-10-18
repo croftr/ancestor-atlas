@@ -12,7 +12,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { encode } from "../audio/encode.ts";
-import { FADE_S, LENGTH_S, LINES, MUSIC, OPENINGS, TEMPO, type Delivery, type Line } from "./timeline.ts";
+import { FADE_S, LENGTH_S, LINES, MUSIC, OPENINGS, SFX, TEMPO, type Delivery, type Line, type Sfx } from "./timeline.ts";
 
 const OUT = "data/build/promo";
 const API = "https://api.elevenlabs.io/v1";
@@ -93,23 +93,48 @@ const after = LENGTH_S - MUSIC.cutFrom;
 ff([
   "-i", MUSIC.file,
   "-filter_complex",
-  `[0]atrim=0:${MUSIC.cutFrom},asetpts=N/SR/TB,afade=t=out:st=${MUSIC.cutFrom - 0.03}:d=0.03[a];` +
+  `[0]atrim=0:${MUSIC.cutFrom},asetpts=N/SR/TB,afade=t=out:st=${MUSIC.openingFade[0]}:d=${MUSIC.openingFade[1] - MUSIC.openingFade[0]}[a];` +
     `[0]atrim=${MUSIC.cutTo - 0.005}:${MUSIC.cutTo + after},asetpts=N/SR/TB,afade=t=in:d=0.005,` +
     `afade=t=out:st=${after - FADE_S}:d=${FADE_S}[b];[a][b]concat=n=2:v=0:a=1`,
   "-ar", "44100", "-ac", "2", music,
 ]);
 
+console.log("Sound effects");
+async function sfx(e: Sfx, i: number): Promise<string> {
+  const body = { text: e.prompt, duration_seconds: e.seconds, prompt_influence: 0.5 };
+  const hash = createHash("sha256").update(JSON.stringify(body)).digest("hex").slice(0, 10);
+  const raw = `${OUT}/sfx/${hash}.mp3`;
+  mkdirSync(`${OUT}/sfx`, { recursive: true });
+  if (!existsSync(raw)) {
+    console.log(`  generating: ${e.prompt}`);
+    const res = await api("/sound-generation?output_format=mp3_44100_128", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    writeFileSync(raw, Buffer.from(await res.arrayBuffer()));
+  }
+  const trimmed = `${OUT}/sfx/${i}.wav`;
+  ff(["-i", raw, "-af", `silenceremove=start_periods=1:start_threshold=-40dB,volume=${e.gain}`, "-ar", "44100", "-ac", "2", trimmed]);
+  return trimmed;
+}
+const effects: string[] = [];
+for (const [i, e] of SFX.entries()) effects.push(await sfx(e, i));
+
 console.log("Mix");
-const inputs = clips.flatMap((c) => ["-i", c]);
+const inputs = [...clips, ...effects].flatMap((c) => ["-i", c]);
 const delays = LINES.map((l, i) => `[${i + 1}]adelay=${Math.round(l.at * 1000)}:all=1[v${i}]`).join(";");
 const voices = LINES.map((_, i) => `[v${i}]`).join("");
+const fx = SFX.map((e, i) => `[${LINES.length + 1 + i}]adelay=${Math.round(e.at * 1000)}:all=1[f${i}]`).join(";");
+const fxLabels = SFX.map((_, i) => `[f${i}]`).join("");
 const wav = `${OUT}/roughcut.wav`;
 ff([
   "-i", music, ...inputs,
   "-filter_complex",
   `${delays};${voices}amix=inputs=${LINES.length}:normalize=0,apad=whole_dur=${LENGTH_S},asplit=2[vo][key];` +
-    // Music dips under the voice (sidechain), voice sits on top.
-    `[0]volume=0.55[m];[m][key]sidechaincompress=threshold=0.02:ratio=5:attack=60:release=700[duck];` +
+    // Music dips under the voice (sidechain), voice sits on top; effects go in with the music.
+    `[0]volume=0.55[m];${fx ? `${fx};[m]${fxLabels}amix=inputs=${SFX.length + 1}:normalize=0[mf];[mf]` : "[m]"}` +
+    `[key]sidechaincompress=threshold=0.02:ratio=5:attack=60:release=700[duck];` +
     `[duck][vo]amix=inputs=2:normalize=0,atrim=0:${LENGTH_S}`,
   "-ac", "2", wav,
 ]);
