@@ -21,12 +21,14 @@ import CivilizationsPage from "./browse/CivilizationsPage";
 import { useView } from "./route";
 import { useStore } from "./store";
 import { readTourHash, useGlobeLink } from "./globeLink";
+import { usePageTitle } from "./pageTitle";
 // Last, so the small-screen layout overrides the component styles above.
 import "./ui/stacked.css";
 
 export default function App() {
   const view = useView();
   useGlobeLink(view);
+  usePageTitle();
   const introOpen = useStore((s) => s.introOpen);
   const setIntroOpen = useStore((s) => s.setIntroOpen);
 

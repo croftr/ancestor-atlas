@@ -5,9 +5,7 @@ dropped. Tour polish items already in CLAUDE.md's backlog are not repeated here.
 
 ## Quick wins
 
-- [ ] **Link previews.** `index.html` has no description or `og:image`, so shared links (`#/tour/<id>`,
-  `#/?year=…&site=…`) unfurl bare. One site-wide preview card first; per-tour previews would need small static
-  pages, since the views live after the `#`.
+- [x] **Link previews.** `index.html` now has description, `og:*` and `twitter:*` tags with `public/og-preview.jpg` (1200×630), and `usePageTitle()` updates `document.title` across views, open entities, and tours.
 - [ ] **Narration subtitles.** ElevenLabs' `with-timestamps` endpoint gives character timing, so `audio:narrate`
   could save captions beside each clip. For sound-off viewing, classrooms and deaf viewers; also handy for
   proofreading the rewritten descriptions.
