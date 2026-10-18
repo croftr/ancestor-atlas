@@ -208,16 +208,15 @@ remove the `mesolithic-europe` group from `picture-groups.yaml`.
 - **Aspect Ratio**: 4:3 landscape (1200×900)
 - **Prompt**:
 ```text
-A wide 4:3 archaeological reconstruction illustration depicting an Azilian hunter-gatherer camp at the mouth of a large limestone cave in the foothills of the French Pyrenees (c. 12,000 years ago, at the very end of the Ice Age).
+A wide 4:3 archaeological reconstruction illustration depicting an Azilian hunter-gatherer camp at the mouth of a large limestone cave in the foothills of the French Pyrenees (c. 10,000 BCE, at the very end of the Ice Age).
 
-Style: Painterly historical illustration in the style of archaeological reconstruction paintings, cool pale late-autumn light, thin mist in the valley, muted greens and greys.
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, cool pale autumn light, thin mist rising from a small river valley.
 Scene:
-- A wide cave mouth and overhanging rock shelter above a small river, a hearth smoking under the overhang, hides drying on a simple wooden frame.
-- In the foreground: a woman painting rows of red ochre dots and stripes onto smooth flat river pebbles, a few finished pebbles laid out on a hide beside her.
-- A man shaping a flat red-deer antler harpoon with a perforated base; small curved-backed flint points and blades on a flat stone.
-- Hunters returning with a red deer carcass slung on a pole; wild boar tracks in the mud by the river.
-- Cool, open landscape of scattered birch and pine with grassy slopes, snow on the distant high peaks.
-Negative prompt: Absolutely no pottery, no farming, no domesticated animals, no metal, no text, no words, no watermarks, no mammoths, no tropical vegetation, no lush summer forest.
+- A wide cave mouth and overhanging limestone rock shelter above the river, with a smoking hearth under the overhang and deer hides drying on a wooden frame.
+- In the foreground: artisans painting rows of red ochre dots and stripes onto smooth flat river pebbles, and carving flat red-deer antler harpoons with perforated bases; small curved-backed flint points laid out on a hide.
+- Hunters returning along the riverbank with a red deer carried on a pole.
+- An open, cool valley of scattered birch and pine on grassy slopes; snow-capped Pyrenean peaks visible in the background mist.
+Negative prompt: Absolutely no pottery, no farming, no domesticated animals, no metal, no modern clothes, no text, no words, no watermarks, no mammoths, no lush summer forest.
 ```
 
 ---
@@ -227,14 +226,13 @@ Negative prompt: Absolutely no pottery, no farming, no domesticated animals, no 
 - **Aspect Ratio**: 4:3 landscape (1200×900)
 - **Prompt**:
 ```text
-A wide 4:3 archaeological reconstruction illustration depicting a Maglemosian summer hunting and fishing camp on the edge of a forest bog lake in northern Europe (Denmark or Doggerland, c. 8000 BCE).
+A wide 4:3 archaeological reconstruction illustration depicting a Maglemosian hunting and fishing camp on the edge of a forest bog lake in northern Europe (Denmark or Doggerland, c. 8000 BCE).
 
-Style: Painterly historical illustration in the style of archaeological reconstruction paintings, soft warm summer evening light over still water, reeds and lily pads, atmospheric perspective.
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, soft warm summer evening light over still water, reeds and lily pads.
 Scene:
-- A small camp on a platform of birch-bark and brushwood at the edge of a reedy lake, low huts of bent saplings covered with bark and reed mats.
-- A dugout canoe of lime wood pulled up in the reeds; a man spearing pike from the shallows with a leister tipped with barbed bone points.
-- In the foreground: a hunter fitting tiny flint microliths into the shaft of a pine arrow with birch-tar glue; a flint core axe and an antler axe on a log; a dog lying nearby.
-- A woman gathering hazelnuts into a bark container; a roe deer and an aurochs skull by the hearth.
-- Dense forest of pine, birch and hazel around the lake, with an elk at the far shore.
-Negative prompt: Absolutely no shell middens, no pottery, no farming, no domesticated animals other than the dog, no metal, no text, no words, no watermarks.
+- A small summer camp of low sapling huts covered in birch bark and reed mats, on a brushwood platform at the edge of a reedy lake.
+- On the shore: a lime-wood dugout canoe pulled up in the reeds, and a fisherman spearing pike in the shallows with a leister tipped with barbed bone points.
+- In the foreground: a hunter setting tiny flint microliths into a pine arrow shaft with birch-tar glue, beside flint and antler axes on a log; a dog and bark baskets of hazelnuts nearby.
+- Dense forest of pine, birch and hazel around the lake; an elk standing on the far shore in the evening mist.
+Negative prompt: Absolutely no shell middens, no pottery, no farming, no domesticated animals other than the dog, no metal, no modern clothes, no text, no words, no watermarks.
 ```
