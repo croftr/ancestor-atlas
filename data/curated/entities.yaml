@@ -1818,6 +1818,11 @@
       credit: Dig., YouTube
 - id: kingdom-of-urartu
   description: A powerful Iron Age kingdom centered around Lake Van in the mountainous Armenian Highlands, spanning modern eastern Turkey, Armenia, and northwestern Iran. Renowned for impregnable mountain cyclopean fortresses, sophisticated irrigation canals, and master bronzeworking, Urartu fiercely contested Near Eastern supremacy with the Neo-Assyrian Empire.
+  extra_images:
+    - { url: /images/extra/kingdom-of-urartu-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Urartian cast bronze winged bull cauldron handle attachment from Toprakkale, Lake Van (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Bronze_winged_bull%27s_heads_from_the_handles_of_a_large_cauldron_,8th-7th_century_BCE,_Urartian_From_Toprakkale,_east_Turkey,_British_Museum.jpg" }
+    - { url: /images/extra/kingdom-of-urartu-2.webp, credit: "Wolfgang Sauber, CC BY-SA 3.0, via Wikimedia Commons", caption: "Urartian conical bronze warrior helmet decorated with engraved deities and chariots, 8th century BCE (Archäologische Staatssammlung Munich)", source: "https://commons.wikimedia.org/wiki/File:Spitzhelm_urartaisch.JPG" }
+    - { url: /images/extra/kingdom-of-urartu-3.webp, credit: "Beko, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver drinking horn rhyton shaped as a horseman from the fortress citadel of Erebuni, Yerevan (Erebuni Museum)", source: "https://commons.wikimedia.org/wiki/File:Erebuni_achaemenid_rhyton_1_mus.jpg" }
+    - { url: /images/extra/kingdom-of-urartu-4.webp, credit: "Sarah Murray, CC BY-SA 2.0, via Wikimedia Commons", caption: "Tushpa (Van Fortress), monumental 9th-century BCE royal stone citadel of the Urartian kings overlooking Lake Van", source: "https://commons.wikimedia.org/wiki/File:Van_Fortress_From_Northwest.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vU8ow2IxrMA
@@ -1825,6 +1830,11 @@
       credit: History Class, YouTube
 - id: sabaeans
   description: An ancient South Arabian kingdom located in the fertile highlands and desert fringes of modern Yemen, centered on the capital of Marib. Renowned as the biblical realm of Sheba, the Sabaeans built the monumental Great Dam of Marib and monopolized lucrative frankincense and myrrh caravan routes across the Arabian Peninsula.
+  extra_images:
+    - { url: /images/extra/sabaeans-1.webp, credit: "Jialiang Gao, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Dam of Marib, monumental masonry sluice gates engineered by the Kingdom of Saba (8th c. BCE)", source: "https://commons.wikimedia.org/wiki/File:Marib_dam.jpg" }
+    - { url: /images/extra/sabaeans-2.webp, credit: "Yemen-1986, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monolithic limestone pillars of the Temple of Bar'an (Arsh Bilqis) near Marib, dedicated to Almaqah", source: "https://commons.wikimedia.org/wiki/File:Bar'an_temple_1986-2.jpg" }
+    - { url: /images/extra/sabaeans-3.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Alabaster funerary stele carved with a stylized portrait face and Old South Arabian Sabaean boustrophedon script (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Stele_Iglum_Louvre_AO1029.jpg" }
+    - { url: /images/extra/sabaeans-4.webp, credit: "Marie-Lan Nguyen, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cast bronze statue of a South Arabian nobleman with dedication inscription from Nashqum (Yemen, Louvre)", source: "https://commons.wikimedia.org/wiki/File:BronzeManNashqum.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=JwvoSjticXM
@@ -1853,6 +1863,11 @@
       credit: History with Cy, YouTube
 - id: neo-babylonian-empire
   description: The resurgent Chaldean dynasty that succeeded the Neo-Assyrian Empire, dominating the Near East from 626 to 539 BCE under rulers like Nebuchadnezzar II. Famed for rebuilding Babylon with the Ishtar Gate, monumental temples, and the legendary Hanging Gardens, the empire ended with the Persian conquest by Cyrus the Great.
+  extra_images:
+    - { url: /images/extra/neo-babylonian-empire-1.webp, credit: "Radomil, CC BY-SA 3.0, via Wikimedia Commons", caption: "Glazed brick relief of the Mušḫuššu (horned snake-dragon of Marduk) from the Ishtar Gate of Babylon (Pergamon Museum)", source: "https://commons.wikimedia.org/wiki/File:Ishtar_Gate_Dragon.JPG" }
+    - { url: /images/extra/neo-babylonian-empire-2.webp, credit: "Carole Raddato, CC BY 2.0, via Wikimedia Commons", caption: "Glazed molded brick Striding Lion from the Processional Way of Babylon leading to the Ishtar Gate (c. 575 BCE)", source: "https://commons.wikimedia.org/wiki/File:A_lion_on_the_Ishtar_Gate_of_Babylon_reconstructed_with_original_bricks_at_the_Pergamon_Museum_in_Berlin_575_BCE_(3)_(32577951406).jpg" }
+    - { url: /images/extra/neo-babylonian-empire-3.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Babylonian Map of the World (Imago Mundi), clay tablet with cuneiform inscriptions from Sippar, 6th century BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:The_Babylonian_map_of_the_world,_from_Sippar,_Mesopotamia..JPG" }
+    - { url: /images/extra/neo-babylonian-empire-4.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Baked clay foundation cylinder of King Nebuchadnezzar II commemorating temple rebuilding works (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Cuneiform_cylinder_with_inscription_of_Nebuchadnezzar_II,_describing_the_rebuilding_of_Ebabbar,_the_temple_of_the_sun-god_Shamash_at_Sippar_MET_vs85_15.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FbFSuO7KHLY
@@ -1965,6 +1980,11 @@
       credit: Invicta, YouTube
 - id: nabataeans
   description: An ancient Arab seafaring and caravan trading civilization that dominated the desert crossroads of the southern Levant and northern Arabia. Master hydrologists, they transformed their capital at Petra into a thriving trading hub carved directly into sandstone cliffs, controlling vital incense routes before Roman annexation.
+  extra_images:
+    - { url: /images/extra/nabataeans-1.webp, credit: "Richard Messenger, CC BY 2.0, via Wikimedia Commons", caption: "Al-Khazneh (The Treasury), monumental rock-cut Nabataean classical facade at Petra, Jordan", source: "https://commons.wikimedia.org/wiki/File:Al_Khazneh_Petra_edit.jpg" }
+    - { url: /images/extra/nabataeans-2.webp, credit: "Argenberg, CC BY-SA 3.0, via Wikimedia Commons", caption: "Nabataean painted fine ware eggshell-thin terracotta bowls with delicate floral motifs (Petra Museum)", source: "https://commons.wikimedia.org/wiki/File:Nabataean_Pottery.JPG" }
+    - { url: /images/extra/nabataeans-3.webp, credit: "Poco a poco, CC BY 4.0, via Wikimedia Commons", caption: "Ad-Deir (The Monastery), colossal 1st-century CE Nabataean rock-cut temple facade at Petra", source: "https://commons.wikimedia.org/wiki/File:Ad_Deir_(The_Monastery),_El_Deir,_Petra,_Jordan.jpg" }
+    - { url: /images/extra/nabataeans-4.webp, credit: "Classical Numismatic Group, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver drachm of Nabataean King Aretas IV Philopatris and Queen Shaqilath, minted in Petra", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Aretas_IV_and_Shaqilath.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=qSfFq02pK4s
@@ -2586,6 +2606,11 @@
       credit: Crazy Color Facts, YouTube
 - id: satavahana-dynasty
   description: A major Deccan empire that arose in the 2nd century BCE following the decline of the Mauryas, spanning modern Maharashtra, Andhra Pradesh, and Telangana. Governed from capitals at Pratishthana and Amaravati, the Satavahanas defended central India against Saka incursions, issued multilingual bilingual coinage, and sponsored rock-cut Buddhist chaityas at Karla and Ajanta.
+  extra_images:
+    - { url: /images/extra/satavahana-dynasty-1.webp, credit: "Nvvchar, CC0, via Wikimedia Commons", caption: "The Great Rock-cut Buddhist Chaitya Hall at Karle Caves, Maharashtra, built under the Satavahana dynasty (c. 1st c. BCE – 2nd c. CE)", source: "https://commons.wikimedia.org/wiki/File:Grand_Chaitya_at_Karla_Caves_-_2025_-_01.jpg" }
+    - { url: /images/extra/satavahana-dynasty-2.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "Intricately carved Palnad limestone drum frieze depicting scenes from the life of the Buddha, Amaravati Stupa (British Museum)", source: "https://commons.wikimedia.org/wiki/File:AmaravatiFrieze.jpg" }
+    - { url: /images/extra/satavahana-dynasty-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Satavahana lead coin depicting a double-masted ocean-going sailing ship, issued under King Vashishtiputra Pulumavi (c. 130–159 CE)", source: "https://commons.wikimedia.org/wiki/File:Andhra_Ship_Coins.jpg" }
+    - { url: /images/extra/satavahana-dynasty-4.webp, credit: "Pradeep717, CC BY-SA 4.0, via Wikimedia Commons", caption: "Life-sized rock-cut relief sculpture of wealthy merchant donor couple, Great Chaitya veranda at Kanheri Caves", source: "https://commons.wikimedia.org/wiki/File:Kanheri_donor_couple.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=lgfPT9YtunM

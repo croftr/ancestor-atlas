@@ -418,6 +418,13 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   8. `lapita` -> `public/images/cultures/lapita.webp` & `-600.webp` (Domestication tour stop 14)
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
+- **Authentic Museum Galleries Added (18 Oct 2026)**:
+  Curated and wired 20 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/` for:
+  - `nabataeans` (4 images: Al-Khazneh Treasury, painted fine ware pottery, Ad-Deir Monastery, King Aretas IV & Shaqilath drachm)
+  - `sabaeans` (4 images: Marib Dam masonry gates, Bar'an temple pillars, alabaster funerary stele, Nashqum bronze nobleman statue)
+  - `neo-babylonian-empire` (4 images: Ishtar Gate Mušḫuššu dragon, Processional Way striding lion, Babylonian Map of the World, Nebuchadnezzar II foundation cylinder)
+  - `kingdom-of-urartu` (4 images: bronze winged bull cauldron attachment, conical bronze warrior helmet, Erebuni horseman silver rhyton, Van Fortress citadel)
+  - `satavahana-dynasty` (4 images: Karle Caves Great Chaitya hall, Amaravati Stupa limestone frieze, double-masted sailing ship coin, Kanheri donor couple relief)
 
 ## Possible next steps
 
