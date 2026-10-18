@@ -22,6 +22,7 @@ import CardResizer from "./CardResizer";
 import TourVideo from "./TourVideo";
 import { contemporaries } from "./contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
+import TourStopLinks from "../tours/TourStopLinks";
 
 const hasCompanion600 = (url?: string): url is string =>
   !!url && (url.startsWith("/images/cultures/") || url.startsWith("/images/civilisations/")) && !url.includes("-600.webp");
@@ -637,6 +638,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           </div>
         </div>
       )}
+      {!isTouring && <TourStopLinks entityId={entity.id} />}
       {approximate && (
         <div className="approx-note" role="note">
           <strong>Approximate, unverified.</strong> Location and dates were compiled from general knowledge and have not been checked against a primary source.

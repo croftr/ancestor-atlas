@@ -12,6 +12,7 @@ import EventMedia from "./EventMedia";
 import ListenButton from "../audio/ListenButton";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import Totals from "../browse/Totals";
+import TourStopLinks from "../tours/TourStopLinks";
 import "./events-page.css";
 import "../browse/browse.css";
 
@@ -169,6 +170,8 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
               </div>
             </div>
           )}
+
+          <TourStopLinks entityId={event.id} />
 
           <div className="ev-places">
             <div className="muted">{places.length === 1 ? "Place" : "Places"}:</div>
