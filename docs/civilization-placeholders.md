@@ -188,3 +188,53 @@ Scene:
 Negative prompt: Absolutely no modern clothes, no text, no words, no watermarks, no Chinese dynastic temples, no modern fishing gear.
 ```
 
+
+---
+
+## Queued: Mesolithic Europe (added 18 Oct 2026)
+
+The shared `mesolithic-europe` picture (a shoreline camp with a shell midden, dugout and fish traps) is really an
+Ertebølle scene, so Ertebølle now has it as its own picture (`ertebolle.webp`, a copy). Azilian and Maglemosian still
+show the group picture until their own are made; once both exist, give each its `image_url` in `entities.yaml` and
+remove the `mesolithic-europe` group from `picture-groups.yaml`.
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`azilian`** | Azilian | `public/images/cultures/azilian.webp` | Pyrenees, SW France and N Spain, c. 12,500–10,000 years ago; Mas d'Azil cave, painted pebbles, flat antler harpoons, end of the Ice Age |
+| **`maglemosian`** | Maglemosian culture | `public/images/cultures/maglemosian.webp` | N Europe and Doggerland, c. 9000–6000 BCE; forest bogs and lakes, barbed bone points, microlith arrows, no shell middens |
+
+### 10. `azilian` (Azilian)
+- **Target File**: `public/images/cultures/azilian.webp` (+ `azilian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting an Azilian hunter-gatherer camp at the mouth of a large limestone cave in the foothills of the French Pyrenees (c. 12,000 years ago, at the very end of the Ice Age).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, cool pale late-autumn light, thin mist in the valley, muted greens and greys.
+Scene:
+- A wide cave mouth and overhanging rock shelter above a small river, a hearth smoking under the overhang, hides drying on a simple wooden frame.
+- In the foreground: a woman painting rows of red ochre dots and stripes onto smooth flat river pebbles, a few finished pebbles laid out on a hide beside her.
+- A man shaping a flat red-deer antler harpoon with a perforated base; small curved-backed flint points and blades on a flat stone.
+- Hunters returning with a red deer carcass slung on a pole; wild boar tracks in the mud by the river.
+- Cool, open landscape of scattered birch and pine with grassy slopes, snow on the distant high peaks.
+Negative prompt: Absolutely no pottery, no farming, no domesticated animals, no metal, no text, no words, no watermarks, no mammoths, no tropical vegetation, no lush summer forest.
+```
+
+---
+
+### 11. `maglemosian` (Maglemosian culture)
+- **Target File**: `public/images/cultures/maglemosian.webp` (+ `maglemosian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Maglemosian summer hunting and fishing camp on the edge of a forest bog lake in northern Europe (Denmark or Doggerland, c. 8000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, soft warm summer evening light over still water, reeds and lily pads, atmospheric perspective.
+Scene:
+- A small camp on a platform of birch-bark and brushwood at the edge of a reedy lake, low huts of bent saplings covered with bark and reed mats.
+- A dugout canoe of lime wood pulled up in the reeds; a man spearing pike from the shallows with a leister tipped with barbed bone points.
+- In the foreground: a hunter fitting tiny flint microliths into the shaft of a pine arrow with birch-tar glue; a flint core axe and an antler axe on a log; a dog lying nearby.
+- A woman gathering hazelnuts into a bark container; a roe deer and an aurochs skull by the hearth.
+- Dense forest of pine, birch and hazel around the lake, with an elk at the far shore.
+Negative prompt: Absolutely no shell middens, no pottery, no farming, no domesticated animals other than the dog, no metal, no text, no words, no watermarks.
+```
