@@ -191,12 +191,12 @@ Negative prompt: Absolutely no modern clothes, no text, no words, no watermarks,
 
 ---
 
-## Queued: Mesolithic Europe (added 18 Oct 2026)
+## Mesolithic Europe (added 18 Oct 2026, done the same day)
 
-The shared `mesolithic-europe` picture (a shoreline camp with a shell midden, dugout and fish traps) is really an
-Ertebølle scene, so Ertebølle now has it as its own picture (`ertebolle.webp`, a copy). Azilian and Maglemosian still
-show the group picture until their own are made; once both exist, give each its `image_url` in `entities.yaml` and
-remove the `mesolithic-europe` group from `picture-groups.yaml`.
+The shared `mesolithic-europe` picture (a shoreline camp with a shell midden, dugout and fish traps) was really an
+Ertebølle scene, so it became Ertebølle's own picture (`ertebolle.webp`). Azilian and Maglemosian now have bespoke
+pictures from the prompts below, and the `mesolithic-europe` group is gone. The Azilian original came out square
+(2048×2048) and was cropped to 4:3 from 480 px down, keeping the painted pebbles at the cost of the mountain tops.
 
 | Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
 | :--- | :--- | :--- | :--- |

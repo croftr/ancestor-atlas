@@ -1370,6 +1370,9 @@
   end_year: -8050
   description: "Epipalaeolithic or Mesolithic industry of northern Spain and southern France, c. 12,500–10,000 years ago, seen as the tail end of the Magdalenian as the climate warmed. Known for small round-backed points, flat bone harpoons and painted pebbles; named after the cave of Le Mas-d'Azil in the French Pyrenees."
   wikipedia_url: https://en.wikipedia.org/wiki/Azilian
+  image_url: /images/cultures/azilian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Rock shelter in the Pyrenean foothills: painting pebbles with red ochre, carving antler harpoons, hunters bringing in a red deer"
   wikidata: Q793777
   source_ids: []
 # Span from English Wikipedia: Maglemosian_culture@1375962679.
@@ -1380,6 +1383,9 @@
   end_year: -5999
   description: Early Mesolithic culture of northern Europe, c. 9000–6000 BCE. In Scandinavia it was followed by the Kongemose culture.
   wikipedia_url: https://en.wikipedia.org/wiki/Maglemosian_culture
+  image_url: /images/cultures/maglemosian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Summer camp by a forest lake: bark huts on a brushwood platform, a dugout canoe, pike spearing and arrow making"
   wikidata: Q928511
   source_ids: []
 # Span from English Wikipedia: Capsian_culture@1371764415.
