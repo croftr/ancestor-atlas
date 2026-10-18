@@ -1327,6 +1327,7 @@
   narration: { src: narration/cultures/sintashta-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1ce04c2c27" }
   image_url: /images/cultures/sintashta.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/sintashta-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Fortified circular settlement in the southern Urals with early spoked-wheel chariot"
   wikipedia_url: https://en.wikipedia.org/wiki/Sintashta_culture
   wikidata: Q656393

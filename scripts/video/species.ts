@@ -53,6 +53,20 @@ const SCENE_PROMPTS: Record<string, string> = {
     "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'Seafaring to Sahul' at the top, the sky, the setting sun on the horizon, and the coastline cliffs on the right completely still and unchanged. On the bamboo raft, the two humans holding paddles on the left and right make a subtle, slow, gentle paddling motion in the water while the two seated figures in the middle stay still, and the bamboo raft glides very slowly forward toward the coast. Gentle golden waves and ripples move softly across the water surface around the raft.",
   "great-pyramid":
     "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'The Great Pyramid of Giza' at the top, the sky, the sun on the horizon, the pyramid, and the two standing overseers on the lower right completely still and unchanged. On the wooden ramp, the four Egyptian workers slowly step forward and haul the heavy white limestone block steadily up the ramp toward the Great Pyramid, leaning into the taut ropes in front and pushing the wooden cart from behind as its wheels slowly turn, while the second team further up the ramp also moves slowly forward toward the pyramid.",
+  "control-of-fire":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'First Controlled Use of Fire' at the top, the rock cave arch, the dusk sky, and the sun on the horizon completely still and unchanged. In the stone hearth at the centre, the campfire flames dance and flicker naturally with glowing sparks and embers floating gently upward, casting warm flickering firelight across the cave floor and the five seated hominins. The hominin on the left makes a very subtle, gentle motion tending the fire with his wooden stick while the other seated hominins remain seated and still, watching the flames.",
+  "copper-smelting":
+    "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'Extractive Metallurgy and Smelting' at the top, the sky, the sun on the horizon, and the background huts and trees completely still and unchanged. In the foreground, glowing golden-orange molten copper flows continuously from the tilted clay crucible held in the smith's tongs into the stone axe mould below, with small glowing sparks, heat shimmer, and thin wisps of smoke rising from the mould. On the right, bright flames dance inside the stone furnace while the second worker makes a subtle, steady motion stoking the glowing coals with his long rod.",
+  "figurative-cave-art":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'First Figurative Cave Art' at the top, the cave rock wall, the painted wild pig and painted figures on the wall, and the distant karst valley and sun completely still and unchanged. Both human figures hold their exact poses completely still without moving their arms or hands. On the right, the bright flame of the handheld torch flickers, dances, and sways naturally with small rising sparks, casting warm flickering firelight and softly shifting shadows across the two humans and the ochre cave painting on the rock wall.",
+  "dog-domestication":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'Domestication of the Dog' at the top, the sky, the sun on the horizon, and the hide tents completely still and unchanged. In the foreground, the seated hunter gently strokes the head of the dog beside him while both adult dogs pant softly and wag their tails. On the left, the playful puppy bounces and wags its tail in front of the smiling child, while the river in the middle ground ripples gently.",
+  "iron-age":
+    "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'Bloomery Iron (The Iron Age)' at the top, the stone walls, the sky, and the sun on the horizon completely still and unchanged. In the foreground, the muscular blacksmith hammers the glowing red-hot iron bloom on the anvil while his assistant holds it steady with long tongs, sending bright orange sparks flying outward with each strike. Behind them on the left, flames and glowing embers rise from the top and base of the conical clay bloomery furnace as the workers pump the bellows.",
+  "horse-domestication":
+    "Living painting cinemagraph of a historical illustration, locked static camera with no camera movement or zoom. Keep the text title 'DOMESTICATION OF THE HORSE' at the top, the sky, the hills, and the riverside wooden houses completely still and unchanged. Across the steppe, the mounted horseman in the centre, the two horses pulling the spoked wooden chariot on the right, and the herd of horses on the left run forward through the tall grass with manes and tails flowing, kicking up light dust behind their hooves and chariot wheels, while white smoke drifts from the cottage chimneys in the background.",
+  sintashta:
+    "Living painting cinemagraph of a historical paleoart illustration, locked static camera with no camera movement or zoom. Keep the circular fortified timber-and-earth settlement, the steppe hills, and the two standing Bronze Age warriors in the right foreground completely still and unchanged. From the conical smelting furnaces and hearths inside the circular town, plumes of white smoke rise and drift steadily across the sky in the steppe wind. In the foreground, the two harnessed chariot horses hitched to the spoked wooden chariot shift their weight, toss their heads slightly, and swish their tails and manes in the breeze while cattle graze quietly in the pastures.",
 };
 
 interface CuratedEntity {
@@ -161,7 +175,13 @@ async function generateRaw(e: CuratedEntity): Promise<string> {
  */
 function encodeVideo(input: string, out: string, category: string, imagePath?: string): number {
   mkdirSync(out.slice(0, out.lastIndexOf("/")), { recursive: true });
-  const vf = category === "event" ? "crop=ih:ih,scale=720:720:flags=lanczos" : "crop=ih*4/3:ih,scale=640:480:flags=lanczos";
+  const filterArgs =
+    category === "event"
+      ? [
+          "-filter_complex",
+          "[0:v]crop=ih:ih,scale=720:720:flags=lanczos,split[vid][first];[first]trim=end_frame=1,loop=-1:size=1,setpts=N/FRAME_RATE/TB,crop=720:250:0:0,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(gt(Y,220),255*(250-Y)/30,255)'[top];[vid][top]overlay=0:0:shortest=1",
+        ]
+      : ["-vf", "crop=ih*4/3:ih,scale=640:480:flags=lanczos"];
   execFileSync(
     "ffmpeg",
     [
@@ -172,8 +192,7 @@ function encodeVideo(input: string, out: string, category: string, imagePath?: s
       "-i",
       input,
       "-an",
-      "-vf",
-      vf,
+      ...filterArgs,
       "-c:v",
       "libx264",
       "-preset",

@@ -137,6 +137,10 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Open steppe: a herd of horses galloping past, hooves drumming, snorts and whinnies, wind over the grass",
     sound: { src: "ambience/events/horse-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "12b3a0f054" },
   },
+  sintashta: {
+    prompt: "Windy Eurasian steppe outside a fortified settlement: two chariot horses snorting, shifting their hooves and jingling bronze harness rings, steady wind in dry grass, distant smelting furnaces crackling",
+    sound: { src: "ambience/cultures/sintashta-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b25b51d205" },
+  },
   "alphabetic-script": {
     prompt: "Desert mine in rocky hills: dry wind, a chisel scratching marks into sandstone, small stones falling, goats far away",
     sound: { src: "ambience/events/alphabetic-script-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c4c236b4e7" },

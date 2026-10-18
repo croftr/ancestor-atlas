@@ -127,6 +127,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans
   image_url: /images/events/control-of-fire.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/control-of-fire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/control-of-fire-3.webp, credit: "66AVI, CC BY-SA 3.0, via Wikimedia Commons", caption: "Excavations at Qesem Cave, Israel, where hominins maintained a central hearth in an enclosed shelter", source: "https://commons.wikimedia.org/wiki/File:%D7%9E%D7%A2%D7%A8%D7%AA_%D7%A7%D7%A1%D7%9D_2.jpg" }
     - { url: /images/events/extra/control-of-fire-1.webp, credit: "Ruth Blasco, CC BY 4.0, via Wikimedia Commons", caption: "Burned animal bones from Qesem Cave, Israel, about 400,000 years old", source: "https://commons.wikimedia.org/wiki/File:Qesem_Cave_burned_animal_bones.jpg" }
@@ -239,6 +240,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Karampuang_cave
   image_url: /images/events/figurative-cave-art.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/figurative-cave-art-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/figurative-cave-art-1.webp, credit: "Anhar Karim, CC BY-SA 4.0, via Wikimedia Commons", caption: "Leang Karampuang in the Maros karst, Sulawesi", source: "https://commons.wikimedia.org/wiki/File:Karampuang,_a_cave_which_has_world%27s_oldest_cave_painting.jpg" }
     - { url: /images/events/extra/figurative-cave-art-3.webp, credit: "Oktaviana et al., CC BY 4.0, via Wikimedia Commons", caption: "The painted panel at Leang Karampuang, showing human-like figures and a wild pig, at least 51,200 years old", source: "https://commons.wikimedia.org/wiki/File:Oldest_painting_in_the_world_in_Leang_Karampuang.jpg" }
@@ -332,6 +334,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_dog
   image_url: /images/events/domestication-of-the-dog.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/dog-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/dog-domestication-3.webp, credit: "Clément Bardot, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Eurasian gray wolf (Canis lupus lupus), wild ancestor of domestic dogs", source: "https://commons.wikimedia.org/wiki/File:Loup_gris_(Canis_lupus_).jpg" }
     - { url: /images/events/extra/dog-domestication-4.webp, credit: "Hans Weingartz, CC BY-SA 3.0, via Wikimedia Commons", caption: "The double human burial at Bonn–Oberkassel, Germany, interred alongside a cared-for puppy about 14,500 years ago", source: "https://commons.wikimedia.org/wiki/File:Doppelgrab_von_Oberkassel_skeletons_01.jpg" }
@@ -515,6 +518,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Chalcolithic
   image_url: /images/events/copper-smelting.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/copper-smelting-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/copper-smelting-3.webp, credit: "JJ Harrison, CC BY-SA 3.0, via Wikimedia Commons", caption: "Malachite, a green carbonate copper mineral smelted into molten metal in early kilns", source: "https://commons.wikimedia.org/wiki/File:Malachite,_Zaire.jpg" }
     - { url: /images/events/extra/copper-smelting-1.webp, credit: "Sindjic, CC BY-SA 4.0, via Wikimedia Commons", caption: "Reconstructed blowpipe for smelting copper ore at Pločnik, Serbia", source: "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BB%D0%BE%D1%87%D0%BD%D0%B8%D0%BA_03.jpg" }
@@ -667,6 +671,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_horse
   image_url: /images/events/horse-domestication.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/horse-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/horse-domestication-1.webp, credit: "IAEA Imagebank, CC BY-SA 2.0, via Wikimedia Commons", caption: "Przewalski's horse, descended from the horses herded at Botai", source: "https://commons.wikimedia.org/wiki/File:Przewalski%27s_Horse_(02710137).jpg" }
     - { url: /images/events/extra/horse-domestication-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Horse skull with bronze chariot fittings, from a Shang dynasty chariot burial at Yinxu, Anyang, China", source: "https://commons.wikimedia.org/wiki/File:Shang_Chariot_%26_Horse_Skull.jpg" }
@@ -746,6 +751,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Iron_Age
   image_url: /images/events/iron-age.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/iron-age-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/iron-age-2.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Tutankhamun's dagger, about 1325 BCE, forged from meteoric iron before smelted iron was common", source: "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Eisendolch_Tutanchamun_01.jpg" }
     - { url: /images/events/extra/iron-age-3.webp, credit: "Morgan Riley, CC BY-SA 3.0, via Wikimedia Commons", caption: "Glowing sponge-iron bloom fresh from a bloomery furnace, ready to be hammered to expel slag", source: "https://commons.wikimedia.org/wiki/File:Iron_bloom.jpg" }
