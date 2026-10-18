@@ -419,7 +419,7 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
-  Curated and wired 60 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
+  Curated and wired 80 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
   *Civilizations*:
   - `nabataeans` (4 images: Al-Khazneh Treasury, painted fine ware pottery, Ad-Deir Monastery, King Aretas IV & Shaqilath drachm)
   - `sabaeans` (4 images: Marib Dam masonry gates, Bar'an temple pillars, alabaster funerary stele, Nashqum bronze nobleman statue)
@@ -431,12 +431,18 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   - `parthian-empire` (4 images: Shami bronze statue of a Parthian prince, Old Nisa carved ivory rhytons, silver drachm of Mithridates II in tiara, Hatra high-relief Nergal carving)
   - `shang-dynasty` (4 images: Yinxu inscribed ox scapula oracle bone, monumental 832 kg Houmuwu Ding, Fu Hao tomb carved jade phoenix, Fu Hao royal bronze owl zun)
   - `xiongnu` (4 images: Noin-Ula kurgan 6 embroidered griffin & elk carpet, Noin-Ula fire altar priest silk hanging, British Museum openwork animal-style belt buckle, bronze steppe cauldron)
-  *Cultures*:
+  *Cultures & Stone Tool Traditions*:
+  - `acheulean` (4 images: Saint-Acheul type biface, Boxgrove flint handaxe, Olorgesailie handaxe accumulation in situ, Atapuerca "Excalibur" red quartzite biface)
   - `naqada` (4 images: D-ware buff jar with boats & animal standards, fish-shaped cosmetic palette, ripple-flaked bifacial flint knife, sculpted limestone hippopotamus)
   - `afanasievo` (4 images: pointed-bottom ceramic vessels, Khuurai Gobi bronze knife, archaeological grave goods metalwork & bone needles, Tamgaly solar petroglyph)
   - `andronovo` (4 images: incised geometric ceramic vessels, bronze socketed axe-adze & dagger, Tamgaly sacred bull petroglyph, Seima-Turbino warrior-skier figurine)
   - `halaf` (4 images: Arpachiyah polychrome rosette plate, seated terracotta female fertility statuette, geometric cross bowl, carved labyrinth stamp seal)
   - `ubaid` (4 images: lizard-headed nursing mother terracotta figurine, Louvre campaniform lattice beaker, baked clay agricultural sickle, carinated painted bowl)
+  *Hominin Species*:
+  - `australopithecus-africanus` (4 images: Taung Child skull & endocast cast, Mrs. Ples Sts 5 cranium, Little Foot StW 573 skeleton, Sts 14 pelvis & spine)
+  - `australopithecus-sediba` (4 images: MH1 "Karabo" juvenile cranium, MH2 right hand bones, MH2 reconstructed pelvis, MH1 partial skeleton)
+  - `paranthropus-robustus` (4 images: SK 48 Swartkrans cranium, DNH 7 "Eurydice" Drimolen female skull, TM 1517 Kromdraai holotype, SK 48 lateral profile)
+  - `homo-rudolfensis` (4 images: KNM-ER 1470 holotype cranium, KNM-ER 1470 frontal facial architecture, KNM-ER 1470 vs 1813 comparison, UR 501 Malawi mandible)
 
 ## Possible next steps
 

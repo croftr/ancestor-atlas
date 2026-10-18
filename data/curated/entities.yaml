@@ -175,6 +175,11 @@
   image_url: /images/species/australopithecus-africanus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/australopithecus-africanus-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/australopithecus-africanus-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Taung Child fossil cast (c. 2.8 Ma): face, lower jaw, and natural limestone brain endocast discovered in 1924 (Museum of Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_africanus_-_Cast_of_taung_child.jpg" }
+    - { url: /images/extra/australopithecus-africanus-2.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Mrs. Ples (Sts 5), remarkably intact 2.1-million-year-old adult Australopithecus africanus cranium from Sterkfontein Caves (Ditsong Museum, Pretoria)", source: "https://commons.wikimedia.org/wiki/File:Mrs_Ples.jpg" }
+    - { url: /images/extra/australopithecus-africanus-3.webp, credit: "Wits University / Brett Eloff, CC BY-SA 4.0, via Wikimedia Commons", caption: "Little Foot (StW 573), 90% complete Australopithecus skeleton excavated from deep breccia in the Silberberg Grotto at Sterkfontein", source: "https://commons.wikimedia.org/wiki/File:Little_Foot_01.jpg" }
+    - { url: /images/extra/australopithecus-africanus-4.webp, credit: "José-Manuel Benito Álvarez, CC BY-SA 2.5, via Wikimedia Commons", caption: "Sts 14 partial skeleton from Sterkfontein: pelvis, sacrum, and lumbar vertebrae demonstrating habitual upright bipedal walking", source: "https://commons.wikimedia.org/wiki/File:Sts_14.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=pwW40Dj5Sro
@@ -209,6 +214,11 @@
   image_url: /images/species/australopithecus-sediba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/australopithecus-sediba-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/australopithecus-sediba-1.webp, credit: "Brett Eloff / Lee R. Berger, CC BY-SA 3.0, via Wikimedia Commons", caption: 'Holotype cranium MH1 ("Karabo"), juvenile Australopithecus sediba skull (c. 1.98 Ma) discovered at Malapa Cave, South Africa', source: "https://commons.wikimedia.org/wiki/File:Australopithecus_sediba.JPG" }
+    - { url: /images/extra/australopithecus-sediba-2.webp, credit: "Peter Schmid / Lee R. Berger, CC BY-SA 3.0, via Wikimedia Commons", caption: "Right hand of adult female Australopithecus sediba (MH2), displaying human-like precision grip alongside tree-climbing adaptations", source: "https://commons.wikimedia.org/wiki/File:Hand_of_Australopithecus_sediba.jpg" }
+    - { url: /images/extra/australopithecus-sediba-3.webp, credit: "Peter Schmid / Lee R. Berger, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstructed pelvis of adult female MH2, surprisingly derived and modern in shape despite a small braincase", source: "https://commons.wikimedia.org/wiki/File:Pelvis_MH2_Australopithecus_sediba.jpg" }
+    - { url: /images/extra/australopithecus-sediba-4.webp, credit: "Lee R. Berger et al., CC BY-SA 3.0, via Wikimedia Commons", caption: 'Associated skeleton of MH1 ("Karabo") from Malapa, preserving skull, shoulder girdle, arm, and partial leg', source: "https://commons.wikimedia.org/wiki/File:MH1_skeleton_Australopithecus_sediba.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Y7Q3EGYI78M
@@ -266,6 +276,11 @@
   image_url: /images/species/paranthropus-robustus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/paranthropus-robustus-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/paranthropus-robustus-1.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Original cranium of SK 48, adult Paranthropus robustus discovered at Swartkrans with massive zygomatic arches and sagittal crest", source: "https://commons.wikimedia.org/wiki/File:Original_of_Paranthropus_robustus_Face.jpg" }
+    - { url: /images/extra/paranthropus-robustus-2.webp, credit: "DNH Project / Colin Menter, CC BY-SA 3.0, via Wikimedia Commons", caption: 'DNH 7 ("Eurydice"), remarkably complete female Paranthropus robustus skull excavated from Drimolen Main Quarry (c. 2.0 Ma)', source: "https://commons.wikimedia.org/wiki/File:DNH7.jpg" }
+    - { url: /images/extra/paranthropus-robustus-3.webp, credit: "Kromdraai Research Project, CC BY-SA 3.0, via Wikimedia Commons", caption: "Type specimen TM 1517 found by schoolboy Gert Terblanche at Kromdraai in 1938, leading Robert Broom to name Paranthropus", source: "https://commons.wikimedia.org/wiki/File:TM_1517.jpg" }
+    - { url: /images/extra/paranthropus-robustus-4.webp, credit: "Geni, CC BY-SA 4.0, via Wikimedia Commons", caption: "Lateral view of SK 48 cranium (Natural History Museum, London), showcasing the dished face and post-canine megadontia", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_robustus_SK_48_IMG_5610_BMNH.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=lzBwFh0dYIs
@@ -306,6 +321,11 @@
   image_url: /images/species/homo-rudolfensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/homo-rudolfensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/homo-rudolfensis-1.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "KNM-ER 1470 holotype cranium (1.9 Ma), discovered at Koobi Fora by Bernard Ngeneo, with a large 750 cc braincase", source: "https://commons.wikimedia.org/wiki/File:Homo_rudolfensis-KNM_ER_1470.jpg" }
+    - { url: /images/extra/homo-rudolfensis-2.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "Front view of KNM-ER 1470, showing the characteristic long, broad, and flat upper facial architecture", source: "https://commons.wikimedia.org/wiki/File:Homo_rudolfensis_KNM-ER_1470.jpg" }
+    - { url: /images/extra/homo-rudolfensis-3.webp, credit: "Mats Halldin, CC BY-SA 3.0, via Wikimedia Commons", caption: "Side-by-side comparison of large-brained KNM-ER 1470 (Homo rudolfensis) and smaller KNM-ER 1813 (Homo habilis) from Lake Turkana", source: "https://commons.wikimedia.org/wiki/File:KNM-ER_1470_%26_1813.png" }
+    - { url: /images/extra/homo-rudolfensis-4.webp, credit: "Friedemann Schrenk / HCRP, CC BY-SA 3.0, via Wikimedia Commons", caption: "UR 501 fossil mandible from the Chiwondo Beds at Uraha, Malawi (c. 2.4 Ma), attributed to Homo rudolfensis", source: "https://commons.wikimedia.org/wiki/File:HPCR-UR_501-03.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=xuJPm1NBoIc
@@ -552,6 +572,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   source_ids:
     - recall
+  extra_images:
+    - { url: /images/extra/acheulean-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Classic symmetrical flint handaxe from the type site of Saint-Acheul, Somme Valley, France (Museum of Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Biface_de_St_Acheul_MHNT.jpg" }
+    - { url: /images/extra/acheulean-2.webp, credit: "Midnightblueowl, CC BY-SA 3.0, via Wikimedia Commons", caption: "Exquisitely soft-hammer flaked flint handaxe from Eartham Pit, Boxgrove, West Sussex, UK (c. 500,000 BP)", source: "https://commons.wikimedia.org/wiki/File:Boxgrove_handaxe.jpg" }
+    - { url: /images/extra/acheulean-3.webp, credit: "User:Lencer, CC BY-SA 3.0, via Wikimedia Commons", caption: "Dense concentration of Acheulean handaxes preserved in situ at Olorgesailie, Kenya Rift Valley (excavations by Louis & Mary Leakey)", source: "https://commons.wikimedia.org/wiki/File:Olorgesailie_axes.jpg" }
+    - { url: /images/extra/acheulean-4.webp, credit: "Mario Modesto Mata, CC BY-SA 4.0, via Wikimedia Commons", caption: '"Excalibur", red quartzite Acheulean biface (c. 430,000 BP) from Sima de los Huesos, Atapuerca, Spain (Museum of Human Evolution, Burgos)', source: "https://commons.wikimedia.org/wiki/File:Excalibur_(1).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=BwmpNKWGdGw
