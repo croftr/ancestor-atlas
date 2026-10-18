@@ -23,7 +23,13 @@ export default function WelcomeHint() {
   useEffect(() => {
     if (!open) return;
     return useStore.subscribe((s, prev) => {
-      if (s.year !== prev.year || s.playing !== prev.playing || s.selectedId !== prev.selectedId || s.groupId !== prev.groupId)
+      if (
+        s.year !== prev.year ||
+        s.playing !== prev.playing ||
+        s.selectedId !== prev.selectedId ||
+        s.groupId !== prev.groupId ||
+        s.place !== prev.place
+      )
         setOpen(false);
     });
   }, [open]);
@@ -48,6 +54,9 @@ export default function WelcomeHint() {
         </li>
         <li>
           <strong>{tap} a marker</strong> on the globe to learn about it.
+        </li>
+        <li>
+          <strong>{tap === "Click" ? "Right-click" : "Long-press"} any place</strong> (or use the pin in the search bar) to see everything that lived there across 7 million years.
         </li>
         {tap === "Click" && (
           <li>

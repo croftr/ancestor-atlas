@@ -4,6 +4,7 @@ import { useStore } from "./store";
 import { useData } from "./map/data";
 import { tourById } from "./tours/tours";
 import { dnaSiteById, useDna } from "./dna/data";
+import { formatCoords } from "./region/region";
 
 const SITE_NAME = "Ancestor Atlas";
 
@@ -23,13 +24,15 @@ export function pageTitleFor(opts: {
   tourTitle?: string;
   selectedEntityName?: string;
   dnaSiteName?: string;
+  placeLabel?: string;
 }): string {
-  const { view, openItemName, tourTitle, selectedEntityName, dnaSiteName } = opts;
+  const { view, openItemName, tourTitle, selectedEntityName, dnaSiteName, placeLabel } = opts;
 
   if (view === "globe") {
     if (tourTitle) return `${tourTitle} · ${SITE_NAME}`;
     if (selectedEntityName) return `${selectedEntityName} · ${SITE_NAME}`;
     if (dnaSiteName) return `${dnaSiteName} (Ancient DNA) · ${SITE_NAME}`;
+    if (placeLabel) return `${placeLabel} (Regional History) · ${SITE_NAME}`;
     return SITE_NAME;
   }
 
@@ -53,6 +56,7 @@ export function usePageTitle() {
   const groupId = useStore((s) => s.groupId);
   const hits = useStore((s) => s.hits);
   const dnaSiteId = useStore((s) => s.dnaSite);
+  const place = useStore((s) => s.place);
   const dna = useDna(!!dnaSiteId);
 
   const openItemName = openId ? data?.entityById.get(openId)?.name : undefined;
@@ -60,6 +64,7 @@ export function usePageTitle() {
   const selectedEntityId = groupId ?? (selectedId ? hits.find((h) => h.id === selectedId)?.entity_id : undefined);
   const selectedEntityName = selectedEntityId ? data?.entityById.get(selectedEntityId)?.name : undefined;
   const dnaSiteName = dnaSiteById(dna, dnaSiteId)?.name;
+  const placeLabel = place ? formatCoords(place.lon, place.lat) : undefined;
 
   const title = pageTitleFor({
     view,
@@ -67,6 +72,7 @@ export function usePageTitle() {
     tourTitle,
     selectedEntityName,
     dnaSiteName,
+    placeLabel,
   });
 
   useEffect(() => {

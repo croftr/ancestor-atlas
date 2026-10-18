@@ -1,0 +1,358 @@
+/* Regional Explorer ("What Was Here?") card and globe mode prompt */
+
+.place-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f0bd78;
+  margin-bottom: 2px;
+}
+
+.place-coords {
+  font-size: 0.82rem;
+  color: #9aa8c4;
+  font-variant-numeric: tabular-nums;
+}
+
+.place-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0 8px;
+  flex-wrap: wrap;
+}
+
+.place-radii {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.place-radius-btn {
+  border: none;
+  background: transparent;
+  color: #9aa8c4;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.place-radius-btn:hover {
+  color: #e8ecf4;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.place-radius-btn.active {
+  background: rgba(240, 189, 120, 0.2);
+  color: #f6e7c8;
+  box-shadow: inset 0 0 0 1px rgba(240, 189, 120, 0.45);
+}
+
+.place-sort-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd3e6;
+  font-size: 0.75rem;
+  padding: 4px 9px;
+  border-radius: 6px;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.place-sort-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.place-span-summary {
+  font-size: 0.82rem;
+  color: #cbd3e6;
+  margin: 4px 0 8px;
+  line-height: 1.35;
+}
+
+.place-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 6px 0 10px;
+}
+
+.place-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: #cbd3e6;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+}
+
+.place-filter-chip:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #fff;
+}
+
+.place-filter-chip.active {
+  background: rgba(142, 197, 255, 0.2);
+  border-color: rgba(142, 197, 255, 0.55);
+  color: #fff;
+  font-weight: 600;
+}
+
+.place-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: #7c879e;
+  margin: 6px 2px 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.place-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.place-item {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 7px 9px 8px;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.place-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.place-item.active-now {
+  background: rgba(240, 189, 120, 0.1);
+  border-color: rgba(240, 189, 120, 0.42);
+}
+
+.place-item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.place-item-main {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.place-item-main:focus-visible {
+  outline: 2px solid #8ec5ff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.place-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.place-item-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  color: #eef2fa;
+  display: block;
+}
+
+.place-item-sub {
+  font-size: 0.76rem;
+  color: #9aa8c4;
+  line-height: 1.3;
+  margin-top: 1px;
+}
+
+.place-item-open {
+  flex: none;
+  border: 1px solid rgba(142, 197, 255, 0.25);
+  background: rgba(142, 197, 255, 0.1);
+  color: #8ec5ff;
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+}
+
+.place-item-open:hover {
+  background: rgba(142, 197, 255, 0.22);
+  border-color: #8ec5ff;
+  color: #fff;
+}
+
+.place-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 5px 0 4px;
+  font-size: 0.74rem;
+  color: #9aa8c4;
+  font-variant-numeric: tabular-nums;
+}
+
+.place-bar-track {
+  position: relative;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.place-bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 4px;
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.place-bar-now {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+}
+
+.place-section-title {
+  margin: 14px 0 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9aa8c4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.place-empty {
+  padding: 16px 10px;
+  text-align: center;
+  color: #9aa8c4;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+/* Back-to-region bar shown at the top of InfoPanel / DnaCard when opened from PlaceCard */
+.place-back-bar {
+  margin-bottom: 6px;
+}
+
+.place-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 189, 120, 0.38);
+  background: rgba(240, 189, 120, 0.12);
+  color: #f0bd78;
+  font-size: 0.76rem;
+  font-weight: 600;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+}
+
+.place-back-btn:hover {
+  background: rgba(240, 189, 120, 0.24);
+  border-color: #f0bd78;
+  color: #fff4d6;
+}
+
+/* Pin button inside/beside the search field & active mode banner */
+.search-place-btn {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin-right: -4px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #9aa8c4;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+}
+
+.search-place-btn:hover {
+  background: rgba(240, 189, 120, 0.14);
+  color: #f0bd78;
+}
+
+.search-place-btn.active {
+  background: rgba(240, 189, 120, 0.22);
+  border-color: rgba(240, 189, 120, 0.55);
+  color: #f0bd78;
+}
+
+.place-mode-banner {
+  margin-top: 6px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #f6e7c8;
+  background: rgba(22, 28, 46, 0.94);
+  border-color: rgba(240, 189, 120, 0.45);
+}
+
+.place-mode-cancel {
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd3e6;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.place-mode-cancel:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.map-place-mode,
+.map-place-mode canvas {
+  cursor: crosshair !important;
+}

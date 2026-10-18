@@ -16,9 +16,12 @@ describe("pageTitleFor", () => {
     ).toBe("Out of the steppe · Ancestor Atlas");
   });
 
-  it("shows selected entity or DNA site on the globe", () => {
+  it("shows selected entity, DNA site, or regional explorer on the globe", () => {
     expect(pageTitleFor({ view: "globe", selectedEntityName: "Homo erectus" })).toBe("Homo erectus · Ancestor Atlas");
     expect(pageTitleFor({ view: "globe", dnaSiteName: "Denisova Cave" })).toBe("Denisova Cave (Ancient DNA) · Ancestor Atlas");
+    expect(pageTitleFor({ view: "globe", placeLabel: "32.7°N, 35.0°E" })).toBe(
+      "32.7°N, 35.0°E (Regional History) · Ancestor Atlas",
+    );
   });
 
   it("formats timeline titles with or without an open card", () => {

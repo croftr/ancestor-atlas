@@ -71,8 +71,11 @@ function Person({ p, d }: { p: DnaPerson; d: DnaData }) {
 /** The card for an ancient DNA site: who was sampled there, those dated to the slider's year first. */
 export default function DnaCard() {
   const site = useStore((s) => s.dnaSite);
-  const covered = useStore((s) => s.selectedId !== null || s.groupId !== null);
+  const covered = useStore((s) => s.selectedId !== null || s.groupId !== null || s.place !== null);
   const year = useStore((s) => s.year);
+  const lastPlace = useStore((s) => s.lastPlace);
+  const reopenPlace = useStore((s) => s.reopenPlace);
+  const openPlace = useStore((s) => s.openPlace);
   const close = () => useStore.getState().openDnaSite(null);
   const d = useDna(site !== null);
   const s = dnaSiteById(d, site);
@@ -96,6 +99,13 @@ export default function DnaCard() {
         ✕
       </button>
       <div className="info-head">
+        {lastPlace && (
+          <div className="place-back-bar">
+            <button type="button" className="place-back-btn" onClick={reopenPlace}>
+              ← Back to regional history
+            </button>
+          </div>
+        )}
         <div className="dna-kicker">
           <DnaIcon size={16} />
           Ancient DNA
@@ -103,6 +113,15 @@ export default function DnaCard() {
         <h2>{s.name}</h2>
         <div className="muted">{s.place ? `${s.place}, ${s.country}` : s.country}</div>
         <div className="muted">{formatRange(s.start, s.end)}</div>
+      </div>
+      <div className="view-link">
+        <button
+          className="link"
+          onClick={() => openPlace(s.lon, s.lat)}
+          title="See all species, cultures, ancient DNA, and civilizations within 300 km across all 7 million years"
+        >
+          History around here →
+        </button>
       </div>
       <p className="dna-summary">
         {s.people.length === 1 ? "One person" : `${s.people.length} people`} sampled here

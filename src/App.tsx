@@ -3,6 +3,7 @@ import MapView from "./map/MapView";
 import Legend from "./ui/Legend";
 import InfoPanel from "./ui/InfoPanel";
 import DnaCard from "./dna/DnaCard";
+import PlaceCard from "./region/PlaceCard";
 import TimeSlider from "./ui/TimeSlider";
 import SearchBox from "./ui/SearchBox";
 import SideNav from "./ui/SideNav";
@@ -45,7 +46,7 @@ export default function App() {
   }, [setIntroOpen]);
 
   // An open info card on the globe: the time slider narrows so the two never overlap.
-  const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null);
+  const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.place !== null);
   const touring = useStore((s) => s.tour !== null);
   // The card's width as dragged (desktop); the CSS clamps it to the window (ui/sidenav.css).
   const cardWidth = useStore((s) => s.cardWidth);
@@ -66,6 +67,7 @@ export default function App() {
             <Legend />
             <InfoPanel />
             <DnaCard />
+            <PlaceCard />
             <TimeSlider />
             <WelcomeHint />
             <TourPlayer />

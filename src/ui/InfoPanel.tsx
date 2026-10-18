@@ -93,6 +93,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const tourPicture = useStore((s) => s.tour?.picture);
   const viewerOpen = useStore((s) => s.pictureViewer);
   const setViewerOpen = useStore((s) => s.setPictureViewer);
+  const lastPlace = useStore((s) => s.lastPlace);
+  const reopenPlace = useStore((s) => s.reopenPlace);
+  const openPlace = useStore((s) => s.openPlace);
 
   // A picture that failed to load (a stand-in not added yet) is left out.
   const [brokenImage, setBrokenImage] = useState<string | null>(null);
@@ -447,6 +450,13 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             : undefined
         }
       >
+        {view === "globe" && lastPlace && !isTouring && (
+          <div className="place-back-bar">
+            <button type="button" className="place-back-btn" onClick={reopenPlace}>
+              ← Back to regional history
+            </button>
+          </div>
+        )}
         {parent && (
           <div className="breadcrumb">
             <button className="link" onClick={() => openGroup(parent.id)}>{parent.name}</button> › {entity.name}
@@ -503,6 +513,21 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             {" · "}
             <button className="link" onClick={() => navigate("civilizations", entity.id)}>
               {entity.media?.length ? `Civilization page (${videoCount(entity.media.length)}) →` : "Civilization page →"}
+            </button>
+          </>
+        )}
+        {view === "globe" && !isTouring && feature && data.bboxOf.get(feature.id) && (
+          <>
+            {" · "}
+            <button
+              className="link"
+              onClick={() => {
+                const b = data.bboxOf.get(feature.id)!;
+                openPlace((b[0] + b[2]) / 2, (b[1] + b[3]) / 2);
+              }}
+              title="See all species, cultures, ancient DNA, and civilizations within 300 km across all 7 million years"
+            >
+              History here →
             </button>
           </>
         )}

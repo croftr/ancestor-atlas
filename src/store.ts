@@ -6,6 +6,13 @@ import { bestYear, navOrder, sliderYearFor } from "./search/search";
 import { BASEMAP_THEMES, DEFAULT_BASEMAP } from "./config";
 import { tourById } from "./tours/tours";
 import type { DnaColour } from "./dna/haplogroups";
+import { circleBBox, DEFAULT_RADIUS_KM } from "./region/region";
+
+export interface PlaceQuery {
+  lon: number;
+  lat: number;
+  radiusKm: number;
+}
 
 const BASEMAP_KEY = "history-globe.basemap";
 
@@ -189,6 +196,17 @@ interface AppState {
   setDna(on: boolean): void;
   setDnaColour(mode: DnaColour): void;
   openDnaSite(id: string | null): void;
+  /** Regional Explorer ("What Was Here?"): query all 7 million years around a point on the globe. */
+  place: PlaceQuery | null;
+  /** Kept when drilling into an entity or DNA card from `PlaceCard` so "← Back to region" can return. */
+  lastPlace: PlaceQuery | null;
+  /** Armed by the pin button near the search bar: the next click on the globe opens `PlaceCard` there. */
+  placeMode: boolean;
+  openPlace(lon: number, lat: number, opts?: { radiusKm?: number; fly?: boolean }): void;
+  closePlace(): void;
+  reopenPlace(): void;
+  setPlaceRadius(radiusKm: number): void;
+  setPlaceMode(on: boolean): void;
   setClimatePanel(on: boolean): void;
   setLegendPanel(on: boolean): void;
   setIntroOpen(open: boolean): void;
@@ -211,6 +229,9 @@ export const useStore = create<AppState>((set, get) => ({
   dna: loadOn(DNA_KEY),
   dnaColour: loadDnaColour(),
   dnaSite: null,
+  place: null,
+  lastPlace: null,
+  placeMode: false,
   climatePanel: loadOn(CLIMATE_PANEL_KEY),
   legendPanel: loadOn(LEGEND_PANEL_KEY),
   introOpen: isIntroHash(),
@@ -237,11 +258,21 @@ export const useStore = create<AppState>((set, get) => ({
       selectedId: id,
       dnaSite: null,
       groupId: null,
+      place: null,
+      lastPlace: id === null ? null : (s.place ?? s.lastPlace),
       hits: id === null ? [] : (hits ?? s.hits),
       pictureViewer: s.tour ? s.pictureViewer : false,
     })),
   openGroup: (entityId) =>
-    set((s) => ({ selectedId: null, hits: [], groupId: entityId, dnaSite: null, pictureViewer: s.tour ? s.pictureViewer : false })),
+    set((s) => ({
+      selectedId: null,
+      hits: [],
+      groupId: entityId,
+      dnaSite: null,
+      place: null,
+      lastPlace: s.place ?? s.lastPlace,
+      pictureViewer: s.tour ? s.pictureViewer : false,
+    })),
   jumpTo: (entityId) => {
     const d = getData();
     const f = d?.featuresOf.get(entityId)?.[0];
@@ -252,6 +283,8 @@ export const useStore = create<AppState>((set, get) => ({
       enabled: { ...s.enabled, [f.category]: true },
       selectedId: f.id,
       groupId: null,
+      place: null,
+      lastPlace: s.place ?? s.lastPlace,
       hits: [f],
       flyTo: bbox ? { bbox } : s.flyTo,
     }));
@@ -274,6 +307,8 @@ export const useStore = create<AppState>((set, get) => ({
     const bbox = unionBBox(boxes);
     set((s) => ({
       playing: false,
+      place: null,
+      lastPlace: s.place ?? s.lastPlace,
       ...(best && {
         year: best.year,
         enabled: { ...s.enabled, ...Object.fromEntries(best.active.map((f) => [f.category, true])) },
@@ -303,7 +338,7 @@ export const useStore = create<AppState>((set, get) => ({
       playing: false,
       year,
       enabled: { ...s.enabled, [entity.category]: true },
-      ...(opts.open && on.length > 0 && { selectedId: on[0].id, hits: on, groupId: null }),
+      ...(opts.open && on.length > 0 && { selectedId: on[0].id, hits: on, groupId: null, place: null, lastPlace: s.place ?? s.lastPlace }),
       flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
   },
@@ -318,6 +353,9 @@ export const useStore = create<AppState>((set, get) => ({
       selectedId: null,
       hits: [],
       groupId: null,
+      place: null,
+      lastPlace: null,
+      placeMode: false,
       enabled: t.layers ? (Object.fromEntries(CATEGORIES.map((c) => [c, t.layers!.includes(c)])) as Record<Category, boolean>) : s.enabled,
       ...(t.dna && { dna: true, dnaColour: t.dna }),
       dnaSite: null,
@@ -406,7 +444,50 @@ export const useStore = create<AppState>((set, get) => ({
     set({ dnaColour: mode });
   },
   openDnaSite: (id) =>
-    set((s) => ({ dnaSite: id, ...(id && { selectedId: null, hits: [], groupId: null, pictureViewer: s.tour ? s.pictureViewer : false }) })),
+    set((s) => ({
+      dnaSite: id,
+      place: null,
+      lastPlace: id ? (s.place ?? s.lastPlace) : null,
+      ...(id && { selectedId: null, hits: [], groupId: null, pictureViewer: s.tour ? s.pictureViewer : false }),
+    })),
+  openPlace: (lon, lat, opts) =>
+    set((s) => {
+      const radiusKm = opts?.radiusKm ?? s.place?.radiusKm ?? s.lastPlace?.radiusKm ?? DEFAULT_RADIUS_KM;
+      const next: PlaceQuery = { lon, lat, radiusKm };
+      return {
+        playing: false,
+        place: next,
+        lastPlace: null,
+        placeMode: false,
+        selectedId: null,
+        hits: [],
+        groupId: null,
+        dnaSite: null,
+        pictureViewer: false,
+        ...(opts?.fly && { flyTo: { bbox: circleBBox(lon, lat, radiusKm), gentle: true } }),
+      };
+    }),
+  closePlace: () => set({ place: null, lastPlace: null, placeMode: false }),
+  reopenPlace: () =>
+    set((s) => {
+      const target = s.lastPlace ?? s.place;
+      if (!target) return {};
+      return {
+        place: target,
+        lastPlace: null,
+        selectedId: null,
+        hits: [],
+        groupId: null,
+        dnaSite: null,
+        pictureViewer: false,
+      };
+    }),
+  setPlaceRadius: (radiusKm) =>
+    set((s) => ({
+      place: s.place ? { ...s.place, radiusKm } : null,
+      lastPlace: s.lastPlace ? { ...s.lastPlace, radiusKm } : null,
+    })),
+  setPlaceMode: (on) => set({ placeMode: on }),
   setClimatePanel: (on) => {
     saveOn(CLIMATE_PANEL_KEY, on);
     set({ climatePanel: on });

@@ -6,6 +6,7 @@ import { buildIndex, normalize, searchEntities } from "../search/search";
 import type { Entity } from "../types";
 import { CategoryBadge, SINGULAR } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
+import { PlacePinIcon } from "../region/PlaceCard";
 
 /** Bold the first occurrence of the query in the name (accent-insensitive). */
 function Highlight({ text, query }: { text: string; query: string }) {
@@ -39,6 +40,8 @@ function Highlight({ text, query }: { text: string; query: string }) {
 export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void } = {}) {
   const data = useData();
   const focusEntity = useStore((s) => s.focusEntity);
+  const placeMode = useStore((s) => s.placeMode);
+  const setPlaceMode = useStore((s) => s.setPlaceMode);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -53,6 +56,10 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (useStore.getState().tour) return;
+      if (e.key === "Escape" && useStore.getState().placeMode) {
+        useStore.getState().setPlaceMode(false);
+        return;
+      }
       const t = e.target as HTMLElement | null;
       const typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
       if ((e.key === "k" && (e.ctrlKey || e.metaKey)) || (e.key === "/" && !typing)) {
@@ -120,7 +127,27 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
           onKeyDown={onKeyDown}
         />
         {!query && <kbd className="search-kbd">/</kbd>}
+        {!onChoose && (
+          <button
+            type="button"
+            className={`search-place-btn${placeMode ? " active" : ""}`}
+            onClick={() => setPlaceMode(!placeMode)}
+            aria-pressed={placeMode}
+            aria-label="What was here? Click a point on the globe to explore its regional history"
+            title="What was here? Click any point on the globe (or right-click) to see 7 million years of local history"
+          >
+            <PlacePinIcon size={16} />
+          </button>
+        )}
       </div>
+      {!onChoose && placeMode && !showList && (
+        <div className="panel place-mode-banner" role="status">
+          <span>Click any point on the globe to see what lived there</span>
+          <button type="button" className="place-mode-cancel" onClick={() => setPlaceMode(false)}>
+            Cancel
+          </button>
+        </div>
+      )}
       {showList && (
         <ul id="search-results" className="search-results panel" role="listbox">
           {results.length === 0 && <li className="search-empty muted">No matching names</li>}

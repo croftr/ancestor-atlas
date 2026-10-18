@@ -19,6 +19,7 @@ import { tourById } from "../tours/tours";
 import { dnaGeoJSON, loadDna } from "../dna/data";
 import { NONE_COLOR } from "../dna/haplogroups";
 import { FILM } from "../film";
+import { circleGeoJSON } from "../region/region";
 
 const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
@@ -399,7 +400,16 @@ export default function MapView() {
     // Right-drag or Shift+drag slides the globe aside (desktop), out from under a card or panel;
     // Recentre (below) puts it back. Caught before MapLibre sees the press, so it neither turns the
     // globe nor (after a Shift+drag) counts as a click on a marker.
-    let slide: { x: number; y: number; from: [number, number]; moved: boolean } | null = null;
+    // A stationary right-click (or long-press on touch) opens the Regional Explorer ("What Was Here?").
+    const openPlaceAtClient = (clientX: number, clientY: number) => {
+      if (!loaded || useStore.getState().tour) return;
+      const rect = container.getBoundingClientRect();
+      const ll = map.unproject([clientX - rect.left, clientY - rect.top]);
+      if (Number.isFinite(ll.lng) && Number.isFinite(ll.lat) && Math.abs(ll.lat) <= 85) {
+        useStore.getState().openPlace(ll.lng, ll.lat);
+      }
+    };
+    let slide: { x: number; y: number; from: [number, number]; moved: boolean; button: number } | null = null;
     const slideMove = (e: MouseEvent) => {
       if (!slide) return;
       const dx = e.clientX - slide.x;
@@ -419,6 +429,8 @@ export default function MapView() {
       if (slide?.moved) {
         container.addEventListener("click", swallowClick, { capture: true, once: true });
         setTimeout(() => container.removeEventListener("click", swallowClick, { capture: true }), 0);
+      } else if (slide && slide.button === 2) {
+        openPlaceAtClient(slide.x, slide.y);
       }
       slide = null;
     };
@@ -429,7 +441,7 @@ export default function MapView() {
       if (!(e.button === 2 || (e.button === 0 && e.shiftKey))) return;
       e.stopPropagation();
       e.preventDefault();
-      slide = { x: e.clientX, y: e.clientY, from: useStore.getState().globeOffset, moved: false };
+      slide = { x: e.clientX, y: e.clientY, from: useStore.getState().globeOffset, moved: false, button: e.button };
       container.classList.add("globe-sliding");
       window.addEventListener("mousemove", slideMove);
       window.addEventListener("mouseup", slideEnd);
@@ -437,8 +449,47 @@ export default function MapView() {
     const noMenu = (e: MouseEvent) => {
       if (!isStacked()) e.preventDefault();
     };
+    let longPress: { x: number; y: number; timer: number } | null = null;
+    const clearLongPress = () => {
+      if (longPress) {
+        window.clearTimeout(longPress.timer);
+        longPress = null;
+      }
+    };
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length !== 1 || useStore.getState().tour || useStore.getState().miniGlobe) {
+        clearLongPress();
+        return;
+      }
+      const t = e.touches[0];
+      const x = t.clientX;
+      const y = t.clientY;
+      clearLongPress();
+      longPress = {
+        x,
+        y,
+        timer: window.setTimeout(() => {
+          longPress = null;
+          openPlaceAtClient(x, y);
+          container.addEventListener("click", swallowClick, { capture: true, once: true });
+          setTimeout(() => container.removeEventListener("click", swallowClick, { capture: true }), 400);
+        }, 550),
+      };
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (!longPress || e.touches.length !== 1) {
+        clearLongPress();
+        return;
+      }
+      const t = e.touches[0];
+      if (Math.hypot(t.clientX - longPress.x, t.clientY - longPress.y) > 10) clearLongPress();
+    };
     container.addEventListener("mousedown", slideStart, true);
     container.addEventListener("contextmenu", noMenu);
+    container.addEventListener("touchstart", onTouchStart, { passive: true });
+    container.addEventListener("touchmove", onTouchMove, { passive: true });
+    container.addEventListener("touchend", clearLongPress, { passive: true });
+    container.addEventListener("touchcancel", clearLongPress, { passive: true });
     // Fallback if the style-level projection is rejected.
     map.on("style.load", () => {
       try {
@@ -853,12 +904,40 @@ export default function MapView() {
         filter: ["==", ["get", "kind"], "head"],
         paint: { "circle-color": "#fffaf0", "circle-radius": 9, "circle-blur": 1, "circle-opacity": 0.95 },
       });
+      map.addSource("place-circle", { type: "geojson", data: EMPTY });
+      map.addLayer({
+        id: "place-circle-fill",
+        type: "fill",
+        source: "place-circle",
+        filter: ["==", ["get", "kind"], "circle"],
+        paint: { "fill-color": "#f0bd78", "fill-opacity": 0.1 },
+      });
+      map.addLayer({
+        id: "place-circle-line",
+        type: "line",
+        source: "place-circle",
+        filter: ["==", ["get", "kind"], "circle"],
+        paint: { "line-color": "#f0bd78", "line-width": 2, "line-opacity": 0.85, "line-dasharray": [3, 2] },
+      });
+      map.addLayer({
+        id: "place-circle-center",
+        type: "circle",
+        source: "place-circle",
+        filter: ["==", ["get", "kind"], "center"],
+        paint: {
+          "circle-color": "#fff4d6",
+          "circle-radius": 5,
+          "circle-stroke-color": "#d6a05c",
+          "circle-stroke-width": 2,
+        },
+      });
       loaded = true;
       applyPath();
       if (useStore.getState().tour?.epilogue) startEpilogue(pathPoints);
       applyPaleo();
       applyDna();
       applyDnaSelection();
+      applyPlace();
       loadData().then(() => {
         applyRoutes();
         applyGeneFlow();
@@ -868,8 +947,20 @@ export default function MapView() {
       applySelection();
     });
 
+    function applyPlace() {
+      const src = map.getSource("place-circle") as maplibregl.GeoJSONSource | undefined;
+      if (!src) return;
+      const st = useStore.getState();
+      const p = st.place ?? st.lastPlace;
+      src.setData(p ? circleGeoJSON(p.lon, p.lat, p.radiusKm) : EMPTY);
+    }
+
     map.on("click", (e) => {
       if (!loaded) return;
+      if (useStore.getState().placeMode) {
+        useStore.getState().openPlace(e.lngLat.lng, e.lngLat.lat);
+        return;
+      }
       // Markers count as hit within a finger's reach of the tap (less with a mouse), nearest
       // first; markers about equally near keep the layer order (events, species, cultures).
       // Territories need a direct hit, so a tap near a site never opens the land around it.
@@ -923,6 +1014,7 @@ export default function MapView() {
         const found = route && ROUTES.find((rt) => rt.id === route.properties.id);
         if (flow) geneFlowPopup(flow).setLngLat(e.lngLat).addTo(map);
         else if (found) routePopup(found).setLngLat(e.lngLat).addTo(map);
+        else if (useStore.getState().place) useStore.getState().closePlace();
       } else useStore.getState().select(sorted[0].id, sorted);
     });
 
@@ -1069,9 +1161,11 @@ export default function MapView() {
 
     const mini = miniGlobe(map, container.parentElement!);
     if (useStore.getState().miniGlobe) mini.set(true);
+    if (useStore.getState().placeMode) container.classList.add("map-place-mode");
 
     const unsubscribe = useStore.subscribe((state, prev) => {
       if (state.miniGlobe !== prev.miniGlobe) mini.set(state.miniGlobe);
+      if (state.placeMode !== prev.placeMode) container.classList.toggle("map-place-mode", state.placeMode);
       if (state.basemap !== prev.basemap) {
         const t = BASEMAP_THEMES[state.basemap];
         map.setPaintProperty("bg", "background-color", t.bg);
@@ -1128,6 +1222,7 @@ export default function MapView() {
       if (state.year !== prev.year || state.geneFlow !== prev.geneFlow) applyGeneFlow();
       if (state.year !== prev.year || state.dna !== prev.dna || state.dnaColour !== prev.dnaColour) applyDna();
       if (state.dnaSite !== prev.dnaSite || state.selectedId !== prev.selectedId) applyDnaSelection();
+      if (state.place !== prev.place || state.lastPlace !== prev.lastPlace) applyPlace();
       if (state.enabled !== prev.enabled) applyVisibility();
       if (state.selectedId !== prev.selectedId) applySelection();
     });
@@ -1135,9 +1230,14 @@ export default function MapView() {
     return () => {
       unsubscribe();
       slideEnd();
+      clearLongPress();
       cancelAnimationFrame(skyRaf);
       container.removeEventListener("mousedown", slideStart, true);
       container.removeEventListener("contextmenu", noMenu);
+      container.removeEventListener("touchstart", onTouchStart);
+      container.removeEventListener("touchmove", onTouchMove);
+      container.removeEventListener("touchend", clearLongPress);
+      container.removeEventListener("touchcancel", clearLongPress);
       stopEpilogue();
       cancelAnimationFrame(pathRaf);
       mini.dispose();
