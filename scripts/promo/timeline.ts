@@ -131,3 +131,65 @@ export const LINES: Line[] = [
 
 /** Narration speed-up applied after recording (1 = as the app's tours read). */
 export const TEMPO = 1;
+
+/** On-screen text (titles.ts draws it, edit.ts fades it in and out over `from`..`to`). */
+export interface Text {
+  id: string;
+  kind: "title" | "caption" | "end";
+  text: string;
+  sub?: string;
+  from: number;
+  to: number;
+}
+
+const during = (n: number, lead = 0.35, tail = 0.35): { from: number; to: number } => {
+  const i = SHOTS.findIndex((s) => s.n === n);
+  return { from: SHOTS[i].at + lead, to: (SHOTS[i + 1]?.at ?? LENGTH_S) - tail };
+};
+
+export const TEXTS: Text[] = [
+  { id: "title", kind: "title", text: "Ancestor Atlas", ...during(4, 0.5, 0.25) },
+  { id: "million", kind: "caption", text: "7 million years", ...during(5) },
+  { id: "ice", kind: "caption", text: "The Ice Ages", ...during(6) },
+  { id: "africa", kind: "caption", text: "Out of Africa", ...during(7) },
+  { id: "species", kind: "caption", text: "26 human species", ...during(9) },
+  { id: "sites", kind: "caption", text: "5,000+ sites", from: shotAt(10) + 0.35, to: shotAt(10) + 3.6 },
+  { id: "civs", kind: "caption", text: "200 civilizations", ...during(11) },
+  { id: "dna", kind: "caption", text: "Ancient DNA", ...during(12) },
+  { id: "cited", kind: "caption", text: "Every date cited", from: shotAt(16) + 0.35, to: shotAt(16) + 5.7 },
+  {
+    id: "end",
+    kind: "end",
+    text: "ancestoratlas.com",
+    sub:
+      "Explore the human story, free<br><span style=\"font-size:18px;opacity:.75\">Music: “The Miracle of Flight” by Scott Buckley (CC BY 4.0) · " +
+      "Narration: AI-generated (ElevenLabs)</span>",
+    from: shotAt(17) + 0.1,
+    to: LENGTH_S,
+  },
+];
+
+/**
+ * The picture, shot by shot: a source clip from `in` (seconds), at `speed`. Generated clips are in data/raw/promo/gen,
+ * app shots in data/build/promo/shots (film.ts). Parts of a shot (15a, 15b) split its time evenly.
+ */
+export interface Clip {
+  shot: number;
+  src: string;
+  in?: number;
+  speed?: number;
+  /** Seconds this clip dissolves into the next (taken from the start of the next). */
+  dissolve?: number;
+}
+
+export const CLIPS: Clip[] = [
+  { shot: 1, src: "data/raw/promo/gen/a-footprints.mp4", in: 6.0 },
+  { shot: 2, src: "data/raw/promo/gen/b-hand-stencil.mp4", in: 5.2 },
+  { shot: 3, src: "data/raw/promo/gen/c-fire-to-stars.mp4", in: 1.0, speed: 2, dissolve: 0.6 },
+  ...[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((n) => ({ shot: n, src: `data/build/promo/shots/${n}.mp4` })),
+  { shot: 15, src: "data/build/promo/shots/15a.mp4" },
+  { shot: 15, src: "data/build/promo/shots/15b.mp4" },
+  { shot: 16, src: "data/build/promo/shots/16a.mp4" },
+  { shot: 16, src: "data/build/promo/shots/16b.mp4" },
+  { shot: 17, src: "data/build/promo/shots/17.mp4" },
+];

@@ -1,14 +1,16 @@
 # Promo video (v2): script and shot list
 
-Draft, 18 Oct 2026, for Rob to review. Replaces `events/promo-video.mp4` (the Intro video in the side nav) with a
-new key once made; the old key is never overwritten.
+Script approved by Rob, 18 Oct 2026; audio approved the same day. Replaces `events/promo-video.mp4` (the Intro video
+in the side nav) with a new key once made; the old key is never overwritten. **The times below are the plan's; the
+exact ones (shots on the music's accents) are in `scripts/promo/timeline.ts`, which every script reads.**
 
-- **Length**: 80 s. **Format**: 1920×1080, 30 fps, H.264 with `-movflags +faststart`, AAC; loudness -16 LUFS like
-  the app's audio.
+- **Length**: 82 s (the music's own ending rings out under the end card). **Format**: 1920×1080, 30 fps, H.264 with
+  `-movflags +faststart`, AAC; loudness -16 LUFS like the app's audio.
 - **Audience**: general public. Tone: wonder first, then "you can do this yourself", then "and it's trustworthy".
-- **Voice**: the app's narrator (`ELEVENLABS_VOICE_ID`, `eleven_multilingual_v2`), speed about 1.1. At default speed
-  the narrator reads about 2 words a second, so the script is held to about 130 words.
-- **Music**: "The Miracle of Flight" by Scott Buckley (CC BY 4.0, 3:32), cut to 80 s in two edits (see Music).
+- **Voice**: the app's narrator (`ELEVENLABS_VOICE_ID`), as in the app (`eleven_multilingual_v2`, no settings changed)
+  except the cold open (lines 1–4): `eleven_v3` with "[serious] [slowly]", like the tours' title announcements (Rob's
+  pick of two readings).
+- **Music**: "The Miracle of Flight" by Scott Buckley (CC BY 4.0, 3:32), with one join (see Music).
 - **On-screen text**: short words that land on the music's hits, so it still works with the sound off.
 - **URL**: ancestoratlas.com on the end card (domain not bought yet).
 
@@ -16,12 +18,12 @@ new key once made; the old key is never overwritten.
 
 | Time | Section | Music |
 |---|---|---|
-| 0:00–0:10 | Cold open: three generated clips, ending in a starfield | Track 0:00–0:10, quiet opening |
-| 0:10–0:13 | Title hit: the globe and **Ancestor Atlas** | Cut into the full section (around 1:50 in the track) |
-| 0:13–0:48 | Feature montage, one feature every 3–5 s | Full section continues |
-| 0:48–1:03 | Guided tours | Full section continues |
-| 1:03–1:12 | Sources and trust | Jump to the track's ending (3:15) |
-| 1:12–1:20 | End card: ancestoratlas.com | Ending dies away |
+| 0:00–0:10 | Cold open: three generated clips, ending in a starfield | The track's quiet opening, with its own rise after "One story." |
+| 0:10–0:13 | Title: the globe and **Ancestor Atlas** | Crossfade (3 s, on the beat) into the full section |
+| 0:13–0:48 | Feature montage, one feature every 3–6 s | Full section |
+| 0:48–1:03 | Guided tours | Full section |
+| 1:03–1:13 | Sources and trust | Full section, building to the final chord |
+| 1:13–1:22 | End card: ancestoratlas.com | The final chord (1:13.3) rings out; fade |
 
 ## Script and shots
 
@@ -91,22 +93,23 @@ The end of C is matched to the app's star background, so the cut into the globe 
 
 ## App footage (Claude)
 
-A hidden film mode (`#/film/<shot>`) runs each APP shot as a scripted, repeatable move: no menus, cursor, welcome hint
-or search bar, a fixed 1920×1080 window, the slider and camera driven on a timeline. Claude records it automatically at
-1080p; if WebGL playback comes out choppy, Rob records each link with OBS instead (each shot is under 10 s and the
-moves repeat exactly). Either way, footage can be re-shot whenever the app changes.
+Live capture can't be smooth here: the app itself draws about 37 fps at 1080p on this machine's integrated GPU, and
+Chrome's screencast about 22. So the shots are filmed frame by frame instead (`scripts/promo/film.ts`): headless Chrome
+at 1920×1080 opens the app with `?film` (which puts the store and map on `window`, `src/film.ts`), a script injected
+before the app loads (`clock.js`) puts the page's clock, timers, animation frames and CSS animations on a virtual time,
+and each frame the film script moves that time on by 1/30 s, waits for the map and data to finish, and takes a
+screenshot. Every shot is a short script in `shots.ts` (state, interface hidden, camera and year per frame), so any
+shot can be re-filmed when the app changes.
 
 ## Music
 
-"The Miracle of Flight" builds slowly: quiet to about 0:30, a swell near 0:35, a slow build to 1:45, the full
-orchestra and vocals from about 1:50 (loudest about 2:25), and the ending from 3:15 to 3:32. The promo uses:
+"The Miracle of Flight" (about 119 BPM, accents every 6 beats, about 3.03 s; `scripts/promo/beats.ts`) builds slowly
+to a full section from about 1:50 and a final chord at 3:17. The promo plays its quiet opening under the cold open,
+including the rise after "One story.", then crossfades over one 6-beat unit (9.8–12.8 s) into the full section at
+2:16.9 and plays on to the composer's ending, so the final chord lands at 1:13.3 on the end card. Every shot change is
+on an accent. Tried and dropped (Rob, 18 Oct 2026): a hard cut on the title, and a boom or a riser over a gap before it.
 
-- 0:00–0:10 of the track for the cold open,
-- a cut into the full section (about 1:50) on the title hit, running 53 s under the montage and tours,
-- a jump to the ending (3:15–3:32) for the last 17 s.
-
-Claude makes a first edit with the joins on detected beats; Rob listens and says which joins sound wrong (or gives
-cut times by ear). Credit, in the end card's small print and wherever the video is posted:
+Credit, in the end card's small print and wherever the video is posted:
 
 > "The Miracle of Flight" by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au
 
@@ -122,3 +125,14 @@ cut times by ear). Credit, in the end card's small print and wherever the video 
 | Edit: cuts, text, mix, loudness (scripted ffmpeg) | Claude; Rob reviews the rough cut |
 | Optional final polish in a video editor | Rob, from separate tracks Claude exports |
 | Upload under a new key and point `IntroModal.tsx` at it | Claude (upload needs Rob's AWS login) |
+
+## Making it
+
+All in `scripts/promo/`; working files in `data/build/promo/`, the generated clips and the music in `data/raw/promo/`
+(both gitignored).
+
+1. `npx tsx scripts/promo/audio.ts`: narration (cached; `--redo <shot>` for a new take), the music edit, and the mix
+   (`roughcut.mp3`, -16 LUFS). Needs `NODE_USE_ENV_PROXY=1` where a proxy is in use.
+2. `npx vite --port 5179`, then `npx tsx scripts/promo/film.ts all` (or shot ids): the app shots, about 0.2 s a frame.
+3. `npx tsx scripts/promo/titles.ts`: the on-screen text as transparent PNGs.
+4. `npx tsx scripts/promo/edit.ts` (`--draft` for a quick check): `promo.mp4`.

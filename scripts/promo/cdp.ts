@@ -2,11 +2,10 @@
 // and record what it draws (Chrome's screencast: a JPEG per drawn frame, with its time). No dependencies:
 // Node's own fetch and WebSocket.
 import { spawn, type ChildProcess } from "node:child_process";
-import { mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const CHROME = process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe";
-const PORT = 9333;
 
 export interface Page {
   send<T = unknown>(method: string, params?: object): Promise<T>;
@@ -24,7 +23,8 @@ export async function launch(opts: { width: number; height: number; headless?: b
     CHROME,
     [
       ...(opts.headless === false ? [] : ["--headless=new"]),
-      `--remote-debugging-port=${PORT}`,
+      // Port 0: Chrome picks a free one and writes it to DevToolsActivePort, so runs never meet.
+      "--remote-debugging-port=0",
       `--user-data-dir=${profile}`,
       `--window-size=${opts.width},${opts.height}`,
       "--hide-scrollbars",
@@ -42,7 +42,10 @@ export async function launch(opts: { width: number; height: number; headless?: b
   for (let i = 0; i < 300 && !target; i++) {
     await new Promise((r) => setTimeout(r, 100));
     try {
-      const list = (await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json()) as { type: string; webSocketDebuggerUrl: string }[];
+      const portFile = `${profile}/DevToolsActivePort`;
+      if (!existsSync(portFile)) continue;
+      const port = readFileSync(portFile, "utf8").split(/\r?\n/)[0].trim();
+      const list = (await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()) as { type: string; webSocketDebuggerUrl: string }[];
       target = list.find((t) => t.type === "page");
     } catch {
       // not up yet
