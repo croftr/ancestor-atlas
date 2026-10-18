@@ -13,6 +13,7 @@ import { CategoryBadge } from "../ui/CategoryIcon";
 import ListenButton from "../audio/ListenButton";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "../ui/PictureNav";
+import PictureViewer from "../ui/PictureViewer";
 import { contemporaries } from "../ui/contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
 import TourVideo from "../ui/TourVideo";
@@ -25,6 +26,8 @@ import "./browse.css";
 export default function EntityDetail({ entity, order, page, kicker }: { entity: Entity; order: Entity[]; page: BrowseView; kicker?: string }) {
   const data = useData()!;
   const focusEntity = useStore((s) => s.focusEntity);
+  const viewerOpen = useStore((s) => s.pictureViewer);
+  const setViewerOpen = useStore((s) => s.setPictureViewer);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [broken, setBroken] = useState<string | null>(null);
   const [current, setCurrent] = useState<number | null>(null);
@@ -59,6 +62,10 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
         note: currentPic.caption ?? (curPicIndex === 0 ? picture?.note : undefined),
       }
     : picture;
+  const viewerPictures = pictures.filter((p) => p.url !== broken);
+  const viewerIndex = viewerPictures.length ? picIndex % viewerPictures.length : 0;
+  const canView = viewerPictures.length > 0;
+  const openViewer = () => setViewerOpen(true);
   const style = CATEGORY_STYLE[entity.category];
   const color = entity.color ?? style.color;
   const approximate = entity.source_ids.includes("recall");
@@ -72,9 +79,11 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
     setCurrent(null);
     setFailed(null);
     setPicIndex(0);
+    setViewerOpen(false);
     preloadPictures(entity);
     closeRef.current?.focus({ preventScroll: true });
-  }, [entity.id]);
+    return () => setViewerOpen(false);
+  }, [entity.id, setViewerOpen]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (typing(e)) return;
@@ -101,6 +110,16 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
     mapLine = `${features.length} territory map${features.length === 1 ? "" : "s"} on the globe` + (entity.group ? ` across ${members.length} periods` : "");
 
   return (
+    <>
+    {viewerOpen && canView && (
+      <PictureViewer
+        entity={entity}
+        date={formatRange(entity.start_year, entity.end_year)}
+        pictures={viewerPictures}
+        index={viewerIndex}
+        onIndex={setPicIndex}
+      />
+    )}
     <div className="ev-overlay" onClick={(e) => e.target === e.currentTarget && navigate(page)}>
       <article className="ev-detail br-detail panel" role="dialog" aria-modal="true" aria-labelledby="br-detail-name">
         <button ref={closeRef} className="ev-close" onClick={() => navigate(page)} aria-label="Close">
@@ -139,7 +158,22 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
               )}
             </div>
           ) : shown && broken !== shown.url ? (
-            <div className="br-img large">
+            <div className={`br-img large${canView ? " pv-open" : ""}`} onClick={canView ? openViewer : undefined}>
+              {canView && (
+                <button
+                  className="pv-open-hint"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openViewer();
+                  }}
+                  aria-label="View pictures full screen"
+                  title="View full screen"
+                >
+                  <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true">
+                    <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              )}
               <img
                 key={shown.url}
                 src={shown.url}
@@ -297,5 +331,6 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
         </div>
       </article>
     </div>
+    </>
   );
 }

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { mediaUrl } from "../config";
+import { useStore } from "../store";
+import { formatRange } from "../time/scale";
 import { youtubeId } from "../youtube";
 import type { Entity } from "../types";
 import EventImage from "./EventImage";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "../ui/PictureNav";
+import PictureViewer from "../ui/PictureViewer";
 
 /**
  * The detail view's media column: the event's picture, with a button per video or audio clip.
@@ -13,20 +16,26 @@ import { PictureNav, creditLine } from "../ui/PictureNav";
  */
 export default function EventMedia({ event }: { event: Entity }) {
   const media = event.media ?? [];
+  const viewerOpen = useStore((s) => s.pictureViewer);
+  const setViewerOpen = useStore((s) => s.setPictureViewer);
   const [current, setCurrent] = useState<number | null>(null);
   const [failed, setFailed] = useState<string | null>(null);
   const [picIndex, setPicIndex] = useState(0);
 
   useEffect(() => {
     setPicIndex(0);
+    setViewerOpen(false);
     preloadPictures(event);
-  }, [event.id]);
+    return () => setViewerOpen(false);
+  }, [event.id, setViewerOpen]);
 
   const pictures = entityPictures(event);
   const hasMultiplePictures = pictures.length > 1;
   const curPicIndex = hasMultiplePictures ? picIndex % pictures.length : 0;
   const currentPic = hasMultiplePictures ? pictures[curPicIndex] : undefined;
   const isExtra = curPicIndex > 0;
+  const canView = pictures.length > 0;
+  const openViewer = () => setViewerOpen(true);
 
   const clip = current === null ? undefined : media[current];
   const ytId = clip?.kind === "video" ? youtubeId(clip.src) : null;
@@ -37,6 +46,15 @@ export default function EventMedia({ event }: { event: Entity }) {
 
   return (
     <div className="ev-detail-media">
+      {viewerOpen && canView && (
+        <PictureViewer
+          entity={event}
+          date={event.date_text ?? formatRange(event.start_year, event.end_year)}
+          pictures={pictures}
+          index={curPicIndex}
+          onIndex={setPicIndex}
+        />
+      )}
       {clip?.kind === "video" ? (
         <div className="ev-player">
           {ytId ? (
@@ -69,7 +87,27 @@ export default function EventMedia({ event }: { event: Entity }) {
           )}
         </div>
       ) : (
-        <EventImage event={event} picture={isExtra ? currentPic : undefined} className="large">
+        <EventImage
+          event={event}
+          picture={isExtra ? currentPic : undefined}
+          className={`large${canView ? " pv-open" : ""}`}
+          onClick={canView ? openViewer : undefined}
+        >
+          {canView && (
+            <button
+              className="pv-open-hint"
+              onClick={(e) => {
+                e.stopPropagation();
+                openViewer();
+              }}
+              aria-label="View pictures full screen"
+              title="View full screen"
+            >
+              <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true">
+                <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          )}
           {hasMultiplePictures && (
             <PictureNav
               count={pictures.length}
