@@ -419,12 +419,19 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
-  Curated and wired 20 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/` for:
+  Curated and wired 40 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
+  *Civilizations*:
   - `nabataeans` (4 images: Al-Khazneh Treasury, painted fine ware pottery, Ad-Deir Monastery, King Aretas IV & Shaqilath drachm)
   - `sabaeans` (4 images: Marib Dam masonry gates, Bar'an temple pillars, alabaster funerary stele, Nashqum bronze nobleman statue)
   - `neo-babylonian-empire` (4 images: Ishtar Gate Mušḫuššu dragon, Processional Way striding lion, Babylonian Map of the World, Nebuchadnezzar II foundation cylinder)
   - `kingdom-of-urartu` (4 images: bronze winged bull cauldron attachment, conical bronze warrior helmet, Erebuni horseman silver rhyton, Van Fortress citadel)
   - `satavahana-dynasty` (4 images: Karle Caves Great Chaitya hall, Amaravati Stupa limestone frieze, double-masted sailing ship coin, Kanheri donor couple relief)
+  *Cultures*:
+  - `naqada` (4 images: D-ware buff jar with boats & animal standards, fish-shaped cosmetic palette, ripple-flaked bifacial flint knife, sculpted limestone hippopotamus)
+  - `afanasievo` (4 images: pointed-bottom ceramic vessels, Khuurai Gobi bronze knife, archaeological grave goods metalwork & bone needles, Tamgaly solar petroglyph)
+  - `andronovo` (4 images: incised geometric ceramic vessels, bronze socketed axe-adze & dagger, Tamgaly sacred bull petroglyph, Seima-Turbino warrior-skier figurine)
+  - `halaf` (4 images: Arpachiyah polychrome rosette plate, seated terracotta female fertility statuette, geometric cross bowl, carved labyrinth stamp seal)
+  - `ubaid` (4 images: lizard-headed nursing mother terracotta figurine, Louvre campaniform lattice beaker, baked clay agricultural sickle, carinated painted bowl)
 
 ## Possible next steps
 

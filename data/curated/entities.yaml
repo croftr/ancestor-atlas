@@ -1087,6 +1087,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Naqada_culture
   wikidata: Q753391
   source_ids: []
+  extra_images:
+    - { url: /images/extra/naqada-1.webp, credit: "CC0, via Wikimedia Commons", caption: "Naqada II decorated buff-ware jar painted with multi-oared river boats, animal standards, and flamingos (Museo Egizio Turin)", source: "https://commons.wikimedia.org/wiki/File:Jar_decorated_with_painted_figures_of_boats_(D-ware),_baked_clay_-_Museo_Egizio,_Turin_S_406_p01.jpg" }
+    - { url: /images/extra/naqada-2.webp, credit: "G. Dagli Orti / Louvre Museum, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Fish-shaped greywacke siltstone cosmetic palette for grinding kohl eye-paint (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Fish-shaped_kohol_palette-E_24724-IMG_9530-black.jpg" }
+    - { url: /images/extra/naqada-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Masterfully ripple-flaked Predynastic bifacial flint knife with finely serrated cutting edge (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Flint_knife-D_1244-IMG_9505-gradient.jpg" }
+    - { url: /images/extra/naqada-4.webp, credit: "CC0, via Wikimedia Commons", caption: "Sculpted limestone hippopotamus figurine from Predynastic Egypt (Museo Egizio Turin)", source: "https://commons.wikimedia.org/wiki/File:Hippopotamus_figurine_(fragment),_limestone_-_Museo_Egizio_Turin_S_1165_p02.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=K3h47gYVvkI
@@ -1276,6 +1281,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Afanasievo_culture
   wikidata: Q80974
   source_ids: []
+  extra_images:
+    - { url: /images/extra/afanasievo-1.webp, credit: "SiefkinDR, CC BY 2.5, via Wikimedia Commons", caption: "Large pointed-bottom earthenware vessels with impressed herringbone and cord motifs, Minusinsk Basin", source: "https://commons.wikimedia.org/wiki/File:Afanasievo_ceramic_vessels_(cropped).jpg" }
+    - { url: /images/extra/afanasievo-2.webp, credit: "CC0, via Wikimedia Commons", caption: "Early copper/bronze leaf-bladed knife, c. 3000 BCE, Khuurai Gobi kurgan, Bayan-Ölgii, Western Mongolia", source: "https://commons.wikimedia.org/wiki/File:Afanasievo_bronze_knife,_circa_3000_BCE._Khuurai_Gobi_1_(Kurgak_Gobi_1).jpg" }
+    - { url: /images/extra/afanasievo-3.webp, credit: "Carlos Quiles, CC BY 3.0, via Wikimedia Commons", caption: "Archaeological inventory of Afanasievo grave goods: copper earrings, bone needle cases, and pottery", source: "https://commons.wikimedia.org/wiki/File:Afanasievo_culture_metalwork,_ceramics_and_burials.png" }
+    - { url: /images/extra/afanasievo-4.webp, credit: "Kzmanat, CC BY-SA 3.0, via Wikimedia Commons", caption: "Early Steppe solar deity / sun-headed figure petroglyph, Tamgaly gorge, Kazakhstan", source: "https://commons.wikimedia.org/wiki/File:Tamgaly_main_petroglyph.jpg" }
 # Span from English Wikipedia: Sintashta_culture@1375603158.
 - id: sintashta
   name: Sintashta culture
@@ -1304,6 +1314,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Andronovo_culture
   wikidata: Q459376
   source_ids: []
+  extra_images:
+    - { url: /images/extra/andronovo-1.webp, credit: "mtucan, CC0, via Wikimedia Commons", caption: "Andronovo burnished ceramic vessels with incised geometric meanders and bronze ornaments (Pavlodar Regional Museum)", source: "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%B5%D0%B4%D0%BC%D0%B5%D1%82%D1%8B_%D0%90%D0%BD%D0%B4%D1%80%D0%BE%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B9_%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D1%8B._Andronovo_culture_artifacts.jpg" }
+    - { url: /images/extra/andronovo-2.webp, credit: "CC BY-SA 4.0, via Wikimedia Commons", caption: "Andronovo cast bronze socketed axe-adze and dagger", source: "https://commons.wikimedia.org/wiki/File:Andronovo_culture.jpg" }
+    - { url: /images/extra/andronovo-3.webp, credit: "CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze Age open-air rock art petroglyph of a sacred bull, UNESCO Tamgaly gorge, Kazakhstan", source: "https://commons.wikimedia.org/wiki/File:Tamgaly_Petroglyphs_Bull.jpg" }
+    - { url: /images/extra/andronovo-4.webp, credit: "XIIIfromTOKYO, CC BY 3.0, via Wikimedia Commons", caption: "Cast bronze dagger pommel figurine of a steppe warrior-skier from the Seima-Turbino metallurgical horizon", source: "https://commons.wikimedia.org/wiki/File:Seima-Turbino_figurine_portrait.jpg" }
 # Added 17 Oct 2026 for the migration routes (src/routes/routes.ts). Span from English Wikipedia:
 # Bantu_expansion@1380028392 (from c. 3000 BC in the Cameroon Grassfields); it went on to about 500 AD, but the globe
 # ends at 1 CE.
@@ -1390,6 +1405,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Halaf_culture
   wikidata: Q904998
   source_ids: []
+  extra_images:
+    - { url: /images/extra/halaf-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Masterpiece polychrome shallow plate with geometric floral rosette, Tell Arpachiyah, Iraq, c. 5500 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Handmade_pottery_shallow_plate._The_interior_is_decorated_with_a_floral_design_in_the_center,_with_polychrome_in_black_and_red_on_the_buff_surfaces._From_Tell_Arpachiyah,_Iraq._Halaf_period,_6000-5000_BCE.jpg" }
+    - { url: /images/extra/halaf-2.webp, credit: "Vorderasiatisches Museum Berlin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Seated painted terracotta female fertility statuette, Halaf culture, 6th millennium BCE", source: "https://commons.wikimedia.org/wiki/File:Female_Statuette_Halaf_Culture_6000-5100_BCE.jpg" }
+    - { url: /images/extra/halaf-3.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Polychrome painted bowl with stepped geometric cross motifs, Tell Arpachiyah, Halaf period (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Shallow_bowl_-_Arpachiyah_Halaf_period.jpg" }
+    - { url: /images/extra/halaf-4.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Carved stone stamp seal with intricate geometric labyrinth pattern (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Stamp_seal_and_modern_impression-_geometric_pattern_MET_DP104233.jpg" }
 # Span from English Wikipedia: Ubaid_period@1378055527.
 - id: ubaid
   name: Ubaid period
@@ -1400,6 +1420,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ubaid_period
   wikidata: Q245156
   source_ids: []
+  extra_images:
+    - { url: /images/extra/ubaid-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Lizard-headed nursing mother terracotta figurine from Ur, Ubaid 4 period (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Female_clay_figurine_-_Ubaid_period_-_Ur_-_ME_122872.jpg" }
+    - { url: /images/extra/ubaid-2.webp, credit: "ALFGRN, CC BY-SA 2.0, via Wikimedia Commons", caption: "Ubaid III painted campaniform pottery beaker with delicate dark geometric lattice decoration (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Ubaid_III_campaniform_pottery_5300-4700_BC_Louvre_Museum.jpg" }
+    - { url: /images/extra/ubaid-3.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Hard-baked terracotta agricultural sickle from Iraq, Ubaid period, 5th millennium BCE (Sulaymaniyah Museum)", source: "https://commons.wikimedia.org/wiki/File:Clay_sickle,_from_Iraq._Ubaid_period,_5th_millennium_BCE._Sulaymaniyah_Museum,_Iraq.jpg" }
+    - { url: /images/extra/ubaid-4.webp, credit: "ALFGRN, CC BY-SA 2.0, via Wikimedia Commons", caption: "Ubaid III painted carinated ceramic bowl with hatched geometric patterns (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Ubaid_III_pottery_5300-4700_BC_Louvre_Museum.jpg" }
 # Span from English Wikipedia: Hinkelstein_culture@1349025280 (Hinkelstein, c. 5000-4900 BC) and Grossgartach_culture@1344276271 (c. 4750/4650 BCE, succeeded by Rössen from 4600 BCE).
 - id: hinkelstein-grossgartach
   name: Hinkelstein and Grossgartach cultures
