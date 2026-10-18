@@ -117,7 +117,9 @@ async function sfx(e: Sfx, i: number): Promise<string> {
   }
   const trimmed = `${OUT}/sfx/${i}.wav`;
   const trim = e.endAt ? "areverse,silenceremove=start_periods=1:start_threshold=-40dB,areverse" : "silenceremove=start_periods=1:start_threshold=-40dB";
-  ff(["-i", raw, "-af", `${trim},volume=${e.gain}`, "-ar", "44100", "-ac", "2", trimmed]);
+  // Cut to its length and faded at both ends, so nothing starts or stops abruptly.
+  const fade = Math.min(0.4, e.seconds / 4);
+  ff(["-i", raw, "-af", `${trim},atrim=0:${e.seconds},afade=t=in:d=0.05,areverse,afade=t=in:d=${fade},areverse,volume=${e.gain}`, "-ar", "44100", "-ac", "2", trimmed]);
   return trimmed;
 }
 const effects: string[] = [];

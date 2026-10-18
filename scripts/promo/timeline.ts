@@ -35,8 +35,6 @@ export interface Sfx {
   gain: number;
 }
 
-/** Sound effects (ElevenLabs sound generation), cached by prompt in data/build/promo/sfx. */
-export const SFX: Sfx[] = [];
 
 export const UNIT = 6 * MUSIC.beat;
 /** Video time of accent `n` (0 = the start of the video's first full unit, 0.69 s; 3 = the title hit). */
@@ -192,4 +190,23 @@ export const CLIPS: Clip[] = [
   { shot: 16, src: "data/build/promo/shots/16a.mp4" },
   { shot: 16, src: "data/build/promo/shots/16b.mp4" },
   { shot: 17, src: "data/build/promo/shots/17.mp4" },
+];
+
+/**
+ * Sound effects (ElevenLabs sound generation, cached by prompt in data/build/promo/sfx): quiet textures under the
+ * music, no impacts or risers (a boom and a riser on the title were dropped, Rob, 18 Oct 2026) and nothing
+ * rhythmic that could fight the music's beat. Each is cut to its `seconds` and faded at both ends.
+ */
+export const SFX: Sfx[] = [
+  { at: 0, prompt: "Gentle wind blowing across a dry open plain at dawn, fine dust and ash hissing over the ground, a few distant birds", seconds: 4, gain: 0.55 },
+  { at: shotAt(2), prompt: "Inside a quiet stone cave: a torch flame flickering and crackling softly, faint echo, a slow water drip", seconds: 3.2, gain: 2.5 },
+  { at: shotAt(3), prompt: "A campfire crackling and popping, sparks rising, the sound lifting away into a soft airy whoosh of night air", seconds: 3.6, gain: 0.25 },
+  { at: shotAt(5) + 0.2, prompt: "A soft airy shimmer slowly swelling and fading, gentle and cinematic, like time passing, no impact, no music", seconds: 5, gain: 0.6 },
+  { at: shotAt(6) + 0.2, prompt: "Distant cold arctic wind blowing low over a vast ice sheet, soft and steady", seconds: 5.5, gain: 0.35 },
+  { at: shotAt(7) + 0.3, prompt: "A slow soft whoosh of air passing from left to right, gentle, no impact", seconds: 2.5, gain: 0.3 },
+  { at: shotAt(10) + 3.8, prompt: "A single soft muted click, a gentle wooden user interface tap", seconds: 0.6, gain: 1 },
+  { at: shotAt(12) + 0.2, prompt: "A delicate soft digital shimmer, gentle sparkling chime, quiet", seconds: 2.2, gain: 0.25 },
+  { at: shotAt(13) + 1.4, prompt: "A single soft muted click, a gentle wooden user interface tap", seconds: 0.6, gain: 1 },
+  { at: shotAt(14) + 0.1, prompt: "A slow soft whoosh of air, like a globe turning, gentle, no impact", seconds: 2.5, gain: 0.3 },
+  { at: shotAt(15) + 3.1, prompt: "A delicate magical glitter, soft twinkling shimmer slowly drawing out, quiet", seconds: 2.8, gain: 0.25 },
 ];
