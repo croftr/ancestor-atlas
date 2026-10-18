@@ -8,6 +8,9 @@ import type { Category, Entity } from "../types";
 import InfoPanel from "../ui/InfoPanel";
 import SearchBox from "../ui/SearchBox";
 import { CategoryBadge } from "../ui/CategoryIcon";
+import { kaOf, stageAt, stageName, useClimate } from "../time/climate";
+import ClimatePopover from "../ui/ClimatePopover";
+import ClimateRibbon from "./ClimateRibbon";
 import {
   AXIS_END,
   aliveAt,
@@ -244,6 +247,12 @@ export default function TimelinePage() {
 
   // ---- Hover read-out --------------------------------------------------------------------------
   const [hoverYear, setHoverYear] = useState<number | null>(null);
+  const climate = useClimate();
+  const [climatePopover, setClimatePopover] = useState<{ year: number } | null>(null);
+  const hoverStage = useMemo(
+    () => (climate && hoverYear !== null ? stageAt(climate.mis, Math.max(0, kaOf(hoverYear))) : null),
+    [climate, hoverYear],
+  );
   const alive = useMemo(
     () => (hoverYear !== null && entities ? aliveAt(entities, hoverYear).length : 0),
     [hoverYear, entities],
@@ -513,30 +522,74 @@ export default function TimelinePage() {
       >
         <div className="tl-axis">
           <div className="tl-axis-label muted">
+            <div className="tl-axis-time">
+              {hoverYear !== null ? (
+                <>
+                  <strong>{formatYear(Math.round(hoverYear))}</strong> · {alive} alive
+                </>
+              ) : (
+                <>{formatRange(Math.round(win.start), Math.round(win.end))}</>
+              )}
+            </div>
             {hoverYear !== null ? (
-              <>
-                <strong>{formatYear(Math.round(hoverYear))}</strong> · {alive} alive
-              </>
+              hoverStage ? (
+                <button
+                  type="button"
+                  className={`tl-axis-stage-btn ${hoverStage.cold ? "cold" : "warm"} climate-open`}
+                  onClick={() => setClimatePopover({ year: Math.round(hoverYear) })}
+                  title="Click for paleoclimate details"
+                >
+                  <span className={`tl-key ${hoverStage.cold ? "cold" : "warm"}`} />
+                  <span className="tl-axis-stage-text">
+                    {stageName(hoverStage.stage)} · {hoverStage.cold ? "Glacial" : "Interglacial"}
+                  </span>
+                </button>
+              ) : (
+                <span className="tl-axis-stage-text muted">Before climate record</span>
+              )
             ) : (
-              <>{formatRange(Math.round(win.start), Math.round(win.end))}</>
+              <div className="tl-axis-key muted">
+                <span className="tl-key warm" /> Warm <span className="tl-key cold" /> Glacial
+              </div>
             )}
           </div>
           <div className="tl-axis-track" style={{ marginRight: scrollbarW }}>
-            {tickYears.map((y) => (
-              <span
-                key={y}
-                className="tl-tick"
-                style={{
-                  left: x(y),
-                  // Keep labels at the very ends inside the track.
-                  transform: x(y) < 30 ? "none" : x(y) > trackW - 30 ? "translateX(-100%)" : undefined,
-                }}
-              >
-                {tickLabel(y, step)}
-              </span>
-            ))}
+            <div className="tl-ticks">
+              {tickYears.map((y) => (
+                <span
+                  key={y}
+                  className="tl-tick"
+                  style={{
+                    left: x(y),
+                    // Keep labels at the very ends inside the track.
+                    transform: x(y) < 30 ? "none" : x(y) > trackW - 30 ? "translateX(-100%)" : undefined,
+                  }}
+                >
+                  {tickLabel(y, step)}
+                </span>
+              ))}
+            </div>
+            <ClimateRibbon
+              climate={climate}
+              win={win}
+              trackW={trackW}
+              x={x}
+              hoverYear={hoverYear}
+              onPickStage={(_s, _midYear, clickYear) => {
+                if (suppressClick.current) return;
+                setClimatePopover({ year: clickYear });
+              }}
+            />
           </div>
         </div>
+        {climatePopover && climate && (
+          <ClimatePopover
+            climate={climate}
+            year={climatePopover.year}
+            left={Math.min(0.95, Math.max(0.05, (labelW + x(climatePopover.year)) / (labelW + trackW)))}
+            onClose={() => setClimatePopover(null)}
+          />
+        )}
         <div className="tl-body" ref={bodyRef}>
           <div className="tl-rows">
             <div className="tl-gridlines" style={{ left: labelW }} aria-hidden>

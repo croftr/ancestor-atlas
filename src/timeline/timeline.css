@@ -94,7 +94,7 @@
 .tl-axis {
   display: flex;
   flex: none;
-  height: 30px;
+  height: 46px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.03);
 }
@@ -104,17 +104,138 @@
   box-sizing: border-box;
   padding: 0 10px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
   font-size: 0.8rem;
   white-space: nowrap;
   overflow: hidden;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
+.tl-axis-time {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
 .tl-axis-label strong { color: #fff; margin-right: 4px; }
-.tl-axis-track { position: relative; flex: 1; overflow: hidden; }
+.tl-axis-stage-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+  color: inherit;
+}
+.tl-axis-stage-btn:hover .tl-axis-stage-text {
+  text-decoration: underline;
+}
+.tl-axis-stage-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tl-axis-stage-btn.cold .tl-axis-stage-text { color: #c4e4ff; }
+.tl-axis-stage-btn.warm .tl-axis-stage-text { color: #f0b27a; }
+.tl-axis-key {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+}
+.tl-key {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  flex: none;
+}
+.tl-key.cold { background: #8ec5ff; }
+.tl-key.warm { background: #de924e; }
+
+.tl-axis-track {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.tl-ticks {
+  position: relative;
+  height: 26px;
+  flex: none;
+}
 .tl-tick {
-  position: absolute; top: 8px; transform: translateX(-50%);
+  position: absolute; top: 6px; transform: translateX(-50%);
   font-size: 0.72rem; color: #a7b1c6; white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+
+/* Climate strip / ribbon along the top axis */
+.tl-climate-ribbon {
+  position: relative;
+  height: 18px;
+  flex: none;
+  background: rgba(0, 0, 0, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.tl-climate-stage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0 3px;
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: filter 0.12s ease;
+}
+.tl-climate-stage.cold {
+  background: rgba(140, 190, 255, 0.35);
+  color: #e2f1ff;
+  border-top: 2px solid rgba(160, 210, 255, 0.75);
+}
+.tl-climate-stage.warm {
+  background: rgba(222, 146, 78, 0.32);
+  color: #ffe6c7;
+  border-top: 2px solid rgba(235, 160, 90, 0.75);
+}
+.tl-climate-stage:hover,
+.tl-climate-stage.active {
+  filter: brightness(1.35);
+  z-index: 3;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+.tl-climate-stage.before-record {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 6px,
+    rgba(255, 255, 255, 0.05) 6px,
+    rgba(255, 255, 255, 0.05) 12px
+  );
+  border-right: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #7d8799;
+  cursor: default;
+}
+.tl-climate-stage-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 .tl-body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; }
@@ -125,7 +246,7 @@
   position: absolute; top: 0; bottom: 0; width: 1px;
   background: rgba(255, 255, 255, 0.55);
   pointer-events: none;
-  z-index: 3;
+  z-index: 10;
 }
 
 .tl-row { position: relative; display: flex; height: var(--row-h); }
@@ -295,3 +416,17 @@
 .tl-gridlines span.ev.selected { border-left: 1px solid rgba(195, 155, 255, 0.85); }
 .tl-tip-summary { margin-top: 4px; }
 .tl-overview-track { height: 34px; }
+
+/* Paleoclimate popover positioned below the axis ribbon on TimelinePage */
+.timeline-page .climate-popover {
+  top: 50px;
+  bottom: auto;
+  max-width: calc(100vw - 32px);
+  z-index: 40;
+}
+.timeline-page .climate-popover::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: rgba(14, 20, 36, 0.96);
+}
