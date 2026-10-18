@@ -793,6 +793,7 @@
   narration: { src: narration/cultures/clovis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "20e58f3384" }
   image_url: /images/cultures/clovis.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/clovis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Paleo-Indian hunters with atlatls and fluted points stalking Columbian mammoths"
   wikipedia_url: https://en.wikipedia.org/wiki/Clovis_culture
   source_ids:

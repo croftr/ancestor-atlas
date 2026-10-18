@@ -192,6 +192,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Prehistory_of_Australia
   image_url: /images/events/seafaring-to-sahul.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/sahul-seafaring-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/sahul-seafaring-3.webp, credit: "Kanguole, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sunda, Wallacea and the Pleistocene continent of Sahul (Australia and New Guinea)", source: "https://commons.wikimedia.org/wiki/File:Map_of_Sunda_and_Sahul.svg" }
     - { url: /images/events/extra/sahul-seafaring-4.webp, credit: "Dietmar Rabich, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Arnhem Land escarpment at Nadap Lookout in Kakadu, near Madjedbebe", source: "https://commons.wikimedia.org/wiki/File:Kakadu_(AU),_Kakadu_National_Park,_Nadap_Lookout_--_2019_--_4180.jpg" }

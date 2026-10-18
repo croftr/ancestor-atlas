@@ -580,6 +580,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           className={canView ? "pv-open" : ""}
           onClick={canView ? openViewer : undefined}
         >
+          {!extra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
           {viewerHint}
           {hasMultiplePictures && (
             <PictureNav

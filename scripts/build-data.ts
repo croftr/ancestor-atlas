@@ -101,6 +101,7 @@ interface CuratedEvent {
   date_source?: string;
   image_url?: string;
   image_credit?: string;
+  video?: { src: string; credit: string };
   extra_images?: ExtraImage[];
   media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
   narration?: { src: string; credit: string; text_hash: string };
@@ -128,6 +129,7 @@ for (const ev of curatedEvents) {
     wikipedia_url: ev.wikipedia_url,
     image_url: ev.image_url,
     image_credit: ev.image_credit,
+    video: ev.video,
     extra_images: ev.extra_images?.length ? ev.extra_images : undefined,
     media: ev.media?.length ? ev.media : undefined,
     narration: ev.narration,

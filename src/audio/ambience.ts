@@ -1,5 +1,5 @@
 import { mediaUrl } from "../config";
-import { audioContext, musicMuted, subscribeMusicMuted } from "./music";
+import { audioContext, musicMuted, primeMusic, subscribeMusicMuted } from "./music";
 import { narrationState, subscribeNarration } from "./narration";
 
 /**
@@ -21,11 +21,13 @@ const TICK_MS = 100;
 
 const buffers = new Map<string, Promise<AudioBuffer | null>>();
 function load(key: string): Promise<AudioBuffer | null> {
+  primeMusic();
   const ctx = audioContext();
   if (!ctx) return Promise.resolve(null);
   let p = buffers.get(key);
   if (!p) {
     p = fetch(mediaUrl(key))
+      .then((r) => (r.ok ? r : import.meta.env.DEV ? fetch(`/data/build/audio/${key}`) : r))
       .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))))
       .then((b) => ctx.decodeAudioData(b))
       .catch(() => {
@@ -66,7 +68,8 @@ export function preloadAmbience(key: string) {
  * Start a stop's sound burst (fading out any other); the same one again carries on. `muteable`: the
  * tour's music button mutes it (in a tour; not under a Listen button, which has no such button).
  */
-export function startAmbience(key: string, { muteable = true } = {}) {
+export function startAmbience(key: string, { muteable = true, delay = DELAY, hold = HOLD } = {}) {
+  primeMusic();
   const ctx = audioContext();
   if (!ctx || current?.key === key) return;
   stopAmbience();
@@ -85,8 +88,8 @@ export function startAmbience(key: string, { muteable = true } = {}) {
     timer: window.setInterval(() => {
       if (current !== playing) return window.clearInterval(playing.timer);
       if (!paused) elapsed += TICK_MS / 1000;
-      if (elapsed >= DELAY + FADE_IN + HOLD) return stopAmbience(FADE_OUT);
-      if (playing.source || !buffer || elapsed < DELAY) return;
+      if (elapsed >= delay + FADE_IN + hold) return stopAmbience(FADE_OUT);
+      if (playing.source || !buffer || elapsed < delay) return;
       const source = ctx.createBufferSource();
       source.buffer = buffer;
       source.loop = true;

@@ -8,6 +8,7 @@ import EventImage from "./EventImage";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "../ui/PictureNav";
 import PictureViewer from "../ui/PictureViewer";
+import TourVideo from "../ui/TourVideo";
 
 /**
  * The detail view's media column: the event's picture, with a button per video or audio clip.
@@ -93,6 +94,7 @@ export default function EventMedia({ event }: { event: Entity }) {
           className={`large${canView ? " pv-open" : ""}`}
           onClick={canView ? openViewer : undefined}
         >
+          {!isExtra && event.video && <TourVideo key={event.video.src} src={event.video.src} />}
           {canView && (
             <button
               className="pv-open-hint"

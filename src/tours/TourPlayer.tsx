@@ -225,9 +225,12 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
-      } else if (entity.extra_images?.length && (!entity.video || elapsed >= 5_500) && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
-        picture = pictureIndexAt(entity.extra_images, elapsed, holdMs);
-        patchTour({ picture: { entity: entity.id, index: picture } });
+      } else if (entity.extra_images?.length) {
+        const videoEndMs = entity.video ? (entity.category === "species" ? 5_500 : 9_500) : 0;
+        if (elapsed >= videoEndMs && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
+          picture = pictureIndexAt(entity.extra_images, elapsed, holdMs);
+          patchTour({ picture: { entity: entity.id, index: picture } });
+        }
       }
       if (arrived && elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
         if (index + 1 < tour.stops.length) patchTour({ index: index + 1, travel: true });

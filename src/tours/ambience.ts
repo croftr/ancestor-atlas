@@ -61,6 +61,10 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Ice Age northern coast: cold wind, sea ice creaking, waves on a pebble beach, distant gulls",
     sound: { src: "ambience/events/peopling-of-the-americas-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e05881f304" },
   },
+  clovis: {
+    prompt: "Open Ice Age river valley: wind rustling tall grass, a shallow stream babbling over stones, low deep rumbles and heavy footsteps of mammoths grazing across the water",
+    sound: { src: "ambience/cultures/clovis-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "022525a7f0" },
+  },
   "first-pottery": {
     prompt: "Crackling bonfire firing clay pots, occasional ceramic clinks, steady rain falling outside a cave mouth",
     sound: { src: "ambience/events/first-pottery-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d6c6957ecd" },

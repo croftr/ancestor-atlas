@@ -19,6 +19,7 @@ import { textHash } from "../lib/text-hash.ts";
 import { TOURS, tourById } from "../../src/tours/tours.ts";
 
 const CURATED_ENTITIES = "data/curated/entities.yaml";
+const CURATED_EVENTS = "data/curated/events.yaml";
 const ENTITIES = "public/data/entities.json";
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 const DEFAULT_MODEL = "models/veo-3.1-fast-generate-preview";
@@ -39,21 +40,36 @@ const fileArg = option("--file");
 const tourArg = option("--tour");
 const modelArg = option("--model") ?? DEFAULT_MODEL;
 const model = modelArg.startsWith("models/") ? modelArg : `models/${modelArg}`;
+const promptArg = option("--prompt");
 const credit = option("--credit") ?? "AI-generated video (Google Veo)";
-const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--tour", "--model", "--credit"].includes(args[i - 1]));
+const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--tour", "--model", "--credit", "--prompt"].includes(args[i - 1]));
 
-interface CuratedSpecies {
+const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations" };
+
+const SCENE_PROMPTS: Record<string, string> = {
+  clovis:
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. The six Paleo-Indian hunters in the foreground remain completely motionless and frozen in their silent ambush crouch, their bodies, arms, and spears completely still without moving. Across the stream, all four Columbian mammoths in the herd move naturally: walking slowly along the grassy riverbank, swinging their trunks to graze, flapping their ears, and turning their heads and curved tusks. The shallow stream ripples and flows gently, tall grass sways softly in the breeze, and thin smoke drifts upward from the distant hide-tent campfires.",
+  "sahul-seafaring":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the text title 'Seafaring to Sahul' at the top, the sky, the setting sun on the horizon, and the coastline cliffs on the right completely still and unchanged. On the bamboo raft, the two humans holding paddles on the left and right make a subtle, slow, gentle paddling motion in the water while the two seated figures in the middle stay still, and the bamboo raft glides very slowly forward toward the coast. Gentle golden waves and ripples move softly across the water surface around the raft.",
+};
+
+interface CuratedEntity {
   id: string;
   name: string;
   category: string;
   image_url?: string;
+  image_caption?: string;
   video?: { src: string; credit: string };
 }
 
-const curated = parseYaml(readFileSync(CURATED_ENTITIES, "utf8")) as CuratedSpecies[];
-const byId = new Map(curated.map((e) => [e.id, e]));
+const curated = parseYaml(readFileSync(CURATED_ENTITIES, "utf8")) as CuratedEntity[];
+const curatedEvents = (parseYaml(readFileSync(CURATED_EVENTS, "utf8")) as Omit<CuratedEntity, "category">[]).map((e) => ({
+  ...e,
+  category: "event",
+}));
+const byId = new Map([...curated, ...curatedEvents].map((e) => [e.id, e]));
 
-let targets: CuratedSpecies[] = [];
+let targets: CuratedEntity[] = [];
 if (tourArg) {
   const tour = tourArg === "all" ? null : (tourById(tourArg) ?? fail(`no tour ${tourArg}`));
   const stops = tour ? tour.stops : TOURS.flatMap((t) => t.stops);
@@ -66,8 +82,8 @@ if (tourArg) {
   }
 } else if (ids.length) {
   targets = ids.map((id) => {
-    const e = byId.get(id) ?? fail(`no entity ${id} in ${CURATED_ENTITIES}`);
-    if (e.category !== "species") fail(`${id} is a ${e.category}, not a species`);
+    const e = byId.get(id) ?? fail(`no entity ${id} in ${CURATED_ENTITIES} or ${CURATED_EVENTS}`);
+    if (!FOLDER[e.category]) fail(`${id} has unsupported category ${e.category}`);
     if (!e.image_url) fail(`${id} has no image_url`);
     return e;
   });
@@ -75,32 +91,43 @@ if (tourArg) {
   fail("usage: npm run video:species -- <id> [<id>…] | --tour <tour id>|all [--yes] [--no-upload] [--file <mp4>]");
 }
 
-if (targets.length === 0) fail("nothing to do: every target species already has a video");
-if (fileArg && targets.length !== 1) fail("--file is for a single species id");
-console.log(`${targets.length} species video(s) to prepare: ${targets.map((t) => t.id).join(", ")}`);
+if (targets.length === 0) fail("nothing to do: every target entity already has a video");
+if (fileArg && targets.length !== 1) fail("--file is for a single entity id");
+console.log(`${targets.length} video(s) to prepare: ${targets.map((t) => t.id).join(", ")}`);
 if (targets.length > 1 && !flag("--yes")) {
   console.log("Run again with --yes to go ahead (Veo charges video generation by the second).");
   process.exit(0);
 }
 
-const promptFor = (e: CuratedSpecies) =>
-  `3D museum paleoart bust reconstruction of ${e.name} against a solid dark studio background. Locked static camera, no camera movement. The hominin slowly blinks its eyes once, shifts its gaze slightly, and makes a very subtle, gentle head turn of a few degrees with a natural slight breath. Keep facial proportions, hair texture, and studio lighting strictly identical to the starting frame.`;
+const durationFor = (e: CuratedEntity) => (e.category === "species" ? 4 : 8);
 
-async function generateRaw(e: CuratedSpecies): Promise<string> {
+const modelFor = (e: CuratedEntity) =>
+  option("--model") ? model : e.category === "species" ? DEFAULT_MODEL : "models/veo-3.1-generate-preview";
+
+const promptFor = (e: CuratedEntity) =>
+  promptArg ??
+  SCENE_PROMPTS[e.id] ??
+  (e.category === "species"
+    ? `3D museum paleoart bust reconstruction of ${e.name} against a solid dark studio background. Locked static camera, no camera movement. The hominin slowly blinks its eyes once, shifts its gaze slightly, and makes a very subtle, gentle head turn of a few degrees with a natural slight breath. Keep facial proportions, hair texture, and studio lighting strictly identical to the starting frame.`
+    : `Painted historical paleoart illustration brought to life: ${e.image_caption ?? e.name}. Locked static camera, no camera movement, no zoom, no cut. Every person and animal in the scene moves naturally and continuously: animals walking, grazing, and shifting weight, people actively performing their tasks and shifting posture, wind moving grass and garments, water rippling, and smoke drifting. Keep the painted illustration style, composition, and framing identical to the starting frame.`);
+
+async function generateRaw(e: CuratedEntity): Promise<string> {
   const prompt = promptFor(e);
-  const cachePath = `data/build/video/raw/${e.id}-${textHash(`${model}:${prompt}`)}.mp4`;
+  const entityModel = modelFor(e);
+  const durationSeconds = durationFor(e);
+  const cachePath = `data/build/video/raw/${e.id}-${textHash(`${entityModel}:${durationSeconds}:${prompt}`)}.mp4`;
   if (existsSync(cachePath)) return cachePath;
   const apiKey = process.env.GEMINI_API_KEY || fail("set GEMINI_API_KEY in .env.local");
   const imgPath = `public${e.image_url}`;
   if (!existsSync(imgPath)) fail(`missing image ${imgPath}`);
   const imgBytes = readFileSync(imgPath).toString("base64");
 
-  const startRes = await fetch(`${API_BASE}/${model}:predictLongRunning?key=${encodeURIComponent(apiKey)}`, {
+  const startRes = await fetch(`${API_BASE}/${entityModel}:predictLongRunning?key=${encodeURIComponent(apiKey)}`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       instances: [{ prompt, image: { bytesBase64Encoded: imgBytes, mimeType: "image/webp" } }],
-      parameters: { durationSeconds: 4 },
+      parameters: { durationSeconds },
     }),
   });
   if (!startRes.ok) throw new Error(`Veo start (${startRes.status}): ${(await startRes.text()).slice(0, 400)}`);
@@ -126,12 +153,13 @@ async function generateRaw(e: CuratedSpecies): Promise<string> {
 }
 
 /**
- * Veo outputs a 16:9 (1280x720) video with the 4:3 portrait pillarboxed in the middle and a synthetic
- * audio track. Crop the centre 4:3 frame back to 640x480 and strip audio so frame 0 matches the WebP
- * portrait pixel-for-pixel.
+ * Veo outputs a 16:9 (1280x720) video with the source image pillarboxed in the middle and a synthetic
+ * audio track. Crop the centre 1:1 (events) or 4:3 (species/cultures/civilizations) frame back and strip
+ * audio so frame 0 matches the WebP illustration.
  */
-function encodeVideo(input: string, out: string, imagePath?: string): number {
+function encodeVideo(input: string, out: string, category: string, imagePath?: string): number {
   mkdirSync(out.slice(0, out.lastIndexOf("/")), { recursive: true });
+  const vf = category === "event" ? "crop=ih:ih,scale=720:720:flags=lanczos" : "crop=ih*4/3:ih,scale=640:480:flags=lanczos";
   execFileSync(
     "ffmpeg",
     [
@@ -143,7 +171,7 @@ function encodeVideo(input: string, out: string, imagePath?: string): number {
       input,
       "-an",
       "-vf",
-      "crop=ih*4/3:ih,scale=640:480:flags=lanczos",
+      vf,
       "-c:v",
       "libx264",
       "-preset",
@@ -208,10 +236,10 @@ function upload(out: string, key: string): boolean {
   return true;
 }
 
-function setYaml(text: string, id: string, line: string): string {
+function setYaml(text: string, id: string, line: string, file = CURATED_ENTITIES): string {
   const lines = text.split("\n");
   const start = lines.indexOf(`- id: ${id}`);
-  if (start < 0) fail(`no entry ${id} in ${CURATED_ENTITIES}`);
+  if (start < 0) fail(`no entry ${id} in ${file}`);
   let end = lines.findIndex((l, i) => i > start && l.startsWith("- id:"));
   if (end < 0) end = lines.length;
   const block = lines.slice(start, end);
@@ -219,7 +247,7 @@ function setYaml(text: string, id: string, line: string): string {
   if (at >= 0) block[at] = line;
   else {
     const ic = block.findIndex((l) => l.startsWith("  image_credit:"));
-    if (ic < 0) fail(`${id}: no image_credit line in ${CURATED_ENTITIES}`);
+    if (ic < 0) fail(`${id}: no image_credit line in ${file}`);
     block.splice(ic + 1, 0, line);
   }
   lines.splice(start, end - start, ...block);
@@ -245,18 +273,21 @@ function setEntity(text: string, id: string, video: { src: string; credit: strin
 const META = JSON.parse(readFileSync(META_PATH, "utf8"));
 const wasFresh = META.inputs_hash === fingerprint().hash;
 let yamlText = readFileSync(CURATED_ENTITIES, "utf8");
+let eventsYamlText = readFileSync(CURATED_EVENTS, "utf8");
 let entitiesText = readFileSync(ENTITIES, "utf8");
 const pending: string[] = [];
 
 for (const e of targets) {
   const version = Number(e.video?.src.match(/-v(\d+)\.mp4$/)?.[1] ?? 0) + 1;
-  const key = `video/species/${e.id}-v${version}.mp4`;
+  const key = `video/${FOLDER[e.category]}/${e.id}-v${version}.mp4`;
   const out = `data/build/${key}`;
   let rawPath: string;
   try {
     if (fileArg) {
       const prompt = promptFor(e);
-      rawPath = `data/build/video/raw/${e.id}-${textHash(`${model}:${prompt}`)}.mp4`;
+      const entityModel = modelFor(e);
+      const durationSeconds = durationFor(e);
+      rawPath = `data/build/video/raw/${e.id}-${textHash(`${entityModel}:${durationSeconds}:${prompt}`)}.mp4`;
       mkdirSync("data/build/video/raw", { recursive: true });
       copyFileSync(fileArg, rawPath);
     } else {
@@ -266,23 +297,28 @@ for (const e of targets) {
     console.error(`✗ ${e.id}: ${(err as Error).message}\n  Stopping here; the videos above are kept.`);
     break;
   }
-  const imgPath = e.image_url?.startsWith("/") ? `public${e.image_url}` : undefined;
-  const seconds = encodeVideo(rawPath, out, imgPath);
+  const imgPath = e.category === "species" && e.image_url?.startsWith("/") ? `public${e.image_url}` : undefined;
+  const seconds = encodeVideo(rawPath, out, e.category, imgPath);
   const kb = (statSync(out).size / 1024).toFixed(0);
   const uploaded = upload(out, key);
   console.log(`${uploaded ? "✓" : "…"} ${e.id}: ${key} (${seconds.toFixed(1)} s, ${kb} KB)${uploaded ? "" : " not uploaded"}`);
   if (!uploaded) pending.push(uploadCommand(out, key));
   const video = { src: key, credit };
-  yamlText = setYaml(yamlText, e.id, `  video: { src: ${key}, credit: ${JSON.stringify(credit)} }`);
+  if (e.category === "event") {
+    eventsYamlText = setYaml(eventsYamlText, e.id, `  video: { src: ${key}, credit: ${JSON.stringify(credit)} }`, CURATED_EVENTS);
+  } else {
+    yamlText = setYaml(yamlText, e.id, `  video: { src: ${key}, credit: ${JSON.stringify(credit)} }`, CURATED_ENTITIES);
+  }
   entitiesText = setEntity(entitiesText, e.id, video);
 }
 
 writeFileSync(CURATED_ENTITIES, yamlText);
+writeFileSync(CURATED_EVENTS, eventsYamlText);
 writeFileSync(ENTITIES, entitiesText);
 if (wasFresh) writeFileSync(META_PATH, JSON.stringify({ ...META, inputs_hash: fingerprint().hash }) + "\n");
 else console.warn("! public/data was already out of date before this run: run npm run data:build");
 
-console.log(`\nUpdated ${CURATED_ENTITIES}, ${ENTITIES}${wasFresh ? `, ${META_PATH}` : ""}: commit them.`);
+console.log(`\nUpdated ${CURATED_ENTITIES}, ${CURATED_EVENTS}, ${ENTITIES}${wasFresh ? `, ${META_PATH}` : ""}: commit them.`);
 if (pending.length) {
   console.log(`\nUpload to S3 (new key, never overwrite):\n  ${pending.join("\n  ")}`);
 }
