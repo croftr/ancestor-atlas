@@ -1838,6 +1838,11 @@
     - { url: /images/extra/neo-assyrian-empire-2.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Flood Tablet of the Epic of Gilgamesh, from Ashurbanipal's library", source: "https://commons.wikimedia.org/wiki/File:Tablet_XI_or_the_Flood_Tablet_of_the_Epic_of_Gilgamesh,_currently_housed_in_the_British_Museum_in_London.jpg" }
 - id: phrygia
   description: An influential Iron Age kingdom located in west-central Anatolia along the Sangarios River, centered at the legendary city of Gordion. Celebrated in Greek mythology for King Midas and the Gordian Knot, Phrygia was famed for advanced bronze metalworking, elaborate rock-cut tombs, and musical traditions before being overrun by Cimmerians and Lydians.
+  extra_images:
+    - { url: /images/extra/phrygia-1.webp, credit: "Elizabeth Simpson, CC BY-SA, via Wikimedia Commons", caption: "Intricately inlaid wooden banquet screen/table crafted with geometric marquetry from Tumulus MM (King Midas Mound) at Gordion (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Inlaid_Table_TumMM_Gordion.jpg" }
+    - { url: /images/extra/phrygia-2.webp, credit: "EvgenyGenkin, CC BY 2.5, via Wikimedia Commons", caption: "Monumental Phrygian bronze cauldron with cast winged siren handle attachments from Tumulus MM at Gordion, late 8th century BCE (Ankara)", source: "https://commons.wikimedia.org/wiki/File:UrartianCaldron03~.jpg" }
+    - { url: /images/extra/phrygia-3.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Phrygian cast bronze lion-headed ceremonial situla (drinking bucket) from the elite royal tombs of Gordion (Ankara)", source: "https://commons.wikimedia.org/wiki/File:Museum_of_Anatolian_Civilizations_Lion-headed_situla_in_2011_05.jpg" }
+    - { url: /images/extra/phrygia-4.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Phrygian painted architectural terracotta relief tile showing wild goats flanking the Tree of Life, from Pazarlı, 6th century BCE (Ankara)", source: "https://commons.wikimedia.org/wiki/File:Goats_near_the_tree_of_life,_tile,_Pazatli,_6th_century_BC,_MACA,_3089.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FPRgXQCymCs
@@ -2256,6 +2261,11 @@
       credit: Historic Battles, YouTube
 - id: seleucid-empire
   description: The major Hellenistic empire founded by Seleucus I Nicator in 312 BCE following the partition of Alexander the Great's empire, stretching from Anatolia and Syria across Mesopotamia to Bactria. Ruling from Antioch and Seleucia on the Tigris, the Seleucid kings established Greek colonist cities and military settlements that cross-pollinated Greek, Babylonian, and Iranian cultures.
+  extra_images:
+    - { url: /images/extra/seleucid-empire-1.webp, credit: "Münzkabinett Berlin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Seleucus I Nicator (minted c. 300 BCE) showing Zeus Nikephoros and Athena fighting in a horned elephant biga (Münzkabinett Berlin)", source: "https://commons.wikimedia.org/wiki/File:Seleukiden-_Seleukos_I._-_M%C3%BCnzkabinett,_Berlin_-_5501386.jpg" }
+    - { url: /images/extra/seleucid-empire-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Gilded silver votive plate depicting the goddess Cybele in a lion-drawn chariot, from the Hellenistic city of Ai-Khanoum, 3rd century BCE (National Museum of Afghanistan)", source: "https://commons.wikimedia.org/wiki/File:AiKhanoumPlateSharp.jpg" }
+    - { url: /images/extra/seleucid-empire-3.webp, credit: "CC BY-SA 2.0 it, via Wikimedia Commons", caption: "Bronze bust of Seleucus I Nicator, founder of the Seleucid Empire, from the Villa of the Papyri (National Archaeological Museum of Naples)", source: "https://commons.wikimedia.org/wiki/File:Seleuco_I_Nicatore.JPG" }
+    - { url: /images/extra/seleucid-empire-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "The Antiochus Cylinder (c. 250 BCE), a royal cuneiform foundation cylinder inscribed in traditional Akkadian for Antiochus I at Borsippa (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Antiochus_cylinder.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ikJGoOAREbU
@@ -2319,6 +2329,11 @@
       credit: Fall of Civilizations, YouTube
 - id: parthian-empire
   description: A major Iranian empire founded in 247 BCE by Arsaces I after the Parni tribe seized Parthia from the Seleucid Empire. Governed through a decentralized feudal nobility and famed for invincible armored cataphracts and mounted archers utilizing the deceptive 'Parthian shot', the Arsacids dominated Silk Road trade and repeatedly repelled Roman legions until overthrown by the Sasanians.
+  extra_images:
+    - { url: /images/extra/parthian-empire-1.webp, credit: "Nasser-sadeghi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Monumental bronze statue of a Parthian prince or nobleman in aristocratic belted tunic from the sanctuary at Shami (National Museum of Iran, Tehran)", source: "https://commons.wikimedia.org/wiki/File:Parthian_man_statue.jpg" }
+    - { url: /images/extra/parthian-empire-2.webp, credit: "Hans Birger Nilsen, CC BY 2.0, via Wikimedia Commons", caption: "Carved ivory drinking rhytons terminating in mythical horned lion-griffins and centaurs, from royal Old Nisa, 2nd century BCE (Turkmenistan)", source: "https://commons.wikimedia.org/wiki/File:Parthian_ivory_rhytons_from_Old_Nisa_(1)_(45282255565).jpg" }
+    - { url: /images/extra/parthian-empire-3.webp, credit: "Public domain, via Wikimedia Commons", caption: "Silver drachm of King Mithridates II the Great wearing the royal diademed tiara with eight-pointed star, c. 123–88 BCE", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Mithridates_II_of_Parthia.jpg" }
+    - { url: /images/extra/parthian-empire-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "Parthian-era high-relief limestone carving of the god Nergal holding a battleaxe and leashed cerberus, from the desert city of Hatra (Iraq)", source: "https://commons.wikimedia.org/wiki/File:Ancient_Parthian_relief_carving_of_the_god_Nergal_from_Hatra.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=c_Fbyc415yM
@@ -2698,6 +2713,11 @@
 # Batch 5A: East Asia Dynasties, Korea, Steppe & Warring States
 - id: shang-dynasty
   description: The earliest historically confirmed Chinese dynasty, ruling the fertile Yellow River valley from capitals like Anyang (Yinxu) between c. 1600 and 1046 BCE. Renowned for masterful piece-mold ritual bronze casting, horse-drawn chariot warfare, and the earliest surviving Chinese writing inscribed on divination oracle bones.
+  extra_images:
+    - { url: /images/extra/shang-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Inscribed Shang dynasty divination oracle bone on ox scapula from Yinxu, Anyang", source: "https://commons.wikimedia.org/wiki/File:Ancient_Chinese_Writing_on_Ox_Scapula,_Shang_Dynasty_Oracle_Bone,_Yinxu,_Anyang.jpg" }
+    - { url: /images/extra/shang-dynasty-2.webp, credit: "Mlogic, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monumental Houmuwu Ding (c. 1200 BCE, 832 kg), the largest ancient Chinese sacrificial bronze vessel ever discovered (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:HouMuWuDingFullView.jpg" }
+    - { url: /images/extra/shang-dynasty-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Masterwork carved jade phoenix from the royal tomb of Lady Fu Hao, Yinxu, Anyang (c. 1200 BCE)", source: "https://commons.wikimedia.org/wiki/File:Shang_Jade_Phoenix,_Fu_Hao_Tomb,_c._1200_BC.jpg" }
+    - { url: /images/extra/shang-dynasty-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Shang ritual bronze wine vessel (zun) cast in the form of a sacred owl, from the tomb of Fu Hao (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Shang_Bronze_Owl_Zun,_Fuhao_Tomb,_Anyang.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=VRQKp_vjVSY
@@ -2804,6 +2824,11 @@
   image_url: /images/civilisations/xiongnu.webp
   image_credit: AI-generated illustration
   image_caption: "Xiongnu seasonal encampment on the Mongolian steppe with felt yurts, four-wheeled wagons, horse archers, a bronze ritual cauldron, and grazing livestock"
+  extra_images:
+    - { url: /images/extra/xiongnu-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Masterpiece Xiongnu embroidered wool and silk textile from Noin-Ula kurgan 6, depicting a winged griffin attacking an elk, 1st century BCE (Hermitage Museum)", source: "https://commons.wikimedia.org/wiki/File:Noin-Ula_carpet.jpg" }
+    - { url: /images/extra/xiongnu-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Embroidered silk hanging from Noin-Ula kurgan 31 depicting a Xiongnu nobleman and priest standing before a sacred fire altar (Hermitage)", source: "https://commons.wikimedia.org/wiki/File:Noin-Ula_nobleman_and_priest_over_fire_altar.jpg" }
+    - { url: /images/extra/xiongnu-3.webp, credit: "PHGCOM, CC BY-SA 3.0, via Wikimedia Commons", caption: "Openwork bronze animal-style belt buckle depicting two intertwined horses/predators, 3rd–1st century BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:BeltBuckleOrdos3-1CenturyBCE3.JPG" }
+    - { url: /images/extra/xiongnu-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Xiongnu nomadic cast bronze ritual cauldron with mushroom-lug handles and ribbed pedestal foot (Erlianhot Dinosaur Museum)", source: "https://commons.wikimedia.org/wiki/File:Xiongnu_Bronze_Cauldron_(34870188744).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bFpQjWtpHcM

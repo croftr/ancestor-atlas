@@ -419,13 +419,18 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
-  Curated and wired 40 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
+  Curated and wired 60 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
   *Civilizations*:
   - `nabataeans` (4 images: Al-Khazneh Treasury, painted fine ware pottery, Ad-Deir Monastery, King Aretas IV & Shaqilath drachm)
   - `sabaeans` (4 images: Marib Dam masonry gates, Bar'an temple pillars, alabaster funerary stele, Nashqum bronze nobleman statue)
   - `neo-babylonian-empire` (4 images: Ishtar Gate Mušḫuššu dragon, Processional Way striding lion, Babylonian Map of the World, Nebuchadnezzar II foundation cylinder)
   - `kingdom-of-urartu` (4 images: bronze winged bull cauldron attachment, conical bronze warrior helmet, Erebuni horseman silver rhyton, Van Fortress citadel)
   - `satavahana-dynasty` (4 images: Karle Caves Great Chaitya hall, Amaravati Stupa limestone frieze, double-masted sailing ship coin, Kanheri donor couple relief)
+  - `phrygia` (4 images: Gordion King Midas Tumulus MM inlaid wooden screen, winged siren bronze cauldron, lion-headed bronze situla, Pazarlı goats & Tree of Life terracotta tile)
+  - `seleucid-empire` (4 images: Seleucus I silver tetradrachm with horned elephant biga, Ai-Khanoum gilded silver Cybele plate, Naples bronze bust of Seleucus I, British Museum Antiochus Cylinder)
+  - `parthian-empire` (4 images: Shami bronze statue of a Parthian prince, Old Nisa carved ivory rhytons, silver drachm of Mithridates II in tiara, Hatra high-relief Nergal carving)
+  - `shang-dynasty` (4 images: Yinxu inscribed ox scapula oracle bone, monumental 832 kg Houmuwu Ding, Fu Hao tomb carved jade phoenix, Fu Hao royal bronze owl zun)
+  - `xiongnu` (4 images: Noin-Ula kurgan 6 embroidered griffin & elk carpet, Noin-Ula fire altar priest silk hanging, British Museum openwork animal-style belt buckle, bronze steppe cauldron)
   *Cultures*:
   - `naqada` (4 images: D-ware buff jar with boats & animal standards, fish-shaped cosmetic palette, ripple-flaked bifacial flint knife, sculpted limestone hippopotamus)
   - `afanasievo` (4 images: pointed-bottom ceramic vessels, Khuurai Gobi bronze knife, archaeological grave goods metalwork & bone needles, Tamgaly solar petroglyph)
