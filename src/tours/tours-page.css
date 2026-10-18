@@ -114,6 +114,18 @@
 .tp-stop-year { font-size: 0.76rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tp-note { max-width: 70ch; font-size: 0.85rem; line-height: 1.5; }
 
+/* Wide screens: the cards side by side (two from 1400 px, three on very wide screens) instead of one column down the
+   left of the page. Rows don't stretch, so opening one card's stops leaves its neighbour as it was. */
+@media (min-width: 1400px) {
+  .tp-main {
+    max-width: none;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    align-items: start;
+    gap: 20px;
+  }
+  .tp-note { grid-column: 1 / -1; }
+}
+
 /* Phones: a small cover beside the title; the blurb and button run full width beneath. */
 @media (max-width: 760px) {
   .tp-main { padding-top: 12px; gap: 12px; }
