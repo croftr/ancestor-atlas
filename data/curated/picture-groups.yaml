@@ -89,7 +89,6 @@
      janapada-of-kuru, janapada-of-magadha, janapada-of-malla, janapada-of-matsya,
      janapada-of-pancala, janapada-of-surasena, janapada-of-vajji, janapada-of-vatsa]
 
-# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
 - id: imperial-magadha
   label: Imperial Magadha and the Maurya dynasty in general
   image_url: /images/civilisations/imperial-magadha.webp
@@ -98,7 +97,6 @@
     [magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
      shunga-empire, kanva-dynasty]
 
-# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
 - id: deccan-kingdoms
   label: ancient Deccan and Kalinga kingdoms in general
   image_url: /images/civilisations/deccan-kingdoms.webp
@@ -147,7 +145,6 @@
   image_credit: AI-generated illustration
   members: [hittites, neo-hittite-states, phrygia, lydia, tabal-kingdom]
 
-# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
 - id: urartu-and-caucasus
   label: Ancient Armenia, Urartu and the Caucasus in general
   image_url: /images/civilisations/urartu-and-caucasus.webp
@@ -156,7 +153,6 @@
     [kingdom-of-urartu, kingdom-of-armenia, colchis, lazica, caucasian-albania,
      caucasian-iberia]
 
-# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
 - id: hellenistic-anatolian-kingdoms
   label: Hellenistic and Roman-era Anatolian kingdoms in general
   image_url: /images/civilisations/hellenistic-anatolia.webp
@@ -181,14 +177,12 @@
      kingdom-of-lysimachus, rhodes, sacred-band-of-thebes, greek-colonies,
      cimmerian-bosporus, molossians, perdiccas, polyperchon, laomedon]
 
-# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
 - id: ptolemaic-egypt
   label: the Ptolemaic Kingdom of Egypt in general
   image_url: /images/civilisations/ptolemaic-egypt.webp
   image_credit: AI-generated illustration
   members: [ptolemaic-kingdom]
 
-# [PLACEHOLDER - Awaiting bespoke 1200x900 illustration]
 - id: eastern-hellenistic
   label: the Seleucid Empire and Greco-Bactrian kingdoms in general
   image_url: /images/civilisations/eastern-hellenistic.webp

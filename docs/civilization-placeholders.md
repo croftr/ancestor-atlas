@@ -1,6 +1,8 @@
-# Illustration Placeholders & Generation Queue (Civilizations & Cultures)
+# Illustration Reference & Generation Archive (Civilizations & Cultures)
 
-This file tracks newly split civilization picture groups and newly added migration/tour cultures currently using clean placeholder cards, awaiting bespoke 1200×900 (4:3) archaeological reconstruction illustrations when AI generation quota is available.
+> **Status: 100% Complete (18 Oct 2026)**
+> All 6 split civilization picture groups and all 3 migration/tour cultures have bespoke 1200×900 (4:3) archaeological reconstruction illustrations and 600×450 companions active in `public/images/`.
+> The prompt archive below is preserved for reference, provenance, and future expansions.
 
 ---
 
