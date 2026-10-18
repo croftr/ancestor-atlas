@@ -1,0 +1,537 @@
+/* Side-by-Side Species Comparison view on the Species page (#/species) */
+
+.sc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 10px;
+  --color-a: #f6b95b;
+  --color-b: #5bc8f6;
+}
+
+.sc-picker-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sc-pickers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.sc-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sc-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.sc-dot.a {
+  background: var(--color-a);
+  box-shadow: 0 0 8px rgba(246, 185, 91, 0.55);
+}
+
+.sc-dot.b {
+  background: var(--color-b);
+  box-shadow: 0 0 8px rgba(91, 200, 246, 0.55);
+}
+
+.sc-select {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #131a2e;
+  color: #eef2fa;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sc-select.a {
+  border-left: 3px solid var(--color-a);
+}
+
+.sc-select.b {
+  border-left: 3px solid var(--color-b);
+}
+
+.sc-select:focus-visible {
+  outline: 2px solid #8ec5ff;
+  outline-offset: 1px;
+}
+
+.sc-swap-btn {
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd3e6;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.sc-swap-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.sc-presets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.sc-presets-label {
+  font-size: 0.78rem;
+  color: #8b95ab;
+  margin-right: 4px;
+}
+
+/* Shared Timeline & Overlap Section */
+.sc-timeline-card {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sc-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sc-section-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.sc-overlap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sc-overlap-badge.overlapped {
+  background: rgba(110, 220, 155, 0.16);
+  border: 1px solid rgba(110, 220, 155, 0.45);
+  color: #9fe8bc;
+}
+
+.sc-overlap-badge.separated {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #b8c1d6;
+}
+
+.sc-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0 6px;
+}
+
+.sc-bar-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 210px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.sc-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  min-width: 0;
+}
+
+.sc-bar-label span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sc-bar-track {
+  position: relative;
+  height: 14px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.sc-bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 6px;
+  border-radius: 7px;
+}
+
+.sc-bar-fill.a {
+  background: var(--color-a);
+}
+
+.sc-bar-fill.b {
+  background: var(--color-b);
+}
+
+.sc-bar-overlap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(246, 185, 91, 0.45),
+    rgba(246, 185, 91, 0.45) 5px,
+    rgba(91, 200, 246, 0.45) 5px,
+    rgba(91, 200, 246, 0.45) 10px
+  );
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  pointer-events: none;
+}
+
+.sc-scale {
+  display: grid;
+  grid-template-columns: minmax(120px, 210px) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.sc-scale-track {
+  grid-column: 2;
+  position: relative;
+  height: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sc-scale-track .sp-tick {
+  top: 3px;
+  bottom: auto;
+}
+
+.sc-scale-track .sp-tick::after {
+  top: -4px;
+  bottom: auto;
+}
+
+/* Dual-Colour Mini-Globe & Phylogeny Row */
+.sc-middle-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.sc-globe-card,
+.sc-lineage-card {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sc-globe-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px auto;
+}
+
+.sc-globe-canvas {
+  display: block;
+  cursor: grab;
+  border-radius: 50%;
+  touch-action: none;
+}
+
+.sc-globe-canvas:active {
+  cursor: grabbing;
+}
+
+.sc-globe-tooltip {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(10, 15, 28, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.78rem;
+  color: #eef2fa;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.sc-globe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #cbd3e6;
+}
+
+.sc-globe-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sc-closest-note {
+  font-size: 0.82rem;
+  color: #cbd3e6;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 8px 10px;
+  line-height: 1.4;
+}
+
+/* Lineage & Gene Flow */
+.sc-clade-box {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.sc-clade-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.sc-clade-head h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.sc-geneflow-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sc-geneflow-item {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(214, 160, 92, 0.08);
+  border: 1px solid rgba(214, 160, 92, 0.28);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.sc-geneflow-item strong {
+  color: #f6e7c8;
+}
+
+/* Side-by-Side Species Detail Columns */
+.sc-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.sc-col {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sc-col.a {
+  border-top: 3px solid var(--color-a);
+}
+
+.sc-col.b {
+  border-top: 3px solid var(--color-b);
+}
+
+.sc-col-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.sc-col-img {
+  width: 88px;
+  height: 88px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: none;
+  background: #141a33;
+}
+
+.sc-col-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sc-col-title h3 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+}
+
+.sc-col-date {
+  font-size: 0.84rem;
+  color: #ffe7a8;
+  font-variant-numeric: tabular-nums;
+}
+
+.sc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0;
+}
+
+.sc-stats-grid > div {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sc-stats-grid dt {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8b95ab;
+}
+
+.sc-stats-grid dd {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sc-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #dce3f2;
+}
+
+.sc-sites-summary {
+  font-size: 0.82rem;
+  color: #9aa8c4;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sc-col-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+/* Small "Compare" button on species rows and detail modal */
+.sp-row-wrap {
+  position: relative;
+}
+
+.sp-compare-quick {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #cbd3e6;
+  opacity: 0.75;
+  transition: opacity 0.14s ease, background 0.14s ease, color 0.14s ease;
+}
+
+.sp-row-wrap:hover .sp-compare-quick,
+.sp-compare-quick:focus-visible {
+  opacity: 1;
+}
+
+.sp-compare-quick:hover {
+  background: rgba(246, 185, 91, 0.2);
+  border-color: rgba(246, 185, 91, 0.55);
+  color: #fff;
+}
+
+@media (max-width: 960px) {
+  .sc-middle-grid,
+  .sc-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sc-pickers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sc-swap-btn {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .sc-bar-row,
+  .sc-scale {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+  .sc-scale-track {
+    grid-column: 1;
+  }
+  .sc-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

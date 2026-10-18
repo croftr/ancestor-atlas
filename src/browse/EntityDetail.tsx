@@ -24,7 +24,19 @@ import "./browse.css";
  * One species, culture or civilization over its browse page: picture, text, what is on the map, related
  * events and sources, links out. ←/→ step through `order` (what the page is showing), Esc closes.
  */
-export default function EntityDetail({ entity, order, page, kicker }: { entity: Entity; order: Entity[]; page: BrowseView; kicker?: string }) {
+export default function EntityDetail({
+  entity,
+  order,
+  page,
+  kicker,
+  onCompare,
+}: {
+  entity: Entity;
+  order: Entity[];
+  page: BrowseView;
+  kicker?: string;
+  onCompare?: (id: string) => void;
+}) {
   const data = useData()!;
   const focusEntity = useStore((s) => s.focusEntity);
   const viewerOpen = useStore((s) => s.pictureViewer);
@@ -318,6 +330,11 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
           <div className="ev-actions">
             <button className="tl-btn" onClick={() => showOnGlobe(entity.id)}>Show on globe</button>
             <button className="tl-btn" onClick={() => navigate("timeline", entity.id)}>See on timeline</button>
+            {onCompare && (
+              <button className="tl-btn" onClick={() => onCompare(entity.id)}>
+                Compare species
+              </button>
+            )}
           </div>
 
           {i >= 0 && order.length > 1 && (

@@ -7,6 +7,7 @@ import { erasFor, firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity, FeatureProps } from "../types";
 import { scaleLabel, scaleTicks, summaryOf } from "./browse";
 import FamilyTree from "./FamilyTree";
+import SpeciesCompare from "./SpeciesCompare";
 import EntityDetail from "./EntityDetail";
 import Totals from "./Totals";
 import { videoCount } from "../youtube";
@@ -24,12 +25,13 @@ const count = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString(
 const FINDS_NOTE =
   "Fossil finds are individual specimens (a skull, a jaw, a tooth) as catalogued in ROAD; a site with no ROAD record counts as one find.";
 
-/** List or family tree, remembered (a convenience: the list when storage is unavailable). */
-type Layout = "list" | "tree";
+/** List, family tree, or side-by-side comparison, remembered (the list when storage is unavailable). */
+type Layout = "list" | "tree" | "compare";
 const LAYOUT_KEY = "species-layout";
 const readLayout = (): Layout => {
   try {
-    return localStorage.getItem(LAYOUT_KEY) === "tree" ? "tree" : "list";
+    const v = localStorage.getItem(LAYOUT_KEY);
+    return v === "tree" || v === "compare" ? v : "list";
   } catch {
     return "list";
   }
@@ -40,13 +42,14 @@ const readLayout = (): Layout => {
  * (as on the Events page). Each row's bar sits on one time scale shared by the whole page (the
  * time slider's compressed scale, so the recent species aren't slivers), which shows at a glance
  * who came when and who lived alongside whom. The Family tree switch draws the same bars joined
- * into a tree (FamilyTree.tsx).
+ * into a tree (FamilyTree.tsx), and Compare compares any two species side by side (SpeciesCompare.tsx).
  */
 export default function SpeciesPage() {
   const data = useData();
   const openId = useOpenItem();
   const [eraFilter, setEraFilter] = useState<string | null>(null);
   const [layout, setLayoutState] = useState<Layout>(readLayout);
+  const [comparePair, setComparePair] = useState<[string, string]>(["neanderthal", "homo-sapiens"]);
   const setLayout = (l: Layout) => {
     setLayoutState(l);
     try {
@@ -54,6 +57,15 @@ export default function SpeciesPage() {
     } catch {
       // Not remembered; fine.
     }
+  };
+  const startCompareWith = (id: string) => {
+    setComparePair(([a, b]) => {
+      if (id === a) return [a, b];
+      if (id === b) return [b, a];
+      return [id, a];
+    });
+    setLayout("compare");
+    if (openId) navigate("species");
   };
 
   const { species, eras, axis, tally } = useMemo(() => {
@@ -117,9 +129,9 @@ export default function SpeciesPage() {
         />
         <div className="ev-filters">
           <span className="sp-layout" role="group" aria-label="Show as">
-            {(["list", "tree"] as const).map((l) => (
+            {(["list", "tree", "compare"] as const).map((l) => (
               <button key={l} className={`chip${layout === l ? " active" : ""}`} aria-pressed={layout === l} onClick={() => setLayout(l)}>
-                {l === "list" ? "List" : "Family tree"}
+                {l === "list" ? "List" : l === "tree" ? "Family tree" : "Compare"}
               </button>
             ))}
           </span>
@@ -147,6 +159,15 @@ export default function SpeciesPage() {
       {layout === "tree" ? (
         <main className="ev-main ft-main">
           <FamilyTree species={species} />
+        </main>
+      ) : layout === "compare" ? (
+        <main className="ev-main sp-main">
+          <SpeciesCompare
+            species={species}
+            initialA={comparePair[0]}
+            initialB={comparePair[1]}
+            onSelectPair={(a, b) => setComparePair([a, b])}
+          />
         </main>
       ) : (
         <main className="ev-main sp-main">
@@ -177,7 +198,7 @@ export default function SpeciesPage() {
                   const order = species.indexOf(s) + 1;
                   const summary = summaryOf(s, firstSentence);
                   return (
-                    <li key={s.id}>
+                    <li key={s.id} className="sp-row-wrap">
                       <button className="sp-row" onClick={() => navigate("species", s.id)}>
                         <span className="sp-order" aria-label={`Number ${order} to appear`}>{order}</span>
                         <span className="br-img sp-img">
@@ -198,6 +219,14 @@ export default function SpeciesPage() {
                           {summary && <span className="sp-summary">{summary}</span>}
                         </span>
                       </button>
+                      <button
+                        type="button"
+                        className="sp-compare-quick"
+                        onClick={() => startCompareWith(s.id)}
+                        title={`Compare ${s.name} side by side with another species`}
+                      >
+                        Compare
+                      </button>
                     </li>
                   );
                 })}
@@ -213,6 +242,7 @@ export default function SpeciesPage() {
           order={visible.includes(open) ? visible : species}
           page="species"
           kicker={openEra ? `${openEra.label} · number ${species.indexOf(open) + 1} of ${species.length} to appear` : undefined}
+          onCompare={startCompareWith}
         />
       )}
     </div>
