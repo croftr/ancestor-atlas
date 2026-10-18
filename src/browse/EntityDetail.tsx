@@ -16,6 +16,7 @@ import { PictureNav, creditLine } from "../ui/PictureNav";
 import PictureViewer from "../ui/PictureViewer";
 import { contemporaries } from "../ui/contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
+import TourStopLinks from "../tours/TourStopLinks";
 import TourVideo from "../ui/TourVideo";
 import "./browse.css";
 
@@ -291,6 +292,8 @@ export default function EntityDetail({ entity, order, page, kicker }: { entity: 
               </div>
             </div>
           )}
+
+          <TourStopLinks entityId={entity.id} />
 
           <div className="muted ev-sources">
             {sources.length > 0 && (

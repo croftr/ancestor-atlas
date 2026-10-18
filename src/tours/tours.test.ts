@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { TOURS, announcementText } from "./tours";
+import { TOURS, announcementText, toursOfEntity } from "./tours";
 import { textHash } from "../../scripts/lib/text-hash";
 import { isActive } from "../map/data";
 import { readTourHash, tourHash } from "../globeLink";
@@ -67,5 +67,14 @@ describe("tour links", () => {
   it("reads back what it writes", () => {
     expect(readTourHash(tourHash("events-and-inventions"))).toBe("events-and-inventions");
     expect(readTourHash("#/?year=1")).toBeNull();
+  });
+
+  it("finds all tours that stop at an entity with their 0-based stop index", () => {
+    const sapiens = toursOfEntity("homo-sapiens");
+    expect(sapiens.map((r) => ({ id: r.tour.id, index: r.index }))).toEqual([
+      { id: "human-evolution", index: 9 },
+      { id: "out-of-africa", index: 1 },
+    ]);
+    expect(toursOfEntity("not-an-entity")).toEqual([]);
   });
 });

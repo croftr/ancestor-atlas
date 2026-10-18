@@ -210,3 +210,19 @@ export const TOURS: Tour[] = [
 ];
 
 export const tourById = (id: string) => TOURS.find((t) => t.id === id);
+
+export interface TourStopRef {
+  tour: Tour;
+  /** 0-based stop index in `tour.stops`. */
+  index: number;
+}
+
+/** Guided tours that stop at `entityId`, with the stop index for each. */
+export function toursOfEntity(entityId: string): TourStopRef[] {
+  const hits: TourStopRef[] = [];
+  for (const tour of TOURS) {
+    const index = tour.stops.findIndex((s) => s.entity === entityId);
+    if (index >= 0) hits.push({ tour, index });
+  }
+  return hits;
+}
