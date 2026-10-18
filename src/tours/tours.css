@@ -277,8 +277,7 @@
 @media (prefers-reduced-motion: reduce) {
   .tour-end, .tour-end-closing, .tour-end-strip button { animation: none; }
 }
-/* Small screens: floating over the top of the globe, as a tour's compact card does; the stops in one
-   scrolling row, so the globe and its thread stay in view below. */
+/* Small screens: floating over the top of the globe, as a tour's compact card does. */
 @media (max-width: 900px) {
   .app.view-globe .tour-end {
     top: 8px; left: var(--stack-l, 8px); right: 8px; width: auto; z-index: 25;
@@ -289,8 +288,7 @@
   }
   .tour-end-title { margin: 4px 0 2px; }
   .tour-end-span { margin-bottom: 10px; }
-  .tour-end-strip { display: flex; overflow-x: auto; margin-bottom: 10px; padding: 3px 2px; scrollbar-width: none; }
-  .tour-end-strip li { flex: none; width: 42px; }
+  .tour-end-strip { grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); margin-bottom: 10px; }
   .tour-end-closing { font-size: 0.92rem; margin-bottom: 12px; }
   .tour-end-actions button { padding: 6px 11px; font-size: 0.8rem; }
 }
