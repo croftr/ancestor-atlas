@@ -47,7 +47,6 @@ const readLayout = (): Layout => {
 export default function SpeciesPage() {
   const data = useData();
   const openId = useOpenItem();
-  const [eraFilter, setEraFilter] = useState<string | null>(null);
   const [layout, setLayoutState] = useState<Layout>(readLayout);
   const [comparePair, setComparePair] = useState<[string, string]>(["neanderthal", "homo-sapiens"]);
   const setLayout = (l: Layout) => {
@@ -97,8 +96,6 @@ export default function SpeciesPage() {
   };
   const ticks = scaleTicks(at);
 
-  const shown = eras.filter((e) => eraFilter === null || e.label === eraFilter);
-  const visible = shown.flatMap((e) => e.species);
   const open = openId ? data.entityById.get(openId) : undefined;
   const openEra = open && eras.find((e) => e.species.includes(open));
   const accent = CATEGORY_STYLE.species.color;
@@ -135,24 +132,6 @@ export default function SpeciesPage() {
               </button>
             ))}
           </span>
-          {/* The tree needs every species, so the era filter is for the list only. */}
-          {layout === "list" && (
-            <span className="sp-eras" role="group" aria-label="Filter by era">
-              <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
-                All eras
-              </button>
-              {eras.map((e) => (
-                <button
-                  key={e.label}
-                  className={`chip${eraFilter === e.label ? " active" : ""}`}
-                  aria-pressed={eraFilter === e.label}
-                  onClick={() => setEraFilter(eraFilter === e.label ? null : e.label)}
-                >
-                  {e.label} <span className="ev-chip-count">{e.species.length}</span>
-                </button>
-              ))}
-            </span>
-          )}
         </div>
       </header>
 
@@ -184,7 +163,7 @@ export default function SpeciesPage() {
             <span className="sp-scale-caption">years ago</span>
           </div>
   
-          {shown.map((era) => (
+          {eras.map((era) => (
             <section key={era.label} className="sp-era" aria-labelledby={`sp-era-${era.label}`}>
               <h2 id={`sp-era-${era.label}`}>
                 {era.label}{" "}
@@ -239,7 +218,7 @@ export default function SpeciesPage() {
       {open && open.category === "species" && (
         <EntityDetail
           entity={open}
-          order={visible.includes(open) ? visible : species}
+          order={species}
           page="species"
           kicker={openEra ? `${openEra.label} · number ${species.indexOf(open) + 1} of ${species.length} to appear` : undefined}
           onCompare={startCompareWith}
