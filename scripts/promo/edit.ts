@@ -48,7 +48,7 @@ clips.forEach((c, i) => {
   const length = c.length + (c.dissolve ?? 0);
   f.push(
     `[${sources.indexOf(c.src)}:v]trim=start=${c.in ?? 0}:duration=${(length * speed).toFixed(4)},setpts=(PTS-STARTPTS)/${speed},` +
-      `fps=${FPS},scale=1920:1080:flags=lanczos,setsar=1,format=yuv420p,trim=duration=${length.toFixed(4)},setpts=PTS-STARTPTS[c${i}]`,
+      `fps=${FPS},scale=1920:1080:flags=lanczos,setsar=1,format=yuv420p,trim=duration=${length.toFixed(4)},setpts=PTS-STARTPTS,settb=1/${FPS}[c${i}]`,
   );
 });
 // Join them in order: a dissolve where the clip before asks for one, a cut otherwise.
@@ -58,7 +58,7 @@ for (let i = 1; i < clips.length; i++) {
   const d = clips[i - 1].dissolve;
   const out = `j${i}`;
   if (d) f.push(`[${joined}][c${i}]xfade=transition=fade:duration=${d}:offset=${(total - d).toFixed(4)}[${out}]`);
-  else f.push(`[${joined}][c${i}]concat=n=2:v=1:a=0[${out}]`);
+  else f.push(`[${joined}][c${i}]concat=n=2:v=1:a=0,settb=1/${FPS}[${out}]`);
   total += clips[i].length + (clips[i].dissolve ?? 0) - (d ?? 0);
   joined = out;
 }

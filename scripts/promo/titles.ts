@@ -10,12 +10,15 @@ const CREAM = "#f4ead2";
 const GOLD = "#d9b26a";
 
 const STYLES: Record<string, string> = {
-  // The name, large and spaced, centred on the globe.
-  title: `font-size: 132px; letter-spacing: 0.16em; text-transform: uppercase; text-indent: 0.16em;`,
-  // A feature's caption, top centre (where the search bar is, hidden in those shots).
-  caption: `position: absolute; top: 64px; left: 0; right: 0; font-size: 60px; letter-spacing: 0.04em;`,
-  // The end card: the address, with the credits small underneath.
-  end: `font-size: 96px; letter-spacing: 0.03em;`,
+  // The name, large and spaced, under the globe (raised in its shot to make room).
+  title: `font-size: 112px; letter-spacing: 0.16em; text-transform: uppercase; text-indent: 0.16em;`,
+  // A feature's caption, top centre (where the search bar is, hidden in those shots), on a dark backing so it
+  // reads over the globe too.
+  caption: `position: absolute; top: 52px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 56px;
+    letter-spacing: 0.04em; padding: 10px 40px 14px; border-radius: 14px; background: rgba(8, 12, 26, 0.72);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);`,
+  // The end card: the address under the globe, with the credits small underneath.
+  end: `font-size: 88px; letter-spacing: 0.03em;`,
 };
 
 function html(kind: string, text: string, sub?: string) {
@@ -23,7 +26,7 @@ function html(kind: string, text: string, sub?: string) {
   return `<!doctype html><html><head><meta charset="utf-8"><style>
     html, body { margin: 0; width: 1920px; height: 1080px; background: transparent; }
     body { position: relative; font-family: Georgia, "Times New Roman", serif; color: ${CREAM};
-      ${centred ? "display: flex; flex-direction: column; align-items: center; justify-content: center;" : ""} }
+      ${centred ? "display: flex; flex-direction: column; align-items: center; justify-content: flex-end; box-sizing: border-box; padding-bottom: 96px;" : ""} }
     .t { ${STYLES[kind]} text-align: center; text-shadow: 0 2px 6px rgba(0,0,0,.75), 0 0 32px rgba(0,0,0,.6); }
     .rule { width: 120px; height: 2px; background: ${GOLD}; margin: 22px auto 0; box-shadow: 0 0 8px rgba(0,0,0,.6); }
     .sub { margin-top: 26px; font-size: 26px; letter-spacing: 0.02em; color: ${CREAM}; opacity: .85; text-align: center;

@@ -22,6 +22,7 @@ export interface AppShot {
   setup?: (ctx: Ctx) => unknown;
   /** Seconds to let the setup settle before the first frame (default 2). */
   warmup?: number;
+  /** Seconds into the shot; a negative time runs during the warm-up, that long before the first frame. */
   cues?: { at: number; run: (ctx: Ctx) => unknown }[];
   frame?: (ctx: Ctx, t: number, u: number) => unknown;
   /** Length in seconds; by default the shot's length in timeline.ts plus a handle. */
@@ -38,7 +39,8 @@ export const APP_SHOTS: Record<string, AppShot> = {
   "4": {
     hide: BARE,
     setup: ({ store }) => store.getState().setYear(-300_000),
-    frame: ({ map }, t) => map.jumpTo({ center: [2 + 5 * t, 6], zoom: 2.6 }),
+    // Bottom padding raises the globe, leaving room for the title under it.
+    frame: ({ map }, t) => map.jumpTo({ center: [2 + 5 * t, 6], zoom: 2.15, padding: { top: 0, bottom: 330, left: 0, right: 0 } }),
   },
 
   // 5. Seven million years: the slider sweeps from the first hominins to the Ice Age; points spread from Africa.
@@ -167,26 +169,48 @@ export const APP_SHOTS: Record<string, AppShot> = {
     },
   },
 
-  // 16a. A site's card with its dates and sources.
+  // 16a. A site's card, scrolling down to its dates and sources.
   "16a": {
     seconds: 6.5,
     hide: [".search"],
     setup: ({ store }) => store.getState().showEntity("linear-pottery", { open: true, year: -5_299 }),
+    frame: ({ promo }, t) => {
+      const sources = Array.from(document.querySelectorAll("*")).find(
+        (e) => e.children.length < 6 && /^Sources( for|:)/.test(e.textContent ?? ""),
+      ) as HTMLElement | undefined;
+      let box = sources?.parentElement ?? null;
+      while (box && !(box.scrollHeight > box.clientHeight + 4 && /auto|scroll/.test(getComputedStyle(box).overflowY))) box = box.parentElement;
+      if (!sources || !box) return;
+      const target = Math.max(0, sources.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop - box.clientHeight * 0.45);
+      box.scrollTop = target * promo.easeInOut(Math.min(1, Math.max(0, (t - 1.2) / 2.8)));
+    },
   },
 
-  // 16b. Museum photos of real artifacts, in the picture viewer.
+  // 16b. Museum photos of real artifacts, in the picture viewer (past the card's illustration).
   "16b": {
     seconds: 6.5,
-    setup: ({ store }) => {
+    // The photos are loaded first, and the viewer opens on the first of them (the figurine).
+    setup: async ({ store }) => {
+      await Promise.all(["/images/extra/vinca-1.webp", "/images/extra/vinca-2.webp"].map((src) => {
+        const img = new Image();
+        img.src = src;
+        return img.decode();
+      }));
       store.getState().showEntity("vinca", { open: true });
       store.getState().setPictureViewer(true);
     },
+    warmup: 3,
+    cues: [
+      { at: -2, run: () => window.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true })) },
+      { at: 3.0, run: () => window.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true })) },
+    ],
   },
 
   // 17. End: the globe pulls back into space; the address goes over it in the edit.
   "17": {
     hide: BARE,
     setup: ({ store }) => store.getState().setYear(-7_999),
-    frame: ({ map, promo }, t, u) => map.jumpTo({ center: [25 + 4 * t, 20], zoom: 2.5 - 1.0 * promo.easeOut(u) }),
+    frame: ({ map, promo }, t, u) =>
+      map.jumpTo({ center: [25 + 4 * t, 20], zoom: 2.3 - 0.85 * promo.easeOut(u), padding: { top: 0, bottom: 330, left: 0, right: 0 } }),
   },
 };

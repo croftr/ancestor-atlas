@@ -6,6 +6,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node
 import { resolve } from "node:path";
 
 const CHROME = process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe";
+const SEND_TIMEOUT_MS = 30_000;
 
 export interface Page {
   send<T = unknown>(method: string, params?: object): Promise<T>;
@@ -70,10 +71,19 @@ export async function launch(opts: { width: number; height: number; headless?: b
     } else for (const fn of listeners.get(msg.method) ?? []) fn(msg.params);
   };
   const page: Page = {
+    // A call the page never answers (it reloaded, or hung) fails after SEND_TIMEOUT_MS instead of waiting forever.
     send: (method, params = {}) =>
       new Promise((resolve, reject) => {
-        pending.set(++id, { resolve, reject });
-        ws.send(JSON.stringify({ id, method, params }));
+        const n = ++id;
+        const timer = setTimeout(() => {
+          pending.delete(n);
+          reject(new Error(`${method}: no answer in ${SEND_TIMEOUT_MS / 1000} s`));
+        }, SEND_TIMEOUT_MS);
+        pending.set(n, {
+          resolve: (v) => (clearTimeout(timer), resolve(v)),
+          reject: (e) => (clearTimeout(timer), reject(e)),
+        });
+        ws.send(JSON.stringify({ id: n, method, params }));
       }),
     on: (method, fn) => listeners.set(method, [...(listeners.get(method) ?? []), fn]),
     eval: async (expression) => {

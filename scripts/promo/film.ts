@@ -1,18 +1,22 @@
 // Film the app's shots for the promo video, frame by frame on a virtual clock (clock.js), so they are smooth
 // whatever the machine:
-//   npx tsx scripts/promo/film.ts <shot>…        e.g. 4 5 15a (needs the dev server: npx vite --port 5179)
+//   npx tsx scripts/promo/film.ts <shot>…        e.g. 4 5 15a
 //   npx tsx scripts/promo/film.ts all
+// Films a production build of the app (built once into data/build/promo/site and served on PORT), never the dev
+// server, whose reloads on any file change broke shots mid-way. `--rebuild` builds it again after app changes.
 // Each shot (shots.ts) gets a fresh page at 1920×1080 with its stored settings and page, its setup, then FPS
 // frames a second for its length (from the timeline, plus HANDLE_S for trimming in the edit, or its own
 // `seconds`), running its cues as their moments pass and its `frame` function every frame. Frames are JPEG
 // screenshots, encoded to data/build/promo/shots/<id>.mp4 (H.264, CRF 14).
-import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { execFileSync, spawn } from "node:child_process";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { launch, type Page } from "./cdp.ts";
 import { APP_SHOTS, type AppShot, type Ctx } from "./shots.ts";
 import { LENGTH_S, SHOTS } from "./timeline.ts";
 
-const BASE = process.env.PROMO_URL || "http://localhost:5179/?film";
+const SITE = "data/build/promo/site";
+const PORT = 5181;
+const BASE = `http://localhost:${PORT}/?film`;
 const FPS = 30;
 const HANDLE_S = 0.5;
 const OUT = "data/build/promo/shots";
@@ -63,12 +67,16 @@ async function film(id: string) {
     await page.eval(`window.__promo.hide(${JSON.stringify([".empty-state", ...(shot.hide ?? [])])})`);
     if (shot.setup) await run(page, shot.setup);
     if (shot.frame) await run(page, shot.frame, 0, 0);
-    for (let i = 0; i < (shot.warmup ?? 2) * FPS; i++) await tick(page);
+    const cues = [...(shot.cues ?? [])].sort((a, b) => a.at - b.at);
+    const warmup = (shot.warmup ?? 2) * FPS;
+    for (let i = 0; i < warmup; i++) {
+      while (cues.length && cues[0].at < 0 && cues[0].at <= (i - warmup) / FPS) await run(page, cues.shift()!.run);
+      await tick(page);
+    }
 
     const dir = `${OUT}/${id}`;
     rmSync(dir, { recursive: true, force: true });
     mkdirSync(dir, { recursive: true });
-    const cues = [...(shot.cues ?? [])].sort((a, b) => a.at - b.at);
     const frames = Math.round(length * FPS);
     for (let f = 0; f < frames; f++) {
       const t = f / FPS;
@@ -94,11 +102,34 @@ async function film(id: string) {
   }
 }
 
-const args = process.argv.slice(2);
+const args = process.argv.slice(2).filter((a) => !a.startsWith("--"));
 const wanted = args.includes("all") ? Object.keys(APP_SHOTS) : args;
+if (process.argv.includes("--rebuild") || !existsSync(`${SITE}/index.html`)) {
+  console.log("Building the app");
+  execFileSync("npx", ["vite", "build", "--outDir", SITE, "--emptyOutDir", "--logLevel", "warn"], { stdio: "inherit", shell: true });
+}
+const server = spawn("npx", ["vite", "preview", "--outDir", SITE, "--port", String(PORT), "--strictPort"], { stdio: "ignore", shell: true });
+for (let i = 0; i < 100; i++) {
+  await new Promise((r) => setTimeout(r, 200));
+  if (await fetch(`http://localhost:${PORT}/`).then((r) => r.ok, () => false)) break;
+}
 if (!wanted.length) {
   console.error("✗ which shots? (ids, or all)");
   process.exit(1);
 }
-for (const id of wanted) await film(id);
-process.exit(0);
+const failed: string[] = [];
+for (const id of wanted) {
+  // One retry: a shot that fails once (a stalled page) usually films the second time.
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      await film(id);
+      break;
+    } catch (e) {
+      console.error(`  ✗ shot ${id}, attempt ${attempt}: ${(e as Error).message}`);
+      if (attempt === 2) failed.push(id);
+    }
+  }
+}
+server.kill();
+if (failed.length) console.error(`✗ not filmed: ${failed.join(", ")}`);
+process.exit(failed.length ? 1 : 0);
