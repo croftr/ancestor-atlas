@@ -18,6 +18,7 @@ import { pathSoFar, trail, trailPoints, type LngLat, type TrailFrame } from "../
 import { tourById } from "../tours/tours";
 import { dnaGeoJSON, loadDna } from "../dna/data";
 import { NONE_COLOR } from "../dna/haplogroups";
+import { FILM } from "../film";
 
 const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
@@ -338,6 +339,7 @@ export default function MapView() {
         ],
       },
     });
+    if (FILM) Object.assign(window, { __map: map });
     // The globe stays centred beside the rail whether or not the info card is open (Rob's call, 17 Oct
     // 2026): the card covers the space on the right, as the legend column does on the left.
     map.setPadding({ top: 0, left: leftInset(), right: 0, bottom: inset });
