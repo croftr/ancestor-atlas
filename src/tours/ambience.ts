@@ -61,6 +61,10 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Small raft on the open sea: gentle ocean swell, water lapping against wood, a paddle dipping slowly, wind, distant seabirds",
     sound: { src: "ambience/events/sahul-seafaring-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e405f8787f" },
   },
+  "bow-and-arrow": {
+    prompt: "A wooden bowstring twanging with a sharp thunk, an arrow whistling swiftly through the air, rustling reeds and distant birds calling",
+    sound: { src: "ambience/events/bow-and-arrow-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b9c0fd415c" },
+  },
   "archaic-human-admixture": {
     prompt: "Cold forest edge in late autumn: wind in pine trees, a fast stream, ravens calling, a small fire crackling",
     sound: { src: "ambience/events/archaic-human-admixture-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5bfe0824b2" },
@@ -68,6 +72,14 @@ export const AMBIENCE: Record<string, Ambience> = {
   "figurative-cave-art": {
     prompt: "Deep limestone cave: slow water drips echoing, still hollow air, faint crackle of a burning torch, soft brush strokes on rock",
     sound: { src: "ambience/events/figurative-cave-art-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "f48f6a6e72" },
+  },
+  "eyed-needle-clothing": {
+    prompt: "Inside a warm hide tent in winter: rhythmic scratching and pulling of sinew thread through leather with a fine bone needle, wind howling outside",
+    sound: { src: "ambience/events/eyed-needle-clothing-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "cffe056e8a" },
+  },
+  "neanderthal-extinction": {
+    prompt: "A lonely cold wind blowing across desolate coastal cliffs, solitary distant sea eagle cry, waves surging onto rocky shores",
+    sound: { src: "ambience/events/neanderthal-extinction-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ab8c7fb32b" },
   },
   "earliest-musical-instruments": {
     prompt: "Distant breathy notes of a simple bone flute echoing in a cave, sparse and slow with long pauses, wind outside",
@@ -88,6 +100,10 @@ export const AMBIENCE: Record<string, Ambience> = {
   "dog-domestication": {
     prompt: "A lone wolf howling in the far distance across an empty Ice Age valley at night, echoing, soft wind, nothing else",
     sound: { src: "ambience/events/dog-domestication-v2.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "491cb5d564" },
+  },
+  "quaternary-megafauna-extinction": {
+    prompt: "A vast empty windswept tundra steppe, distant low mammoth trumpets fading into the distance, gusting Arctic wind through dry tundra grass",
+    sound: { src: "ambience/events/quaternary-megafauna-extinction-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "edb6d91ba1" },
   },
   "gobekli-tepe": {
     prompt: "Windy limestone hilltop: steady wind, a stone chisel tapping on limestone, footsteps on rock, a bird of prey calling",
