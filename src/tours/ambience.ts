@@ -162,8 +162,8 @@ export const AMBIENCE: Record<string, Ambience> = {
     sound: { src: "ambience/events/alphabetic-script-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c4c236b4e7" },
   },
   "code-of-hammurabi": {
-    prompt: "Chisel carving into hard black basalt, steady taps, a palace courtyard with a trickling fountain and birds",
-    sound: { src: "ambience/events/code-of-hammurabi-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c6e39452ff" },
+    prompt: "Warm evening in the open outside the mud-brick walls of an ancient city: a large crowd gathered round a stone monument, low indistinct murmuring with no clear words, sandals shuffling on dusty ground, a soft desert wind, swallows calling overhead, a donkey braying far off",
+    sound: { src: "ambience/events/code-of-hammurabi-v2.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6c111212ec" },
   },
   "chicken-domestication": {
     prompt: "Tropical forest edge at dawn in Southeast Asia: a junglefowl rooster crowing, hens clucking and scratching in leaves, insects and birds",
