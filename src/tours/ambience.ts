@@ -209,13 +209,29 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Ancient sea battle: waves, oars splashing, wooden ships creaking and colliding, distant shouts and clashing bronze",
     sound: { src: "ambience/events/sea-peoples-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7d5a9cf0f4" },
   },
+  "nok-terracotta": {
+    prompt: "Ancient West African savanna settlement: clay pottery being burnished and tapped, rhythmic leather bellows pumping air into an iron furnace, crackling charcoal embers, tropical birds calling",
+    sound: { src: "ambience/events/nok-terracotta-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "abd44470a7" },
+  },
+  "first-olympic-games": {
+    prompt: "Ancient stadium at Olympia: rhythmic bare footfalls sprinting on compacted sand, athletic breathing, distant applause from spectators on the grassy embankment, cicadas in summer pine trees",
+    sound: { src: "ambience/events/first-olympic-games-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b91a4addd6" },
+  },
   "minted-coinage": {
     prompt: "Ancient mint: hammer striking metal dies, coins clinking and dropping into a pile, a market murmuring far away",
     sound: { src: "ambience/events/minted-coinage-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "f9abfcc44b" },
   },
+  "unification-of-china": {
+    prompt: "Imperial Qin military encampment: marching rhythmic footsteps of armored soldiers, bronze weapons clinking, chariot harness rings jingling, a deep bronze war bell chiming in the distance",
+    sound: { src: "ambience/events/unification-of-china-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "509b657d67" },
+  },
   papermaking: {
     prompt: "Making paper by hand: water sloshing in a vat, wet pulp beaten with wooden mallets, a bamboo screen lifted and dripping, gentle rain outside",
     sound: { src: "ambience/events/papermaking-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d80a041fbe" },
+  },
+  "silk-road": {
+    prompt: "Silk Road desert caravan: bronze camel bells rhythmically chiming as camels tread softly on desert sand dunes, dry wind whistling across the sands, distant flute melody",
+    sound: { src: "ambience/events/silk-road-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e1d30c0bdf" },
   },
   "cucuteni-trypillia": {
     prompt: "Neolithic village by a river valley: crackling pottery kiln fire, a distant timber bonfire roaring softly, gentle breeze in grass, birds calling",

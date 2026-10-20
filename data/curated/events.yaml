@@ -1048,6 +1048,44 @@
     - { label: Medinet Habu, lat: 25.72, lon: 32.600833, wikidata: Q932622 }
     - { label: Ugarit, lat: 35.601944, lon: 35.785556, wikidata: Q191369 }
 
+- id: nok-terracotta
+  name: Nok terracotta sculpture and metallurgy
+  year: -899
+  start_year: -999
+  end_year: -299
+  date_text: c. 900–300 BCE
+  description: On the Jos Plateau of central Nigeria, the Nok culture created sub-Saharan Africa's earliest known monumental figurative art tradition alongside early bloomery iron-smelting technology. Nok artisans sculpted hollow, coiled terracotta human figures and animal effigies remarkable for their expressive stylization, pierced triangular eyes and pupils, elaborate braided hairstyles, and detailed beadwork ornaments. Contemporaneous with their terracotta sculpture, Nok settlements at Taruga operated sophisticated shaft bloomeries, demonstrating the independent or early development of iron metallurgy in West Africa without a preceding bronze age.
+  image_url: /images/events/nok-terracotta.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/nok-terracotta-1.webp, credit: "FA2010, public domain, via Wikimedia Commons", caption: "Sculpted Nok terracotta head with elaborate coiffure and pierced triangular eyes (Kimbell Art Museum)", source: "https://commons.wikimedia.org/wiki/File:Africa_Nok_Head_Kimbell.jpg" }
+    - { url: /images/events/extra/nok-terracotta-2.webp, credit: "Javier Ayarza, CC BY-SA 3.0, via Wikimedia Commons", caption: "Nok seated male figure known as 'The Thinker', resting head on knee", source: "https://commons.wikimedia.org/wiki/File:El_Pensador_(Cultura_Nok).jpg" }
+    - { url: /images/events/extra/nok-terracotta-3.webp, credit: "FA2010, public domain, via Wikimedia Commons", caption: "Nok terracotta male torso holding ceremonial regalia (Kimbell Art Museum)", source: "https://commons.wikimedia.org/wiki/File:Africa_Nok_Male_Figure_Kimbell.jpg" }
+    - { url: /images/events/extra/nok-terracotta-4.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Seated anthropomorphic Nok sculpture displayed at the Musée du Quai Branly - Jacques Chirac, Paris", source: "https://commons.wikimedia.org/wiki/File:Nok_sculpture_Louvre_70-1998-11-1.jpg" }
+  narration: { src: narration/events/nok-terracotta-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "dccf8422ca" }
+  date_source: wikipedia:Nok_culture@1368847651
+  places:
+    - { label: "Nok", lat: 9.48972, lon: 8.0238, wikidata: Q108908650 }
+    - { label: "Taruga", lat: 8.87507, lon: 7.44893, wikidata: Q501308 }
+
+- id: first-olympic-games
+  name: The ancient Olympic Games
+  year: -775
+  date_text: 776 BCE
+  description: In 776 BCE, according to ancient Greek tradition, the first recorded Olympic Games were held at the sacred sanctuary of Olympia in Elis, inaugurating the four-year Olympiad cycle that served as the chronological backbone of the Classical Hellenic world. Instituted under a sacred panhellenic truce that suspended hostilities between warring city-states, the games brought athletes across Greece and its Mediterranean colonies to compete in footraces, the pentathlon, pankration, and chariot racing in honor of Zeus. The Olympic festival fostered a shared Hellenic cultural identity that transcended political fragmentation.
+  related: [greek-city-states]
+  image_url: /images/events/first-olympic-games.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/first-olympic-games-1.webp, credit: "Livioandronico2013, CC BY-SA 4.0, via Wikimedia Commons", caption: "Roman marble copy of Myron's Discobolus (Discus Thrower), celebrating athletic virtue (National Roman Museum)", source: "https://commons.wikimedia.org/wiki/File:Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG" }
+    - { url: /images/events/extra/first-olympic-games-2.webp, credit: "Jamesscottbrown, CC BY 3.0, via Wikimedia Commons", caption: "The stone starting line (balbis) with toe grooves at the ancient stadium of Olympia", source: "https://commons.wikimedia.org/wiki/File:Ancient_Olympic_Starting_Line.JPG" }
+    - { url: /images/events/extra/first-olympic-games-3.webp, credit: "Bgabel, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Palaestra at Olympia, where wrestlers, boxers, and jumpers trained", source: "https://commons.wikimedia.org/wiki/File:GR-olympia-palaestra.jpg" }
+    - { url: /images/events/extra/first-olympic-games-4.webp, credit: "Kleophrades Painter / Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Panathenaic prize amphora depicting pankration athletes fighting before a trainer", source: "https://commons.wikimedia.org/wiki/File:Pankration_Black_Terracotta_Panathenaic_prize_amphora_Attributed_to_the_Kleophrades_Painter.jpg" }
+  narration: { src: narration/events/first-olympic-games-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "cbcc300d32" }
+  date_source: wikipedia:Ancient_Olympic_Games@1378430802
+  places:
+    - { label: "Olympia", lat: 37.63833, lon: 21.63, wikidata: Q38888 }
+
 - id: minted-coinage
   name: Standardized minted coinage
   year: -599
@@ -1068,6 +1106,24 @@
   date_source: wikipedia:Lydia@1376278046
   places:
     - { label: Sardis, lat: 38.48833, lon: 28.04028, wikidata: Q232615 }
+
+- id: unification-of-china
+  name: Qin unification of China
+  year: -220
+  date_text: 221 BCE
+  description: "In 221 BCE, the state of Qin conquered the last of the Warring States, ending centuries of endemic division and inaugurating the imperial era of China under its first emperor, Qin Shi Huang. The Qin regime imposed sweeping standardization across the realm: establishing a uniform legalist administrative code, standardizing Chinese writing into the Small Seal script, issuing unified round bronze Ban Liang currency, and standardizing weights, measures, and cart axle gauges. Connecting regional defensive walls into the first Great Wall and constructing the colossal Terracotta Army guarding his subterranean mausoleum at Lintong, Qin unification established the institutional and territorial blueprint for two millennia of imperial Chinese statehood."
+  related: [qin-dynasty]
+  image_url: /images/events/unification-of-china.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/unification-of-china-1.webp, credit: "Gremelm, CC BY-SA 3.0, via Wikimedia Commons", caption: "Group of restored life-sized ceramic warriors from the Terracotta Army of Qin Shi Huang", source: "https://commons.wikimedia.org/wiki/File:01_terracottawarriorsgroup.jpg" }
+    - { url: /images/events/extra/unification-of-china-2.webp, credit: "Jmhullot, CC BY 3.0, via Wikimedia Commons", caption: "Imperial half-scale bronze chariot and four horses excavated from the mausoleum complex", source: "https://commons.wikimedia.org/wiki/File:Qin_bronze_chariot_two.jpg" }
+    - { url: /images/events/extra/unification-of-china-3.webp, credit: "Robin Chen, public domain, via Wikimedia Commons", caption: "Ranks of terracotta infantrymen standing in battle formation in Pit 1 at Lintong, Xi'an", source: "https://commons.wikimedia.org/wiki/File:Group_of_soldiers.jpg" }
+    - { url: /images/events/extra/unification-of-china-4.webp, credit: "the-lonely-push-biker, CC BY-SA 4.0, via Wikimedia Commons", caption: "Terracotta entertainer figure from Pit K9901 of the Qin mausoleum, demonstrating acrobatic arts", source: "https://commons.wikimedia.org/wiki/File:Qin_acrobat,_Pit_K9901,_Qin_Mausoleum.jpg" }
+  narration: { src: narration/events/unification-of-china-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0537128366" }
+  date_source: wikipedia:Terracotta_Army@1380487280
+  places:
+    - { label: "Mausoleum of the First Qin Emperor", lat: 34.385, lon: 109.27306, wikidata: Q47672 }
 
 - id: papermaking
   name: Invention of papermaking
@@ -1091,3 +1147,22 @@
   date_source: wikipedia:History_of_paper@1376858354
   places:
     - { label: Fangmatan, lat: 34.4129, lon: 106.10004, wikidata: Q5433839 }
+
+- id: silk-road
+  name: Opening of the Silk Road
+  year: -129
+  date_text: c. 130 BCE
+  description: Following the diplomatic missions of Han envoy Zhang Qian to the Western Regions around 130 BCE, the Han dynasty secured the Hexi Corridor and opened regular trans-continental commerce connecting China with Central Asia, Parthia, and the Mediterranean basin. Caravans traversing the treacherous deserts of the Tarim Basin carried Chinese silk, lacquer, cast iron, and paper westward, exchanging them for Central Asian 'Heavenly Horses' from Dayuan, jade from Khotan, alfalfa, grapes, and Roman glassware. Beyond moving commodities, the Silk Road became the preeminent conduit for intercultural exchange across Afro-Eurasia, transmitting artistic styles, technologies, and the spread of Buddhism across Asia.
+  related: [han-dynasty]
+  image_url: /images/events/silk-road.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/silk-road-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "The Galloping Bronze Horse of Gansu, symbol of the prized 'Heavenly Horses' of the Silk Road", source: "https://commons.wikimedia.org/wiki/File:HanHorse.jpg" }
+    - { url: /images/events/extra/silk-road-2.webp, credit: "John Hill, CC BY-SA 3.0, via Wikimedia Commons", caption: "Remains of the Western Han dynasty frontier granary and outpost near Dunhuang", source: "https://commons.wikimedia.org/wiki/File:Han_Dynasty_Granary_west_of_Dunhuang.jpg" }
+    - { url: /images/events/extra/silk-road-3.webp, credit: "Cresques Abraham, public domain, via Wikimedia Commons", caption: "Merchants and camels traversing the Silk Road depicted in the Catalan Atlas (1375)", source: "https://commons.wikimedia.org/wiki/File:Caravane_sur_la_Route_de_la_soie_-_Atlas_catalan.jpg" }
+    - { url: /images/events/extra/silk-road-4.webp, credit: "John Hill, public domain, via Wikimedia Commons", caption: "Roman green glass cup excavated from an Eastern Han tomb in Guangxi, demonstrating early trans-Eurasian trade", source: "https://commons.wikimedia.org/wiki/File:Green_glass_Roman_cup_unearthed_at_Eastern_Han_tomb,_Guixian,_China.jpg" }
+  narration: { src: narration/events/silk-road-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b95c01b739" }
+  date_source: wikipedia:Silk_Road@1379074984
+  places:
+    - { label: "Chang'an", lat: 34.26111, lon: 108.94222, wikidata: Q5826 }
+    - { label: "Dunhuang", lat: 40.14111, lon: 94.66389, wikidata: Q319114 }
