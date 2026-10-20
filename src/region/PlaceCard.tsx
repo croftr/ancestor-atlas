@@ -18,6 +18,7 @@ import {
   type RegionDnaSite,
   type RegionEntry,
 } from "./region";
+import { areaAt, useAreasReady, type AreaLevel } from "./area";
 import "./place.css";
 
 export function PlacePinIcon({ size = 15 }: { size?: number }) {
@@ -31,6 +32,9 @@ export function PlacePinIcon({ size = 15 }: { size?: number }) {
 
 type FilterMode = "all" | Category | "dna";
 
+/** A continent can hold thousands of DNA sites: list this many, then a button for the rest. */
+const DNA_LIST_STEP = 150;
+
 export default function PlaceCard() {
   const place = useStore((s) => s.place);
   const year = useStore((s) => s.year);
@@ -38,21 +42,38 @@ export default function PlaceCard() {
   const openDnaSite = useStore((s) => s.openDnaSite);
   const closePlace = useStore((s) => s.closePlace);
   const setPlaceRadius = useStore((s) => s.setPlaceRadius);
+  const setPlaceArea = useStore((s) => s.setPlaceArea);
 
   const data = useData();
   const dna = useDna(place !== null);
   const stacked = useMediaQuery(STACKED_QUERY);
+  const areasReady = useAreasReady(place !== null);
 
   const [panelEl, setPanelEl] = useState<HTMLDivElement | null>(null);
   const panelRef = useCallback((el: HTMLDivElement | null) => setPanelEl(el), []);
   const [minimised, setMinimised] = useState(false);
   const [filter, setFilter] = useState<FilterMode>("all");
   const [newestFirst, setNewestFirst] = useState(false);
+  const [dnaShown, setDnaShown] = useState(DNA_LIST_STEP);
+
+  const areas = useMemo(
+    () =>
+      areasReady && place
+        ? (["country", "continent"] as AreaLevel[]).flatMap((level) => {
+            const area = areaAt(place.lon, place.lat, level);
+            return area ? [area] : [];
+          })
+        : [],
+    [areasReady, place],
+  );
+  const area = (place?.area && areas.find((a) => a.level === place.area)) || null;
 
   const result = useMemo(
-    () => (data && place ? queryRegion(data, dna, place.lon, place.lat, place.radiusKm) : null),
-    [data, dna, place],
+    () => (data && place ? queryRegion(data, dna, place.lon, place.lat, place.radiusKm, area) : null),
+    [data, dna, place, area],
   );
+
+  useEffect(() => setDnaShown(DNA_LIST_STEP), [result]);
 
   // Reset filter if the active category has 0 items after a radius or location change.
   useEffect(() => {
@@ -175,7 +196,8 @@ export default function PlaceCard() {
           </div>
           <h2>{result.title}</h2>
           <div className="place-coords">
-            {formatCoords(place.lon, place.lat)} · within {place.radiusKm} km
+            {formatCoords(place.lon, place.lat)} ·{" "}
+            {area ? `the whole ${area.level === "country" ? "country" : "continent"}` : `within ${place.radiusKm} km`}
           </div>
         </div>
 
@@ -185,11 +207,23 @@ export default function PlaceCard() {
               <button
                 key={r}
                 type="button"
-                className={`place-radius-btn${place.radiusKm === r ? " active" : ""}`}
+                className={`place-radius-btn${!area && place.radiusKm === r ? " active" : ""}`}
                 onClick={() => setPlaceRadius(r)}
-                aria-pressed={place.radiusKm === r}
+                aria-pressed={!area && place.radiusKm === r}
               >
                 {r} km
+              </button>
+            ))}
+            {areas.map((a) => (
+              <button
+                key={a.level}
+                type="button"
+                className={`place-radius-btn${area === a ? " active" : ""}`}
+                onClick={() => setPlaceArea(a.level)}
+                aria-pressed={area === a}
+                title={`Everything in ${a.name}`}
+              >
+                {a.name}
               </button>
             ))}
           </div>
@@ -221,8 +255,9 @@ export default function PlaceCard() {
           </div>
         ) : (
           <div className="place-empty">
-            No mapped species, cultures, civilizations, events, or ancient DNA sites within {place.radiusKm} km of this
-            point. Try widening the radius to 500 km or clicking another region on the globe.
+            No mapped species, cultures, civilizations, events, or ancient DNA sites{" "}
+            {area ? `in ${area.name}` : `within ${place.radiusKm} km of this point`}. Try a wider search or another
+            region on the globe.
           </div>
         )}
 
@@ -350,7 +385,7 @@ export default function PlaceCard() {
                   Ancient DNA sites ({result.dnaSites.length} · {result.dnaPeopleCount} sampled)
                 </h3>
                 <ul className="place-list">
-                  {sortedDna.map((item) => {
+                  {sortedDna.slice(0, dnaShown).map((item) => {
                     const s = item.site;
                     const isActiveNow = s.start <= year && year <= s.end;
                     const leftPct = yearToPos(s.start) * 100;
@@ -408,6 +443,11 @@ export default function PlaceCard() {
                     );
                   })}
                 </ul>
+                {sortedDna.length > dnaShown && (
+                  <button type="button" className="place-sort-btn place-more-btn" onClick={() => setDnaShown((n) => n + DNA_LIST_STEP)}>
+                    Show {Math.min(DNA_LIST_STEP, sortedDna.length - dnaShown)} more of {sortedDna.length - dnaShown}
+                  </button>
+                )}
               </>
             )}
           </>

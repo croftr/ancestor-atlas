@@ -305,6 +305,21 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   turning, then settle back (`--sky-x` / `--sky-y`, set in `MapView.tsx`).
 - Shooting stars and drift are off for reduced motion.
 
+## What Was Here? (`src/region/`)
+
+- Right-click (or the pin) opens `PlaceCard.tsx` for a point: everything within 150, 300 or 500 km
+  (`RADIUS_OPTIONS_KM` in `region.ts`), or (added 20 Oct 2026) the point's whole country or continent, the two
+  buttons after the radii ("Brazil", "South America"). Store: `place.area` ("country" | "continent"), kept for the
+  next point; `setPlaceArea` flies out to it.
+- Areas come from country-coder (`area.ts`, loaded on demand, ~230 kB gzipped): UN M49 continents with North America
+  (including Central America and the Caribbean) and South America apart; a country is cut to the point's continent
+  (European or Asian Russia, the US without Hawaii). Its shapes include coastal waters, so coastal and drowned sites
+  count; territories count when any sampled vertex of their outline is inside.
+- Outlines drawn on the globe: `npm run data:areas` (`scripts/areas.ts`, under a minute) writes
+  `public/data/areas/<key>.json`, country-coder's shapes cut to the basemap's land; committed, outside `data:build`.
+  Outer rings must wind as the land's do, and the place source has `tolerance: 0`: otherwise MapLibre left parts of
+  a continent unfilled. Nine micro-territories (Monaco, Macao…) have empty outlines; the card still works.
+
 ## Civilization regions
 
 - Every civilization carries `region`, computed in `scripts/build-data.ts` with `scripts/lib/regions.ts`: grid points

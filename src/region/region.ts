@@ -2,6 +2,7 @@ import type { BBox, Data } from "../map/data";
 import type { DnaData, DnaSite } from "../dna/types";
 import type { Category, Entity, FeatureProps } from "../types";
 import { CATEGORIES } from "../types";
+import type { Area } from "./area";
 
 export const DEFAULT_RADIUS_KM = 300;
 export const RADIUS_OPTIONS_KM = [150, 300, 500] as const;
@@ -35,6 +36,8 @@ export interface RegionResult {
   lon: number;
   lat: number;
   radiusKm: number;
+  /** Set when the search covers a whole country or continent instead of the radius. */
+  area: Area | null;
   title: string;
   entries: RegionEntry[];
   dnaSites: RegionDnaSite[];
@@ -245,9 +248,27 @@ function buildRegionTitle(
   return formatCoords(lon, lat);
 }
 
+/** Whether a territory reaches into the area: some of its outline (sampled) lies inside it. */
+function geometryTouchesArea(geom: { type: string; coordinates: unknown }, area: Area): boolean {
+  const polys: number[][][][] =
+    geom.type === "Polygon"
+      ? [geom.coordinates as number[][][]]
+      : geom.type === "MultiPolygon"
+        ? (geom.coordinates as number[][][][])
+        : [];
+  for (const rings of polys) {
+    const outer = rings[0] ?? [];
+    const step = Math.max(1, Math.floor(outer.length / 48));
+    for (let i = 0; i < outer.length; i += step) {
+      if (area.contains(outer[i][0], outer[i][1])) return true;
+    }
+  }
+  return false;
+}
+
 /**
  * Query all species, cultures, civilizations, events, and ancient DNA sites within `radiusKm`
- * of `[lon, lat]` across all 7 million years.
+ * of `[lon, lat]` (or, given an `area`, inside that country or continent) across all 7 million years.
  */
 export function queryRegion(
   data: Data,
@@ -255,6 +276,7 @@ export function queryRegion(
   lon: number,
   lat: number,
   radiusKm: number = DEFAULT_RADIUS_KM,
+  area: Area | null = null,
 ): RegionResult {
   const queryBox = circleBBox(lon, lat, radiusKm * 1.05);
   const byEntity = new Map<
@@ -269,25 +291,29 @@ export function queryRegion(
 
   for (const f of data.features) {
     const bbox = data.bboxOf.get(f.id);
-    if (!bbox || !bboxMightIntersect(bbox, queryBox)) continue;
+    if (!bbox || (!area && !bboxMightIntersect(bbox, queryBox))) continue;
 
     let dist = Infinity;
+    let inside = false;
     if (f.category === "civilization") {
       const geom = data.geometryOf.get(f.id);
       if (geom) {
         dist = polygonDistanceKm(lon, lat, geom);
+        inside = !!area && (dist === 0 || geometryTouchesArea(geom, area));
       } else {
         const cx = (bbox[0] + bbox[2]) / 2;
         const cy = (bbox[1] + bbox[3]) / 2;
         dist = distanceKm([lon, lat], [cx, cy]);
+        inside = !!area && area.contains(cx, cy);
       }
     } else {
       const cx = (bbox[0] + bbox[2]) / 2;
       const cy = (bbox[1] + bbox[3]) / 2;
       dist = distanceKm([lon, lat], [cx, cy]);
+      inside = !!area && area.contains(cx, cy);
     }
 
-    if (dist > radiusKm) continue;
+    if (area ? !inside : dist > radiusKm) continue;
     const entity = data.entityById.get(f.entity_id);
     if (!entity) continue;
 
@@ -335,9 +361,11 @@ export function queryRegion(
   let dnaPeopleCount = 0;
   if (dna) {
     for (const s of dna.sites) {
-      if (s.lon < queryBox[0] || s.lon > queryBox[2] || s.lat < queryBox[1] || s.lat > queryBox[3]) continue;
+      if (area) {
+        if (!area.contains(s.lon, s.lat)) continue;
+      } else if (s.lon < queryBox[0] || s.lon > queryBox[2] || s.lat < queryBox[1] || s.lat > queryBox[3]) continue;
       const d = distanceKm([lon, lat], [s.lon, s.lat]);
-      if (d <= radiusKm) {
+      if (area || d <= radiusKm) {
         dnaSites.push({ site: s, distanceKm: Math.round(d) });
         dnaPeopleCount += s.people.length;
         if (earliestYear === null || s.start < earliestYear) earliestYear = s.start;
@@ -347,12 +375,13 @@ export function queryRegion(
     dnaSites.sort((a, b) => a.site.start - b.site.start || a.distanceKm - b.distanceKm);
   }
 
-  const title = buildRegionTitle(lon, lat, entries, dnaSites);
+  const title = area ? area.name : buildRegionTitle(lon, lat, entries, dnaSites);
 
   return {
     lon,
     lat,
     radiusKm,
+    area,
     title,
     entries,
     dnaSites,

@@ -7,11 +7,14 @@ import { BASEMAP_THEMES, DEFAULT_BASEMAP } from "./config";
 import { tourById } from "./tours/tours";
 import type { DnaColour } from "./dna/haplogroups";
 import { circleBBox, DEFAULT_RADIUS_KM } from "./region/region";
+import { areaAt, type AreaLevel } from "./region/area";
 
 export interface PlaceQuery {
   lon: number;
   lat: number;
   radiusKm: number;
+  /** The whole country or continent of the point instead of the radius (kept for the next point). */
+  area?: AreaLevel;
 }
 
 const BASEMAP_KEY = "history-globe.basemap";
@@ -206,6 +209,8 @@ interface AppState {
   closePlace(): void;
   reopenPlace(): void;
   setPlaceRadius(radiusKm: number): void;
+  /** Search the point's whole country or continent, and fly out to it. */
+  setPlaceArea(area: AreaLevel): void;
   setPlaceMode(on: boolean): void;
   setClimatePanel(on: boolean): void;
   setLegendPanel(on: boolean): void;
@@ -453,7 +458,9 @@ export const useStore = create<AppState>((set, get) => ({
   openPlace: (lon, lat, opts) =>
     set((s) => {
       const radiusKm = opts?.radiusKm ?? s.place?.radiusKm ?? s.lastPlace?.radiusKm ?? DEFAULT_RADIUS_KM;
-      const next: PlaceQuery = { lon, lat, radiusKm };
+      const level = opts?.radiusKm ? undefined : (s.place ?? s.lastPlace)?.area;
+      const area = level ? areaAt(lon, lat, level) : null;
+      const next: PlaceQuery = { lon, lat, radiusKm, ...(area && { area: level }) };
       return {
         playing: false,
         place: next,
@@ -464,7 +471,7 @@ export const useStore = create<AppState>((set, get) => ({
         groupId: null,
         dnaSite: null,
         pictureViewer: false,
-        ...(opts?.fly && { flyTo: { bbox: circleBBox(lon, lat, radiusKm), gentle: true } }),
+        ...(opts?.fly && { flyTo: area ? { bbox: area.bbox } : { bbox: circleBBox(lon, lat, radiusKm), gentle: true } }),
       };
     }),
   closePlace: () => set({ place: null, lastPlace: null, placeMode: false }),
@@ -484,9 +491,17 @@ export const useStore = create<AppState>((set, get) => ({
     }),
   setPlaceRadius: (radiusKm) =>
     set((s) => ({
-      place: s.place ? { ...s.place, radiusKm } : null,
-      lastPlace: s.lastPlace ? { ...s.lastPlace, radiusKm } : null,
+      place: s.place ? { ...s.place, radiusKm, area: undefined } : null,
+      lastPlace: s.lastPlace ? { ...s.lastPlace, radiusKm, area: undefined } : null,
     })),
+  setPlaceArea: (level) =>
+    set((s) => {
+      if (!s.place) return {};
+      const area = areaAt(s.place.lon, s.place.lat, level);
+      if (!area) return {};
+      // Not gentle: that keeps the zoom, and a continent needs zooming out.
+      return { place: { ...s.place, area: level }, flyTo: { bbox: area.bbox } };
+    }),
   setPlaceMode: (on) => set({ placeMode: on }),
   setClimatePanel: (on) => {
     saveOn(CLIMATE_PANEL_KEY, on);

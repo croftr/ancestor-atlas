@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { areaAt, loadAreas } from "./area";
 import {
   circleBBox,
   circleGeoJSON,
@@ -222,5 +223,22 @@ describe("queryRegion", () => {
     expect(res.dnaSites).toHaveLength(1);
     expect(res.dnaPeopleCount).toBe(1);
     expect(res.title).toBe("Near El-Wad Terrace, Israel");
+  });
+
+  it("searches a whole country or continent instead of the radius", async () => {
+    await loadAreas();
+    const israel = areaAt(35.0, 32.7, "country")!;
+    expect(israel.name).toBe("Israel");
+    const inIsrael = queryRegion(data, dna, 35.0, 32.7, 300, israel);
+    expect(inIsrael.title).toBe("Israel");
+    expect(inIsrael.entries.map((e) => e.entity.id)).toEqual(["erectus", "natufian", "rome"]);
+    expect(inIsrael.entries[0].siteCount).toBe(1);
+
+    const asia = areaAt(35.0, 32.7, "continent")!;
+    expect(asia.name).toBe("Asia");
+    const inAsia = queryRegion(data, dna, 35.0, 32.7, 300, asia);
+    // Trinil (Java) is in Asia too.
+    expect(inAsia.entries[0].siteCount).toBe(2);
+    expect(inAsia.dnaSites).toHaveLength(1);
   });
 });

@@ -20,6 +20,7 @@ import { dnaGeoJSON, loadDna } from "../dna/data";
 import { NONE_COLOR } from "../dna/haplogroups";
 import { FILM } from "../film";
 import { circleGeoJSON } from "../region/region";
+import { areaAt, areaGeoJSON, loadOutline, outlineOf } from "../region/area";
 
 const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 
@@ -904,13 +905,19 @@ export default function MapView() {
         filter: ["==", ["get", "kind"], "head"],
         paint: { "circle-color": "#fffaf0", "circle-radius": 9, "circle-blur": 1, "circle-opacity": 0.95 },
       });
-      map.addSource("place-circle", { type: "geojson", data: EMPTY });
+      // No simplifying: on the low-zoom tiles towards the globe's edge it broke a continent's long coastline,
+      // leaving parts of it unfilled.
+      map.addSource("place-circle", { type: "geojson", data: EMPTY, tolerance: 0 });
       map.addLayer({
         id: "place-circle-fill",
         type: "fill",
         source: "place-circle",
         filter: ["==", ["get", "kind"], "circle"],
-        paint: { "fill-color": "#f0bd78", "fill-opacity": 0.1 },
+        // A country or continent lies over land, where 0.1 barely shows.
+        paint: {
+          "fill-color": ["case", ["has", "area"], "#d9822b", "#f0bd78"],
+          "fill-opacity": ["case", ["has", "area"], 0.3, 0.1],
+        },
       });
       map.addLayer({
         id: "place-circle-line",
@@ -952,7 +959,14 @@ export default function MapView() {
       if (!src) return;
       const st = useStore.getState();
       const p = st.place ?? st.lastPlace;
-      src.setData(p ? circleGeoJSON(p.lon, p.lat, p.radiusKm) : EMPTY);
+      const area = p?.area ? areaAt(p.lon, p.lat, p.area) : null;
+      if (!p) src.setData(EMPTY);
+      else if (!area) src.setData(circleGeoJSON(p.lon, p.lat, p.radiusKm));
+      else {
+        const outline = outlineOf(area);
+        src.setData(areaGeoJSON(outline ?? null, p.lon, p.lat));
+        if (outline === undefined) loadOutline(area).then(applyPlace);
+      }
     }
 
     map.on("click", (e) => {
