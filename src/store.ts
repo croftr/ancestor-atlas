@@ -111,6 +111,8 @@ interface AppState {
     restore: Record<Category, boolean>;
     /** The viewer's ancient DNA layer and colour before a tour that sets them (`dna` on the tour), put back after. */
     restoreDna: { dna: boolean; dnaColour: DnaColour };
+    /** The viewer's coastlines setting before a tour that turns them on (`paleo` on the tour), put back after. */
+    restorePaleo: boolean;
     /** Opened from a link: waits for a tap on "Start tour" (browsers only play sound after one). */
     gate: boolean;
     /** The title card before the first stop (announced, if the tour has an announcement). */
@@ -218,7 +220,7 @@ interface AppState {
 }
 
 /** What a tour ending puts back: the viewer's layers, and their ancient DNA layer setting. */
-const afterTour = (t: NonNullable<AppState["tour"]>) => ({ enabled: t.restore, ...t.restoreDna });
+const afterTour = (t: NonNullable<AppState["tour"]>) => ({ enabled: t.restore, ...t.restoreDna, paleo: t.restorePaleo });
 
 export const useStore = create<AppState>((set, get) => ({
   year: -1_799_999,
@@ -363,6 +365,7 @@ export const useStore = create<AppState>((set, get) => ({
       placeMode: false,
       enabled: t.layers ? (Object.fromEntries(CATEGORIES.map((c) => [c, t.layers!.includes(c)])) as Record<Category, boolean>) : s.enabled,
       ...(t.dna && { dna: true, dnaColour: t.dna }),
+      ...(t.paleo && { paleo: true }),
       dnaSite: null,
       tour: {
         id,
@@ -377,6 +380,7 @@ export const useStore = create<AppState>((set, get) => ({
         holdMs: 0,
         restore: s.tour?.restore ?? s.enabled,
         restoreDna: s.tour?.restoreDna ?? { dna: s.dna, dnaColour: s.dnaColour },
+        restorePaleo: s.tour?.restorePaleo ?? s.paleo,
       },
     }));
   },

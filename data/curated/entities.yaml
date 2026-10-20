@@ -757,7 +757,8 @@
   category: culture
   start_year: -19050
   end_year: -8050
-  description: Last Upper Palaeolithic culture of Italy and southern and eastern Europe, which followed the Gravettian after the Last Glacial Maximum, around 21,000 years ago. Its stone tools are dominated by small backed blades and points, and it lasted until the Mesolithic, after about 10,000 years ago.
+  description: "While the ice sheets were at their greatest, about twenty thousand years ago, people held on in the warmer south and east of Europe: in Italy, the Balkans and the plains of Ukraine. Their way of life, the Epigravettian, followed the Gravettian and lasted until the end of the Ice Age. They set tiny flint blades into their spears to hunt horse, ibex and bison, and on the Ukrainian plains some built huts framed with mammoth bones. Genetic studies suggest that as the climate warmed, people related to them spread north across the continent."
+  narration: { src: narration/cultures/epigravettian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3b4cbb5214" }
   wikidata: Q3589150
   wikipedia_url: https://en.wikipedia.org/wiki/Epigravettian
   source_ids:
@@ -769,7 +770,8 @@
   category: culture
   start_year: -13050
   end_year: -9050
-  description: Late Epipalaeolithic culture of the Levant, with some of the earliest semi-permanent villages and intensive wild-cereal harvesting just before farming began.
+  description: "In the oak woodlands of the Levant, about fifteen thousand years ago, the Natufians began to stay in one place all year round. At Ain Mallaha, in the upper Jordan valley, they built round houses on stone footings and buried their dead beneath the floors; one elderly person was laid to rest with a hand on a puppy. They cut wild wheat and barley with flint sickles and ground them in stone mortars, and in Jordan they baked the oldest known bread. When the cold of the Younger Dryas returned, many researchers think it pushed their descendants towards farming."
+  narration: { src: narration/cultures/natufian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ce8c282e22" }
   image_url: /images/cultures/natufian.webp
   image_credit: AI-generated illustration
   image_caption: "Epipaleolithic hillside hamlet with circular stone pit dwellings, mortars, and wild cereal harvesting"
@@ -1221,7 +1223,7 @@
   category: culture
   start_year: -5399
   end_year: -3949
-  description: Late Mesolithic hunter-gatherer and fisher culture of southern Scandinavia and northern Germany, c. 5400–3950 BCE, which made pottery and left large shell middens. Also called Ertebølle–Ellerbek.
+  description: "By about seven thousand years ago the sea had nearly reached today's level, and the drowned valleys of Denmark had become bays and fjords rich in fish and shellfish. The Ertebølle people lived on these new coasts. At the type site on the Limfjord they left a great mound of oyster and mussel shells, and at Tybrind Vig their dugout canoes and carved paddles survive under the sea. They made pots with pointed bases while still living by hunting and fishing,, and traded with the farmers to the south, until around six thousand years ago they took up farming too."
   image_url: /images/cultures/ertebolle.webp
   image_credit: AI-generated illustration
   image_caption: "Shoreline camp beside a shell midden, with a dugout canoe and wicker fish traps"
@@ -1412,7 +1414,8 @@
   category: culture
   start_year: -10550
   end_year: -8050
-  description: "Epipalaeolithic or Mesolithic industry of northern Spain and southern France, c. 12,500–10,000 years ago, seen as the tail end of the Magdalenian as the climate warmed. Known for small round-backed points, flat bone harpoons and painted pebbles; named after the cave of Le Mas-d'Azil in the French Pyrenees."
+  description: "As the ice retreated, forests spread over the open plains of western Europe and the reindeer herds moved away north. The hunters who stayed behind in northern Spain and southern France changed with them. Named after the great cave of Le Mas d'Azil in the Pyrenees, the Azilians hunted red deer and boar in the woods with small flint points, made flat harpoons from deer antler, and painted pebbles with dots and stripes of red ochre, whose meaning nobody knows. Their art was far simpler than the cave paintings of the Magdalenians before them."
+  narration: { src: narration/cultures/azilian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "8f599f8353" }
   wikipedia_url: https://en.wikipedia.org/wiki/Azilian
   image_url: /images/cultures/azilian.webp
   image_credit: AI-generated illustration
@@ -1425,7 +1428,7 @@
   category: culture
   start_year: -8999
   end_year: -5999
-  description: Early Mesolithic culture of northern Europe, c. 9000–6000 BCE. In Scandinavia it was followed by the Kongemose culture.
+  description: "When the ice had gone, Britain was not yet an island. A wide, low plain, now called Doggerland, joined it to the Netherlands and Denmark, and the Maglemosian hunters, named after a Danish bog, lived along the lakes and rivers of northern Europe. At Star Carr in Yorkshire they built wooden platforms at a lake's edge and wore headdresses made from the skulls and antlers of red deer. As the sea rose the plain shrank, until by about eight thousand years ago it had drowned beneath the North Sea, where fishing boats still dredge up their tools."
   wikipedia_url: https://en.wikipedia.org/wiki/Maglemosian_culture
   image_url: /images/cultures/maglemosian.webp
   image_credit: AI-generated illustration
@@ -1438,7 +1441,7 @@
   category: culture
   start_year: -8999
   end_year: -5399
-  description: Epipalaeolithic tradition of Algeria and Tunisia, c. 9000–5400 BCE, named after Gafsa (Latin Capsa). Divided into the Typical and Upper Capsian; its people hunted a wide range of animals, from aurochs to hares and snails, and made ostrich-eggshell beads and containers and figurative and abstract rock art.
+  description: "While the Sahara to the south was greener and wetter than today, from about eleven thousand years ago, hunters in the hills of Tunisia and eastern Algeria lived the Capsian way of life, named after the oasis town of Gafsa, the Roman Capsa. Their camps are marked by great mounds of ash, burnt stones and the shells of land snails, which they ate in vast numbers. They hunted wild cattle, gazelle and hares with tiny flint blades, and carried water in ostrich eggs engraved with lines and patterns."
   image_url: /images/cultures/capsian.webp
   image_credit: AI-generated illustration
   image_caption: "Maghreb camp centered on a snail-shell midden with engraved ostrich eggshells"
@@ -2286,7 +2289,8 @@
       title: "The Full History of the Peloponnesian War - Athens vs Sparta"
       credit: Kings and Generals, YouTube
 - id: zapotec-civilization
-  description: An advanced indigenous pre-Columbian civilization centered in the highland Valley of Oaxaca in southern Mexico. Ruling from the mountaintop acropolis city of Monte Albán, the Zapotecs developed the earliest known written glyphic script and calendar in Mesoamerica, terrace farming, and monumental ballcourts that flourished for over a millennium.
+  description: "In the highland Valley of Oaxaca in southern Mexico, around 500 BCE, the Zapotecs levelled the top of a mountain and built a capital on it, Monte Albán, looking out over three valleys. Around its great plaza they raised temples and a ball court, and lined one building with carved stone figures, the Danzantes, probably of slain captives. Their carvings carry some of the earliest writing and calendar signs in Mesoamerica. Monte Albán was the valley's capital for over a thousand years, but the Zapotec people and their languages live in Oaxaca still."
+  narration: { src: narration/civilizations/zapotec-civilization-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "07bb48a316" }
   image_url: /images/civilisations/zapotec-civilization.webp
   image_caption: Mountaintop ceremonial center of Monte Albán overlooking the Oaxaca Valley, with Building J, Danzantes slabs, and priests holding grey-ware urns.
   image_credit: AI-generated illustration
@@ -2394,7 +2398,8 @@
       title: "Rise and Fall of the Greco-Bactrian Kingdom | The Forgotten Greek Empire in Central Asia"
       credit: TimelessTreasury, YouTube
 - id: mayan-city-states
-  description: A sophisticated Mesoamerican civilization spanning southeastern Mexico, Guatemala, Belize, and western Honduras. Organized into competing city-states like Tikal, Calakmul, and El Mirador, the Maya engineered tropical agriculture, developed the most fully articulated pre-Columbian hieroglyphic script, advanced astronomical mathematics, and monumental corbeled-vault architecture.
+  description: "In the tropical forests of southern Mexico, Guatemala and Belize, Maya farmers were building cities by the last centuries BCE. At El Mirador they raised some of the largest pyramids ever built, long before the famous cities of Tikal and Calakmul. The Maya never formed one empire, but many rival kingdoms, whose kings recorded their reigns in a full system of writing and counted the days with a precise calendar that used a sign for zero. Most of the southern cities were abandoned around 900 CE, yet millions of Maya people still speak Mayan languages today."
+  narration: { src: narration/civilizations/mayan-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "8f673e50b2" }
   image_url: /images/civilisations/mayan-city-states.webp
   image_caption: Classic Maya city-state of Tikal with jungle pyramid-temples, carved stelae, lords in quetzal feather crests, and a scribe painting a screenfold codex.
   image_credit: AI-generated illustration
@@ -2460,7 +2465,8 @@
       title: "Kingdom of Aksum: Africa’s Forgotten Superpower | Full Documentary"
       credit: STORIES NETWORK, YouTube
 - id: teotihuacan
-  description: A colossal pre-Columbian metropolis in the Valley of Mexico that was one of the largest cities in the ancient world, peaking around 400 CE. Known for its grid layout, apartment compounds, and monumental Pyramids of the Sun and Moon along the Avenue of the Dead, Teotihuacan projected profound cultural influence across Mesoamerica.
+  description: "In the Valley of Mexico, north-east of today's Mexico City, a small town grew in the last century BCE into one of the largest cities in the world. Teotihuacan was laid out on a grid along a broad avenue, with the vast Pyramid of the Sun and the Pyramid of the Moon at its heart, and at its height perhaps a hundred thousand people lived there in walled apartment compounds, some of them migrants from far away. Its influence reached as far as the Maya city of Tikal, a thousand kilometres away. Around 550 CE its centre was burned, and the city slowly emptied."
+  narration: { src: narration/civilizations/teotihuacan-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e838ea8957" }
   image_url: /images/civilisations/teotihuacan.webp
   image_caption: Avenue of the Dead toward the Pyramids of the Sun and Moon, workshops knapping green Pachuca obsidian and painting feathered serpent murals.
   image_credit: AI-generated illustration

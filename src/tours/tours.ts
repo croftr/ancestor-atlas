@@ -9,6 +9,7 @@ import EVENT_IDS from "./event-ids.json";
  * `hold` is how long the card stays up, in seconds (default: from the length of its description).
  * `layers`: the categories shown during the tour (default: all); the viewer's own come back after.
  * `dna`: show the ancient DNA layer during the tour, coloured by "y", "mt" or "plain".
+ * `paleo`: show the coastlines and ice sheets of the time during the tour (map/paleo.ts).
  * `music`: background track, a bucket key (music/tours/<id>-v<n>.mp3; set by `npm run audio:music`).
  * `announcement`: the title card's voice-over, reading announcementText (narration/tours/<id>-v<n>.mp3;
  * set by `npm run audio:narrate -- --announce <id>`; `text_hash` is that text's fingerprint when recorded).
@@ -30,6 +31,8 @@ export interface Tour {
   layers?: Category[];
   /** Turn the ancient DNA layer on for the tour, coloured this way (the viewer's own setting comes back after). */
   dna?: DnaColour;
+  /** Turn the coastlines and ice sheets of the time on for the tour (the viewer's own setting comes back after). */
+  paleo?: true;
   music?: { src: string; credit: string };
   announcement?: { src: string; credit: string; text_hash: string };
   closing?: string;
@@ -260,6 +263,50 @@ export const TOURS: Tour[] = [
       { entity: "iron-age" },
       { entity: "sea-peoples" },
       { entity: "carthage", year: -269 },
+    ],
+  },
+  {
+    id: "first-americans",
+    title: "The first Americans",
+    closing: "They came from Asia over land that is now sea. Cut off from the rest of the world, their descendants invented farming, cities and writing all over again.",
+    blurb: "From the first footprints in North America to the cities of Mesoamerica: how the peoples of two continents, cut off from the rest of the world, found their own way to farming, monuments and writing.",
+    layers: ["culture", "civilization", "event"],
+    paleo: true,
+    music: { src: "music/tours/first-americans-v1.mp3", credit: "Music: \"Memories Of Stone\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    stops: [
+      { entity: "peopling-of-the-americas" },
+      { entity: "clovis", year: -11_999, site: "clovis@2" },
+      { entity: "quaternary-megafauna-extinction", site: "quaternary-megafauna-extinction@1" },
+      { entity: "maize-and-squash" },
+      { entity: "andean-domestication" },
+      { entity: "chinchorro-mummies" },
+      { entity: "caral-supe" },
+      { entity: "poverty-point" },
+      { entity: "olmec-civilization", year: -599 },
+      { entity: "zapotec-civilization", year: -299 },
+      { entity: "mayan-city-states", year: -99 },
+      { entity: "teotihuacan", year: -9 },
+    ],
+  },
+  {
+    id: "when-the-ice-melted",
+    title: "When the ice melted",
+    closing: "In ten thousand years the ice sheets melted and the sea rose more than a hundred metres. The shores where Ice Age people lived now lie far under the waves.",
+    blurb: "From the coldest days of the last Ice Age to the coasts of today: how people lived through the great warming, as the ice sheets melted, forests spread and the rising sea drowned whole landscapes.",
+    layers: ["culture", "event"],
+    paleo: true,
+    music: { src: "music/tours/when-the-ice-melted-v1.mp3", credit: "Music: \"Permafrost\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    stops: [
+      { entity: "first-pottery" },
+      { entity: "epigravettian", year: -16_999, site: "epigravettian@r:paglicci" },
+      { entity: "magdalenian", year: -13_999, site: "magdalenian@2" },
+      { entity: "dog-domestication" },
+      { entity: "natufian", year: -11_999, site: "natufian@4" },
+      { entity: "azilian", year: -9_999, site: "azilian@x:miron" },
+      { entity: "gobekli-tepe" },
+      { entity: "maglemosian", year: -8_899, site: "maglemosian@x:starr-carr" },
+      { entity: "capsian", year: -6_999, site: "capsian@x:el-mekta" },
+      { entity: "ertebolle", year: -4_499, site: "ertebolle@x:erteb-lle" },
     ],
   },
 ];

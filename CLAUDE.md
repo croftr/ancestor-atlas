@@ -104,6 +104,13 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   cultures, Yamnaya to Andronovo; `dna: "y"` turns the ancient DNA layer on for the tour and puts the viewer's setting
   back after). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
   narration-length paragraphs for them (Rob to review). Music: Human evolution and Out of Africa have "Apeman Suite" by Paul Lawler (16 Oct 2026; no licence for it, see backlog item 5); the others share "Adrift Among Infinite Stars" (Scott Buckley, CC BY 4.0).
+  Added 20 Oct 2026: The first Americans (`first-americans`, 12 stops, White Sands to Teotihuacan; music "Memories Of
+  Stone") and When the ice melted (`when-the-ice-melted`, 10 stops, Xianrendong pottery to Ertebølle; music
+  "Permafrost"; both Scott Buckley, CC BY 4.0). `paleo: true` on a tour turns the coastlines and ice sheets on for
+  it (viewer's setting put back after). Nine descriptions rewritten for them (Zapotec, Maya, Teotihuacan,
+  Epigravettian, Natufian, Azilian, Maglemosian, Capsian, Ertebølle; Rob to review). ElevenLabs credit ran out
+  mid-batch: Maglemosian, Capsian and Ertebølle narration, both announcements and both closing narrations are still
+  to make, and nothing from that day is uploaded yet.
 - Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,
   blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
   (`startTour(id, { index })`). The time bar's Tours menu shows a thumbnail and running time, and links to the page.
