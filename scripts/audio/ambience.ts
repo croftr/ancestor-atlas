@@ -84,8 +84,8 @@ function closeSeam(input: string, id: string): string {
   const out = `data/build/audio/sfx/looped-${id}.wav`;
   execFileSync(
     "ffmpeg",
-    ["-hide_banner", "-loglevel", "error", "-y", "-i", input, "-filter_complex",
-      `[0]asplit[a][b];[a]atrim=0:${SEAM_S},asetpts=PTS-STARTPTS[head];[b]atrim=${SEAM_S},asetpts=PTS-STARTPTS[body];` +
+    ["-hide_banner", "-loglevel", "error", "-y", "-i", input, "-i", input, "-filter_complex",
+      `[0]atrim=${SEAM_S},asetpts=PTS-STARTPTS[body];[1]atrim=0:${SEAM_S},asetpts=PTS-STARTPTS[head];` +
       `[body][head]acrossfade=d=${SEAM_S}:c1=tri:c2=tri`, out],
     { stdio: "inherit" },
   );

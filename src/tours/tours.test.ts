@@ -72,7 +72,7 @@ describe("tour links", () => {
   it("finds all tours that stop at an entity with their 0-based stop index", () => {
     const sapiens = toursOfEntity("homo-sapiens");
     expect(sapiens.map((r) => ({ id: r.tour.id, index: r.index }))).toEqual([
-      { id: "human-evolution", index: 9 },
+      { id: "human-evolution", index: 11 },
       { id: "out-of-africa", index: 1 },
     ]);
     expect(toursOfEntity("not-an-entity")).toEqual([]);

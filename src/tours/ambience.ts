@@ -15,6 +15,7 @@ export const AMBIENCE: Record<string, Ambience> = {
   // hominin-divergence: no sound (Rob's call, 16 Oct 2026).
   "laetoli-footprints": {
     prompt: "Slow bare footsteps pressing into damp volcanic ash after light rain, gentle East African savanna wind, distant birds calling",
+    sound: { src: "ambience/events/laetoli-footprints-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7bc93dff7e" },
   },
   "lomekwian-tools": {
     prompt: "Close, clear knocks of a heavy stone hammering a large stone core, sharp chips cracking off, by a lake with small waves lapping and birds calling",
@@ -38,6 +39,7 @@ export const AMBIENCE: Record<string, Ambience> = {
   },
   "kalambo-falls-wood": {
     prompt: "Stone adze chopping and scraping heavy wet timber by a river, wood chips falling, rushing river water and a distant waterfall",
+    sound: { src: "ambience/events/kalambo-falls-wood-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ac62eb9810" },
   },
   "modern-humans-emerge": {
     prompt: "North African savanna at dawn: gentle wind, birdsong, cicadas warming up, distant animal calls",
@@ -45,9 +47,11 @@ export const AMBIENCE: Record<string, Ambience> = {
   },
   "schoningen-spears": {
     prompt: "Reedy lakeshore in cool wind: flint flake scraping a spruce wooden spear shaft, water lapping in reeds, distant wild horses",
+    sound: { src: "ambience/events/schoningen-spears-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b41d4dd892" },
   },
   "earliest-burials": {
     prompt: "Quiet limestone cave mouth at dusk: soft wind over dry hills, gentle digging in earth and gravel, distant doves calling",
+    sound: { src: "ambience/events/earliest-burials-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b49dfbe975" },
   },
   "symbolic-culture": {
     prompt: "Sea cave on a rocky African coast: waves breaking below, wind across the cave mouth, water dripping, a stone softly grinding red ochre",

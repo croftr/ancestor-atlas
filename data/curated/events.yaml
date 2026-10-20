@@ -48,6 +48,7 @@
     - { url: /images/events/extra/laetoli-footprints-2.webp, credit: "Tim Evanson, CC BY-SA 2.0, via Wikimedia Commons", caption: "Cast of the Laetoli footprint trail found by Mary Leakey's team in 1976 (Smithsonian National Museum of Natural History)", source: "https://commons.wikimedia.org/wiki/File:Earliest_known_human_footprints_-_one_set_-_australopithecus_afarensis_-_Smithsonian_Museum_of_Natural_History_-_2012-05-17.jpg" }
     - { url: /images/events/extra/laetoli-footprints-3.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "Close-up of a cast of the Laetoli footprints, showing the arched sole and aligned big toe (Natural History Museum, Vienna)", source: "https://commons.wikimedia.org/wiki/File:NHM_-_Laetoli_Fu%C3%9Fspuren.jpg" }
     - { url: /images/events/extra/laetoli-footprints-4.webp, credit: "Fidelis T. Masao et al. / Dennis Pietras, CC BY-SA 4.0, via Wikimedia Commons", caption: "Depth map and stride measurements of four footprints from the S1 trail at Laetoli, reported in 2016", source: "https://commons.wikimedia.org/wiki/File:LaetoliS1prints4TC.jpg" }
+  narration: { src: narration/events/laetoli-footprints-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "58338101cd" }
   date_source: wikipedia:Laetoli@1364840389
   places:
     - { label: Laetoli, lat: -2.99622, lon: 35.3524, wikidata: Q672146 }
@@ -176,6 +177,7 @@
     - { url: /images/events/extra/kalambo-falls-wood-2.webp, credit: "Humphrey Kaburu, CC BY-SA 4.0, via Wikimedia Commons", caption: "Kalambo Falls on the Zambia–Tanzania border; the wooden structure lay in waterlogged sediments along the river above the falls", source: "https://commons.wikimedia.org/wiki/File:235_meters_of_single_drop_waterfall%2C_the_second_largest_waterfall_in_Africa.jpg" }
     - { url: /images/events/extra/kalambo-falls-wood-3.webp, credit: "Bernard Dupont, CC BY-SA 2.0, via Wikimedia Commons", caption: "Large-fruited bushwillow (Combretum zeyheri), the tree species from which the Kalambo logs were cut", source: "https://commons.wikimedia.org/wiki/File:Large-fruited_Bushwillow_(Combretum_zeyheri)_(12908085833).jpg" }
     - { url: /images/events/extra/kalambo-falls-wood-4.webp, credit: "Geni, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Clacton Spear point from Essex, England, about 400,000 years old, another rare survival of Lower Paleolithic woodworking (Natural History Museum, London)", source: "https://commons.wikimedia.org/wiki/File:Clacton_Spear_2018.JPG" }
+  narration: { src: narration/events/kalambo-falls-wood-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d40950a529" }
   date_source: wikipedia:Kalambo_structure@1374039876
   places:
     - { label: Kalambo Falls, lat: -8.59639, lon: 31.24028, wikidata: Q3812559 }
@@ -217,6 +219,7 @@
     - { url: /images/events/extra/schoningen-spears-2.webp, credit: "Matthias Vogel / NLD, CC BY 4.0, via Wikimedia Commons", caption: "Eight wooden hunting spears and six double-pointed throwing sticks from the Spear Horizon at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_wooden_artifacts_Lower_Palaeolithic.jpg" }
     - { url: /images/events/extra/schoningen-spears-3.webp, credit: "K. Cornelius / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Butchered bones of extinct wild horses (Equus mosbachensis) uncovered in the Spear Horizon at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_13_II-4_Skelettreste_%C2%A9_NLD_%2B_K._Cornelius.jpg" }
     - { url: /images/events/extra/schoningen-spears-4.webp, credit: "P. Pfarr / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "The Schöningen 13 II excavation block preserved on a pedestal inside the open-cast lignite mine", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_13_II_Grabung_%C2%A9_P._Pfarr_NLD.jpg" }
+  narration: { src: narration/events/schoningen-spears-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "56b55cf563" }
   date_source: wikipedia:Schöningen_spears@1368889579
   places:
     - { label: Schöningen, lat: 52.1335, lon: 10.9893, wikidata: Q320796 }
@@ -238,6 +241,7 @@
     - { url: /images/events/extra/earliest-burials-3.webp, credit: "LS, CC BY-SA 4.0, via Wikimedia Commons", caption: "Entrance to Qafzeh Cave on Mount Precipice near Nazareth, Israel", source: "https://commons.wikimedia.org/wiki/File:Eingang_der_Qafzeh-H%C3%B6hle.jpg" }
     - { url: /images/events/extra/earliest-burials-4.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skull and skeleton of Shanidar 1, an older Neanderthal buried in Shanidar Cave, Iraq (Iraq Museum, Baghdad)", source: "https://commons.wikimedia.org/wiki/File:Shanidar_I_skull_and_skeleton%2C_c._60%2C000_to_45%2C00o_BCE._Iraq_Museum.jpg" }
   # Shanidar Cave: Shanidar_Cave@1368889989.
+  narration: { src: narration/events/earliest-burials-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e8e58fdd28" }
   date_source: wikipedia:Skhul_and_Qafzeh_hominins@1378899281
   places:
     - { label: Qafzeh Cave, lat: 32.68852, lon: 35.318, wikidata: Q2121357 }

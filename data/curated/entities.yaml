@@ -1179,7 +1179,8 @@
   category: culture
   start_year: -5049
   end_year: -2949
-  description: Neolithic–Chalcolithic culture of Romania, Moldova and Ukraine, c. 5050–2950 BCE, famous for painted pottery and giant settlements of thousands of houses between the Carpathians and the Dnieper.
+  description: Between the Carpathian Mountains and the Dnieper River, in what is now Romania, Moldova and Ukraine, the farmers of the Cucuteni-Trypillia culture built some of the largest settlements on Earth before the first cities of Mesopotamia. Their towns were laid out in wide concentric rings of hundreds or even thousands of two-storey timber and clay houses, which were periodically burned down and rebuilt, and their high-temperature kilns produced finely painted swirling pottery and early cast copper tools.
+  narration: { src: narration/cultures/cucuteni-trypillia-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "738d271dd4" }
   image_url: /images/cultures/cucuteni-trypillia.webp
   image_credit: AI-generated illustration
   video: { src: video/cultures/cucuteni-trypillia-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -1701,6 +1702,7 @@
       credit: Mapped History, YouTube
 - id: carthage
   description: A premier Phoenician maritime empire based in modern Tunisia, founded by Tyrian settlers in the 9th century BCE. Dominating western Mediterranean sea lanes through a vast commercial navy, wealthy trading colonies, and agricultural estates, Carthage fought epic conflicts with Syracuse and Rome during the Punic Wars before its destruction in 146 BCE.
+  narration: { src: narration/civilizations/carthage-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "10adc405fd" }
   image_url: /images/civilisations/carthage.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/carthage-v1.mp4, credit: "AI-generated video (Google Veo)" }
