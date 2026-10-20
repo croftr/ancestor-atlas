@@ -13,6 +13,9 @@ export interface Ambience {
 
 export const AMBIENCE: Record<string, Ambience> = {
   // hominin-divergence: no sound (Rob's call, 16 Oct 2026).
+  "laetoli-footprints": {
+    prompt: "Slow bare footsteps pressing into damp volcanic ash after light rain, gentle East African savanna wind, distant birds calling",
+  },
   "lomekwian-tools": {
     prompt: "Close, clear knocks of a heavy stone hammering a large stone core, sharp chips cracking off, by a lake with small waves lapping and birds calling",
     sound: { src: "ambience/events/lomekwian-tools-v3.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1ef4be460b" },
@@ -33,9 +36,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Crackling campfire inside a rock shelter at night, wood popping and settling, soft wind outside, distant night insects",
     sound: { src: "ambience/events/control-of-fire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3dc6d65d2a" },
   },
+  "kalambo-falls-wood": {
+    prompt: "Stone adze chopping and scraping heavy wet timber by a river, wood chips falling, rushing river water and a distant waterfall",
+  },
   "modern-humans-emerge": {
     prompt: "North African savanna at dawn: gentle wind, birdsong, cicadas warming up, distant animal calls",
     sound: { src: "ambience/events/modern-humans-emerge-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7e197e4295" },
+  },
+  "schoningen-spears": {
+    prompt: "Reedy lakeshore in cool wind: flint flake scraping a spruce wooden spear shaft, water lapping in reeds, distant wild horses",
+  },
+  "earliest-burials": {
+    prompt: "Quiet limestone cave mouth at dusk: soft wind over dry hills, gentle digging in earth and gravel, distant doves calling",
   },
   "symbolic-culture": {
     prompt: "Sea cave on a rocky African coast: waves breaking below, wind across the cave mouth, water dripping, a stone softly grinding red ochre",

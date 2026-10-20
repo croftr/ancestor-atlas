@@ -32,6 +32,26 @@
     - { label: Toros-Menalla, lat: 16.2417, lon: 17.475, wikidata: Q56435888 }
     - { label: Tugen Hills (Lukeino Formation), lat: 0.75292, lon: 35.87497, wikidata: Q108936339 }
 
+- id: laetoli-footprints
+  name: The Laetoli footprints
+  year: -3698050
+  start_year: -3798050
+  end_year: -3598050
+  date_text: c. 3.7 million years ago (3.8–3.6 Ma)
+  description: "At Laetoli in northern Tanzania, Mary Leakey's team uncovered a 27-metre trail of about seventy footprints left in wet volcanic ash some 3.7 million years ago and cemented by soft rain. Made by three individuals walking upright, generally thought to be Australopithecus afarensis, and joined by a second trackway found nearby in 2015, the prints show an arched sole, a heel-to-toe stride and a big toe in line with the rest of the foot, proving that our ancestors walked much like us long before brains grew large or the first stone tools were struck."
+  related: [australopithecus-afarensis]
+  wikipedia_url: https://en.wikipedia.org/wiki/Laetoli
+  image_url: /images/events/laetoli-footprints.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/laetoli-footprints-1.webp, credit: "Fidelis T. Masao et al., CC BY 4.0, via Wikimedia Commons", caption: "Fossilized hominin footprints exposed in the Footprint Tuff at Laetoli Site S, Tanzania", source: "https://commons.wikimedia.org/wiki/File:Test-pit_L8_at_Laetoli_Site_S.jpg" }
+    - { url: /images/events/extra/laetoli-footprints-2.webp, credit: "Tim Evanson, CC BY-SA 2.0, via Wikimedia Commons", caption: "Cast of the Laetoli footprint trail found by Mary Leakey's team in 1976 (Smithsonian National Museum of Natural History)", source: "https://commons.wikimedia.org/wiki/File:Earliest_known_human_footprints_-_one_set_-_australopithecus_afarensis_-_Smithsonian_Museum_of_Natural_History_-_2012-05-17.jpg" }
+    - { url: /images/events/extra/laetoli-footprints-3.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "Close-up of a cast of the Laetoli footprints, showing the arched sole and aligned big toe (Natural History Museum, Vienna)", source: "https://commons.wikimedia.org/wiki/File:NHM_-_Laetoli_Fu%C3%9Fspuren.jpg" }
+    - { url: /images/events/extra/laetoli-footprints-4.webp, credit: "Fidelis T. Masao et al. / Dennis Pietras, CC BY-SA 4.0, via Wikimedia Commons", caption: "Depth map and stride measurements of four footprints from the S1 trail at Laetoli, reported in 2016", source: "https://commons.wikimedia.org/wiki/File:LaetoliS1prints4TC.jpg" }
+  date_source: wikipedia:Laetoli@1364840389
+  places:
+    - { label: Laetoli, lat: -2.99622, lon: 35.3524, wikidata: Q672146 }
+
 - id: lomekwian-tools
   name: Earliest stone tools (Lomekwian)
   year: -3298050
@@ -140,6 +160,26 @@
   places:
     - { label: Wonderwerk Cave, lat: -27.845, lon: 23.55389, wikidata: Q2543042 }
 
+- id: kalambo-falls-wood
+  name: Earliest wooden structure
+  year: -474050
+  start_year: -497050
+  end_year: -451050
+  date_text: c. 476,000 years ago (476 ± 23 ka)
+  description: "Wood rarely survives in the ground, so the Stone Age is named after the stones it left behind. Yet in waterlogged riverbank sediments at Kalambo Falls in Zambia, excavators uncovered two logs of large-fruited bushwillow shaped with stone tools and joined at right angles by a carved U-shaped notch, dated by luminescence to about 476,000 years ago. Found alongside a wooden wedge, a digging stick and Acheulean stone tools, the interlocking logs probably formed a raised walkway or platform above the wet floodplain long before Homo sapiens appeared."
+  related: [homo-heidelbergensis, acheulean]
+  wikipedia_url: https://en.wikipedia.org/wiki/Kalambo_structure
+  image_url: /images/events/kalambo-falls-wood.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/kalambo-falls-wood-1.webp, credit: "L. Barham et al., CC BY 4.0, via Wikimedia Commons", caption: "The interlocking bushwillow logs excavated at Kalambo Falls, Zambia, at least 476,000 years old, with arrows marking stone-tool shaping marks", source: "https://commons.wikimedia.org/wiki/File:Shaping_marks_on_the_upper_surfaces_of_object_1033_and_on_the_underlying_treetrunk.webp" }
+    - { url: /images/events/extra/kalambo-falls-wood-2.webp, credit: "Humphrey Kaburu, CC BY-SA 4.0, via Wikimedia Commons", caption: "Kalambo Falls on the Zambia–Tanzania border; the wooden structure lay in waterlogged sediments along the river above the falls", source: "https://commons.wikimedia.org/wiki/File:235_meters_of_single_drop_waterfall%2C_the_second_largest_waterfall_in_Africa.jpg" }
+    - { url: /images/events/extra/kalambo-falls-wood-3.webp, credit: "Bernard Dupont, CC BY-SA 2.0, via Wikimedia Commons", caption: "Large-fruited bushwillow (Combretum zeyheri), the tree species from which the Kalambo logs were cut", source: "https://commons.wikimedia.org/wiki/File:Large-fruited_Bushwillow_(Combretum_zeyheri)_(12908085833).jpg" }
+    - { url: /images/events/extra/kalambo-falls-wood-4.webp, credit: "Geni, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Clacton Spear point from Essex, England, about 400,000 years old, another rare survival of Lower Paleolithic woodworking (Natural History Museum, London)", source: "https://commons.wikimedia.org/wiki/File:Clacton_Spear_2018.JPG" }
+  date_source: wikipedia:Kalambo_structure@1374039876
+  places:
+    - { label: Kalambo Falls, lat: -8.59639, lon: 31.24028, wikidata: Q3812559 }
+
 - id: modern-humans-emerge
   name: Emergence of anatomically modern humans
   year: -313050
@@ -160,6 +200,49 @@
   date_source: wikipedia:Jebel_Irhoud@1376091257
   places:
     - { label: Jebel Irhoud, lat: 31.85498, lon: -8.87251, wikidata: Q846913 }
+
+- id: schoningen-spears
+  name: Wooden hunting spears at Schöningen
+  year: -298050
+  start_year: -335050
+  end_year: -298050
+  date_text: c. 337,000–300,000 years ago (estimates from 400,000 to 200,000 years ago have been proposed)
+  description: "In the waterlogged lakeshore sediments of an open-cast coal mine at Schöningen in northern Germany, archaeologists uncovered ten wooden spears and double-pointed throwing sticks alongside stone tools and thousands of butchered wild horse bones. Carved from slow-growing spruce and pine between about 337,000 and 300,000 years ago, the spears are tapered at both ends with their weight balanced in the front third like a modern javelin, proving that Homo heidelbergensis or early Neanderthals were skilled, cooperative big-game hunters."
+  related: [homo-heidelbergensis, neanderthal]
+  wikipedia_url: https://en.wikipedia.org/wiki/Sch%C3%B6ningen_spears
+  image_url: /images/events/schoningen-spears.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/schoningen-spears-1.webp, credit: "P. Pfarr / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Spear VII in place in the waterlogged lakeshore sediment at Schöningen during excavation in 1997", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_Speer_VII_im_Sediment_1997_%C2%A9_P._Pfarr_NLD.jpg" }
+    - { url: /images/events/extra/schoningen-spears-2.webp, credit: "Matthias Vogel / NLD, CC BY 4.0, via Wikimedia Commons", caption: "Eight wooden hunting spears and six double-pointed throwing sticks from the Spear Horizon at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_wooden_artifacts_Lower_Palaeolithic.jpg" }
+    - { url: /images/events/extra/schoningen-spears-3.webp, credit: "K. Cornelius / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Butchered bones of extinct wild horses (Equus mosbachensis) uncovered in the Spear Horizon at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_13_II-4_Skelettreste_%C2%A9_NLD_%2B_K._Cornelius.jpg" }
+    - { url: /images/events/extra/schoningen-spears-4.webp, credit: "P. Pfarr / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "The Schöningen 13 II excavation block preserved on a pedestal inside the open-cast lignite mine", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_13_II_Grabung_%C2%A9_P._Pfarr_NLD.jpg" }
+  date_source: wikipedia:Schöningen_spears@1368889579
+  places:
+    - { label: Schöningen, lat: 52.1335, lon: 10.9893, wikidata: Q320796 }
+
+- id: earliest-burials
+  name: First intentional burials
+  year: -98050
+  start_year: -118050
+  end_year: -88050
+  date_text: c. 120,000–90,000 years ago
+  description: "At Skhul Cave on Mount Carmel and Qafzeh Cave near Nazareth in the Levant, early modern humans buried their dead in shallow pits dug into the cave floor and terrace between about 120,000 and 90,000 years ago. Alongside the flexed skeletons lay deliberate grave goods: a wild boar jaw placed on the chest of Skhul 5, red deer antlers clasped to the chest of an adolescent at Qafzeh, lumps of red ochre, and perforated marine shells carried from the Mediterranean coast. Neanderthals also buried their dead at cave sites across Eurasia, including Shanidar Cave in Iraq."
+  related: [homo-sapiens, neanderthal, levallois-mousterian]
+  wikipedia_url: https://en.wikipedia.org/wiki/Skhul_and_Qafzeh_hominins
+  image_url: /images/events/earliest-burials.webp
+  image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/events/extra/earliest-burials-1.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of the Qafzeh 11 burial from Qafzeh Cave, Israel, about 100,000 years old, where a young adolescent was laid in a pit with red deer antlers across the chest (Anthropos Pavilion, Brno)", source: "https://commons.wikimedia.org/wiki/File:Middle_Paleolithic%2C_Cast_of_funeral_of_child_from_Cave_of_Qafzeh_Anthropos%2C_Brno%2C_187947.jpg" }
+    - { url: /images/events/extra/earliest-burials-2.webp, credit: "Hanay, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skhul Cave on Mount Carmel, Israel, where early modern human adults and children were buried with grave goods", source: "https://commons.wikimedia.org/wiki/File:Skhul_Cave_2018_(4).jpg" }
+    - { url: /images/events/extra/earliest-burials-3.webp, credit: "LS, CC BY-SA 4.0, via Wikimedia Commons", caption: "Entrance to Qafzeh Cave on Mount Precipice near Nazareth, Israel", source: "https://commons.wikimedia.org/wiki/File:Eingang_der_Qafzeh-H%C3%B6hle.jpg" }
+    - { url: /images/events/extra/earliest-burials-4.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skull and skeleton of Shanidar 1, an older Neanderthal buried in Shanidar Cave, Iraq (Iraq Museum, Baghdad)", source: "https://commons.wikimedia.org/wiki/File:Shanidar_I_skull_and_skeleton%2C_c._60%2C000_to_45%2C00o_BCE._Iraq_Museum.jpg" }
+  # Shanidar Cave: Shanidar_Cave@1368889989.
+  date_source: wikipedia:Skhul_and_Qafzeh_hominins@1378899281
+  places:
+    - { label: Qafzeh Cave, lat: 32.68852, lon: 35.318, wikidata: Q2121357 }
+    - { label: Skhul Cave, lat: 32.62586, lon: 34.95852, wikidata: Q287341 }
+    - { label: Shanidar Cave, lat: 36.8006, lon: 44.2433, wikidata: Q909799 }
 
 - id: symbolic-culture
   name: Early symbolic and decorative culture
