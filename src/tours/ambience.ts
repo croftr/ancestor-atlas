@@ -137,6 +137,14 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "High Andean grassland by a lake: cold wind, llamas humming softly, their footsteps on stony ground, a distant bird call",
     sound: { src: "ambience/events/andean-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9dea1a9640" },
   },
+  "chinchorro-mummies": {
+    prompt: "Hyper-arid Pacific desert coast: steady ocean waves breaking onto sand and coastal rocks, dry desert wind sweeping over dunes, gulls crying in the distance, soft rustle of dry reed mats",
+    sound: { src: "ambience/events/chinchorro-mummies-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "534e34171c" },
+  },
+  "caral-supe": {
+    prompt: "Sacred Andean valley city: haunting breathy notes of ancient bone flutes playing in a sunken circular court, gentle river breeze, footsteps on stone terraces, swallows calling overhead",
+    sound: { src: "ambience/events/caral-supe-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ddbf7f84b3" },
+  },
   "copper-smelting": {
     prompt: "Small clay furnace roaring as leather bellows pump air in rhythmic gusts, charcoal crackling and hissing",
     sound: { src: "ambience/events/copper-smelting-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9d4bf797ca" },
@@ -184,6 +192,14 @@ export const AMBIENCE: Record<string, Ambience> = {
   "chicken-domestication": {
     prompt: "Tropical forest edge at dawn in Southeast Asia: a junglefowl rooster crowing, hens clucking and scratching in leaves, insects and birds",
     sound: { src: "ambience/events/chicken-domestication-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a196add0fd" },
+  },
+  "poverty-point": {
+    prompt: "Prehistoric Louisiana bayou: warm evening breeze through Spanish moss and cypress trees, crickets and bullfrogs, crackling wood fire in an earth oven, distant waterfowl",
+    sound: { src: "ambience/events/poverty-point-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "47bc290d41" },
+  },
+  "lapita-voyaging": {
+    prompt: "Open Pacific ocean voyage: large outrigger canoe wooden timbers creaking as it rides ocean swells, water rushing past the hulls, wind in woven pandanus sails, distant tropical terns calling",
+    sound: { src: "ambience/events/lapita-voyaging-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "05f72e75df" },
   },
   "iron-age": {
     prompt: "Blacksmith forging iron: heavy hammer strikes on hot metal, bellows breathing, sparks, a hiss of quenching in water",
