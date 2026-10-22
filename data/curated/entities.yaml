@@ -1320,6 +1320,9 @@
   end_year: -2799
   description: Late Neolithic culture of central and eastern Europe, c. 3400–2800 BCE, named after its round-bellied pots with two to four handles. It preceded the Corded Ware culture in much of its area.
   wikipedia_url: https://en.wikipedia.org/wiki/Globular_Amphora_culture
+  image_url: /images/cultures/globular-amphora.webp
+  image_credit: AI-generated illustration
+  image_caption: "Stone cist ritual cattle burial on the European forest-steppe: globular amphora pottery, banded flint axes, and amber discs"
   wikidata: Q218257
   source_ids: []
   media:
@@ -1353,6 +1356,9 @@
   description: "On the grasslands north of the Black and Caspian Seas, around five thousand years ago, herders of the Yamnaya culture buried their dead in pits beneath earth mounds called kurgans, often sprinkled with red ochre. They lived with their herds of cattle and sheep and carried their homes on ox-drawn wagons. Ancient DNA shows that their descendants spread far into Europe and Asia within a few centuries, and many researchers link them to the spread of the Indo-European languages."
   narration: { src: narration/cultures/yamnaya-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "56c906996e" }
   wikipedia_url: https://en.wikipedia.org/wiki/Yamnaya_culture
+  image_url: /images/cultures/yamnaya.webp
+  image_credit: AI-generated illustration
+  image_caption: "Pontic-Caspian steppe nomad encampment: solid-wheel ox wagons, horseback herders, and an ochre kurgan grave ritual"
   wikidata: Q426737
   source_ids: []
   extra_images:
@@ -1367,6 +1373,9 @@
   description: "In the Altai Mountains and the Minusinsk Basin of southern Siberia, more than two thousand kilometres east of the Volga, people of the Afanasievo culture built the same kind of kurgan graves as the Yamnaya herders far to the west. Their genomes are almost indistinguishable from the Yamnaya's, so this was a migration across the steppe, not just a shared fashion. Some researchers think they spoke an early form of Tocharian, an Indo-European language written much later in western China."
   narration: { src: narration/cultures/afanasievo-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0c2302c412" }
   wikipedia_url: https://en.wikipedia.org/wiki/Afanasievo_culture
+  image_url: /images/cultures/afanasievo.webp
+  image_credit: AI-generated illustration
+  image_caption: "Early Bronze Age pastoralists in the Altai Mountains: stone kurgan, pointed-bottom pottery, copper knives, and alpine pastures"
   wikidata: Q80974
   source_ids: []
   extra_images:

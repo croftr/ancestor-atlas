@@ -614,3 +614,66 @@ Scene:
 - In the background: herds of cattle, sheep, and early domestic horses grazing across the broad autumn floodplain; distant forested Carpathians under a soft atmospheric sky.
 Negative prompt: Absolutely no modern clothes, no spoked chariot wheels, no iron tools, no medieval castles, no text, no words, no watermarks.
 ```
+
+
+---
+
+## Steppe Pastoralists & Late Neolithic (Batch 5 Part 1, added 22 Oct 2026)
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`globular-amphora`** | Globular Amphora culture | `public/images/cultures/globular-amphora.webp` | Poland / Ukraine, c. 3000 BCE; stone cist ritual cattle burial, cord-stamped globular amphora, Krzemionki axes |
+| **`yamnaya`** | Yamnaya culture | `public/images/cultures/yamnaya.webp` | Pontic-Caspian steppe, c. 2900 BCE; solid-wheel ox wagons, horseback herders, ochre kurgan grave, anthropomorphic stela |
+| **`afanasievo`** | Afanasievo culture | `public/images/cultures/afanasievo.webp` | Altai Mountains / Minusinsk, c. 2800 BCE; stone kurgans, pointed-bottom pottery, early copper tools, alpine pastures |
+
+### 31. `globular-amphora` (Globular Amphora culture)
+- **Target File**: `public/images/cultures/globular-amphora.webp` (+ `globular-amphora-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Late Neolithic Globular Amphora culture settlement and ritual cattle burial on the European forest-steppe plain (c. 3000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, crisp autumn morning light, temperate forest-steppe landscape.
+Scene:
+- A pastoral and farming community nestled on a low sandy terrace near a slow-moving river.
+- In the foreground: an open stone-slab cist grave where villagers are conducting a ritual cattle burial, laying two yoked draft oxen reverently in the ground beside grave offerings; nearby on a woven rush mat sits a finished globular amphora with a spherical belly, two small loop handles on the neck, and stamped cord herringbone impressions; beside it lie polished battle-axes made from banded Krzemionki grey flint and carved amber disc beads.
+- In the middle ground: timber post-and-wattle dwellings with thatched roofs; cattle and pig pens; smoke drifting gently from a cooking pit.
+- In the background: broad autumn pastures fringed by birch, oak, and pine woodlands under a cool, cloud-streaked sky.
+Negative prompt: Absolutely no modern clothes, no iron or bronze tools, no spoked wheels, no medieval castles, no text, no words, no watermarks.
+```
+
+---
+
+### 32. `yamnaya` (Yamnaya culture)
+- **Target File**: `public/images/cultures/yamnaya.webp` (+ `yamnaya-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Bronze Age Yamnaya pastoralists and wagon nomads on the vast Eurasian steppe (c. 2900 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, sweeping golden late-afternoon sunlight, windswept grass ocean under an immense sky.
+Scene:
+- A nomadic steppe encampment spread across the endless grassy plain.
+- In the center: heavy four-wheeled wooden wagons with solid timber disc wheels, covered with thick hide and felt arched awnings; yoked teams of long-horned oxen resting beside the wagons; nomadic herders in woolen tunics, sheepskin cloaks, and conical felt caps mounted on early domesticated horses watching over large herds of cattle and sheep.
+- In the foreground: on a low rise, an earthen burial mound (kurgan) with a freshly excavated timber-roofed pit grave (yama); an elder sprinkles vibrant red ochre over grave goods including an early tanged copper dagger, a flat copper shaft-hole axe, and a cord-impressed ceramic beaker; a carved anthropomorphic sandstone kurgan stela with a belt and weapon carvings stands at the crest of the mound.
+- In the background: distant kurgans dotting the vast horizon, golden feather grass rippling in the wind under dramatic sunset clouds.
+Negative prompt: Absolutely no modern clothes, no spoked chariot wheels, no iron or steel weapons, no modern saddles or stirrups, no text, no words, no watermarks.
+```
+
+---
+
+### 33. `afanasievo` (Afanasievo culture)
+- **Target File**: `public/images/cultures/afanasievo.webp` (+ `afanasievo-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Bronze Age Afanasievo pastoralists in an alpine river valley of the Altai Mountains (c. 2800 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, crisp high-altitude mountain sunlight, crystal-clear alpine river, rugged Siberian taiga and steppe foothills.
+Scene:
+- A pastoral encampment nestled in a scenic mountain valley alongside a gravelly river.
+- In the foreground: near a circular stone-kerbed burial kurgan on the river terrace, pastoralists examine distinctive large pointed-bottom earthenware vessels decorated with pressed herringbone and twisted cord patterns; on a wooden block lie early cast copper leaf-shaped knives, bone needle cases, and coiled copper wire earrings.
+- In the middle ground: semi-subterranean timber log huts with sod and birch-bark roofs; herds of cattle, sheep, and horses grazing on alpine meadow grasses; hunters dressed in fur-lined leather garments returning with a harvested mountain ibex.
+- In the background: snow-capped craggy peaks of the Altai range, steep larch- and cedar-forested mountain slopes, and the turquoise rushing river reflecting a deep blue Siberian sky.
+Negative prompt: Absolutely no modern clothes, no spoked wheels, no modern rifles or gear, no Russian or Chinese dynastic buildings, no text, no words, no watermarks.
+```
