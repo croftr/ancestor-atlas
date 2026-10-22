@@ -49,56 +49,182 @@
 .br-members .br-member { display: flex; justify-content: space-between; gap: 12px; }
 .br-members .br-member .muted { flex: none; font-variant-numeric: tabular-nums; }
 
-/* ---- Cultures: one section per stage, its picture shown once beside the cards ---- */
-.cu-stage {
-  display: grid;
-  grid-template-columns: clamp(240px, 15vw, 340px) minmax(0, 1fr);
-  gap: 24px;
-  padding: 24px 0;
+/* ---- Cultures: one section per stage, a banner then a card per culture with its own picture ---- */
+.cu-main { max-width: 1680px; margin: 0 auto; padding-top: 14px; }
+.cu-page .cu-header { position: relative; z-index: auto; border-bottom: 0; padding-bottom: 4px; background: none; backdrop-filter: none; }
+.cu-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 10px 24px;
+  background: rgba(11, 16, 32, 0.94);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-.cu-stage:last-child { border-bottom: none; }
-.cu-stage-head { position: sticky; top: 118px; align-self: start; display: flex; flex-direction: column; gap: 10px; }
-.cu-stage-head h2 { margin: 0 0 2px; font-size: 1.1rem; line-height: 1.25; }
-.cu-stage-fig { margin: 0; }
+.cu-bar .ev-filters { margin-top: 0; flex: 1; min-width: 0; }
+.cu-search { position: relative; flex: 0 0 230px; display: flex; align-items: center; color: #8b95ab; }
+.cu-search svg { position: absolute; left: 11px; pointer-events: none; }
+.cu-search input {
+  width: 100%;
+  padding: 6px 12px 6px 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8ecf4;
+  font: inherit;
+  font-size: 0.88rem;
+}
+.cu-search input::placeholder { color: #8b95ab; }
+.cu-search input:focus { outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent); outline-offset: 0; }
+.cu-search:focus-within { color: var(--accent); }
+
+.cu-stage { padding: 14px 0 30px; }
+.cu-stage + .cu-stage { border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 30px; }
+
+/* Banner: the stage's painting (or its cultures' pictures side by side), darkened behind the text on the left. */
+.cu-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(220px, 19vw, 300px);
+  margin-bottom: 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #141a33;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  isolation: isolate;
+}
+.cu-hero-art { position: absolute; inset: 0; z-index: -1; display: flex; }
+.cu-hero-art img { flex: 1; min-width: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
+.cu-hero-art.strip img + img { border-left: 2px solid #0b1020; }
+.cu-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(8, 12, 26, 0.95) 0%, rgba(8, 12, 26, 0.86) 34%, rgba(8, 12, 26, 0.3) 60%, rgba(8, 12, 26, 0) 78%),
+    linear-gradient(0deg, rgba(8, 12, 26, 0.55) 0%, rgba(8, 12, 26, 0) 45%);
+}
+.cu-hero-text { max-width: min(520px, 50%); padding: 22px 26px; display: flex; flex-direction: column; gap: 6px; }
+.cu-hero-kicker {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.cu-hero h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.1vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: #f6eedc;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.cu-hero-blurb { margin: 2px 0 0; font-size: 0.93rem; line-height: 1.45; color: #d5dbe8; text-wrap: pretty; }
+.cu-hero-meta { margin: 0; font-size: 0.8rem; color: #aeb8cc; font-variant-numeric: tabular-nums; }
+/* When the stage's cultures ran, one thin bar each, oldest at the top. */
+.cu-gantt { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 2px; max-width: 340px; }
+.cu-gantt li { position: relative; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.08); }
+.cu-gantt li > span { position: absolute; top: 0; bottom: 0; border-radius: 2px; background: var(--accent); opacity: 0.85; }
+
 .cu-grid {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  align-content: start; /* cards keep their own height, not the stage picture's */
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
 }
-.cu-main { max-width: none; }
 .cu-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   width: 100%;
   height: 100%;
-  padding: 12px 14px;
+  padding: 0;
   text-align: left;
+  color: inherit;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-left: 3px solid var(--accent);
-  border-radius: 10px;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
-.cu-card:hover { background: rgba(255, 255, 255, 0.07); border-color: color-mix(in srgb, var(--accent) 50%, transparent); border-left-color: var(--accent); }
-.cu-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.cu-card-name { font-weight: 650; font-size: 1rem; line-height: 1.25; }
+.cu-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+.cu-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.cu-card-img { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #141a33; }
+.cu-card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.35s ease; }
+.cu-card:hover .cu-card-img img { transform: scale(1.04); }
+.cu-card-img::after { /* lets the picture meet the text below without a hard edge */
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30%;
+  background: linear-gradient(0deg, rgba(11, 16, 32, 0.45), transparent);
+  pointer-events: none;
+}
+.cu-card-ph {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 10%;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #f2ead8;
+  background: radial-gradient(90% 70% at 50% 40%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%), #141a33;
+}
+.cu-card-flag {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(8, 12, 26, 0.7);
+  backdrop-filter: blur(4px);
+}
+.cu-card-body { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px 14px; flex: 1; }
+.cu-card-name { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 1.08rem; line-height: 1.22; color: #f6eedc; }
 .cu-card-date { font-size: 0.8rem; color: #bfeee0; font-variant-numeric: tabular-nums; }
-.cu-card-meta { font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+.cu-card-meta { font-size: 0.76rem; font-variant-numeric: tabular-nums; }
 .cu-card-summary {
   font-size: 0.84rem;
   color: #aeb8cc;
-  line-height: 1.4;
+  line-height: 1.42;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+/* Pictures fade in as they arrive; a failed one leaves the dark frame. */
+.cu-main img { opacity: 0; transition: opacity 0.35s ease, transform 0.4s ease; }
+.cu-main img.loaded { opacity: 1; }
+.cu-main img.failed { visibility: hidden; }
+.cu-empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 60px 0; color: #aeb8cc; }
+.cu-credit { margin: 6px 0 0; font-size: 0.76rem; text-align: center; }
 
 /* ---- Civilizations: search/sort, collapsible groups, compact rows ---- */
 .cv-controls { display: flex; gap: 10px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
@@ -191,14 +317,33 @@
   .cv-row { grid-template-columns: 12px minmax(180px, 300px) minmax(140px, 180px) minmax(0, 1fr) 8.5em; gap: 16px; }
 }
 @media (max-width: 900px) {
-  .cu-stage { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .cu-stage-head { position: static; flex-direction: row; align-items: center; gap: 14px; }
-  .cu-stage-fig { width: 132px; flex: none; }
-  .cu-stage-fig .image-credit { display: none; }
+  .cu-hero-text { max-width: 100%; }
+  .cu-hero::after {
+    background: linear-gradient(0deg, rgba(8, 12, 26, 0.95) 0%, rgba(8, 12, 26, 0.8) 45%, rgba(8, 12, 26, 0.15) 85%);
+  }
 }
 @media (max-width: 760px) {
+  .cu-bar { flex-direction: column; align-items: stretch; gap: 8px; padding: 8px 16px; }
+  .cu-search { flex: none; }
+  .cu-stage { padding-bottom: 22px; }
+  .cu-stage + .cu-stage { padding-top: 22px; }
+  .cu-hero { min-height: 230px; margin-bottom: 12px; border-radius: 14px; }
+  .cu-hero-text { padding: 16px 16px 14px; }
+  .cu-hero::after { background: linear-gradient(0deg, rgba(8, 12, 26, 0.96) 0%, rgba(8, 12, 26, 0.86) 55%, rgba(8, 12, 26, 0.3) 100%); }
+  .cu-hero-kicker { text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8); }
+  .cu-hero-blurb { font-size: 0.86rem; }
+  .cu-gantt { display: none; }
+  /* Phones: one card per row, the picture on the left. */
   .cu-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .cu-card-summary { -webkit-line-clamp: 2; }
+  .cu-card { flex-direction: row; border-radius: 12px; }
+  .cu-card:hover { transform: none; }
+  .cu-card-img { flex: 0 0 38%; aspect-ratio: auto; min-height: 100%; }
+  .cu-card-img img { position: absolute; inset: 0; }
+  .cu-card-img::after { display: none; }
+  .cu-card-flag { top: 6px; right: auto; left: 6px; padding: 2px 6px; font-size: 0.64rem; }
+  .cu-card-body { padding: 10px 12px; gap: 4px; min-width: 0; }
+  .cu-card-name { font-size: 1rem; }
+  .cu-card-summary { -webkit-line-clamp: 2; font-size: 0.8rem; }
   .cv-group-img { width: 72px; }
   /* Phones: "About" tucks into the top-right corner and the expand chevron sits under it, so the
      name and dates get the card's width instead of wrapping word by word. */
@@ -220,7 +365,8 @@
   .cv-row-bar { grid-area: bar; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cu-card, .cv-chevron { transition: none; }
+  .cu-card, .cu-main img, .cv-chevron { transition: none; }
+  .cu-card:hover, .cu-card:hover .cu-card-img img { transform: none; }
 }
 
 /* ---- Species: one numbered row per species, in order of appearance, on a shared time scale ---- */

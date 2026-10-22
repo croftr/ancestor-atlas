@@ -372,6 +372,12 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   usable Pinnacle Point photo), Neanderthal (a model of the Sima de los Huesos shaft), Châtelperronian (paper figure
   plates), Phoenicia (a drawing of an Assyrian relief), Maurya (Sarnath pillar stumps). Skip Commons files whose only
   author/source is a news site (licence doubtful).
+- Cultures page (`#/cultures`, redone 22 Oct 2026 once every culture had its own picture): ten stages in
+  `src/browse/cultureStages.ts` (in the app; no longer taken from the picture groups), each with a banner (the old
+  group painting, or a strip of its members' pictures for "As the ice melted" and "Farmers and seafarers on the
+  move", which have none), a blurb (written by Claude, Rob to review) and a small chart of its cultures' spans, then a
+  card per culture with its own picture. Only the search and the stage chips stay pinned; the chips jump to a stage
+  and follow the scroll. A new culture must join a stage (`cultureStages.test.ts` fails until it does).
 - Fallbacks on the info card: a civilization without a picture shows its group's ("Shows Ancient Egypt as a whole");
   cultures (and anything listed) show a shared stage picture from `data/curated/picture-groups.yaml`
   (`public/images/cultures/`). The validator warns while a stage picture file is missing; the card then shows none.

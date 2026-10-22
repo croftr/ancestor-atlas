@@ -1,11 +1,12 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE } from "../config";
 import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
 import { formatRange } from "../time/scale";
 import { firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity } from "../types";
-import { barStyle, stageTitle, summaryOf } from "./browse";
+import { barStyle, summaryOf } from "./browse";
+import { CULTURE_STAGES, type CultureStage } from "./cultureStages";
 import EntityDetail from "./EntityDetail";
 import Totals from "./Totals";
 import { videoCount } from "../youtube";
@@ -13,72 +14,150 @@ import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
 
-interface Stage {
-  key: string;
-  title: string;
-  picture?: { url: string; credit?: string };
+interface Stage extends CultureStage {
   cultures: Entity[];
   axis: [number, number];
 }
 
+const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+const small = (url: string) => url.replace(/\.webp$/, "-600.webp");
+
+/** A picture that fades in once loaded (or at once if it already was), and steps aside if it fails. */
+function Picture({ url, alt, sizes, className }: { url: string; alt: string; sizes: string; className?: string }) {
+  return (
+    <img
+      className={className}
+      src={url}
+      srcSet={`${small(url)} 600w, ${url} 1200w`}
+      sizes={sizes}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      ref={(el) => {
+        if (el?.complete && el.naturalWidth) el.classList.add("loaded");
+      }}
+      onLoad={(e) => e.currentTarget.classList.add("loaded")}
+      onError={(e) => e.currentTarget.classList.add("failed")}
+    />
+  );
+}
+
 /**
- * Cultures page (#/cultures): cultures grouped by the stage their shared picture stands for
- * (early toolmakers, Ice Age hunters, early farmers...). The picture is shown once per stage, not
- * on every card; each card has a bar showing when it ran within its stage.
+ * Cultures page (#/cultures): the cultures by stage (first toolmakers, Ice Age hunters, early farmers...; the stages
+ * are in cultureStages.ts). Each stage opens with a banner (its painting, or a strip of its cultures' pictures) and
+ * a small chart of when its cultures ran, then a card per culture with its own picture. The chips jump to a stage
+ * and follow the scroll; the search filters by name and description.
  */
 export default function CulturesPage() {
   const data = useData();
   const openId = useOpenItem();
-  const [stageFilter, setStageFilter] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [active, setActive] = useState<string | null>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const chipsRef = useRef<HTMLDivElement>(null);
 
   const stages = useMemo<Stage[]>(() => {
     if (!data) return [];
-    const cultures = data.entities.filter((e) => e.category === "culture").sort((a, b) => a.start_year - b.start_year);
-    const byKey = new Map<string, Stage>();
-    for (const c of cultures) {
-      const fb = c.fallback_image; // a culture's stage stays its picture group's even once it has its own picture
-      const key = fb?.url ?? "other";
-      let s = byKey.get(key);
-      if (!s) {
-        s = {
-          key,
-          title: fb ? stageTitle(fb.label) : "Other cultures",
-          picture: fb ? { url: fb.url, credit: fb.credit } : undefined,
-          cultures: [],
-          axis: [Infinity, -Infinity],
-        };
-        byKey.set(key, s);
-      }
-      s.cultures.push(c);
-      s.axis = [Math.min(s.axis[0], c.start_year), Math.max(s.axis[1], c.end_year)];
-    }
-    return [...byKey.values()].sort((a, b) => a.axis[0] - b.axis[0]);
+    return CULTURE_STAGES.map((s) => {
+      const cultures = s.members
+        .map((id) => data.entityById.get(id))
+        .filter((e): e is Entity => !!e)
+        .sort((a, b) => a.start_year - b.start_year || a.end_year - b.end_year);
+      const axis: [number, number] = [Math.min(...cultures.map((c) => c.start_year)), Math.max(...cultures.map((c) => c.end_year))];
+      return { ...s, cultures, axis };
+    })
+      .filter((s) => s.cultures.length > 0)
+      .sort((a, b) => a.axis[0] - b.axis[0]);
   }, [data]);
+
+  const q = fold(query.trim());
+  const shown = useMemo(
+    () =>
+      stages
+        .map((s) => ({ ...s, cultures: q ? s.cultures.filter((c) => fold(`${c.name} ${c.description ?? ""}`).includes(q)) : s.cultures }))
+        .filter((s) => s.cultures.length > 0),
+    [stages, q],
+  );
+
+  // The chip of the stage at the top of the page (under the sticky bar) lights up as the page scrolls.
+  useEffect(() => {
+    const page = pageRef.current;
+    if (!page) return;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = (barRef.current?.getBoundingClientRect().bottom ?? 0) + 48;
+      let current: string | null = null;
+      for (const sec of page.querySelectorAll<HTMLElement>("[data-stage]")) {
+        if (sec.getBoundingClientRect().top <= line) current = sec.dataset.stage!;
+      }
+      // At the very bottom the last stage may never reach the line: light it anyway.
+      if (page.scrollTop + page.clientHeight >= page.scrollHeight - 4) {
+        const all = page.querySelectorAll<HTMLElement>("[data-stage]");
+        current = all[all.length - 1]?.dataset.stage ?? current;
+      }
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    page.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      page.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, [shown]);
+
+  // Keep the lit chip in view in its sideways-scrolling row (without moving the page).
+  useEffect(() => {
+    const row = chipsRef.current;
+    const chip = active ? row?.querySelector<HTMLElement>(`[data-chip="${active}"]`) : null;
+    if (!row || !chip) return;
+    const left = chip.offsetLeft - row.offsetLeft;
+    if (left < row.scrollLeft || left + chip.offsetWidth > row.scrollLeft + row.clientWidth - 28) {
+      row.scrollTo({ left: Math.max(0, left - 24), behavior: "smooth" });
+    }
+  }, [active]);
 
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
 
+  const jump = (id: string) => {
+    const page = pageRef.current;
+    const sec = page?.querySelector<HTMLElement>(`[data-stage="${id}"]`);
+    if (!page || !sec) return;
+    const barH = barRef.current?.offsetHeight ?? 0;
+    const top = page.scrollTop + sec.getBoundingClientRect().top - page.getBoundingClientRect().top - barH - 12;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    page.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
+  };
+
   const all = stages.flatMap((s) => s.cultures);
+  const visible = shown.flatMap((s) => s.cultures);
   const sitesOf = (list: Entity[]) => list.reduce((n, c) => n + (data.featuresOf.get(c.id)?.length ?? 0), 0);
   // Radiocarbon dates behind the XRONOS points; their date text gives the count: "... (12 dates)", "(1 date, ...)".
   const radiocarbon = all.reduce((n, c) => n + (data.featuresOf.get(c.id) ?? [])
     .filter((f) => f.source_id === "xronos")
     .reduce((k, f) => k + Number(f.date_text?.match(/\((\d+) dates?\b/)?.[1] ?? 0), 0), 0);
-  const shown = stages.filter((s) => stageFilter === null || s.key === stageFilter);
-  const visible = shown.flatMap((s) => s.cultures);
   const open = openId ? data.entityById.get(openId) : undefined;
   const openStage = open && stages.find((s) => s.cultures.includes(open));
-  const accent = CATEGORY_STYLE.culture.color;
+  // One credit line for the page when every picture on it shares one.
+  const credits = new Set([...all.map((c) => c.image_credit), ...stages.map((s) => s.picture?.credit)].filter(Boolean));
+  const sharedCredit = credits.size === 1 ? [...credits][0] : undefined;
 
   return (
-    <div className="events-page br-page" style={{ "--accent": accent } as CSSProperties}>
-      <header className="ev-header">
+    <div ref={pageRef} className="events-page br-page cu-page" style={{ "--accent": CATEGORY_STYLE.culture.color } as CSSProperties}>
+      <header className="ev-header cu-header">
         <div className="ev-title">
           <h1 className="cat-title">
             <CategoryBadge category="culture" decorative />
             Cultures
           </h1>
           <span className="muted ev-count">
-            {all.length ? formatRange(Math.min(...all.map((c) => c.start_year)), Math.max(...all.map((c) => c.end_year))) : ""}
+            {q
+              ? `Showing ${visible.length} of ${all.length}`
+              : all.length ? formatRange(Math.min(...all.map((c) => c.start_year)), Math.max(...all.map((c) => c.end_year))) : ""}
           </span>
         </div>
         <Totals
@@ -89,72 +168,114 @@ export default function CulturesPage() {
             { label: "Stages", value: stages.length },
           ]}
         />
-        <div className="ev-filters" role="group" aria-label="Filter by stage">
-          <button className={`chip${stageFilter === null ? " active" : ""}`} aria-pressed={stageFilter === null} onClick={() => setStageFilter(null)}>
-            All stages
-          </button>
-          {stages.map((s) => (
+      </header>
+      {/* Only the search and the stage chips stay at the top; the title and counts scroll away. */}
+      <div ref={barRef} className="cu-bar">
+        <div className="cu-search">
+          <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden>
+            <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+            <path d="M13 13l4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && query) {
+                e.stopPropagation();
+                setQuery("");
+              }
+            }}
+            placeholder="Search cultures"
+            aria-label="Search cultures by name or description"
+          />
+        </div>
+        <nav ref={chipsRef} className="ev-filters cu-chips" aria-label="Jump to a stage">
+          {shown.map((s) => (
             <button
-              key={s.key}
-              className={`chip${stageFilter === s.key ? " active" : ""}`}
-              aria-pressed={stageFilter === s.key}
-              onClick={() => setStageFilter(stageFilter === s.key ? null : s.key)}
+              key={s.id}
+              data-chip={s.id}
+              className={`chip${active === s.id ? " active" : ""}`}
+              aria-current={active === s.id ? "true" : undefined}
+              onClick={() => jump(s.id)}
             >
               {s.title} <span className="ev-chip-count">{s.cultures.length}</span>
             </button>
           ))}
-        </div>
-      </header>
+        </nav>
+      </div>
 
       <main className="ev-main cu-main">
+        {shown.length === 0 && (
+          <div className="cu-empty">
+            <p>No culture matches “{query.trim()}”.</p>
+            <button className="chip" onClick={() => setQuery("")}>Clear search</button>
+          </div>
+        )}
         {shown.map((s) => (
-          <section key={s.key} className="cu-stage" aria-labelledby={`stage-${s.key}`}>
-            <div className="cu-stage-head">
-              {s.picture && (
-                <figure className="cu-stage-fig">
-                  <div className="br-img">
-                    <img
-                      src={s.picture.url}
-                      srcSet={`${s.picture.url.replace(/\.webp$/, "-600.webp")} 600w, ${s.picture.url} 1200w`}
-                      sizes="(max-width: 640px) 100vw, 360px"
-                      alt=""
-                      loading="lazy"
-                      onError={(e) => ((e.currentTarget.parentElement!.style.display = "none"))}
-                    />
-                  </div>
-                  {s.picture.credit && <figcaption className="muted image-credit">{s.picture.credit}</figcaption>}
-                </figure>
-              )}
-              <div>
-                <h2 id={`stage-${s.key}`}>{s.title}</h2>
-                <div className="muted">{formatRange(s.axis[0], s.axis[1])}</div>
-                <div className="muted">
-                  {s.cultures.length} culture{s.cultures.length === 1 ? "" : "s"} · {sitesOf(s.cultures).toLocaleString("en-US")} sites
-                </div>
+          <section key={s.id} data-stage={s.id} className="cu-stage" aria-labelledby={`stage-${s.id}`}>
+            <header className="cu-hero">
+              <div className={`cu-hero-art${s.picture ? "" : " strip"}`} aria-hidden>
+                {s.picture ? (
+                  <Picture url={s.picture.url} alt="" sizes="(max-width: 760px) 100vw, 80vw" />
+                ) : (
+                  s.cultures.slice(0, 4).map((c) => c.image_url && <Picture key={c.id} url={c.image_url} alt="" sizes="(max-width: 760px) 50vw, 25vw" />)
+                )}
               </div>
-            </div>
+              <div className="cu-hero-text">
+                <p className="cu-hero-kicker">
+                  <span>Stage {stages.findIndex((t) => t.id === s.id) + 1}</span>
+                  <span aria-hidden>·</span>
+                  <span>{formatRange(s.axis[0], s.axis[1])}</span>
+                </p>
+                <h2 id={`stage-${s.id}`}>{s.title}</h2>
+                <p className="cu-hero-blurb">{s.blurb}</p>
+                <p className="cu-hero-meta">
+                  {s.cultures.length} culture{s.cultures.length === 1 ? "" : "s"} · {sitesOf(s.cultures).toLocaleString("en-US")} sites
+                </p>
+                {/* When each culture ran within the stage, oldest at the top. */}
+                <ul className="cu-gantt" aria-hidden>
+                  {s.cultures.map((c) => (
+                    <li key={c.id} title={`${c.name}: ${formatRange(c.start_year, c.end_year)}`}>
+                      <span style={barStyle(c, s.axis)} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </header>
             <ul className="cu-grid">
               {s.cultures.map((c) => {
                 const n = data.featuresOf.get(c.id)?.length ?? 0;
+                const pics = (c.image_url ? 1 : 0) + (c.extra_images?.length ?? 0);
                 const summary = summaryOf(c, firstSentence);
                 return (
                   <li key={c.id}>
                     <button className="cu-card" onClick={() => navigate("cultures", c.id)}>
-                      <span className="cu-card-name">{c.name}</span>
-                      <span className="cu-card-date">{formatRange(c.start_year, c.end_year)}</span>
-                      <span className="br-bar" aria-hidden>
-                        <span style={barStyle(c, s.axis)} />
+                      <span className="cu-card-img">
+                        {c.image_url ? (
+                          <Picture url={c.image_url} alt={c.image_caption ?? ""} sizes="(max-width: 600px) 40vw, 340px" />
+                        ) : (
+                          <span className="cu-card-ph" aria-hidden>{c.name}</span>
+                        )}
+                        {c.media && c.media.length > 0 && (
+                          <span className="cu-card-flag" title={videoCount(c.media.length)}>
+                            {videoCount(c.media.length)}
+                          </span>
+                        )}
                       </span>
-                      <span className="cu-card-meta muted">
-                        {shortDuration(c.end_year - c.start_year)}
-                        {n > 0 && <> · {n.toLocaleString("en-US")} site{n === 1 ? "" : "s"}</>}
-                        {(() => {
-                          const picCount = (c.image_url ? 1 : 0) + (c.extra_images?.length ?? 0);
-                          return picCount > 0 ? <> · <span className="nowrap">{picCount === 1 ? "1 picture" : `${picCount} pictures`}</span></> : null;
-                        })()}
-                        {c.media && c.media.length > 0 && <> · <span className="nowrap">{videoCount(c.media.length)}</span></>}
+                      <span className="cu-card-body">
+                        <span className="cu-card-name">{c.name}</span>
+                        <span className="cu-card-date">{formatRange(c.start_year, c.end_year)}</span>
+                        <span className="br-bar" title={`When it ran within ${formatRange(s.axis[0], s.axis[1])}`}>
+                          <span style={barStyle(c, s.axis)} />
+                        </span>
+                        <span className="cu-card-meta muted">
+                          {shortDuration(c.end_year - c.start_year)}
+                          {n > 0 && <> · <span className="nowrap">{n.toLocaleString("en-US")} site{n === 1 ? "" : "s"}</span></>}
+                          {pics > 1 && <> · <span className="nowrap">{pics} pictures</span></>}
+                        </span>
+                        {summary && <span className="cu-card-summary">{summary}</span>}
                       </span>
-                      {summary && <span className="cu-card-summary">{summary}</span>}
                     </button>
                   </li>
                 );
@@ -162,6 +283,12 @@ export default function CulturesPage() {
             </ul>
           </section>
         ))}
+        {shown.length > 0 && sharedCredit && (
+          <p className="cu-credit muted">
+            Pictures: {sharedCredit} (reconstructions, not records). Many culture pages also show photographs of real
+            finds.
+          </p>
+        )}
       </main>
 
       {open && open.category === "culture" && (
