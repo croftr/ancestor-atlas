@@ -47,6 +47,8 @@ const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--tour", "
 const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations" };
 
 const SCENE_PROMPTS: Record<string, string> = {
+  "hominin-divergence":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the two-line text title 'Divergence of the Hominin Lineage' at the top, the sky, the setting sun on the horizon, the trees, and the landscape composition completely still and unchanged. On the right, the bipedal hominins walk slowly forward through the savanna grass with subtle, natural strides, while the tall grass around their legs sways gently in the breeze. On the left, the chimpanzee-like apes make subtle, gentle movements shifting their weight and turning their heads naturally. In the center, gentle golden ripples and light reflections continuously shimmer and flow along the winding river surface.",
   clovis:
     "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. The six Paleo-Indian hunters in the foreground remain completely motionless and frozen in their silent ambush crouch, their bodies, arms, and spears completely still without moving. Across the stream, all four Columbian mammoths in the herd move naturally: walking slowly along the grassy riverbank, swinging their trunks to graze, flapping their ears, and turning their heads and curved tusks. The shallow stream ripples and flows gently, tall grass sways softly in the breeze, and thin smoke drifts upward from the distant hide-tent campfires.",
   "sahul-seafaring":
