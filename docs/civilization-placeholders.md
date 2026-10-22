@@ -677,3 +677,42 @@ Scene:
 - In the background: snow-capped craggy peaks of the Altai range, steep larch- and cedar-forested mountain slopes, and the turquoise rushing river reflecting a deep blue Siberian sky.
 Negative prompt: Absolutely no modern clothes, no spoked wheels, no modern rifles or gear, no Russian or Chinese dynastic buildings, no text, no words, no watermarks.
 ```
+
+---
+
+### 34. `unetice` (Únětice culture)
+- **Target File**: `public/images/cultures/unetice.webp` (+ `unetice-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Early Bronze Age hilltop stronghold: elite bronze metalworking, halberds, flanged axes, and the Nebra Sky Disc"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting the Early Bronze Age Únětice culture with elite bronze metallurgy and astronomical ritual in Central Europe (c. 1700 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, radiant golden summer daylight, elevated hilltop enclosure overlooking cultivated river valleys.
+Scene:
+- At an elevated wooden hillfort and ceremonial enclosure overlooking an expansive Central European river valley.
+- In the foreground: an elite chieftain/astronomer and a bronze master craftsman holding up the famous Nebra Sky Disc (the blue-green patinated bronze disc inlaid with glowing gold foil representing the sun, crescent moon, and the Pleiades star cluster), studying the horizon at solstice; on an oak worktable lie cast bronze flanged axes, a bronze halberd with riveted triangular blade on a bronze-sheathed shaft, spiral bronze arm rings, cast bronze neck torcs (Ösenhalsringe), and glowing amber beads.
+- In the middle ground: bronze smiths operating leather bellows at a stone furnace, pouring molten bronze into two-piece stone molds; a monumental timber-framed royal burial mound (like Leubingen) on an adjacent hill crest.
+- In the background: fertile river valley with thriving agricultural villages, timber longhouses, and fields of golden grain framed by distant forested mountains under a brilliant sky.
+Negative prompt: Absolutely no modern clothes, no iron weapons, no medieval castles, no Greek or Roman temples, no text, no words, no watermarks.
+```
+
+---
+
+### 35. `andronovo` (Andronovo culture)
+- **Target File**: `public/images/cultures/andronovo.webp` (+ `andronovo-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Bronze Age steppe settlement: spoke-wheeled horse chariot warrior, bronze metallurgy, and geometric meander pottery"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting Bronze Age Andronovo pastoralists, horsemanship, and bronze craft on the Central Asian steppe (c. 1500 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, vibrant high-noon steppe sunlight, endless open grassland and rocky granite ridges.
+Scene:
+- A thriving steppe river settlement of large semi-subterranean rectangular timber post-houses with turf roofs along an open river valley.
+- In the foreground: an Andronovo pastoralist in a bronze-trimmed wool tunic standing beside an early light wooden spoke-wheeled chariot hitched to a pair of spirited steppe horses with carved bone cheekpieces (psalia); on a flat stone slab rests dark burnished pottery decorated with intricate geometric meander and stepped spiral solar patterns, alongside cast bronze tools, axe-adzes, and coiled copper hair ornaments.
+- In the middle ground: bronze metallurgists operating a stone melting furnace, pouring golden bronze into clay casting molds; on a nearby rocky granite outcrop, petroglyphs of sacred bulls and radiating sun figures are freshly carved into the rock face.
+- In the background: vast herds of cattle and horses grazing peacefully across the boundless grassy steppe plains beneath an immense, sun-drenched sky.
+Negative prompt: Absolutely no modern clothes, no steel, no modern firearms, no Islamic architecture, no stirrups, no text, no words, no watermarks.
+```
+

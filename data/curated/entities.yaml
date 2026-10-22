@@ -1203,6 +1203,9 @@
   end_year: -1599
   description: "In the heart of central Europe, from Bohemia and Saxony to western Poland, the Únětice culture of the Early Bronze Age grew rich on bronze and on trade in amber and salt. Its rulers were buried under great mounds such as Leubingen, with gold and bronze weapons, and the Nebra sky disc, the oldest known picture of the night sky, comes from its world. Its people descended from both the Corded Ware and the Bell Beaker groups: steppe ancestry, now settled in the middle of Europe."
   narration: { src: narration/cultures/unetice-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "7c6fc818e5" }
+  image_url: /images/cultures/unetice.webp
+  image_credit: AI-generated illustration
+  image_caption: "Early Bronze Age hilltop stronghold: elite bronze metalworking, halberds, flanged axes, and the Nebra Sky Disc"
   wikipedia_url: https://en.wikipedia.org/wiki/Únětice_culture
   wikidata: Q773818
   source_ids: []
@@ -1409,6 +1412,9 @@
   end_year: -1149
   description: "From the southern Urals to the upper Yenisei in Siberia, and south into Central Asia, the Andronovo culture spread a way of life built on cattle, horses and bronze across the steppe in the second millennium BCE. Its people buried their dead crouched in stone-lined graves with richly decorated pottery. Closely related to the Sintashta people before them, they carried steppe ancestry deep into Asia, and scholars agree they spoke Indo-Iranian languages, the family that later gave us Sanskrit and Persian."
   narration: { src: narration/cultures/andronovo-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d42c3acbcb" }
+  image_url: /images/cultures/andronovo.webp
+  image_credit: AI-generated illustration
+  image_caption: "Bronze Age steppe settlement: spoke-wheeled horse chariot warrior, bronze metallurgy, and geometric meander pottery"
   wikipedia_url: https://en.wikipedia.org/wiki/Andronovo_culture
   wikidata: Q459376
   source_ids: []
