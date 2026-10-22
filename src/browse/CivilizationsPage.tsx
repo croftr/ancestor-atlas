@@ -78,11 +78,28 @@ function SpanBar({ e, axis, color }: { e: { start_year: number; end_year: number
   );
 }
 
-/** One civilization: thumbnail (its own picture) or colour swatch, name, dates, bar, length. */
-function Row({ e, axis, query = "", context, picture = e.image_url }: { e: Entity; axis: [number, number]; query?: string; context?: string; picture?: string }) {
+/**
+ * One civilization: thumbnail (its own picture) or colour swatch, name, dates, bar, length. `large` for one standing
+ * on its own in a region, the size of the group and family cards beside it.
+ */
+function Row({
+  e,
+  axis,
+  query = "",
+  context,
+  picture = e.image_url,
+  large,
+}: {
+  e: Entity;
+  axis: [number, number];
+  query?: string;
+  context?: string;
+  picture?: string;
+  large?: boolean;
+}) {
   return (
     <button className="cv-row" onClick={() => navigate("civilizations", e.id)}>
-      {picture ? <Thumb url={picture} /> : <span className="cv-thumb"><span className="cv-swatch" style={{ background: e.color ?? CATEGORY_STYLE.civilization.color }} /></span>}
+      {picture ? <Thumb url={picture} large={large} /> : <span className="cv-thumb"><span className="cv-swatch" style={{ background: e.color ?? CATEGORY_STYLE.civilization.color }} /></span>}
       <span className="cv-row-name">
         <span className="cv-row-title"><Marked text={e.name} query={query} /></span>
         {context && <span className="cv-row-context muted">{context}</span>}
@@ -386,7 +403,7 @@ export default function CivilizationsPage() {
               <ul className="cv-rows cv-entries">
                 {r.entries.map((e) =>
                   e.kind === "single" ? (
-                    <li key={e.id}><Row e={e.entity} axis={axis} picture={e.picture} /></li>
+                    <li key={e.id} className="cv-single"><Row e={e.entity} axis={axis} picture={e.picture} large /></li>
                   ) : (
                     <ClusterItem key={e.id} c={e} axis={axis} open={expanded.has(e.id)} onToggle={() => toggle(e.id)} />
                   ),
