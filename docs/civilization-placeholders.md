@@ -334,3 +334,84 @@ Scene:
 - In the background cave wall: an artist blowing red ochre pigment over their hand against the limestone wall creating hand stencils; outside through the cave opening, a snowy steppe-tundra landscape with sparse spruce trees under a cold twilight sky.
 Negative prompt: Absolutely no metal, no pottery, no agriculture, no domestic livestock, no modern clothes, no text, no words, no watermarks.
 ```
+
+
+---
+
+## Neolithic & Upper Paleolithic (Batch 2, added 22 Oct 2026)
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`gravettian`** | Gravettian | `public/images/cultures/gravettian.webp` | Dolní Věstonice & Pavlov, Moravia, c. 26 ka; mammoth-bone dwellings, fired clay Venus, ivory carving |
+| **`ubaid`** | Ubaid period | `public/images/cultures/ubaid.webp` | Southern Mesopotamian delta, c. 4800 BCE; mudbrick architecture, painted buff-green pottery, clay sickles, mashoof reed boats |
+| **`starcevo-koros-cris`** | Starčevo–Körös–Criș culture | `public/images/cultures/starcevo-koros-cris.webp` | Danube terrace, Balkans, c. 5600 BCE; pioneer farmers, wattle-and-daub houses, white-spiral painted pottery, idol figurines |
+| **`halaf`** | Halaf culture | `public/images/cultures/halaf.webp` | Tell Arpachiyah & Tell Halaf, northern Mesopotamia, c. 5300 BCE; circular tholos architecture, master polychrome rosette ceramics, stamp seals |
+
+### 17. `gravettian` (Gravettian)
+- **Target File**: `public/images/cultures/gravettian.webp` (+ `gravettian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting an Upper Paleolithic Gravettian mammoth-hunter settlement on a loess terrace during the height of the European Ice Age (c. 26,000 years ago).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings and paleoart, cool crisp glacial daylight, open mammoth steppe-tundra.
+Scene:
+- A winter hunting encampment on a snow-dusted terrace overlooking a frozen river valley.
+- In the camp: semi-subterranean huts ingeniously constructed with interlocked mammoth bones, featuring mammoth skull foundations, arching mammoth tusks supporting hide roofs, and banked loess earth.
+- In the foreground by an open hearth: an artisan shaping and firing clay figurines in a domed earth hearth (the world's earliest ceramics, including the famous Venus of Dolní Věstonice and animal figurines); another artisan carving delicate mammoth ivory beads and burin-cut ivory diadems on fur pelts; drying strips of mammoth meat and stretched hides on timber racks.
+- In the background: hunters dressed in tailored sewn fur and hooded parka garments returning across the snow; a distant herd of woolly mammoths moving through the expansive, windswept periglacial valley under a pale winter sun.
+Negative prompt: Absolutely no modern clothes, no metal, no pottery vessels (only fired clay figurines), no wheels, no domestic cattle/sheep, no text, no words, no watermarks.
+```
+
+---
+
+### 18. `ubaid` (Ubaid period)
+- **Target File**: `public/images/cultures/ubaid.webp` (+ `ubaid-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting an early Ubaid agricultural and fishing settlement in the lush river marshlands of southern Mesopotamia (c. 4800 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, bright warm Mesopotamian sunlight, clear turquoise-tinted delta channels, date palm groves.
+Scene:
+- A thriving delta village with sun-dried mudbrick rectangular houses and arched reed-bundle dwellings (mudhif) along a calm distributary river branch. On an elevated platform in the settlement stands an early rectangular niched mudbrick temple with an altar.
+- In the foreground: on a woven reed mat by the water, a potter shaping and painting distinctive buff-green campaniform pottery with dark chocolate-brown geometric lattice, triangles, and zigzag bands; beside the potter sits a baked-clay agricultural sickle and a small terracotta lizard-headed mother figurine.
+- On the water: a fisherman steering a slender bitumen-coated reed canoe (mashoof) laden with drying freshwater fish and reed baskets of river mollusks.
+- In the middle ground: farmers tending date palms and irrigating small plots of green barley from hand-dug mud channels; water buffalo and cattle wading in the marsh shallows; tall papyrus and river reeds swaying in the breeze under a clear sky.
+Negative prompt: Absolutely no modern clothes, no iron or steel tools, no Islamic domes or minarets, no modern boats, no cuneiform writing, no text, no words, no watermarks.
+```
+
+---
+
+### 19. `starcevo-koros-cris` (Starčevo–Körös–Criș culture)
+- **Target File**: `public/images/cultures/starcevo-koros-cris.webp` (+ `starcevo-koros-cris-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Neolithic farming pioneers of the Starčevo–Körös–Criș culture on a fertile river terrace overlooking the Danube River (c. 5600 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm golden morning summer light, lush riparian floodplain and ancient European river terrace.
+Scene:
+- A pioneering agricultural hamlet of wattle-and-daub rectangular houses with pitched reed-thatch roofs, clay-plastered walls, and small domestic garden plots.
+- In the foreground: a female artisan shaping and burnishing spherical red-brown earthenware pots and painting delicate white geometric spirals and dots on a slip-coated vessel; beside her sits a stylized terracotta figurine (the Starčevo pillar-shaped female idol with a triangular head); an elder grinds harvested emmer wheat on a large granite saddle quern stone.
+- In the middle ground: early farmers herding primitive spotted sheep and long-horned cattle into a post-and-wattle corral; drying flax and herbal bundles hanging under house eaves; fish traps and woven hemp fishing nets drying on poles by the river's edge.
+- In the background: the broad, shimmering blue Danube River flowing through a vast landscape of ancient oak and elm forests under a soft summer sky.
+Negative prompt: Absolutely no metal tools or weapons, no horses with riders, no wheeled carts, no modern clothes, no stone masonry temples, no text, no words, no watermarks.
+```
+
+---
+
+### 20. `halaf` (Halaf culture)
+- **Target File**: `public/images/cultures/halaf.webp` (+ `halaf-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Pottery Neolithic Halaf settlement with circular tholos architecture and master polychrome ceramic painters in northern Mesopotamia (c. 5300 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm Mediterranean-Mesopotamian afternoon sunlight, golden hills and whitewashed buildings.
+Scene:
+- A picturesque settlement featuring distinctive whitewashed mudbrick circular domed houses (tholoi) with adjoining rectangular entrance annexes, set amid gardens and golden fields.
+- In the foreground: in a shaded courtyard beneath an arbor, skilled Halaf pottery artisans delicately painting intricate polychrome red, black, and orange mineral glaze designs—fine geometric floral rosettes, Maltese crosses, and stylized bull horns (bucrania)—onto exquisite thin-walled ceramic bowls and shallow serving dishes; on a low stone table lie carved stone stamp seals with geometric labyrinth patterns and a painted terracotta seated mother goddess figurine.
+- In the background: villagers winnowing barley on an open threshing floor, herds of fat-tailed sheep grazing on rolling grassy steppe hills; in the far distance, purple-hued foothills under a clear radiant sky.
+Negative prompt: Absolutely no modern clothes, no iron or bronze weapons, no Islamic architecture, no cuneiform writing, no wheeled chariots, no text, no words, no watermarks.
+```

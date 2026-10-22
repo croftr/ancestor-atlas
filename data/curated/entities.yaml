@@ -708,6 +708,9 @@
   description: "From roughly 35,000 years ago the Gravettian spread from the Atlantic coast to the Russian plains, as the climate slid towards the coldest stretch of the Ice Age. Its people hunted mammoth, and on the plains built huts framed with mammoth bones. They are best known for small carved 'Venus' figurines such as the Venus of Willendorf, and at Dolní Věstonice in Moravia they fired figures of clay in hearths more than 26,000 years ago, long before anyone made pottery vessels. Some of their dead were buried with rich ornaments."
   narration: { src: narration/cultures/gravettian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b65ff5f961" }
   wikipedia_url: https://en.wikipedia.org/wiki/Gravettian
+  image_url: /images/cultures/gravettian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Mammoth-hunter winter camp at Dolní Věstonice: mammoth-bone dwellings, kiln-fired clay Venus figurines, and ivory carving"
   source_ids:
     - recall
   media:
@@ -1157,6 +1160,9 @@
   end_year: -4499
   description: First farming culture of the inland Balkans and the Carpathian Basin, c. 6200–4500 BCE, known as Starčevo in Serbia, Körös in Hungary and Criș in Romania. It carried farming and pottery north from the Aegean and preceded the Linear Pottery culture.
   wikipedia_url: https://en.wikipedia.org/wiki/Starčevo_culture
+  image_url: /images/cultures/starcevo-koros-cris.webp
+  image_credit: AI-generated illustration
+  image_caption: "Early Neolithic farming hamlet along the Danube terrace: wattle-and-daub houses, white-spiral painted pottery, and idol figurines"
   wikidata: Q1483547
   source_ids: []
   media:
@@ -1499,6 +1505,9 @@
   end_year: -5099
   description: Pottery Neolithic culture of northern Mesopotamia, c. 6100–5100 BCE, centred on the Khabur valley of south-eastern Turkey, Syria and northern Iraq. Named after Tell Halaf in Syria; it was followed by the Ubaid period.
   wikipedia_url: https://en.wikipedia.org/wiki/Halaf_culture
+  image_url: /images/cultures/halaf.webp
+  image_credit: AI-generated illustration
+  image_caption: "Northern Mesopotamian village with circular domed tholoi and artisans painting fine polychrome rosette ceramics"
   wikidata: Q904998
   source_ids: []
   extra_images:
@@ -1514,6 +1523,9 @@
   end_year: -3799
   description: "Prehistoric period of Mesopotamia, c. 6500–3800 BCE, with the earliest known settlements on the southern alluvial plain; in the north it ran only from about 5300 to 4300 BCE, after the Halaf. Named after Tell al-'Ubaid; it was followed by the Uruk period."
   wikipedia_url: https://en.wikipedia.org/wiki/Ubaid_period
+  image_url: /images/cultures/ubaid.webp
+  image_credit: AI-generated illustration
+  image_caption: "Southern Mesopotamian marsh settlement: mudbrick architecture, painted greenish-buff pottery, clay sickles, and reed canoes"
   wikidata: Q245156
   source_ids: []
   extra_images:
