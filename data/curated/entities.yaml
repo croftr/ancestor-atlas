@@ -539,6 +539,9 @@
   end_year: -3198050
   description: The oldest known stone tool industry, from Lomekwi 3 in West Turkana, Kenya, about 3.3 million years ago. It predates the genus Homo, and its makers are unknown.
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwian
+  image_url: /images/cultures/lomekwian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Early hominins using passive anvil percussion to detach sharp flakes from basalt cobbles at Lomekwi, Kenya"
   source_ids:
     - recall
   media:
@@ -553,6 +556,9 @@
   end_year: -1098050
   description: Earliest widespread stone tool industry, made of simple flakes and choppers struck from cobbles. Found from about 2.6 million years ago across Africa and into western Asia.
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
+  image_url: /images/cultures/oldowan.webp
+  image_credit: AI-generated illustration
+  image_caption: "Homo habilis knapping volcanic cobble choppers and butchering with sharp flakes at Olduvai Gorge"
   source_ids:
     - recall
   media:
@@ -590,6 +596,9 @@
   description: "The Mousterian is the toolkit of the Neanderthals, named after the rock shelter of Le Moustier in France. Its makers shaped a stone core with care so that a single blow would strike off a flake of planned size and shape, a method known as Levallois, then retouched the flakes into scrapers and points. With these tools Neanderthals hunted reindeer, horse and bison across Europe and western Asia for some 200,000 years, and at Pech de l'Azé in France they left blocks of manganese that may have helped them light fires."
   narration: { src: narration/cultures/levallois-mousterian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "bd1a6a331a" }
   wikipedia_url: https://en.wikipedia.org/wiki/Mousterian
+  image_url: /images/cultures/levallois-mousterian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Neanderthal toolmaker preparing a Levallois core and striking off a planned triangular point at a rock shelter"
   source_ids:
     - recall
   media:
@@ -610,6 +619,9 @@
   description: "In Africa the long age after the handaxes is called the Middle Stone Age, beginning around 300,000 years ago alongside the first Homo sapiens. Its people struck flakes from carefully prepared cores and made stone spear points, and at Pinnacle Point on South Africa's south coast, some 164,000 years ago, they were already gathering shellfish and grinding red ochre. Later sites such as Blombos Cave and Diepkloof add engraved ochre, shell beads and decorated ostrich eggshell, early signs of symbolic thought."
   narration: { src: narration/cultures/middle-stone-age-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9c381841c6" }
   wikipedia_url: https://en.wikipedia.org/wiki/Middle_Stone_Age
+  image_url: /images/cultures/middle-stone-age.webp
+  image_credit: AI-generated illustration
+  image_caption: "Early modern humans engraving geometric patterns on red ochre and pressure-flaking spear points in a South African sea cave"
   source_ids:
     - recall
   media:
@@ -673,6 +685,9 @@
   description: "The Aurignacian marks the arrival of modern humans across Europe from about 43,000 years ago, while Neanderthals still lived there. Its makers struck long, thin stone blades, shaped spear points from bone and antler, and wore beads of shell, ivory and animal teeth. In the caves of the Swabian Jura they carved the oldest known figurines, among them the Lion Man and the Venus of Hohle Fels, and played flutes of bird bone and mammoth ivory; the paintings of Chauvet Cave in France belong to the same world."
   narration: { src: narration/cultures/aurignacian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e885ba5a55" }
   wikipedia_url: https://en.wikipedia.org/wiki/Aurignacian
+  image_url: /images/cultures/aurignacian.webp
+  image_credit: AI-generated illustration
+  image_caption: "Upper Paleolithic hunter-artists carving mammoth ivory figurines, playing bone flutes, and blowing ochre hand stencils"
   source_ids:
     - recall
   media:

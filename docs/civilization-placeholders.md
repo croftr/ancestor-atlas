@@ -236,3 +236,101 @@ Scene:
 - Dense forest of pine, birch and hazel around the lake; an elk standing on the far shore in the evening mist.
 Negative prompt: Absolutely no shell middens, no pottery, no farming, no domesticated animals other than the dog, no metal, no modern clothes, no text, no words, no watermarks.
 ```
+
+
+---
+
+## Paleolithic & Early Cultures (Batch 1, added 22 Oct 2026)
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`lomekwian`** | Lomekwian | `public/images/cultures/lomekwian.webp` | Lake Turkana, Kenya, c. 3.3 Ma; block-on-block percussion, anvil knapping, pre-Homo |
+| **`oldowan`** | Oldowan | `public/images/cultures/oldowan.webp` | Olduvai Gorge, Tanzania, c. 1.8 Ma; Homo habilis, pebble core choppers, flake butchery |
+| **`middle-stone-age`** | Middle Stone Age (Africa) | `public/images/cultures/middle-stone-age.webp` | Blombos Cave & Pinnacle Point, South Africa, c. 75 ka; early Homo sapiens, engraved ochre, shell beads, bifacial points |
+| **`levallois-mousterian`** | Levallois / Mousterian | `public/images/cultures/levallois-mousterian.webp` | Le Moustier, France, c. 55 ka; Neanderthals, prepared Levallois core reduction, scrapers, thrusting spears |
+| **`aurignacian`** | Aurignacian | `public/images/cultures/aurignacian.webp` | Swabian Jura & Chauvet, Europe, c. 36 ka; early modern humans, ivory carvings, bone flutes, hand stencils |
+
+### 12. `lomekwian` (Lomekwian)
+- **Target File**: `public/images/cultures/lomekwian.webp` (+ `lomekwian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Pliocene hominins (such as Kenyanthropus platyops or Australopithecus afarensis) knapping and using the earliest known stone tools at Lomekwi near Lake Turkana, Kenya (c. 3.3 million years ago).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings and paleoart, warm golden East African rift valley daylight, semi-arid wooded savanna.
+Scene:
+- A small group of bipedal australopithecine hominins beside a gravelly riverbank / lake margin with exposed basalt boulders.
+- In the foreground: an early hominin using heavy passive anvil percussion, lifting a large river cobble with both hands and slamming it down onto a stationary flat stone anvil to break off sharp flakes; nearby another hominin uses a sharp-edged flake to slice tough plant tubers or scavenged meat.
+- Scattered heavy basalt cores, hammerstones, and flake debitage on the sandy ground.
+- In the background: umbrella acacia trees, dry scrub, low volcanic rift escarpment hills under a warm hazy sky.
+Negative prompt: Absolutely no modern humans, no clothing, no metal, no pottery, no text, no words, no watermarks, no fire.
+```
+
+---
+
+### 13. `oldowan` (Oldowan)
+- **Target File**: `public/images/cultures/oldowan.webp` (+ `oldowan-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Homo habilis toolmakers making and using Oldowan pebble choppers and sharp flakes at the edge of an ancient lake basin in Olduvai Gorge, Tanzania (c. 1.8 million years ago).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings and paleoart, warm early morning golden East African sunlight, lake margin and acacia savanna.
+Scene:
+- A small band of Homo habilis near a gravelly stream bed entering a shallow pale lake.
+- In the foreground: an early hominin seated on a lava rock, holding a rounded volcanic river cobble in one hand and striking its edge with a hammerstone to detach sharp conchoidal flakes, creating a classic Oldowan chopper core with a jagged cutting edge; another hominin using a freshly detached sharp stone flake to butcher scavenged meat and sinew from an antelope leg bone.
+- Scattered cores, hammerstones, and sharp quartz/basalt flakes on the dusty ground.
+- In the background: open savanna grassland with scattered acacia trees; in the far distance the pale volcanic slopes of the crater highlands under a vast African sky.
+Negative prompt: Absolutely no modern humans, no clothing, no metal, no pottery, no text, no words, no watermarks, no fire, no modern buildings.
+```
+
+---
+
+### 14. `middle-stone-age` (Middle Stone Age Africa)
+- **Target File**: `public/images/cultures/middle-stone-age.webp` (+ `middle-stone-age-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early anatomically modern Homo sapiens hunter-gatherers during the African Middle Stone Age at a sea cave shelter overlooking the South African coast (c. 75,000 years ago).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, bright maritime coastal daylight, rugged sandstone sea cliffs.
+Scene:
+- An open cave mouth / rock shelter high on a coastal cliff overlooking the roaring southern ocean.
+- In the foreground: inside the sheltered cave entrance, an early human artisan grinding bright red ochre on a flat grinding stone, carefully engraving geometric cross-hatched triangular patterns onto a smooth slab of ochre; nearby, another artisan knaps a delicate bifacial stone spear point using pressure flaking; perforated marine tick shell beads strung into a necklace and an engraved ostrich eggshell water container rest on clean animal hides.
+- Outside the cave: hunters returning along the coastal path carrying wooden spears tipped with silcrete points; coastal fynbos flowers on the cliff edge and breaking ocean surf far below.
+Negative prompt: Absolutely no modern clothes, no metal, no pottery, no text, no words, no watermarks, no farming, no modern ships.
+```
+
+---
+
+### 15. `levallois-mousterian` (Levallois / Mousterian)
+- **Target File**: `public/images/cultures/levallois-mousterian.webp` (+ `levallois-mousterian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+Archaeological reconstruction oil painting of Levallois technique flintknapping during the Mousterian Neanderthal period, 55,000 years ago in southwestern France at a limestone rock shelter.
+
+Style: Painterly historical illustration in the style of classic archaeological reconstruction paintings, cool misty autumn light, limestone cliffs and river valley.
+Scene:
+- At the wide entrance of a high limestone rock shelter with a small warming hearth smoldering with gentle smoke.
+- In the foreground: a robust, muscular Neanderthal man with heavy supraorbital brow ridges and receding chin knaps flint while kneeling on a hide. He holds an oval, rounded river pebble hammerstone in his bare hand without any handle, striking the prepared platform of a large domed flint stone core to detach a sharp triangular flint point (Levallois point). Beside him on the hide lie flaked stone debitage, sharp flint flakes, and raw flint nodules. Near him, a Neanderthal woman dressed in stitched deer hide scrapes a stretched pelt with a Mousterian flint racloir (side scraper). A small open hearth with glowing charcoal and rising smoke sits nearby, with lumps of black manganese dioxide ore beside it. Heavy wooden thrusting spears lean against the limestone rock wall.
+- In the background: a misty river valley with golden and rust-colored autumn birch and oak trees, with a small herd of wild horses grazing in the meadow below.
+Negative prompt: Absolutely no modern humans, no Homo sapiens, no metal, no pottery, no text, no words, no watermarks, no modern clothing.
+```
+
+---
+
+### 16. `aurignacian` (Aurignacian)
+- **Target File**: `public/images/cultures/aurignacian.webp` (+ `aurignacian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early modern human (Homo sapiens) hunter-artists inside a spacious limestone cave shelter during the European Ice Age (c. 36,000 years ago).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm flickering firelight combined with pale cool daylight spilling into the cave mouth.
+Scene:
+- A limestone cave entrance with a stone-lined campfire, fur blankets, and pine-torch light.
+- In the foreground: an artisan sitting by the hearth delicately carving an ivory figurine (a mammoth ivory animal or human statuette like the Lion Man or Venus of Hohle Fels) using a sharp flint burin; nearby, a seated companion plays a hollow vulture-wing-bone flute with drilled finger holes; split-base bone points, long prismatic flint blades, and a necklace of pierced fox teeth and marine shells laid out on a fur mat.
+- In the background cave wall: an artist blowing red ochre pigment over their hand against the limestone wall creating hand stencils; outside through the cave opening, a snowy steppe-tundra landscape with sparse spruce trees under a cold twilight sky.
+Negative prompt: Absolutely no metal, no pottery, no agriculture, no domestic livestock, no modern clothes, no text, no words, no watermarks.
+```
