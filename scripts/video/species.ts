@@ -47,6 +47,8 @@ const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--tour", "
 const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations" };
 
 const SCENE_PROMPTS: Record<string, string> = {
+  "laetoli-footprints":
+    "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the two-line text title 'The Laetoli Footprints' at the top, the sky, the distant sun, and the landscape completely still and unchanged. From the volcanic crater in the background, a thin plume of volcanic smoke drifts softly into the sky. In the foreground, the three hominins walk slowly and steadily forward with natural bipedal strides, and with every step their bare feet press firmly into the damp volcanic ash ground, visibly pressing new footprint impressions into the ash behind them that remain sharp and clear in the trackway.",
   "hominin-divergence":
     "Living painting cinemagraph of a paleoart illustration, locked static camera with no camera movement or zoom. Keep the two-line text title 'Divergence of the Hominin Lineage' at the top, the sky, the setting sun on the horizon, the trees, and the landscape composition completely still and unchanged. On the right, the bipedal hominins walk slowly forward through the savanna grass with subtle, natural strides, while the tall grass around their legs sways gently in the breeze. On the left, the chimpanzee-like apes make subtle, gentle movements shifting their weight and turning their heads naturally. In the center, gentle golden ripples and light reflections continuously shimmer and flow along the winding river surface.",
   clovis:
