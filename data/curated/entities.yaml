@@ -1274,6 +1274,9 @@
   end_year: -3999
   description: Neolithic culture of the Middle Danube, c. 5000–4000 BCE, centred on Hungary, Slovakia, Austria and Moravia, known for painted pottery and circular ditched enclosures (rondels). Named after Lengyel in Tolna county, Hungary.
   wikipedia_url: https://en.wikipedia.org/wiki/Lengyel_culture
+  image_url: /images/cultures/lengyel.webp
+  image_credit: AI-generated illustration
+  image_caption: "Late Neolithic settlement and monumental circular ditched enclosure (rondel), with painted pedestaled pottery and craftwork"
   wikidata: Q668742
   source_ids: []
   media:
@@ -1288,6 +1291,9 @@
   end_year: -3499
   description: Middle Neolithic culture of France, c. 4500–3500 BCE, spread from the south across much of the country. Named after the site at Chassey-le-Camp in Saône-et-Loire.
   wikipedia_url: https://en.wikipedia.org/wiki/Chasséen_culture
+  image_url: /images/cultures/chasseen.webp
+  image_credit: AI-generated illustration
+  image_caption: "Fortified hilltop settlement (éperon barré) on a limestone promontory, with dark-burnished carinated bowls and honey-flint blades"
   wikidata: Q688898
   source_ids: []
   media:
@@ -1541,6 +1547,9 @@
   end_year: -4599
   description: "Successive Neolithic cultures of the Rhine region: Hinkelstein, part of the wider Linear Pottery horizon in Rhine-Main and Rhenish Hesse, c. 5000–4900 BCE, then the Middle Neolithic Grossgartach culture, which flourished around 4750/4650 BCE along the middle and upper Rhine, in southern Germany and northern Switzerland, before giving way to Rössen."
   wikipedia_url: https://en.wikipedia.org/wiki/Grossgartach_culture
+  image_url: /images/cultures/hinkelstein-grossgartach.webp
+  image_credit: AI-generated illustration
+  image_caption: "Middle Neolithic Rhine terrace settlement: boat-shaped timber longhouses, pointillé-stamped beakers, and greenstone adzes"
   wikidata: Q1549257
   source_ids: []
 # Span from English Wikipedia: Stroke-ornamented_ware_culture@1309226838.
@@ -1551,6 +1560,9 @@
   end_year: -4399
   description: Successor of the Linear Pottery culture in central Europe, c. 4900–4400 BCE, centred on Silesia, eastern Germany and the northern Czech Republic, where it overlapped with Lengyel to the south and Rössen to the west. Also called Stichbandkeramik.
   wikipedia_url: https://en.wikipedia.org/wiki/Stroke-ornamented_ware_culture
+  image_url: /images/cultures/stichbandkeramik.webp
+  image_credit: AI-generated illustration
+  image_caption: "Neolithic loess terrace village: artisan stamping stroke-ornamented pottery with bone combs beside shoe-last adzes"
   wikidata: Q1932196
   source_ids: []
 # Span from English Wikipedia: Rössen_culture@1325126170.
@@ -1561,6 +1573,9 @@
   end_year: -4299
   description: Middle Neolithic culture of central Europe, c. 4600–4300 BCE, found across most of Germany and into the Low Countries, north-eastern France, northern Switzerland and Austria. Named after the cemetery at Rössen in Saxony-Anhalt, it bridges the Linear Pottery tradition and later cultures such as Michelsberg and Funnelbeaker.
   wikipedia_url: https://en.wikipedia.org/wiki/Rössen_culture
+  image_url: /images/cultures/rossen.webp
+  image_credit: AI-generated illustration
+  image_caption: "Central European farming village with trapezoidal timber longhouses, chip-carved Kerbschnitt pottery, and amphibolite axes"
   wikidata: Q1886212
   source_ids: []
 - id: early-dynastic-period-of-egypt

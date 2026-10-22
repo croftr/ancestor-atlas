@@ -415,3 +415,101 @@ Scene:
 - In the background: villagers winnowing barley on an open threshing floor, herds of fat-tailed sheep grazing on rolling grassy steppe hills; in the far distance, purple-hued foothills under a clear radiant sky.
 Negative prompt: Absolutely no modern clothes, no iron or bronze weapons, no Islamic architecture, no cuneiform writing, no wheeled chariots, no text, no words, no watermarks.
 ```
+
+
+---
+
+## Middle Neolithic Europe (Batch 3, added 22 Oct 2026)
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`lengyel`** | Lengyel culture | `public/images/cultures/lengyel.webp` | Middle Danube, c. 4600 BCE; monumental circular ditched enclosure (rondel), painted pedestaled pottery, longhouses |
+| **`hinkelstein-grossgartach`** | Hinkelstein & Grossgartach cultures | `public/images/cultures/hinkelstein-grossgartach.webp` | Upper Rhine, c. 4700 BCE; boat-shaped timber longhouses, pointillé-stamped beakers, greenstone adzes |
+| **`stichbandkeramik`** | Stroke-ornamented ware culture | `public/images/cultures/stichbandkeramik.webp` | Bohemia & Elbe basin, c. 4600 BCE; Stichband chevron pottery, shoe-last adzes, loess farming village |
+| **`rossen`** | Rössen culture | `public/images/cultures/rossen.webp` | Central Germany, c. 4400 BCE; monumental trapezoidal longhouses, Kerbschnitt chip-carved pottery, perforated axes |
+| **`chasseen`** | Chasséen culture | `public/images/cultures/chasseen.webp` | Chassey-le-Camp & Rhône, c. 4000 BCE; fortified promontory hillfort (éperon barré), dark carinated bowls, honey flint |
+
+### 21. `lengyel` (Lengyel culture)
+- **Target File**: `public/images/cultures/lengyel.webp` (+ `lengyel-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Late Neolithic Lengyel settlement with its monumental circular ditched enclosure (rondel) in Central Europe (c. 4600 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, late afternoon golden sunlight over fertile loess plateau and ancient oak woodlands.
+Scene:
+- In the center and middle ground: a monumental circular ditched enclosure ("rondel") consisting of multiple concentric deep V-shaped defensive ditches, earthen ramparts, and heavy timber palisades with timber gateway towers oriented to the cardinal and solstitial directions; people walking through the causeway entrance.
+- Outside the enclosure: large trapezoidal timber post-houses with daub walls and pitched thatch roofs.
+- In the foreground: villagers engaged in daily craftwork—a woman applying bright yellow and red crusted mineral paint to the geometric incisions of a polished black pedestaled clay bowl; beside her on a timber bench sit modeled terracotta seated anthropomorphic figurines and long flaked blades of Bavarian tabular chert and shining dark obsidian.
+- In the surrounding fields: cattle herds with long curved horns grazing on the grassy plateau; dense primeval oak-lime forests in the background rolling hills.
+Negative prompt: Absolutely no metal armor or metal tools, no horseback riding, no wheels, no medieval castles, no modern clothes, no text, no words, no watermarks.
+```
+
+---
+
+### 22. `hinkelstein-grossgartach` (Hinkelstein and Grossgartach cultures)
+- **Target File**: `public/images/cultures/hinkelstein-grossgartach.webp` (+ `hinkelstein-grossgartach-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Middle Neolithic Rhine farmers of the Grossgartach culture on a fertile river terrace in the Upper Rhine plain (c. 4700 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, soft morning summer sunlight, lush river valley terrace and primeval oak-beech forest.
+Scene:
+- A farming settlement nestled on a fertile loess terrace near the Rhine. Large post-built timber longhouses with slightly curving boat-shaped long walls and steeply pitched reed-thatched roofs.
+- In the foreground: artisans shaping and decorating high-necked footed beakers and bowls with pointillé comb-stamped punctations and incised hatched bands filled with white limestone paste; an elder splitting timber with a polished greenstone adze; harvested sheaves of emmer and spelt drying in the sun on timber drying racks.
+- In the middle ground: farmers tending cattle and sheep in clearings between ancient oak and beech woodlands; smoke rising gently from a hearth pit; low forested hills in the far distance under a clear morning sky.
+Negative prompt: Absolutely no metal tools, no metal armor, no wheels, no horses with saddles, no modern clothes, no stone castles, no text, no words, no watermarks.
+```
+
+---
+
+### 23. `stichbandkeramik` (Stroke-ornamented ware culture)
+- **Target File**: `public/images/cultures/stichbandkeramik.webp` (+ `stichbandkeramik-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Neolithic Stichbandkeramik farming settlement on a fertile loess terrace in Central Europe (c. 4600 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, soft golden summer morning light, pastoral loess landscape and oak woodlands.
+Scene:
+- A farming village of long post-framed timber longhouses oriented NNW-SSE with clay-daub walls and steep thatch roofs.
+- In the foreground: an artisan using a double-toothed bone punch/comb to stamp rhythmic paired strokes ("Stichband") in zigzag chevron ribbons and festoon patterns around the shoulder of a round-bellied clay pot, then filling the impressed lines with bright white bone-ash paste; beside her on a woven rush mat lie polished shoe-last stone adzes (Schuhleistenkeile) bound to ash-wood knee-shafts, bone awls, and clay spindle whorls.
+- In the middle ground: women grinding grain on saddle querns near outdoor cooking hearths, children guiding goats along wattle hurdles, and fields of golden einkorn wheat and green peas.
+- In the background: rolling loess hills with scattered groves of ancient oak and linden trees under a pale blue sky.
+Negative prompt: Absolutely no metal tools or weapons, no wheels, no horseback riders, no stone masonry castles, no modern clothes, no text, no words, no watermarks.
+```
+
+---
+
+### 24. `rossen` (Rössen culture)
+- **Target File**: `public/images/cultures/rossen.webp` (+ `rossen-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Middle Neolithic Rössen culture village in Central Europe (c. 4400 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm autumn afternoon sunlight, forest-edge agricultural clearing and rolling hills.
+Scene:
+- A settlement featuring monumental trapezoidal timber longhouses (up to 50 meters long, noticeably wider at the western end) with split-timber and clay-plastered walls and towering thatched roofs.
+- In the foreground: a skilled potter carving deep angular "Kerbschnitt" (chip-carved) triangles, chevrons, and checkerboard bands into the leather-hard surface of a globular foot-cup, with a small dish of white chalk paste ready for inlaying; beside her, a craftsman polishing a heavy perforated amphibolite stone battle-axe (Keule/Keil) with a smooth drilled shaft hole; bundles of dried herbs and venison strips hanging on outdoor racks.
+- In the background: cattle grazing in forest clearings, blue smoke drifting lazily from domestic hearths, and golden autumn oak-hornbeam woodlands under a clear sky.
+Negative prompt: Absolutely no metal armor or bronze/iron tools, no wheels, no horses with riders, no modern clothes, no stone masonry, no text, no words, no watermarks.
+```
+
+---
+
+### 25. `chasseen` (Chasséen culture)
+- **Target File**: `public/images/cultures/chasseen.webp` (+ `chasseen-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a fortified Middle Neolithic Chasséen hilltop settlement (éperon barré) perched on a limestone promontory (c. 4000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, radiant golden Mediterranean-Burgundian afternoon light, limestone cliffs and vast panoramic river valley.
+Scene:
+- A fortified village on a steep limestone spur overlooking a broad river valley, protected across the narrow plateau neck by a massive drystone rampart with a timber palisade and rock-cut ditch. Inside the ramparts stand drystone and timber post dwellings with thatched roofs.
+- In the foreground: artisans finishing fine dark-burnished carinated bowls (écuelles carénées) with delicate scratched geometric checkerboard and hatched triangle patterns and small multi-perforated ribbon handles; beside them, a flint knapper works long, razor-sharp blades from honey-colored flint cores (Grand-Pressigny or blond Bedoulian chert) alongside sharp triangular and transverse arrowheads.
+- In the background: sheep and cattle grazing on the scrubby limestone plateau; breathtaking panoramic vista overlooking the mist-threaded river valley below under clear sunny skies.
+Negative prompt: Absolutely no metal tools or weapons, no horseback riding, no wheels, no medieval castles, no modern clothes, no text, no words, no watermarks.
+```
