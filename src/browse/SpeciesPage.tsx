@@ -47,7 +47,7 @@ const readLayout = (): Layout => {
 
 /**
  * Species page (#/species): every species in the order it appeared, grouped by era, each row its picture
- * (numbered in the corner) and text. Each row's bar sits on one time scale shared by the whole page (the
+ * (numbered in its top left corner) and text. Each row's bar sits on one time scale shared by the whole page (the
  * time slider's compressed scale, so the recent species aren't slivers), pinned under the era chips, which
  * shows at a glance who came when and who lived alongside whom. The Family tree switch draws the same bars joined
  * into a tree (FamilyTree.tsx), and Compare compares any two species side by side (SpeciesCompare.tsx).

@@ -4,7 +4,7 @@ import { useData } from "../map/data";
 import { navigate, useOpenEvent } from "../route";
 import { useStore } from "../store";
 import { formatRange } from "../time/scale";
-import { eraIndexOf, erasFor, firstSentence, type Era } from "../timeline/layout";
+import { eraIndexOf, erasFor, firstSentence, shortDate, type Era } from "../timeline/layout";
 import type { Entity } from "../types";
 import { refLink } from "../ui/refs";
 import EventImage from "./EventImage";
@@ -12,17 +12,24 @@ import EventMedia from "./EventMedia";
 import ListenButton from "../audio/ListenButton";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import Totals from "../browse/Totals";
+import { useSectionNav } from "../browse/useSectionNav";
 import TourStopLinks from "../tours/TourStopLinks";
+import { videoCount } from "../youtube";
 import "./events-page.css";
 import "../browse/browse.css";
 
 const yearOf = (e: Entity) => e.year ?? e.start_year;
+const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 
-/** Events page (#/events): every event by era as picture tiles; one opens in a detail view (#/events/<id>). */
+/**
+ * Events page (#/events): every event by era as picture tiles; one opens in a detail view (#/events/<id>). Only the
+ * search and the era chips stay pinned; the chips jump to an era and follow the scroll.
+ */
 export default function EventsPage() {
   const data = useData();
   const openId = useOpenEvent();
-  const [eraFilter, setEraFilter] = useState<number | null>(null);
+  const [query, setQuery] = useState("");
+  const pageRef = useRef<HTMLDivElement>(null);
 
   const events = useMemo(
     () => (data?.entities ?? []).filter((e) => e.category === "event").sort((a, b) => yearOf(a) - yearOf(b)),
@@ -36,21 +43,33 @@ export default function EventsPage() {
     return m;
   }, [eras, events]);
 
+  const q = fold(query.trim());
+  const shown = useMemo(
+    () =>
+      byEra
+        .map((s) => ({ ...s, events: q ? s.events.filter((e) => fold(`${e.name} ${e.description ?? ""} ${e.date_text ?? ""}`).includes(q)) : s.events }))
+        .filter((s) => s.events.length > 0),
+    [byEra, q],
+  );
+  const { barRef, chipsRef, active, jump } = useSectionNav(pageRef, [shown]);
+
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
 
   const open = openId ? events.find((e) => e.id === openId) : undefined;
-  const shown = byEra.filter((s, i) => s.events.length > 0 && (eraFilter === null || eraFilter === i));
+  const visible = shown.flatMap((s) => s.events);
 
   return (
-    <div className="events-page" style={{ "--accent": CATEGORY_STYLE.event.color } as CSSProperties}>
-      <header className="ev-header">
+    <div ref={pageRef} className="events-page br-page" style={{ "--accent": CATEGORY_STYLE.event.color } as CSSProperties}>
+      <header className="ev-header br-intro">
         <div className="ev-title">
           <h1 className="cat-title">
             <CategoryBadge category="event" decorative />
             Events
           </h1>
           <span className="muted ev-count">
-            {events.length ? formatRange(yearOf(events[0]), Math.max(...events.map((e) => e.end_year))) : ""}
+            {q
+              ? `Showing ${visible.length} of ${events.length}`
+              : events.length ? formatRange(yearOf(events[0]), Math.max(...events.map((e) => e.end_year))) : ""}
           </span>
         </div>
         <Totals
@@ -61,28 +80,55 @@ export default function EventsPage() {
             { label: "Videos & audio", value: events.reduce((n, e) => n + (e.media?.length ?? 0), 0) },
           ]}
         />
-        <div className="ev-filters" role="group" aria-label="Filter by era">
-          <button className={`chip${eraFilter === null ? " active" : ""}`} aria-pressed={eraFilter === null} onClick={() => setEraFilter(null)}>
-            All eras
-          </button>
-          {byEra.map(({ era, events: list }, i) =>
-            list.length ? (
-              <button
-                key={era.label}
-                className={`chip${eraFilter === i ? " active" : ""}`}
-                aria-pressed={eraFilter === i}
-                onClick={() => setEraFilter(eraFilter === i ? null : i)}
-              >
-                {era.label} <span className="ev-chip-count">{list.length}</span>
-              </button>
-            ) : null,
-          )}
-        </div>
       </header>
+      {/* Only the search and the era chips stay at the top; the title and counts scroll away. */}
+      <div ref={barRef} className="br-sticky">
+        <div className="br-search">
+          <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden>
+            <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+            <path d="M13 13l4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              pageRef.current?.scrollTo({ top: 0 });
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && query) {
+                e.stopPropagation();
+                setQuery("");
+              } else if (e.key === "Enter" && visible[0]) navigate("events", visible[0].id);
+            }}
+            placeholder="Search events"
+            aria-label="Search events by name, description or date"
+          />
+        </div>
+        <nav ref={chipsRef} className="ev-filters" aria-label="Jump to an era">
+          {shown.map(({ era, events: list }) => (
+            <button
+              key={era.label}
+              data-chip={era.label}
+              className={`chip${active === era.label ? " active" : ""}`}
+              aria-current={active === era.label ? "true" : undefined}
+              onClick={() => jump(era.label)}
+            >
+              {era.label} <span className="ev-chip-count">{list.length}</span>
+            </button>
+          ))}
+        </nav>
+      </div>
 
       <main className="ev-main">
+        {shown.length === 0 && (
+          <div className="cu-empty">
+            <p>No event matches “{query.trim()}”.</p>
+            <button className="chip" onClick={() => setQuery("")}>Clear search</button>
+          </div>
+        )}
         {shown.map(({ era, events: list }) => (
-          <section key={era.label} className="ev-section" aria-labelledby={`era-${era.label}`}>
+          <section key={era.label} data-section={era.label} className="ev-section" aria-labelledby={`era-${era.label}`}>
             <h2 id={`era-${era.label}`}>
               {era.label}{" "}
               <span className="muted">
@@ -93,8 +139,11 @@ export default function EventsPage() {
               {list.map((e) => (
                 <li key={e.id}>
                   <button className="ev-tile" onClick={() => navigate("events", e.id)}>
-                    <EventImage event={e} />
-                    <span className="ev-tile-date">{e.date_text}</span>
+                    <span className="ev-tile-pic">
+                      <EventImage event={e} />
+                      {e.media && e.media.length > 0 && <span className="ev-tile-flag">{videoCount(e.media.length)}</span>}
+                    </span>
+                    <span className="ev-tile-date" title={e.date_text}>{e.date_text && shortDate(e.date_text)}</span>
                     <span className="ev-tile-name">{e.name}</span>
                     <span className="ev-tile-summary">{firstSentence(e.description)}</span>
                   </button>
@@ -105,7 +154,7 @@ export default function EventsPage() {
         ))}
       </main>
 
-      {open && <EventDetail event={open} events={events} era={eras[eraOf(open)]} />}
+      {open && <EventDetail event={open} events={visible.includes(open) ? visible : events} era={eras[eraOf(open)]} />}
     </div>
   );
 }

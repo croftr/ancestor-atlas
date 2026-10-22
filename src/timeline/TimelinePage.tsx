@@ -27,6 +27,7 @@ import {
   formatDuration,
   laneExtents,
   panWindow,
+  shortDate,
   shortDuration,
   tickLabel,
   tickStep,
@@ -285,16 +286,20 @@ export default function TimelinePage() {
     const a = Math.max(-4, x(e.start_year));
     const b = Math.min(trackW + 4, x(e.end_year));
     const dim = hoverYear !== null && Math.abs((e.year ?? e.start_year) - hoverYear) > span * 0.02 && !(e.start_year <= hoverYear && hoverYear <= e.end_year);
-    const text = e.date_text ?? formatYear(e.year ?? e.start_year);
+    const full = e.date_text ?? formatYear(e.year ?? e.start_year);
+    // Beside the marker, the date without its note in brackets (the tooltip and card keep it all).
+    const text = shortDate(full);
     const textW = text.length * 6.4 + 10;
-    const after = trackW - at >= textW + 12;
+    // After the marker if there is room, else before it, else no date (rather than one cut off at the edge); none
+    // while the marker itself is outside the window.
+    const side = at < 0 || at > trackW ? null : trackW - at >= textW + 12 ? "after" : at - 12 - textW >= 0 ? "before" : null;
     return (
       <>
         {b - a > 2 && <div className={`tl-ev-range${dim ? " dim" : ""}`} style={{ left: a, width: b - a }} />}
         <button
           className={`tl-ev${selectedEntityId === e.id ? " selected" : ""}${dim ? " dim" : ""}`}
           style={{ left: at - 7 }}
-          aria-label={`${e.name}, ${text}`}
+          aria-label={`${e.name}, ${full}`}
           onClick={() => {
             if (suppressClick.current) return;
             openGroup(e.id);
@@ -303,9 +308,11 @@ export default function TimelinePage() {
           onMouseMove={(ev) => setTip({ e, x: ev.clientX, y: ev.clientY })}
           onMouseLeave={() => setTip(null)}
         />
-        <span className={`tl-dur outside tl-ev-date${dim ? " dim" : ""}`} style={after ? { left: at + 12 } : { left: at - 12 - textW }}>
-          {text}
-        </span>
+        {side && (
+          <span className={`tl-dur outside tl-ev-date${dim ? " dim" : ""}`} style={side === "after" ? { left: at + 12 } : { left: at - 12 - textW }}>
+            {text}
+          </span>
+        )}
       </>
     );
   };

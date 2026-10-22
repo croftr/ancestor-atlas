@@ -56,6 +56,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
+- Events page (`#/events`, 22 Oct 2026): only the search (name, description, date) and the era chips stay pinned;
+  the chips jump to an era and follow the scroll (`useSectionNav`); tiles with videos carry a badge; tile dates and
+  the Timeline's marker labels drop a trailing note in brackets (`shortDate` in `src/timeline/layout.ts`; the card,
+  tooltip and detail keep the full `date_text`). On the Timeline a marker's date goes after it, else before it,
+  else is left out, and is never drawn while the marker is outside the window.
 - The jump-to chips under the time slider (`ERA_PRESETS` in `src/config.ts`) each name an event id and jump to
   that event's snapped year; `src/eraPresets.test.ts` checks every chip lands on its event.
 - Narration (the description read aloud): `narration: { src, credit, text_hash }` on an event, or on a species,
@@ -293,7 +298,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 ## Family tree (added 17 Oct 2026)
 
 - Species page switch List / Family tree (remembered in localStorage `species-layout`; the era chips are list-only).
-  The list (redone 22 Oct 2026): each row's 4:3 picture fills its left edge, the order number in its top right
+  The list (redone 22 Oct 2026): each row's 4:3 picture fills its left edge, the order number in its top left
   corner and Compare over its foot (on hover where there is hover); era headings carry a line each (`ERA_BLURBS`,
   written by Claude, Rob to review). Only the switch, the era chips (jump and follow the scroll, `useSectionNav.ts`,
   shared with the Cultures page) and the time scale stay pinned.

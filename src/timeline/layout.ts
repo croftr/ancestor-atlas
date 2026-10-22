@@ -301,3 +301,6 @@ export function erasFor(
   const first = civs.length ? Math.min(...civs.map((e) => e.start_year)) : undefined;
   return resolveEras(defs, entities.length ? axisStart(entities) : -7_500_000, first);
 }
+
+/** An event's date without its note in brackets ("c. 1175 BCE (Year 8 of Ramesses III)" -> "c. 1175 BCE"). */
+export const shortDate = (text: string) => text.replace(/\s*\([^)]*\)\s*$/, "") || text;
