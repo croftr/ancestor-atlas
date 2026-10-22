@@ -148,7 +148,7 @@ export default function CulturesPage() {
 
   return (
     <div ref={pageRef} className="events-page br-page cu-page" style={{ "--accent": CATEGORY_STYLE.culture.color } as CSSProperties}>
-      <header className="ev-header cu-header">
+      <header className="ev-header br-intro">
         <div className="ev-title">
           <h1 className="cat-title">
             <CategoryBadge category="culture" decorative />
@@ -170,8 +170,8 @@ export default function CulturesPage() {
         />
       </header>
       {/* Only the search and the stage chips stay at the top; the title and counts scroll away. */}
-      <div ref={barRef} className="cu-bar">
-        <div className="cu-search">
+      <div ref={barRef} className="br-sticky">
+        <div className="br-search">
           <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden>
             <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
             <path d="M13 13l4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />

@@ -8,6 +8,7 @@ import { formatDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { youtubeId } from "../youtube";
 import { eventsAbout, pictureOf, typing } from "./browse";
+import { runsOn } from "./civLayout";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import ListenButton from "../audio/ListenButton";
@@ -55,6 +56,8 @@ export default function EntityDetail({
   const prev = i > 0 ? order[i - 1] : undefined;
   const next = i >= 0 && i < order.length - 1 ? order[i + 1] : undefined;
   const parent = entity.parent_id ? data.entityById.get(entity.parent_id) : undefined;
+  // A civilization the atlas cuts off at its end (1 CE) carried on after it.
+  const cutOff = entity.category === "civilization" && runsOn(entity);
   const members = entity.group ? (data.childrenOf.get(entity.id) ?? []) : [];
   const features = entity.group ? members.flatMap((m) => data.featuresOf.get(m.id) ?? []) : (data.featuresOf.get(entity.id) ?? []);
   const xronos = features.filter((f) => f.source_id === "xronos").length;
@@ -252,8 +255,10 @@ export default function EntityDetail({
           </h2>
           <div className="ev-detail-date">
             {formatRange(entity.start_year, entity.end_year)}
-            <span className="muted"> · {formatDuration(entity.end_year - entity.start_year)}</span>
+            {cutOff ? " and later" : ""}
+            <span className="muted"> · {cutOff ? "at least " : ""}{formatDuration(entity.end_year - entity.start_year)}</span>
           </div>
+          {cutOff && <div className="muted br-cutoff">It carried on after 1 CE, where the atlas ends.</div>}
           {approximate && <div className="br-recall">Dates and places recalled, not yet checked against a source.</div>}
           <ListenButton entity={entity} />
           <p>{entity.description}</p>

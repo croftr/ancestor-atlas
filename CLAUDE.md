@@ -338,6 +338,14 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   Macedonian Empire, Roman Empire).
 - A `region` in `entities.yaml` overrides the computed one and must be one of the names in `REGIONS`.
 - Used by the Civilizations page (`#/civilizations`, `src/browse/`) for region chips and sections.
+- Civilizations page (redone 22 Oct 2026): `civLayout.ts` puts each region's civilizations in the order they began,
+  as groups (the group entities, with an About page), families (civilizations sharing a picture group's picture,
+  two or more; titled from the picture group's label) and single rows; `civLayout.test.ts` checks each appears once.
+  List / Timeline switch (localStorage `civilizations-layout`); the timeline (`CivTimeline.tsx`) packs bars per
+  region lane, groups and families open in place. Search (`civSearch.ts`): word starts across name, group/family,
+  region; word endings ("Assyrian"), a few synonyms (Rome -> Roman), near-miss suggestions, and `NOT_COVERED`
+  notes for well-known post-1 CE names; description-only matches are listed apart. A span ending at 1 CE is shown
+  as carrying on ("1 CE+", "31+ yrs", fading bar; "and later" on the detail view), since the atlas stops there.
 
 ## Pictures
 
