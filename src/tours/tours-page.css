@@ -59,7 +59,7 @@
 .tp-cover:hover .tp-play { background: #c39bff; color: #1d1036; transform: translate(-50%, -50%) scale(1.06); }
 
 .tp-body { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
-.tp-body h2 { margin: 2px 0 0; font-size: 1.25rem; }
+.tp-body h2 { margin: 2px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; color: #f6eedc; }
 .tp-span { font-size: 0.85rem; }
 .tp-blurb { margin: 2px 0; line-height: 1.5; color: #cbd3e6; max-width: 60ch; }
 .tp-meta { display: flex; flex-wrap: wrap; gap: 4px 0; font-size: 0.82rem; color: #8ec5ff; }
@@ -133,8 +133,10 @@
   .tp-play { width: 40px; height: 40px; }
   .tp-play svg { width: 16px; height: 16px; }
   .tp-body { display: contents; }
-  .tp-body h2 { grid-column: 2; grid-row: 1; align-self: center; font-size: 1.1rem; }
-  .tp-span { display: none; }
+  /* The cover beside the title and its span. */
+  .tp-cover { grid-row: 1 / span 2; align-self: center; }
+  .tp-body h2 { grid-column: 2; grid-row: 1; align-self: end; font-size: 1.15rem; }
+  .tp-span { grid-column: 2; grid-row: 2; align-self: start; font-size: 0.8rem; }
   .tp-blurb, .tp-meta, .tp-watch { grid-column: 1 / -1; }
   .tp-blurb { margin: 0; font-size: 0.92rem; }
   .tp-watch { justify-self: start; }

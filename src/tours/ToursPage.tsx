@@ -114,7 +114,7 @@ export default function ToursPage() {
 
   return (
     <div className="events-page br-page tp-page" style={{ "--accent": "#c39bff" } as CSSProperties}>
-      <header className="ev-header">
+      <header className="ev-header br-intro">
         <div className="ev-title">
           <h1 className="cat-title">
             <span className="tp-title-icon">{ToursIcon}</span>
@@ -135,8 +135,8 @@ export default function ToursPage() {
           <TourCard key={tour.id} tour={tour} stops={stops} mins={mins} />
         ))}
         <p className="muted tp-note">
-          Touch the globe or the card to pause a tour and look around; the arrow keys step between stops, Space pauses and
-          Escape ends it.
+          The pause button on the tour bar (or Space) pauses a tour; the arrow keys step between stops and Escape ends it.
+          Touching the globe or the card does not stop it.
         </p>
       </main>
     </div>
