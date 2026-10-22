@@ -765,6 +765,11 @@
     - road
   image_url: /images/cultures/epigravettian.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/epigravettian-1.webp, credit: "Wobble, CC BY-SA 3.0, via Wikimedia Commons", caption: "Europe about 20,000 years ago: the ice sheets, the coast of the time and the refuges where people held on: Solutrean in orange, Epigravettian in purple", source: "https://commons.wikimedia.org/wiki/File:Europe20000ya.png" }
+    - { url: /images/extra/epigravettian-2.webp, credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "Replica of an Epigravettian burial from the Riparo Tagliente rock shelter near Verona, Italy", source: "https://commons.wikimedia.org/wiki/File:Riparo_Tagliente_10_burial_2015-09-16.jpg" }
+    - { url: /images/extra/epigravettian-3.webp, credit: "Momotarou2012, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstruction of a hut framed with mammoth bones, after those found at Mezhyrich in Ukraine (National Museum of Nature and Science, Tokyo)", source: "https://commons.wikimedia.org/wiki/File:Dwelling_made_with_mammoth_bones.jpg" }
+    - { url: /images/extra/epigravettian-4.webp, credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "Replica of the burial of the Villabruna man, about 14,000 years old, in the Dolomites of north-east Italy; his genome gave its name to the hunters who spread north as the ice melted", source: "https://commons.wikimedia.org/wiki/File:Villabruna_1_1.jpg" }
 - id: natufian
   name: Natufian
   category: culture
@@ -1228,6 +1233,11 @@
   image_url: /images/cultures/ertebolle.webp
   image_credit: AI-generated illustration
   image_caption: "Shoreline camp beside a shell midden, with a dugout canoe and wicker fish traps"
+  extra_images:
+    - { url: /images/extra/ertebolle-1.webp, credit: "Kristian.HP, CC0, via Wikimedia Commons", caption: "The shore at Ertebølle on the Limfjord in Denmark, where the great shell mound that named the culture was dug", source: "https://commons.wikimedia.org/wiki/File:Erteb%C3%B8lle_strand_fra_Erteb%C3%B8lle_hoved.jpg" }
+    - { url: /images/extra/ertebolle-2.webp, credit: "National Museum of Denmark, public domain, via Wikimedia Commons", caption: "National Museum archaeologists digging a Danish kitchen midden, a mound of shells and rubbish, in the 1890s", source: "https://commons.wikimedia.org/wiki/File:Meilgaard-boplads.jpg" }
+    - { url: /images/extra/ertebolle-3.webp, credit: "Einsamer Schütze, CC BY-SA 3.0, via Wikimedia Commons", caption: "A shallow oval Ertebølle bowl, thought to have been a lamp burning fish or seal oil (Archäologisches Landesmuseum, Schleswig)", source: "https://commons.wikimedia.org/wiki/File:Arch%C3%A4ologisches_Landesmuseum_Schloss_Gottorf_024.JPG" }
+    - { url: /images/extra/ertebolle-4.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "An Ertebølle pot with a pointed base (Archäologisches Museum Hamburg)", source: "https://commons.wikimedia.org/wiki/File:Arch%C3%A4ologisches_Museum_Hamburg_006.JPG" }
   wikipedia_url: https://en.wikipedia.org/wiki/Ertebølle_culture
   wikidata: Q1362485
   source_ids: []
@@ -1421,6 +1431,11 @@
   image_url: /images/cultures/azilian.webp
   image_credit: AI-generated illustration
   image_caption: "Rock shelter in the Pyrenean foothills: painting pebbles with red ochre, carving antler harpoons, hunters bringing in a red deer"
+  extra_images:
+    - { url: /images/extra/azilian-1.webp, credit: "Chatsam, CC BY-SA 4.0, via Wikimedia Commons", caption: "The great cave of Le Mas d'Azil in the French Pyrenees, which gave the Azilian its name; a road runs right through it", source: "https://commons.wikimedia.org/wiki/File:Grotte_du_Mas-d%27Azil_101.jpg" }
+    - { url: /images/extra/azilian-2.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "An Azilian harpoon head of red-deer antler, about 10,000 years old (Muséum de Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Harpon_2010.0.3.5._Global.JPG" }
+    - { url: /images/extra/azilian-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "A pebble painted with stripes of red ochre, from Le Mas d'Azil (Muséum de Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Galet_peint_MHNT.PRE.MAZ.15.jpg" }
+    - { url: /images/extra/azilian-4.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "More painted pebbles from Le Mas d'Azil (Musée d'Archéologie nationale, Saint-Germain-en-Laye)", source: "https://commons.wikimedia.org/wiki/File:Galets_peints_Mas_d%27Azil_-_MAN_61_62_64_65.jpg" }
   wikidata: Q793777
   source_ids: []
 # Span from English Wikipedia: Maglemosian_culture@1375962679.
@@ -1435,6 +1450,11 @@
   image_url: /images/cultures/maglemosian.webp
   image_credit: AI-generated illustration
   image_caption: "Summer camp by a forest lake: bark huts on a brushwood platform, a dugout canoe, pike spearing and arrow making"
+  extra_images:
+    - { url: /images/extra/maglemosian-1.webp, credit: "Kirsty High, Free Art Licence, via Wikimedia Commons", caption: "Star Carr in Yorkshire today: the level fields were once the bed of a lake, with the camp on its shore", source: "https://commons.wikimedia.org/wiki/File:View_of_Star_Carr_site_looking_NWW..jpg" }
+    - { url: /images/extra/maglemosian-2.webp, credit: "Ethan Doyle White, CC BY-SA 4.0, via Wikimedia Commons", caption: "A headdress made from a red deer's skull and antlers, from Star Carr, about 11,000 years old (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Star_Carr_Antler_Mask_in_the_British_Museum.jpg" }
+    - { url: /images/extra/maglemosian-3.webp, credit: "Milner et al., CC BY 3.0, via Wikimedia Commons", caption: "An engraved shale pendant from Star Carr, the oldest known Mesolithic art in Britain", source: "https://commons.wikimedia.org/wiki/File:Star_Carr_pendant.jpg" }
+    - { url: /images/extra/maglemosian-4.webp, credit: "Walker, Gaffney et al. (map by M. Muru), CC BY 4.0, via Wikimedia Commons", caption: "The drowning of Doggerland: the North Sea coast about 10,000, 9,000, 8,200 and 7,000 years ago", source: "https://commons.wikimedia.org/wiki/File:Doggerland.png" }
   wikidata: Q928511
   source_ids: []
 # Span from English Wikipedia: Capsian_culture@1371764415.
@@ -1448,6 +1468,11 @@
   image_url: /images/cultures/capsian.webp
   image_credit: AI-generated illustration
   image_caption: "Maghreb camp centered on a snail-shell midden with engraved ostrich eggshells"
+  extra_images:
+    - { url: /images/extra/capsian-1.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "The Capsian heartland (blue) around Gafsa, in the hills of Tunisia and eastern Algeria; the older Iberomaurusian lands in green", source: "https://commons.wikimedia.org/wiki/File:Iberomaurisiense-Capsiense.png" }
+    - { url: /images/extra/capsian-2.webp, credit: "M.Rais, CC0, via Wikimedia Commons", caption: "A Capsian snail-shell mound, an escargotière, at Sidi Mansour near Gafsa, Tunisia", source: "https://commons.wikimedia.org/wiki/File:Tunisie_escargoti%C3%A8re_Gafsa.jpg" }
+    - { url: /images/extra/capsian-3.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Drawing of a Capsian water bottle made from an engraved ostrich egg", source: "https://commons.wikimedia.org/wiki/File:Bouteille_en_%C5%93uf_d%27autruche_(Capsien).png" }
+    - { url: /images/extra/capsian-4.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Drawing of a Capsian burial from Tunisia, the body laid on its side with knees drawn up", source: "https://commons.wikimedia.org/wiki/File:Capsien_burial_(Tunisia).png" }
   wikipedia_url: https://en.wikipedia.org/wiki/Capsian_culture
   wikidata: Q766150
   source_ids: []
@@ -2297,6 +2322,11 @@
   image_url: /images/civilisations/zapotec-civilization.webp
   image_caption: Mountaintop ceremonial center of Monte Albán overlooking the Oaxaca Valley, with Building J, Danzantes slabs, and priests holding grey-ware urns.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/zapotec-civilization-1.webp, credit: "DavidConFran, CC BY-SA 3.0, via Wikimedia Commons", caption: "Monte Albán on its levelled mountaintop, looking out over the Valley of Oaxaca", source: "https://commons.wikimedia.org/wiki/File:Panoramica_Monte_Alban.JPG" }
+    - { url: /images/extra/zapotec-civilization-2.webp, credit: "Rob Young, CC BY 2.0, via Wikimedia Commons", caption: "The Gran Plaza of Monte Albán and the temple platforms around it", source: "https://commons.wikimedia.org/wiki/File:Gran_Plaza_(8264625316).jpg" }
+    - { url: /images/extra/zapotec-civilization-3.webp, credit: "MAHC-oaxaca, CC BY 4.0, via Wikimedia Commons", caption: "The Gallery of the Danzantes at Monte Albán: carved stone figures, probably of slain captives (replicas on the site)", source: "https://commons.wikimedia.org/wiki/File:Gallery_of_the_Danzantes,_Monte_Alb%C3%A1n,_Oaxaca_-_2025.jpg" }
+    - { url: /images/extra/zapotec-civilization-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A Zapotec effigy urn with the head of the bat god, from Tomb 113 at Monte Albán, made centuries later (National Museum of Anthropology, Mexico City)", source: "https://commons.wikimedia.org/wiki/File:Zapotec_Ceramic_Large_Effigy_Urn_with_Head_of_Bat_God,_Tomb_113,_Monte_Alban.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bV_4XySFa94
