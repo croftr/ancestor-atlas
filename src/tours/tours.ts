@@ -273,6 +273,8 @@ export const TOURS: Tour[] = [
     layers: ["culture", "civilization", "event"],
     paleo: true,
     music: { src: "music/tours/first-americans-v1.mp3", credit: "Music: \"Memories Of Stone\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/first-americans-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "1db51fda15" },
+    closingNarration: { src: "narration/tours/first-americans-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "a58ba22355" },
     stops: [
       { entity: "peopling-of-the-americas" },
       { entity: "clovis", year: -11_999, site: "clovis@2" },
@@ -296,6 +298,8 @@ export const TOURS: Tour[] = [
     layers: ["culture", "event"],
     paleo: true,
     music: { src: "music/tours/when-the-ice-melted-v1.mp3", credit: "Music: \"Permafrost\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    announcement: { src: "narration/tours/when-the-ice-melted-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c75d236edf" },
+    closingNarration: { src: "narration/tours/when-the-ice-melted-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "2a2d812d57" },
     stops: [
       { entity: "first-pottery" },
       { entity: "epigravettian", year: -16_999, site: "epigravettian@r:paglicci" },

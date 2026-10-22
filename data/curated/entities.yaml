@@ -1224,6 +1224,7 @@
   start_year: -5399
   end_year: -3949
   description: "By about seven thousand years ago the sea had nearly reached today's level, and the drowned valleys of Denmark had become bays and fjords rich in fish and shellfish. The Ertebølle people lived on these new coasts. At the type site on the Limfjord they left a great mound of oyster and mussel shells, and at Tybrind Vig their dugout canoes and carved paddles survive under the sea. They made pots with pointed bases while still living by hunting and fishing, and traded with the farmers to the south, until around six thousand years ago they took up farming too."
+  narration: { src: narration/cultures/ertebolle-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "56b378561d" }
   image_url: /images/cultures/ertebolle.webp
   image_credit: AI-generated illustration
   image_caption: "Shoreline camp beside a shell midden, with a dugout canoe and wicker fish traps"
@@ -1429,6 +1430,7 @@
   start_year: -8999
   end_year: -5999
   description: "When the ice had gone, Britain was not yet an island. A wide, low plain, now called Doggerland, joined it to the Netherlands and Denmark, and the Maglemosian hunters, named after a Danish bog, lived along the lakes and rivers of northern Europe. At Star Carr in Yorkshire they built wooden platforms at a lake's edge and wore headdresses made from the skulls and antlers of red deer. As the sea rose the plain shrank, until by about eight thousand years ago it had drowned beneath the North Sea, where fishing boats still dredge up their tools."
+  narration: { src: narration/cultures/maglemosian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1ea17f8339" }
   wikipedia_url: https://en.wikipedia.org/wiki/Maglemosian_culture
   image_url: /images/cultures/maglemosian.webp
   image_credit: AI-generated illustration
@@ -1442,6 +1444,7 @@
   start_year: -8999
   end_year: -5399
   description: "While the Sahara to the south was greener and wetter than today, from about eleven thousand years ago, hunters in the hills of Tunisia and eastern Algeria lived the Capsian way of life, named after the oasis town of Gafsa, the Roman Capsa. Their camps are marked by great mounds of ash, burnt stones and the shells of land snails, which they ate in vast numbers. They hunted wild cattle, gazelle and hares with tiny flint blades, and carried water in ostrich eggs engraved with lines and patterns."
+  narration: { src: narration/cultures/capsian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "40487b2cd3" }
   image_url: /images/cultures/capsian.webp
   image_credit: AI-generated illustration
   image_caption: "Maghreb camp centered on a snail-shell midden with engraved ostrich eggshells"

@@ -108,9 +108,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   Stone") and When the ice melted (`when-the-ice-melted`, 10 stops, Xianrendong pottery to Ertebølle; music
   "Permafrost"; both Scott Buckley, CC BY 4.0). `paleo: true` on a tour turns the coastlines and ice sheets on for
   it (viewer's setting put back after). Nine descriptions rewritten for them (Zapotec, Maya, Teotihuacan,
-  Epigravettian, Natufian, Azilian, Maglemosian, Capsian, Ertebølle; Rob to review). ElevenLabs credit ran out
-  mid-batch: Maglemosian, Capsian and Ertebølle narration, both announcements and both closing narrations are still
-  to make, and nothing from that day is uploaded yet.
+  Epigravettian, Natufian, Azilian, Maglemosian, Capsian, Ertebølle; Rob to review). Every stop narrated; Maglemosian,
+  Capsian, Ertebølle, both announcements and both closing lines are Rob's own ElevenLabs takes (`--file`, 22 Oct).
 - Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,
   blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
   (`startTour(id, { index })`). The time bar's Tours menu shows a thumbnail and running time, and links to the page.
