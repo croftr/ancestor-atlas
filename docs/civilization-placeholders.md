@@ -513,3 +513,104 @@ Scene:
 - In the background: sheep and cattle grazing on the scrubby limestone plateau; breathtaking panoramic vista overlooking the mist-threaded river valley below under clear sunny skies.
 Negative prompt: Absolutely no metal tools or weapons, no horseback riding, no wheels, no medieval castles, no modern clothes, no text, no words, no watermarks.
 ```
+
+
+---
+
+## Late Neolithic & Early Bronze Traditions (Batch 4, added 22 Oct 2026)
+
+| Culture ID | Label | Target File (1200×900 & 600×450) | Key Archaeological Context |
+| :--- | :--- | :--- | :--- |
+| **`badarian`** | Badarian culture | `public/images/cultures/badarian.webp` | Upper Egypt, c. 4200 BCE; desert terrace above the Nile, ripple-burnished black-topped pottery, malachite palettes |
+| **`michelsberg`** | Michelsberg culture | `public/images/cultures/michelsberg.webp` | Rhine Valley, c. 4000 BCE; hilltop causewayed enclosure (Erdwerk), tulip-beakers, baking plates, flint axes |
+| **`funnelbeaker`** | Funnelbeaker culture | `public/images/cultures/funnelbeaker.webp` | Northern Europe, c. 3400 BCE; megalithic passage grave construction, dolmens, funnel beakers, ox ard plowing |
+| **`naqada`** | Naqada culture | `public/images/cultures/naqada.webp` | Upper Egypt, c. 3400 BCE; Nile river town, D-ware painted boat jars, ripple-flaked knives, zoomorphic palettes |
+| **`baden`** | Baden culture | `public/images/cultures/baden.webp` | Carpathian Basin, c. 3100 BCE; 4-wheeled ox wagon, burnished channel-fluted ceramics, Budakalász wagon model |
+
+### 26. `badarian` (Badarian culture)
+- **Target File**: `public/images/cultures/badarian.webp` (+ `badarian-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting early Predynastic Egyptian farmers and artisans of the Badarian culture on the desert edge overlooking the Nile Valley (c. 4200 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, bright golden Egyptian sunlight, dramatic contrast between the desert sands and the fertile green floodplain.
+Scene:
+- A settlement and open courtyard situated on the low limestone desert terrace immediately above the green alluvial floodplain of the Nile.
+- In the foreground: an artisan polishing an exceptionally fine, thin-walled Badarian red bowl with a rippled surface and glossy blackened rim (black-topped burnished ware); beside the artisan sits a rectangular greywacke cosmetic palette with ground green malachite pigment, a carved bone spoon, and ivory hair combs decorated with carved bird silhouettes.
+- In the middle ground: villagers tending small cultivated plots of emmer wheat and barley irrigated from Nile overflow; herds of domestic cattle and fat-tailed sheep grazing among green river reeds and tamarisk bushes; simple domed huts of woven reed matting and timber posts.
+- In the background: the wide blue Nile River shimmering in the distance, framed by towering arid limestone desert cliffs under an expansive clear sky.
+Negative prompt: Absolutely no pyramids, no stone pharaonic temples, no hieroglyphic writing, no modern clothing, no metal armor, no text, no words, no watermarks.
+```
+
+---
+
+### 27. `michelsberg` (Michelsberg culture)
+- **Target File**: `public/images/cultures/michelsberg.webp` (+ `michelsberg-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Middle Neolithic Michelsberg culture hilltop causewayed enclosure and farming community in western Central Europe (c. 4000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, early morning misty light spilling across a hilltop clearing and river valley.
+Scene:
+- A monumental hilltop causewayed earthwork enclosure (Erdwerk) with multiple concentric interrupted ditches, earthen ramparts, and heavy timber palisades spanning a ridge.
+- In the foreground: an artisan displaying iconic Michelsberg flared ceramic tulip-beakers (Tulpenbecher) without handles and round-bottomed clay baking plates; beside them, a craftsman fits a polished flint axe into an antler sleeve on an ash-wood haft; sacks of raw knapped flint nodules extracted from nearby mining pits lie on the grass.
+- In the middle ground: within the enclosure, timber-and-wattle dwellings with high thatched roofs; smoke rising from domestic hearths; villagers herding long-horned cattle through the causeway gaps in the ditches.
+- In the background: panoramic vista of the mist-cloaked Rhine river valley below, surrounded by dense primeval oak and beech forests under a soft morning sky.
+Negative prompt: Absolutely no metal tools or bronze/iron weapons, no wheels, no horses with saddles, no medieval castles, no modern clothes, no text, no words, no watermarks.
+```
+
+---
+
+### 28. `funnelbeaker` (Funnelbeaker culture)
+- **Target File**: `public/images/cultures/funnelbeaker.webp` (+ `funnelbeaker-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Neolithic Funnelbeaker farming community constructing a monumental megalithic passage grave (dolmen) in Northern Europe (c. 3400 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, cool crisp Baltic morning sunlight, sandy coastal heath and ancient beech-oak woodland.
+Scene:
+- A monumental megalithic passage tomb (dolmen / dysse) under active construction on a low grassy rise: massive glacial granite upright stones supporting giant boulders, surrounded by an oval kerb of stones.
+- In the center: a team of Neolithic villagers pulling thick braided ropes, hauling an immense granite capstone boulder up a timber ramp over wooden log rollers, directed by an elder with an antler staff.
+- In the foreground: on a clean timber bench, an artisan displaying classic funnel-necked beakers (Trichterbecher) with stamped vertical comb incisions, collared flasks, and a long polished square-butted flint axe; another worker binds a flint axe to an oak haft.
+- In the background: an ox-team pulling a primitive wooden ard (scratch plow) through a cleared field of emmer wheat; a nearby settlement of post-and-wattle longhouses; distant blue waters of a Baltic inlet or fjord under a bright, cloud-dappled sky.
+Negative prompt: Absolutely no metal tools, no modern cranes or machinery, no wheels or spoked carts, no modern clothes, no text, no words, no watermarks.
+```
+
+---
+
+### 29. `naqada` (Naqada culture)
+- **Target File**: `public/images/cultures/naqada.webp` (+ `naqada-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a flourishing Predynastic Egyptian river town and craft quarter of the Naqada II period along the Nile (c. 3400 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm late afternoon Egyptian sunlight casting long golden shadows along the riverbank.
+Scene:
+- A bustling Predynastic town with sun-dried mudbrick rectangular courtyard houses, palm-thatch roofs, and an early shrine enclosure marked by tall wooden poles flying animal totem standards.
+- In the foreground: master craftsmen at work in a shaded mudbrick courtyard—an artisan painting intricate red-ochre riverboats with multi-oared rowing banks, standards, and flying flamingos onto a buff-colored ceramic jar (D-ware); another craftsman delicately pressure-flaking a ripple-flaked bifacial flint knife with microscopic serrations; on a palm-reed table sit a fish-shaped greywacke cosmetic palette, an ivory comb, and a sculpted limestone hippopotamus figurine.
+- On the river: high-prowed wooden and papyrus boats gliding along the broad blue Nile with woven papyrus sails and steering oars.
+- In the background: lush green date palm groves, irrigated fields of emmer and flax, with the red limestone desert plateau rising dramatically behind under a rich sunset sky.
+Negative prompt: Absolutely no modern clothes, no iron or steel, no pyramids, no Greek/Roman columns, no Islamic buildings, no text, no words, no watermarks.
+```
+
+---
+
+### 30. `baden` (Baden culture)
+- **Target File**: `public/images/cultures/baden.webp` (+ `baden-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Copper Age Baden culture settlement featuring early wheeled transport and pastoral life in the Carpathian Basin (c. 3100 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, crisp autumn afternoon sunlight over rolling river terrace and steppe grasslands.
+Scene:
+- A farming and pastoral village of rectangular post-and-daub houses with thatched gables, set on a fertile terrace above a meandering river.
+- In the foreground: an artisan displaying iconic dark-grey and black burnished Baden pottery with deep channel-fluted decoration and high strap handles (fluted kantharoi and handled dippers); on a timber bench rests a famous four-wheeled ceramic miniature model wagon (like the Budakalász wagon); an elder checks the yoke harness of a pair of heavy draft oxen.
+- In the middle ground: a heavy wooden four-wheeled wagon with solid disc wheels and a woven hurdle bed, pulled slowly by two yoked long-horned cattle, carrying harvested grain and fire timber into the settlement.
+- In the background: herds of cattle, sheep, and early domestic horses grazing across the broad autumn floodplain; distant forested Carpathians under a soft atmospheric sky.
+Negative prompt: Absolutely no modern clothes, no spoked chariot wheels, no iron tools, no medieval castles, no text, no words, no watermarks.
+```
