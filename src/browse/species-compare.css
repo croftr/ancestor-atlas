@@ -483,29 +483,37 @@
   position: relative;
 }
 
+/* On the list it sits over the bottom of the row's picture: shown on hover where there is hover, always on touch. */
 .sp-compare-quick {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  z-index: 1;
+  left: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding: 3px 9px;
   border-radius: 999px;
   font-size: 0.74rem;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #cbd3e6;
-  opacity: 0.75;
+  background: rgba(8, 12, 26, 0.72);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e8ecf4;
   transition: opacity 0.14s ease, background 0.14s ease, color 0.14s ease;
 }
 
-.sp-row-wrap:hover .sp-compare-quick,
-.sp-compare-quick:focus-visible {
-  opacity: 1;
+@media (hover: hover) {
+  .sp-compare-quick { opacity: 0; }
+  .sp-row-wrap:hover .sp-compare-quick,
+  .sp-compare-quick:focus-visible {
+    opacity: 1;
+  }
 }
 
 .sp-compare-quick:hover {
-  background: rgba(246, 185, 91, 0.2);
-  border-color: rgba(246, 185, 91, 0.55);
+  background: rgba(246, 185, 91, 0.3);
+  border-color: rgba(246, 185, 91, 0.65);
   color: #fff;
 }
 

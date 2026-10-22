@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
 import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
@@ -10,7 +10,7 @@ import FamilyTree from "./FamilyTree";
 import SpeciesCompare from "./SpeciesCompare";
 import EntityDetail from "./EntityDetail";
 import Totals from "./Totals";
-import { videoCount } from "../youtube";
+import { useSectionNav } from "./useSectionNav";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import "./browse.css";
@@ -25,6 +25,14 @@ const count = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString(
 const FINDS_NOTE =
   "Fossil finds are individual specimens (a skull, a jaw, a tooth) as catalogued in ROAD; a site with no ROAD record counts as one find.";
 
+/** A line under each era's heading on the list. */
+const ERA_BLURBS: Record<string, string> = {
+  "Earliest hominins": "Upright-walking apes of African woodlands, from the first possible members of our line to Lucy's kind.",
+  "Early Homo":
+    "Australopiths, the big-jawed Paranthropus and the first members of Homo, among them the first stone toolmakers and the first humans to leave Africa.",
+  "Neanderthals & early sapiens": "Our own species and the cousins it met: Neanderthals, Denisovans, Homo naledi and the small island humans of Flores and Luzon.",
+};
+
 /** List, family tree, or side-by-side comparison, remembered (the list when storage is unavailable). */
 type Layout = "list" | "tree" | "compare";
 const LAYOUT_KEY = "species-layout";
@@ -38,16 +46,17 @@ const readLayout = (): Layout => {
 };
 
 /**
- * Species page (#/species): every species in the order it appeared, numbered, grouped by era
- * (as on the Events page). Each row's bar sits on one time scale shared by the whole page (the
- * time slider's compressed scale, so the recent species aren't slivers), which shows at a glance
- * who came when and who lived alongside whom. The Family tree switch draws the same bars joined
+ * Species page (#/species): every species in the order it appeared, grouped by era, each row its picture
+ * (numbered in the corner) and text. Each row's bar sits on one time scale shared by the whole page (the
+ * time slider's compressed scale, so the recent species aren't slivers), pinned under the era chips, which
+ * shows at a glance who came when and who lived alongside whom. The Family tree switch draws the same bars joined
  * into a tree (FamilyTree.tsx), and Compare compares any two species side by side (SpeciesCompare.tsx).
  */
 export default function SpeciesPage() {
   const data = useData();
   const openId = useOpenItem();
   const [layout, setLayoutState] = useState<Layout>(readLayout);
+  const pageRef = useRef<HTMLDivElement>(null);
   const [comparePair, setComparePair] = useState<[string, string]>(["neanderthal", "homo-sapiens"]);
   const setLayout = (l: Layout) => {
     setLayoutState(l);
@@ -86,6 +95,8 @@ export default function SpeciesPage() {
     return { species, eras, axis, tally };
   }, [data]);
 
+  const { barRef, chipsRef, active, jump } = useSectionNav(pageRef, [eras, layout]);
+
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
 
   // Where a year sits on the page's shared scale, in %.
@@ -105,8 +116,8 @@ export default function SpeciesPage() {
   const last = species.at(-1);
 
   return (
-    <div className="events-page br-page sp-page" style={{ "--accent": accent } as CSSProperties}>
-      <header className="ev-header">
+    <div ref={pageRef} className="events-page br-page sp-page" style={{ "--accent": accent } as CSSProperties}>
+      <header className="ev-header br-intro">
         <div className="ev-title">
           <h1 className="cat-title">
             <CategoryBadge category="species" decorative />
@@ -124,7 +135,11 @@ export default function SpeciesPage() {
             { label: "Fossil finds", value: totalFinds, title: FINDS_NOTE },
           ]}
         />
-        <div className="ev-filters">
+      </header>
+
+      {/* Pinned: the view switch, the era chips and the time scale (list only). */}
+      <div ref={barRef} className="br-sticky sp-pinned">
+        <div className="sp-pinned-row">
           <span className="sp-layout" role="group" aria-label="Show as">
             {(["list", "tree", "compare"] as const).map((l) => (
               <button key={l} className={`chip${layout === l ? " active" : ""}`} aria-pressed={layout === l} onClick={() => setLayout(l)}>
@@ -132,8 +147,36 @@ export default function SpeciesPage() {
               </button>
             ))}
           </span>
+          {layout === "list" && (
+            <nav ref={chipsRef} className="ev-filters" aria-label="Jump to an era">
+              {eras.map((era) => (
+                <button
+                  key={era.label}
+                  data-chip={era.label}
+                  className={`chip${active === era.label ? " active" : ""}`}
+                  aria-current={active === era.label ? "true" : undefined}
+                  onClick={() => jump(era.label)}
+                >
+                  {era.label} <span className="ev-chip-count">{era.species.length}</span>
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
-      </header>
+        {layout === "list" && (
+          // The shared scale every row's bar is drawn on.
+          <div className="sp-scale" aria-hidden="true">
+            <span className="sp-scale-track">
+              {ticks.map((t) => (
+                <span key={t.y} className="sp-tick" style={{ left: `${t.x}%` }}>
+                  {scaleLabel(t.y)}
+                </span>
+              ))}
+              <span className="sp-scale-caption">years ago</span>
+            </span>
+          </div>
+        )}
+      </div>
 
       {layout === "tree" ? (
         <main className="ev-main ft-main">
@@ -150,27 +193,15 @@ export default function SpeciesPage() {
         </main>
       ) : (
         <main className="ev-main sp-main">
-          <p className="muted sp-note">{FINDS_NOTE}</p>
-          {/* The shared scale every row's bar is drawn on. */}
-          <div className="sp-scale" aria-hidden="true">
-            <span className="sp-scale-track">
-              {ticks.map((t) => (
-                <span key={t.y} className="sp-tick" style={{ left: `${t.x}%` }}>
-                  {scaleLabel(t.y)}
-                </span>
-              ))}
-            </span>
-            <span className="sp-scale-caption">years ago</span>
-          </div>
-  
           {eras.map((era) => (
-            <section key={era.label} className="sp-era" aria-labelledby={`sp-era-${era.label}`}>
+            <section key={era.label} data-section={era.label} className="sp-era" aria-labelledby={`sp-era-${era.label}`}>
               <h2 id={`sp-era-${era.label}`}>
                 {era.label}{" "}
                 <span className="muted">
                   {count(era.species.length, "species", "species")} · {count(era.sites, "fossil site")} · {count(era.finds, "fossil find")}
                 </span>
               </h2>
+              {ERA_BLURBS[era.label] && <p className="sp-era-blurb">{ERA_BLURBS[era.label]}</p>}
               <ol className="sp-list">
                 {era.species.map((s) => {
                   const { sites: n, finds } = tally.get(s.id) ?? { sites: 0, finds: 0 };
@@ -179,9 +210,17 @@ export default function SpeciesPage() {
                   return (
                     <li key={s.id} className="sp-row-wrap">
                       <button className="sp-row" onClick={() => navigate("species", s.id)}>
-                        <span className="sp-order" aria-label={`Number ${order} to appear`}>{order}</span>
-                        <span className="br-img sp-img">
-                          {s.image_url && <img src={s.image_url} alt="" loading="lazy" onError={(e) => (e.currentTarget.style.display = "none")} />}
+                        <span className="sp-pic">
+                          {s.image_url && (
+                            <img
+                              src={s.image_url}
+                              alt={s.image_caption ?? ""}
+                              loading="lazy"
+                              decoding="async"
+                              onError={(e) => (e.currentTarget.style.display = "none")}
+                            />
+                          )}
+                          <span className="sp-order" aria-label={`Number ${order} to appear`}>{order}</span>
                         </span>
                         <span className="sp-text">
                           <span className="sp-name">{s.name}</span>
@@ -193,7 +232,6 @@ export default function SpeciesPage() {
                           <span className="sp-meta muted">
                             Lived {shortDuration(s.end_year - s.start_year)}
                             {n > 0 && <> · {count(n, "fossil site")} · <span title={FINDS_NOTE}>{count(finds, "fossil find")}</span></>}
-                            {s.media && s.media.length > 0 && <> · <span className="nowrap">{videoCount(s.media.length)}</span></>}
                           </span>
                           {summary && <span className="sp-summary">{summary}</span>}
                         </span>
@@ -203,7 +241,11 @@ export default function SpeciesPage() {
                         className="sp-compare-quick"
                         onClick={() => startCompareWith(s.id)}
                         title={`Compare ${s.name} side by side with another species`}
+                        aria-label={`Compare ${s.name} with another species`}
                       >
+                        <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden>
+                          <path d="M2 5h10m-3-3 3 3-3 3M14 11H4m3-3-3 3 3 3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                         Compare
                       </button>
                     </li>
@@ -212,6 +254,7 @@ export default function SpeciesPage() {
               </ol>
             </section>
           ))}
+          <p className="muted sp-note">{FINDS_NOTE}</p>
         </main>
       )}
 

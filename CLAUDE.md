@@ -293,6 +293,10 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 ## Family tree (added 17 Oct 2026)
 
 - Species page switch List / Family tree (remembered in localStorage `species-layout`; the era chips are list-only).
+  The list (redone 22 Oct 2026): each row's 4:3 picture fills its left edge, the order number in its top right
+  corner and Compare over its foot (on hover where there is hover); era headings carry a line each (`ERA_BLURBS`,
+  written by Claude, Rob to review). Only the switch, the era chips (jump and follow the scroll, `useSectionNav.ts`,
+  shared with the Cultures page) and the time scale stay pinned.
   `src/browse/FamilyTree.tsx` draws each species as a bar over its span, joined at branching points; time runs on
   the fourth root of years ago (the slider's scale left the Pliocene branches too cramped). A name opens the
   species, a bar shows it on the globe (`focusEntity`), a dot opens the branching point's notes (side panel on

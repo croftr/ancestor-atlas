@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE } from "../config";
 import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
@@ -8,6 +8,7 @@ import type { Entity } from "../types";
 import { barStyle, summaryOf } from "./browse";
 import { CULTURE_STAGES, type CultureStage } from "./cultureStages";
 import EntityDetail from "./EntityDetail";
+import { useSectionNav } from "./useSectionNav";
 import Totals from "./Totals";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
@@ -52,10 +53,7 @@ export default function CulturesPage() {
   const data = useData();
   const openId = useOpenItem();
   const [query, setQuery] = useState("");
-  const [active, setActive] = useState<string | null>(null);
   const pageRef = useRef<HTMLDivElement>(null);
-  const barRef = useRef<HTMLDivElement>(null);
-  const chipsRef = useRef<HTMLDivElement>(null);
 
   const stages = useMemo<Stage[]>(() => {
     if (!data) return [];
@@ -80,58 +78,10 @@ export default function CulturesPage() {
     [stages, q],
   );
 
-  // The chip of the stage at the top of the page (under the sticky bar) lights up as the page scrolls.
-  useEffect(() => {
-    const page = pageRef.current;
-    if (!page) return;
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const line = (barRef.current?.getBoundingClientRect().bottom ?? 0) + 48;
-      let current: string | null = null;
-      for (const sec of page.querySelectorAll<HTMLElement>("[data-stage]")) {
-        if (sec.getBoundingClientRect().top <= line) current = sec.dataset.stage!;
-      }
-      // At the very bottom the last stage may never reach the line: light it anyway.
-      if (page.scrollTop + page.clientHeight >= page.scrollHeight - 4) {
-        const all = page.querySelectorAll<HTMLElement>("[data-stage]");
-        current = all[all.length - 1]?.dataset.stage ?? current;
-      }
-      setActive(current);
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    update();
-    page.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      page.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(frame);
-    };
-  }, [shown]);
-
-  // Keep the lit chip in view in its sideways-scrolling row (without moving the page).
-  useEffect(() => {
-    const row = chipsRef.current;
-    const chip = active ? row?.querySelector<HTMLElement>(`[data-chip="${active}"]`) : null;
-    if (!row || !chip) return;
-    const left = chip.offsetLeft - row.offsetLeft;
-    if (left < row.scrollLeft || left + chip.offsetWidth > row.scrollLeft + row.clientWidth - 28) {
-      row.scrollTo({ left: Math.max(0, left - 24), behavior: "smooth" });
-    }
-  }, [active]);
+  const { barRef, chipsRef, active, jump } = useSectionNav(pageRef, [shown]);
 
   if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
 
-  const jump = (id: string) => {
-    const page = pageRef.current;
-    const sec = page?.querySelector<HTMLElement>(`[data-stage="${id}"]`);
-    if (!page || !sec) return;
-    const barH = barRef.current?.offsetHeight ?? 0;
-    const top = page.scrollTop + sec.getBoundingClientRect().top - page.getBoundingClientRect().top - barH - 12;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    page.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
-  };
 
   const all = stages.flatMap((s) => s.cultures);
   const visible = shown.flatMap((s) => s.cultures);
@@ -213,7 +163,7 @@ export default function CulturesPage() {
           </div>
         )}
         {shown.map((s) => (
-          <section key={s.id} data-stage={s.id} className="cu-stage" aria-labelledby={`stage-${s.id}`}>
+          <section key={s.id} data-section={s.id} className="cu-stage" aria-labelledby={`stage-${s.id}`}>
             <header className="cu-hero">
               <div className={`cu-hero-art${s.picture ? "" : " strip"}`} aria-hidden>
                 {s.picture ? (
