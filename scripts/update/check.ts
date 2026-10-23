@@ -396,6 +396,18 @@ export interface CheckResult {
   coords: { checked: number; changes: CoordCheck[] };
   gaps: { xronos: Gap[]; xronosGeneric: number; roadTaxa: Gap[]; roadCultures: Gap[]; aadr: Gap[] };
   queues: Queues;
+  /** What is wrong or could not be verified. An update is not published while any remain (Rob's call, 23 Oct 2026). */
+  doubts: string[];
+}
+
+/** The doubts in a check: curated points that no longer match their source, pages that vanished, checks that failed. */
+export function doubtsOf(r: Omit<CheckResult, "doubts">): string[] {
+  const out: string[] = [];
+  for (const c of r.coords.changes)
+    out.push(`${c.label} (${c.where}): ${c.state === "moved" ? `Wikidata ${c.qid} is ${c.km} km away` : c.state === "no-coords" ? `Wikidata ${c.qid} has no coordinates` : `Wikidata ${c.qid} is gone`}`);
+  for (const g of r.pins.missing) out.push(`Wikipedia ${g.lang}:${g.title} is missing or moved (cited in ${g.files.join(", ")})`);
+  for (const s of r.sources) if (s.state === "error") out.push(`${s.id}: ${s.latest}`);
+  return out;
 }
 
 /** Marks gaps that the previous check did not list. */
@@ -430,7 +442,7 @@ export async function runCheck(opts: { offline?: boolean; log?: (s: string) => v
     const c = matchCulture(g.label, known);
     if (c) g.culture = c;
   }
-  return {
+  const result: Omit<CheckResult, "doubts"> = {
     checked: new Date().toISOString(),
     offline: !!opts.offline,
     sources,
@@ -440,4 +452,5 @@ export async function runCheck(opts: { offline?: boolean; log?: (s: string) => v
     gaps: { xronos: xr.gaps, xronosGeneric: xr.generic, roadTaxa: road.taxa, roadCultures: road.cultures, aadr },
     queues: queues(),
   };
+  return { ...result, doubts: doubtsOf(result) };
 }

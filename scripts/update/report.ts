@@ -17,6 +17,8 @@ function gapTable(gaps: Gap[], withSites: boolean, unit = "Dates"): string[] {
 export function renderReport(r: CheckResult): string {
   const out: string[] = [`# Data update check, ${r.checked.slice(0, 10)}`, ""];
   if (r.offline) out.push("Run with `--offline`: upstream versions, Wikipedia and Wikidata were not asked.", "");
+  out.push("## Doubts", "", "When unsure, leave it out: an update is not published while any of these remain. Fix the data, or remove what cannot be confirmed.", "");
+  out.push(...(r.doubts.length ? r.doubts.map((d) => `- ${d}`) : ["None."]), "");
 
   out.push("## Sources", "", "| Source | Locked here | Latest upstream | State | Next step |", "|---|---|---|---|---|");
   for (const s of r.sources) out.push(`| ${s.id} | ${esc(s.locked)} | ${esc(s.latest)} | ${STATE[s.state]} | ${esc(s.next ?? "")} |`);
@@ -48,7 +50,7 @@ export function renderReport(r: CheckResult): string {
     }
   }
 
-  out.push("## Not mapped yet", "", "Only a person can add these: map a label in `data/curated/culture-labels.csv` (or `road/species-labels.csv`), or add it to `data/update-ignore.yaml` to stop it being listed. 🆕 = not in the last check's list. *Existing culture*: the label names a culture the atlas already has, so only the label row is missing (check the dates fit first).", "");
+  out.push("## Not mapped yet", "", "Only a person can add these: map a label in `data/curated/culture-labels.csv` (or `road/species-labels.csv`), or add it to `data/update-ignore.yaml` to stop it being listed. 🆕 = not in the last check's list. *Existing culture*: the label seems to name a culture the atlas already has. A suggestion only, never applied automatically: map it only after checking it really is that culture and its dates fit the culture's sourced range.", "");
   out.push(`### XRONOS labels`, "", `Labels on dates older than about 1 CE where no label on the date is mapped, by number of dates. ${r.gaps.xronosGeneric} period names (Middle Neolithic, EBA…) left out.`, "", ...gapTable(r.gaps.xronos, true));
   out.push("### ROAD taxa", "", "Uncertain identifications (sp., cf., indet., \"X or Y\") left out, as in the ingest.", "", ...gapTable(r.gaps.roadTaxa, false));
   out.push("### ROAD cultures", "", "Generic periods left out.", "", ...gapTable(r.gaps.roadCultures, false));
@@ -67,7 +69,8 @@ export function renderReport(r: CheckResult): string {
 }
 
 export function summary(r: CheckResult): string[] {
-  const lines = r.sources.map((s) => `  ${s.id.padEnd(10)} ${STATE[s.state].replace(/\*/g, "").padEnd(16)} ${s.state === "newer" || s.state === "error" ? s.latest : ""}`.trimEnd());
+  const lines = [r.doubts.length ? `  ✗ ${r.doubts.length} doubt${r.doubts.length === 1 ? "" : "s"} to resolve before an update can be published (see the report)` : "  ✓ no doubts"];
+  lines.push(...r.sources.map((s) => `  ${s.id.padEnd(10)} ${STATE[s.state].replace(/\*/g, "").padEnd(16)} ${s.state === "newer" || s.state === "error" ? s.latest : ""}`.trimEnd()));
   if (!r.offline) {
     lines.push(`  Wikipedia: ${r.pins.edited.length} of ${r.pins.pages} pinned pages edited since their pin${r.pins.missing.length ? `, ${r.pins.missing.length} missing` : ""}`);
     lines.push(`  Wikidata:  ${r.coords.changes.length} of ${r.coords.checked} coordinates no longer match`);

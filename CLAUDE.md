@@ -16,6 +16,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   hand or with a command he runs himself that refuses a second download within a day (Rob's call, 23 Oct 2026). The
   XRONOS team (Joe Roe, Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache
   it; no crawling or repeated requests (their robots.txt disallows the CSVs for that reason).
+- When unsure, leave it out (Rob's call, 23 Oct 2026): he would rather the atlas missed something than showed something
+  wrong. Never map a hedged label or taxon (validator-enforced), never apply a suggestion automatically, and hold
+  back doubtful new data for a person to confirm. Rules in `docs/data-updates.md` ("When unsure, leave it out").
 - Cite XRONOS in its requested format (in `data/curated/sources.yaml` and the README), together with the original
   publications listed on each point.
 - Species images are AI-generated illustrations; every `image_url` needs an `image_credit` (the validator enforces it).

@@ -13,6 +13,30 @@ missing, and on his word commits it to a branch. Each published run is logged on
 - **Publishing** stops at a branch (`data-update-YYYY-MM-DD`); Rob merges it.
 - **The change log page is public** (for every visitor).
 
+## When unsure, leave it out (Rob, 23 Oct 2026)
+
+Rob would rather the atlas missed something than showed something wrong. Every automatic step follows that:
+
+- **Only certain labels map data.** XRONOS, ROAD and AADR labels reach an entity only through the explicit lists
+  (`culture-labels.csv`, `road/species-labels.csv`), never by fuzzy matching. A mapped label may not hedge ("?", "or",
+  "cf.", "aff.", "possibly"); a mapped ROAD taxon must be a firm species (no "cf.", "aff.", "or", "A/B"). The validator
+  fails the build otherwise (`isHedgedLabel` / `isHedgedTaxon` in `scripts/lib/qa.ts`).
+- **The source's own doubts count.** XRONOS dates claimed by two cultures, with whole-degree coordinates, outside their
+  culture's sourced range, in the wrong country, or outlying at their site are left out (as before). AADR genomes are
+  kept only at the grades accepted in `scripts/ingest/aadr.ts`; ROAD ages are clipped to the species' span and sites
+  outside it dropped.
+- **Suggestions are never applied.** The check's hints (a gap that seems to name an existing culture) only point a
+  person at a possible label row.
+- **Doubts block publishing.** `data:update -- --check` lists doubts: curated points more than 1 km from the Wikidata
+  item they cite (or whose item lost its coordinates or is gone), cited Wikipedia pages that vanished, and checks that
+  failed (so nothing could be verified). Step 3 refuses to publish while any remain.
+- **New points are held back when they look wrong (step 3).** When an update brings in bulk points that were not
+  there before, a point is published only if it also passes: not a geographic outlier among its entity's points
+  (`outliers` in `scripts/lib/qa.ts`), not in a country where its entity had no point before, and not moving a
+  culture's or species' span. Anything else is held back and listed in the update report with the reason; it joins
+  only when a person confirms it (a reviewed list in `data/curated/`), otherwise it stays out. New Cliopatria polities
+  in a new release are held back the same way until reviewed.
+
 ## Sources
 
 | Source | Feeds | Version pin | How "newer" is found |

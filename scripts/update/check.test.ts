@@ -53,3 +53,15 @@ describe("existing cultures", () => {
     expect(matchCulture("Swifterbant", known)).toBeUndefined();
   });
 });
+
+describe("doubts", () => {
+  it("lists mismatched coordinates, vanished pages and failed checks", async () => {
+    const { doubtsOf } = await import("./check.ts");
+    const d = doubtsOf({
+      coords: { checked: 1, changes: [{ qid: "Q1", label: "x: Bourewa", where: "events.yaml", lat: 0, lon: 0, state: "moved", km: 3286 }] },
+      pins: { total: 1, pages: 1, edited: [], missing: [{ lang: "en", title: "Gone", pins: [], files: ["a.csv"], state: "missing" }] },
+      sources: [{ id: "aadr", locked: "", latest: "check failed: 500", state: "error" }, { id: "paleo", locked: "", latest: "", state: "static" }],
+    } as never);
+    expect(d).toEqual(["x: Bourewa (events.yaml): Wikidata Q1 is 3286 km away", "Wikipedia en:Gone is missing or moved (cited in a.csv)", "aadr: check failed: 500"]);
+  });
+});

@@ -1,7 +1,8 @@
 // Validates public/data/{entities.json, features.geojson, sources.json}.
 import { existsSync, readFileSync } from "node:fs";
 import { MAX_YEAR, MIN_YEAR } from "../src/time/scale.ts";
-import { EVIDENCE_REF, QID } from "./lib/qa.ts";
+import { EVIDENCE_REF, isHedgedLabel, isHedgedTaxon, QID } from "./lib/qa.ts";
+import { parse as parseCsv } from "csv-parse/sync";
 import { youtubeId } from "../src/youtube.ts";
 import { NARRATION_FOLDER, textHash } from "./lib/text-hash.ts";
 
@@ -202,6 +203,12 @@ for (const [i, f] of (gj.features ?? []).entries()) {
   }
 }
 for (const e of entityList) if (!e.group && !withFeatures.has(e.id)) warn(`entity ${e.id}: has no features`);
+
+// Label lists: only certain labels map bulk data (XRONOS, ROAD, AADR) to an entity.
+for (const r of parseCsv(readFileSync("data/curated/culture-labels.csv", "utf8"), { columns: true }) as Record<string, string>[])
+  if (isHedgedLabel(r.label)) err(`culture-labels.csv: ${r.source} label "${r.label}" hedges (?, or, cf.): leave it unmapped`);
+for (const r of parseCsv(readFileSync("data/curated/road/species-labels.csv", "utf8"), { columns: true }) as Record<string, string>[])
+  if (r.entity_id && isHedgedTaxon(r.species)) err(`road/species-labels.csv: "${r.genus} ${r.species}" is not a firm identification: leave entity_id empty`);
 
 for (const u of missingPictures) warn(`stand-in picture ${u} not added yet (members show no picture until it is)`);
 for (const w of warnings) console.warn(`! ${w}`);
