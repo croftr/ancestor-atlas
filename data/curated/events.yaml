@@ -1007,7 +1007,7 @@
   date_source: wikipedia:Lapita_culture@1374201618
   places:
     - { label: "Teouma", lat: -17.7856, lon: 168.3862, wikidata: Q7701210 }
-    - { label: "Bourewa", lat: -18.0167, lon: 177.25, wikidata: Q154628, note: "early Lapita site in southwestern Viti Levu, Fiji" }
+    - { label: "Bourewa", lat: -18.08859, lon: 177.30902, wikidata: Q139659526, note: "early Lapita site in southwestern Viti Levu, Fiji" }
 
 - id: iron-age
   name: Bloomery iron (the Iron Age)

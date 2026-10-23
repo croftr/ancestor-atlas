@@ -6,10 +6,12 @@ import { parse as parseYaml } from "yaml";
 import { CATEGORIES, wikipediaUrl, type Category, type Entity, type ExtraImage, type FeatureProps, type Source } from "../src/types.ts";
 import { civColors } from "./lib/colors.ts";
 import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
+import { buildInputProblems, LOCK_PATH } from "./lib/raw-store.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
 import { readRoadCultureLabels, readRoadSites, roadFeatures, ROAD_CULTURE_SITES, ROAD_SITES } from "./ingest/road.ts";
-import { distanceKm } from "./lib/qa.ts";
+import { distanceKm, siteStatus } from "./lib/qa.ts";
+import { heldIds, HELD_PATH } from "./lib/held-back.ts";
 import { addAreas, regionAreas, REGIONS, topRegion } from "./lib/regions.ts";
 
 const OUT = "public/data";
@@ -39,6 +41,23 @@ const fail = (msg: string): never => {
   process.exit(1);
 };
 
+// ---------- raw inputs: the files read below must be the ones data/sources.lock.json names ----------
+// (public/data's fingerprint counts the lock, so a build from other raw files would claim to be fresh while not
+// matching what any other machine builds). --ignore-lock turns the mismatch into a warning, for side builds.
+{
+  const { errors, warnings } = buildInputProblems();
+  for (const w of warnings) console.warn(`! ${w}`);
+  if (errors.length) {
+    const msg = `raw inputs differ from ${LOCK_PATH}:\n    ${errors.join("\n    ")}\n  npm run data:pull gets the locked files; npm run data:push -- <source> locks these ones instead`;
+    if (process.argv.includes("--ignore-lock")) console.warn(`! ${msg}`);
+    else fail(msg);
+  }
+}
+
+// Bulk data an update held back as doubtful stays out until a person confirms it (scripts/lib/held-back.ts).
+const held = heldIds();
+let heldOut = 0;
+
 // ---------- load curated ----------
 const sources = new Map<string, Source>(
   (parseYaml(readFileSync(`${CURATED}/sources.yaml`, "utf8")) as Source[]).map((s) => [s.id, s]),
@@ -55,8 +74,12 @@ const entities = new Map<string, Entity>();
 const features: OutFeature[] = [];
 const descriptionFromWikidata = new Set<string>();
 
-// Curated point sites (species + culture): one Point feature per CSV row.
+// Curated point sites (species + culture): one Point feature per CSV row that has both coordinate and date evidence.
+// A row still `recall` or `partial` is left out (when unsure, leave it out: Rob's call, 23 Oct 2026) and comes back by
+// itself once its missing source is filled in; data/build/recall-queue.csv lists them. Ids keep counting every row,
+// so leaving one out never renumbers the others (tours, routes and links name sites by id).
 const num = (v: string | undefined) => (v === undefined || v === "" ? undefined : Number(v));
+const unverified: string[] = [];
 function loadSites(file: string, category: Category) {
   const path = `${CURATED}/${file}`;
   if (!existsSync(path)) return;
@@ -65,6 +88,7 @@ function loadSites(file: string, category: Category) {
   for (const [i, r] of rows.entries()) {
     const n = (perEntity.get(r.entity_id) ?? 0) + 1;
     perEntity.set(r.entity_id, n);
+    if (siteStatus(r as { source_id: string }) !== "sourced") { unverified.push(`${r.entity_id}: ${r.label}`); continue; }
     const lat = Number(r.lat), lon = Number(r.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) fail(`${file} row ${i + 2}: bad coordinates`);
     const props: FeatureProps = {
@@ -86,6 +110,7 @@ function loadSites(file: string, category: Category) {
 }
 loadSites("species-sites.csv", "species");
 loadSites("culture-sites.csv", "culture");
+if (unverified.length) console.log(`Left out ${unverified.length} curated sites still missing coordinate or date evidence (data/build/recall-queue.csv): ${unverified.join("; ")}`);
 
 // Events (data/curated/events.yaml): one entity each, one Point feature per place.
 interface CuratedEvent {
@@ -164,6 +189,7 @@ else {
   const curatedPts = features.map((f) => ({ e: f.props.entity_id, c: f.geometry.coordinates as number[] }));
   let near = 0;
   for (const f of xronosFeatures(xr.sites)) {
+    if (held.has(f.props.id)) { heldOut++; continue; }
     const [lon, lat] = f.geometry.coordinates;
     if (curatedPts.some((p) => p.e === f.props.entity_id && distanceKm(lat, lon, p.c[1], p.c[0]) < 2)) { near++; continue; }
     features.push(f);
@@ -196,6 +222,7 @@ for (const [path, category] of [[ROAD_SITES, "species"], [ROAD_CULTURE_SITES, "c
   if (!road) { console.warn(`! ${path} missing: no ROAD ${category} sites (npm run data:ingest:road)`); continue; }
   let attached = 0;
   for (const f of roadFeatures(road, cultureLabels, category)) {
+    if (held.has(f.props.id)) { heldOut++; continue; }
     const [lon, lat] = f.geometry.coordinates;
     const near = existing
       .filter((p) => p.props.entity_id === f.props.entity_id)
@@ -226,6 +253,7 @@ const excluded = new Set(curated.filter((c) => c.exclude).map((c) => c.id));
 
 for (const d of civ.entities) {
   if (excluded.has(d.id)) continue;
+  if (held.has(d.id)) { heldOut++; continue; }
   const wd = d.wikidata ? wdDescriptions[d.wikidata] : undefined;
   if (wd) descriptionFromWikidata.add(d.id);
   entities.set(d.id, {
@@ -248,6 +276,7 @@ for (const f of civ.features) {
   else features.push({ props: f.props, geometry });
 }
 if (droppedGeom) console.warn(`! ${droppedGeom} civilization rows lost all geometry in simplification`);
+if (held.size) console.log(`Held back: ${heldOut} of the ${held.size} held items in ${HELD_PATH} left out (set a row's status to confirmed to let it in)`);
 
 // Curated entries: overlay on auto-created civs, define the rest.
 for (const c of curated) {

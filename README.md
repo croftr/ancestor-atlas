@@ -97,6 +97,12 @@ data/raw (fetched, gitignored) → data/curated (hand-edited) → public/data (b
 
 ```bash
 npm run data:fetch        # Download raw sources (Cliopatria polities ~300 MB + Wikidata descriptions)
+npm run data:pull         # Download the locked raw snapshots (data/sources.lock.json) missing on this machine
+npm run data:push -- road # Lock this machine's raw files for a source and upload them (see docs/data-updates.md)
+npm run data:update -- --check  # Compare every source with upstream and list what is new or not mapped yet
+npm run data:update       # Bring the data up to date, rebuild, hold back doubtful new points, report (no commit)
+npm run data:update -- --publish  # Commit that update with a change log entry to a new branch and push it
+npm run data:fetch:xronos # Download the XRONOS export (at most once a day; refuses sooner)
 npm run data:build        # Ingest, merge curated files, write public/data/*, and validate
 npm run data:check        # Verify public/data matches curated inputs (runs on build)
 npm run data:report       # Generate QA report & work list (data/build/qa-report.md)
@@ -130,7 +136,8 @@ npm test                  # Run automated test suites (Vitest)
 ### Bulk Culture Data (XRONOS)
 
 Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.ch) (CC BY 4.0). Download
-`https://xronos.ch/data.csv` by hand into `data/raw/xronos/data.csv`; `npm run data:build` only reads that local copy.
+`https://xronos.ch/data.csv` into `data/raw/xronos/data.csv` by hand or with `npm run data:fetch:xronos` (which refuses
+a second request within a day); `npm run data:build` only reads that local copy.
 The XRONOS team confirmed (October 2026) that using the data this way is welcome: download the export once, or at
 most about daily, and cache it. Never crawl or repeatedly request their CSV files, which is why `robots.txt` lists them. Dates are calibrated with IntCal20, kept only if they fall within the
 culture's sourced date range, and grouped into one point per site.
@@ -205,8 +212,9 @@ The Ancient DNA layer (on by default; Settings) shows genomes from the Allen Anc
 `data/raw/aadr/` (checksum-checked) and runs `scripts/ingest/aadr.ts`, which writes `public/data/dna.json` (committed;
 outside `data:build` and its fingerprint, loaded only when the layer is switched on).
 
-- Individuals dated before 1 CE with coordinates and an AADR assessment of Pass, PROVISIONAL_PASS or MERGE_PASS; one
-  row per individual (the one with most SNPs). About 9,500 people at 2,200 sites (same coordinates, merged within 1 km).
+- Individuals dated before 1 CE with coordinates and an AADR assessment of Pass or MERGE_PASS (PROVISIONAL_PASS is left
+  out); one row per individual (the one with most SNPs). About 8,750 people at 2,060 sites (same coordinates, merged
+  within 1 km).
 - Date ranges: AADR's mean ± 2 SD for direct radiocarbon dates; the full archaeological range for contextual ones.
 - AADR group labels link to cultures through the `aadr` rows of `culture-labels.csv` (exact "_"-parts only).
 - A site is coloured by the commonest Y or mtDNA haplogroup family among the people dated to the slider's year (three
@@ -217,5 +225,8 @@ outside `data:build` and its fingerprint, loaded only when the layer is switched
 ### Provenance Rules
 
 - **Strict sourcing**: Every coordinate and date must trace to a primary source, DOI, or verified Wikidata statement.
+- **When unsure, leave it out**: a hand-curated site is drawn only once both its place and its date have a source; data
+  that hedges (uncertain labels or identifications, provisional genome grades, dates claimed by two cultures) is not
+  imported. See `docs/data-updates.md`.
 - **Open licensing**: All underlying sources and text adhere to open licenses (CC0, CC BY, CC BY-SA, or CC BY-NC) with full attribution.
 - **Astronomical dating**: Years use astronomical conventions (1 CE = 1, 1 BCE = 0). Deep-time ages in "ka" (thousands of years ago) or "Ma" (millions of years ago) are measured before 1950.

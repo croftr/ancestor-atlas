@@ -14,13 +14,6 @@
   "citation": "Site coordinates from Wikidata (P625, CC0); ages as stated in the peer-reviewed paper given by each site's DOI (date_source)."
  },
  {
-  "id": "recall",
-  "name": "Author-compiled approximate sites (unverified)",
-  "url": "https://github.com/croftr/ancestor-atlas#provenance-rules",
-  "licence": "n/a",
-  "citation": "Approximate site locations and age windows compiled from general knowledge (AI-assisted), partly cross-checked against PBDB, Wikidata and Wikipedia. Not verified against primary sources; replaced as sourced data (e.g. ROAD, PBDB) lands."
- },
- {
   "id": "road",
   "name": "ROAD (ROCEEH Out of Africa Database)",
   "url": "https://www.roceeh.uni-tuebingen.de/roadweb/smarty_road_simple_search.php",

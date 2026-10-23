@@ -1,15 +1,11 @@
 // Downloads the Allen Ancient DNA Resource's annotation table (CC0, Harvard Dataverse doi:10.7910/DVN/FFIDCW) once:
 // one pinned release, skipped when the local copy is already there with the right checksum.
 //   npm run data:dna   (fetch, then scripts/ingest/aadr.ts)
-// Output: data/raw/aadr/<FILE> (gitignored). To move to a newer release, change the three constants below
-// (file id and MD5 from the dataset's file list on Dataverse) and rerun.
+// Output: data/raw/aadr/<FILE> (gitignored). To move to a newer release, change the AADR constants in
+// scripts/fetch/pins.ts (file id and MD5 from the dataset's file list on Dataverse) and rerun.
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-
-export const AADR_RELEASE = "v66.p1";
-export const AADR_FILE = `data/raw/aadr/${AADR_RELEASE}_1240K.aadr.PUB.anno`;
-const FILE_ID = 13994515;
-const MD5 = "a2db1ac16f0f3558ed66fb251e1d5c7d";
+import { AADR_FILE, AADR_FILE_ID as FILE_ID, AADR_MD5 as MD5, AADR_RELEASE } from "./pins.ts";
 
 const md5 = (buf: Buffer) => createHash("md5").update(buf).digest("hex");
 

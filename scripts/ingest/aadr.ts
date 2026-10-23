@@ -1,9 +1,9 @@
 // Allen Ancient DNA Resource (AADR, CC0; https://doi.org/10.7910/DVN/FFIDCW) -> public/data/dna.json, the ancient DNA
 // layer. Reads the local annotation table fetched by scripts/fetch/aadr.ts (`npm run data:dna` runs both).
 // Rules:
-// - Individuals dated before 1 CE (mean date) with coordinates, whose AADR assessment is Pass, PROVISIONAL_PASS or
-//   MERGE_PASS. One row per individual (AADR lists some several times, one per data type): the row with the most
-//   SNPs hit wins.
+// - Individuals dated before 1 CE (mean date) with coordinates, whose AADR assessment is Pass or MERGE_PASS (not
+//   PROVISIONAL_PASS). One row per individual (AADR lists some several times, one per data type): the row with the
+//   most SNPs hit wins.
 // - Date range: AADR's mean ± 2 SD for direct dates; for contextual dates (AADR's SD is that of a uniform range)
 //   the full range, mean ± √3 SD. At least ± 50 years.
 // - Individuals at the same coordinates form a site; sites within 1 km are merged (named after the commonest locality).
@@ -16,14 +16,16 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 import type { DnaCultureCounts, DnaData, DnaPerson, DnaSite } from "../../src/dna/types.ts";
 import { distanceKm } from "../lib/qa.ts";
+import { AADR_FILE, AADR_RELEASE } from "../fetch/pins.ts";
 
-const ANNO = "data/raw/aadr/v66.p1_1240K.aadr.PUB.anno";
-const RELEASE = "v66.p1";
+const ANNO = AADR_FILE;
+const RELEASE = AADR_RELEASE;
 const OUT = "public/data/dna.json";
 const OUT_CULTURES = "public/data/dna-cultures.json";
 const LABELS = "data/curated/culture-labels.csv";
 const ENTITIES = "public/data/entities.json";
-const PASS = /^(pass|provisional_pass|merge_pass)$/i;
+// AADR's PROVISIONAL_PASS is left out: provisionally accepted, without a reason given (when unsure, leave it out).
+const PASS = /^(pass|merge_pass)$/i;
 const MERGE_KM = 1;
 const CULTURE_MARGIN = 500;
 

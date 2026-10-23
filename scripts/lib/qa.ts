@@ -99,3 +99,9 @@ export const normaliseLabel = (s: string) =>
 /** Evidence references look like "<scheme>:<value>". */
 export const EVIDENCE_REF = /^(wikidata|wikipedia|doi|pbdb|road|url|xronos):\S.*$/;
 export const QID = /^Q\d+$/;
+
+// "Leave it out when unsure" (Rob's call, 23 Oct 2026): labels that map bulk data to an entity must be certain.
+/** A source label that hedges ("Lengyel?", "Corded Ware or Bell Beaker", "cf. Baden"): never mapped. */
+export const isHedgedLabel = (label: string) => /\?|\bor\b|\b(?:cf|aff)\.|\bcf\b|\bpossibl[ey]\b|\bprobabl[ey]\b|\buncertain\b/i.test(label);
+/** A ROAD identification short of a species ("cf. erectus", "aff. sapiens", "erectus or ergaster"): never mapped. */
+export const isHedgedTaxon = (species: string) => /\b(?:cf|aff)\b\.?|\bor\b|\?|\//i.test(species);

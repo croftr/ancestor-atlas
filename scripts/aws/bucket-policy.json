@@ -2,11 +2,11 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "PublicReadMedia",
+      "Sid": "PublicReadMediaNotRaw",
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::robs-ancestors-atlas/*"
+      "NotResource": "arn:aws:s3:::robs-ancestors-atlas/raw/*"
     }
   ]
 }

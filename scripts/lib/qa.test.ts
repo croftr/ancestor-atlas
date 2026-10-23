@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { distanceKm, outliers, parseAgeText, siteStatus, windowFromText, windowMatchesText, normaliseLabel } from "./qa.ts";
+import { distanceKm, isHedgedLabel, isHedgedTaxon, outliers, parseAgeText, siteStatus, windowFromText, windowMatchesText, normaliseLabel } from "./qa.ts";
 
 describe("parseAgeText", () => {
   it("parses a Ma range", () => expect(parseAgeText("7.2–6.8 Ma (approx.)")).toEqual([-7198050, -6798050]));
@@ -57,3 +57,12 @@ describe("geometry", () => {
 });
 
 it("normalises labels", () => expect(normaliseLabel("Grotte du Renne (Arcy-sur-Cure)")).toBe("grotte du renne"));
+
+describe("hedged labels", () => {
+  it("refuses labels and taxa that hedge", () => {
+    expect(["Lengyel?", "Corded Ware or Bell Beaker", "cf. Baden", "possibly Vinča"].every(isHedgedLabel)).toBe(true);
+    expect(["Naqada I-IIA/B", "Vinča C/D", "Starčevo/Cris/Körös", "Linienbandkeramik", "Corded Ware"].some(isHedgedLabel)).toBe(false);
+    expect(["cf. erectus", "aff. sapiens", "erectus or ergaster", "sapiens/neanderthalensis"].every(isHedgedTaxon)).toBe(true);
+    expect(["erectus", "sp. (denisova)", "floresiensis"].some(isHedgedTaxon)).toBe(false);
+  });
+});

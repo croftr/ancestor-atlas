@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
  * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
  * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, and "#/events",
  * "#/species", "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it,
- * and "#/tours" the guided tours. (A tour itself plays on the globe: "#/tour/<id>".)
+ * "#/tours" the guided tours (a tour itself plays on the globe: "#/tour/<id>") and "#/updates" the change log of
+ * data updates.
  */
-export type View = "globe" | "timeline" | "tours" | BrowseView;
+export type View = "globe" | "timeline" | "tours" | "updates" | BrowseView;
 /** Pages that list one category and open an entry in a detail view. */
 export type BrowseView = "events" | "species" | "cultures" | "civilizations";
 const BROWSE_VIEWS: BrowseView[] = ["events", "species", "cultures", "civilizations"];
@@ -18,6 +19,7 @@ const viewOfHash = (hash: string): View => {
   const page = pathOf(hash).split(/[/?#]/)[0];
   if (page === "timeline") return "timeline";
   if (page === "tours") return "tours";
+  if (page === "updates") return "updates";
   if ((BROWSE_VIEWS as string[]).includes(page)) return page as BrowseView;
   return "globe";
 };

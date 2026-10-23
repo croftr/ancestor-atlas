@@ -101,7 +101,7 @@ Append to `TOURS` in `src/tours/tours.ts`:
   stops: [
     { entity: "out-of-africa-dmanisi" },
     { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },
-    { entity: "clovis", year: -10_999, site: "clovis@2" },
+    { entity: "clovis", year: -10_999, site: "clovis@4" },
   ],
 },
 ```

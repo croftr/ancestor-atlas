@@ -1,0 +1,122 @@
+{
+  "xronos": {
+    "retrieved": "2026-10-06",
+    "files": [
+      {
+        "path": "data/raw/xronos/data.csv",
+        "sha256": "821e99f8a9284a0e791f153e4bb518fa5fa9c9390d47a66408da167d70acbad3",
+        "bytes": 80661257,
+        "key": "raw/xronos/821e99f8a9284a0e/data.csv"
+      }
+    ]
+  },
+  "cliopatria": {
+    "retrieved": "2026-10-03",
+    "files": [
+      {
+        "path": "data/raw/cliopatria/cliopatria.geojson",
+        "sha256": "fc6f0d1e4cc42f45da83522b3696db6f2cc85ec0d12259a85c89b31347b8fc0a",
+        "bytes": 172854269,
+        "key": "raw/cliopatria/fc6f0d1e4cc42f45/cliopatria.geojson"
+      }
+    ]
+  },
+  "wikidata": {
+    "retrieved": "2026-10-06",
+    "files": [
+      {
+        "path": "data/raw/wikidata/descriptions.json",
+        "sha256": "00640d3ecb55cec9c1ce56c76654d4d1182da57244f98b7a080b43e1f4ac94c4",
+        "bytes": 11748,
+        "key": "raw/wikidata/00640d3ecb55cec9/descriptions.json"
+      }
+    ]
+  },
+  "road": {
+    "retrieved": "2026-10-12",
+    "files": [
+      {
+        "path": "data/raw/road/assemblages.csv",
+        "sha256": "24bbceb85facfa5fff9f4d4c22f72737e39c056f0def2b924ba51ce7e39c4e65",
+        "bytes": 10119012,
+        "key": "raw/road/24bbceb85facfa5f/assemblages.csv"
+      },
+      {
+        "path": "data/raw/road/dates.csv",
+        "sha256": "f7d9bb8e0865b8a22604cbd6cf680b7253bca3975283caa660643afd71f68f5f",
+        "bytes": 813529,
+        "key": "raw/road/f7d9bb8e0865b8a2/dates.csv"
+      },
+      {
+        "path": "data/raw/road/human-remains.csv",
+        "sha256": "323cdbaf9dfbdb3dbefe8853500bad7252b9152676a872925d931e835bb0edf6",
+        "bytes": 1941514,
+        "key": "raw/road/323cdbaf9dfbdb3d/human-remains.csv"
+      },
+      {
+        "path": "data/raw/road/localities.csv",
+        "sha256": "b3ad6f9ef5809966f0cf43d38bdf1b8bf6695064b61b5c889a562835dc542798",
+        "bytes": 430091,
+        "key": "raw/road/b3ad6f9ef5809966/localities.csv"
+      }
+    ]
+  },
+  "aadr": {
+    "retrieved": "2026-10-16",
+    "files": [
+      {
+        "path": "data/raw/aadr/v66.p1_1240K.aadr.PUB.anno",
+        "sha256": "4a8e15d0b8d5a8bd6c929ccab7ff83a17091dc91b5e0d8015d9896dd9a5f7f7a",
+        "bytes": 13443726,
+        "key": "raw/aadr/4a8e15d0b8d5a8bd/v66.p1_1240K.aadr.PUB.anno"
+      }
+    ]
+  },
+  "paleo": {
+    "retrieved": "2026-10-15",
+    "files": [
+      {
+        "path": "data/raw/paleo/LGMR_GMST_climo.nc",
+        "sha256": "3c62f06b89a2f613d914bce77200358305e13279236fd6d1db48671bea3a4bb1",
+        "bytes": 16027,
+        "key": "raw/paleo/3c62f06b89a2f613/LGMR_GMST_climo.nc"
+      },
+      {
+        "path": "data/raw/paleo/LR04_MISboundaries.txt",
+        "sha256": "3e15bfe68e220e48176e685b17645daf0f5a14c1b2c37e6ecdaf43a2b97b2de8",
+        "bytes": 3267,
+        "key": "raw/paleo/3e15bfe68e220e48/LR04_MISboundaries.txt"
+      },
+      {
+        "path": "data/raw/paleo/etopo-6min.i16",
+        "sha256": "f3b6949349f502dfddcdcac50887e828c57e23a7a261bedef6adc6632ce1576b",
+        "bytes": 12960000,
+        "key": "raw/paleo/f3b6949349f502df/etopo-6min.i16"
+      },
+      {
+        "path": "data/raw/paleo/friedrich2016temp.txt",
+        "sha256": "fd59e9617b8fa9949a417221570e7bfc04198db902d3b8952a1f737eb9aa89df",
+        "bytes": 17221,
+        "key": "raw/paleo/fd59e9617b8fa994/friedrich2016temp.txt"
+      },
+      {
+        "path": "data/raw/paleo/gowan-1deg.nc",
+        "sha256": "ab6f74541339f5be44dd630dfb9c41189a6c1dfaf58fce6fc3c356430b539037",
+        "bytes": 34538868,
+        "key": "raw/paleo/ab6f74541339f5be/gowan-1deg.nc"
+      },
+      {
+        "path": "data/raw/paleo/lisiecki2005.txt",
+        "sha256": "973a52d988da04333c98c3fc0cb51babac2fa9bb1c05d42de3d6df726d96b6fc",
+        "bytes": 409959,
+        "key": "raw/paleo/973a52d988da0433/lisiecki2005.txt"
+      },
+      {
+        "path": "data/raw/paleo/spratt2016.txt",
+        "sha256": "4e0cdedb99a80ba57cf7df0c2f76c1b6700725e278a2deee952cbec7b87c9a0c",
+        "bytes": 52553,
+        "key": "raw/paleo/4e0cdedb99a80ba5/spratt2016.txt"
+      }
+    ]
+  }
+}

@@ -12,12 +12,42 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `src/index.css`, images). Never overwrite or sweep up his changes.
 - `public/data` is built, so never hand-merge it: on a conflict there (or in `build-meta.json`), merge the sources,
   then run `npm run data:build` and commit the result.
-- Never fetch from xronos.ch automatically. Rob downloads `data/raw/xronos/data.csv` by hand. The XRONOS team (Joe Roe,
-  Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache it; no crawling or
-  repeated requests (their robots.txt disallows the CSVs for that reason).
+- Never fetch from xronos.ch automatically (no agent runs, no schedules). Rob downloads `data/raw/xronos/data.csv`, by
+  hand or with a command he runs himself that refuses a second download within a day (Rob's call, 23 Oct 2026). The
+  XRONOS team (Joe Roe, Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache
+  it; no crawling or repeated requests (their robots.txt disallows the CSVs for that reason).
+- When unsure, leave it out (Rob's call, 23 Oct 2026): he would rather the atlas missed something than showed something
+  wrong. Never map a hedged label or taxon (validator-enforced), never apply a suggestion automatically, and hold
+  back doubtful new data for a person to confirm. Rules in `docs/data-updates.md` ("When unsure, leave it out").
 - Cite XRONOS in its requested format (in `data/curated/sources.yaml` and the README), together with the original
   publications listed on each point.
 - Species images are AI-generated illustrations; every `image_url` needs an `image_credit` (the validator enforces it).
+
+## Data updates (`docs/data-updates.md`, started 23 Oct 2026)
+
+- Plan for a semi-automated update (check upstream, fetch, rebuild, report, commit to a branch, public change log
+  page `#/updates`), with Rob's decisions. Step 1 done: raw snapshots shared between machines.
+- `data/sources.lock.json` records every raw file (hash, size, key); snapshots live in the media bucket under the
+  private `raw/` prefix. `npm run data:raw` (status), `data:push -- <source>…`, `data:pull`. `data:build` refuses to
+  run when a locked raw file it reads is missing or different (`--ignore-lock` for side builds), and the locked
+  xronos/cliopatria/wikidata hashes are part of the build fingerprint.
+- All six sources locked 23 Oct 2026 (xronos, cliopatria, wikidata, aadr from the XRONOS machine; road, paleo from
+  Rob's Linux machine); a full build on the Linux machine then reproduced public/data, dna.json and the ROAD CSVs
+  exactly. Any machine with Rob's AWS login builds the full dataset after `npm run data:pull`: no more splicing.
+- Step 2 done 23 Oct 2026: `npm run data:update -- --check` (read-only, ~45 s; `--offline`) writes
+  `data/build/update-report.md`: upstream versions (pins in `scripts/fetch/pins.ts`), pinned Wikipedia pages edited
+  since their pin, Wikidata coordinate mismatches, labels not mapped yet (XRONOS, ROAD, AADR; a gap naming an existing
+  culture is marked; decided-against labels go in `data/update-ignore.yaml`), other work lists. `npm run
+  data:fetch:xronos` is Rob's once-a-day XRONOS download (refuses within 24 h; never run it as an agent).
+- Step 3 done 23 Oct 2026: `npm run data:update` (fetch/lock what changed, rebuild, compare with the last published
+  update, hold back doubtful new bulk points in `data/curated/held-back.csv`, tests, report) then `-- --publish`
+  (refuses with doubts or failing tests; change log entry in `public/data/changelog.json` + `changelog/<id>.json`;
+  commits to a new branch `data-update-<date>` and pushes it; Rob merges). The build leaves out every
+  held-back.csv row with status `held`; setting it to `confirmed` lets it in (rows stay, so each is asked once).
+- Step 4 done 23 Oct 2026: the public change log page `#/updates` (`src/updates/`, Updates in the rail; drawer only on
+  phones), newest update first: sources moved on, count chips, and on opening the sites added / changed / removed by
+  entity with "Show on the globe", genomes, and what was held back and why. Types shared with the scripts in
+  `src/updates/types.ts`. Empty until the first `--publish`. Optional step 5 (weekly `--check` Action) not started.
 
 ## Pipeline
 
@@ -31,7 +61,13 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Curated sites (`data/curated/species-sites.csv`, `culture-sites.csv`)
 
-- 208 rows: 183 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent).
+- 208 rows: 183 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent). Since 23 Oct 2026 only
+  sourced rows are drawn (Rob's call: when unsure, leave it out); the 25 others are left out by `loadSites` in
+  `scripts/build-data.ts` and come back by themselves once both evidence columns are filled (ids keep counting every
+  row, so nothing is renumbered). XRONOS and ROAD points they used to hide now show (Isturitz, Pincevent,
+  Laugerie-Haute, Feldhofer Grotte). Tour stops moved off hidden sites: Clovis to Anzick (`clovis@4`; first-americans
+  now at 11,050 BCE, snapping to the megafauna stop's step), when-the-ice-melted's Magdalenian to Les Trois-Frères
+  (`magdalenian@4`).
 - Added 17 Oct 2026 for the migration routes: cultures Early Bantu-speaking farmers (Shum Laka, Katuruka), Dapenkeng
   (Fengbitou) and Lapita (Talepakemalai/Mussau, Teouma, Site 13, Moturiki, Nukuleka, Mulifanua), Wikidata coordinates
   (several place-level) and dates from pinned Wikipedia revisions; descriptions written from those articles (Rob to
@@ -205,7 +241,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
    9303da5); an edit makes that narration stale (`npm run audio:narrate -- --stale`).
 7. Housekeeping: `scripts/ingest/cliopatria.test.ts` times out at 5 s on most full runs (passes with a longer
    timeout). The committed data is a full build with XRONOS (16 Oct 2026, 5,006 features); a build without the
-   XRONOS export drops most culture points, so don't commit one.
+   XRONOS export drops most culture points (data:build now refuses while the locked one is missing: `npm run data:pull`).
    `npm run audio:upload -- --dry-run` shows any clips still to upload.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
@@ -289,7 +325,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   in index.css may be as tall as the window, nothing scrolling until the panels together need more, then it shrinks the legend first, then the climate panel, the DNA panel last, so it shows in full unless the
   window is too short); on small screens it stays at the foot of the compact legend.
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
-  dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.
+  dropped if the date misses the culture's span by 500+ years). Yamnaya links 204 genomes at 97 sites. PROVISIONAL_PASS
+  genomes left out since 23 Oct 2026 (Rob's call; 768 people), so about 8,750 people at 2,060 sites.
 - Culture cards and pages show "N ancient genomes from M sites · Show on the globe" (`DnaCultureLink.tsx`, counts
   from the small `public/data/dna-cultures.json`, written by the ingest); while a culture card is open and the layer
   is on, its genome sites are ringed in the culture colour (`dna-culture` layer).
@@ -402,8 +439,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 ## ROAD bulk import (`scripts/ingest/road.ts`)
 
 About 327 hominin fossil site points (17 species) plus 55 ROAD clusters shown on nearby existing points, from ROAD (CC BY-SA 4.0; export 12 Oct 2026). The raw export
-(`data/raw/road/`, from `Rscript scripts/fetch/road.R`) exists only on Rob's Linux machine, so `npm run data:ingest:road`
-writes the committed, generated `data/curated/road/sites.csv` and the build reads that. Re-run the ingest after editing
+(`data/raw/road/`, from `Rscript scripts/fetch/road.R`, which needs R; snapshot in the raw store, `npm run data:pull`) is
+read by `npm run data:ingest:road`, which writes the committed, generated `data/curated/road/sites.csv`; the build reads that. Re-run the ingest after editing
 `road/species-labels.csv` or entity spans. Rules: explicit taxon list (no cf./aff./sp./"or"); ROAD age brackets are
 clipped to the species span from `entities.yaml` and sites outside it dropped (`data/build/road-dropped.csv`: 31 span
 misses, mostly ROAD mislabels such as H. sapiens at Swartkrans, plus 35 without ages); cultures come only from

@@ -50,6 +50,14 @@ export const ToursIcon = (
     <polygon points="10.5 9.5 14 12 10.5 14.5 10.5 9.5" fill="currentColor" stroke="none" />
   </Icon>
 );
+/** Data updates: a page with a plus, for what each update added. */
+export const UpdatesIcon = (
+  <Icon>
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+    <path d="M14 3v5h5" strokeOpacity="0.55" />
+    <path d="M12 11v6M9 14h6" strokeWidth="2" />
+  </Icon>
+);
 const VideoIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />
@@ -83,6 +91,7 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
   { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
   { id: "tours", label: "Tours", icon: ToursIcon, view: "tours", hint: "Guided tours to sit back and watch" },
+  { id: "updates", label: "Updates", icon: UpdatesIcon, view: "updates", hint: "What each data update added" },
 ];
 
 /** Tools and settings, bottom of the rail. */
