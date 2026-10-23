@@ -18,6 +18,7 @@ export const FINGERPRINT_INPUTS = [
   "scripts/lib/calibrate.ts",
   "scripts/lib/countries.ts",
   "scripts/lib/regions.ts",
+  "scripts/lib/qa.ts",
   "data/reference",
 ];
 export const META_PATH = "public/data/build-meta.json";

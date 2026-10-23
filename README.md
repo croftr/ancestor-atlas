@@ -210,8 +210,9 @@ The Ancient DNA layer (on by default; Settings) shows genomes from the Allen Anc
 `data/raw/aadr/` (checksum-checked) and runs `scripts/ingest/aadr.ts`, which writes `public/data/dna.json` (committed;
 outside `data:build` and its fingerprint, loaded only when the layer is switched on).
 
-- Individuals dated before 1 CE with coordinates and an AADR assessment of Pass, PROVISIONAL_PASS or MERGE_PASS; one
-  row per individual (the one with most SNPs). About 9,500 people at 2,200 sites (same coordinates, merged within 1 km).
+- Individuals dated before 1 CE with coordinates and an AADR assessment of Pass or MERGE_PASS (PROVISIONAL_PASS is left
+  out); one row per individual (the one with most SNPs). About 8,750 people at 2,060 sites (same coordinates, merged
+  within 1 km).
 - Date ranges: AADR's mean ± 2 SD for direct radiocarbon dates; the full archaeological range for contextual ones.
 - AADR group labels link to cultures through the `aadr` rows of `culture-labels.csv` (exact "_"-parts only).
 - A site is coloured by the commonest Y or mtDNA haplogroup family among the people dated to the slider's year (three
@@ -222,5 +223,8 @@ outside `data:build` and its fingerprint, loaded only when the layer is switched
 ### Provenance Rules
 
 - **Strict sourcing**: Every coordinate and date must trace to a primary source, DOI, or verified Wikidata statement.
+- **When unsure, leave it out**: a hand-curated site is drawn only once both its place and its date have a source; data
+  that hedges (uncertain labels or identifications, provisional genome grades, dates claimed by two cultures) is not
+  imported. See `docs/data-updates.md`.
 - **Open licensing**: All underlying sources and text adhere to open licenses (CC0, CC BY, CC BY-SA, or CC BY-NC) with full attribution.
 - **Astronomical dating**: Years use astronomical conventions (1 CE = 1, 1 BCE = 0). Deep-time ages in "ka" (thousands of years ago) or "Ma" (millions of years ago) are measured before 1950.

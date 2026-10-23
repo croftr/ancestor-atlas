@@ -10,7 +10,7 @@ import { buildInputProblems, LOCK_PATH } from "./lib/raw-store.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
 import { readRoadCultureLabels, readRoadSites, roadFeatures, ROAD_CULTURE_SITES, ROAD_SITES } from "./ingest/road.ts";
-import { distanceKm } from "./lib/qa.ts";
+import { distanceKm, siteStatus } from "./lib/qa.ts";
 import { addAreas, regionAreas, REGIONS, topRegion } from "./lib/regions.ts";
 
 const OUT = "public/data";
@@ -69,8 +69,12 @@ const entities = new Map<string, Entity>();
 const features: OutFeature[] = [];
 const descriptionFromWikidata = new Set<string>();
 
-// Curated point sites (species + culture): one Point feature per CSV row.
+// Curated point sites (species + culture): one Point feature per CSV row that has both coordinate and date evidence.
+// A row still `recall` or `partial` is left out (when unsure, leave it out: Rob's call, 23 Oct 2026) and comes back by
+// itself once its missing source is filled in; data/build/recall-queue.csv lists them. Ids keep counting every row,
+// so leaving one out never renumbers the others (tours, routes and links name sites by id).
 const num = (v: string | undefined) => (v === undefined || v === "" ? undefined : Number(v));
+const unverified: string[] = [];
 function loadSites(file: string, category: Category) {
   const path = `${CURATED}/${file}`;
   if (!existsSync(path)) return;
@@ -79,6 +83,7 @@ function loadSites(file: string, category: Category) {
   for (const [i, r] of rows.entries()) {
     const n = (perEntity.get(r.entity_id) ?? 0) + 1;
     perEntity.set(r.entity_id, n);
+    if (siteStatus(r as { source_id: string }) !== "sourced") { unverified.push(`${r.entity_id}: ${r.label}`); continue; }
     const lat = Number(r.lat), lon = Number(r.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) fail(`${file} row ${i + 2}: bad coordinates`);
     const props: FeatureProps = {
@@ -100,6 +105,7 @@ function loadSites(file: string, category: Category) {
 }
 loadSites("species-sites.csv", "species");
 loadSites("culture-sites.csv", "culture");
+if (unverified.length) console.log(`Left out ${unverified.length} curated sites still missing coordinate or date evidence (data/build/recall-queue.csv): ${unverified.join("; ")}`);
 
 // Events (data/curated/events.yaml): one entity each, one Point feature per place.
 interface CuratedEvent {

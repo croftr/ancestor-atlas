@@ -105,7 +105,7 @@ export const TOURS: Tour[] = [
       { entity: "figurative-cave-art" },
       { entity: "aurignacian", year: -39_999, site: "aurignacian@1" },
       { entity: "peopling-of-the-americas" },
-      { entity: "clovis", year: -10_999, site: "clovis@2" },
+      { entity: "clovis", year: -10_999, site: "clovis@4" },
     ],
   },
   {
@@ -277,7 +277,7 @@ export const TOURS: Tour[] = [
     closingNarration: { src: "narration/tours/first-americans-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "a58ba22355" },
     stops: [
       { entity: "peopling-of-the-americas" },
-      { entity: "clovis", year: -11_999, site: "clovis@2" },
+      { entity: "clovis", year: -11_050, site: "clovis@4" },
       { entity: "quaternary-megafauna-extinction", site: "quaternary-megafauna-extinction@1" },
       { entity: "maize-and-squash" },
       { entity: "andean-domestication" },
@@ -303,7 +303,7 @@ export const TOURS: Tour[] = [
     stops: [
       { entity: "first-pottery" },
       { entity: "epigravettian", year: -16_999, site: "epigravettian@r:paglicci" },
-      { entity: "magdalenian", year: -13_999, site: "magdalenian@2" },
+      { entity: "magdalenian", year: -13_999, site: "magdalenian@4" },
       { entity: "dog-domestication" },
       { entity: "natufian", year: -11_999, site: "natufian@4" },
       { entity: "azilian", year: -9_999, site: "azilian@x:miron" },

@@ -23,8 +23,12 @@ Rob would rather the atlas missed something than showed something wrong. Every a
   fails the build otherwise (`isHedgedLabel` / `isHedgedTaxon` in `scripts/lib/qa.ts`).
 - **The source's own doubts count.** XRONOS dates claimed by two cultures, with whole-degree coordinates, outside their
   culture's sourced range, in the wrong country, or outlying at their site are left out (as before). AADR genomes are
-  kept only at the grades accepted in `scripts/ingest/aadr.ts`; ROAD ages are clipped to the species' span and sites
+  kept only at the grades accepted in `scripts/ingest/aadr.ts` (see below); ROAD ages are clipped to the species' span and sites
   outside it dropped.
+- **Unverified curated sites are not drawn.** A row in `species-sites.csv` / `culture-sites.csv` needs both coordinate
+  and date evidence (`siteStatus` sourced); the build leaves the others out (25 on 23 Oct 2026) until they have it.
+- **Provisional genomes are left out.** AADR's PROVISIONAL_PASS (no reason given) is not accepted (768 people on
+  23 Oct 2026); Pass and MERGE_PASS are.
 - **Suggestions are never applied.** The check's hints (a gap that seems to name an existing culture) only point a
   person at a possible label row.
 - **Doubts block publishing.** `data:update -- --check` lists doubts: curated points more than 1 km from the Wikidata

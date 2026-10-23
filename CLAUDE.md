@@ -53,7 +53,13 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Curated sites (`data/curated/species-sites.csv`, `culture-sites.csv`)
 
-- 208 rows: 183 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent).
+- 208 rows: 183 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent). Since 23 Oct 2026 only
+  sourced rows are drawn (Rob's call: when unsure, leave it out); the 25 others are left out by `loadSites` in
+  `scripts/build-data.ts` and come back by themselves once both evidence columns are filled (ids keep counting every
+  row, so nothing is renumbered). XRONOS and ROAD points they used to hide now show (Isturitz, Pincevent,
+  Laugerie-Haute, Feldhofer Grotte). Tour stops moved off hidden sites: Clovis to Anzick (`clovis@4`; first-americans
+  now at 11,050 BCE, snapping to the megafauna stop's step), when-the-ice-melted's Magdalenian to Les Trois-Frères
+  (`magdalenian@4`).
 - Added 17 Oct 2026 for the migration routes: cultures Early Bantu-speaking farmers (Shum Laka, Katuruka), Dapenkeng
   (Fengbitou) and Lapita (Talepakemalai/Mussau, Teouma, Site 13, Moturiki, Nukuleka, Mulifanua), Wikidata coordinates
   (several place-level) and dates from pinned Wikipedia revisions; descriptions written from those articles (Rob to
@@ -311,7 +317,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   in index.css may be as tall as the window, nothing scrolling until the panels together need more, then it shrinks the legend first, then the climate panel, the DNA panel last, so it shows in full unless the
   window is too short); on small screens it stays at the foot of the compact legend.
 - Culture links: `aadr` rows in `culture-labels.csv` (exact "_"-part of AADR's group label, suffixes like `-o` stripped;
-  dropped if the date misses the culture's span by 500+ years). Yamnaya links 207 genomes at 97 sites.
+  dropped if the date misses the culture's span by 500+ years). Yamnaya links 204 genomes at 97 sites. PROVISIONAL_PASS
+  genomes left out since 23 Oct 2026 (Rob's call; 768 people), so about 8,750 people at 2,060 sites.
 - Culture cards and pages show "N ancient genomes from M sites · Show on the globe" (`DnaCultureLink.tsx`, counts
   from the small `public/data/dna-cultures.json`, written by the ingest); while a culture card is open and the layer
   is on, its genome sites are ringed in the culture colour (`dna-culture` layer).
