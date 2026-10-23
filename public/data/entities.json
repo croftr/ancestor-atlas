@@ -10170,7 +10170,11 @@
     },
     "source_ids": [
       "wikimedia"
-    ]
+    ],
+    "video": {
+      "src": "video/events/out-of-africa-dmanisi-v1.mp4",
+      "credit": "AI-generated video (Google Veo)"
+    }
   },
   {
     "id": "acheulean-handaxes",
