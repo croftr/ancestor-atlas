@@ -48,6 +48,30 @@ export const globeUrl = () => {
   return origin + pathname + globeHash(useStore.getState());
 };
 
+/**
+ * Open one site's card on the globe and fly to it, at `year` if the site is on the map then, else at its own time.
+ * False when the site is not in the data (not loaded yet, or gone since).
+ */
+export function showSite(id: string, year?: number): boolean {
+  const d = getData();
+  const site = d?.features.find((f) => f.id === id);
+  if (!d || !site) return false;
+  const s = useStore.getState();
+  const bbox = d.bboxOf.get(site.id);
+  useStore.setState({
+    year: year !== undefined && isActive(site, snapYear(year)) ? snapYear(year) : sliderYearFor(site),
+    enabled: { ...s.enabled, [site.category]: true },
+    selectedId: site.id,
+    hits: [site],
+    groupId: null,
+    dnaSite: null,
+    place: null,
+    playing: false,
+    flyTo: bbox ? { bbox } : s.flyTo,
+  });
+  return true;
+}
+
 /** Open the link the page was loaded with, then keep the address bar in step with the globe. */
 export function useGlobeLink(view: View) {
   useEffect(() => {
@@ -61,23 +85,9 @@ export function useGlobeLink(view: View) {
     loadData().then((d) => {
       if (!d) return;
       const s = useStore.getState();
-      const site = link.site ? d.features.find((f) => f.id === link.site) : undefined;
-      if (site) {
-        const year = link.year !== undefined && isActive(site, snapYear(link.year)) ? snapYear(link.year) : sliderYearFor(site);
-        const bbox = getData()?.bboxOf.get(site.id);
-        useStore.setState({
-          year,
-          enabled: { ...s.enabled, [site.category]: true },
-          selectedId: site.id,
-          hits: [site],
-          groupId: null,
-          flyTo: bbox ? { bbox } : s.flyTo,
-        });
-      } else if (link.group && d.entityById.has(link.group)) {
-        s.focusEntity(link.group);
-      } else if (link.year !== undefined) {
-        s.setYear(link.year);
-      }
+      if (link.site && showSite(link.site, link.year)) return;
+      if (link.group && d.entityById.has(link.group)) s.focusEntity(link.group);
+      else if (link.year !== undefined) s.setYear(link.year);
     });
   }, []);
 

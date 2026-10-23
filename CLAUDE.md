@@ -43,7 +43,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   update, hold back doubtful new bulk points in `data/curated/held-back.csv`, tests, report) then `-- --publish`
   (refuses with doubts or failing tests; change log entry in `public/data/changelog.json` + `changelog/<id>.json`;
   commits to a new branch `data-update-<date>` and pushes it; Rob merges). The build leaves out every
-  held-back.csv row with status `held`; setting it to `confirmed` lets it in (rows stay, so each is asked once). Next: step 4, the public change log page `#/updates`.
+  held-back.csv row with status `held`; setting it to `confirmed` lets it in (rows stay, so each is asked once).
+- Step 4 done 23 Oct 2026: the public change log page `#/updates` (`src/updates/`, Updates in the rail; drawer only on
+  phones), newest update first: sources moved on, count chips, and on opening the sites added / changed / removed by
+  entity with "Show on the globe", genomes, and what was held back and why. Types shared with the scripts in
+  `src/updates/types.ts`. Empty until the first `--publish`. Optional step 5 (weekly `--check` Action) not started.
 
 ## Pipeline
 

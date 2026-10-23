@@ -30,9 +30,9 @@ describe("compare", () => {
 describe("hold-back screen", () => {
   it("publishes a new point among its entity's others", () => expect(doubtsAbout(pt("n", "lbk", 9.5, 50.5), german)).toEqual([]));
   it("holds a point far from the rest, in a new country, or stretching the span", () => {
-    expect(doubtsAbout(pt("n", "lbk", 100, 30), german).join("; ")).toMatch(/far from lbk's other sites.*first lbk point in CN/);
-    expect(doubtsAbout(pt("n", "lbk", 16.4, 48.2), german)).toEqual(["first lbk point in AT"]);
-    expect(doubtsAbout(pt("n", "lbk", 9.5, 50.5, { start_year: -6000 }), german, { start_year: -5500, end_year: -4500 })[0]).toMatch(/stretch/);
+    expect(doubtsAbout(pt("n", "lbk", 100, 30), german).join("; ")).toMatch(/far from lbk's other sites \(nearest [\d,]+ km\).*first lbk point in People.s Republic of China/);
+    expect(doubtsAbout(pt("n", "lbk", 16.4, 48.2), german)).toEqual(["first lbk point in Austria"]);
+    expect(doubtsAbout(pt("n", "lbk", 9.5, 50.5, { start_year: -6000 }), german, { start_year: -5500, end_year: -4500 })[0]).toMatch(/dated outside lbk's span/);
   });
   it("judges a newly mapped culture's points among themselves", () => {
     const fresh = [pt("h1", "horgen", 8.5, 47.4), pt("h2", "horgen", 8.9, 47.2), pt("h3", "horgen", 9.1, 47.6), pt("h4", "horgen", 7.6, 47.5), pt("h5", "horgen", -80, 40)];
@@ -46,7 +46,7 @@ describe("hold-back screen", () => {
     const c = compareSnapshots(before, snap([...german, merged]));
     expect(c.features.removed).toEqual([]);
     expect(c.features.changed.map((x) => [x.after.id, x.fields[0]])).toEqual([["lbk@x:korman", "merged"]]);
-    expect(screen(c, before, "d").map((h) => [h.id, h.reason])).toEqual([["lbk@x:korman", "would stretch lbk's span (-5500..-4500)"]]);
+    expect(screen(c, before, "d").map((h) => [h.id, h.reason])).toEqual([["lbk@x:korman", "dated outside Linear Pottery's span (5,501 BCE to 4,501 BCE)"]]);
   });
   it("screens only bulk points, and holds new Cliopatria polities but not curated ones", () => {
     const curatedRow = pt("lbk@6", "lbk", 100, 30, { source_id: "wikimedia" });

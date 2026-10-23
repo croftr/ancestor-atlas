@@ -1,39 +1,15 @@
-// The public change log (docs/data-updates.md, step 4 shows it at #/updates): public/data/changelog.json holds one
-// small entry per published update, newest first; public/data/changelog/<id>.json the details, loaded when an entry
-// is opened. Written by `npm run data:update -- --publish`, never by data:build (so it is outside the fingerprint).
+// The public change log, shown at #/updates (types and layout in src/updates/types.ts). Written by `npm run data:update
+// -- --publish`, never by data:build (so it is outside the fingerprint).
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import type { CategoryCounts as Counts, LogDetails, LogEntry, LogSite, SourceBump } from "../../src/updates/types.ts";
 import type { HeldRow } from "../lib/held-back.ts";
 import type { Changes, SnapFeature, Snapshot } from "./compare.ts";
 
+export type { LogDetails, LogEntry, LogSite, SourceBump };
+
 export const CHANGELOG = "public/data/changelog.json";
 export const DETAILS_DIR = "public/data/changelog";
-
-export interface SourceBump { id: string; from: string; to: string }
-type Counts = Partial<Record<"species" | "culture" | "civilization" | "event", number>>;
-export interface LogEntry {
-  id: string;
-  date: string;
-  sources: SourceBump[];
-  added: Counts;
-  removed: Counts;
-  changed: number;
-  entitiesAdded: number;
-  genomesAdded: number;
-  genomesRemoved: number;
-  held: number;
-}
-export interface LogSite { id: string; entity_id: string; entity: string; category: string; label?: string; date_text?: string; source_id: string; lat?: number; lon?: number }
-export interface LogDetails {
-  entry: LogEntry;
-  added: LogSite[];
-  removed: LogSite[];
-  /** `was`: the site's earlier name, when it was renamed or merged into this one. */
-  changed: (LogSite & { fields: string[]; was?: string })[];
-  entities: { added: { id: string; name: string; category: string }[]; removed: { id: string; name: string; category: string }[]; changed: { id: string; name: string; fields: string[] }[] };
-  dna: Changes["dna"];
-  held: HeldRow[];
-}
 
 export const readLog = (): LogEntry[] => (existsSync(CHANGELOG) ? (JSON.parse(readFileSync(CHANGELOG, "utf8")) as LogEntry[]) : []);
 

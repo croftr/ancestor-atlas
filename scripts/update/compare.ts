@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import type { DnaData } from "../../src/dna/types.ts";
+import type { DnaChanges } from "../../src/updates/types.ts";
 import { distanceKm } from "../lib/qa.ts";
 
 export interface SnapFeature {
@@ -49,15 +50,9 @@ export function loadSnapshot(rev?: string): Snapshot {
   return { label: rev ?? "working tree", features, entities, ...(dj && { dna: JSON.parse(dj) as DnaData }) };
 }
 
+export type { DnaChanges };
 export interface FeatureChange { before: SnapFeature; after: SnapFeature; fields: string[] }
 export interface EntityChange { before: SnapEntity; after: SnapEntity; fields: string[] }
-export interface DnaChanges {
-  release?: { from: string; to: string };
-  peopleAdded: number;
-  peopleRemoved: number;
-  sitesAdded: { id: string; name: string; country: string; people: number }[];
-  sitesRemoved: { id: string; name: string; country: string; people: number }[];
-}
 export interface Changes {
   features: { added: SnapFeature[]; removed: SnapFeature[]; changed: FeatureChange[] };
   entities: { added: SnapEntity[]; removed: SnapEntity[]; changed: EntityChange[] };

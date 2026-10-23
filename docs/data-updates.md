@@ -68,10 +68,11 @@ Rob would rather the atlas missed something than showed something wrong. Every a
    `public/data`, the lock and the change log, and runs `audio:upload` for any clips not yet in the bucket.
    Added automatically: what the pipeline's rules already decide (new dates under mapped labels, new genomes, new
    finds of mapped species, changes to imported polities). Everything else is only reported.
-4. **Change log page** (`#/updates`, public): `public/data/changelog.json` (one entry per run: date, source versions,
-   counts by category and source), details in `public/data/changelog/<date>.json` loaded when a run is opened; sites
-   grouped by entity with "Show on the globe". Each run compares against the state at the last run, so hand-curated
-   additions in between are logged too. Possibly backfilled from git history.
+4. **Change log page** (done 23 Oct 2026, see below; `#/updates`, public): `public/data/changelog.json` (one entry per
+   run: date, source versions, counts by category), details in `public/data/changelog/<id>.json` loaded when a run is
+   opened; sites grouped by entity with "Show on the globe". Each run compares against the state at the last run, so
+   hand-curated additions in between are logged too. Not backfilled from git history: the first published update is
+   the first entry.
 5. Optional: a weekly GitHub Action running only `--check` (never XRONOS) that opens an issue when upstream changed.
 
 ## Step 1: raw snapshots (`scripts/lib/raw-store.ts`, `scripts/raw.ts`)
@@ -148,8 +149,8 @@ Epicardial, Sauveterrian, Pfyn; AADR's Hungary_LN_Lengyel (31 genomes) is not li
    before the first one, HEAD), so hand-made changes since are included (`scripts/update/compare.ts`: features by id,
    then by entity, name and place within 2 km; entities; genomes).
 6. The hold-back screen (`scripts/update/holdback.ts`): each new XRONOS or ROAD point must not be a geographic
-   outlier among its entity's points, not be its entity's first point in a country, and not stretch its entity's
-   span; a culture with no points before is judged by its new points among themselves (distance only). New
+   outlier among its entity's points, not be its entity's first point in a country, and not be dated outside its
+   entity's span; a culture with no points before is judged by its new points among themselves (distance only). New
    Cliopatria polities (not defined in entities.yaml) are held too. What fails goes into
    `data/curated/held-back.csv` (with the reason) and the build runs again without it. The build leaves out every
    id whose status is `held` (`scripts/lib/held-back.ts`); **changing a row's status to `confirmed` lets that item in**,
@@ -166,3 +167,16 @@ already uploaded at step 3 (content-addressed, private).
 
 Not screened: hand-curated rows (a person added them with sources) and removals (leaving data out is the safe way).
 Genomes are not screened either: a new AADR release brings genomes at the accepted grades only.
+
+## Step 4: the change log page (`#/updates`)
+
+`src/updates/UpdatesPage.tsx` (in the rail as Updates; on phones in the menu drawer, not the tab bar) lists every
+published update, newest first, the newest open. Each entry shows its date, the sources that moved on ("XRONOS
+retrieved 2026-10-06 → retrieved 2026-10-23") and chips counting what changed ("+37 culture sites", "−2", "15
+changed", "10 held back"). "What changed" loads that entry's details: new entities (linking to their pages), sites
+added, changed (in words: "merged with El Castillo, new dates") and removed, grouped by entity with the first eight
+shown, each still on the map with "Show on the globe" (`showSite` in `src/globeLink.ts`: opens its card at its time);
+updated entities; ancient DNA; and what was held back for checking, with the reason. The page is public, so the
+hold-back reasons use names, countries and years ("dated outside Linear Pottery's span (5,501 BCE to 4,501 BCE)").
+The file layout is typed once, in `src/updates/types.ts`, for both the page and `scripts/update/changelog.ts`. With
+no update published yet the page says so.
