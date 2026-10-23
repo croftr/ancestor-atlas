@@ -1,4 +1,37 @@
 {
+  "xronos": {
+    "retrieved": "2026-10-06",
+    "files": [
+      {
+        "path": "data/raw/xronos/data.csv",
+        "sha256": "821e99f8a9284a0e791f153e4bb518fa5fa9c9390d47a66408da167d70acbad3",
+        "bytes": 80661257,
+        "key": "raw/xronos/821e99f8a9284a0e/data.csv"
+      }
+    ]
+  },
+  "cliopatria": {
+    "retrieved": "2026-10-03",
+    "files": [
+      {
+        "path": "data/raw/cliopatria/cliopatria.geojson",
+        "sha256": "fc6f0d1e4cc42f45da83522b3696db6f2cc85ec0d12259a85c89b31347b8fc0a",
+        "bytes": 172854269,
+        "key": "raw/cliopatria/fc6f0d1e4cc42f45/cliopatria.geojson"
+      }
+    ]
+  },
+  "wikidata": {
+    "retrieved": "2026-10-06",
+    "files": [
+      {
+        "path": "data/raw/wikidata/descriptions.json",
+        "sha256": "00640d3ecb55cec9c1ce56c76654d4d1182da57244f98b7a080b43e1f4ac94c4",
+        "bytes": 11748,
+        "key": "raw/wikidata/00640d3ecb55cec9/descriptions.json"
+      }
+    ]
+  },
   "road": {
     "retrieved": "2026-10-12",
     "files": [
@@ -25,6 +58,17 @@
         "sha256": "b3ad6f9ef5809966f0cf43d38bdf1b8bf6695064b61b5c889a562835dc542798",
         "bytes": 430091,
         "key": "raw/road/b3ad6f9ef5809966/localities.csv"
+      }
+    ]
+  },
+  "aadr": {
+    "retrieved": "2026-10-16",
+    "files": [
+      {
+        "path": "data/raw/aadr/v66.p1_1240K.aadr.PUB.anno",
+        "sha256": "4a8e15d0b8d5a8bd6c929ccab7ff83a17091dc91b5e0d8015d9896dd9a5f7f7a",
+        "bytes": 13443726,
+        "key": "raw/aadr/4a8e15d0b8d5a8bd/v66.p1_1240K.aadr.PUB.anno"
       }
     ]
   },
