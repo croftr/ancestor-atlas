@@ -10233,7 +10233,11 @@
     },
     "source_ids": [
       "wikimedia"
-    ]
+    ],
+    "video": {
+      "src": "video/events/acheulean-handaxes-v1.mp4",
+      "credit": "AI-generated video (Google Veo)"
+    }
   },
   {
     "id": "control-of-fire",

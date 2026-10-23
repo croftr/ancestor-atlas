@@ -132,6 +132,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   image_url: /images/events/acheulean-handaxe-technology.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/acheulean-handaxes-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/acheulean-handaxes-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Handaxe from Saint-Acheul, France, the site that gave the Acheulean its name", source: "https://commons.wikimedia.org/wiki/File:Biface_de_St_Acheul_MHNT.jpg" }
     - { url: /images/events/extra/acheulean-handaxes-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Both faces of a symmetrical flint handaxe collected by Jacques Boucher de Perthes in the Somme valley", source: "https://commons.wikimedia.org/wiki/File:Biface_de_Boucher_de_Perthes_MHNT.jpg" }
