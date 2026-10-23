@@ -86,6 +86,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
   image_url: /images/events/systematic-oldowan-tools.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/oldowan-tools-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/oldowan-tools-1.webp, credit: "David R. Braun, CC BY-SA 2.0, via Wikimedia Commons", caption: "Oldowan tools from Bokol Dora 1, Ethiopia, about 2.6 million years old", source: "https://commons.wikimedia.org/wiki/File:Bokol_Dora_Stone_Tool_(cropped).jpg" }
     - { url: /images/events/extra/oldowan-tools-4.webp, credit: "Suyash Dwivedi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Oldowan hammerstones, choppers and sharp-edged flakes", source: "https://commons.wikimedia.org/wiki/File:Oldowan_toolkit.jpg" }

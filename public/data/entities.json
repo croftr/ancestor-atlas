@@ -10107,7 +10107,11 @@
     },
     "source_ids": [
       "wikimedia"
-    ]
+    ],
+    "video": {
+      "src": "video/events/oldowan-tools-v1.mp4",
+      "credit": "AI-generated video (Google Veo)"
+    }
   },
   {
     "id": "out-of-africa-dmanisi",
