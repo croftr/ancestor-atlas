@@ -118,7 +118,7 @@ async function update(): Promise<Run> {
     empty: isEmpty(changes) && !bumps.length && !held.length, hash: hashPaths(),
   };
   writeFileSync(RUN_JSON, JSON.stringify(run) + "\n");
-  writeFileSync(REPORT, renderUpdate(run.details, { baseline, bumps, held, testsOk, doubts: result.doubts }) + "\n" + renderReport(result));
+  writeFileSync(REPORT, renderUpdate(run.details, { baseline, bumps, held, testsOk, doubts: result.doubts, empty: run.empty }) + "\n" + renderReport(result));
   console.log(summary(result).join("\n"));
   return run;
 }

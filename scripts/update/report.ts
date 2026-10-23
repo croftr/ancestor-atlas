@@ -86,13 +86,13 @@ export function summary(r: CheckResult): string[] {
 
 /** The update section at the top of the report: what this update would publish, and what it held back. */
 export function renderUpdate(d: Omit<LogDetails, "entry"> & { entry: Omit<LogDetails["entry"], "id"> },
-  o: { baseline: string; bumps: SourceBump[]; held: HeldRow[]; testsOk: boolean; doubts: string[] }): string {
+  o: { baseline: string; bumps: SourceBump[]; held: HeldRow[]; testsOk: boolean; doubts: string[]; empty?: boolean }): string {
   const e = d.entry;
   const n = (c: Record<string, number | undefined>) => Object.entries(c).map(([k, v]) => `${v} ${k}`).join(", ") || "none";
   const ready = !o.doubts.length && o.testsOk;
   const out = [
     `# Data update, ${e.date}`, "",
-    ready ? "Ready to publish: `npm run data:update -- --publish`." : `**Not publishable yet:** ${[o.doubts.length ? `${o.doubts.length} doubts (below)` : "", o.testsOk ? "" : "the tests fail"].filter(Boolean).join(" and ")}.`, "",
+    o.empty ? "Nothing new: nothing to publish." : ready ? "Ready to publish: `npm run data:update -- --publish`." : `**Not publishable yet:** ${[o.doubts.length ? `${o.doubts.length} doubts (below)` : "", o.testsOk ? "" : "the tests fail"].filter(Boolean).join(" and ")}.`, "",
     `Compared with ${o.baseline === "HEAD" ? "the last commit" : `the last published update (${o.baseline.slice(0, 7)})`}.`, "",
     "## Sources updated", "",
     ...(o.bumps.length ? o.bumps.map((b) => `- ${b.id}: ${b.from} → ${b.to}`) : ["None (nothing newer upstream or here)."]), "",
