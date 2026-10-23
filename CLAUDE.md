@@ -31,7 +31,12 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - All six sources locked 23 Oct 2026 (xronos, cliopatria, wikidata, aadr from the XRONOS machine; road, paleo from
   Rob's Linux machine); a full build on the Linux machine then reproduced public/data, dna.json and the ROAD CSVs
   exactly. Any machine with Rob's AWS login builds the full dataset after `npm run data:pull`: no more splicing.
-  Next: step 2 (upstream checks and the work list).
+- Step 2 done 23 Oct 2026: `npm run data:update -- --check` (read-only, ~45 s; `--offline`) writes
+  `data/build/update-report.md`: upstream versions (pins in `scripts/fetch/pins.ts`), pinned Wikipedia pages edited
+  since their pin, Wikidata coordinate mismatches, labels not mapped yet (XRONOS, ROAD, AADR; a gap naming an existing
+  culture is marked; decided-against labels go in `data/update-ignore.yaml`), other work lists. `npm run
+  data:fetch:xronos` is Rob's once-a-day XRONOS download (refuses within 24 h; never run it as an agent).
+  Next: step 3 (fetch, rebuild, compare, publish to a branch, change log).
 
 ## Pipeline
 

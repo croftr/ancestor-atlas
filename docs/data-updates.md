@@ -29,7 +29,7 @@ missing, and on his word commits it to a branch. Each published run is logged on
 
 1. **Raw snapshots shared between machines** (done and verified 23 Oct 2026, see below). Ends the "only some raw data on each machine" problem
    and the splicing workaround.
-2. **Check**: one adapter per source comparing the lock with upstream; plus the work list of things only a person
+2. **Check** (done 23 Oct 2026, see below): one adapter per source comparing the lock with upstream; plus the work list of things only a person
    should add (unmapped XRONOS labels with date counts, new ROAD taxa and cultures, unmapped AADR groups, new or gone
    Cliopatria polities, Wikidata coordinates moved over 1 km, pinned Wikipedia pages edited since their pin, changes
    in set-aside and dropped XRONOS dates; with the existing recall/partial, picture and stale-narration lists).
@@ -74,3 +74,32 @@ dna.json and the ROAD CSVs byte for byte.
    machines had different raw files: look before committing). Commit the lock and `build-meta.json`.
 4. Back on the first machine: `npm run data:pull`, `npm run data:build`: no change expected. From then on any machine
    builds the whole dataset.
+
+## Step 2: the check (`npm run data:update -- --check`)
+
+`scripts/update.ts`, checks in `scripts/update/check.ts`, report in `scripts/update/report.ts`. Read-only, about 45 s,
+a few dozen batched requests (Zenodo, Dataverse, Wikipedia, Wikidata; never XRONOS). `--offline` skips the network.
+Writes `data/build/update-report.md` (read it) and `update-check.json`; the next check marks gaps that are new (🆕).
+
+- **Sources**: Cliopatria (Zenodo versions of the pinned record), AADR (latest Dataverse version's 1240K `.anno`),
+  Wikidata descriptions (asked afresh), XRONOS and ROAD (age of the locked copy; XRONOS also notices a newer
+  download not yet locked), paleo (static). Pins live in `scripts/fetch/pins.ts`.
+- **Pinned Wikipedia revisions**: every `wikipedia:[lang:]Title@rev` and `title=…&oldid=…` in `data/curated` and `src`;
+  pages edited since their newest pin, with edits since, size change and a diff link, most-cited first.
+- **Wikidata coordinates**: points whose coordinates came from Wikidata (sites with `coord_source wikidata:Q…`, event
+  places, XRONOS `move` fixes) more than 1 km from the item's P625 now, or whose item lost P625 or is gone.
+- **Not mapped yet**: XRONOS labels on pre-1 CE dates with no mapped label (period names left out), ROAD taxa
+  (uncertain ones left out) and culture names, AADR groups without a culture (place-and-period groups left out).
+  A gap that names a culture the atlas already has is marked (only a label row is missing). Labels decided against go
+  in `data/update-ignore.yaml`.
+- **Other work lists**: recall and partial sites, stale narration, set-aside and dropped XRONOS dates.
+
+`npm run data:fetch:xronos` (`scripts/fetch/xronos.ts`): Rob's once-a-day XRONOS download. Refuses within 24 h of the
+last request (1 h after a failed one; every request recorded in `data/raw/xronos/download.json`), sends
+If-None-Match / If-Modified-Since, checks the columns the ingest needs before replacing `data.csv`. Not for agents.
+
+First run (23 Oct 2026): all upstream releases current; 51 of 211 pinned pages edited (mostly small; two pins are
+years old: Archaic human admixture 2018, Settlement of the Americas 2023); one Wikidata mismatch (the Bourewa place on
+`lapita-voyaging` cites Q154628, which is the Bismarck Archipelago); XRONOS gaps led by Pitted Ware
+(Grübchenkeramik), Horgen, Cortaillod, Swifterbant, Mousterian (an existing culture: only the label row is missing),
+Epicardial, Sauveterrian, Pfyn; AADR's Hungary_LN_Lengyel (31 genomes) is not linked to the Lengyel culture.

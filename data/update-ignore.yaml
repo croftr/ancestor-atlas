@@ -1,0 +1,7 @@
+# Labels `npm run data:update -- --check` should stop listing as "not mapped yet": looked at and decided against
+# (not a culture, too vague, mixed, outside the atlas). Add a line with a reason when you decide; period names
+# ("Middle Neolithic", "EBA", "Upper Paleolithic (Eurasia)") are left out automatically.
+xronos: []
+road_taxa: []
+road_cultures: []
+aadr_groups: []

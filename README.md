@@ -99,6 +99,8 @@ data/raw (fetched, gitignored) → data/curated (hand-edited) → public/data (b
 npm run data:fetch        # Download raw sources (Cliopatria polities ~300 MB + Wikidata descriptions)
 npm run data:pull         # Download the locked raw snapshots (data/sources.lock.json) missing on this machine
 npm run data:push -- road # Lock this machine's raw files for a source and upload them (see docs/data-updates.md)
+npm run data:update -- --check  # Compare every source with upstream and list what is new or not mapped yet
+npm run data:fetch:xronos # Download the XRONOS export (at most once a day; refuses sooner)
 npm run data:build        # Ingest, merge curated files, write public/data/*, and validate
 npm run data:check        # Verify public/data matches curated inputs (runs on build)
 npm run data:report       # Generate QA report & work list (data/build/qa-report.md)
@@ -132,7 +134,8 @@ npm test                  # Run automated test suites (Vitest)
 ### Bulk Culture Data (XRONOS)
 
 Culture site points also come from radiocarbon dates in [XRONOS](https://xronos.ch) (CC BY 4.0). Download
-`https://xronos.ch/data.csv` by hand into `data/raw/xronos/data.csv`; `npm run data:build` only reads that local copy.
+`https://xronos.ch/data.csv` into `data/raw/xronos/data.csv` by hand or with `npm run data:fetch:xronos` (which refuses
+a second request within a day); `npm run data:build` only reads that local copy.
 The XRONOS team confirmed (October 2026) that using the data this way is welcome: download the export once, or at
 most about daily, and cache it. Never crawl or repeatedly request their CSV files, which is why `robots.txt` lists them. Dates are calibrated with IntCal20, kept only if they fall within the
 culture's sourced date range, and grouped into one point per site.

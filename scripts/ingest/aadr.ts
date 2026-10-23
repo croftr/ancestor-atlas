@@ -16,9 +16,10 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 import type { DnaCultureCounts, DnaData, DnaPerson, DnaSite } from "../../src/dna/types.ts";
 import { distanceKm } from "../lib/qa.ts";
+import { AADR_FILE, AADR_RELEASE } from "../fetch/pins.ts";
 
-const ANNO = "data/raw/aadr/v66.p1_1240K.aadr.PUB.anno";
-const RELEASE = "v66.p1";
+const ANNO = AADR_FILE;
+const RELEASE = AADR_RELEASE;
 const OUT = "public/data/dna.json";
 const OUT_CULTURES = "public/data/dna-cultures.json";
 const LABELS = "data/curated/culture-labels.csv";

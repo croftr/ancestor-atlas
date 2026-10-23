@@ -28,8 +28,10 @@ export async function getJson<T = any>(url: string, { cache = true } = {}): Prom
         if (json.error.code === "maxlag" && attempt < 8) { await sleep(Math.max(5, Number(json.error.lag) || 5) * 1000 + 2000 * attempt); continue; }
         throw new Error(`Wikidata API error ${json.error.code}: ${json.error.info} (${url.slice(0, 120)})`);
       }
-      mkdirSync(CACHE, { recursive: true });
-      writeFileSync(file, JSON.stringify(json));
+      if (cache) {
+        mkdirSync(CACHE, { recursive: true });
+        writeFileSync(file, JSON.stringify(json));
+      }
       await sleep(150); // be polite
       return json as T;
     }
@@ -41,8 +43,8 @@ export async function getJson<T = any>(url: string, { cache = true } = {}): Prom
   }
 }
 
-export const api = (params: Record<string, string>) =>
-  getJson(`${API}?${new URLSearchParams({ format: "json", ...params })}`); // read-only, so no maxlag (that is for edits)
+export const api = (params: Record<string, string>, opts = { cache: true }) =>
+  getJson(`${API}?${new URLSearchParams({ format: "json", ...params })}`, opts); // read-only, so no maxlag (that is for edits)
 
 export const sparql = (query: string) =>
   getJson<{ results: { bindings: Record<string, { value: string }>[] } }>(`${SPARQL}?${new URLSearchParams({ query, format: "json" })}`);
@@ -56,8 +58,11 @@ export interface WdItem {
   enwiki?: string;
 }
 
-/** Fetch label, description, P31, P625 and enwiki title for up to any number of QIDs. */
-export async function getItems(ids: string[]): Promise<Map<string, WdItem>> {
+/**
+ * Fetch label, description, P31, P625 and enwiki title for up to any number of QIDs. `cache: false` asks Wikidata
+ * afresh (the update check); a redirected or deleted item is left out of the result.
+ */
+export async function getItems(ids: string[], opts = { cache: true }): Promise<Map<string, WdItem>> {
   const out = new Map<string, WdItem>();
   for (let i = 0; i < ids.length; i += 50) {
     const j = await api({
@@ -67,9 +72,9 @@ export async function getItems(ids: string[]): Promise<Map<string, WdItem>> {
       languages: "en",
       sitefilter: "enwiki",
       languagefallback: "1",
-    });
+    }, opts);
     for (const [id, e] of Object.entries<any>(j.entities ?? {})) {
-      if (e.missing !== undefined) continue;
+      if (e.missing !== undefined || !ids.includes(id)) continue;
       const p625 = e.claims?.P625?.find((c: any) => c.rank !== "deprecated")?.mainsnak?.datavalue?.value;
       out.set(id, {
         id,

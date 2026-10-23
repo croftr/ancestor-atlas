@@ -55,7 +55,8 @@ const uniq = (xs: string[]): string | undefined => {
   const out = [...pages].map(([work, ps]) => (ps.length ? `${work}, ${ps.join(", ")}` : work));
   return out.length ? out.join("; ") : undefined;
 };
-const units = (s: string): string[] => {
+/** The labels in one of XRONOS's JSON list columns ([{"typochronological_unit": "LBK"}, …]). */
+export const units = (s: string): string[] => {
   try { return (JSON.parse(s || "[]") as Record<string, string>[]).map((d) => Object.values(d)[0]?.trim()).filter(Boolean); }
   catch { return []; }
 };

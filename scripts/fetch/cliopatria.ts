@@ -5,9 +5,10 @@ import { execFileSync } from "node:child_process";
 import { createWriteStream, existsSync, mkdirSync, readdirSync, renameSync, rmSync } from "node:fs";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { CLIOPATRIA_RECORD } from "./pins.ts";
 
-// Pinned to a release for reproducibility; keep in sync with data/curated/sources.yaml.
-const RECORD = process.env.CLIOPATRIA_RECORD ?? "23128623"; // v0.2.1, doi:10.5281/zenodo.23128623
+// Pinned to a release for reproducibility (scripts/fetch/pins.ts); keep in sync with data/curated/sources.yaml.
+const RECORD = process.env.CLIOPATRIA_RECORD ?? CLIOPATRIA_RECORD;
 const DIR = "data/raw/cliopatria";
 export const CLIOPATRIA_GEOJSON = `${DIR}/cliopatria.geojson`;
 
