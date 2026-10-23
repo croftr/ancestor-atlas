@@ -239,7 +239,7 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
         label: s.site,
         date_text: (oldest === youngest ? `c. ${ka(oldest)} ka cal BP (1 date` : `${ka(oldest)}–${ka(youngest)} ka cal BP (${n} dates`) +
           (s.category === "species" ? ", human remains" : "") +
-          (s.setAside?.length ? `; ${s.setAside.length} set aside as outlying: ${s.setAside.map((d) => d.labnr).join(", ")}` : "") + ")",
+          (s.setAside?.length ? `; ${s.setAside.length} set aside as outlying: ${s.setAside.map((d) => d.labnr || `${d.bp} ± ${d.std} BP`).join(", ")}` : "") + ")",
         confidence: n >= 5 ? "high" : n >= 2 ? "medium" : "low",
         weight: Math.round((Math.log(n + 1) / Math.log(maxN + 1)) * 1000) / 1000,
         source_id: "xronos",

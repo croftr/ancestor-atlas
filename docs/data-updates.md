@@ -38,7 +38,7 @@ Rob would rather the atlas missed something than showed something wrong. Every a
   there before, a point is published only if it also passes: not a geographic outlier among its entity's points
   (`outliers` in `scripts/lib/qa.ts`), not in a country where its entity had no point before, and not moving a
   culture's or species' span. Anything else is held back and listed in the update report with the reason; it joins
-  only when a person confirms it (a reviewed list in `data/curated/`), otherwise it stays out. New Cliopatria polities
+  only when a person confirms it (`data/curated/held-back.csv`, status `confirmed`), otherwise it stays out. New Cliopatria polities
   in a new release are held back the same way until reviewed.
 
 ## Sources
@@ -62,7 +62,7 @@ Rob would rather the atlas missed something than showed something wrong. Every a
    Cliopatria polities, Wikidata coordinates moved over 1 km, pinned Wikipedia pages edited since their pin, changes
    in set-aside and dropped XRONOS dates; with the existing recall/partial, picture and stale-narration lists).
    Usable alone as `data:update --check`. The once-a-day XRONOS download comes here.
-3. **Update**: fetch what changed, check columns and hashes, push the snapshots, run the ingests that apply (ROAD,
+3. **Update** (done 23 Oct 2026, see below): fetch what changed, check columns and hashes, push the snapshots, run the ingests that apply (ROAD,
    AADR), `data:build`, tests; compare the old `public/data` with the new (match features by id, then by entity,
    rounded coordinates and label) and write `data/build/update-report.md`. `--publish` then makes the branch, commits
    `public/data`, the lock and the change log, and runs `audio:upload` for any clips not yet in the bucket.
@@ -131,3 +131,38 @@ years old: Archaic human admixture 2018, Settlement of the Americas 2023); one W
 `lapita-voyaging` cites Q154628, which is the Bismarck Archipelago); XRONOS gaps led by Pitted Ware
 (Grübchenkeramik), Horgen, Cortaillod, Swifterbant, Mousterian (an existing culture: only the label row is missing),
 Epicardial, Sauveterrian, Pfyn; AADR's Hungary_LN_Lengyel (31 genomes) is not linked to the Lengyel culture.
+
+## Step 3: the update (`npm run data:update`, then `-- --publish`)
+
+`scripts/update.ts` runs, in order (about 5 minutes; 10 when it holds something back):
+
+1. Refuses if `public/data`, `data/curated`, the lock or the pins have uncommitted changes (it would mix them with
+   its own). Downloads any locked raw file missing here (`data:pull`).
+2. The check (as `--check`). Its doubts are kept for the publish step.
+3. Brings sources up to date (`scripts/update/refresh.ts`): a newer Cliopatria or AADR release moves its pin in
+   `scripts/fetch/pins.ts` (and the Cliopatria citation in `sources.yaml`) and is fetched; changed Wikidata
+   descriptions are fetched. Every source whose files here differ from the lock is then locked and uploaded: this is
+   how a new XRONOS download (`data:fetch:xronos`) or ROAD export (`road.R`) gets in. XRONOS is never fetched here.
+4. Rebuilds: ROAD ingest, `data:build`, AADR ingest.
+5. Compares `public/data` with the last published update (the commit that last wrote `public/data/changelog.json`;
+   before the first one, HEAD), so hand-made changes since are included (`scripts/update/compare.ts`: features by id,
+   then by entity, name and place within 2 km; entities; genomes).
+6. The hold-back screen (`scripts/update/holdback.ts`): each new XRONOS or ROAD point must not be a geographic
+   outlier among its entity's points, not be its entity's first point in a country, and not stretch its entity's
+   span; a culture with no points before is judged by its new points among themselves (distance only). New
+   Cliopatria polities (not defined in entities.yaml) are held too. What fails goes into
+   `data/curated/held-back.csv` (with the reason) and the build runs again without it. The build leaves out every
+   id whose status is `held` (`scripts/lib/held-back.ts`); **changing a row's status to `confirmed` lets that item in**,
+   a row left `held` keeps it out. Rows stay, so an item is asked about once.
+7. Runs the tests, and writes `data/build/update-report.md`: whether it can be published, sources updated, sites
+   added / removed / changed, genomes, what was held back and why, then the full check.
+
+Nothing is committed until `npm run data:update -- --publish` (it reuses the run from earlier the same day when
+nothing on disk has moved, else runs again first). It refuses while there are doubts or failing tests, then adds a
+change log entry (`public/data/changelog.json`, newest first, with details in `public/data/changelog/<id>.json`;
+`scripts/update/changelog.ts`), commits the data, lock, pins, held-back list and change log to a new branch
+`data-update-<date>` and pushes it. Rob merges it into main when happy (Vercel deploys main). Raw snapshots were
+already uploaded at step 3 (content-addressed, private).
+
+Not screened: hand-curated rows (a person added them with sources) and removals (leaving data out is the safe way).
+Genomes are not screened either: a new AADR release brings genomes at the accepted grades only.

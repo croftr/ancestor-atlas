@@ -100,6 +100,8 @@ npm run data:fetch        # Download raw sources (Cliopatria polities ~300 MB + 
 npm run data:pull         # Download the locked raw snapshots (data/sources.lock.json) missing on this machine
 npm run data:push -- road # Lock this machine's raw files for a source and upload them (see docs/data-updates.md)
 npm run data:update -- --check  # Compare every source with upstream and list what is new or not mapped yet
+npm run data:update       # Bring the data up to date, rebuild, hold back doubtful new points, report (no commit)
+npm run data:update -- --publish  # Commit that update with a change log entry to a new branch and push it
 npm run data:fetch:xronos # Download the XRONOS export (at most once a day; refuses sooner)
 npm run data:build        # Ingest, merge curated files, write public/data/*, and validate
 npm run data:check        # Verify public/data matches curated inputs (runs on build)

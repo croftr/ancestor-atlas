@@ -1,4 +1,6 @@
 // Renders a data update check (scripts/update/check.ts) as data/build/update-report.md and a short console summary.
+import type { HeldRow } from "../lib/held-back.ts";
+import type { LogDetails, LogSite, SourceBump } from "./changelog.ts";
 import type { CheckResult, Gap } from "./check.ts";
 
 const esc = (s: string) => s.replace(/\|/g, "\\|");
@@ -80,4 +82,47 @@ export function summary(r: CheckResult): string[] {
   lines.push(`  Not mapped: XRONOS ${g.xronos.length} labels (top), ROAD ${g.roadTaxa.length} taxa / ${g.roadCultures.length} cultures, AADR ${g.aadr.length} groups` +
     (fresh([...g.xronos, ...g.roadTaxa, ...g.roadCultures, ...g.aadr]) ? `; ${fresh([...g.xronos, ...g.roadTaxa, ...g.roadCultures, ...g.aadr])} new since the last check` : ""));
   return lines;
+}
+
+/** The update section at the top of the report: what this update would publish, and what it held back. */
+export function renderUpdate(d: Omit<LogDetails, "entry"> & { entry: Omit<LogDetails["entry"], "id"> },
+  o: { baseline: string; bumps: SourceBump[]; held: HeldRow[]; testsOk: boolean; doubts: string[] }): string {
+  const e = d.entry;
+  const n = (c: Record<string, number | undefined>) => Object.entries(c).map(([k, v]) => `${v} ${k}`).join(", ") || "none";
+  const ready = !o.doubts.length && o.testsOk;
+  const out = [
+    `# Data update, ${e.date}`, "",
+    ready ? "Ready to publish: `npm run data:update -- --publish`." : `**Not publishable yet:** ${[o.doubts.length ? `${o.doubts.length} doubts (below)` : "", o.testsOk ? "" : "the tests fail"].filter(Boolean).join(" and ")}.`, "",
+    `Compared with ${o.baseline === "HEAD" ? "the last commit" : `the last published update (${o.baseline.slice(0, 7)})`}.`, "",
+    "## Sources updated", "",
+    ...(o.bumps.length ? o.bumps.map((b) => `- ${b.id}: ${b.from} → ${b.to}`) : ["None (nothing newer upstream or here)."]), "",
+    "## What changes", "",
+    `- Sites added: ${n(e.added)}`,
+    `- Sites removed: ${n(e.removed)}`,
+    `- Sites changed: ${e.changed}`,
+    `- Entities added: ${e.entitiesAdded}; removed: ${d.entities.removed.length}; changed: ${d.entities.changed.length}`,
+    `- Ancient genomes: +${e.genomesAdded} / −${e.genomesRemoved}${d.dna.release ? ` (AADR ${d.dna.release.from} → ${d.dna.release.to})` : ""}`, "",
+  ];
+  const list = (title: string, sites: (LogSite & { fields?: string[] })[]) => {
+    if (!sites.length) return;
+    out.push(`### ${title}`, "", "| Site | Entity | Source | Dates |" + (sites[0].fields ? " What |" : ""), "|---|---|---|---|" + (sites[0].fields ? "---|" : ""));
+    for (const x of sites.slice(0, 200) as (LogSite & { fields?: string[]; was?: string })[])
+      out.push(`| ${esc(x.label ?? x.id)}${x.was ? ` (was ${esc(x.was)})` : ""} | ${esc(x.entity)} | ${x.source_id} | ${esc(x.date_text ?? "")} |${x.fields ? ` ${x.fields.join(", ")} |` : ""}`);
+    if (sites.length > 200) out.push(`| … and ${sites.length - 200} more | | | |`);
+    out.push("");
+  };
+  list("Added", d.added);
+  list("Removed", d.removed);
+  list("Changed", d.changed);
+  if (d.entities.added.length) out.push("### New entities", "", ...d.entities.added.map((x) => `- ${x.name} (${x.category})`), "");
+  out.push("## Held back", "", o.held.length
+    ? `${o.held.length} new items looked doubtful and are left out (\`${"data/curated/held-back.csv"}\`). Check each: set its status to \`confirmed\` to let it in, or leave it \`held\` to keep it out (it will not be asked about again).`
+    : "Nothing: every new point passed the screen.", "");
+  if (o.held.length) {
+    out.push("| Item | Entity | Why |", "|---|---|---|");
+    for (const h of o.held) out.push(`| ${esc(h.label || h.id)} | ${h.entity_id} | ${esc(h.reason)} |`);
+    out.push("");
+  }
+  out.push("---", "");
+  return out.join("\n");
 }

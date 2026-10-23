@@ -39,7 +39,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   since their pin, Wikidata coordinate mismatches, labels not mapped yet (XRONOS, ROAD, AADR; a gap naming an existing
   culture is marked; decided-against labels go in `data/update-ignore.yaml`), other work lists. `npm run
   data:fetch:xronos` is Rob's once-a-day XRONOS download (refuses within 24 h; never run it as an agent).
-  Next: step 3 (fetch, rebuild, compare, publish to a branch, change log).
+- Step 3 done 23 Oct 2026: `npm run data:update` (fetch/lock what changed, rebuild, compare with the last published
+  update, hold back doubtful new bulk points in `data/curated/held-back.csv`, tests, report) then `-- --publish`
+  (refuses with doubts or failing tests; change log entry in `public/data/changelog.json` + `changelog/<id>.json`;
+  commits to a new branch `data-update-<date>` and pushes it; Rob merges). The build leaves out every
+  held-back.csv row with status `held`; setting it to `confirmed` lets it in (rows stay, so each is asked once). Next: step 4, the public change log page `#/updates`.
 
 ## Pipeline
 

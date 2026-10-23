@@ -30,6 +30,8 @@ export interface SourceCheck {
   latest: string;
   state: "current" | "newer" | "by hand" | "static" | "error";
   next?: string;
+  /** The newer release, for the update to move its pin to (Cliopatria: Zenodo record; AADR: file id and MD5). */
+  release?: { version: string; record?: string; md5?: string };
 }
 
 const lockedText = (id: string) => {
@@ -49,7 +51,10 @@ async function checkCliopatria(): Promise<SourceCheck> {
     locked: `${pinned ? name(pinned) : `Zenodo ${CLIOPATRIA_RECORD}`}; ${lockedText("cliopatria")}`,
     latest: name(latest),
     state: String(latest.id) === CLIOPATRIA_RECORD ? "current" : "newer",
-    ...(String(latest.id) !== CLIOPATRIA_RECORD && { next: `set CLIOPATRIA_RECORD = "${latest.id}" in scripts/fetch/pins.ts (and the citation in sources.yaml), npm run data:fetch -- --force` }),
+    ...(String(latest.id) !== CLIOPATRIA_RECORD && {
+      next: "npm run data:update moves the pin, fetches and rebuilds",
+      release: { version: latest.metadata.version ?? `record ${latest.id}`, record: String(latest.id) },
+    }),
   };
 }
 
@@ -65,7 +70,10 @@ async function checkAadr(): Promise<SourceCheck> {
     locked: `${AADR_RELEASE}; ${lockedText("aadr")}`,
     latest: `${release} (file ${anno.id}${anno.creationDate ? `, ${anno.creationDate}` : ""})`,
     state: current ? "current" : "newer",
-    ...(!current && { next: `set AADR_RELEASE "${release}", AADR_FILE_ID ${anno.id}, AADR_MD5 "${anno.md5}" in scripts/fetch/pins.ts, npm run data:dna` }),
+    ...(!current && {
+      next: "npm run data:update moves the pin, fetches (checksum-checked) and rebuilds",
+      ...(anno.md5 && { release: { version: release, record: String(anno.id), md5: anno.md5 } }),
+    }),
   };
 }
 
@@ -82,7 +90,7 @@ async function checkWikidataDescriptions(): Promise<SourceCheck & { changed: str
     locked,
     latest: changed.length ? `${changed.length} of ${Object.keys(have).length} descriptions changed` : `all ${Object.keys(have).length} descriptions unchanged`,
     state: changed.length ? "newer" : "current",
-    ...(changed.length && { next: "npm run data:fetch (rewrites descriptions.json)" }),
+    ...(changed.length && { next: "npm run data:update fetches them and rebuilds" }),
     changed,
   };
 }
@@ -100,7 +108,7 @@ function checkXronos(now: number): SourceCheck {
       ? `a newer download is here (${stamp?.downloaded ?? "date unknown"}), not locked yet`
       : stamp?.downloaded ? `last downloaded ${stamp.downloaded.slice(0, 10)}` : "not checked (never contacted automatically)",
     state: differs ? "newer" : "by hand",
-    next: differs ? "step 3 locks and builds it (for now: npm run data:push -- xronos, npm run data:build)" : `npm run data:fetch:xronos (Rob, at most daily)${age !== undefined ? `; locked copy is ${age} days old` : ""}`,
+    next: differs ? "npm run data:update locks it and rebuilds" : `npm run data:fetch:xronos (Rob, at most daily)${age !== undefined ? `; locked copy is ${age} days old` : ""}`,
   };
 }
 

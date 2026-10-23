@@ -19,6 +19,7 @@ export const FINGERPRINT_INPUTS = [
   "scripts/lib/countries.ts",
   "scripts/lib/regions.ts",
   "scripts/lib/qa.ts",
+  "scripts/lib/held-back.ts",
   "data/reference",
 ];
 export const META_PATH = "public/data/build-meta.json";
