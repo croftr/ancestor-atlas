@@ -10044,7 +10044,11 @@
     },
     "source_ids": [
       "wikimedia"
-    ]
+    ],
+    "video": {
+      "src": "video/events/lomekwian-tools-v1.mp4",
+      "credit": "AI-generated video (Google Veo)"
+    }
   },
   {
     "id": "oldowan-tools",

@@ -297,19 +297,15 @@ function setYaml(text: string, id: string, line: string, file = CURATED_ENTITIES
 }
 
 function setEntity(text: string, id: string, video: { src: string; credit: string }): string {
-  const lines = text.split("\n");
-  const i = lines.findIndex((l) => l.includes(`"id":${JSON.stringify(id)},`));
-  if (i < 0) fail(`${id} not in ${ENTITIES}`);
-  const comma = lines[i].endsWith(",");
-  const { video: _old, ...rest } = JSON.parse(comma ? lines[i].slice(0, -1) : lines[i]);
-  const out: Record<string, unknown> = {};
-  for (const [k, v] of Object.entries(rest)) {
-    out[k] = v;
-    if (k === "image_credit") out.video = video;
+  const isPretty = text.includes('  "id":');
+  const list = JSON.parse(text) as any[];
+  const item = list.find((e) => e.id === id);
+  if (!item) fail(`${id} not in ${ENTITIES}`);
+  item.video = video;
+  if (isPretty) {
+    return JSON.stringify(list, null, 2) + "\n";
   }
-  if (!("video" in out)) out.video = video;
-  lines[i] = JSON.stringify(out) + (comma ? "," : "");
-  return lines.join("\n");
+  return "[\n" + list.map((e) => JSON.stringify(e)).join(",\n") + "\n]\n";
 }
 
 const META = JSON.parse(readFileSync(META_PATH, "utf8"));

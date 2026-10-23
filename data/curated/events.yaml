@@ -64,6 +64,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwi
   image_url: /images/events/earliest-stone-tools.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/lomekwian-tools-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/lomekwian-tools-3.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Where Lomekwi lies on the western side of Lake Turkana in Kenya", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus-Lomekwi.jpg" }
     - { url: /images/events/extra/lomekwian-tools-2.webp, credit: "NASA, public domain, via Wikimedia Commons", caption: "Lake Turkana from space; Lomekwi lies near its western shore", source: "https://commons.wikimedia.org/wiki/File:Lake_turkana_satellite.jpg" }
