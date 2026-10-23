@@ -97,6 +97,8 @@ data/raw (fetched, gitignored) → data/curated (hand-edited) → public/data (b
 
 ```bash
 npm run data:fetch        # Download raw sources (Cliopatria polities ~300 MB + Wikidata descriptions)
+npm run data:pull         # Download the locked raw snapshots (data/sources.lock.json) missing on this machine
+npm run data:push -- road # Lock this machine's raw files for a source and upload them (see docs/data-updates.md)
 npm run data:build        # Ingest, merge curated files, write public/data/*, and validate
 npm run data:check        # Verify public/data matches curated inputs (runs on build)
 npm run data:report       # Generate QA report & work list (data/build/qa-report.md)

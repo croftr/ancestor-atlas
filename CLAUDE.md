@@ -12,12 +12,24 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `src/index.css`, images). Never overwrite or sweep up his changes.
 - `public/data` is built, so never hand-merge it: on a conflict there (or in `build-meta.json`), merge the sources,
   then run `npm run data:build` and commit the result.
-- Never fetch from xronos.ch automatically. Rob downloads `data/raw/xronos/data.csv` by hand. The XRONOS team (Joe Roe,
-  Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache it; no crawling or
-  repeated requests (their robots.txt disallows the CSVs for that reason).
+- Never fetch from xronos.ch automatically (no agent runs, no schedules). Rob downloads `data/raw/xronos/data.csv`, by
+  hand or with a command he runs himself that refuses a second download within a day (Rob's call, 23 Oct 2026). The
+  XRONOS team (Joe Roe, Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache
+  it; no crawling or repeated requests (their robots.txt disallows the CSVs for that reason).
 - Cite XRONOS in its requested format (in `data/curated/sources.yaml` and the README), together with the original
   publications listed on each point.
 - Species images are AI-generated illustrations; every `image_url` needs an `image_credit` (the validator enforces it).
+
+## Data updates (`docs/data-updates.md`, started 23 Oct 2026)
+
+- Plan for a semi-automated update (check upstream, fetch, rebuild, report, commit to a branch, public change log
+  page `#/updates`), with Rob's decisions. Step 1 done: raw snapshots shared between machines.
+- `data/sources.lock.json` records every raw file (hash, size, key); snapshots live in the media bucket under the
+  private `raw/` prefix. `npm run data:raw` (status), `data:push -- <source>…`, `data:pull`. `data:build` refuses to
+  run when a locked raw file it reads is missing or different (`--ignore-lock` for side builds), and the locked
+  xronos/cliopatria/wikidata hashes are part of the build fingerprint.
+- Once all six sources are locked (bootstrapping steps in the doc), any machine builds the full dataset after
+  `npm run data:pull`, and the splice workaround is no longer needed.
 
 ## Pipeline
 

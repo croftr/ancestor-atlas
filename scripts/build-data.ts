@@ -6,6 +6,7 @@ import { parse as parseYaml } from "yaml";
 import { CATEGORIES, wikipediaUrl, type Category, type Entity, type ExtraImage, type FeatureProps, type Source } from "../src/types.ts";
 import { civColors } from "./lib/colors.ts";
 import { fingerprint, META_PATH } from "./lib/fingerprint.ts";
+import { buildInputProblems, LOCK_PATH } from "./lib/raw-store.ts";
 import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
 import { readRoadCultureLabels, readRoadSites, roadFeatures, ROAD_CULTURE_SITES, ROAD_SITES } from "./ingest/road.ts";
@@ -38,6 +39,19 @@ const fail = (msg: string): never => {
   console.error(`✗ ${msg}`);
   process.exit(1);
 };
+
+// ---------- raw inputs: the files read below must be the ones data/sources.lock.json names ----------
+// (public/data's fingerprint counts the lock, so a build from other raw files would claim to be fresh while not
+// matching what any other machine builds). --ignore-lock turns the mismatch into a warning, for side builds.
+{
+  const { errors, warnings } = buildInputProblems();
+  for (const w of warnings) console.warn(`! ${w}`);
+  if (errors.length) {
+    const msg = `raw inputs differ from ${LOCK_PATH}:\n    ${errors.join("\n    ")}\n  npm run data:pull gets the locked files; npm run data:push -- <source> locks these ones instead`;
+    if (process.argv.includes("--ignore-lock")) console.warn(`! ${msg}`);
+    else fail(msg);
+  }
+}
 
 // ---------- load curated ----------
 const sources = new Map<string, Source>(
