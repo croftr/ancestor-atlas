@@ -28,8 +28,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   private `raw/` prefix. `npm run data:raw` (status), `data:push -- <source>…`, `data:pull`. `data:build` refuses to
   run when a locked raw file it reads is missing or different (`--ignore-lock` for side builds), and the locked
   xronos/cliopatria/wikidata hashes are part of the build fingerprint.
-- Once all six sources are locked (bootstrapping steps in the doc), any machine builds the full dataset after
-  `npm run data:pull`, and the splice workaround is no longer needed.
+- All six sources locked 23 Oct 2026 (xronos, cliopatria, wikidata, aadr from the XRONOS machine; road, paleo from
+  Rob's Linux machine); a full build on the Linux machine then reproduced public/data, dna.json and the ROAD CSVs
+  exactly. Any machine with Rob's AWS login builds the full dataset after `npm run data:pull`: no more splicing.
+  Next: step 2 (upstream checks and the work list).
 
 ## Pipeline
 
@@ -217,7 +219,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
    9303da5); an edit makes that narration stale (`npm run audio:narrate -- --stale`).
 7. Housekeeping: `scripts/ingest/cliopatria.test.ts` times out at 5 s on most full runs (passes with a longer
    timeout). The committed data is a full build with XRONOS (16 Oct 2026, 5,006 features); a build without the
-   XRONOS export drops most culture points, so don't commit one.
+   XRONOS export drops most culture points (data:build now refuses while the locked one is missing: `npm run data:pull`).
    `npm run audio:upload -- --dry-run` shows any clips still to upload.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
@@ -414,8 +416,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 ## ROAD bulk import (`scripts/ingest/road.ts`)
 
 About 327 hominin fossil site points (17 species) plus 55 ROAD clusters shown on nearby existing points, from ROAD (CC BY-SA 4.0; export 12 Oct 2026). The raw export
-(`data/raw/road/`, from `Rscript scripts/fetch/road.R`) exists only on Rob's Linux machine, so `npm run data:ingest:road`
-writes the committed, generated `data/curated/road/sites.csv` and the build reads that. Re-run the ingest after editing
+(`data/raw/road/`, from `Rscript scripts/fetch/road.R`, which needs R; snapshot in the raw store, `npm run data:pull`) is
+read by `npm run data:ingest:road`, which writes the committed, generated `data/curated/road/sites.csv`; the build reads that. Re-run the ingest after editing
 `road/species-labels.csv` or entity spans. Rules: explicit taxon list (no cf./aff./sp./"or"); ROAD age brackets are
 clipped to the species span from `entities.yaml` and sites outside it dropped (`data/build/road-dropped.csv`: 31 span
 misses, mostly ROAD mislabels such as H. sapiens at Swartkrans, plus 35 without ages); cultures come only from

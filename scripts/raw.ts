@@ -22,53 +22,58 @@ const mb = (n: number) => `${(n / 1e6).toFixed(1)} MB`;
 const files = (n: number) => `${n} file${n === 1 ? "" : "s"}`;
 const lock = readLock();
 
-if (cmd === "status") {
-  for (const source of chosen) {
-    const st = status(source, lock);
-    if (!st.entry) {
-      console.log(`${source.id}: not locked${st.unlocked.length ? ` (${files(st.unlocked.length)} here: npm run data:push -- ${source.id})` : ""}`);
-      continue;
+try {
+  if (cmd === "status") {
+    for (const source of chosen) {
+      const st = status(source, lock);
+      if (!st.entry) {
+        console.log(`${source.id}: not locked${st.unlocked.length ? ` (${files(st.unlocked.length)} here: npm run data:push -- ${source.id})` : ""}`);
+        continue;
+      }
+      const bad = st.files.filter((f) => f.state !== "match");
+      const size = st.files.reduce((n, f) => n + f.file.bytes, 0);
+      const head = `${source.id}: ${st.entry.version ? `${st.entry.version}, ` : ""}retrieved ${st.entry.retrieved}, ${files(st.files.length)}, ${mb(size)}`;
+      console.log(`${head} — ${bad.length ? `${bad.length} ${bad.every((f) => f.state === "missing") ? "missing here (npm run data:pull)" : "missing or different here"}` : "all here ✓"}`);
+      for (const { file, state } of bad) console.log(`    ${state}: ${file.path}`);
+      for (const f of st.unlocked) console.log(`    not locked: ${f}`);
     }
-    const bad = st.files.filter((f) => f.state !== "match");
-    const size = st.files.reduce((n, f) => n + f.file.bytes, 0);
-    const head = `${source.id}: ${st.entry.version ? `${st.entry.version}, ` : ""}retrieved ${st.entry.retrieved}, ${files(st.files.length)}, ${mb(size)}`;
-    console.log(`${head} — ${bad.length ? `${bad.length} ${bad.every((f) => f.state === "missing") ? "missing here (npm run data:pull)" : "missing or different here"}` : "all here ✓"}`);
-    for (const { file, state } of bad) console.log(`    ${state}: ${file.path}`);
-    for (const f of st.unlocked) console.log(`    not locked: ${f}`);
-  }
-} else if (cmd === "push") {
-  if (!ids.length) {
-    console.error("✗ name the sources to push, e.g. npm run data:push -- road paleo");
+  } else if (cmd === "push") {
+    if (!ids.length) {
+      console.error("✗ name the sources to push, e.g. npm run data:push -- road paleo");
+      process.exit(1);
+    }
+    const store = defaultStore();
+    for (const source of chosen) {
+      console.log(`${source.id} -> ${store.name}`);
+      const before = lock[source.id];
+      const entry = push(source, store, { version: option("--version") ?? before?.version });
+      const changed = JSON.stringify(before?.files) !== JSON.stringify(entry.files);
+      lock[source.id] = entry;
+      writeLock(lock);
+      console.log(`✓ ${source.id}: ${changed ? `locked ${files(entry.files.length)}` : "unchanged"}`);
+    }
+    console.log(`Commit ${LOCK_PATH}. A change to xronos, cliopatria or wikidata needs npm run data:build too.`);
+  } else if (cmd === "pull") {
+    const store = defaultStore();
+    let fetched = 0;
+    const kept: string[] = [];
+    for (const source of chosen) {
+      const st = status(source, lock);
+      if (!st.entry) continue;
+      const r = pull(st, store, { force: flag("--force") });
+      fetched += r.fetched;
+      kept.push(...r.kept);
+    }
+    console.log(`✓ ${files(fetched)} downloaded`);
+    if (kept.length) {
+      console.log(`! ${files(kept.length)} here differ from the lock and were left alone (newer data not pushed yet? --force replaces them):`);
+      for (const k of kept) console.log(`    ${k}`);
+    }
+  } else {
+    console.error(`✗ unknown command ${cmd} (status, push, pull)`);
     process.exit(1);
   }
-  const store = defaultStore();
-  for (const source of chosen) {
-    console.log(`${source.id} -> ${store.name}`);
-    const before = lock[source.id];
-    const entry = push(source, store, { version: option("--version") ?? before?.version });
-    const changed = JSON.stringify(before?.files) !== JSON.stringify(entry.files);
-    lock[source.id] = entry;
-    writeLock(lock);
-    console.log(`✓ ${source.id}: ${changed ? `locked ${files(entry.files.length)}` : "unchanged"}`);
-  }
-  console.log(`Commit ${LOCK_PATH}. A change to xronos, cliopatria or wikidata needs npm run data:build too.`);
-} else if (cmd === "pull") {
-  const store = defaultStore();
-  let fetched = 0;
-  const kept: string[] = [];
-  for (const source of chosen) {
-    const st = status(source, lock);
-    if (!st.entry) continue;
-    const r = pull(st, store, { force: flag("--force") });
-    fetched += r.fetched;
-    kept.push(...r.kept);
-  }
-  console.log(`✓ ${files(fetched)} downloaded`);
-  if (kept.length) {
-    console.log(`! ${files(kept.length)} here differ from the lock and were left alone (newer data not pushed yet? --force replaces them):`);
-    for (const k of kept) console.log(`    ${k}`);
-  }
-} else {
-  console.error(`✗ unknown command ${cmd} (status, push, pull)`);
+} catch (e) {
+  console.error(`✗ ${(e as Error).message}`);
   process.exit(1);
 }

@@ -27,7 +27,7 @@ missing, and on his word commits it to a branch. Each published run is logged on
 
 ## Steps
 
-1. **Raw snapshots shared between machines** (done, see below). Ends the "only some raw data on each machine" problem
+1. **Raw snapshots shared between machines** (done and verified 23 Oct 2026, see below). Ends the "only some raw data on each machine" problem
    and the splicing workaround.
 2. **Check**: one adapter per source comparing the lock with upstream; plus the work list of things only a person
    should add (unmapped XRONOS labels with date counts, new ROAD taxa and cultures, unmapped AADR groups, new or gone
@@ -59,7 +59,11 @@ missing, and on his word commits it to a branch. Each published run is logged on
   fingerprint, so locking a new snapshot makes `public/data` stale until rebuilt. `data:build` refuses to run when a
   locked file is missing or different here (`--ignore-lock` for side builds) and warns about unlocked files.
 
-### Bootstrapping (once)
+### Bootstrapping (done 23 Oct 2026)
+
+Done as below: the policy applied, road and paleo pushed from the Linux machine, the other four from the XRONOS machine
+(its build left features.geojson unchanged), then a pull and full build on the Linux machine reproduced public/data,
+dna.json and the ROAD CSVs byte for byte.
 
 1. Apply the bucket policy (needs Rob's AWS login):
    `aws s3api put-bucket-policy --bucket robs-ancestors-atlas --policy file://scripts/aws/bucket-policy.json`

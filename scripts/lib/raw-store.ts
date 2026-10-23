@@ -7,7 +7,7 @@
 //   npm run data:push -- <id>…  record this machine's files for those sources in the lock and upload them
 //   npm run data:pull [-- <id>…] download every locked file that is missing here (or, with --force, different)
 // RAW_STORE=<directory> uses a local folder instead of the bucket (tests, or a machine without AWS).
-import { execFileSync, spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, join } from "node:path";
@@ -107,6 +107,12 @@ export interface Store {
 }
 
 const aws = (args: string[]) => spawnSync("aws", [...args, "--region", REGION], { encoding: "utf8" });
+const LOGIN_HINT = "(AWS login expired? aws sso login)";
+/** Runs an `aws s3 cp`, turning a failure into one readable error. */
+function copy(from: string, to: string) {
+  const r = aws(["s3", "cp", from, to, "--only-show-errors"]);
+  if (r.status !== 0) throw new Error(`aws s3 cp ${from} failed ${LOGIN_HINT}:\n${r.stderr.trim()}`);
+}
 
 export const s3Store: Store = {
   name: `s3://${BUCKET}`,
@@ -114,14 +120,10 @@ export const s3Store: Store = {
     const r = aws(["s3api", "head-object", "--bucket", BUCKET, "--key", key]);
     if (r.status === 0) return true;
     if (/Not Found|404/.test(r.stderr)) return false;
-    throw new Error(`aws s3api head-object ${key} failed (logged in?):\n${r.stderr.trim()}`);
+    throw new Error(`aws s3api head-object ${key} failed ${LOGIN_HINT}:\n${r.stderr.trim()}`);
   },
-  put(path, key) {
-    execFileSync("aws", ["s3", "cp", path, `s3://${BUCKET}/${key}`, "--region", REGION, "--only-show-errors"], { stdio: "inherit" });
-  },
-  get(key, path) {
-    execFileSync("aws", ["s3", "cp", `s3://${BUCKET}/${key}`, path, "--region", REGION, "--only-show-errors"], { stdio: "inherit" });
-  },
+  put: (path, key) => copy(path, `s3://${BUCKET}/${key}`),
+  get: (key, path) => copy(`s3://${BUCKET}/${key}`, path),
 };
 
 export const dirStore = (dir: string): Store => ({
