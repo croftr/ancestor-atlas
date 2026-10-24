@@ -81,13 +81,41 @@ async function fetchFeeds(): Promise<{ items: FeedItem[]; problems: string[] }> 
   return { items, problems };
 }
 
+/** The published feed plus any story this machine's local feed has that it lacks (by id or coverage URL). */
+function withLocal(published: NewsFeed): NewsFeed {
+  if (!existsSync(LOCAL_FEED)) return published;
+  const local = JSON.parse(readFileSync(LOCAL_FEED, "utf8")) as NewsFeed;
+  const known = knownIds(published);
+  const extra = local.stories.filter((s) => !known.has(s.id));
+  return extra.length ? { ...published, stories: [...published.stories, ...extra] } : published;
+}
+
+/** Writes the feed here (and for the dev server), then uploads it unless --no-upload. */
+function publish(out: NewsFeed) {
+  mkdirSync(OUT_DIR, { recursive: true });
+  const json = `${JSON.stringify(out)}\n`;
+  writeFileSync(LOCAL_FEED, json);
+  mkdirSync("public/news", { recursive: true });
+  writeFileSync(DEV_FEED, json);
+  if (!upload) {
+    console.log(`Wrote ${LOCAL_FEED} and ${DEV_FEED} (not uploaded).`);
+    return;
+  }
+  const r = spawnSync("aws", ["s3", "cp", LOCAL_FEED, `s3://${BUCKET}/${KEY}`, "--content-type", "application/json", "--cache-control", "public, max-age=300", "--region", REGION, "--only-show-errors"], { encoding: "utf8", shell: process.platform === "win32" });
+  if (r.status !== 0) fail(`upload failed (AWS login expired? aws sso login):\n${r.stderr.trim()}\nThe feed is in ${LOCAL_FEED}; rerun to try again.`);
+  console.log(`Uploaded ${KEY}: ${out.stories.length} stories.`);
+}
+
 const readJson = <T>(path: string, empty: T): T => (existsSync(path) ? (JSON.parse(readFileSync(path, "utf8")) as T) : empty);
 
 async function main() {
   const entities = (JSON.parse(readFileSync("public/data/entities.json", "utf8")) as AtlasEntity[]).map(({ id, name, category, start_year, end_year }) => ({ id, name, category, start_year, end_year }));
   const entityIds = new Set(entities.map((e) => e.id));
   const seen = readJson<Record<string, string>>(SEEN, {});
-  const feed = await currentFeed();
+  const published = await currentFeed();
+  // Stories an earlier --no-upload run kept on this machine are marked seen, so they would never be judged again:
+  // carry them over from the local feed, or they would never reach the bucket.
+  const feed = upload ? withLocal(published) : published;
   const inFeed = knownIds(feed);
 
   console.log(`Reading ${FEEDS.length} feeds…`);
@@ -105,8 +133,11 @@ async function main() {
     for (const it of todo) console.log(`  ${it.published.slice(0, 10)} ${it.source}: ${it.title}`);
     return;
   }
+  const carried = feed.stories.length - published.stories.length;
+  if (carried > 0) console.log(`${carried} story(ies) from this machine's last run not yet published.`);
   if (!todo.length) {
     writeReport([], [], problems, 0);
+    if (carried > 0) publish({ updated: new Date().toISOString(), stories: finish(feed.stories) });
     return;
   }
 
@@ -162,20 +193,10 @@ async function main() {
     console.log(`${n} kept`);
   }
 
-  const out: NewsFeed = { updated: new Date().toISOString(), stories: finish(stories) };
   mkdirSync(OUT_DIR, { recursive: true });
   writeFileSync(SEEN, `${JSON.stringify(seen, null, 1)}\n`);
-  const json = `${JSON.stringify(out)}\n`;
-  writeFileSync(LOCAL_FEED, json);
-  mkdirSync("public/news", { recursive: true });
-  writeFileSync(DEV_FEED, json);
   writeReport(kept, left, problems, failed);
-
-  if (upload) {
-    const r = spawnSync("aws", ["s3", "cp", LOCAL_FEED, `s3://${BUCKET}/${KEY}`, "--content-type", "application/json", "--cache-control", "public, max-age=300", "--region", REGION, "--only-show-errors"], { encoding: "utf8", shell: process.platform === "win32" });
-    if (r.status !== 0) fail(`upload failed (AWS login expired? aws sso login):\n${r.stderr.trim()}\nThe feed is in ${LOCAL_FEED}; rerun to try again.`);
-    console.log(`Uploaded ${KEY}: ${out.stories.length} stories.`);
-  } else console.log(`Wrote ${LOCAL_FEED} and ${DEV_FEED} (not uploaded).`);
+  publish({ updated: new Date().toISOString(), stories: finish(stories) });
 
   function writeReport(keptNow: NewsStory[], leftNow: typeof left, feedProblems: string[], failedCount: number) {
     mkdirSync(OUT_DIR, { recursive: true });
