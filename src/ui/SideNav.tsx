@@ -58,6 +58,14 @@ export const UpdatesIcon = (
     <path d="M12 11v6M9 14h6" strokeWidth="2" />
   </Icon>
 );
+/** News: a folded newspaper. */
+export const NewsIcon = (
+  <Icon>
+    <path d="M5 5h12v13a2 2 0 0 0 2 2H7a2 2 0 0 1-2-2z" />
+    <path d="M17 9h2v9a2 2 0 0 1-2 2" strokeOpacity="0.55" />
+    <path d="M8 9h6M8 12.5h6M8 16h4" strokeWidth="1.5" />
+  </Icon>
+);
 const VideoIcon = (
   <Icon>
     <circle cx="12" cy="12" r="9" />
@@ -91,6 +99,7 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
   { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
   { id: "tours", label: "Tours", icon: ToursIcon, view: "tours", hint: "Guided tours to sit back and watch" },
+  { id: "news", label: "News", icon: NewsIcon, view: "news", hint: "New research on human origins and the ancient world" },
   { id: "updates", label: "Updates", icon: UpdatesIcon, view: "updates", hint: "What each data update added" },
 ];
 

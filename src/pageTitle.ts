@@ -11,6 +11,7 @@ const SITE_NAME = "Ancestor Atlas";
 const VIEW_LABELS: Record<Exclude<View, "globe">, string> = {
   timeline: "Timeline",
   tours: "Guided Tours",
+  news: "News",
   updates: "Data Updates",
   events: "Events",
   species: "Species",

@@ -50,6 +50,18 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   entity with "Show on the globe", genomes, and what was held back and why. Types shared with the scripts in
   `src/updates/types.ts`. Empty until the first `--publish`. Optional step 5 (weekly `--check` Action) not started.
 
+## News feed (`docs/news-feed.md`, started 24 Oct 2026)
+
+- Public page `#/news` (`src/news/`, News in the rail; drawer only on phones): recent research on human evolution and
+  the world before 1 CE. Fully automatic, run by Rob (`npm run news:update`; no schedule). Rob's calls: no approval
+  step, only stories about before 1 CE, a page separate from `#/updates`.
+- `news:update` reads the allow-listed RSS/Atom feeds (`scripts/news/feeds.ts`), has Claude (`claude-opus-5-5` at
+  low effort, or `NEWS_MODEL`) keep or leave out each new item and summarise, date, place and link it to atlas
+  entities, joins reports of one finding, and uploads `news/feed.json` to the media bucket (5-minute cache; read at
+  runtime, so no deploy needed). Needs `ANTHROPIC_API_KEY` in `.env.local` and Rob's AWS login; `--no-upload` writes
+  `public/news/feed.json` (gitignored) for the dev server; `--dry-run` lists new items only.
+- Next (Rob): link news into the atlas (globe pins, "In the news" on cards).
+
 ## Pipeline
 
 - `data/raw` (gitignored) -> `data/curated` (hand-edited) -> `public/data` (built, committed).

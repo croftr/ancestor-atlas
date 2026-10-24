@@ -34,6 +34,7 @@
     "audio:music": "tsx scripts/audio/music.ts",
     "audio:ambience": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/ambience.ts",
     "audio:upload": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/upload.ts",
+    "news:update": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/news/update.ts",
     "video:species": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/video/species.ts"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
     "@rapideditor/country-coder": "^5.6.1",
     "@types/d3-contour": "^3.0.6",
     "@types/d3-scale": "^4.0.9",
@@ -54,6 +56,7 @@
     "cross-env": "^7.0.3",
     "csv-parse": "^7.0.3",
     "d3-contour": "^4.0.2",
+    "fast-xml-parser": "^5.11.2",
     "h5wasm": "^0.10.3",
     "mapshaper": "^0.7.78",
     "polygon-clipping": "^0.15.7",
@@ -61,6 +64,7 @@
     "typescript": "^7.0.2",
     "vite": "^8.3.3",
     "vitest": "^5.0.3",
-    "yaml": "^2.9.1"
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
   }
 }

@@ -1,0 +1,90 @@
+/* News page (#/news): one card per story, newest first, under week and month headings. */
+.nw-page {
+  --t-hominins: #ffd166;
+  --t-dna: #7fc8f8;
+  --t-cultures: #06d6a0;
+  --t-civilizations: #ef476f;
+  --t-methods: #c39bff;
+}
+.topic-hominins { --t: var(--t-hominins); }
+.topic-dna { --t: var(--t-dna); }
+.topic-cultures { --t: var(--t-cultures); }
+.topic-civilizations { --t: var(--t-civilizations); }
+.topic-methods { --t: var(--t-methods); }
+
+.nw-title-icon { display: inline-flex; color: var(--accent); }
+.nw-main { max-width: 900px; display: grid; gap: 6px; padding-top: 14px; }
+.nw-empty { padding: 18px; border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.14); }
+.nw-about { margin: 18px 0 0; max-width: 70ch; font-size: 0.85rem; line-height: 1.5; }
+.nw-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--t); vertical-align: 1px; }
+
+/* Deep-time strip: the slider's scale, a mark per story at the time it is about. */
+.nw-strip { margin: 0 0 10px; padding: 10px 14px 26px; border-radius: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); }
+.nw-strip figcaption { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+.nw-strip-track { position: relative; height: 18px; margin: 0 18px; border-radius: 9px; background: rgba(255, 255, 255, 0.05); }
+.nw-strip-tick { position: absolute; top: 0; bottom: -6px; width: 1px; background: rgba(255, 255, 255, 0.18); }
+.nw-strip-tick span { position: absolute; top: 24px; left: 50%; transform: translateX(-50%); font-size: 0.72rem; color: #8b95ab; white-space: nowrap; }
+.nw-strip-mark {
+  position: absolute;
+  top: 3px;
+  height: 12px;
+  margin-left: -4px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  background: var(--t);
+  opacity: 0.85;
+  cursor: pointer;
+}
+.nw-strip-mark:hover, .nw-strip-mark:focus-visible { opacity: 1; outline: 2px solid #fff; outline-offset: 1px; z-index: 1; }
+
+.nw-section h2 { margin: 18px 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; color: #f6eedc; }
+.nw-section h2 .muted { font-family: inherit; font-size: 0.9rem; font-weight: 400; }
+
+.nw-story {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 16px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.4s, background 0.4s;
+}
+.nw-story.flash { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+
+.nw-pic {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  background:
+    radial-gradient(90% 70% at 50% 40%, color-mix(in srgb, var(--t) 35%, transparent), transparent 70%),
+    linear-gradient(180deg, #1a2140, #0f1528);
+}
+.nw-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.nw-pic-label { padding: 8px; text-align: center; font-family: Georgia, "Times New Roman", serif; font-weight: 700; color: #f2ead8; }
+
+.nw-body { min-width: 0; }
+.nw-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 0.8rem; }
+.nw-topic { color: var(--t); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.72rem; }
+.nw-story h3 { margin: 4px 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 1.12rem; line-height: 1.3; }
+.nw-story h3 a { color: #f6eedc; text-decoration: none; }
+.nw-story h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nw-story h3 a::after { content: " ↗"; font-size: 0.8em; color: #8b95ab; }
+.nw-summary { margin: 0 0 8px; line-height: 1.5; color: #cbd3e6; }
+.nw-when { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.85rem; }
+.nw-period { color: var(--accent); }
+.nw-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 8px; font-size: 0.85rem; }
+.nw-entity { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; color: #e8ecf4; }
+.nw-doi, .nw-also a { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .nw-main { padding-top: 8px; }
+  .nw-story { grid-template-columns: 96px 1fr; gap: 12px; padding: 10px; }
+  .nw-story h3 { font-size: 1.02rem; }
+  .nw-strip-track { margin: 0 12px; }
+}

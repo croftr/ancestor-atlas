@@ -15,6 +15,7 @@ import ClimateHud from "./tours/ClimateHud";
 import TourFinale from "./tours/TourFinale";
 import ToursPage from "./tours/ToursPage";
 import UpdatesPage from "./updates/UpdatesPage";
+import NewsPage from "./news/NewsPage";
 import TimelinePage from "./timeline/TimelinePage";
 import EventsPage from "./events/EventsPage";
 import CulturesPage from "./browse/CulturesPage";
@@ -82,6 +83,7 @@ export default function App() {
       {view === "cultures" && <CulturesPage />}
       {view === "civilizations" && <CivilizationsPage />}
       {view === "tours" && <ToursPage />}
+      {view === "news" && <NewsPage />}
       {view === "updates" && <UpdatesPage />}
       <PageTabs />
       <SideNav />

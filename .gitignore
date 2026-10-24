@@ -4,3 +4,4 @@ data/raw
 data/build
 .env.local
 temp
+public/news
