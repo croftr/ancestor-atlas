@@ -244,6 +244,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Skhul_and_Qafzeh_hominins
   image_url: /images/events/earliest-burials.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/earliest-burials-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/earliest-burials-1.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of the Qafzeh 11 burial from Qafzeh Cave, Israel, about 100,000 years old, where a young adolescent was laid in a pit with red deer antlers across the chest (Anthropos Pavilion, Brno)", source: "https://commons.wikimedia.org/wiki/File:Middle_Paleolithic%2C_Cast_of_funeral_of_child_from_Cave_of_Qafzeh_Anthropos%2C_Brno%2C_187947.jpg" }
     - { url: /images/events/extra/earliest-burials-2.webp, credit: "Hanay, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skhul Cave on Mount Carmel, Israel, where early modern human adults and children were buried with grave goods", source: "https://commons.wikimedia.org/wiki/File:Skhul_Cave_2018_(4).jpg" }
