@@ -1,9 +1,9 @@
 // Downloads the XRONOS export (https://xronos.ch/data.csv, CC BY 4.0) into data/raw/xronos/data.csv:
 //   npm run data:fetch:xronos
 // Only Rob runs this, by hand: never an agent or a schedule (CLAUDE.md). The XRONOS team asked for the export to be
-// downloaded at most about daily and cached, so it refuses within 24 hours of the last request (1 hour after one that
-// failed), and asks only for changes since the last download (If-None-Match / If-Modified-Since). Every request
-// is recorded in data/raw/xronos/download.json. A new file is checked for XRONOS's columns before it replaces the
+// downloaded at most about daily and cached; Rob keeps to that himself (his call, 24 Oct 2026: the command no longer
+// enforces a wait). It asks only for changes since the last download (If-None-Match / If-Modified-Since), so a repeat
+// costs XRONOS next to nothing when nothing changed. Every request is recorded in data/raw/xronos/download.json. A new file is checked for XRONOS's columns before it replaces the
 // old one; then `npm run data:update -- --check` shows it, and locking it (data:push -- xronos) lets data:build use it.
 import { createHash } from "node:crypto";
 import { createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
@@ -14,8 +14,7 @@ import { XRONOS_CSV } from "../ingest/xronos.ts";
 
 export const XRONOS_URL = process.env.XRONOS_URL ?? "https://xronos.ch/data.csv";
 export const XRONOS_STAMP = "data/raw/xronos/download.json";
-const UA = "ancestor-atlas/0.1 (https://github.com/croftr/ancestor-atlas; daily at most, cached)";
-const HOUR = 3_600_000;
+const UA = "ancestor-atlas/0.1 (https://github.com/croftr/ancestor-atlas; run by hand, cached)";
 /** Columns the ingest reads (scripts/ingest/xronos.ts). */
 export const XRONOS_COLUMNS = ["labnr", "bp", "std", "site", "country", "lat", "lng", "species", "typochronological_units", "reference"];
 
@@ -31,12 +30,6 @@ export interface DownloadStamp {
   sha256?: string;
   rows?: number;
   error?: string;
-}
-
-/** When the next request is allowed: a day after the last one, or an hour after one that failed. */
-export function nextAllowed(stamp: DownloadStamp | undefined): number {
-  if (!stamp) return 0;
-  return Date.parse(stamp.requested) + (stamp.ok ? 24 : 1) * HOUR;
 }
 
 /** Columns of the ingest missing from a CSV header line. */
@@ -62,12 +55,6 @@ async function hashAndCount(path: string): Promise<{ sha256: string; rows: numbe
 
 async function main() {
   const prev = readStamp();
-  const allowed = nextAllowed(prev);
-  if (Date.now() < allowed) {
-    const hours = Math.ceil((allowed - Date.now()) / HOUR);
-    console.error(`✗ XRONOS was last asked at ${prev!.requested}; next request allowed in about ${hours} h (once a day at most, as agreed with the XRONOS team)`);
-    process.exit(1);
-  }
   mkdirSync("data/raw/xronos", { recursive: true });
   const stamp: DownloadStamp = { ...prev, requested: new Date().toISOString(), ok: false };
   delete stamp.error;
@@ -101,7 +88,7 @@ async function main() {
   } catch (e) {
     if (existsSync(part)) rmSync(part);
     writeStamp({ ...stamp, ok: false, error: (e as Error).message });
-    console.error(`✗ ${(e as Error).message} (next try allowed in an hour)`);
+    console.error(`✗ ${(e as Error).message}${/^5\d\d/.test((e as Error).message) ? " (XRONOS's server is not answering: try again later)" : ""}`);
     process.exit(1);
   }
 }

@@ -6,8 +6,9 @@ missing, and on his word commits it to a branch. Each published run is logged on
 
 ## Decisions (Rob, 23 Oct 2026)
 
-- **XRONOS**: a command Rob runs himself may download `https://xronos.ch/data.csv`, at most once a day (it refuses
-  sooner). The XRONOS team's worry was many requests a minute. Agents and schedules still never fetch it.
+- **XRONOS**: a command Rob runs himself may download `https://xronos.ch/data.csv`, about once a day at most. The
+  XRONOS team's worry was many requests a minute. Agents and schedules still never fetch it. (Until 24 Oct 2026 the
+  command refused a second request within a day; Rob had it removed after an XRONOS outage made him wait.)
 - **Raw snapshots** live in the media bucket under `raw/`, kept private: `scripts/aws/bucket-policy.json` grants public
   reads on everything except `raw/*`.
 - **Publishing** stops at a branch (`data-update-YYYY-MM-DD`); Rob merges it.
@@ -123,9 +124,8 @@ Writes `data/build/update-report.md` (read it) and `update-check.json`; the next
   in `data/update-ignore.yaml`.
 - **Other work lists**: recall and partial sites, stale narration, set-aside and dropped XRONOS dates.
 
-`npm run data:fetch:xronos` (`scripts/fetch/xronos.ts`): Rob's once-a-day XRONOS download. Refuses within 24 h of the
-last request (1 h after a failed one; every request recorded in `data/raw/xronos/download.json`), sends
-If-None-Match / If-Modified-Since, checks the columns the ingest needs before replacing `data.csv`. Not for agents.
+`npm run data:fetch:xronos` (`scripts/fetch/xronos.ts`): Rob's XRONOS download, run by hand (every request recorded in
+`data/raw/xronos/download.json`). Sends If-None-Match / If-Modified-Since, checks the columns the ingest needs before replacing `data.csv`. Not for agents.
 
 First run (23 Oct 2026): all upstream releases current; 51 of 211 pinned pages edited (mostly small; two pins are
 years old: Archaic human admixture 2018, Settlement of the Americas 2023); one Wikidata mismatch (the Bourewa place on

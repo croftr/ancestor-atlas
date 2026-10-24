@@ -13,7 +13,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 - `public/data` is built, so never hand-merge it: on a conflict there (or in `build-meta.json`), merge the sources,
   then run `npm run data:build` and commit the result.
 - Never fetch from xronos.ch automatically (no agent runs, no schedules). Rob downloads `data/raw/xronos/data.csv`, by
-  hand or with a command he runs himself that refuses a second download within a day (Rob's call, 23 Oct 2026). The
+  hand or with a command he runs himself (`npm run data:fetch:xronos`; since 24 Oct 2026 it no longer enforces a
+  wait: Rob keeps to about once a day himself, his call). The
   XRONOS team (Joe Roe, Oct 2026) confirmed use is welcome: download the export once or at most about daily and cache
   it; no crawling or repeated requests (their robots.txt disallows the CSVs for that reason).
 - When unsure, leave it out (Rob's call, 23 Oct 2026): he would rather the atlas missed something than showed something
@@ -38,7 +39,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `data/build/update-report.md`: upstream versions (pins in `scripts/fetch/pins.ts`), pinned Wikipedia pages edited
   since their pin, Wikidata coordinate mismatches, labels not mapped yet (XRONOS, ROAD, AADR; a gap naming an existing
   culture is marked; decided-against labels go in `data/update-ignore.yaml`), other work lists. `npm run
-  data:fetch:xronos` is Rob's once-a-day XRONOS download (refuses within 24 h; never run it as an agent).
+  data:fetch:xronos` is Rob's XRONOS download (conditional request, no enforced wait since 24 Oct; never run it as an agent).
 - Step 3 done 23 Oct 2026: `npm run data:update` (fetch/lock what changed, rebuild, compare with the last published
   update, hold back doubtful new bulk points in `data/curated/held-back.csv`, tests, report) then `-- --publish`
   (refuses with doubts or failing tests; change log entry in `public/data/changelog.json` + `changelog/<id>.json`;
