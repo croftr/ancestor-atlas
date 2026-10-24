@@ -178,6 +178,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Kalambo_structure
   image_url: /images/events/kalambo-falls-wood.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/kalambo-falls-wood-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/kalambo-falls-wood-1.webp, credit: "L. Barham et al., CC BY 4.0, via Wikimedia Commons", caption: "The interlocking bushwillow logs excavated at Kalambo Falls, Zambia, at least 476,000 years old, with arrows marking stone-tool shaping marks", source: "https://commons.wikimedia.org/wiki/File:Shaping_marks_on_the_upper_surfaces_of_object_1033_and_on_the_underlying_treetrunk.webp" }
     - { url: /images/events/extra/kalambo-falls-wood-2.webp, credit: "Humphrey Kaburu, CC BY-SA 4.0, via Wikimedia Commons", caption: "Kalambo Falls on the Zambia–Tanzania border; the wooden structure lay in waterlogged sediments along the river above the falls", source: "https://commons.wikimedia.org/wiki/File:235_meters_of_single_drop_waterfall%2C_the_second_largest_waterfall_in_Africa.jpg" }
