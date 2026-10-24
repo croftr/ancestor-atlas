@@ -198,6 +198,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Jebel_Irhoud
   image_url: /images/events/emergence-modern-humans.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/modern-humans-emerge-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/modern-humans-emerge-1.webp, credit: "Jonathan Chen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Jebel Irhoud 1 skull (cast)", source: "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg" }
     - { url: /images/events/extra/modern-humans-emerge-2.webp, credit: "Mohammed Kamal, MPI EVA Leipzig, CC BY 4.0, via Wikimedia Commons", caption: "Middle Stone Age tools from Jebel Irhoud, about 300,000 years old", source: "https://commons.wikimedia.org/wiki/File:Stone_tools_from_Jebel_Irhoud.png" }
