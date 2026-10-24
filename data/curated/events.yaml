@@ -267,6 +267,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Blombos_Cave
   image_url: /images/events/symbolic-culture.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/symbolic-culture-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/symbolic-culture-1.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 3.0, via Wikimedia Commons", caption: "Blombos Cave on the southern Cape coast, South Africa", source: "https://commons.wikimedia.org/wiki/File:Blombos.jpg" }
     - { url: /images/events/extra/symbolic-culture-3.webp, credit: "Chris S. Henshilwood, CC BY-SA 4.0, via Wikimedia Commons", caption: "Red ochre plaque from Blombos Cave engraved with a cross-hatched geometric pattern, about 75,000 years old", source: "https://commons.wikimedia.org/wiki/File:Blombo.jpg" }
