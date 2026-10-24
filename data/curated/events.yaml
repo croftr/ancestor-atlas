@@ -44,7 +44,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Laetoli
   image_url: /images/events/laetoli-footprints.webp
   image_credit: AI-generated illustration
-  video: { src: video/events/laetoli-footprints-v2.mp4, credit: "AI-generated video (Google Veo)" }
+  video: { src: video/events/laetoli-footprints-v3.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/laetoli-footprints-1.webp, credit: "Fidelis T. Masao et al., CC BY 4.0, via Wikimedia Commons", caption: "Fossilized hominin footprints exposed in the Footprint Tuff at Laetoli Site S, Tanzania", source: "https://commons.wikimedia.org/wiki/File:Test-pit_L8_at_Laetoli_Site_S.jpg" }
     - { url: /images/events/extra/laetoli-footprints-2.webp, credit: "Tim Evanson, CC BY-SA 2.0, via Wikimedia Commons", caption: "Cast of the Laetoli footprint trail found by Mary Leakey's team in 1976 (Smithsonian National Museum of Natural History)", source: "https://commons.wikimedia.org/wiki/File:Earliest_known_human_footprints_-_one_set_-_australopithecus_afarensis_-_Smithsonian_Museum_of_Natural_History_-_2012-05-17.jpg" }
