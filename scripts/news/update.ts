@@ -101,7 +101,7 @@ function publish(out: NewsFeed) {
     console.log(`Wrote ${LOCAL_FEED} and ${DEV_FEED} (not uploaded).`);
     return;
   }
-  const r = spawnSync("aws", ["s3", "cp", LOCAL_FEED, `s3://${BUCKET}/${KEY}`, "--content-type", "application/json", "--cache-control", "public, max-age=300", "--region", REGION, "--only-show-errors"], { encoding: "utf8", shell: process.platform === "win32" });
+  const r = spawnSync("aws", ["s3", "cp", LOCAL_FEED, `s3://${BUCKET}/${KEY}`, "--content-type", "application/json", "--cache-control", "public, max-age=300", "--region", REGION, "--only-show-errors"], { encoding: "utf8" });
   if (r.status !== 0) fail(`upload failed (AWS login expired? aws sso login):\n${r.stderr.trim()}\nThe feed is in ${LOCAL_FEED}; rerun to try again.`);
   console.log(`Uploaded ${KEY}: ${out.stories.length} stories.`);
 }
