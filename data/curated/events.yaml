@@ -222,6 +222,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sch%C3%B6ningen_spears
   image_url: /images/events/schoningen-spears.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/schoningen-spears-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/schoningen-spears-1.webp, credit: "P. Pfarr / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Spear VII in place in the waterlogged lakeshore sediment at Schöningen during excavation in 1997", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_Speer_VII_im_Sediment_1997_%C2%A9_P._Pfarr_NLD.jpg" }
     - { url: /images/events/extra/schoningen-spears-2.webp, credit: "Matthias Vogel / NLD, CC BY 4.0, via Wikimedia Commons", caption: "Eight wooden hunting spears and six double-pointed throwing sticks from the Spear Horizon at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_wooden_artifacts_Lower_Palaeolithic.jpg" }
