@@ -315,6 +315,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Bow_and_arrow
   image_url: /images/events/bow-and-arrow.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/bow-and-arrow-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/bow-and-arrow-1.webp, credit: "DarkaRolandStark, CC BY-SA 3.0, via Wikimedia Commons", caption: "The sandstone cliff and rock shelter of Sibudu Cave in KwaZulu-Natal, South Africa", source: "https://commons.wikimedia.org/wiki/File:Sibudu_cave_KZN_02.JPG" }
     - { url: /images/events/extra/bow-and-arrow-2.webp, credit: "M. Ecker, CC BY 4.0, via Wikimedia Commons", caption: "Excavation area in Middle Stone Age deposit layers inside Sibudu Cave", source: "https://commons.wikimedia.org/wiki/File:10.1371.journal.pone.0098359.g002.jpg" }
