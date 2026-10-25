@@ -2360,6 +2360,10 @@
       credit: Kings and Generals, YouTube
 - id: colchis
   description: An ancient Georgian kingdom situated along the eastern Black Sea coast in modern western Georgia, famous in Greek myth as the destination of Jason and the Argonauts for the Golden Fleece. Blessed with rich alluvial gold deposits, timber, and fertile coastal valleys, Colchis was a thriving hub of Black Sea trade and metallurgy.
+  extra_images:
+    - { url: /images/extra/colchis-1.webp, credit: "Jonathan Cardy, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gold earring with granulation and tiny birds, Colchian goldwork (Georgian National Museum, Tbilisi)", source: "https://commons.wikimedia.org/wiki/File:Colchis_earring,_gold_with_birds.jpg" }
+    - { url: /images/extra/colchis-2.webp, credit: "Jonathan Cardy, CC BY-SA 3.0, via Wikimedia Commons", caption: "Pair of Colchian gold pendants with horsemen (Georgian National Museum, Tbilisi)", source: "https://commons.wikimedia.org/wiki/File:Colchis_riders_pendants_-_pair.JPG" }
+    - { url: /images/extra/colchis-3.webp, credit: "Gaga.vaa, CC BY-SA 4.0, via Wikimedia Commons", caption: "Remains of a temple at Vani, the hilltop sanctuary city of Colchis in western Georgia", source: "https://commons.wikimedia.org/wiki/File:Vani,_Ruins_of_ancient_temple.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=IpvSodrdT8w
@@ -2469,6 +2473,10 @@
       credit: Kings and Generals, YouTube
 - id: caucasian-albania
   description: An ancient kingdom in the eastern Caucasus mountains and Kura River valley, corresponding to modern Azerbaijan and southern Dagestan. Composed of diverse Caucasian tribes, Albania fought against Roman and Persian expansion, later developing its own Caucasian Albanian alphabet and adopting Christianity in the 4th century CE.
+  extra_images:
+    - { url: /images/extra/caucasian-albania-1.webp, credit: "Interfase, CC BY-SA 4.0, via Wikimedia Commons", caption: "Clay jug with an animal-head spout from Mingachevir, Azerbaijan, 4th century BCE – 3rd century CE", source: "https://commons.wikimedia.org/wiki/File:Clay_zoomorphic_jug_from_Mingachevir_(4th_c_BC_-_3rd_c_AD).jpg" }
+    - { url: /images/extra/caucasian-albania-2.webp, credit: "Interfase, CC BY-SA 4.0, via Wikimedia Commons", caption: "A jar burial with its grave goods from Mingachevir, 2nd century BCE – 2nd century CE", source: "https://commons.wikimedia.org/wiki/File:Jug_interment_of_the_2nd_century_B.C._-_2nd_century_A.D._from_Mingachevir.jpg" }
+    - { url: /images/extra/caucasian-albania-3.webp, credit: "Urek Meniashvili, CC BY-SA 3.0, via Wikimedia Commons", caption: "Pottery of the Caucasian Albanian period from Gabala (Qabala), one of the kingdom's capitals", source: "https://commons.wikimedia.org/wiki/File:Caucasian_Albanian_era_pottery_from_Gabala.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mwijpopq87k
@@ -2476,6 +2484,8 @@
       credit: Kings and Generals, YouTube
 - id: caucasian-iberia
   description: An ancient Georgian kingdom centered on the fertile valley of the Kura River in modern eastern Georgia (Kartli), with its capital at Mtskheta. Strategically guarding key mountain passes between the Steppe, Rome, and Persia, Iberia developed a resilient cultural identity, officially embracing Christianity under King Mirian III around 337 CE.
+  extra_images:
+    - { url: /images/extra/caucasian-iberia-1.webp, credit: "U.S. Embassy Tbilisi, public domain, via Wikimedia Commons", caption: "Excavated foundations at Armaztsikhe on Bagineti hill above Mtskheta, the citadel of the kings of Iberia", source: "https://commons.wikimedia.org/wiki/File:2010_–_Conservation_of_Armaztsikhe_Archaeological_Site_in_Mtskheta_-_14060115801.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=5Y9Z77G6a5Y
@@ -2483,6 +2493,8 @@
       credit: Stoic Historian, YouTube
 - id: kingdom-of-adiabene
   description: An ancient client kingdom in Upper Mesopotamia centered at Arbela (modern Erbil), situated between the Roman and Parthian imperial frontiers. Notable for its cultural blend of Assyrian, Iranian, and Hellenistic traditions, the royal house famously converted to Judaism in the first century CE, sending relief to Jerusalem during famines.
+  extra_images:
+    - { url: /images/extra/kingdom-of-adiabene-1.webp, credit: "Hanay, CC BY-SA 3.0, via Wikimedia Commons", caption: "Sarcophagus inscribed 'Queen Ṣaddan', thought to be Queen Helena of Adiabene, who converted to Judaism, from the Tomb of the Kings in Jerusalem, 1st century CE", source: "https://commons.wikimedia.org/wiki/File:Helena_of_Adiabene_Sarcophagus_1.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=OJwa3suPNao
