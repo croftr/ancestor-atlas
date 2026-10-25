@@ -690,6 +690,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Milk
   image_url: /images/events/dairying.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/dairying-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/dairying-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Milking cows and making dairy products, on a Sumerian frieze from the temple of Ninhursag at Tell al-'Ubaid, 2800–2600 BCE (Iraq Museum)", source: "https://commons.wikimedia.org/wiki/File:Sumerian_scene,_milking_cows_and_making_dairy_products._From_the_facade_of_the_Temple_of_Ninhursag_at_Tell_al-%27Ubaid,_Iraq,_2800-2600_BCE._Iraq_Museum.jpg" }
     - { url: /images/events/extra/dairying-2.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Detail of a Sumerian dairy frieze from Tell al-'Ubaid: a man milks a cow, with her calf beside her", source: "https://commons.wikimedia.org/wiki/File:Frise_laiterie_-_%C3%A9table.jpg" }
