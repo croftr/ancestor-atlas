@@ -668,6 +668,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Kuk_Swamp
   image_url: /images/events/new-guinea-farming.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/new-guinea-farming-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/new-guinea-farming-1.webp, credit: "NASA/JPL, public domain, via Wikimedia Commons", caption: "Satellite view of the highland valley around the Kuk Early Agricultural Site, New Guinea", source: "https://commons.wikimedia.org/wiki/File:Kuk_New_Guinea_2002.jpg" }
     - { url: /images/events/extra/new-guinea-farming-2.webp, credit: "gailhampshire, CC BY 2.0, via Wikimedia Commons", caption: "A house and garden in the highlands of Enga Province, Papua New Guinea", source: "https://commons.wikimedia.org/wiki/File:Hut_with_vegetable_garden_(48889647148).jpg" }
