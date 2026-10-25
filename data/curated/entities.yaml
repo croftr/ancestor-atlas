@@ -611,6 +611,11 @@
       src: https://www.youtube.com/watch?v=uVTQBQfbqJc
       title: The Oldowan stone tool
       credit: Historic Concepts, YouTube
+  extra_images:
+    - { url: /images/extra/oldowan-1.webp, credit: "BabelStone, CC BY-SA 3.0, via Wikimedia Commons", caption: "A basalt chopping tool from Olduvai Gorge, Tanzania, 1.8–2 million years old (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Olduvai_stone_chopping_tool_at_British_Museum.jpg" }
+    - { url: /images/extra/oldowan-2.webp, credit: "David R. Braun, CC BY-SA 2.0, via Wikimedia Commons", caption: "Oldowan flakes and cores from Bokol Dora 1, Afar, Ethiopia, about 2.6 million years old, as excavated and drawn (Braun et al. 2019)", source: "https://commons.wikimedia.org/wiki/File:Bokol_Dora_Stone_Tool.jpg" }
+    - { url: /images/extra/oldowan-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "An Oldowan chopper from Melka Kunture, Ethiopia, seen from three sides", source: "https://commons.wikimedia.org/wiki/File:Pierre_taillée_Melka_Kunture_Éthiopie_fond.jpg" }
+    - { url: /images/extra/oldowan-4.webp, credit: "Gerbil, CC BY 3.0, via Wikimedia Commons", caption: "Olduvai Gorge, Tanzania, which gave the Oldowan its name; flags mark find sites", source: "https://commons.wikimedia.org/wiki/File:Olduvai_Gorge,_fossil_sites.jpg" }
 - id: acheulean
   name: Acheulean
   category: culture
@@ -692,6 +697,11 @@
     - road
   image_url: /images/cultures/micoquian.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/micoquian-1.webp, credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "A large Bockstein knife, a backed bifacial knife (Keilmesser), from the Bocksteinschmiede in the Lone valley, Germany", source: "https://commons.wikimedia.org/wiki/File:Bocksteinmesser_Nr_2482.jpg" }
+    - { url: /images/extra/micoquian-2.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Keilmesser from Löbnitz, Saxony, 80,000–50,000 years old (State Museum of Archaeology, Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Paläolithikum_034.jpg" }
+    - { url: /images/extra/micoquian-3.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Micoquian stone tools, 130,000–70,000 years old, in the exhibition Welcome to the Neandertals (Anthropos Pavilion, Brno)", source: "https://commons.wikimedia.org/wiki/File:Stone_industrie,_Micoquian,_Welcome_to_the_Neandertals,_Brno,_187910.jpg" }
+    - { url: /images/extra/micoquian-4.webp, credit: "Silar, CC BY-SA 4.0, via Wikimedia Commons", caption: "Micoquian tools from the Neanderthal site on Wawel Hill, Kraków", source: "https://commons.wikimedia.org/wiki/File:02022_0099-001_Micoquien_artefacts,_Micoquien_culture_site_at_the_Wawel_Hill.jpg" }
 - id: szeletian
   name: Szeletian
   category: culture
@@ -704,6 +714,10 @@
     - road
   image_url: /images/cultures/szeletian.webp
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/szeletian-1.webp, credit: "Don Hitchcock, CC BY 4.0, via Wikimedia Commons", caption: "Szeletian leaf-shaped points (Moravian Museum, Brno)", source: "https://commons.wikimedia.org/wiki/File:Pointes_foliacées_Brno_Museum.jpg" }
+    - { url: /images/extra/szeletian-2.webp, credit: "Jenő Hillebrand, public domain, via Wikimedia Commons", caption: "A leaf-shaped point from Szeleta Cave, drawn in Jenő Hillebrand's excavation report", source: "https://commons.wikimedia.org/wiki/File:Szeleta-barlang,_babérlevél_alakú_hegy.jpg" }
+    - { url: /images/extra/szeletian-3.webp, credit: "Szenti Tamás, CC BY-SA 4.0, via Wikimedia Commons", caption: "The entrance of Szeleta Cave in the Bükk Mountains near Miskolc, Hungary", source: "https://commons.wikimedia.org/wiki/File:Szeleta-barlang2022(03).jpg" }
 - id: chatelperronian
   name: Châtelperronian
   category: culture
@@ -900,6 +914,8 @@
   extra_images:
     - { url: /images/extra/pre-pottery-neolithic-1.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Plastered human skull from Jericho with modelled facial features and cowrie shell eyes, c. 8000 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Plastered_skull_from_Jericho_12741-42.jpg" }
     - { url: /images/extra/pre-pottery-neolithic-2.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Monumental lime-plaster statue from 'Ain Ghazal, Jordan, c. 7500 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Ain_Ghazal_lime_plaster_statue_BM_1995.0125.1.jpg" }
+    - { url: /images/extra/pre-pottery-neolithic-3.webp, credit: "Reinhard Dietrich, public domain, via Wikimedia Commons", caption: "The stone tower of Jericho (Tell es-Sultan), built in the Pre-Pottery Neolithic A", source: "https://commons.wikimedia.org/wiki/File:Tower_of_Jericho.jpg" }
+    - { url: /images/extra/pre-pottery-neolithic-4.webp, credit: "Kerimove, CC0, via Wikimedia Commons", caption: "Pillar 27 in Enclosure C at Göbekli Tepe: a predator carved in high relief above a wild boar", source: "https://commons.wikimedia.org/wiki/File:Göbekli_Tepe_Enclosure_C_Pillar_27_relief.jpg" }
 - id: linear-pottery
   name: Linear Pottery (LBK)
   category: culture
@@ -1203,6 +1219,10 @@
       src: https://www.youtube.com/watch?v=fYNQk2jXSTY
       title: "Predynastic Egypt: before the pharaohs and pyramids"
       credit: History with Cy, YouTube
+  extra_images:
+    - { url: /images/extra/badarian-1.webp, credit: "State Museums of Berlin, Egyptian Museum and Papyrus Collection, CC BY-SA 4.0, via Wikimedia Commons", caption: "A polished bowl with a rippled surface, the Badarian hallmark, from grave 2110 at Matmar (Egyptian Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Polished_bowl_with_rippled_surface._Matmar,_grave_2110._Badarian_culture.jpg" }
+    - { url: /images/extra/badarian-2.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Badarian female figurines from Badari and Mostagedda (British Museum)", source: "https://commons.wikimedia.org/wiki/File:At_the_British_Museum_2024_351.jpg" }
+    - { url: /images/extra/badarian-3.webp, credit: "ALFGRN, CC BY-SA 4.0, via Wikimedia Commons", caption: "Pots, tools and ornaments of the Badarian culture (Ashmolean Museum, Oxford)", source: "https://commons.wikimedia.org/wiki/File:Display_box_\"The_Badarian_culture\"._Ashmolean_Museum.jpg" }
 - id: naqada
   name: Naqada culture
   category: culture
@@ -1560,6 +1580,8 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Dapenkeng_culture
   wikidata: Q9884947
   source_ids: []
+  extra_images:
+    - { url: /images/extra/dapenkeng-1.webp, credit: "Ismoon, CC BY-SA 4.0, via Wikimedia Commons", caption: "Dapenkeng in northern Taiwan and other early Neolithic sites on both sides of the Taiwan Strait", source: "https://commons.wikimedia.org/wiki/File:Taiwan_Neolithic_and_mainland_previous_sites.jpg" }
 # Span from English Wikipedia: Lapita_culture@1374201618.
 - id: lapita
   name: Lapita culture
