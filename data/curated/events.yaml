@@ -645,6 +645,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_rice_cultivation
   image_url: /images/events/rice-and-millet.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/rice-and-millet-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/rice-and-millet-1.webp, credit: "Huangchenhai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carbonized Neolithic rice from the Longqiuzhuang site, China", source: "https://commons.wikimedia.org/wiki/File:Carbonized_Rice.jpg" }
     - { url: /images/events/extra/rice-and-millet-2.webp, credit: "Editor at Large, CC BY-SA 2.5, via Wikimedia Commons", caption: "Grinding stone and roller of the Peiligang culture, about 5500–5000 BCE, for milling grain", source: "https://commons.wikimedia.org/wiki/File:CMOC_Treasures_of_Ancient_China_exhibit_-_millstone_and_roller.jpg" }
