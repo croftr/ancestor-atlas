@@ -460,6 +460,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Settlement_of_the_Americas
   image_url: /images/events/peopling-of-the-americas.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/peopling-of-the-americas-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/peopling-of-the-americas-1.webp, credit: "U.S. Geological Survey, public domain, via Wikimedia Commons", caption: "Human footprints at White Sands, New Mexico", source: "https://commons.wikimedia.org/wiki/File:Human_fossil_tracks_at_White_Sands_New_Mexico.jpg" }
     - { url: /images/events/extra/peopling-of-the-americas-3.webp, credit: "U.S. Geological Survey, public domain, via Wikimedia Commons", caption: "Excavating and dating the fossil human trackways at White Sands", source: "https://commons.wikimedia.org/wiki/File:White_Sands_Fossil_Footprints.png" }
