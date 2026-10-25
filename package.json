@@ -28,6 +28,8 @@
     "data:pull": "tsx scripts/raw.ts pull",
     "data:update": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/update.ts",
     "data:fetch:xronos": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/fetch/xronos.ts",
+    "refresh": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/refresh.ts",
+    "update": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/refresh.ts",
     "images:check": "tsx scripts/check-image-queue.ts",
     "data:describe": "tsx scripts/describe.ts",
     "audio:narrate": "cross-env NODE_USE_ENV_PROXY=1 tsx scripts/audio/narrate.ts",

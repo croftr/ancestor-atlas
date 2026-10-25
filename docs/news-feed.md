@@ -7,7 +7,7 @@ command Rob runs. Plan agreed with Rob 24 Oct 2026.
 
 - **Fully automatic**: no approval step. Claude picks and summarises the stories; doubtful items are left out (the
   atlas rule: when unsure, leave it out), and the page says the summaries are machine-written.
-- **Rob runs the command** (`npm run news:update`); no schedule yet.
+- **Rob runs the command** (`npm run news:update`, or `npm run refresh` / `npm run update` to refresh XRONOS, app data and news together); no schedule yet.
 - **A page of its own**, separate from `#/updates`.
 - **Only stories about the time before 1 CE** (where the globe ends). A story that starts before 1 CE and runs past
   it is kept, its period clipped at 1 CE.

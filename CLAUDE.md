@@ -60,6 +60,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   entities, joins reports of one finding, and uploads `news/feed.json` to the media bucket (5-minute cache; read at
   runtime, so no deploy needed). Needs `ANTHROPIC_API_KEY` in `.env.local` and Rob's AWS login; `--no-upload` writes
   `public/news/feed.json` (gitignored) for the dev server; `--dry-run` lists new items only.
+- `npm run refresh` (or `npm run update`, `scripts/refresh.ts`; run by Rob only, never an agent, since it fetches XRONOS)
+  runs all three in sequence: `data:fetch:xronos` -> `data:update` -> `news:update` (pass `-- --publish` to also push
+  the `data-update-<date>` branch, or `-- --check` for a read-only check of both data and news).
 - Next (Rob): link news into the atlas (globe pins, "In the news" on cards).
 
 ## Pipeline
