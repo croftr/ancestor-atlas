@@ -2135,6 +2135,11 @@
       credit: History with Cy, YouTube
 - id: neo-hittite-states
   description: A collection of Luwian- and Aramean-speaking Iron Age successor principalities across southeastern Anatolia and northern Syria following the collapse of the Hittite Empire. These small kingdoms—such as Carchemish and Tabal—preserved distinctive Hittite artistic, architectural, and hieroglyphic traditions until swallowed by the expanding Neo-Assyrian Empire.
+  extra_images:
+    - { url: /images/extra/neo-hittite-states-1.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Basalt orthostats from the Long Wall at Carchemish: a war chariot running down an enemy, 9th century BCE (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Ankara_Anatolian_Civilizations_Carchemish_orthostats_Long_Wall_Chariot_scene_D_in_2011_07.jpg" }
+    - { url: /images/extra/neo-hittite-states-2.webp, credit: "Klaus-Peter Simon, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reliefs at the north gate of Karatepe (Azatiwataya), a hill fort of the kingdom of Adana whose bilingual Luwian-Phoenician inscription helped decipher Luwian hieroglyphs", source: "https://commons.wikimedia.org/wiki/File:KaratepeNVl6-8.jpg" }
+    - { url: /images/extra/neo-hittite-states-3.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sphinx and lion reliefs at the entrance of the Ain Dara temple in northern Syria, photographed in 2010 before its destruction", source: "https://commons.wikimedia.org/wiki/File:Ain_Dara_temple_front_side_right_of_entrance_03_sphinx_0559.jpg" }
+    - { url: /images/extra/neo-hittite-states-4.webp, credit: "Ingeborg Simon, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gate lion from Arslantepe (Malatya), capital of the Neo-Hittite kingdom of Melid (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Portallöwe_Malatya_A-1,_01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mRcD3zyQFzc
@@ -2142,6 +2147,10 @@
       credit: Gospel and Spade, YouTube
 - id: philistia
   description: A confederation of five coastal city-states—Gaza, Ashkelon, Ashdod, Ekron, and Gath—established in southwestern Canaan during the Early Iron Age. Associated with the migrating Sea Peoples, the Philistines introduced distinctive Aegean-style pottery and advanced ironworking techniques, frequently clashing with neighboring Israelites and Canaanites.
+  extra_images:
+    - { url: /images/extra/philistia-1.webp, credit: "Oren Rozen, CC BY-SA 4.0, via Wikimedia Commons", caption: "Royal dedication of Ekron, naming Achish, king of the Philistine city, 7th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:JRSLM_300116_Ekron_inscription.jpg" }
+    - { url: /images/extra/philistia-2.webp, credit: "Hanay, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine bichrome pottery: jugs, a bottle and a krater painted in red and black, 12th–11th century BCE", source: "https://commons.wikimedia.org/wiki/File:Philistine_pottery.JPG" }
+    - { url: /images/extra/philistia-3.webp, credit: "Peter Hagyo-Kovacs, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine bichrome bowl painted with spirals, in the tradition of Mycenaean pottery", source: "https://commons.wikimedia.org/wiki/File:Bichrome_pottery.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=S3eLWgy2jus
@@ -2162,6 +2171,11 @@
     - { url: /images/extra/phoenicia-2.webp, credit: "O.Mustafin, public domain, via Wikimedia Commons", caption: "Sarcophagus of Ahiram of Byblos, with one of the earliest Phoenician alphabet inscriptions", source: "https://commons.wikimedia.org/wiki/File:Ahiram_Sarcophagus_1.JPG" }
 - id: kingdom-of-israel
   description: An Iron Age kingdom in the northern central highlands and fertile Jezreel Valley of the southern Levant, with Samaria as its prominent capital. Boasting significant agricultural wealth and international trade links, the kingdom was a major regional power before its destruction and population deportation by the Neo-Assyrian Empire in 720 BCE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-israel-1.webp, credit: "Oren Rozen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Tel Dan Stele, an Aramaic victory inscription naming a king of Israel and the 'House of David', 9th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:JRSLM_300116_Tel_Dan_Stele_01.jpg" }
+    - { url: /images/extra/kingdom-of-israel-2.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "The Mesha Stele, on which Mesha, king of Moab, records his revolt against the kingdom of Israel, about 840 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1120873_Louvre_stèle_de_Mésha_AO5066_rwk.JPG" }
+    - { url: /images/extra/kingdom-of-israel-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Carved ivory furniture inlays from Samaria, the capital of the kingdom of Israel, 9th–8th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:Furniture_Inlays,_Samaria,_9th-8th_Century_BC_(42500194064).jpg" }
+    - { url: /images/extra/kingdom-of-israel-4.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "The pillared buildings (so-called stables) of Megiddo, a royal city of the kingdom of Israel", source: "https://commons.wikimedia.org/wiki/File:The_So-Called_Stables_at_Megiddo_(20531412300).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=KbQ5Mvy0jz0
@@ -2169,6 +2183,10 @@
       credit: UsefulCharts, YouTube
 - id: kingdom-of-judah
   description: An Iron Age kingdom centered in the southern Judean hill country of the Levant, governed from Jerusalem by the Davidic dynasty. Emerging after the division of the united monarchy, Judah maintained religious and cultural identity under Assyrian and Babylonian vassalage until Jerusalem was sacked by Nebuchadnezzar II in 586 BCE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-judah-1.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "Hezekiah's Tunnel, cut through the bedrock of Jerusalem to bring the Gihon spring inside the walls, late 8th century BCE", source: "https://commons.wikimedia.org/wiki/File:Inside_Hezekiah's_Tunnel-A_(3782613123).jpg" }
+    - { url: /images/extra/kingdom-of-judah-2.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "Foundations of the Broad Wall of Jerusalem, built in the late 8th century BCE as the city grew, with later structures against it", source: "https://commons.wikimedia.org/wiki/File:Urban_structures_abutting_the_broad_wall_in_Jerusalem_(7007570939).jpg" }
+    - { url: /images/extra/kingdom-of-judah-3.webp, credit: "Bukvoed, CC BY 4.0, via Wikimedia Commons", caption: "Remains of the Judahite fortress at Tel Arad in the Negev, which held a small temple and the Arad ostraca", source: "https://commons.wikimedia.org/wiki/File:Tel-Arad-663.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ZybFYikBMLg
@@ -2201,6 +2219,8 @@
       credit: Wanax TV, YouTube
 - id: tabal-kingdom
   description: A Luwian-speaking Neo-Hittite confederation and kingdom in south-central Anatolia during the Iron Age, located in the fertile plains north of the Taurus Mountains. Known for its rich horse breeding, metal resources, and monumental hieroglyphic Luwian rock inscriptions, Tabal maintained precarious independence between Phrygia and the Assyrian Empire.
+  extra_images:
+    - { url: /images/extra/tabal-kingdom-1.webp, credit: "Klaus-Peter Simon, CC BY 3.0, via Wikimedia Commons", caption: "The İvriz rock relief: King Warpalawa of Tuwana, a kingdom of the Tabal lands, before the storm god Tarhunza with grapes and corn, 8th century BCE", source: "https://commons.wikimedia.org/wiki/File:IvrizRelief.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=sx8SURJuAag
@@ -2399,6 +2419,10 @@
       credit: Fall of Civilizations, YouTube
 - id: judea
   description: The mountainous biblical heartland in the southern Levant, which endured through Persian, Hellenistic, Hasmonean, and Roman periods. Centered on Jerusalem and the Second Temple, the province was a vibrant focal point of Jewish religious life and identity, marked by repeated uprisings against Seleucid and Roman imperial rule.
+  extra_images:
+    - { url: /images/extra/judea-1.webp, credit: "Atzmonit, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze prutah of the Hasmonean king Alexander Jannaeus (103–76 BCE), inscribed 'Jonathan the High Priest' in paleo-Hebrew", source: "https://commons.wikimedia.org/wiki/File:Alexander_Jannaeus_coin.JPG" }
+    - { url: /images/extra/judea-2.webp, credit: "Bukvoed, CC BY 4.0, via Wikimedia Commons", caption: "Herodium, the fortress-palace Herod the Great built near Bethlehem and where he was buried", source: "https://commons.wikimedia.org/wiki/File:Herodium-091.jpg" }
+    - { url: /images/extra/judea-3.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The lower terrace of Herod's Northern Palace on the cliffs of Masada", source: "https://commons.wikimedia.org/wiki/File:The_lower_terrage_of_Herod's_Northern_Palace,_Masada,_Israel_(15024089754).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=OXVBwwpMjts
