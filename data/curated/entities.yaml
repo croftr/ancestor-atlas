@@ -1113,6 +1113,11 @@
       src: https://www.youtube.com/watch?v=d9yPp5akT38
       title: What was the Cardial culture of southern Europe?
       credit: Made In History, YouTube
+  extra_images:
+    - { url: /images/extra/cardial-1.webp, credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Pot with cockle-shell impressed decoration from the Cova de l'Or (Museu de Prehistòria de València)", source: "https://commons.wikimedia.org/wiki/File:Vaso_neolítico_con_decoración_impresa_cardial._Cova_de_l'Or._Museu_de_Prehistòria_de_València.jpg" }
+    - { url: /images/extra/cardial-2.webp, credit: "Museu de Prehistòria de València, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cardial jar with a human figure, arms raised, impressed between its handles (Museu de Prehistòria de València)", source: "https://commons.wikimedia.org/wiki/File:Tonelete_con_decoración_impresa_cardial_y_antropomorfo_central.jpg" }
+    - { url: /images/extra/cardial-3.webp, credit: "Joanbanjo, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cardial sherd with rows of shell-edge impressions, next to the cockle shell used to make them (Museu Arqueològic d'Alcoi)", source: "https://commons.wikimedia.org/wiki/File:Ceràmica_cardial,_Museu_Arqueològic_Camil_Visedo_d'Alcoi.JPG" }
+    - { url: /images/extra/cardial-4.webp, credit: "José-Manuel Benito Álvarez and Locutus Borg, public domain, via Wikimedia Commons", caption: "The spread of Cardial pottery along the coasts of the western Mediterranean", source: "https://commons.wikimedia.org/wiki/File:Cardial_map.png" }
 - id: funnelbeaker
   name: Funnelbeaker culture
   category: culture
@@ -1130,6 +1135,11 @@
       src: https://www.youtube.com/watch?v=iJYvhf0VVi0
       title: "The Funnelbeaker Culture: Neolithic farmers of northern Europe"
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/funnelbeaker-1.webp, credit: "Romzig, CC0, via Wikimedia Commons", caption: "A decorated funnel beaker from Düsedau, Saxony-Anhalt (State Museum of Prehistory, Halle)", source: "https://commons.wikimedia.org/wiki/File:Landesmuseum,_Trichterbecher_(Februar_2026).jpg" }
+    - { url: /images/extra/funnelbeaker-2.webp, credit: "Roberto Fortuna and Kira Ursem, National Museum of Denmark, CC BY-SA 4.0, via Wikimedia Commons", caption: "A clay pot and amber necklaces offered in the bog at Sortekærs Mose, Denmark (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:DO-3836.jpg" }
+    - { url: /images/extra/funnelbeaker-3.webp, credit: "Zinnmann, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Gretesch Stones, a Funnelbeaker megalithic tomb near Osnabrück", source: "https://commons.wikimedia.org/wiki/File:20180717_Gretescher_Steine_7.jpg" }
+    - { url: /images/extra/funnelbeaker-4.webp, credit: "Silar, CC0, via Wikimedia Commons", caption: "Funnelbeaker flint axes from Poland", source: "https://commons.wikimedia.org/wiki/File:020210817_125356_Funnelbeaker_culture_stone_axes.jpg" }
 - id: corded-ware
   name: Corded Ware culture
   category: culture
@@ -1232,6 +1242,11 @@
       src: https://www.youtube.com/watch?v=SZPKSKOzHDI
       title: "Unearthing the Starčevo Culture: Europe's early Neolithic farmers"
       credit: Ancient Whispers, YouTube
+  extra_images:
+    - { url: /images/extra/starcevo-koros-cris-1.webp, credit: "DjordjeMarkovic, CC BY-SA 4.0, via Wikimedia Commons", caption: "Pots and other finds of the Starčevo culture (National Museum, Niš)", source: "https://commons.wikimedia.org/wiki/File:Starčevo1.jpg" }
+    - { url: /images/extra/starcevo-koros-cris-2.webp, credit: "Vladimir Kajlovic, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Starčevo pot from Starčevo-Grad with a roughened barbotine surface (National Museum, Pančevo)", source: "https://commons.wikimedia.org/wiki/File:Starčevo-Grad,_Posuda,_glina,_barbotin,_Starčevačka_kultura,_neolit_02.jpg" }
+    - { url: /images/extra/starcevo-koros-cris-3.webp, credit: "Ceoil, CC0, via Wikimedia Commons", caption: "Clay female figurine of the Körös culture (Hungarian National Museum, Budapest)", source: "https://commons.wikimedia.org/wiki/File:Neolithic_female_figure_b.jpg" }
+    - { url: /images/extra/starcevo-koros-cris-4.webp, credit: "WikiEditor2004, CC0, via Wikimedia Commons", caption: "The area of the Starčevo culture in the central Balkans", source: "https://commons.wikimedia.org/wiki/File:Starcevo_culture.png" }
 - id: michelsberg
   name: Michelsberg culture
   category: culture
@@ -1249,6 +1264,11 @@
       src: https://www.youtube.com/watch?v=eIRjQMJpJBA
       title: Die Michelsberger Kultur, ein kleiner Einblick
       credit: Basic Archäologie, YouTube
+  extra_images:
+    - { url: /images/extra/michelsberg-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "A tulip beaker, the culture's typical pot, 4000–3600 BCE (Landesmuseum Württemberg, Stuttgart)", source: "https://commons.wikimedia.org/wiki/File:-4.000_Tulpenbecher_Michelsberger_Kultur_anagoria.JPG" }
+    - { url: /images/extra/michelsberg-2.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cattle skull and horns from the earthwork at Heilbronn-Klingenberg (Landesmuseum Württemberg, Stuttgart)", source: "https://commons.wikimedia.org/wiki/File:Landesmuseum_Württemberg_Stuttgart_Neolithikum_112.jpg" }
+    - { url: /images/extra/michelsberg-3.webp, credit: "Günter Josef Radig, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Michaelsberg near Untergrombach, the hill that gave the culture its name", source: "https://commons.wikimedia.org/wiki/File:Michaelsberg_und_Habichtsbuckel_NSG_BW_KA.JPG" }
+    - { url: /images/extra/michelsberg-4.webp, credit: "StromBer, CC BY 3.0, via Wikimedia Commons", caption: "A rebuilt Neolithic domed oven on the Michaelsberg, made after excavated remains", source: "https://commons.wikimedia.org/wiki/File:MichaelsbergKuppelbackofen.jpg" }
 - id: unetice
   name: Únětice culture
   category: culture
@@ -1316,6 +1336,8 @@
   extra_images:
     - { url: /images/extra/vinca-1.webp, credit: "Nikola Smolenski, CC BY-SA 3.0 rs, via Wikimedia Commons", caption: "The Lady of Vinča terracotta figurine, c. 4500 BCE (National Museum of Serbia, Belgrade)", source: "https://commons.wikimedia.org/wiki/File:Lady_of_Vinca.jpg" }
     - { url: /images/extra/vinca-2.webp, credit: "FlorinCB, CC BY 3.0, via Wikimedia Commons", caption: "Inscribed discoid clay amulet tablet from Tărtăria with incised Vinča symbols, c. 5300 BCE", source: "https://commons.wikimedia.org/wiki/File:T%C4%83rt%C4%83ria_Amulet_Tablet.png" }
+    - { url: /images/extra/vinca-3.webp, credit: "CryolophosaurusEllioti, CC BY 4.0, via Wikimedia Commons", caption: "A copper axe from the Pločnik hoard, 5000–4500 BCE, among the earliest copper tools in Europe (National Museum of Serbia)", source: "https://commons.wikimedia.org/wiki/File:Copper_axes_with_modern_replicas,_National_Museum_of_Serbia_04_2413-2423_(09).jpg" }
+    - { url: /images/extra/vinca-4.webp, credit: "DjordjeMarkovic, CC BY-SA 4.0, via Wikimedia Commons", caption: "A dark burnished Vinča bowl (City Museum of Novi Sad)", source: "https://commons.wikimedia.org/wiki/File:Muzej_grada_Novog_Sada_-_zdela,_neolit,_vinčanska_kultura.jpg" }
 - id: ertebolle
   name: Ertebølle culture
   category: culture
@@ -1356,6 +1378,11 @@
       src: https://www.youtube.com/watch?v=-r5XQ2P9g-4
       title: "Svodín: a Neolithic settlement of the Lengyel culture"
       credit: Peter Demján, YouTube
+  extra_images:
+    - { url: /images/extra/lengyel-1.webp, credit: "Jaroslav Palliardi, public domain, via Wikimedia Commons", caption: "Painted pottery from Znojmo-Novosady, Moravia (from Jaroslav Palliardi's 1897 report)", source: "https://commons.wikimedia.org/wiki/File:Moravian_painted_pottery.jpg" }
+    - { url: /images/extra/lengyel-2.webp, credit: "Wolfgang Sauber, CC BY-SA 3.0, via Wikimedia Commons", caption: "A painted Lengyel pot from Ölkam, Upper Austria, about 4800 BCE (Schlossmuseum Linz)", source: "https://commons.wikimedia.org/wiki/File:Linz_Schlossmuseum_-_Lengyel-Kultur_Gefäß.jpg" }
+    - { url: /images/extra/lengyel-3.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "Clay female figurine from Wetzleinsdorf, Lower Austria (Natural History Museum, Vienna)", source: "https://commons.wikimedia.org/wiki/File:NHM_-_Wetzleinsdorf_Idol_1.jpg" }
+    - { url: /images/extra/lengyel-4.webp, credit: "Clemens Mosch, CC BY-SA 4.0, via Wikimedia Commons", caption: "The circular ditched enclosure (rondel) at Puch, Lower Austria, its ditches marked out by different planting", source: "https://commons.wikimedia.org/wiki/File:Kreisgrabenpuchbepflanzung.jpg" }
 - id: chasseen
   name: Chasséen culture
   category: culture
@@ -1373,6 +1400,11 @@
       src: https://www.youtube.com/watch?v=MWU7mjzvV2Q
       title: "Chassey-le-Camp : visite sur le site archéologique"
       credit: France 3, YouTube
+  extra_images:
+    - { url: /images/extra/chasseen-1.webp, credit: "GdeLaB, CC BY-SA 4.0, via Wikimedia Commons", caption: "The prehistoric camp at Chassey-le-Camp, Saône-et-Loire, which gave the culture its name", source: "https://commons.wikimedia.org/wiki/File:Chassey_le_Camp_-_Le_site_Préhistorique_(1).jpg" }
+    - { url: /images/extra/chasseen-2.webp, credit: "Bycro, CC0, via Wikimedia Commons", caption: "The Dame de Villers-Carbonnel, a Chasséen clay figurine from the Somme", source: "https://commons.wikimedia.org/wiki/File:Dame_de_Villers-Carbonnel,_01.jpg" }
+    - { url: /images/extra/chasseen-3.webp, credit: "Didier Descouens, CC BY-SA 3.0, via Wikimedia Commons", caption: "A Chasséen polished stone axe from Niort, seen from several sides (Muséum de Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Hache_221.1_Global_fond.jpg" }
+    - { url: /images/extra/chasseen-4.webp, credit: "Alexandre Parat, public domain, via Wikimedia Commons", caption: "Chasséen bone and antler tools from the Nermont cave, Saint-Moré, Yonne (from Alexandre Parat's report)", source: "https://commons.wikimedia.org/wiki/File:Saint-Moré-Nermont-Parat-Chasséen-planche_II,_fig._7_à_11,_fig._17_et_fig._24.jpg" }
 - id: globular-amphora
   name: Globular Amphora culture
   category: culture
@@ -1643,6 +1675,11 @@
   image_caption: "Middle Neolithic Rhine terrace settlement: boat-shaped timber longhouses, pointillé-stamped beakers, and greenstone adzes"
   wikidata: Q1549257
   source_ids: []
+  extra_images:
+    - { url: /images/extra/hinkelstein-grossgartach-1.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Grossgartach pot with a sharply bent wall, from Stuttgart-Mühlhausen (Landesmuseum Württemberg, Stuttgart)", source: "https://commons.wikimedia.org/wiki/File:Landesmuseum_Württemberg_Stuttgart_Neolithikum_021.jpg" }
+    - { url: /images/extra/hinkelstein-grossgartach-2.webp, credit: "Altera levatur, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Monsheim standing stone, now in the castle courtyard at Monsheim, Rhenish Hesse", source: "https://commons.wikimedia.org/wiki/File:Menhir_Schloss_Monsheim.JPG" }
+    - { url: /images/extra/hinkelstein-grossgartach-3.webp, credit: "Alfred Schliz, public domain, via Wikimedia Commons", caption: "Pots and painted sherds from the excavated Neolithic village at Grossgartach (plate from Alfred Schliz's 1901 report)", source: "https://commons.wikimedia.org/wiki/File:Das_steinzeitliche_Dorf_Grossgartach_1901_(147005650).jpg" }
+    - { url: /images/extra/hinkelstein-grossgartach-4.webp, credit: "Alfred Schliz, public domain, via Wikimedia Commons", caption: "Plan of a house excavated at Grossgartach (page from Alfred Schliz's 1901 report)", source: "https://commons.wikimedia.org/wiki/File:Das_steinzeitliche_Dorf_Grossgartach_1901_(147005206).jpg" }
 # Span from English Wikipedia: Stroke-ornamented_ware_culture@1309226838.
 - id: stichbandkeramik
   name: Stroke-ornamented ware culture
@@ -1656,6 +1693,11 @@
   image_caption: "Neolithic loess terrace village: artisan stamping stroke-ornamented pottery with bone combs beside shoe-last adzes"
   wikidata: Q1932196
   source_ids: []
+  extra_images:
+    - { url: /images/extra/stichbandkeramik-1.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Stroke-ornamented pots from Makotřasy and Ptice, Bohemia (Museum of Kladno)", source: "https://commons.wikimedia.org/wiki/File:Stroke-ornamented_ware,_Museum_of_Kladno,_176010.jpg" }
+    - { url: /images/extra/stichbandkeramik-2.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "A stroke-ornamented pot from Bad Frankenhausen, Thuringia (Museum for Prehistory, Weimar)", source: "https://commons.wikimedia.org/wiki/File:MUFT_-_Bad_Frankenhausen_Stichbandkeramik_Kumpf.jpg" }
+    - { url: /images/extra/stichbandkeramik-3.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "A necklace of river mussel shells from Šárka, Prague (City of Prague Museum)", source: "https://commons.wikimedia.org/wiki/File:Necklace,_river_mussels,_Stroke-ornamented_Ware_culture,_City_of_Prague_Museum,_175607.jpg" }
+    - { url: /images/extra/stichbandkeramik-4.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "A large bell-shaped vessel from Šťáhlavice near Plzeň (Museum of Western Bohemia, Pilsen)", source: "https://commons.wikimedia.org/wiki/File:Stroke-ornamented_ware,_Museum_of_Western_Bohemia,_187717.jpg" }
 # Span from English Wikipedia: Rössen_culture@1325126170.
 - id: rossen
   name: Rössen culture
@@ -1669,6 +1711,11 @@
   image_caption: "Central European farming village with trapezoidal timber longhouses, chip-carved Kerbschnitt pottery, and amphibolite axes"
   wikidata: Q1886212
   source_ids: []
+  extra_images:
+    - { url: /images/extra/rossen-1.webp, credit: "Wolfgang Sauber, CC BY-SA 3.0, via Wikimedia Commons", caption: "A crouched burial with pots from the cemetery at Rössen, Saxony-Anhalt (Germanisches Nationalmuseum, Nuremberg)", source: "https://commons.wikimedia.org/wiki/File:GNM_-_Hockergrab.jpg" }
+    - { url: /images/extra/rossen-2.webp, credit: "Carl Schuchhardt, public domain, via Wikimedia Commons", caption: "Pots from the graves at Rössen: Gatersleben vessels above, Rössen below (from Carl Schuchhardt's survey)", source: "https://commons.wikimedia.org/wiki/File:Schuchhardt_Rössen_Gefäße.jpg" }
+    - { url: /images/extra/rossen-3.webp, credit: "Einsamer Schütze, CC BY-SA 3.0, via Wikimedia Commons", caption: "A round-bodied Rössen beaker from Hüde, Lower Saxony (Landesmuseum Natur und Mensch, Oldenburg)", source: "https://commons.wikimedia.org/wiki/File:Landesmuseum_Natur_und_Mensch_040.JPG" }
+    - { url: /images/extra/rossen-4.webp, credit: "Einsamer Schütze, CC BY-SA 3.0, via Wikimedia Commons", caption: "A Rössen pot from Losse (left) beside later Funnelbeaker pottery (Danneil-Museum, Salzwedel)", source: "https://commons.wikimedia.org/wiki/File:Danneil-Museum_036.JPG" }
 - id: early-dynastic-period-of-egypt
   description: The formative era of unified Egyptian civilization (First and Second Dynasties) following the unification of Upper and Lower Egypt under Narmer. Governing from the royal seat of Thinis and Memphis, this period consolidated divine kingship, codified hieroglyphic writing, established mortuary complexes at Abydos, and laid the foundations of pharaonic statecraft.
   image_url: /images/civilisations/early-dynastic-egypt.webp
