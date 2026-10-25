@@ -13,7 +13,7 @@
 .topic-methods { --t: var(--t-methods); }
 
 .nw-title-icon { display: inline-flex; color: var(--accent); }
-.nw-main { max-width: 900px; display: grid; gap: 6px; padding-top: 14px; }
+.nw-main { display: grid; gap: 6px; padding-top: 14px; }
 .nw-empty { padding: 18px; border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.14); }
 .nw-about { margin: 18px 0 0; max-width: 70ch; font-size: 0.85rem; line-height: 1.5; }
 .nw-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--t); vertical-align: 1px; }
@@ -38,15 +38,20 @@
 }
 .nw-strip-mark:hover, .nw-strip-mark:focus-visible { opacity: 1; outline: 2px solid #fff; outline-offset: 1px; z-index: 1; }
 
-.nw-section h2 { margin: 18px 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; color: #f6eedc; }
+.nw-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.nw-section h2 { grid-column: 1 / -1; margin: 18px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; color: #f6eedc; }
 .nw-section h2 .muted { font-family: inherit; font-size: 0.9rem; font-weight: 400; }
 
 .nw-story {
   display: grid;
-  grid-template-columns: 168px 1fr;
-  gap: 16px;
-  padding: 12px;
-  margin-bottom: 10px;
+  grid-template-columns: 188px minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 6px 16px;
+  padding: 14px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -54,11 +59,15 @@
 }
 .nw-story.flash { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
 
+/* Desktop: the picture spans the heading and summary rows, while the period, place and chips sit in a full-width
+   footer beneath both, so no blank space is left under the picture. */
 .nw-pic {
+  grid-column: 1;
+  grid-row: 1 / 3;
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 4 / 3;
+  min-height: 140px;
   overflow: hidden;
   border-radius: 10px;
   background:
@@ -68,23 +77,69 @@
 .nw-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .nw-pic-label { padding: 8px; text-align: center; font-family: Georgia, "Times New Roman", serif; font-weight: 700; color: #f2ead8; }
 
-.nw-body { min-width: 0; }
+.nw-head { grid-column: 2; grid-row: 1; min-width: 0; }
 .nw-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 0.8rem; }
 .nw-topic { color: var(--t); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.72rem; }
-.nw-story h3 { margin: 4px 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 1.12rem; line-height: 1.3; }
+.nw-story h3 { margin: 4px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.12rem; line-height: 1.3; }
 .nw-story h3 a { color: #f6eedc; text-decoration: none; }
 .nw-story h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nw-story h3 a::after { content: " ↗"; font-size: 0.8em; color: #8b95ab; }
-.nw-summary { margin: 0 0 8px; line-height: 1.5; color: #cbd3e6; }
+.nw-summary { grid-column: 2; grid-row: 2; margin: 0; line-height: 1.5; color: #cbd3e6; }
+
+.nw-foot {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 14px;
+  margin-top: 4px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
 .nw-when { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.85rem; }
 .nw-period { color: var(--accent); }
-.nw-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 8px; font-size: 0.85rem; }
+.nw-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 0.85rem; }
 .nw-entity { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; color: #e8ecf4; }
 .nw-doi, .nw-also a { color: var(--accent); }
 
+/* Wide screens: stories sit in two, three or more columns across the full page width instead of one column down the left. */
+@media (min-width: 1180px) {
+  .nw-section {
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Phones: picture beside the topic and headline; the summary and footer run full width beneath. */
 @media (max-width: 700px) {
   .nw-main { padding-top: 8px; }
-  .nw-story { grid-template-columns: 96px 1fr; gap: 12px; padding: 10px; }
+  .nw-section { gap: 10px; }
+  .nw-story {
+    grid-template-columns: 108px minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 10px 12px;
+    padding: 12px;
+  }
+  .nw-pic {
+    grid-row: 1;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+  .nw-head {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
   .nw-story h3 { font-size: 1.02rem; }
+  .nw-summary {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .nw-foot {
+    margin-top: 0;
+    padding-top: 8px;
+  }
   .nw-strip-track { margin: 0 12px; }
 }

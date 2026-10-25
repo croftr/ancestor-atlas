@@ -68,7 +68,7 @@ function Story({ story, data, flash }: { story: NewsStory; data: Data | null; fl
   return (
     <article id={`news-${story.id}`} className={`nw-story${flash ? " flash" : ""}`}>
       <StoryPicture story={story} data={data} />
-      <div className="nw-body">
+      <div className="nw-head">
         <div className="nw-meta">
           <span className={`nw-topic topic-${story.topic}`}>{TOPIC_LABELS[story.topic]}</span>
           <span className="muted">
@@ -80,7 +80,9 @@ function Story({ story, data, flash }: { story: NewsStory; data: Data | null; fl
             {story.title}
           </a>
         </h3>
-        <p className="nw-summary">{story.summary}</p>
+      </div>
+      <p className="nw-summary">{story.summary}</p>
+      <footer className="nw-foot">
         <div className="nw-when">
           <span className="nw-period" title={`${formatYear(story.period.from)}${story.period.to !== story.period.from ? ` – ${formatYear(story.period.to)}` : ""}`}>
             {story.period.text}
@@ -115,7 +117,7 @@ function Story({ story, data, flash }: { story: NewsStory; data: Data | null; fl
             )}
           </div>
         )}
-      </div>
+      </footer>
     </article>
   );
 }
