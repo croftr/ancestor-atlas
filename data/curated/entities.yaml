@@ -948,6 +948,11 @@
   image_url: /images/civilisations/ancient-egypt.webp
   image_credit: AI-generated illustration
   image_caption: "Nile riverbank life with a painted temple pylon and bustling market, with the Great Pyramids and Sphinx rising on the Giza plateau"
+  extra_images:
+    - { url: /images/extra/ancient-egypt-1.webp, credit: "Ricardo Liberato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The pyramids of Giza: the Great Pyramid of Khufu, Khafre's pyramid and Menkaure's with its three queens' pyramids, built in the 26th century BCE", source: "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg" }
+    - { url: /images/extra/ancient-egypt-2.webp, credit: "Vyacheslav Argenberg, CC BY 4.0, via Wikimedia Commons", caption: "The mortuary temple of Queen Hatshepsut (about 1470 BCE) on its terraces under the cliffs of Deir el-Bahari, western Thebes", source: "https://commons.wikimedia.org/wiki/File:Thebes,_Luxor,_Egypt,_Temple_of_Hatshepsut,_Deir_el-Bahari.jpg" }
+    - { url: /images/extra/ancient-egypt-3.webp, credit: "Jorge Láscar, CC BY 2.0, via Wikimedia Commons", caption: "The entrance pylon of Luxor Temple, with its remaining obelisk and colossal statues of Ramesses II, lit at night", source: "https://commons.wikimedia.org/wiki/File:The_remaining_obelisk_and_the_two_25m._statues_of_Ramses_II_-_The_entrance_pylon_-_Luxor_Temple_(14259635932).jpg" }
+    - { url: /images/extra/ancient-egypt-4.webp, credit: "Hans Hillewaert, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Rosetta Stone, a decree of 196 BCE in hieroglyphs, demotic and Greek, which gave the key to reading hieroglyphs (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=YpKej05RgsY
@@ -1753,6 +1758,11 @@
   image_url: /images/civilisations/early-dynastic-egypt.webp
   image_credit: AI-generated illustration
   image_caption: "An early pharaoh before the whitewashed serekh palace facade at Memphis, with scribes recording cattle counts and mastaba tombs on the plateau"
+  extra_images:
+    - { url: /images/extra/early-dynastic-period-of-egypt-1.webp, credit: "Djehouty, CC BY-SA 4.0, via Wikimedia Commons", caption: "King Narmer in the white crown of Upper Egypt, followed by his sandal-bearer, on the Narmer Palette from Hierakonpolis, about 3100 BCE (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Ägyptisches_Museum_Kairo_2019-11-09_Narmer-Palette_05.jpg" }
+    - { url: /images/extra/early-dynastic-period-of-egypt-2.webp, credit: "CaptMondo, CC BY 2.5, via Wikimedia Commons", caption: "Ivory sandal label of King Den smiting an eastern enemy, from his tomb at Abydos, 1st Dynasty (British Museum)", source: "https://commons.wikimedia.org/wiki/File:IvoryLabelOfDen-BritishMuseum-August19-08.jpg" }
+    - { url: /images/extra/early-dynastic-period-of-egypt-3.webp, credit: "Guillaume Blanchard, CC BY-SA 1.0, via Wikimedia Commons", caption: "Funerary stela of King Djet, his name written as a serpent inside a palace façade under the falcon Horus, from Abydos, 1st Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Egypte_louvre_290.jpg" }
+    - { url: /images/extra/early-dynastic-period-of-egypt-4.webp, credit: "Richard Mortel, CC BY 2.0, via Wikimedia Commons", caption: "Seated statue of King Khasekhemwy, last king of the 2nd Dynasty, in the white crown and jubilee cloak, from Hierakonpolis (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Statue_of_King_Khasekhemui_from_Hierakonpolis,_2nd_dynasty,_2676-2649_BCE;_Egyptian_Museum,_Cairo)_(1).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=98wiu5DEABU
@@ -2728,6 +2738,11 @@
 # Batch 4A: Egypt Dynasties and Kingdoms
 - id: lower-egypt
   description: The northern delta region of ancient Egypt where the Nile fans out into the Mediterranean Sea, characterized by lush papyrus marshes, maritime trade, and fertile agriculture. Historically symbolized by the red crown (Deshret) and the cobra goddess Wadjet, Lower Egypt united with Upper Egypt to form the dual pharaonic monarchy.
+  extra_images:
+    - { url: /images/extra/lower-egypt-1.webp, credit: "Guillaume Blanchard, CC BY-SA 2.0, via Wikimedia Commons", caption: "Openwork copper-alloy vessel inscribed with the name of King Meryibre Khety, founder of the Herakleopolitan 9th–10th Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Egypte_louvre_246_panier.jpg" }
+    - { url: /images/extra/lower-egypt-2.webp, credit: "Guillaume Blanchard, CC BY-SA 3.0, via Wikimedia Commons", caption: "Wooden scribe's palette of the chancellor Ourkaoukhety, bearing the cartouche of the Herakleopolitan king Merikare, 10th Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Egypte_louvre_249_palette.jpg" }
+    - { url: /images/extra/lower-egypt-3.webp, credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tomb relief of herdsmen leading cattle and an oryx, from the First Intermediate Period cemetery of Herakleopolis Magna, capital of the northern kings (National Archaeological Museum, Madrid)", source: "https://commons.wikimedia.org/wiki/File:Fragmento_de_pared_de_una_mastaba_con_escena_de_ganadería._Primer_periodo_intermedio_de_Egipto_01.jpg" }
+    - { url: /images/extra/lower-egypt-4.webp, credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tomb relief naming a commander of the Herakleopolitan army, from the First Intermediate Period cemetery of Herakleopolis Magna (National Archaeological Museum, Madrid)", source: "https://commons.wikimedia.org/wiki/File:Fragmento_de_pared_de_tumba._Primer_periodo_intermedio_de_Egipto.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mXa7633esMw
@@ -2735,6 +2750,11 @@
       credit: Legacy African History, YouTube
 - id: upper-egypt
   description: The southern riverine expanse of ancient Egypt stretching along the narrow Nile Valley from the First Cataract at Aswan to Memphis. Represented by the white crown (Hedjet) and the vulture goddess Nekhbet, Upper Egypt was the heartland of early state formation, renowned for spiritual centers at Abydos, Thebes, and Hierakonpolis.
+  extra_images:
+    - { url: /images/extra/upper-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Stela of the Theban king Intef II Wahankh, who fought the Herakleopolitan kings for Middle Egypt, 11th Dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Stela_of_King_Intef_II_Wahankh_MET_DP156516.jpg" }
+    - { url: /images/extra/upper-egypt-2.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tomb stela of Intef with three women and servants bringing offerings, from el-Tarif in western Thebes, about 2041 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Tomb_stela_of_Intef,_2041_BCE,_11th_Dynasty,_Western_Thebes,_el-Tarif,_British_Museum.jpg" }
+    - { url: /images/extra/upper-egypt-3.webp, credit: "Museo Egizio, CC0, via Wikimedia Commons", caption: "Stela of the Nubian archer Tjenenu with his wife, dog and four bowmen brothers, First Intermediate Period, from Upper Egypt (Museo Egizio, Turin)", source: "https://commons.wikimedia.org/wiki/File:Stela_with_Nubian_bowmen,_limestone_-_Museo_Egizio,_Turin_S_1270_p01.jpg" }
+    - { url: /images/extra/upper-egypt-4.webp, credit: "Djehouty, CC BY-SA 4.0, via Wikimedia Commons", caption: "Painted sandstone statue of Mentuhotep II, the Theban king who reunited Egypt, from his temple at Deir el-Bahari (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Ägyptisches_Museum_Kairo_2016-03-29_Mentuhotep_02.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=L38wNoFWbAk
@@ -2742,6 +2762,9 @@
       credit: Legacy African History, YouTube
 - id: fifteenth-dynasty-of-egypt
   description: The ruling house of the Hyksos during the Second Intermediate Period, established by Levantine leaders who governed northern Egypt from their fortified delta capital of Avaris. Introducing bronze weaponry, composite bows, and horse-drawn chariots into the Nile Valley, the dynasty maintained commercial networks until driven out by native Theban pharaohs.
+  extra_images:
+    - { url: /images/extra/fifteenth-dynasty-of-egypt-1.webp, credit: "Juan R. Lazaro, CC BY 2.0, via Wikimedia Commons", caption: "Granite lion inscribed for the Hyksos king Khyan, found at Baghdad (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Khyan.jpg" }
+    - { url: /images/extra/fifteenth-dynasty-of-egypt-2.webp, credit: "Schuppi, CC BY-SA 3.0, via Wikimedia Commons", caption: "Alabaster lid with the cartouche of the Hyksos king Khyan, found in the palace of Knossos, Crete (Heraklion Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Lid_of_Khyan.png" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=4M4YiyhzMgs
@@ -2756,6 +2779,10 @@
       credit: Made In History, YouTube
 - id: seventeenth-dynasty-of-egypt
   description: The native Theban dynasty of Upper Egypt during the late Second Intermediate Period that mounted a national war of liberation against the northern Hyksos occupiers. Under martial rulers like Seqenenre Tao, Kamose, and Ahmose I, Theban armies pushed northward, capturing Avaris and ushering in the glorious New Kingdom.
+  extra_images:
+    - { url: /images/extra/seventeenth-dynasty-of-egypt-1.webp, credit: "CaptMondo, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gilded 'rishi' (feathered) coffin of King Nubkheperre Intef, from Dra Abu el-Naga, Thebes, about 1600 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:WoodenCoffinOfIntef-BritishMuseum-August21-08.jpg" }
+    - { url: /images/extra/seventeenth-dynasty-of-egypt-2.webp, credit: "Andrzej Kośka, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stela of King Kamose recording his war against the Hyksos king Apepi, from Karnak (Luxor Museum)", source: "https://commons.wikimedia.org/wiki/File:Stela_kamose.jpg" }
+    - { url: /images/extra/seventeenth-dynasty-of-egypt-3.webp, credit: "Los Angeles County Museum of Art, public domain, via Wikimedia Commons", caption: "Ceremonial bronze axe blade inscribed with the name of King Seqenenre Tao, who died fighting the Hyksos (Los Angeles County Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Ceremonial_Battle_Axe_Inscribed_with_Name_of_King_Seqenenre_Tao_LACMA_M.80.203.43.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=xbxyxqU7gPo
@@ -2763,6 +2790,11 @@
       credit: DW World History, YouTube
 - id: twenty-second-dynasty-of-egypt
   description: An influential Third Intermediate Period dynasty of Meshwesh Libyan origin, founded around 945 BCE by Pharaoh Shoshenq I (biblical Shishak) from his capital at Tanis. Known for revitalizing royal authority, mounting campaigns into the southern Levant, and installing royal princes as high priests of Amun in Thebes, the dynasty eventually fractured into rival delta principalities.
+  extra_images:
+    - { url: /images/extra/twenty-second-dynasty-of-egypt-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "The Bubastite Portal at Karnak, built by Shoshenq I and carved with his campaign into Canaan", source: "https://commons.wikimedia.org/wiki/File:Karnak_Tempel_Bubastis-Portal_01.JPG" }
+    - { url: /images/extra/twenty-second-dynasty-of-egypt-2.webp, credit: "Tangopaso, public domain, via Wikimedia Commons", caption: "Gold funerary mask of King Shoshenq II, from the royal tombs at Tanis (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Masque_en_or_de_Sheshonq_II_(la_Villette,_2023).jpg" }
+    - { url: /images/extra/twenty-second-dynasty-of-egypt-3.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Gold and lapis lazuli pendant of Osiris between Horus and Isis, inscribed for King Osorkon II (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Jewel_Osiris_family-E_6204-IMG_0641-black.jpg" }
+    - { url: /images/extra/twenty-second-dynasty-of-egypt-4.webp, credit: "MiguelHermoso, CC BY-SA 3.0, via Wikimedia Commons", caption: "Bronze statue of Karomama, God's Wife of Amun, inlaid with gold and silver, from Karnak, 22nd Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Karomama_Louvre_01.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=z2qqKTeWcfY
@@ -2770,6 +2802,11 @@
       credit: History with Cy, YouTube
 - id: twenty-third-dynasty-of-egypt
   description: A contemporary branch of Libyan pharaohs that governed Upper and Middle Egypt from Leontopolis and Herakleopolis during the fragmented Third Intermediate Period. Coexisting and competing with the Twenty-Second Dynasty in Tanis, this regional line maintained local administrative and religious control until eclipsed by the Nubian conquest of Piye.
+  extra_images:
+    - { url: /images/extra/twenty-third-dynasty-of-egypt-1.webp, credit: "VivaFox, CC BY-SA 2.0, via Wikimedia Commons", caption: "Limestone statue of King Osorkon III pushing the bark of Sokar, from the Karnak Cachette (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Limestone_statue_of_Osorkon_III.jpg" }
+    - { url: /images/extra/twenty-third-dynasty-of-egypt-2.webp, credit: "Michael Martin, CC BY 2.0, via Wikimedia Commons", caption: "Torso of a large bronze statue of King Pedubast I, inlaid with gold and electrum (Calouste Gulbenkian Museum, Lisbon)", source: "https://commons.wikimedia.org/wiki/File:Torso_of_Pedubast_I_by_Michael_Martin.jpg" }
+    - { url: /images/extra/twenty-third-dynasty-of-egypt-3.webp, credit: "Neithsabes, CC BY 3.0, via Wikimedia Commons", caption: "Relief of King Takelot III in the chapel of Osiris Heka-Djet at Karnak, built under the 23rd Dynasty", source: "https://commons.wikimedia.org/wiki/File:Karnak_Takelot_III.jpg" }
+    - { url: /images/extra/twenty-third-dynasty-of-egypt-4.webp, credit: "Neithsabes, CC BY 3.0, via Wikimedia Commons", caption: "Relief of Shepenupet I, God's Wife of Amun and daughter of Osorkon III, in the chapel of Osiris Heka-Djet at Karnak", source: "https://commons.wikimedia.org/wiki/File:Karnak_Chepenoupet_I.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Vyo7RmOgk2k
@@ -2777,6 +2814,11 @@
       credit: Made In History, YouTube
 - id: twenty-sixth-dynasty-of-egypt
   description: Known as the Saite Renaissance, the Twenty-Sixth Dynasty was the final native dynasty to govern an independent Egypt before the Achaemenid Persian conquest. Ruling from Sais in the western delta, the Saite pharaohs expelled Assyrian garrisons, reopened Mediterranean trade, hired Greek mercenaries, and revived Old and Middle Kingdom artistic and literary styles.
+  extra_images:
+    - { url: /images/extra/twenty-sixth-dynasty-of-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Bust from a statue of Psamtik I, who freed Egypt from the Assyrians and founded the Saite dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Bust_from_Statue_of_a_King_MET_267761.jpg" }
+    - { url: /images/extra/twenty-sixth-dynasty-of-egypt-2.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Head of King Apries, about 589–570 BCE (Museo Civico Archeologico, Bologna)", source: "https://commons.wikimedia.org/wiki/File:Head_of_Apries,_Dynasty_26,_circa_589-570_BCE,_Museo_Civico_Archeologico,_Bologna,_Italy.jpg" }
+    - { url: /images/extra/twenty-sixth-dynasty-of-egypt-3.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Head of King Amasis II, about 550 BCE (Neues Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Head_of_Amasis_II,_c._550_BCE._From_Egypt._Neues_Museum,_Berlin,_Germany.jpg" }
+    - { url: /images/extra/twenty-sixth-dynasty-of-egypt-4.webp, credit: "Dale Cruse, CC BY 2.0, via Wikimedia Commons", caption: "Siltstone sarcophagus of Ankhnesneferibre, God's Wife of Amun and daughter of Psamtik II, from Thebes, about 530 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Sarcophagus_of_Ankhnesneferibra_(53498175207).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=uki9rNwoRzk
@@ -2784,6 +2826,11 @@
       credit: History with Cy, YouTube
 - id: thirtieth-dynasty-of-egypt
   description: The last dynasty of native Egyptian pharaohs, ruling from Sebennytos in the Nile Delta from 380 to 343 BCE. Founded by Nectanebo I, the dynasty vigorously defended Egyptian independence against repeated Persian invasions and initiated extensive temple construction projects across Egypt before Nectanebo II was ousted by Artaxerxes III.
+  extra_images:
+    - { url: /images/extra/thirtieth-dynasty-of-egypt-1.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Limestone falcon of Horus protecting King Nectanebo II (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Horus_as_a_falcon_protecting_King_Nectanebo_II_(7463601262).jpg" }
+    - { url: /images/extra/thirtieth-dynasty-of-egypt-2.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The kiosk of Nectanebo I at the temple of Isis, Philae, about 370 BCE", source: "https://commons.wikimedia.org/wiki/File:The_Kiosk_of_Nectanebo_I,_Philae,_Egypt_(49812293013).jpg" }
+    - { url: /images/extra/thirtieth-dynasty-of-egypt-3.webp, credit: "Dennis G. Jarvis, CC BY-SA 2.0, via Wikimedia Commons", caption: "The avenue of human-headed sphinxes of Nectanebo I leading to Luxor Temple", source: "https://commons.wikimedia.org/wiki/File:Flickr_-_archer10_(Dennis)_-_Egypt-3B-067.jpg" }
+    - { url: /images/extra/thirtieth-dynasty-of-egypt-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Sarcophagus of Nectanebo II, never used after he fled the Persians, later a ritual bath in the Attarine Mosque, Alexandria (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Egyptian_Conglomerate_Sarcophagus_of_Nectanebo_II_Later_Used_as_Ritual_Bath_in_Attarin_Mosque,_30th_Dynasty,_c._345_BC_(35701912874).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=eojRsK7dFhM
