@@ -976,6 +976,11 @@
   image_url: /images/civilisations/mesopotamia.webp
   image_credit: AI-generated illustration
   image_caption: "Sumerian city along the Euphrates with a towering mudbrick ziggurat, river barges, and a scribe incising cuneiform clay tablets in the market"
+  extra_images:
+    - { url: /images/extra/mesopotamia-1.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Alabaster statue of Ebih-Il, superintendent of the temple of Ishtar at Mari, with lapis lazuli eyes, about 2400 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Ebih-Il_Louvre_AO17551_n01.jpg" }
+    - { url: /images/extra/mesopotamia-2.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Diorite statue of Gudea, ruler of Lagash, dedicated to the god Ningishzida, about 2120 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Gudea_of_Lagash_Girsu.jpg" }
+    - { url: /images/extra/mesopotamia-3.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Mud-brick ruins of Babylon, the city that gave southern Mesopotamia its later name", source: "https://commons.wikimedia.org/wiki/File:Ruins_of_the_ancient_city_of_Babylon,_Iraq,_6th_century_BC.jpg" }
+    - { url: /images/extra/mesopotamia-4.webp, credit: "Omar Siddeeq Yousif, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Mashki Gate of Nineveh, the last Assyrian capital, as reconstructed on its ancient foundations (destroyed in 2016)", source: "https://commons.wikimedia.org/wiki/File:Nineveh_-_Mashki_Gate.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=d2lJUOv0hLA
@@ -1808,6 +1813,9 @@
   image_url: /images/civilisations/hyksos.webp
   image_credit: AI-generated illustration
   image_caption: "The Delta capital of Avaris blending Canaanite and Egyptian culture, with horse-drawn chariots, bronze weapon smiths, and Syrian-style timber dwellings"
+  extra_images:
+    - { url: /images/extra/hyksos-1.webp, credit: "Didia, CC BY-SA 3.0, via Wikimedia Commons", caption: "Tell el-Dab'a in the eastern Nile Delta, the site of Avaris, the Hyksos capital", source: "https://commons.wikimedia.org/wiki/File:Tell_el-daba04.jpg" }
+    - { url: /images/extra/hyksos-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Scarab with the name of the Hyksos king Sheshi (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Scarabs_with_the_Name_of_the_Hyksos_King_Sheshi_MET_30.8.462_bottom.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=9K-ionaiu1s
@@ -2067,6 +2075,11 @@
     - { url: /images/extra/akkadian-empire-4.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Akkadian cylinder seal and its rolled impression (Ashmolean Museum)", source: "https://commons.wikimedia.org/wiki/File:Cylinder_seal_Akkadian_AN1931.105.jpg" }
 - id: assyria
   description: A major ancient Mesopotamian civilization centered along the upper Tigris River in modern northern Iraq. Spanning Old, Middle, and Imperial periods, Assyria developed into a formidable military and commercial power renowned for sophisticated statecraft, monumental palaces, and the preservation of vast cuneiform libraries.
+  extra_images:
+    - { url: /images/extra/assyria-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Old Assyrian clay tablet and its sealed envelope, a silver debt note from the merchant colony at Kanesh (Kültepe), 19th century BCE (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Clay_tablet_and_its_stamped_envelop._Legal_debt-note_on_silver._Old_Assyrian_dialect._Assyrian_Colony_Period,_19th_century_BCE._Ancient_Orient_Museum,_Istanbul.jpg" }
+    - { url: /images/extra/assyria-2.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Cult altar of King Tukulti-Ninurta I, showing the king twice before the god Nusku, from Assur, 13th century BCE (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Altar_Tukulti-Ninurta_I_Assur_IAM.jpg" }
+    - { url: /images/extra/assyria-3.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Middle Assyrian cylinder seal and its impression: a winged horse, 14th–13th century BCE (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Middle_Assyrian_winged_horse_cylinder_seal.png" }
+    - { url: /images/extra/assyria-4.webp, credit: "Fakhri Mahmood, CC BY-SA 4.0, via Wikimedia Commons", caption: "The mud-brick walls of Ashur (Qal'at Sherqat), the old religious capital of Assyria on the Tigris", source: "https://commons.wikimedia.org/wiki/File:Ashur_city_walls.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=iz-Xxu7y_gQ
@@ -2074,6 +2087,11 @@
       credit: History with Cy, YouTube
 - id: babylonia
   description: An influential cultural and political state in central-southern Mesopotamia, centered on the ancient metropolis of Babylon along the Euphrates. Under Hammurabi and later dynasties, Babylonia became famed across the ancient world for its monumental architecture, astronomical scholarship, mathematical innovations, and enduring legal traditions.
+  extra_images:
+    - { url: /images/extra/babylonia-1.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "Hammurabi of Babylon before the sun god Shamash, on top of the stele of his law code, about 1750 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050771_Louvre_code_Hammurabi_bas_relief_rwk.JPG" }
+    - { url: /images/extra/babylonia-2.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Queen of the Night (Burney Relief), a fired clay plaque of a winged goddess, Old Babylonian period, 1800–1750 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Queen_of_the_Night_relief_(also_Burney_relief),_1800-1750_BC,_from_Iraq._The_British_Museum,_London.jpg" }
+    - { url: /images/extra/babylonia-3.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "Boundary stone (kudurru) of the Kassite king Melishipak presenting his daughter to the goddess Nanaya, 12th century BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050591_Louvre_Kudurru_de_Meli-Shipak_rwk.JPG" }
+    - { url: /images/extra/babylonia-4.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Kassite ziggurat of Dur-Kurigalzu at Aqar Quf, west of Baghdad, 14th century BCE", source: "https://commons.wikimedia.org/wiki/File:3._The_remains_of_the_Kassite_ziggurat_at_Aqar-Quf_(Dur-Kurigalzu),_western_Baghdad,_Iraq.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=gJF_lYSREgc
@@ -2081,6 +2099,8 @@
       credit: Kings and Generals, YouTube
 - id: first-sealand-dynasty
   description: An enigmatic dynasty of kings based in the marshlands and coastal plains of southern Mesopotamia, ruling independently of Babylonian control during the second millennium BCE. Preserving ancient Sumerian cultural traditions, the Sealand monarchs successfully resisted Kassite expansion until their territory was eventually incorporated into the Kassite Babylonian state.
+  extra_images:
+    - { url: /images/extra/first-sealand-dynasty-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tablet with Gilgamesh's dreams from the Epic of Gilgamesh, written under the First Sealand Dynasty (Iraq Museum, Baghdad)", source: "https://commons.wikimedia.org/wiki/File:The_Gilgamesh_Dream_tablet._From_Iraq._Middle_Babylonian_Period,_First_Sealand_Dynasty,_1732-1460_BCE._Iraq_Museum,_Baghdad.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=lzjbkMmpoq0
@@ -2104,6 +2124,10 @@
   image_url: /images/civilisations/mitanni.webp
   image_caption: Hurrian capital of Washukanni with maryannu chariot warriors in pointed bronze helmets and scale armor driving war chariots outside fortified city walls.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/mitanni-1.webp, credit: "CaptMondo, CC BY 2.5, via Wikimedia Commons", caption: "Amarna letter from King Tushratta of Mitanni to Amenhotep III of Egypt, negotiating a royal marriage, 14th century BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:AmarnaLetterOfMarriageNegotiation-BritishMuseum-August19-08.jpg" }
+    - { url: /images/extra/mitanni-2.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Painted Nuzi ware, the fine pottery of the Mitanni kingdom (Oriental Institute Museum, Chicago)", source: "https://commons.wikimedia.org/wiki/File:Mitanni_or_Nuzi_ware_-_Oriental_Institute_Museum,_University_of_Chicago_-_DSC07021.JPG" }
+    - { url: /images/extra/mitanni-3.webp, credit: "Bertramz, CC BY 3.0, via Wikimedia Commons", caption: "Excavated Mitanni palace at Tell Brak in northeastern Syria", source: "https://commons.wikimedia.org/wiki/File:TellBrakMitanni.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=0PGOZPbOBG4
@@ -2227,6 +2251,8 @@
       credit: The Histories, YouTube
 - id: assyrian-egypt
   description: The period in the 7th century BCE when the Neo-Assyrian Empire conquered Lower and Upper Egypt, driving out the Kushite Twenty-Fifth Dynasty. Sacking Thebes and Memphis, the Assyrians installed local delta princes as tributary vassals, paving the way for the rise of Egypt's native Twenty-Sixth (Saite) Dynasty.
+  extra_images:
+    - { url: /images/extra/assyrian-egypt-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Victory stele of Esarhaddon from Sam'al (Zincirli), 671 BCE, raised after his conquest of Egypt: the kneeling captive is thought to be Taharqa's son Ushankhuru (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Sam'al_stele_of_Esarhaddon,_671_BCE,_Pergamon_Museum.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=hPoEtxTwYh4
