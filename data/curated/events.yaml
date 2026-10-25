@@ -553,6 +553,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe
   image_url: /images/events/gobekli-tepe.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/gobekli-tepe-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/gobekli-tepe-1.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carved stones at Göbekli Tepe", source: "https://commons.wikimedia.org/wiki/File:Gobekli_Tepe_Under_temporary_roof_in_2014_3127.jpg" }
     - { url: /images/events/extra/gobekli-tepe-2.webp, credit: "Kerimove, CC0, via Wikimedia Commons", caption: "Pillar 27, Enclosure C: a predator carved in high relief above a wild boar", source: "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Enclosure_C_Pillar_27_relief.jpg" }
