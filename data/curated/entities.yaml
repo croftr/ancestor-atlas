@@ -1013,6 +1013,9 @@
   image_url: /images/civilisations/ancient-china.webp
   image_credit: AI-generated illustration
   image_caption: "Early imperial capital with multi-tiered palace pavilions, canal bridge, and merchants trading jade ornaments, bronze ding vessels, and silk"
+  extra_images:
+    - { url: /images/extra/ancient-china-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze mask from Sanxingdui in Sichuan, from a bronze-casting culture contemporary with the Shang (Sanxingdui Museum)", source: "https://commons.wikimedia.org/wiki/File:Ancient_Bronze_Mask_from_Sanxingdui_8.jpg" }
+    - { url: /images/extra/ancient-china-2.webp, credit: "星星, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Dujiangyan irrigation system on the Min River, Sichuan, built by the state of Qin about 256 BCE and still in use", source: "https://commons.wikimedia.org/wiki/File:Dujiang_Weir.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FwEkp4I75OA
@@ -3364,6 +3367,8 @@
       credit: Bronze Goblet, YouTube
 - id: later-zhou
   description: The Eastern Zhou dynasty (770–256 BCE), established when King Ping moved the royal capital east to Luoyang following nomadic Rong raids that destroyed the western capital. Though royal power declined to nominal ceremonial status, this era witnessed immense intellectual flowering during the Hundred Schools of Thought, including Confucianism and Daoism.
+  extra_images:
+    - { url: /images/extra/later-zhou-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "An Eastern Zhou royal chariot burial at Luoyang, the capital of the later Zhou kings (Eastern Zhou Chariot Burial Museum)", source: "https://commons.wikimedia.org/wiki/File:Eastern_Zhou_Royal_Chariot_Pit,_Luoyang_03.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=GZ_lSXv4Psg
@@ -3397,6 +3402,9 @@
     - { url: /images/extra/han-dynasty-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Fragments of early Han-era hemp paper", source: "https://commons.wikimedia.org/wiki/File:Han_Paper_(9947870685).jpg" }
 - id: gojoseon
   description: The first kingdom of ancient Korea, traditionally established in the Liaoning and northwestern Korean Peninsula around the Taedong River basin. Developing a distinctive Bronze and Iron Age culture characterized by mandolin-shaped daggers and dolmen tombs, Gojoseon challenged Yan and Han China before falling to Emperor Wu of Han in 108 BCE.
+  extra_images:
+    - { url: /images/extra/gojoseon-1.webp, credit: "Ismoon, CC BY-SA 4.0, via Wikimedia Commons", caption: "Korean-type slender bronze dagger and mirror of the late Gojoseon period (National Museum of Korea)", source: "https://commons.wikimedia.org/wiki/File:Korean-type_bronze_dagger_and_mirror.National_Museum_of_Korea.jpg" }
+    - { url: /images/extra/gojoseon-2.webp, credit: "Gary Lee Todd, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze mirror with fine geometric decoration, Gojoseon period (National Museum of Korea)", source: "https://commons.wikimedia.org/wiki/File:Bronze_mirror._Gojoseon_period._D._11.2_cm._National_Museum_of_Korea.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=qmATYjagXMg
@@ -3446,6 +3454,8 @@
       credit: Korean History 한국사, YouTube
 - id: goguryeo
   description: A powerful ancient kingdom of northern Korea and southern Manchuria, traditionally founded in 37 BCE in the rugged mountain valleys of the Yalu River basin. Renowned for fierce martial culture, heavily armored cataphract cavalry, and impregnable mountain fortresses, Goguryeo expanded into a dominant regional empire, becoming one of the Three Kingdoms of Korea.
+  extra_images:
+    - { url: /images/extra/goguryeo-1.webp, credit: "xiquinhosilva, CC BY 2.0, via Wikimedia Commons", caption: "Excavated remains at Wunü Mountain City near Huanren, Liaoning, thought to be Jolbon, the first capital of Goguryeo", source: "https://commons.wikimedia.org/wiki/File:Wunu_Mountain_City_(54438912954).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=GpkAsdH78l4
@@ -3468,6 +3478,8 @@
       credit: Kings and Generals, YouTube
 - id: yuezhi
   description: An ancient Indo-European pastoral nomadic confederation that originally dominated the grasslands and oasis corridors of the Hexi Corridor in modern Gansu. Driven westward across Central Asia after defeats by the Xiongnu, the Yuezhi conquered Greco-Bactria and eventually settled in northern India to establish the magnificent Kushan Empire.
+  extra_images:
+    - { url: /images/extra/yuezhi-1.webp, credit: "zbig58, CC BY-SA 2.0, via Wikimedia Commons", caption: "Painted clay portrait from the palace at Khalchayan, Uzbekistan, 1st century BCE, thought to show a Yuezhi noble", source: "https://commons.wikimedia.org/wiki/File:Khalchayan_portrait,_1st_century_BCE.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=2KdM6AlyLUY
@@ -3482,6 +3494,8 @@
       credit: Knowledge=fun, YouTube
 - id: nanyue
   description: An independent kingdom established in 204 BCE by the Qin general Zhao Tuo, spanning southern China and northern Vietnam (Guangdong, Guangxi, and northern Vietnam) with its capital at Panyu (modern Guangzhou). Blending Han Chinese administrative methods with indigenous Baiyue culture, Nanyue prospered through maritime trade until annexed by Emperor Wu of Han in 111 BCE.
+  extra_images:
+    - { url: /images/extra/nanyue-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The silk-and-jade burial suit of Zhao Mo, second king of Nanyue, from his tomb in Guangzhou, 2nd century BCE (Museum of the Mausoleum of the Nanyue King)", source: "https://commons.wikimedia.org/wiki/File:Jade_Burial_Suit_of_Zhao_Mo,_King_of_Nanyue.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=a8FT2cBLaYs
@@ -3496,6 +3510,11 @@
       credit: Armies of History, YouTube
 - id: chu
   description: A major southern powerhouse along the Yangtze and Han river valleys during the Zhou dynasty, with its capital at Ying in modern Hubei. Developing a rich, distinct culture characterized by elaborate bronze metallurgy, lacquerware, and Daoist poetic traditions, Chu expanded aggressively to become one of the most formidable Seven Warring States.
+  extra_images:
+    - { url: /images/extra/chu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze tallies of Lord Qi of E with gold-inlaid inscriptions, travel permits issued by the king of Chu in 323 BCE (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Tallies_(9830808744).jpg" }
+    - { url: /images/extra/chu-2.webp, credit: "Sharkman, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Guodian bamboo slips from a Chu tomb, about 300 BCE, among the oldest manuscripts of Daoist and Confucian texts (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:TaiYiShengShui1.jpg" }
+    - { url: /images/extra/chu-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Lacquered shield from the state of Chu, Warring States period (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Lacquered_Shield,_Chu_State_(10161968595).jpg" }
+    - { url: /images/extra/chu-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Lacquered wooden dou (stem dish) from the state of Chu (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Lacquered_Dou,_Chu_State_(10162825136).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=x-3OYFbFOZY
@@ -3503,6 +3522,9 @@
       credit: knowl card, YouTube
 - id: qi
   description: A wealthy and powerful maritime state in modern Shandong, founded in the 11th century BCE for the grand strategist Jiang Ziya. Blessed with rich coastal sea salt and silk industries, Qi established early hegemony under Duke Huan and prime minister Guan Zhong, later founding the renowned Jixia Academy of scholarly debate.
+  extra_images:
+    - { url: /images/extra/qi-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze lamp of a figure holding two dishes, state of Qi, Warring States period, found in Shandong (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Lamp.jpg" }
+    - { url: /images/extra/qi-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze knife money of the state of Qi, Warring States period (Xianyang Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Knife_Coin,_Qi_State_(9910610323).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=fn3wTsVbllg
@@ -3510,6 +3532,9 @@
       credit: knowl card, YouTube
 - id: jin
   description: The dominant northern super-state of the Spring and Autumn period, occupying modern Shanxi and northern Henan. Under Duke Wen of Jin, the state served as hegemon (ba) defending the central Zhou states against southern Chu expansion, until internal clan rivalries famously partitioned Jin into Han, Zhao, and Wei in 403 BCE.
+  extra_images:
+    - { url: /images/extra/jin-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze ding with a tiger head and a lid, state of Jin, Spring and Autumn period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Yi-shaped_Ding_with_Tiger_Head,_Jin_State_1a.jpg" }
+    - { url: /images/extra/jin-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze hu wine jar with chain handle, state of Jin, Spring and Autumn period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Hu,_Jin_State.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=aKtXjLbqWBM
@@ -3517,6 +3542,9 @@
       credit: knowl card, YouTube
 - id: yan
   description: A major northeastern frontier kingdom centered at modern Beijing, established at the start of the Western Zhou dynasty by the Duke of Shao. Guarding the northern borders against Steppe nomads and trading with Manchuria and Korea, Yan constructed extensive early walls and endured as one of the Seven Warring States until Qin conquest.
+  extra_images:
+    - { url: /images/extra/yan-1.webp, credit: "Baomi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze knife money of the state of Yan (Capital Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Knife-shaped_Money_of_the_Yan_State.jpg" }
+    - { url: /images/extra/yan-2.webp, credit: "BabelStone, CC BY-SA 3.0, via Wikimedia Commons", caption: "Roof tile end with an animal mask from Yan Xiadu, the lower capital of the state of Yan, Warring States period", source: "https://commons.wikimedia.org/wiki/File:Warring_states_roof_tile_end_2.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=uQt3k9QfLBs
@@ -3524,6 +3552,8 @@
       credit: knowl card, YouTube
 - id: zhao
   description: A powerful northern kingdom among the Seven Warring States, formed from the partition of Jin in modern Shanxi and Hebei. Under King Wuling, Zhao revolutionized Chinese warfare by adopting nomadic cavalry tactics and clothing ('Hu clothing and mounted archery'), defending northern frontiers against Steppe nomads until crushed by Qin at the catastrophic Battle of Changping.
+  extra_images:
+    - { url: /images/extra/zhao-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze spade money of the state of Zhao, Warring States period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Zhao_State_Spade_Coin_(10110069913).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=i-D5NtE6c4M
@@ -3531,6 +3561,8 @@
       credit: knowl card, YouTube
 - id: wei
   description: One of the Seven Warring States created from the partition of Jin, occupying the fertile central Yellow River plains of modern Shanxi and Henan. Under Marquis Wen and the Legalist reforms of Li Kui, Wei became the premier military and economic superpower of the early Warring States before facing defeats against Qin and Qi.
+  extra_images:
+    - { url: /images/extra/wei-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze spade money of the state of Wei, Warring States period (Henan Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Spade-shaped_Coins_of_Wei_State.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Gp0b316IdD4
@@ -3538,6 +3570,8 @@
       credit: knowl card, YouTube
 - id: han
   description: One of the Seven Warring States, established in 403 BCE when three noble families partitioned the great state of Jin in modern Henan and Shanxi. Positioned strategically in the central plains, Han was an advanced center of iron weaponry and crossbow manufacture, but its small size left it vulnerable to conquest by neighboring Qin in 230 BCE.
+  extra_images:
+    - { url: /images/extra/han-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze spade money of the state of Han, Warring States period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Han_State_Spade_Coin_(10110029956).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=iq7pUMqxSAY
@@ -3545,6 +3579,8 @@
       credit: Bedtime history of ancient China, YouTube
 - id: lu
   description: An influential Zhou vassal state in modern Shandong, founded by Boqin, the son of the revered Duke of Zhou. Celebrated as the cultural heartland of classical ritual, historical chronicle keeping, and moral philosophy, Lu was the birthplace of Confucius, preserving ancient Zhou rites long after other states had abandoned them.
+  extra_images:
+    - { url: /images/extra/lu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze gui made by an official of Lu as a dowry gift, state of Lu, Spring and Autumn period, found in Shandong", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Gui_(9831260353).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Ly5Emk2bG3M
@@ -3553,6 +3589,9 @@
 # Batch 5B: Spring & Autumn States and Chu-Han Eighteen Kingdoms
 - id: cai
   description: An ancient Chinese vassal state founded in the 11th century BCE by a younger brother of King Wu of Zhou in modern Henan. Positioned precariously between the central plains and the expanding southern power of Chu, Cai survived centuries of border conflicts through shifting alliances before final annexation by Chu in 447 BCE.
+  extra_images:
+    - { url: /images/extra/cai-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze square hu of Shen, Marquis of Cai, from his tomb in Shouxian, Anhui, Spring and Autumn period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Fanghu_(9830926843).jpg" }
+    - { url: /images/extra/cai-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze dagger-axe (ge) of Prince Jia of Cai, inlaid with an inscription, late Spring and Autumn period (Shanghai Museum)", source: "https://commons.wikimedia.org/wiki/File:Late_Spring_&_Autumn_Bronze_Ge_(10180080346).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=GZ_lSXv4Psg
@@ -3567,6 +3606,8 @@
       credit: Hui Podcast, YouTube
 - id: chen
   description: An ancient Zhou vassal state situated in modern eastern Henan, traditionally founded by Duke Hu as descendants of the legendary sage-king Shun. Serving as a cultural buffer between northern Zhou states and the southern realm of Chu, Chen maintained distinctive shamanic religious traditions until its absorption by Chu in 478 BCE.
+  extra_images:
+    - { url: /images/extra/chen-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze hu made by the Marquis of Chen as a dowry for his daughter, Spring and Autumn period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Hu_(9831717185).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bABIasJP48k
@@ -3574,6 +3615,9 @@
       credit: Hui Podcast, YouTube
 - id: qin
   description: A rugged frontier state in the western Wei River valley of modern Shaanxi, traditionally tasked with breeding warhorses and defending Zhou frontiers against nomadic tribes. Implementing radical Legalist reforms under Shang Yang, Qin developed a meritocratic military and centralized bureaucracy that ultimately conquered all rival states to unify China in 221 BCE.
+  extra_images:
+    - { url: /images/extra/qin-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "The Qin Gong gui, a bronze food vessel cast for a duke of Qin with an inscription on his ancestors, Spring and Autumn period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:-0770_-0403_Qin_Gong_Bronze_Gui_(food_container)_Spring_and_Autumn_Period_National_Museum_of_China_anagoria.jpg" }
+    - { url: /images/extra/qin-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze dagger-axe (ge) of the state of Qin, cast in 243 BCE under the chancellor Lü Buwei (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Ge_-_2.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Vmiv4zAeeAA
@@ -3581,6 +3625,8 @@
       credit: Sino Epochs, YouTube
 - id: song
   description: An ancient central plains state in modern eastern Henan, granted by the Zhou kings to the surviving royal nobility of the defeated Shang dynasty to maintain ancestral rites. Famed for its merchant commerce and ethical adherence to ancient chivalric codes, Song was satirized in philosophical fables before being partitioned by Qi, Chu, and Wei.
+  extra_images:
+    - { url: /images/extra/song-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Inscribed bronze dagger-axe (ge) of Duke Luan of Song, Spring and Autumn period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Decorated_Ge_Dagger-axe.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bABIasJP48k
@@ -3602,6 +3648,10 @@
       credit: GatesOfKilikien, YouTube
 - id: wu
   description: A dynamic maritime and riverine kingdom in the lower Yangtze delta of modern Jiangsu, centered around modern Suzhou. Expanding rapidly in the late Spring and Autumn period with the strategic advice of Sun Tzu, Wu dominated regional waterways with specialized navies and prized cast-bronze swords before being conquered by neighboring Yue in 473 BCE.
+  extra_images:
+    - { url: /images/extra/wu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Hilt of the bronze sword of Fuchai, the last king of Wu, found in Huixian, Henan (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Jian_(Sword)_(9831617575).jpg" }
+    - { url: /images/extra/wu-2.webp, credit: "Augusthaiho, CC BY-SA 4.0, via Wikimedia Commons", caption: "Spear of King Fuchai of Wu, inscribed 'made by Fuchai, King of Wu, for his own use', found in a tomb at Jiangling (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:吴王夫差剑05096.jpg" }
+    - { url: /images/extra/wu-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze sword of King Guang (Helü) of Wu, late Spring and Autumn period (Shanghai Museum)", source: "https://commons.wikimedia.org/wiki/File:Late_Spring_&_Autumn_Bronze_Jian_(10180019235).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bvFJvfSfE60
@@ -3616,6 +3666,10 @@
       credit: Hui Podcast, YouTube
 - id: zheng
   description: An influential central plains vassal state founded in the late Western Zhou in modern Henan, centered on the commercial capital of Xinzheng. Under the astute leadership of Duke Zhuang, Zheng was the first state to challenge royal Zhou authority, pioneering the interstate balance of power during the early Spring and Autumn period.
+  extra_images:
+    - { url: /images/extra/zheng-1.webp, credit: "G41rn8, CC BY-SA 4.0, via Wikimedia Commons", caption: "The 'lotus and crane' square hu from Xinzheng, capital of the state of Zheng, Spring and Autumn period (Henan Museum)", source: "https://commons.wikimedia.org/wiki/File:Henan_Museum_2006_9-10.jpg" }
+    - { url: /images/extra/zheng-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Sets of bronze ding, li and gui from the tomb of a ruler of Zheng at Xinzheng, excavated in 1997 (Zhengzhou Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Dings,_Li,_&_Gui,_from_Tomb_of_King_of_Zheng_State,_Xinzheng,_1997.jpg" }
+    - { url: /images/extra/zheng-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A set of bronze bells from Zheng, Spring and Autumn period (Zhengzhou Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Niu_Bells,_Zheng_State.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Z7VIycwTieU
@@ -3630,6 +3684,9 @@
       credit: knowl card, YouTube
 - id: yue
   description: An ancient indigenous kingdom centered south of the Yangtze River around modern Zhejiang and northern Fujian, famed for seafaring, aquaculture, and peerless bronze sword metallurgy. Under King Goujian, Yue rebounded from near destruction to conquer its bitter northern rival Wu in 473 BCE, briefly achieving hegemony before succumbing to Chu.
+  extra_images:
+    - { url: /images/extra/yue-1.webp, credit: "Siyuwj, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Sword of Goujian, king of Yue, still sharp and untarnished when found in a Chu tomb in 1965 (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Sword_of_Goujian,_Hubei_Provincial_Museum,_2015-04-06_01.jpg" }
+    - { url: /images/extra/yue-2.webp, credit: "Discott, CC BY-SA 3.0, via Wikimedia Commons", caption: "Kneeling figure with tattoos from the state of Yue (Zhejiang Provincial Museum, Hangzhou)", source: "https://commons.wikimedia.org/wiki/File:Yue_statue.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mAWkFpkROgw
@@ -3637,6 +3694,9 @@
       credit: Ancient SEA, YouTube
 - id: zhongshan
   description: A unique kingdom in the central plains of modern Hebei, founded by the semi-nomadic White Di (Baidi) pastoralists during the Warring States period. Remarkably synthesizing Steppe nomadic traditions with sophisticated Zhou ritual culture and bronze casting, Zhongshan built fortified capitals and resisted Zhao and Wei invasions for over a century before falling in 296 BCE.
+  extra_images:
+    - { url: /images/extra/zhongshan-1.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver-inlaid bronze winged beasts from the tomb of King Cuo of Zhongshan at Pingshan, 4th century BCE (Hebei Museum)", source: "https://commons.wikimedia.org/wiki/File:20250118_Bronze_Mythical_Winged_Beasts_Inlaid_with_Silver_01.jpg" }
+    - { url: /images/extra/zhongshan-2.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold- and silver-inlaid bronze stand in the form of a tiger devouring a deer, from the tomb of King Cuo of Zhongshan (Hebei Museum)", source: "https://commons.wikimedia.org/wiki/File:20250118_Bronze_Stand_in_the_Form_of_a_Tiger_Devouring_a_Deer.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Op7G8Y6Y9Pk
