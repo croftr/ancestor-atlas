@@ -714,6 +714,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Potato
   image_url: /images/events/andean-domestication.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/andean-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/andean-domestication-1.webp, credit: "Thayne Tuason, CC BY 4.0, via Wikimedia Commons", caption: "Potato varieties at the market in Huancayo, Peru", source: "https://commons.wikimedia.org/wiki/File:Mercado_Modelo_de_Huancayo_Peru-_Solanum_tuberosum_varieties_V.jpg" }
     - { url: /images/events/extra/andean-domestication-2.webp, credit: "Matthew Straubmuller, CC BY 2.0, via Wikimedia Commons", caption: "Llamas on the shore of Lake Titicaca, Bolivia", source: "https://commons.wikimedia.org/wiki/File:Llamas_at_Lake_Titicaca_(8360967487).jpg" }
