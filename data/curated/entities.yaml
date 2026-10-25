@@ -3058,6 +3058,8 @@
       credit: Reelimaginarium, YouTube
 - id: janapada-of-avanti
   description: A powerful western Mahajanapada centered in the fertile Malwa plateau of modern Madhya Pradesh, with major capitals at Ujjayini (Ujjain) and Mahishmati. A major hub of inland trade routes connecting north India to western sea ports, Avanti was a great center of early Buddhism and metallurgy before succumbing to Magadha.
+  extra_images:
+    - { url: /images/extra/janapada-of-avanti-1.webp, credit: "Jean-Michel Moullec, CC BY 2.0, via Wikimedia Commons", caption: "Silver half karshapana of the kingdom of Avanti", source: "https://commons.wikimedia.org/wiki/File:I13_12karshapana_Avanti_1ar_(8481304617).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=kNn54y5e7WY
@@ -3072,6 +3074,9 @@
       credit: AIEkAdhyayan, YouTube
 - id: janapada-of-gandhara
   description: An ancient kingdom situated in the fertile Peshawar valley and Potohar plateau of northwestern Pakistan and eastern Afghanistan, centered at Taxila and Pushkalavati. Positioned at the western gateway of the Indian subcontinent, Gandhara was famed for Vedic scholarship, cosmopolitan Silk Road trade, and later the magnificent synthesis of Greco-Buddhist art.
+  extra_images:
+    - { url: /images/extra/janapada-of-gandhara-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver bent-bar coins of the Gandhara Janapada, among the earliest coins of South Asia", source: "https://commons.wikimedia.org/wiki/File:Bent_bars_Gandhara_Janapada.jpg" }
+    - { url: /images/extra/janapada-of-gandhara-2.webp, credit: "Dawoodmajoka, public domain, via Wikimedia Commons", caption: "The Bhir Mound at Taxila, Pakistan, the oldest city of Taxila, capital of Gandhara", source: "https://commons.wikimedia.org/wiki/File:BhirMound.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=d44rhmRC3zk
@@ -3086,6 +3091,8 @@
       credit: Reelimaginarium, YouTube
 - id: janapada-of-kasi
   description: An ancient kingdom in the central Ganges valley centered on the sacred pilgrimage city of Varanasi (Benares). Known for fine cotton textiles, ivory carving, and spiritual scholarship, Kasi was one of the wealthiest early Janapadas, frequently warring with neighboring Kosala before being absorbed by its northern rival.
+  extra_images:
+    - { url: /images/extra/janapada-of-kasi-1.webp, credit: "Fred Cherrygarden, CC BY-SA 4.0, via Wikimedia Commons", caption: "Punch-marked silver vimshatika of the Kashi Janapada, with bankers' marks", source: "https://commons.wikimedia.org/wiki/File:Kashi_Vimshatika.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=oABt9OP-3-E
@@ -3093,6 +3100,8 @@
       credit: Gems of Indian History, YouTube
 - id: janapada-of-kosala
   description: A dominant northern Mahajanapada encompassing modern Awadh in Uttar Pradesh, with historic capitals at Shravasti and Ayodhya. Under King Prasenajit, Kosala was an economic powerhouse closely associated with the lives of Gautama Buddha and Mahavira, engaging in bitter geopolitical competition with Magadha for hegemony over the Gangetic Plain.
+  extra_images:
+    - { url: /images/extra/janapada-of-kosala-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Punch-marked silver karshapanas of the Kosala Janapada, about 525–465 BCE", source: "https://commons.wikimedia.org/wiki/File:Kosala_Karshapana.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bXnC3_WJ7Wo
@@ -3100,6 +3109,8 @@
       credit: Gems of Indian History, YouTube
 - id: janapada-of-kuru
   description: The pioneering Middle Vedic tribal kingdom situated in the Kurukshetra and upper Doab regions between the Saraswati and Ganges rivers. Famous as the legendary setting of the Mahabharata, the Kuru state under King Parikshit and Janamejaya codified Vedic rituals, collected the Vedic hymns, and established early North Indian social stratification.
+  extra_images:
+    - { url: /images/extra/janapada-of-kuru-1.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Punch-marked coin of the Kuru Janapada (INHCRF Coin Museum, Nashik)", source: "https://commons.wikimedia.org/wiki/File:Punch-marked_coin_of_the_Kuru_Janapada,_INHCRF_Coin_Museum,_Nashik,_Maharashtra.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FU_0o4E4sPQ
@@ -3107,6 +3118,9 @@
       credit: History Chronicles, YouTube
 - id: janapada-of-magadha
   description: The preeminent eastern Mahajanapada based in the fertile plains of modern southern Bihar, centered at the natural fortress capital of Rajagriha. Endowed with rich iron deposits, fertile rice agriculture, and strategic river trade, Magadha pioneered elephant warfare and statecraft, becoming the imperial nucleus of ancient Indian empire building.
+  extra_images:
+    - { url: /images/extra/janapada-of-magadha-1.webp, credit: "Rohit Sharma, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Cyclopean Wall of Rajgir, the stone circuit that enclosed Rajagriha, the early capital of Magadha", source: "https://commons.wikimedia.org/wiki/File:Cyclopean_Wall_of_Rajgir.jpg" }
+    - { url: /images/extra/janapada-of-magadha-2.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Punch-marked silver karshapanas of the kingdom of Magadha, about 430–320 BCE", source: "https://commons.wikimedia.org/wiki/File:Magadha_kingdom_Circa_430-320s_BC_AR_Karshapana.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=QjZIgavpDcI
@@ -3121,6 +3135,8 @@
       credit: Gems of Indian History, YouTube
 - id: janapada-of-matsya
   description: An ancient kingdom situated south of the Kuru realm in modern eastern Rajasthan, centered on the capital of Viratnagar (Bairat). Mentioned extensively in the Vedic literature and Mahabharata as an agricultural and pastoral realm, Matsya maintained independent republican and monarchical traditions before absorption into the Maurya Empire.
+  extra_images:
+    - { url: /images/extra/janapada-of-matsya-1.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Punch-marked karshapana of the Matsya Janapada", source: "https://commons.wikimedia.org/wiki/File:Ksharpana_from_Matsya_Janpad,_Private_collection.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=65-ilDatFXg
@@ -3135,6 +3151,8 @@
       credit: Gems of Indian History, YouTube
 - id: janapada-of-surasena
   description: An ancient kingdom situated in the Braj region along the Yamuna River in western Uttar Pradesh, centered at the historic city of Mathura. Revered in Hindu tradition as the birthplace and homeland of Krishna and the Yadava clans, Surasena was an important pilgrimage, commercial, and artistic crossroad in northern India.
+  extra_images:
+    - { url: /images/extra/janapada-of-surasena-1.webp, credit: "Biswarup Ganguly, CC BY 3.0, via Wikimedia Commons", caption: "Sherd of Northern Black Polished Ware, the fine pottery of the Mahajanapada period, from Sonkh near Mathura, capital of Surasena (Government Museum, Mathura)", source: "https://commons.wikimedia.org/wiki/File:Fragment_-_Northern_Black_Polished_Ware_-_500-100_BCE_-_Sonkh_-_Showcase_6-15_-_Prehistory_and_Terracotta_Gallery_-_Government_Museum_-_Mathura_2013-02-24_6458.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=xQe-Mc_SqFQ
@@ -3142,6 +3160,8 @@
       credit: LearnersHub, YouTube
 - id: janapada-of-vajji
   description: A celebrated democratic confederacy of eight allied clans—most prominently the Licchavis—based in northern Bihar with its magnificent capital at Vaishali. Governed through participatory assembly debates and elected leaders rather than hereditary monarchs, the Vajji Sangha was a prosperous bastion of early Jainism and Buddhism before conquest by Ajatashatru of Magadha.
+  extra_images:
+    - { url: /images/extra/janapada-of-vajji-1.webp, credit: "Sumitsurai, CC BY-SA 4.0, via Wikimedia Commons", caption: "The modern shelter over the Relic Stupa at Vaishali, capital of the Licchavis of the Vajji confederacy, said to hold their share of the Buddha's ashes", source: "https://commons.wikimedia.org/wiki/File:Buddha_Relic_Stupa_-_Vaishali_(1).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=hvQ2oK5wj5w
@@ -3156,6 +3176,8 @@
       credit: Gems of Indian History, YouTube
 - id: mahajanapadas
   description: The sixteen 'Great Realms'—spanning monarchies and aristocratic republics—that flourished across the Indo-Gangetic Plain and Deccan from the 6th to 4th centuries BCE. This transformative era witnessed the 'Second Urbanisation' of South Asia, the rise of coinage and guild commerce, and the emergence of Jain, Buddhist, and Ajivika philosophy.
+  extra_images:
+    - { url: /images/extra/mahajanapadas-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Early Indian silver money: bent bars and punch-marked coins of the Mahajanapadas, with later Mauryan pieces", source: "https://commons.wikimedia.org/wiki/File:Mix_of_short_punch-marked_bent_bars,_long_ones,_Gandharan_coins_and_Mauryan_punch-marked_coins.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=k2F9lHYqWrI
@@ -3163,6 +3185,9 @@
       credit: StudyIQ IAS, YouTube
 - id: magadha-haryanka-dynasty
   description: The foundational imperial dynasty of Magadha, established by King Bimbisara and expanded by his son Ajatashatru in the 6th and 5th centuries BCE. The Haryanka monarchs annexed Anga, conquered the Vajji confederacy through innovative siege engines, constructed Pataliputra, and actively patronized both the Buddha and Mahavira.
+  extra_images:
+    - { url: /images/extra/magadha-haryanka-dynasty-1.webp, credit: "Biswarup Ganguly, CC BY 3.0, via Wikimedia Commons", caption: "King Bimbisara and his court leaving Rajagriha to visit the Buddha, relief on the north gateway of Stupa 1 at Sanchi, 1st century BCE", source: "https://commons.wikimedia.org/wiki/File:Bimbisara_with_his_royal_cortege_issuing_from_the_city_of_Rajagriha_to_visit_the_Buddha.jpg" }
+    - { url: /images/extra/magadha-haryanka-dynasty-2.webp, credit: "Photo Dharma, CC BY 2.0, via Wikimedia Commons", caption: "King Ajatashatru worshipping the Buddha, a relief from the Bharhut stupa, 2nd century BCE (Indian Museum, Kolkata)", source: "https://commons.wikimedia.org/wiki/File:Indian_Museum_Sculpture_-_Ajatasattu_worships_the_Buddha_(9217704485).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=sZ-rLiYyDTo
@@ -3177,6 +3202,8 @@
       credit: Crazy Color Facts, YouTube
 - id: nanda-empire
   description: The powerful pan-Gangetic empire established in the 4th century BCE by Mahapadma Nanda, who overthrew the Shaishunagas and conquered numerous northern Indian kingdoms. Governed from Pataliputra, the Nandas accumulated immense treasury wealth and commanded a vast standing army of 200,000 infantry and 3,000 war elephants that discouraged Alexander the Great from advancing into India.
+  extra_images:
+    - { url: /images/extra/nanda-empire-1.webp, credit: "PHG, public domain, via Wikimedia Commons", caption: "Punch-marked silver coin of the Nanda Empire with the sun, the six-armed symbol of Magadha, a bull on a hill and an elephant", source: "https://commons.wikimedia.org/wiki/File:MauryanCoin.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=07IUrCT3OwQ
@@ -3204,6 +3231,9 @@
     - { url: /images/extra/maurya-empire-4.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Stupa at Sanchi, originally commissioned by Emperor Ashoka", source: "https://commons.wikimedia.org/wiki/File:Stupa_1,_Sanchi_02.jpg" }
 - id: anuradhapura
   description: The first major kingdom of ancient Sri Lanka, established around the historic capital city of Anuradhapura in 377 BCE by King Pandukabhaya. Flourishing for over a millennium, the kingdom engineered monumental hydraulic irrigation reservoirs (tanks) and celebrated Buddhist stupas, officially embracing Theravada Buddhism under King Devanampiya Tissa.
+  extra_images:
+    - { url: /images/extra/anuradhapura-1.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Thuparamaya, the first stupa of Sri Lanka, built at Anuradhapura in the 3rd century BCE (restored), with the pillars of its former roof", source: "https://commons.wikimedia.org/wiki/File:Thuparamaya_dagaba.jpg" }
+    - { url: /images/extra/anuradhapura-2.webp, credit: "KennyOMG, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ruwanweli Saya, the great stupa built at Anuradhapura by King Dutugemunu in the 2nd century BCE (restored)", source: "https://commons.wikimedia.org/wiki/File:Ruwanweli_Saya_1.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vLDTBFcqKdA
@@ -3244,6 +3274,9 @@
       credit: EPIC TV, YouTube
 - id: mahameghavahana-dynasty
   description: A resurgent royal dynasty of ancient Kalinga that restored the region's independence and imperial prestige following the collapse of the Maurya Empire. Its greatest ruler, King Kharavela (2nd century BCE), left the celebrated Hathigumpha rock inscription at Udayagiri, detailing victorious campaigns across North India and generous patronage of Jainism.
+  extra_images:
+    - { url: /images/extra/mahameghavahana-dynasty-1.webp, credit: "Alexander E. Caddy, public domain, via Wikimedia Commons", caption: "The two-storey Rani Gumpha at Udayagiri near Bhubaneswar, a Jain monastery cut under the Mahameghavahana kings, photographed in 1895", source: "https://commons.wikimedia.org/wiki/File:*General_view_of_the_facade_of_the_Rani_Gumpha,_Udayagiri,_a_photo_by_Alexander_E._Caddy,_1895.jpg" }
+    - { url: /images/extra/mahameghavahana-dynasty-2.webp, credit: "Kevin Standage, CC BY-SA 2.0, via Wikimedia Commons", caption: "Guardian figure in foreign (Yavana) dress carved at the Udayagiri caves, Odisha", source: "https://commons.wikimedia.org/wiki/File:Yavana_warrior,_Udayagiri_and_Khandagiri_Caves.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=5WWrhbaQyLY
@@ -3251,6 +3284,11 @@
       credit: The Occasional Professor, YouTube
 - id: shunga-empire
   description: The Magadhan imperial dynasty established in 185 BCE by Pushyamitra Shunga after the assassination of the last Maurya emperor, Brihadratha. Ruling from Pataliputra and Vidisha, the Shungas repelled Indo-Greek invasions, patronized traditional Vedic horse sacrifices (Ashvamedha), and sponsored magnificent Buddhist architectural expansions at Bharhut and the Great Stupa of Sanchi.
+  extra_images:
+    - { url: /images/extra/shunga-empire-1.webp, credit: "Tinucherian, CC BY 3.0, via Wikimedia Commons", caption: "The carved sandstone railing and gateway of the Bharhut stupa, Shunga period (Indian Museum, Kolkata)", source: "https://commons.wikimedia.org/wiki/File:Polished_sandstone_Vedika,_Bharhut_stupa,_Shunga_dynasty,_Indian_Museum,_Kolkata_1515.jpg" }
+    - { url: /images/extra/shunga-empire-2.webp, credit: "Biswarup Ganguly, CC BY 3.0, via Wikimedia Commons", caption: "Gajalakshmi bathed by elephants, a medallion from the Bharhut railing, 2nd century BCE (Indian Museum, Kolkata)", source: "https://commons.wikimedia.org/wiki/File:Gajalaxmi_-_Medallion_-_2nd_Century_BCE_-_Red_Sand_Stone_-_Bharhut_Stupa_Railing_Pillar_-_Madhya_Pradesh_-_Indian_Museum_-_Kolkata_2012-11-16_1837_Cropped.JPG" }
+    - { url: /images/extra/shunga-empire-3.webp, credit: "Bjoertvedt, CC BY-SA 4.0, via Wikimedia Commons", caption: "Terracotta plaque of a goddess from northeastern India, Shunga period, about 100 BCE (Asian Civilisations Museum, Singapore)", source: "https://commons.wikimedia.org/wiki/File:India_northeast_Shunga_period_c_100_BC_-_Mother_goddess_in_terracotta_IMG_9623_Museum_of_Asian_Civilisation.jpg" }
+    - { url: /images/extra/shunga-empire-4.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Terracotta disc with an elephant from Sugh, Haryana, 2nd century BCE (Government Museum and Art Gallery, Chandigarh)", source: "https://commons.wikimedia.org/wiki/File:Terracotta_disc_with_elephant_motif_from_Sugh,_Haryana,_circa_2nd_century_BCE,_Shunga_Period,_Government_Museum_and_Art_Gallery,_Chandigarh.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=2pc5wPFdFQg
@@ -3265,6 +3303,11 @@
       credit: Let's Crack UPSC CSE, YouTube
 - id: indo-greeks
   description: The Hellenistic kingdom established in the 2nd century BCE when Greco-Bactrian rulers like Demetrius and Menander I expanded into northwestern South Asia (modern Afghanistan, Pakistan, and northwestern India). Famous for artistic bilingual coinage in Greek and Kharosthi, the kingdom fostered the rich synthesis of Greco-Buddhist religion, philosophy, and Gandharan sculpture.
+  extra_images:
+    - { url: /images/extra/indo-greeks-1.webp, credit: "Vidishaprakash, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Heliodorus pillar at Vidisha, set up about 110 BCE by Heliodorus, ambassador of the Indo-Greek king Antialcidas", source: "https://commons.wikimedia.org/wiki/File:Heliodorus_pillar.JPG" }
+    - { url: /images/extra/indo-greeks-2.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Portrait of King Menander I (about 165–130 BCE) on his coinage", source: "https://commons.wikimedia.org/wiki/File:Menander_I,_portrait_from_coinage.jpg" }
+    - { url: /images/extra/indo-greeks-3.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Bilingual coin of Antialcidas, with Greek on one side and Kharosthi on the other, and Zeus with an elephant", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Antialkidas.jpg" }
+    - { url: /images/extra/indo-greeks-4.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Square bilingual coin of Apollodotus I with an elephant and an Indian humped bull", source: "https://commons.wikimedia.org/wiki/File:Apollodotus_zebu_with_nandipada_hump.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ZxJk4KHZxi8
@@ -3272,6 +3315,11 @@
       credit: Kings and Generals, YouTube
 - id: indo-scythians
   description: A confederation of Saka (Scythian) nomadic tribes who migrated from Central Asia into northwestern South Asia (Gandhara, Punjab, Gujarat, and Mathura) during the 1st century BCE. Adopting Buddhism and Indian royal titles while retaining Iranian cavalry traditions, the Sakas established powerful satrapies that influenced North Indian coin design, art, and urban governance.
+  extra_images:
+    - { url: /images/extra/indo-scythians-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Coin of Maues, the first Indo-Scythian king in Gandhara, about 80 BCE", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Maues.jpg" }
+    - { url: /images/extra/indo-scythians-2.webp, credit: "PHG, CC BY-SA 3.0, via Wikimedia Commons", caption: "Coin of Azes II with the king on horseback, 1st century BCE", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Azes_II.jpg" }
+    - { url: /images/extra/indo-scythians-3.webp, credit: "PHGCOM, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Mathura lion capital, inscribed in Kharosthi for the family of the Indo-Scythian satrap Rajuvula (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Mathura_Lion_Capital_Detail.jpg" }
+    - { url: /images/extra/indo-scythians-4.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "The gold Bimaran reliquary, found with coins of Azes, with one of the earliest images of the Buddha (British Museum)", source: "https://commons.wikimedia.org/wiki/File:BimaranCasket2.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=LeDeYvP3nwE
@@ -3282,6 +3330,8 @@
   image_url: /images/civilisations/indo-parthians.webp
   image_caption: Taxila (Sirkap) blending Hellenistic and Indian architecture, King Gondophares conferring with Buddhist monks before the Double-Headed Eagle Stupa.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/indo-parthians-1.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "Coin of Gondophares, founder of the Indo-Parthian kingdom (British Museum)", source: "https://commons.wikimedia.org/wiki/File:GondopharesCoin.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=bJRFT2s49Ao
