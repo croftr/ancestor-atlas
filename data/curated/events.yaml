@@ -531,6 +531,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Late_Pleistocene_extinctions
   image_url: /images/events/quaternary-megafauna-extinction.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/quaternary-megafauna-extinction-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/quaternary-megafauna-extinction-1.webp, credit: "WikiWhens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavated skull and tusks of 'Zed', a Columbian mammoth (Mammuthus columbi), at the La Brea Tar Pits Museum lab", source: "https://commons.wikimedia.org/wiki/File:Zed%27s_Skull_La_Brea_Tar_Pits_Museum.jpg" }
     - { url: /images/events/extra/quaternary-megafauna-extinction-2.webp, credit: "Andreas Köhler, CC BY-SA 4.0, via Wikimedia Commons", caption: "Wall display of dire wolf (Aenocyon dirus) skulls excavated from the asphalt seeps at La Brea", source: "https://commons.wikimedia.org/wiki/File:Dire_Wolf_(Canis_dirus)_skulls_at_the_Page_Museum_at_the_La_Brea_Tar_Pits_(6802031936).jpg" }
