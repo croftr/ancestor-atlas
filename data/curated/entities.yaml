@@ -1075,6 +1075,11 @@
   image_url: /images/civilisations/ancient-greece.webp
   image_credit: AI-generated illustration
   image_caption: "Classical Athens with citizens and philosophers conversing in the Agora, overlooked by the Parthenon and Acropolis above the Saronic Gulf"
+  extra_images:
+    - { url: /images/extra/ancient-greece-1.webp, credit: "HerrAdams, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Tholos in the sanctuary of Athena Pronaia at Delphi, about 380 BCE", source: "https://commons.wikimedia.org/wiki/File:Delphi,_Tholos_2015-09_(1).jpg" }
+    - { url: /images/extra/ancient-greece-2.webp, credit: "David Monniaux, CC BY-SA 1.0, via Wikimedia Commons", caption: "The Charioteer of Delphi, a bronze from a victory monument of about 474 BCE (Delphi Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Delphi_charioteer_front_DSC06255.JPG" }
+    - { url: /images/extra/ancient-greece-3.webp, credit: "Sailko, CC BY 2.5, via Wikimedia Commons", caption: "The bronze god from Cape Artemision, Zeus or Poseidon, about 460 BCE (National Archaeological Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:God_of_Cape_Artemision_01.JPG" }
+    - { url: /images/extra/ancient-greece-4.webp, credit: "Berthold Werner, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Temple of Poseidon on Cape Sounion, built about 440 BCE", source: "https://commons.wikimedia.org/wiki/File:Greece_Cape_Sounion_BW_2017-10-09_10-00-54.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=oV0pOBij-wM
@@ -1885,6 +1890,11 @@
       credit: National History, YouTube
 - id: roman-kingdom
   description: The foundational monarchical period of ancient Rome, traditionally inaugurated by Romulus in 753 BCE and ending with the expulsion of the tyrant Tarquin the Proud in 509 BCE. During this era, Rome evolved from a modest pastoral settlement on the Tiber into an organized city-state, establishing the Senate, curiae, and core religious institutions.
+  extra_images:
+    - { url: /images/extra/roman-kingdom-1.webp, credit: "Ursus, public domain, via Wikimedia Commons", caption: "The inscribed stone under the Lapis Niger in the Roman Forum, one of the oldest Latin inscriptions, 6th century BCE", source: "https://commons.wikimedia.org/wiki/File:Lapis_niger_stele.JPG" }
+    - { url: /images/extra/roman-kingdom-2.webp, credit: "Jordiferrer, CC BY-SA 4.0, via Wikimedia Commons", caption: "The sacred area of Sant'Omobono in Rome, where an archaic temple of the time of the kings was excavated", source: "https://commons.wikimedia.org/wiki/File:2016_Sacred_area_of_Sant'Omobono_02.jpg" }
+    - { url: /images/extra/roman-kingdom-3.webp, credit: "Lalupa, public domain, via Wikimedia Commons", caption: "The outlet of the Cloaca Maxima into the Tiber, the great drain traditionally begun under the Tarquin kings", source: "https://commons.wikimedia.org/wiki/File:040227_tevere16CloacaMaxima.jpg" }
+    - { url: /images/extra/roman-kingdom-4.webp, credit: "Sailko, CC BY 3.0, via Wikimedia Commons", caption: "Pottery hut urn for cremated remains from Castel Gandolfo in the Alban Hills, 900–850 BCE, showing the round huts of early Latium (Gregorian Etruscan Museum, Vatican)", source: "https://commons.wikimedia.org/wiki/File:Urna_a_capanna_da_castelgandolfo-montecucco,_tomba_a,_900-850_ac_ca..JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=d4hA2ESdvE0
@@ -1892,6 +1902,9 @@
       credit: Epoch Atlas, YouTube
 - id: phoenician-colonies
   description: The widespread network of trading posts, naval stations, and permanent colonies established across the Mediterranean basin by Phoenician mother-cities like Tyre and Sidon. Spanning Cyprus, Malta, Sicily, Sardinia, North Africa (Carthage), and southern Iberia (Gadir), these settlements secured critical mineral and agricultural trade routes, diffusing Levantine culture and alphabetic writing.
+  extra_images:
+    - { url: /images/extra/phoenician-colonies-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "The Nora Stone from Sardinia, one of the oldest Phoenician inscriptions in the western Mediterranean, 9th–8th century BCE (National Archaeological Museum, Cagliari)", source: "https://commons.wikimedia.org/wiki/File:Stele_von_Nora_01.jpg" }
+    - { url: /images/extra/phoenician-colonies-2.webp, credit: "b.roveran, CC BY 2.0, via Wikimedia Commons", caption: "The island of Motya (Mozia) off western Sicily, a Phoenician colony founded in the 8th century BCE", source: "https://commons.wikimedia.org/wiki/File:Isola_di_Mozia_vue_générale.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mU4aU5yoyp4
@@ -1899,6 +1912,8 @@
       credit: World History Encyclopedia, YouTube
 - id: sacred-band-of-thebes
   description: The elite military vanguard of the ancient city-state of Thebes, composed of 150 pairs of dedicated male hoplite companions. Under the leadership of Epaminondas and Pelopidas, this renowned unit shattered Spartan military supremacy at the Battle of Leuctra in 371 BCE, remaining undefeated until annihilation by Philip II at Chaeronea.
+  extra_images:
+    - { url: /images/extra/sacred-band-of-thebes-1.webp, credit: "Calistemon, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lion of Chaeronea, raised over the mass grave of the Sacred Band, who fell to the last man against Philip II in 338 BCE", source: "https://commons.wikimedia.org/wiki/File:Lion_of_Chaeronea,_September_2022_01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=xWsZwlN1j3c
@@ -1913,6 +1928,8 @@
       credit: Thersites the Historian, YouTube
 - id: antigonid-dynasty
   description: The Macedonian royal house founded by Antigonus I Monophthalmus ('the One-Eyed'), which ruled the kingdom of Macedon throughout much of the Hellenistic period. Reestablished firmly by Antigonus II Gonatas, the dynasty maintained hegemony over mainland Greece until its final defeat by the Roman Republic at the Battle of Pydna in 168 BCE.
+  extra_images:
+    - { url: /images/extra/antigonid-dynasty-1.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "Silver tetradrachm of Demetrius Poliorcetes with Nike on the prow of a warship, celebrating his naval victory at Salamis in Cyprus (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Greece,_reign_of_Demetrius_Poliorcetes_(\"The_Beseiger\"),_late_4th_century_B_-_Tetradrachm-_Nike_Blowing_Trumpet,_standing_on_war_galley_prow_(obverse)_-_1929.911.a_-_Cleveland_Museum_of_Art.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=hwWwGAqi-94
@@ -1920,6 +1937,11 @@
       credit: Antiquity for All, YouTube
 - id: antigonid-macedonia
   description: The restored Macedonian kingdom under Antigonid rule, serving as the strategic and military northern bulwark of the Hellenistic Greek world. Guarding Aegean frontiers against Balkan incursions while projecting garrisons across Greece, the kingdom fought three hard-fought Macedonian Wars against the expanding Roman Republic before being dismantled into four Roman client republics.
+  extra_images:
+    - { url: /images/extra/antigonid-macedonia-1.webp, credit: "Jean Housen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The excavated city of Pella, royal capital of Macedon", source: "https://commons.wikimedia.org/wiki/File:20160518_297_pella.jpg" }
+    - { url: /images/extra/antigonid-macedonia-2.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Antigonus II Gonatas with Athena Alkidemos, about 270 BCE (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Macedonia_-_king_Antigonos_II_Gonatas_-_270_BC_-_silver_tetradrachm_-_head_of_Pan_-_Athena_-_Berlin_MK_BM.jpg" }
+    - { url: /images/extra/antigonid-macedonia-3.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Philip V as the hero Perseus on a Macedonian shield, 211–197 BCE (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Macedonia_-_king_Philippos_V_-_211-197_BC_-_silver_tetradrachm_-_head_of_Philippos_V_as_heros_Perseus_-_club_in_oak_wreath_-_Berlin_MK_BM.jpg" }
+    - { url: /images/extra/antigonid-macedonia-4.webp, credit: "Classical Numismatic Group, CC BY-SA 2.5, via Wikimedia Commons", caption: "Silver tetradrachm of Perseus, the last king of Macedon (179–168 BCE)", source: "https://commons.wikimedia.org/wiki/File:Perseus_of_Macedonia_Tetradrachm_90060057.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=PEVIhMUuYMg
@@ -1927,6 +1949,11 @@
       credit: Ancient History Guy, YouTube
 - id: greek-colonies
   description: The energetic Archaic and Classical diaspora of self-governing Greek settlements established across the Mediterranean and Black Sea coasts from the 8th to 6th centuries BCE. From Magna Graecia in southern Italy and Sicily (Syracuse) to Massalia in Gaul and the Black Sea, these colonies spread Greek civic institutions, commerce, and Mediterranean maritime culture.
+  extra_images:
+    - { url: /images/extra/greek-colonies-1.webp, credit: "Norbert Nagel, CC BY-SA 3.0, via Wikimedia Commons", caption: "The second Temple of Hera at Paestum (Poseidonia), a Greek colony in southern Italy, about 460 BCE", source: "https://commons.wikimedia.org/wiki/File:Hera_temple_II_-_Paestum_-_Poseidonia_-_July_13th_2013_-_04.jpg" }
+    - { url: /images/extra/greek-colonies-2.webp, credit: "Berthold Werner, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Temple of Concordia at Akragas (Agrigento), Sicily, about 440 BCE", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Concordia,_Agrigento_BW_2012-10-07_13-09-13.jpg" }
+    - { url: /images/extra/greek-colonies-3.webp, credit: "Michael Gunther, CC BY-SA 4.0, via Wikimedia Commons", caption: "Temple E (of Hera) at Selinous (Selinunte), the westernmost Greek city of Sicily", source: "https://commons.wikimedia.org/wiki/File:Temple_E_(Hera)_at_Selinunte,_Front_View_sel6.jpg" }
+    - { url: /images/extra/greek-colonies-4.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Greek theatre of Syracuse, cut into the rock in the 5th century BCE", source: "https://commons.wikimedia.org/wiki/File:Ancient_Greek_theater,_450-400_BC,_Syracuse,_121541.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ABHUeTRvOQ8
@@ -1937,6 +1964,8 @@
   image_url: /images/civilisations/mamertines.webp
   image_caption: Campanian mercenaries holding the fortified harbor of Messana on the Strait of Sicily, guarding the strategic maritime gateway between Sicily and the Italian mainland.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/mamertines-1.webp, credit: "Reinhard Saczewski, public domain, via Wikimedia Commons", caption: "Bronze coin of the Mamertines of Messana (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Mamertini_-_Münzkabinett,_Berlin_-_5562061.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=P4ewPrVTuwM
@@ -1947,6 +1976,9 @@
   image_url: /images/civilisations/illyrian-kingdom.webp
   image_caption: Adriatic coastal fortress of Scodra with swift lembi war galleys, chieftains in Illyrian bronze helmets trading silver ingots with Greek merchants.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/illyrian-kingdom-1.webp, credit: "Pasztilla aka Attila Terbócs, CC BY-SA 4.0, via Wikimedia Commons", caption: "The rock-cut royal tombs of Selca e Poshtme, Albania, thought to be burials of Illyrian kings, 4th–3rd century BCE", source: "https://commons.wikimedia.org/wiki/File:Selca_e_Poshtme,_Albania_–_Monumental_antique_tombs_2018_02.jpg" }
+    - { url: /images/extra/illyrian-kingdom-2.webp, credit: "Albinfo, public domain, via Wikimedia Commons", caption: "The theatre of Byllis in southern Albania, a Hellenistic city of the Illyrian Bylliones", source: "https://commons.wikimedia.org/wiki/File:Byllis_Theater.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=8fDuTqAmo9M
@@ -1954,6 +1986,10 @@
       credit: Kings and Generals, YouTube
 - id: molossians
   description: A prominent tribal kingdom of ancient Epirus located in the rugged mountainous highlands of northwestern Greece, centered on the sacred oracle sanctuary of Dodona. Uniting the Epirote tribes under the Aeacid royal house, the Molossians produced celebrated warrior-statesman Pyrrhus of Epirus, famed for his costly victories against the early Roman Republic.
+  extra_images:
+    - { url: /images/extra/molossians-1.webp, credit: "Koen, CC BY-SA 3.0, via Wikimedia Commons", caption: "The theatre at Dodona, the oracle sanctuary of Zeus in Molossian Epirus, built under Pyrrhus", source: "https://commons.wikimedia.org/wiki/File:Dodona_Theatre_1.jpg" }
+    - { url: /images/extra/molossians-2.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Marble portrait of Pyrrhus, king of the Molossians and of Epirus (National Archaeological Museum, Naples)", source: "https://commons.wikimedia.org/wiki/File:Pyrrhus_MAN_Napoli_Inv6150_n03.jpg" }
+    - { url: /images/extra/molossians-3.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Bronze coin of the Molossians with the thunderbolt of Zeus of Dodona, 360–330 BCE", source: "https://commons.wikimedia.org/wiki/File:Molossi,_Epirus.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=gGiidErAW7w
@@ -1961,6 +1997,10 @@
       credit: See U in History / Mythology, YouTube
 - id: italian-city-states
   description: The mosaic of ancient urban communities and tribal federations—including Samnites, Sabines, Volsci, Latins, and Campanians—that inhabited the Italian peninsula prior to Roman unification. Fiercely protecting local sanctuaries and democratic assemblies, these peoples engaged in repeated mountain conflicts like the Samnite Wars before gradually integrating into the Roman commonwealth.
+  extra_images:
+    - { url: /images/extra/italian-city-states-1.webp, credit: "Classical Numismatic Group, CC BY-SA 2.5, via Wikimedia Commons", caption: "Denarius of the Italian allies in the Social War, struck at Corfinium about 90 BCE, with the head of Italia and the allies' oath", source: "https://commons.wikimedia.org/wiki/File:Social_War_AR_Syd_621.1.jpg" }
+    - { url: /images/extra/italian-city-states-2.webp, credit: "Carlos Diana, public domain, via Wikimedia Commons", caption: "The Samnite theatre at the sanctuary of Pietrabbondante, the federal sanctuary of the Pentri Samnites", source: "https://commons.wikimedia.org/wiki/File:Teatro_sannitico_a_Pietrabbondante,_Italia_-_2006.jpg" }
+    - { url: /images/extra/italian-city-states-3.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Lucanian tomb painting of two warriors fighting, 3rd century BCE (Paestum Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Lucanian_fresco_tomb_painting_of_2_warriors_fighting,_3rd_century_BC,_Paestum_Archaeological_Museum_(14603089585).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=eeeK7fp5p2I
@@ -2571,6 +2611,10 @@
       credit: Paladin, YouTube
 - id: greek-dark-ages
   description: The transitional period of ancient Greek history following the catastrophic Late Bronze Age collapse of Mycenaean palace culture. Characterized initially by depopulation, the loss of Linear B literacy, and regional isolation, this era witnessed the adoption of ironworking, the spread of the Greek alphabet, and the foundational emergence of the independent polis (city-state).
+  extra_images:
+    - { url: /images/extra/greek-dark-ages-1.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The Lefkandi centaur, a painted clay figure buried in two graves, 10th century BCE (Archaeological Museum of Eretria)", source: "https://commons.wikimedia.org/wiki/File:Centaur_Chiron_of_Lefkandi,_Archaeological_museum_of_Eretria,_Greece.jpg" }
+    - { url: /images/extra/greek-dark-ages-2.webp, credit: "Mark Landon, CC0, via Wikimedia Commons", caption: "Excavation of the 'Heroon' at Toumba, Lefkandi, a great apsidal hall built over a warrior's and a woman's burials about 950 BCE (photographed 1991)", source: "https://commons.wikimedia.org/wiki/File:Lefkandi_Heroon_from_E.jpg" }
+    - { url: /images/extra/greek-dark-ages-3.webp, credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Attic cinerary amphora painted with wavy lines and the earliest horse in Attic vase painting (Kerameikos Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Ancient_greek_cinerary_amphora_-_KAMA.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=C5rIbTq9txY
@@ -2658,6 +2702,9 @@
     - { url: /images/extra/achaemenid-empire-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "Glazed brick frieze of royal archers from the palace of Darius I at Susa (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Archers_frieze_Darius_1st_Palace_Suse_Louvre_AOD_488_a.jpg" }
 - id: peloponnesian-league
   description: A major military confederation of Greek city-states in the Peloponnese, founded and led by Sparta from the 6th to 4th centuries BCE. Formed to ensure mutual security and check rival Argive power, the league formed the core of the Hellenic alliance against Persia and ultimately defeated the Athenian Empire in the Peloponnesian War.
+  extra_images:
+    - { url: /images/extra/peloponnesian-league-1.webp, credit: "Mary Harrsch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Marble hoplite known as 'Leonidas', from the sanctuary of Athena Chalkioikos on the acropolis of Sparta, 480–470 BCE (Archaeological Museum of Sparta)", source: "https://commons.wikimedia.org/wiki/File:Statue_of_a_hoplite_known_as_Leonidas_480-470_BCE_Sparta_Acropolis_Sanctuary_of_Athena_Chalkioikos_01.jpg" }
+    - { url: /images/extra/peloponnesian-league-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Lead figurine of a winged goddess, perhaps Artemis Orthia, a votive of the kind offered by thousands at her sanctuary in Sparta (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Lead_figure_of_a_winged_goddess,_perhaps_Artemis_Orthia_MET_DP120853.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Jr8EGJwDCk8
@@ -2705,6 +2752,8 @@
       credit: Kings and Generals, YouTube
 - id: second-athenian-league
   description: A defensive maritime confederation of Aegean city-states established by Athens in 378 BCE to counter Spartan hegemony while avoiding the oppressive imperial abuses of the earlier Delian League. The alliance secured Aegean sea routes and curbed Spartan ambitions, but dissolved following the Social War when key allies rebelled against renewed Athenian dominance.
+  extra_images:
+    - { url: /images/extra/second-athenian-league-1.webp, credit: "Furius, CC BY-SA 4.0, via Wikimedia Commons", caption: "Top of the decree of Aristoteles (378/377 BCE), the founding charter of the Second Athenian League (Epigraphic Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:IG_II2_43_(part_1).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=f0UYZRxSrqA
@@ -2712,6 +2761,8 @@
       credit: Costas Melas, YouTube
 - id: thebans
   description: The ancient Greek citizens and military power of Thebes, the preeminent city of the Boeotian confederacy in central Greece. Reaching its geopolitical zenith under Epaminondas in the 4th century BCE, Thebes broke Spartan hegemony and liberated the Messenian helots before being destroyed by Alexander the Great following an uprising in 335 BCE.
+  extra_images:
+    - { url: /images/extra/thebans-1.webp, credit: "Exekias, CC BY 2.0, via Wikimedia Commons", caption: "Silver stater of Thebes with the Boeotian shield and the head of Dionysos, about 405–395 BCE", source: "https://commons.wikimedia.org/wiki/File:Greek_Silver_Stater_of_Thebes_(Boeotia),_a_Stunning_Depiction_of_Dionysos.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=CRJAZUbWU9A
@@ -2719,6 +2770,9 @@
       credit: TRUE HAPPENED, YouTube
 - id: athenian-coalition
   description: The alliance of Aegean and Ionian maritime city-states led by democratic Athens—originating from the Delian League—during the protracted Peloponnesian War against Sparta (431–404 BCE). Powered by Athenian naval supremacy (triremes) and funded by tributary wealth, the coalition defended maritime commerce across the Aegean until its catastrophic defeat at Aegospotami.
+  extra_images:
+    - { url: /images/extra/athenian-coalition-1.webp, credit: "Ad Meskens, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lenormant relief of an Athenian trireme with its rowers, late 5th century BCE (Acropolis Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Athens_Acropolis_museum_dedication_trireme.jpg" }
+    - { url: /images/extra/athenian-coalition-2.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "Silver tetradrachm of Athens with Athena's owl, the coin that paid for the Athenian fleet, 5th century BCE (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Greece,_Athens,_5th_century_BC_-_Tetradrachm-_Owl_(reverse)_-_1941.296.b_-_Cleveland_Museum_of_Art.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FIDEgPb8HH8
@@ -2750,6 +2804,9 @@
       credit: MadeInTurkey, YouTube
 - id: aetolian-league
   description: A hardy federal confederation of mountain communities and city-states in central Greece that emerged as a major military power during the Hellenistic era. Governed by a representative council, the league repelled Celtic invaders at Delphi, contested Macedonian dominance, and allied with Rome before disastrously siding with Antiochus III against Roman expansion.
+  extra_images:
+    - { url: /images/extra/aetolian-league-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold stater of the Aetolian League, 239–229 BCE, with Aetolia seated on a pile of Celtic and Macedonian shields (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Aitolian_League_-_239-229_BC_-_gold_stater_-_head_of_Athena_-_personification_of_Aitolia_-_Berlin_MK_BM.jpg" }
+    - { url: /images/extra/aetolian-league-2.webp, credit: "RoubinakiM, CC BY-SA 4.0, via Wikimedia Commons", caption: "The sanctuary of Apollo at Thermos, the meeting place and treasury of the Aetolian League", source: "https://commons.wikimedia.org/wiki/File:Θερμος_Αιτωλοακαρνανια.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=v8j3OKjwGoU
@@ -2757,6 +2814,9 @@
       credit: Costas Melas, YouTube
 - id: achaean-league
   description: A federal confederation of Greek city-states based in the northern Peloponnese, which expanded under statesman Aratus of Sicyon to incorporate Corinth, Argos, and Megalopolis. Championing Greek unity against Spartan and Macedonian dominance, the league was the last bastion of Greek political autonomy before its defeat and dissolution by Rome in 146 BCE.
+  extra_images:
+    - { url: /images/extra/achaean-league-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver hemidrachm of the Achaean League, about 250 BCE, with Zeus and the league's monogram", source: "https://commons.wikimedia.org/wiki/File:Hemidrachm,_250_BC,_Achaian_League.jpg" }
+    - { url: /images/extra/achaean-league-2.webp, credit: "C messier, CC BY-SA 4.0, via Wikimedia Commons", caption: "The theatre of Megalopolis, the largest in Greece, in a city that became a leading member of the Achaean League", source: "https://commons.wikimedia.org/wiki/File:Αρχαίο_θέατρο_Μεγαλόπολης_1222.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=pAxZOepCLJA
