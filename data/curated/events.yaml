@@ -623,6 +623,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Maize
   image_url: /images/events/maize-and-squash.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/maize-and-squash-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/maize-and-squash-1.webp, credit: "John Doebley, CC BY 3.0, via Wikimedia Commons", caption: "Teosinte (top), a maize–teosinte hybrid (middle) and maize (bottom)", source: "https://commons.wikimedia.org/wiki/File:Maize-teosinte.jpg" }
     - { url: /images/events/extra/maize-and-squash-2.webp, credit: "Mbhufford, CC BY-SA 3.0, via Wikimedia Commons", caption: "Wild teosinte, the ancestor of maize, growing in Jalisco, Mexico", source: "https://commons.wikimedia.org/wiki/File:Teosinte_Jalisco.jpg" }
