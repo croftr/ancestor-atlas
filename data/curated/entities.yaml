@@ -2594,6 +2594,11 @@
       credit: Kings and Things, YouTube
 - id: cimmerian-bosporus
   description: An enduring Hellenistic-Scythian kingdom centered on the Kerch Strait between the Black Sea and the Sea of Azov in modern Crimea. Melding Greek polis culture with Steppe nomad traditions, the Bosporan Kingdom prospered as a primary grain exporter to classical Athens and survived for centuries as a vital Roman client state.
+  extra_images:
+    - { url: /images/extra/cimmerian-bosporus-1.webp, credit: "Sergey Ashmarin, CC BY-SA 3.0, via Wikimedia Commons", caption: "Columns re-erected on Mount Mithridates in Kerch, on the acropolis of Panticapaeum, capital of the Bosporan Kingdom", source: "https://commons.wikimedia.org/wiki/File:The_ruins_of_Panticapaeum_(6th_century_BC)_-_Kerch,_Ukraine_-_panoramio.jpg" }
+    - { url: /images/extra/cimmerian-bosporus-2.webp, credit: "Alexxx1979, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Royal Kurgan near Kerch, the stone-vaulted tomb of a Bosporan king of the 4th century BCE", source: "https://commons.wikimedia.org/wiki/File:Kerch_Tsarskiy_Kurgan_IMG_2160_1725.jpg" }
+    - { url: /images/extra/cimmerian-bosporus-3.webp, credit: "Joanbanjo, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gold vessel showing Scythian warriors, from the Kul-Oba kurgan near Panticapaeum, made by Bosporan Greek goldsmiths in the 4th century BCE (Hermitage)", source: "https://commons.wikimedia.org/wiki/File:Vas_d'or_amb_representació_d'escites,_kurgan_de_Kul-Oba,_segona_meitat_del_segle_IV_aC.JPG" }
+    - { url: /images/extra/cimmerian-bosporus-4.webp, credit: "Bibliothèque nationale de France, public domain, via Wikimedia Commons", caption: "Gold stater of Asander, king of the Bosporus (about 47–17 BCE) (Bibliothèque nationale de France)", source: "https://commons.wikimedia.org/wiki/File:Monnaie_-_Statère,_or,_Incertain,_Bosphore_Cimmérien,_Asander_-_btv1b10300518c_(1_of_2).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ltikjXUiAC4
@@ -2663,6 +2668,10 @@
   image_url: /images/civilisations/au-lac.webp
   image_caption: Concentric spiral earthworks and moats of Cổ Loa Citadel in northern Vietnam, Dong Son bronze casters finishing an ornate ceremonial drum.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/au-lac-1.webp, credit: "Daaé, public domain, via Wikimedia Commons", caption: "The Cổ Loa bronze drum, a Đông Sơn drum found inside Cổ Loa, the citadel of King An Dương Vương (Hanoi)", source: "https://commons.wikimedia.org/wiki/File:Co_Loa_drums.JPG" }
+    - { url: /images/extra/au-lac-2.webp, credit: "Julez A., CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze arrowheads or crossbow bolts found at Cổ Loa, recalling the crossbows of the Âu Lạc legends (Cổ Loa museum, Hanoi)", source: "https://commons.wikimedia.org/wiki/File:Co_Loa_Museum_Arrowheads.jpg" }
+    - { url: /images/extra/au-lac-3.webp, credit: "Viethavvh, public domain, via Wikimedia Commons", caption: "A stretch of the earthen ramparts and moat of the Cổ Loa citadel, Đông Anh, Hanoi", source: "https://commons.wikimedia.org/wiki/File:Thanh_co_loa2.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=67xJnkAKL_0
@@ -2727,6 +2736,8 @@
       credit: Kings and Generals, YouTube
 - id: thracian-kingdom
   description: The various historical dynastic realms and tribal unions established by the Thracian peoples across the eastern Balkan Peninsula, southern Romania, and the Aegean coast. Celebrated as skilled horsemen, metalworkers, and peltast infantry, the Thracians maintained vibrant oral and spiritual traditions while contested by Macedonian, Celtic, and Roman imperial armies.
+  extra_images:
+    - { url: /images/extra/thracian-kingdom-1.webp, credit: "Hermann Junghans, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Bronze coin of Rhoemetalces I, client king of Thrace under Augustus (about 12 BCE–12 CE), with his queen", source: "https://commons.wikimedia.org/wiki/File:Rhoimetalkes_I.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=5AJW31Q-jg4
