@@ -2252,6 +2252,9 @@
       credit: National History, YouTube
 - id: hadhramaut
   description: An ancient South Arabian kingdom situated in the rugged coastal and valley regions of southern Yemen, centered on the fortified capital of Shabwa. Controlling valuable frankincense harvesting groves and coastal Indian Ocean trade ports, Hadhramaut played an indispensable role in international maritime and overland merchant networks.
+  extra_images:
+    - { url: /images/extra/hadhramaut-1.webp, credit: "BluesyPete, CC BY-SA 3.0, via Wikimedia Commons", caption: "Ruined ramparts of Shabwa, the capital of Hadhramaut and gathering point of the frankincense caravans, Yemen", source: "https://commons.wikimedia.org/wiki/File:Yémen-104.JPG" }
+    - { url: /images/extra/hadhramaut-2.webp, credit: "Juozas Šalna, CC BY 2.0, via Wikimedia Commons", caption: "The walls of Sumhuram above the lagoon of Khor Rori, Oman, the frankincense port founded by the kings of Hadhramaut", source: "https://commons.wikimedia.org/wiki/File:Khor_Rori_1.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=j9yPlyUZTD4
@@ -2292,6 +2295,8 @@
       credit: History with Cy, YouTube
 - id: minaeans
   description: An ancient South Arabian trading kingdom located in the desert valley of modern northern Yemen, centered at Yathill and Qarnawu. The Minaeans specialized in managing overland caravan commerce across Arabia to Egypt and the Levant, leaving merchant inscriptions across the ancient Mediterranean world.
+  extra_images:
+    - { url: /images/extra/minaeans-1.webp, credit: "txago, CC BY 2.0, via Wikimedia Commons", caption: "The walled mound of Baraqish (ancient Yathill), a city of the Minaean kingdom in the Jawf of Yemen, with later houses on top", source: "https://commons.wikimedia.org/wiki/File:Barakisk_flickr01.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=K2yQ1J7JpFo
@@ -2299,6 +2304,10 @@
       credit: Get to know with Kenzie, YouTube
 - id: qataban
   description: An ancient South Arabian kingdom centered in the Baihan valley of western Yemen, with its capital at the merchant hub of Timna. Governed by sophisticated agricultural water codes and legal decrees, Qataban prospered by taxing trade along the incense route until eclipsed by neighboring Saba and Himyar.
+  extra_images:
+    - { url: /images/extra/qataban-1.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Alabaster votive panel with an inscription in Qatabanic, dedicated by a man entrusted with his lord's finances (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Inscribed_stele_Qataban_Louvre_AO21124.jpg" }
+    - { url: /images/extra/qataban-2.webp, credit: "Mary Harrsch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Alabaster head of a man from Qataban, 3rd–1st century BCE (Seattle Art Museum)", source: "https://commons.wikimedia.org/wiki/File:Head_of_a_man_Qataban_(Arabia_Felix)_3rd-1st_century_BCE_Alabaster_at_the_Seattle_Art_Museum.jpg" }
+    - { url: /images/extra/qataban-3.webp, credit: "Bibliothèque nationale de France, public domain, via Wikimedia Commons", caption: "Silver drachm of the kingdom of Qataban, minted at Harib after Athenian models (Bibliothèque nationale de France)", source: "https://commons.wikimedia.org/wiki/File:Monnaie_-_Drachme,_argent,_Harib,_Arabie_Heureuse,_royaume_de_Qataban_-_btv1b85100403_(1_of_2).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=jSQevkWfMBM
@@ -2306,6 +2315,9 @@
       credit: Para Bellum, YouTube
 - id: kingdom-of-bithynia
   description: A Hellenistic kingdom located in northwestern Anatolia bordering the Sea of Marmara and the Black Sea, centered on cities like Nicomedia. Governed by a resilient local Thracian dynasty, Bithynia maintained autonomy against neighboring Diadochi kingdoms before its last king, Nicomedes IV, bequeathed the realm to the Roman Republic in 74 BCE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-bithynia-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Prusias I of Bithynia (228–182 BCE) (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Bithynia_-_king_Prusias_I_-_228-182_BC_-_silver_tetradrachm_-_head_of_Prusias_I_-_Zeus_-_London_BM_1993-0629-1.jpg" }
+    - { url: /images/extra/kingdom-of-bithynia-2.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "Silver tetradrachm of Nicomedes II of Bithynia (149–127 BCE) (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Greece,_Bithynia,_reign_of_Nicomedes_II_-_Tetradrachm-_Nicomedes_II_(obverse)_-_1917.990.a_-_Cleveland_Museum_of_Art.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=kpchFt5sZKE
@@ -2325,6 +2337,8 @@
       credit: Our Ancient World, YouTube
 - id: kingdom-of-lysimachus
   description: The Hellenistic realm carved out by Lysimachus, a companion general of Alexander the Great who ruled Thrace, northwestern Anatolia, and Macedonia following the Battle of Ipsus. Built around strategic strongholds like Lysimachia, his short-lived kingdom collapsed when Lysimachus was defeated and killed by Seleucus I at the Battle of Corupedium in 281 BCE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-lysimachus-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Lysimachus with the deified Alexander wearing the ram's horn of Ammon, 305–281 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Thrace_-_king_Lysimachos_-_305-281_BC_-_siver_tetradrachm_-_head_of_Alexander_III_-_Athena_Nikephoros_-_London_BM_1919-0820-1.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ZIIOThLHeTY
@@ -2365,6 +2379,11 @@
       credit: Costas Melas, YouTube
 - id: galatia
   description: A highland territory in central Anatolia settled in the 3rd century BCE by migrating Celtic Gauls (Tectosages, Tolistobogii, and Trocmi). Operating as feared mercenary warriors throughout the Hellenistic Wars, the Galatian tribes maintained distinctive Celtic customs, language, and tetrarchic governance until becoming a client kingdom and Roman province.
+  extra_images:
+    - { url: /images/extra/galatia-1.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "The Dying Gaul, a Roman marble copy of a bronze set up at Pergamon to celebrate Attalus I's victories over the Galatians (Capitoline Museums, Rome)", source: "https://commons.wikimedia.org/wiki/File:Dying_Gaul_Musei_Capitolini_MC747.jpg" }
+    - { url: /images/extra/galatia-2.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Terracotta of a war elephant trampling a Galatian warrior, from Myrina, recalling the Seleucid 'Elephant Victory' over the Galatians (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Éléphant_chargeant_un_guerrier_galate_-_Musée_du_Louvre_AGER_Myrina_131_;_Myr_284.jpg" }
+    - { url: /images/extra/galatia-3.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gold torques from the Galatian tumulus at Hıdırşıhlar, Bolu, 3rd century BCE (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Galatian_torques_3rd_century_BCE_Bolu_Hidirsihlar_tumulus.jpg" }
+    - { url: /images/extra/galatia-4.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "Galatian bronze horse bit (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Galatian_bronze_horse_bit.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=uw6iVSlWTJQ
@@ -2372,6 +2391,11 @@
       credit: Study of Antiquity and the Middle Ages, YouTube
 - id: kingdom-of-pergamon
   description: An influential Hellenistic kingdom in western Anatolia ruled by the Attalid dynasty from the dramatic acropolis of Pergamon. Celebrated for patronage of the arts, the great Library of Pergamon, and the monumental Pergamon Altar, the kingdom allied closely with Rome until its last ruler bequeathed the realm to the Roman people in 133 BCE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-pergamon-1.webp, credit: "QuartierLatin1968, CC BY-SA 2.0, via Wikimedia Commons", caption: "The acropolis of Pergamon seen from the middle city, seat of the Attalid kings", source: "https://commons.wikimedia.org/wiki/File:Acropolis_from_middle_city_Pergamum_466.jpg" }
+    - { url: /images/extra/kingdom-of-pergamon-2.webp, credit: "Tomisti, CC BY-SA 3.0, via Wikimedia Commons", caption: "The steep Hellenistic theatre cut into the acropolis hill at Pergamon", source: "https://commons.wikimedia.org/wiki/File:Pergamon_theatre_panorama_2.jpg" }
+    - { url: /images/extra/kingdom-of-pergamon-3.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Gods fighting giants on the north frieze of the Great Altar of Pergamon, built under Eumenes II, about 170 BCE (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:North_Frieze,_Gigantomachy_Frieze,_Pergamon_Altar,_Pergamon_Museum,_Berlin_(24461209519).jpg" }
+    - { url: /images/extra/kingdom-of-pergamon-4.webp, credit: "PHGCOM, public domain, via Wikimedia Commons", caption: "Silver tetradrachm of Attalus I with the portrait of Philetaerus, founder of the Attalid dynasty (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Attalus_I_coin_depicting_Philetairos.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vDW6Q5JWnd8
@@ -2386,6 +2410,8 @@
       credit: Wikipedia TTS, YouTube
 - id: kingdom-of-sophene
   description: An ancient Hellenistic Armenian kingdom situated in the fertile upper Euphrates valley near modern Elazığ in eastern Anatolia. Positioned along lucrative royal transit routes between Anatolia and Mesopotamia, Sophene was governed by the Orontid dynasty before being incorporated into Greater Armenia by Tigranes the Great.
+  extra_images:
+    - { url: /images/extra/kingdom-of-sophene-1.webp, credit: "Bibliothèque nationale de France, CC0, via Wikimedia Commons", caption: "Coin of Arsames, king of Sophene in the 3rd century BCE (Bibliothèque nationale de France)", source: "https://commons.wikimedia.org/wiki/File:Coinage_of_Arsames_King_of_Sophene.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=nHgTBE0b-40
@@ -2393,6 +2419,9 @@
       credit: Amazing Archaeology, YouTube
 - id: kingdom-of-cappadocia
   description: A Hellenistic kingdom in the highland plateau of central-eastern Anatolia, ruled by an Iranian dynasty that skillfully navigated regional power politics. Adopting Greek administrative and cultural practices while preserving Persian religious traditions, Cappadocia allied with the Roman Republic against Pontus and Armenia until annexed by Emperor Tiberius in 17 CE.
+  extra_images:
+    - { url: /images/extra/kingdom-of-cappadocia-1.webp, credit: "Classical Numismatic Group, CC BY-SA 2.5, via Wikimedia Commons", caption: "Silver drachm of Ariarathes IV of Cappadocia, dated 187/186 BCE, with Athena on the reverse", source: "https://commons.wikimedia.org/wiki/File:Ariarate_IV_di_Cappadocia.jpg" }
+    - { url: /images/extra/kingdom-of-cappadocia-2.webp, credit: "Johny SYSEL, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver drachm of Ariarathes V of Cappadocia, struck at Eusebeia (Kayseri) in 131–130 BCE", source: "https://commons.wikimedia.org/wiki/File:Ariarathes_V.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=j2YQD_wLNSI
@@ -2400,6 +2429,9 @@
       credit: Cappadocia Page Turkey, YouTube
 - id: rhodes
   description: A major maritime island republic in the southeastern Aegean Sea that flourished as a premier commercial and naval powerhouse during the Hellenistic period. Famed for its maritime code of law, great library, and the colossal bronze Colossus of Rhodes, the island defended freedom of navigation and maintained independence through naval skill and diplomatic neutrality.
+  extra_images:
+    - { url: /images/extra/rhodes-1.webp, credit: "Saffron Blaze, CC BY-SA 3.0, via Wikimedia Commons", caption: "Relief of a Rhodian warship cut into the rock below the acropolis of Lindos, about 180 BCE", source: "https://commons.wikimedia.org/wiki/File:Lindos_Rhodian_trireme_relief.jpg" }
+    - { url: /images/extra/rhodes-2.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Rhodes with the sun god Helios, patron of the island, 304–189 BCE (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Rhodos_-_304-189_BC_-_silver_tetradrachm_-_head_of_Helios_-_rose_-_Berlin_MK_AM_18203977.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=GPqxeNQWFHk
@@ -2458,6 +2490,11 @@
       credit: Treasured Inheritance Ministry Int., YouTube
 - id: kingdom-of-commagene
   description: A prosperous Hellenistic buffer kingdom nestled in the Taurus Mountains along the upper Euphrates in modern southeastern Turkey. Ruled by the Orontid dynasty claiming descent from both Persian kings and Alexander the Great, the kingdom is renowned for the monumental mountaintop sanctuary of Mount Nemrut built by King Antiochus I.
+  extra_images:
+    - { url: /images/extra/kingdom-of-commagene-1.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Colossal enthroned statues of gods and King Antiochus I on the east terrace of his tomb-sanctuary at Nemrut Dağ, 1st century BCE", source: "https://commons.wikimedia.org/wiki/File:Nemrut_Enthroned_statues_on_east_terrace_in_2006_1474.jpg" }
+    - { url: /images/extra/kingdom-of-commagene-2.webp, credit: "Klearchos Kapoutsis, CC BY 3.0, via Wikimedia Commons", caption: "Fallen stone heads of the colossal statues at Nemrut Dağ", source: "https://commons.wikimedia.org/wiki/File:Heads_Nemrut_dag_temple.jpg" }
+    - { url: /images/extra/kingdom-of-commagene-3.webp, credit: "Verity Cridland, CC BY 2.0, via Wikimedia Commons", caption: "Relief of Antiochus I of Commagene shaking hands with Herakles, at Arsameia on the Nymphaios", source: "https://commons.wikimedia.org/wiki/File:Nemrut_Dag_area_A_Commagene_carving.jpg" }
+    - { url: /images/extra/kingdom-of-commagene-4.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Arsameia on the Nymphaios, a royal seat and sanctuary of the kings of Commagene", source: "https://commons.wikimedia.org/wiki/File:Arsameia,_kingdom_of_Commagene,_Turkey_(36270545500).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=EOpfF1sQrX4
