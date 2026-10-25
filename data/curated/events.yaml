@@ -339,6 +339,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Archaic_human_admixture_with_modern_humans
   image_url: /images/events/archaic-human-admixture.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/archaic-human-admixture-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/archaic-human-admixture-3.webp, credit: "Max Planck Institute for Evolutionary Anthropology, public domain, via Wikimedia Commons", caption: "Extracting ancient DNA from a Neanderthal bone in a clean room at Leipzig", source: "https://commons.wikimedia.org/wiki/File:Neanderthal_DNA_extraction.jpg" }
     - { url: /images/events/extra/archaic-human-admixture-1.webp, credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Oase 2 skull, Romania: a jaw from the same cave carried DNA from a Neanderthal four to six generations back", source: "https://commons.wikimedia.org/wiki/File:Oase_2_skull_(Homo_sapiens).jpg" }
