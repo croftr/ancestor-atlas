@@ -854,6 +854,8 @@
   extra_images:
     - { url: /images/extra/natufian-1.webp, credit: "British Museum, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Ain Sakhri lovers figurine, c. 9000 BCE, the oldest known carving of a couple embracing (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Ain_Sakhri_lovers_figurine.jpg" }
     - { url: /images/extra/natufian-2.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Natufian carved bone sickle handle and human figurine from El-Wad Terrace (Musée d'Archéologie Nationale)", source: "https://commons.wikimedia.org/wiki/File:Moulages_de_sculptures_natoufiennes_-_El_Wad_MAN.jpg" }
+    - { url: /images/extra/natufian-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Stone mortars from Eynan (Ain Mallaha), Natufian period (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:Stone_Mortars_from_Eynan,_Natufian_period.jpg" }
+    - { url: /images/extra/natufian-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Cast of a Natufian burial of a woman with a young dog (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:Burial_of_Woman_&_Dog,_Natufian_Culture,_Cast_(28347076597).jpg" }
 - id: clovis
   name: Clovis
   category: culture
@@ -919,6 +921,8 @@
   extra_images:
     - { url: /images/extra/linear-pottery-1.webp, credit: "Einsamer Schütze, CC BY-SA 3.0, via Wikimedia Commons", caption: "Globular ceramic vessel with incised linear band decoration, Linear Pottery culture", source: "https://commons.wikimedia.org/wiki/File:LBK-Pottery.jpg" }
     - { url: /images/extra/linear-pottery-2.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "Linear Pottery ceramic vessel from Brunn am Gebirge, Austria (Natural History Museum Vienna)", source: "https://commons.wikimedia.org/wiki/File:NHM_-_Linearbandkeramik_Brunn_1.jpg" }
+    - { url: /images/extra/linear-pottery-3.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Models of a Linear Pottery longhouse, finished and as a timber frame", source: "https://commons.wikimedia.org/wiki/File:LBK_house_1.jpg" }
+    - { url: /images/extra/linear-pottery-4.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Polished stone axes and sandstone grinders of the Linear Pottery culture (Museum of Western Bohemia, Pilsen)", source: "https://commons.wikimedia.org/wiki/File:Neolithic_tools,_Linear_Pottery_culture,_Museum_of_Western_Bohemia,_187684.jpg" }
 - id: ancient-egypt
   name: Ancient Egypt
   category: civilization
@@ -1147,6 +1151,8 @@
   extra_images:
     - { url: /images/extra/corded-ware-1.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Corded Ware ceramic beakers and amphora with twisted-cord impressions (State Museum of Archaeology Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Neolithikum_088.jpg" }
     - { url: /images/extra/corded-ware-2.webp, credit: "Terker, CC BY-SA 3.0, via Wikimedia Commons", caption: "Polished stone boat-axe / battle-axe with drilled shaft-hole, Corded Ware culture", source: "https://commons.wikimedia.org/wiki/File:CordWareBoatAxe.jpg" }
+    - { url: /images/extra/corded-ware-3.webp, credit: "Roberto Fortuna and Kira Ursem, National Museum of Denmark, CC BY-SA 4.0, via Wikimedia Commons", caption: "Grave goods from Møbjerggård, Denmark: a corded beaker, amber discs and a stone battle-axe (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:DO-3851.jpg" }
+    - { url: /images/extra/corded-ware-4.webp, credit: "Romzig, CC0, via Wikimedia Commons", caption: "A Corded Ware burial from Wennungen, 2578–2476 BCE, lifted out in a block of soil (State Museum of Prehistory, Halle)", source: "https://commons.wikimedia.org/wiki/File:Wennungen_(Januar_2026).jpg" }
 - id: bell-beaker
   name: Bell Beaker culture
   category: culture
@@ -1168,6 +1174,8 @@
   extra_images:
     - { url: /images/extra/bell-beaker-1.webp, credit: "British Museum, CC BY-SA 2.0, via Wikimedia Commons", caption: "Decorated ceramic Bell Beaker with stone wristguard and copper dagger from Barnack (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Bell_Beaker_1a.jpg" }
     - { url: /images/extra/bell-beaker-2.webp, credit: "Ethan Doyle White, CC BY-SA 4.0, via Wikimedia Commons", caption: "Grave goods of the Amesbury Archer including gold hair tresses and copper knives (Salisbury Museum)", source: "https://commons.wikimedia.org/wiki/File:The_Amesbury_Archer.JPG" }
+    - { url: /images/extra/bell-beaker-3.webp, credit: "Alejandro Plaza, Junta de Castilla y León / Museo Numantino, CC BY-SA 4.0, via Wikimedia Commons", caption: "Grave goods from the La Sima III barrow, Soria, Spain: beakers, copper weapons, archers' wrist-guards and flint arrowheads", source: "https://commons.wikimedia.org/wiki/File:Blell_Beaker_artefacts_1.jpg" }
+    - { url: /images/extra/bell-beaker-4.webp, credit: "Silar, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bell Beaker pottery from Sardinia, near the southern edge of the culture's range", source: "https://commons.wikimedia.org/wiki/File:02023_1202_Bellbeaker_culture_pottery,_Sardinia,_A_Congiu.jpg" }
 - id: badarian
   name: Badarian culture
   category: culture
@@ -1262,6 +1270,8 @@
   extra_images:
     - { url: /images/extra/unetice-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "The Nebra Sky Disc, c. 1600 BCE, State Museum of Prehistory, Halle", source: "https://commons.wikimedia.org/wiki/File:1600_Himmelsscheibe_von_Nebra_sky_disk_anagoria.jpg" }
     - { url: /images/extra/unetice-2.webp, credit: "SMAC Chemnitz, CC BY-SA 4.0, via Wikimedia Commons", caption: "Únětice bronze axe hoard from Cunnersdorf (State Museum of Archaeology Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Bronzezeit_045.jpg" }
+    - { url: /images/extra/unetice-3.webp, credit: "Wolfgang Sauber / State Museum of Prehistory Halle, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold bracelet, rings and pins from the princely grave under the Leubingen mound, about 1940 BCE", source: "https://commons.wikimedia.org/wiki/File:Leubingen_gold_artefacts.jpg" }
+    - { url: /images/extra/unetice-4.webp, credit: "Regani, public domain, via Wikimedia Commons", caption: "The Leubingen burial mound in Thuringia today", source: "https://commons.wikimedia.org/wiki/File:Grabhuegel_Leubingen.jpg" }
 - id: cucuteni-trypillia
   name: Cucuteni–Trypillia culture
   category: culture
@@ -1284,6 +1294,8 @@
   extra_images:
     - { url: /images/extra/cucuteni-trypillia-1.webp, credit: "CristianChirita, CC BY 3.0, via Wikimedia Commons", caption: "Polychrome painted ceramic amphora with swirling spiral motifs, Cucuteni culture (Piatra Neamț Museum)", source: "https://commons.wikimedia.org/wiki/File:CucuteniTypicalCeramic.jpg" }
     - { url: /images/extra/cucuteni-trypillia-2.webp, credit: "CristianChirita, CC0, via Wikimedia Commons", caption: "Ritual binocular ceramic vessel with bichrome painted spirals, Cucuteni–Trypillia culture", source: "https://commons.wikimedia.org/wiki/File:CucuteniPottery5.jpg" }
+    - { url: /images/extra/cucuteni-trypillia-3.webp, credit: "Susanne Beyer, CC BY 4.0, via Wikimedia Commons", caption: "Reconstruction of the mega-site of Maidanetske, Ukraine, around 3800 BCE: thousands of houses laid out in rings", source: "https://commons.wikimedia.org/wiki/File:Maidanetske_Cucuteni-Trypilla_mega_site,_illustration.png" }
+    - { url: /images/extra/cucuteni-trypillia-4.webp, credit: "CristianChirita, CC0, via Wikimedia Commons", caption: "Clay human figurine of the Cucuteni culture", source: "https://commons.wikimedia.org/wiki/File:Cucuteni_Clay_Male_Figure.jpg" }
 - id: vinca
   name: Vinča culture
   category: culture
@@ -1412,6 +1424,8 @@
   extra_images:
     - { url: /images/extra/yamnaya-1.webp, credit: "Valeriy Sayenko, CC BY-SA 4.0, via Wikimedia Commons", caption: "Yamnaya pit grave excavation showing crouched skeleton sprinkled with red ochre (Zlatopillia, Ukraine)", source: "https://commons.wikimedia.org/wiki/File:Tomb_of_Yamnaya_(Ochre_Grave)_culture_2.jpg" }
     - { url: /images/extra/yamnaya-2.webp, credit: "Odessa Archaeological Museum, CC BY-SA 4.0, via Wikimedia Commons", caption: "Anthropomorphic kurgan stela of the Yamnaya culture (Odessa Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Yamna_culture_Stelae_Odessa.jpg" }
+    - { url: /images/extra/yamnaya-3.webp, credit: "EvgenyGenkin, CC BY-SA 3.0, via Wikimedia Commons", caption: "Copper and bronze finds of the Yamnaya culture (Hermitage Museum, St Petersburg)", source: "https://commons.wikimedia.org/wiki/File:Yamnaya_1.png" }
+    - { url: /images/extra/yamnaya-4.webp, credit: "Пётр Иванов, public domain, via Wikimedia Commons", caption: "Yamnaya pots and ornaments of the late 4th and 3rd millennium BCE (Hermitage Museum, St Petersburg)", source: "https://commons.wikimedia.org/wiki/File:Yamnaya_culture_Hermitage_Museum.JPG" }
 # Span from English Wikipedia: Afanasievo_culture@1369190797.
 - id: afanasievo
   name: Afanasievo culture
@@ -1449,6 +1463,8 @@
   extra_images:
     - { url: /images/extra/sintashta-1.webp, credit: "Russian Archaeological Expedition, CC BY-SA 4.0, via Wikimedia Commons", caption: "Aerial view of the circular fortified settlement of Arkaim in the southern Urals", source: "https://commons.wikimedia.org/wiki/File:%D0%90%D1%80%D0%BA%D0%B0%D0%B8%D0%BC_2015_(cropped).jpg" }
     - { url: /images/extra/sintashta-2.webp, credit: "Museum of Archaeology and Ethnography Ufa, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze axes and maces of the Sintashta culture (Museum of Archaeology and Ethnography, Ufa)", source: "https://commons.wikimedia.org/wiki/File:Mace,_axe_-_Sintashta_culture_-_Museum_of_Archeology_and_Ethnography,_Ufa.jpg" }
+    - { url: /images/extra/sintashta-3.webp, credit: "Лапоть, CC0, via Wikimedia Commons", caption: "Bronze sickle, knives, spearhead, adze, harpoon and fish-hook of the Sintashta culture, with a clay spindle whorl (Museum of Archaeology and Ethnography, Ufa)", source: "https://commons.wikimedia.org/wiki/File:Artefacts_-_Sintashta_culture_-_Museum_of_Archeology_and_Ethnography,_Ufa.jpg" }
+    - { url: /images/extra/sintashta-4.webp, credit: "S. Lindner (Antiquity 2020), CC BY-SA 4.0, via Wikimedia Commons", caption: "Pots and studded cheek-pieces for horses' bridles from graves at Sintashta (drawings)", source: "https://commons.wikimedia.org/wiki/File:Sintashta1_copy.jpg" }
 # Span from English Wikipedia: Andronovo_culture@1379425534.
 - id: andronovo
   name: Andronovo culture

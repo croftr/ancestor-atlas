@@ -603,6 +603,8 @@
   extra_images:
     - { url: /images/events/extra/cattle-and-pigs-1.webp, credit: "Eldrichr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Skeleton of an aurochs, the wild ancestor of cattle (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:Aurochs,_Danish_National_Museum.jpg" }
     - { url: /images/events/extra/cattle-and-pigs-2.webp, credit: "Krähenstein, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone foundations of a grill-plan building at Çayönü, southeastern Turkey", source: "https://commons.wikimedia.org/wiki/File:Cay%C3%B6n%C3%BC_-_Grillplangeb%C3%A4ude.jpg" }
+    - { url: /images/events/extra/cattle-and-pigs-3.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bull's head in a reconstructed shrine from Çatalhöyük, 6000–5500 BCE (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Bull's_head,_shrine,_Çatalhöyük,_6000-5500_BC,_MACA,_99001.jpg" }
+    - { url: /images/events/extra/cattle-and-pigs-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A pig incised on a pot of the Hemudu culture, China (Zhejiang Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Hemudu_Culture_Pottery_with_Pig_(16457841673).jpg" }
   # Pigs: Pig@1377663363 (Tigris Basin; China c. 8,000 years ago); Çayönü@1373391462 (cattle management, possibly the first pigs).
   narration: { src: narration/events/cattle-and-pigs-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "05c8f1324f" }
   date_source: wikipedia:Cattle@1379666444
@@ -622,6 +624,8 @@
   extra_images:
     - { url: /images/events/extra/maize-and-squash-1.webp, credit: "John Doebley, CC BY 3.0, via Wikimedia Commons", caption: "Teosinte (top), a maize–teosinte hybrid (middle) and maize (bottom)", source: "https://commons.wikimedia.org/wiki/File:Maize-teosinte.jpg" }
     - { url: /images/events/extra/maize-and-squash-2.webp, credit: "Mbhufford, CC BY-SA 3.0, via Wikimedia Commons", caption: "Wild teosinte, the ancestor of maize, growing in Jalisco, Mexico", source: "https://commons.wikimedia.org/wiki/File:Teosinte_Jalisco.jpg" }
+    - { url: /images/events/extra/maize-and-squash-3.webp, credit: "Los Angeles County Museum of Art, public domain, via Wikimedia Commons", caption: "A clay vessel shaped like a squash, Colima, western Mexico, 200 BCE–500 CE (LACMA)", source: "https://commons.wikimedia.org/wiki/File:Squash_Vessel_LACMA_M.86.296.193.jpg" }
+    - { url: /images/events/extra/maize-and-squash-4.webp, credit: "Isabelle Fragniere, CC BY-SA 3.0, via Wikimedia Commons", caption: "A milpa in the Mixtepec region of Mexico: maize, beans and squash grown together", source: "https://commons.wikimedia.org/wiki/File:Association_culturale_maïs-Haricot-Courge_dans_la_région_du_Mixtepec_au_Mexique.JPG" }
   # Squash at Guilá Naquitz, 10,750–8,000 BP: Guilá_Naquitz_Cave@1364833915.
   narration: { src: narration/events/maize-and-squash-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b58b13d8a4" }
   date_source: wikipedia:Maize@1380381805
@@ -641,6 +645,8 @@
   extra_images:
     - { url: /images/events/extra/rice-and-millet-1.webp, credit: "Huangchenhai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carbonized Neolithic rice from the Longqiuzhuang site, China", source: "https://commons.wikimedia.org/wiki/File:Carbonized_Rice.jpg" }
     - { url: /images/events/extra/rice-and-millet-2.webp, credit: "Editor at Large, CC BY-SA 2.5, via Wikimedia Commons", caption: "Grinding stone and roller of the Peiligang culture, about 5500–5000 BCE, for milling grain", source: "https://commons.wikimedia.org/wiki/File:CMOC_Treasures_of_Ancient_China_exhibit_-_millstone_and_roller.jpg" }
+    - { url: /images/events/extra/rice-and-millet-3.webp, credit: "Siyuwj, CC BY-SA 3.0, via Wikimedia Commons", caption: "Pottery sherd with a rice-plant pattern from Hemudu, in the lower Yangtze", source: "https://commons.wikimedia.org/wiki/File:Pottery_sherd_decorated_with_rice_motif,_Hemudu_Site.jpg" }
+    - { url: /images/events/extra/rice-and-millet-4.webp, credit: "Furius, CC0, via Wikimedia Commons", caption: "Pots of the Peiligang culture from Jiahu, 6200–5500 BCE", source: "https://commons.wikimedia.org/wiki/File:Pots,_Peiligang_Culture_(6200-5500_BC),_Jiahu_site,_Wuyang,_Henan.jpg" }
   # Millet: Cishan_culture@1333464586; Jiahu@1364837985 (7000–5700 BC, rice and millet).
   narration: { src: narration/events/rice-and-millet-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "704ef61dc9" }
   date_source: wikipedia:History_of_rice_cultivation@1379921721
@@ -661,6 +667,8 @@
   extra_images:
     - { url: /images/events/extra/new-guinea-farming-1.webp, credit: "NASA/JPL, public domain, via Wikimedia Commons", caption: "Satellite view of the highland valley around the Kuk Early Agricultural Site, New Guinea", source: "https://commons.wikimedia.org/wiki/File:Kuk_New_Guinea_2002.jpg" }
     - { url: /images/events/extra/new-guinea-farming-2.webp, credit: "gailhampshire, CC BY 2.0, via Wikimedia Commons", caption: "A house and garden in the highlands of Enga Province, Papua New Guinea", source: "https://commons.wikimedia.org/wiki/File:Hut_with_vegetable_garden_(48889647148).jpg" }
+    - { url: /images/events/extra/new-guinea-farming-3.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Taro, the crop for which Kuk's wetland was first drained", source: "https://commons.wikimedia.org/wiki/File:(MHNT)_Colocasia_esculenta_-_Les_Martels,_Giroussens_Tarn.jpg" }
+    - { url: /images/events/extra/new-guinea-farming-4.webp, credit: "Sherwin Carlquist, CC BY 4.0, via Wikimedia Commons", caption: "Bananas, sugar cane and other produce in Papua New Guinea, photographed by the botanist Sherwin Carlquist", source: "https://commons.wikimedia.org/wiki/File:(Fruits_and_vegetables,_Papua_New_Guinea)_-_DPLA_-_8ae5c923141e5fbd9021a7ce41e747d9.jpg" }
   narration: { src: narration/events/new-guinea-farming-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5f16783494" }
   date_source: wikipedia:Kuk_Swamp@1366154781
   places:
@@ -680,6 +688,8 @@
   extra_images:
     - { url: /images/events/extra/dairying-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Milking cows and making dairy products, on a Sumerian frieze from the temple of Ninhursag at Tell al-'Ubaid, 2800–2600 BCE (Iraq Museum)", source: "https://commons.wikimedia.org/wiki/File:Sumerian_scene,_milking_cows_and_making_dairy_products._From_the_facade_of_the_Temple_of_Ninhursag_at_Tell_al-%27Ubaid,_Iraq,_2800-2600_BCE._Iraq_Museum.jpg" }
     - { url: /images/events/extra/dairying-2.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Detail of a Sumerian dairy frieze from Tell al-'Ubaid: a man milks a cow, with her calf beside her", source: "https://commons.wikimedia.org/wiki/File:Frise_laiterie_-_%C3%A9table.jpg" }
+    - { url: /images/events/extra/dairying-3.webp, credit: "Museo de Arqueología de Álava, CC BY-SA 4.0, via Wikimedia Commons", caption: "A clay cheese strainer from the hillfort of Henaio, Álava, Spain, Late Bronze or Early Iron Age (Museo de Arqueología de Álava)", source: "https://commons.wikimedia.org/wiki/File:Henaioko_gazta_iragazgailua_(080_CH-1969-_70-187).jpg" }
+    - { url: /images/events/extra/dairying-4.webp, credit: "Joe Roe, CC BY 4.0, via Wikimedia Commons", caption: "Share of adults with a genetic variant for digesting milk across the Old World today", source: "https://commons.wikimedia.org/wiki/File:Lactase_persistence_in_the_Old_World.svg" }
   # Northwestern Anatolia: Secondary_products_revolution@1325001129; Kuyavia, 5500 BC: Neolithic_Europe@1378383755;
   # lactase persistence: Lactase_persistence@1369975612.
   narration: { src: narration/events/dairying-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ac0adf0feb" }
@@ -701,6 +711,8 @@
   extra_images:
     - { url: /images/events/extra/andean-domestication-1.webp, credit: "Thayne Tuason, CC BY 4.0, via Wikimedia Commons", caption: "Potato varieties at the market in Huancayo, Peru", source: "https://commons.wikimedia.org/wiki/File:Mercado_Modelo_de_Huancayo_Peru-_Solanum_tuberosum_varieties_V.jpg" }
     - { url: /images/events/extra/andean-domestication-2.webp, credit: "Matthew Straubmuller, CC BY 2.0, via Wikimedia Commons", caption: "Llamas on the shore of Lake Titicaca, Bolivia", source: "https://commons.wikimedia.org/wiki/File:Llamas_at_Lake_Titicaca_(8360967487).jpg" }
+    - { url: /images/events/extra/andean-domestication-3.webp, credit: "Diego Delso, CC BY-SA 4.0, via Wikimedia Commons", caption: "Vicuñas, the wild ancestors of the alpaca, at Laguna de Salinas, Arequipa, Peru", source: "https://commons.wikimedia.org/wiki/File:Vicuñas_(Vicugna_vicugna),_Laguna_de_Salinas,_Arequipa,_Perú,_2015-08-02,_DD_40.JPG" }
+    - { url: /images/events/extra/andean-domestication-4.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "A Moche bottle in the form of a potato, from Peru's north coast (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Bottle_in_Potato_Form_MET_64.228.27.jpeg" }
   # Llamas, alpacas and guinea pigs: Domestication_of_vertebrates@1380130289.
   narration: { src: narration/events/andean-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9a012fe6ab" }
   date_source: wikipedia:Potato@1378814806
@@ -828,6 +840,8 @@
   extra_images:
     - { url: /images/events/extra/sorghum-and-millet-1.webp, credit: "RamboSD, CC BY 4.0, via Wikimedia Commons", caption: "A sorghum crop in White Nile State, Sudan", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85_%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A_%D9%81%D9%8A_%D9%88%D9%84%D8%A7%D9%8A%D8%A9_%D8%A7%D9%84%D9%86%D9%8A%D9%84_%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6_%D8%AE%D8%B1%D9%8A%D9%81_2024_%D9%85%D8%AD%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%B0%D8%B1%D8%A9_13.jpg" }
     - { url: /images/events/extra/sorghum-and-millet-2.webp, credit: "Shanmugamp7, CC BY-SA 3.0, via Wikimedia Commons", caption: "A field of pearl millet", source: "https://commons.wikimedia.org/wiki/File:Pearl_millet_-_Pennisetum_glaucum.jpg" }
+    - { url: /images/events/extra/sorghum-and-millet-3.webp, credit: "Sylvie Amblard-Pison, CC BY 4.0, via Wikimedia Commons", caption: "A millstone on a prehistoric site of the Dhar Tichitt escarpment, Mauritania", source: "https://commons.wikimedia.org/wiki/File:Meule_sur_un_site_du_Baten_de_Tichitt.jpg" }
+    - { url: /images/events/extra/sorghum-and-millet-4.webp, credit: "Roger Culos, CC BY-SA 4.0, via Wikimedia Commons", caption: "Heads of a black-grained sorghum (Muséum de Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Sorghum_bicolor_noir_MHNT.BOT.2016.12.2.jpg" }
   # Pearl millet: Pearl_millet@1362149378; Dhar Tichitt, 2000–300 BCE: Dhar_Tichitt@1370402705.
   narration: { src: narration/events/sorghum-and-millet-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "a9bee3c62a" }
   date_source: wikipedia:Sorghum@1376796568
@@ -913,6 +927,8 @@
   extra_images:
     - { url: /images/events/extra/horse-domestication-1.webp, credit: "IAEA Imagebank, CC BY-SA 2.0, via Wikimedia Commons", caption: "Przewalski's horse, descended from the horses herded at Botai", source: "https://commons.wikimedia.org/wiki/File:Przewalski%27s_Horse_(02710137).jpg" }
     - { url: /images/events/extra/horse-domestication-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Horse skull with bronze chariot fittings, from a Shang dynasty chariot burial at Yinxu, Anyang, China", source: "https://commons.wikimedia.org/wiki/File:Shang_Chariot_%26_Horse_Skull.jpg" }
+    - { url: /images/events/extra/horse-domestication-3.webp, credit: "Kazakh Encyclopedia, CC BY-SA 3.0, via Wikimedia Commons", caption: "Petroglyphs of horse-drawn chariots in the Karatau mountains, Kazakhstan, 2nd millennium BCE (drawings)", source: "https://commons.wikimedia.org/wiki/File:Каратауские_петроглифы.png" }
+    - { url: /images/events/extra/horse-domestication-4.webp, credit: "Zhuldyz bio, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavating at Botai in northern Kazakhstan", source: "https://commons.wikimedia.org/wiki/File:Историческое_поселение_Ботай.jpg" }
   # Botai: Botai_culture@1377173815.
   narration: { src: narration/events/horse-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5603ce9780" }
   date_source: wikipedia:Domestication_of_the_horse@1378644603
@@ -994,6 +1010,8 @@
   extra_images:
     - { url: /images/events/extra/chicken-domestication-1.webp, credit: "dhfischer, CC BY 4.0, via Wikimedia Commons", caption: "Red junglefowl, the wild ancestor of the chicken, in Khao Yai, Thailand", source: "https://commons.wikimedia.org/wiki/File:Gallus_gallus,_Khao_Yai_Lam_Ta_Khong,_Thailand_477443293.jpg" }
     - { url: /images/events/extra/chicken-domestication-2.webp, credit: "Alison Kyra Carter, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavating a Neolithic burial at Ban Non Wat, Thailand", source: "https://commons.wikimedia.org/wiki/File:Excavation_at_Ban_Non_wat.jpg" }
+    - { url: /images/events/extra/chicken-domestication-3.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Two roosters on a Corinthian perfume flask of the 7th or 6th century BCE: by then chickens had reached Greece (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Terracotta_alabastron_(perfume_vase)_MET_DP119927.jpg" }
+    - { url: /images/events/extra/chicken-domestication-4.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Corinthian perfume flask shaped like a rooster, about 600 BCE (Archaeological Museum of Paros)", source: "https://commons.wikimedia.org/wiki/File:Arybalos_in_shape_rooster,_Corinthian,_ca_600_BC._AM_Paros,_144006.jpg" }
   narration: { src: narration/events/chicken-domestication-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "67ca2a0a9b" }
   date_source: wikipedia:Ban_Non_Wat@1380235178
   places:
