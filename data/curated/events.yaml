@@ -436,6 +436,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Neanderthal_extinction
   image_url: /images/events/neanderthal-extinction.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/neanderthal-extinction-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/neanderthal-extinction-1.webp, credit: "Stewart Finlayson / Gibraltar Museum, CC BY-SA 4.0, via Wikimedia Commons", caption: "Neanderthal rock engraving etched into the bedrock floor of Gorham's Cave, Gibraltar", source: "https://commons.wikimedia.org/wiki/File:Neanderthal_Engraving_(Gorham%27s_Cave_Gibraltar).jpg" }
     - { url: /images/events/extra/neanderthal-extinction-2.webp, credit: "Tomislav Kranjcic, CC BY-SA 2.0, via Wikimedia Commons", caption: "Vindija Cave in Croatia, one of the latest Neanderthal sites in Central Europe", source: "https://commons.wikimedia.org/wiki/File:Vindija_cave.jpg" }
