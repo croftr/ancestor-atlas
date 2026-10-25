@@ -1990,6 +1990,10 @@
   image_url: /images/civilisations/cyrenaica.webp
   image_caption: Greek colony of Cyrene on the Libyan plateau with the Temple of Apollo, theatre, and merchants weighing precious medicinal silphium on balance scales.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/cyrenaica-1.webp, credit: "Marbens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Standing columns of the Temple of Apollo in the sanctuary of Apollo at Cyrene, the colony that gave Cyrenaica its name", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Apollo_Columns_and_Hillside_View_-_Cyrene_Shahat_Libya.jpg" }
+    - { url: /images/extra/cyrenaica-2.webp, credit: "David Holt, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Doric Temple of Zeus at Cyrene, one of the largest Greek temples in Africa, first built in the 5th century BCE", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Zeus_Cyrene.jpg" }
+    - { url: /images/extra/cyrenaica-3.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold coin of Magas, king of Cyrene (308–277 BCE): a youth on horseback, with the silphium plant on the other side (State Coin Collection, Munich)", source: "https://commons.wikimedia.org/wiki/File:Kyrene_-_king_Magas_-_308-277_BC_-_gold_tetrobol_-_youth_on_horseback_-_silphium_plant_-_München_SMS.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=RI62LGEKbLI
@@ -2009,6 +2013,10 @@
       credit: The People Profiles, YouTube
 - id: mauretania
   description: An ancient Berber kingdom spanning the Mediterranean Atlantic coast of northwestern Africa (modern northern Morocco and western Algeria). Ruled by Mauri kings like Bocchus I and later the Hellenized monarch Juba II, the realm was celebrated for horse cavalry, purple dye production, and Roman alliance before annexation by Emperor Claudius.
+  extra_images:
+    - { url: /images/extra/mauretania-1.webp, credit: "Bernard Gagnon, CC BY 4.0, via Wikimedia Commons", caption: "The Royal Mausoleum of Mauretania near Tipasa, Algeria, thought to be the tomb of Juba II and Cleopatra Selene", source: "https://commons.wikimedia.org/wiki/File:Royal_Mausoleum_of_Mauretania_01.jpg" }
+    - { url: /images/extra/mauretania-2.webp, credit: "Bernard Gagnon, CC BY 4.0, via Wikimedia Commons", caption: "Marble portrait of the young King Juba II, from his capital Caesarea (Cherchell Archaeological Museum, Algeria)", source: "https://commons.wikimedia.org/wiki/File:Head_of_Juba_II_(Cherchell).jpg" }
+    - { url: /images/extra/mauretania-3.webp, credit: "Bibliothèque nationale de France, public domain, via Wikimedia Commons", caption: "Silver denarius of Juba II, with the portrait and Greek title of his queen Cleopatra Selene (Bibliothèque nationale de France)", source: "https://commons.wikimedia.org/wiki/File:Monnaie_-_Denier,_Argent,_Incertain,_Maurétanie,_Juba_II_-_btv1b84841515_(2_of_2).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=0AMVjh0I7b4
@@ -2016,6 +2024,11 @@
       credit: TimelessTreasury, YouTube
 - id: kingdom-of-numidia
   description: A powerful ancient Berber kingdom in northwest Africa (modern Algeria and parts of Tunisia), forged through the unification of the Massylii and Masaesyli tribes under King Masinissa. Famed across antiquity for agile light cavalry that served decisively in the Punic Wars, Numidia clashed famously with the Roman Republic during the Jugurthine War.
+  extra_images:
+    - { url: /images/extra/kingdom-of-numidia-1.webp, credit: "Dan Sloan, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Medracen, a royal mausoleum of the Numidian kings near Batna, Algeria, built in the 3rd century BCE", source: "https://commons.wikimedia.org/wiki/File:Medracen_tomb_(Numidian)_(15685968210).jpg" }
+    - { url: /images/extra/kingdom-of-numidia-2.webp, credit: "Patrick Giraud, CC BY 3.0, via Wikimedia Commons", caption: "The Libyco-Punic mausoleum of Dougga (Thugga), Tunisia, built for a Numidian prince in the 2nd century BCE", source: "https://commons.wikimedia.org/wiki/File:TUNISIA_DOUGGA_MAUSOLEE_LIBYCO_PUNIQUE_001.jpg" }
+    - { url: /images/extra/kingdom-of-numidia-3.webp, credit: "Riad Hadjsadok, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Soumaa of El Khroub near Constantine (Cirta), a Numidian royal tomb of the 2nd century BCE, traditionally called the tomb of Massinissa", source: "https://commons.wikimedia.org/wiki/File:Tombeau_de_Massinissa,_El_Khroub.jpg" }
+    - { url: /images/extra/kingdom-of-numidia-4.webp, credit: "Leicestershire County Council, Portable Antiquities Scheme, CC BY 2.0, via Wikimedia Commons", caption: "Silver denarius of Juba I of Numidia (60–46 BCE), with his portrait and an eight-columned temple, found in Leicestershire, England", source: "https://commons.wikimedia.org/wiki/File:Roman_(Numidian)_denarius_of_Juba_I_(FindID_800615).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=YTObOpc6Kt0
