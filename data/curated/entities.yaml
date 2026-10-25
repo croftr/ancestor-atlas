@@ -1422,6 +1422,11 @@
       src: https://www.youtube.com/watch?v=jvrFAJCBTm8
       title: "The Fall of Neolithic Europe: the Globular Amphora Culture"
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/globular-amphora-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "A globular amphora of 3100–2700 BCE, found in 1979 at Friedrichsfelde, Berlin (Märkisches Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:-3000_Amphore_Kugelamphorenkultur_anagoria.JPG" }
+    - { url: /images/extra/globular-amphora-2.webp, credit: "CristianChirita, CC BY-SA 3.0, via Wikimedia Commons", caption: "A Globular Amphora burial in a stone cist, with its pots, as displayed in a museum", source: "https://commons.wikimedia.org/wiki/File:Globular_amphora_burial_1.jpg" }
+    - { url: /images/extra/globular-amphora-3.webp, credit: "Maria Weronika Kmoch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Flint axes of the Globular Amphora culture from Budy Rządowe, Poland (Historical Museum, Przasnysz)", source: "https://commons.wikimedia.org/wiki/File:Budy_Rządowe_archeologia.jpg" }
+    - { url: /images/extra/globular-amphora-4.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "A copper spiral earring from Zschernitz, Saxony, 3100–2800 BCE (State Museum of Archaeology, Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Neolithikum_111.jpg" }
 - id: baden
   name: Baden culture
   category: culture
@@ -1439,6 +1444,11 @@
       src: https://www.youtube.com/watch?v=hTmt6PUryT0
       title: Which ancient society really invented the wheel?
       credit: Dan Davis History, YouTube
+  extra_images:
+    - { url: /images/extra/baden-1.webp, credit: "CryolophosaurusEllioti, CC BY 4.0, via Wikimedia Commons", caption: "Clay cup in the shape of a four-wheeled wagon from Szigetszentmárton, Hungary, 3500–3000 BCE, one of the oldest pictures of a wheeled vehicle (Hungarian National Museum)", source: "https://commons.wikimedia.org/wiki/File:Ceramic_wagon_model_-_Hungarian_National_Museum_1972.19.1.jpg" }
+    - { url: /images/extra/baden-2.webp, credit: "Silar, CC BY-SA 4.0, via Wikimedia Commons", caption: "Baden cups with high loop handles and a clay ladle from Nowa Huta, Kraków", source: "https://commons.wikimedia.org/wiki/File:02021_0530_Baden_culture_mugs,_Nowa_Huta.jpg" }
+    - { url: /images/extra/baden-3.webp, credit: "Bjoertvedt, CC BY-SA 4.0, via Wikimedia Commons", caption: "A tall Baden cup with a raised handle from Hungary (Budapest History Museum)", source: "https://commons.wikimedia.org/wiki/File:Copper_age_middle_3500-2700BC_baden_culture_IMG_0937.jpg" }
+    - { url: /images/extra/baden-4.webp, credit: "Bjoertvedt, CC BY-SA 4.0, via Wikimedia Commons", caption: "A copper shaft-hole axe of the Baden period from Hungary (Budapest History Museum)", source: "https://commons.wikimedia.org/wiki/File:Copper_age_middle_3500-2700BC_copper_ax_IMG_0931.jpg" }
 # Span from English Wikipedia: Yamnaya_culture@1377652974.
 - id: yamnaya
   name: Yamnaya culture
