@@ -601,6 +601,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Cattle
   image_url: /images/events/cattle-and-pigs.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/cattle-and-pigs-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/cattle-and-pigs-1.webp, credit: "Eldrichr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Skeleton of an aurochs, the wild ancestor of cattle (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:Aurochs,_Danish_National_Museum.jpg" }
     - { url: /images/events/extra/cattle-and-pigs-2.webp, credit: "Krähenstein, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stone foundations of a grill-plan building at Çayönü, southeastern Turkey", source: "https://commons.wikimedia.org/wiki/File:Cay%C3%B6n%C3%BC_-_Grillplangeb%C3%A4ude.jpg" }
