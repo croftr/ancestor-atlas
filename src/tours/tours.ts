@@ -90,12 +90,12 @@ export const TOURS: Tour[] = [
   {
     id: "out-of-africa",
     title: "Out of Africa",
-    closing: "Everyone alive today descends from these journeys. The map we have just crossed is a family tree.",
+    closing: "No one set out to cross the world; each generation only moved to the next valley, the next coast, the next horizon. Yet step by step, one African species found a way to live in every corner of the Earth.",
     blurb: "How our ancestors left Africa and reached every continent, from the first steps into Asia to the peopling of the Americas.",
     layers: ["species", "culture", "event"],
     music: { src: "music/tours/out-of-africa-v2.mp3", credit: "Music: \"Apeman Suite\" by Paul Lawler" },
     announcement: { src: "narration/tours/out-of-africa-v3.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "cce3d2ec85" },
-    closingNarration: { src: "narration/tours/out-of-africa-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "56adc2ccb1" },
+    closingNarration: { src: "narration/tours/out-of-africa-closing-v2.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "21aed7481a" },
     stops: [
       { entity: "out-of-africa-dmanisi" },
       { entity: "homo-sapiens", year: -309_999, site: "homo-sapiens@1" },
