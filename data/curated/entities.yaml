@@ -1041,6 +1041,11 @@
   image_url: /images/civilisations/persia.webp
   image_credit: AI-generated illustration
   image_caption: "Persepolis ceremonial complex with double-bull capitals, the Apadana stairway, Persian Immortals guards, and the colossal Gate of All Nations"
+  extra_images:
+    - { url: /images/extra/persia-1.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Gate of All Nations, built by Xerxes I at Persepolis, guarded by colossal winged bulls", source: "https://commons.wikimedia.org/wiki/File:The_Gate_of_All_Nations_also_known_as_the_Gate_of_Xerxes,_Persepolis,_Iran_(47779515191).jpg" }
+    - { url: /images/extra/persia-2.webp, credit: "Bernard Gagnon, CC BY-SA 4.0, via Wikimedia Commons", caption: "Naqsh-e Rustam near Persepolis: the cliff tombs of Darius I and his successors", source: "https://commons.wikimedia.org/wiki/File:Naqsh-e_Rustam_02.jpg" }
+    - { url: /images/extra/persia-3.webp, credit: "Patrick C, CC BY-SA 2.0, via Wikimedia Commons", caption: "Darius I standing over the usurper Gaumata on the Behistun relief, carved with his inscription in Old Persian, Elamite and Babylonian, about 520 BCE", source: "https://commons.wikimedia.org/wiki/File:Behistun_relief_Darius_and_Gaumata.jpg" }
+    - { url: /images/extra/persia-4.webp, credit: "BabelStone, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gold model of a chariot from the Oxus Treasure, Achaemenid, 5th–4th century BCE, from Takht-i Kuwad, Tajikistan (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Oxus_chariot_model.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=qRYdivPIWh4
@@ -2436,6 +2441,11 @@
   image_url: /images/civilisations/elam.webp
   image_caption: Monumental baked-brick ziggurat of Chogha Zanbil with multi-tiered staircases, blue glazed bricks, and scribes holding cuneiform tablets.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/elam-1.webp, credit: "Atsed, CC BY-SA 4.0, via Wikimedia Commons", caption: "The ziggurat of Chogha Zanbil (Dur Untash), built by the Elamite king Untash-Napirisha in the 13th century BCE, Khuzestan, Iran", source: "https://commons.wikimedia.org/wiki/File:Zigorat_Chogha_Zanbil_Temple.jpg" }
+    - { url: /images/extra/elam-2.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Bronze statue of Queen Napirasu, wife of Untash-Napirisha, cast in solid metal and weighing 1,750 kg, from Susa, 14th century BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Statue_de_Napir-Asu_-_Musée_du_Louvre_-_Antiquités_orientales_SB_2731.jpg" }
+    - { url: /images/extra/elam-3.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold and silver statuettes of a praying man carrying a young goat, from the acropolis of Susa, Middle Elamite period, 12th century BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Statuettes_Sb_2758_2759.jpg" }
+    - { url: /images/extra/elam-4.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Bronze helmet with gold-foil figures of deities beneath a bird with outstretched wings, southwest Iran, Middle Elamite period (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Helmet_with_divine_figures_beneath_a_bird_with_outstretched_wings_MET_DT874.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=jkFwh_saHmc
@@ -2526,6 +2536,9 @@
   image_url: /images/civilisations/median-kingdom.webp
   image_caption: Ecbatana with legendary concentric multicolored defensive walls, Median nobles with akinakes daggers and golden rhyton, and Nisean cavalry.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/median-kingdom-1.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Excavated remains on Tepe Hegmataneh in Hamadan, the site of Ecbatana, capital of the Medes", source: "https://commons.wikimedia.org/wiki/File:Ecbatana,_Iran.jpg" }
+    - { url: /images/extra/median-kingdom-2.webp, credit: "R shahbazi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tepe Nush-i Jan near Malayer, Iran, a Median fortified site of the 8th–7th centuries BCE with a fire temple preserved in mud brick", source: "https://commons.wikimedia.org/wiki/File:Noshijan.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=XF9-27lMhpE
@@ -2624,6 +2637,8 @@
   image_url: /images/civilisations/atropatene.webp
   image_caption: Takht-e Soleyman in Media Atropatene, fortified volcanic crater lake, Zoroastrian priests tending an eternal sacred fire, and cataphract cavalry.
   image_credit: AI-generated illustration
+  extra_images:
+    - { url: /images/extra/atropatene-1.webp, credit: "Urek Meniashvili, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver drachm of Darius I, king of Media Atropatene, found at Kharaba-Gilan, Nakhchivan", source: "https://commons.wikimedia.org/wiki/File:Sliver_drachma_of_Darius_I_of_Media_Atropatene_1.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=-1XbXfBUxb8
