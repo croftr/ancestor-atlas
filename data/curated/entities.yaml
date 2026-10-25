@@ -33,6 +33,11 @@
   image_url: /images/species/orrorin-tugenensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/orrorin-tugenensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/orrorin-tugenensis-1.webp, credit: "Jonathan Chen, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of the thigh bone BAR 1002'00, whose neck and shaft suggest Orrorin walked upright (Smithsonian National Museum of Natural History)", source: "https://commons.wikimedia.org/wiki/File:Orrorin_NMNH.jpg" }
+    - { url: /images/extra/orrorin-tugenensis-2.webp, credit: "Almécija, Moyà-Solà & Alba (PLoS ONE 2010), CC BY 3.0, via Wikimedia Commons", caption: "Thumb-tip bones of a chimpanzee, gorilla, Orrorin, a modern human and Homo habilis (OH 7), compared for signs of a human-like precision grip", source: "https://commons.wikimedia.org/wiki/File:Distal-phalanges-comparison-Journal.pone.0011727.g002.png" }
+    - { url: /images/extra/orrorin-tugenensis-3.webp, credit: "Emőke Dénes, CC BY-SA 4.0, via Wikimedia Commons", caption: "The earliest hominins at the Natural History Museum, London: Sahelanthropus skull, Orrorin thigh bone and Ardipithecus skeleton (casts)", source: "https://commons.wikimedia.org/wiki/File:Em_-_Hominidae_sp._-_6.jpg" }
+    - { url: /images/extra/orrorin-tugenensis-4.webp, credit: "it:User:Lucius, CC BY-SA 3.0, via Wikimedia Commons", caption: "Outline drawings of the Orrorin fossils from the Tugen Hills: three thigh bones, an upper arm bone, teeth and jaw fragments", source: "https://commons.wikimedia.org/wiki/File:Orrorin_tugenensis.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=7Wq6XqyqQ34
@@ -50,6 +55,11 @@
   image_url: /images/species/ardipithecus-kadabba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/ardipithecus-kadabba-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/ardipithecus-kadabba-1.webp, credit: "it:User:Lucius, CC BY-SA 3.0, via Wikimedia Commons", caption: "Outline drawings of Ardipithecus kadabba fossils from the Middle Awash: teeth, a jaw fragment and limb bones", source: "https://commons.wikimedia.org/wiki/File:Ardipithecus_kadabba_fossils.jpg" }
+    - { url: /images/extra/ardipithecus-kadabba-2.webp, credit: "Chartep, CC BY-SA 3.0, via Wikimedia Commons", caption: "The known Ardipithecus kadabba fossils by site (Alayla, Amba East, Asa Koma, Digiba Dora, Saitune Dora) and catalogue number", source: "https://commons.wikimedia.org/wiki/File:Ardipithecus_kadabba_specimens.jpg" }
+    - { url: /images/extra/ardipithecus-kadabba-3.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Middle Awash in Ethiopia's Afar region, where the Ardipithecus kadabba fossils were found", source: "https://commons.wikimedia.org/wiki/File:Middle_Awash_map.jpg" }
+    - { url: /images/extra/ardipithecus-kadabba-4.webp, credit: "Raymonde Bonnefille (IRD / CNRS / INSU), Licence Ouverte, via Wikimedia Commons", caption: "Tamarisk on the banks of the Awash River in the Afar, photographed by palaeobotanist Raymonde Bonnefille in 1968", source: "https://commons.wikimedia.org/wiki/File:Fonds_Raymonde_Bonnefille_-_Ethiopie,_Afar_-_Mission_1968_-_Tamaris_au_bord_de_la_rivière_Awash_(MédiHAL_5349999).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=qRY68467GPg
@@ -90,6 +100,11 @@
   image_url: /images/species/australopithecus-anamensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/australopithecus-anamensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/australopithecus-anamensis-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Australopithecus anamensis fossils from Kanapoi, west of Lake Turkana, at the Nairobi National Museum", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_081.jpg" }
+    - { url: /images/extra/australopithecus-anamensis-2.webp, credit: "Guérin Nicolas, CC BY-SA 3.0, via Wikimedia Commons", caption: "KNM-KP 271, the lower end of an upper arm bone found at Kanapoi in 1965 and later assigned to A. anamensis (cast, University of Zurich)", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_anamensis_bone_(University_of_Zurich).JPG" }
+    - { url: /images/extra/australopithecus-anamensis-3.webp, credit: "Ghedoghedo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Casts of A. anamensis jaws and limb bones from Kanapoi (Royal Belgian Institute of Natural Sciences, Brussels)", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_anamensis_5476.JPG" }
+    - { url: /images/extra/australopithecus-anamensis-4.webp, credit: "Nachosan, CC BY-SA 4.0, via Wikimedia Commons", caption: "Casts of A. anamensis jaws, shin, arm and wrist bones (Museo Nacional de Ciencias Naturales, Madrid)", source: "https://commons.wikimedia.org/wiki/File:A._anamensis_02.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=XHBef_2dvqE
@@ -130,6 +145,11 @@
   image_url: /images/species/kenyanthropus-platyops.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/kenyanthropus-platyops-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/kenyanthropus-platyops-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "The flat-faced skull KNM-WT 40000, found at Lomekwi west of Lake Turkana in 1999 (Nairobi National Museum)", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_083.jpg" }
+    - { url: /images/extra/kenyanthropus-platyops-2.webp, credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Cast of the Kenyanthropus platyops skull, whose flat face gave the species its name", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus_platyops.jpg" }
+    - { url: /images/extra/kenyanthropus-platyops-3.webp, credit: "Rama, public domain, via Wikimedia Commons", caption: "Cast of the KNM-WT 40000 skull, distorted by the rock it lay in for 3.5 million years", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus_platyops_IMG_2945.JPG" }
+    - { url: /images/extra/kenyanthropus-platyops-4.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Lomekwi in northern Kenya, where Kenyanthropus platyops was found", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus-Lomekwi.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Se54pYWiDd8
@@ -149,6 +169,11 @@
   image_url: /images/species/australopithecus-bahrelghazali.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/australopithecus-bahrelghazali-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/australopithecus-bahrelghazali-1.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Koro Toro site KT 12 in northern Chad, where the jaw was found in 1995; the dashed line marks the largest extent of Holocene Lake Mega-Chad", source: "https://commons.wikimedia.org/wiki/File:Koro-Toro.jpg" }
+    - { url: /images/extra/australopithecus-bahrelghazali-2.webp, credit: "Clumsystiggy, CC BY 4.0, via Wikimedia Commons", caption: "Outline of \"Abel\" (KT 12/H1), the jaw fragment with teeth that is the species' type fossil", source: "https://commons.wikimedia.org/wiki/File:Abel_australopithecus.png" }
+    - { url: /images/extra/australopithecus-bahrelghazali-3.webp, credit: "Sting and Kameraad Pjotr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Fossil sites of the australopiths: A. bahrelghazali's lies some 2,500 km west of the Rift Valley", source: "https://commons.wikimedia.org/wiki/File:Map_of_the_fossil_sites_of_the_early_hominids_(4.4-1M_BP).svg" }
+    - { url: /images/extra/australopithecus-bahrelghazali-4.webp, credit: "Gerhard Holub, CC BY-SA 4.0, via Wikimedia Commons", caption: "A desert well at Koro Toro in 2017: the area where Abel was found is now part of the Sahara", source: "https://commons.wikimedia.org/wiki/File:Chad_2017_Koro_Toro_desert_well_DSC9967.jpg" }
 - id: australopithecus-deyiremeda
   name: Australopithecus deyiremeda
   category: species
@@ -163,6 +188,11 @@
   image_url: /images/species/australopithecus-deyiremeda.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/australopithecus-deyiremeda-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/australopithecus-deyiremeda-1.webp, credit: "A. C. Tatarinov, CC0, via Wikimedia Commons", caption: "Drawing of the type fossils from Burtele, the upper jaw BRT-VP-3/1 and the lower jaw BRT-VP-3/14, shown together", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_deyiremeda.png" }
+    - { url: /images/extra/australopithecus-deyiremeda-2.webp, credit: "John Nygren, CC BY 4.0, via Wikimedia Commons", caption: "Reconstruction of the Burtele foot (BRT-VP-2/73), 3.4 million years old, with a big toe that could still grasp", source: "https://commons.wikimedia.org/wiki/File:Burtele_foot.png" }
+    - { url: /images/extra/australopithecus-deyiremeda-3.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sites of A. afarensis, including Woranso-Mille in Ethiopia's Afar, where A. deyiremeda lived alongside it", source: "https://commons.wikimedia.org/wiki/File:Afarensis_Africa.jpg" }
+    - { url: /images/extra/australopithecus-deyiremeda-4.webp, credit: "Silica Cat, CC0, via Wikimedia Commons", caption: "The edge of the Ethiopian Plateau above the Afar Depression, the lowland that holds Woranso-Mille", source: "https://commons.wikimedia.org/wiki/File:Paleogene_flood_basalts,_Ethiopia.jpg" }
 - id: australopithecus-africanus
   name: Australopithecus africanus
   category: species
@@ -197,6 +227,11 @@
   image_url: /images/species/australopithecus-garhi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/australopithecus-garhi-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/australopithecus-garhi-1.webp, credit: "Sailko, CC BY 3.0, via Wikimedia Commons", caption: "Reconstructed skull of Australopithecus garhi from Bouri, about 2.5 million years old (National Museum of Ethiopia)", source: "https://commons.wikimedia.org/wiki/File:Resti_di_australopithecus_garhi,_da_bouri_in_afar,_2,5_milioni_di_anni_fa.jpg" }
+    - { url: /images/extra/australopithecus-garhi-2.webp, credit: "Ji-Elle, CC BY-SA 3.0, via Wikimedia Commons", caption: "Side view of the reconstruction, built from the BOU-VP-12/130 skull pieces found in 1997, with its large teeth (National Museum of Ethiopia)", source: "https://commons.wikimedia.org/wiki/File:Musée_national_d'Ethiopie-Australopithecus_garhi_(1).jpg" }
+    - { url: /images/extra/australopithecus-garhi-3.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Middle Awash in Ethiopia's Afar region, where Bouri lies", source: "https://commons.wikimedia.org/wiki/File:Middle_Awash_map.jpg" }
+    - { url: /images/extra/australopithecus-garhi-4.webp, credit: "Sting and Kameraad Pjotr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Fossil sites of the australopiths and Paranthropus, with A. garhi in Ethiopia", source: "https://commons.wikimedia.org/wiki/File:Map_of_the_fossil_sites_of_the_early_hominids_(4.4-1M_BP).svg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=9ExOy42Hc50
@@ -236,6 +271,11 @@
   image_url: /images/species/paranthropus-aethiopicus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/paranthropus-aethiopicus-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/paranthropus-aethiopicus-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Black Skull, KNM-WT 17000, found west of Lake Turkana in 1985 (Nairobi National Museum)", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_102.jpg" }
+    - { url: /images/extra/paranthropus-aethiopicus-2.webp, credit: "Paul Hudson, CC BY 2.0, via Wikimedia Commons", caption: "Cast of the Black Skull: a jutting face and a crest on top for huge chewing muscles (Natural History Museum, London)", source: "https://commons.wikimedia.org/wiki/File:Paranthropus_aethiopicus_at_the_Natural_History_Museum_cropped.jpg" }
+    - { url: /images/extra/paranthropus-aethiopicus-3.webp, credit: "Guérin Nicolas, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstruction of the Black Skull seen from above, showing the crest along its top (University of Zurich)", source: "https://commons.wikimedia.org/wiki/File:Paranthropus_aethiopicus_top_(University_of_Zurich).JPG" }
+    - { url: /images/extra/paranthropus-aethiopicus-4.webp, credit: "Emőke Dénes, CC BY-SA 4.0, via Wikimedia Commons", caption: "Robust australopiths at the Natural History Museum, London: Paranthropus robustus, P. boisei and P. aethiopicus (casts)", source: "https://commons.wikimedia.org/wiki/File:Em_-_Hominidae_sp._-_1.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=EpNgX8wRW8c
@@ -481,6 +521,11 @@
   image_url: /images/species/homo-luzonensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
   video: { src: video/species/homo-luzonensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  extra_images:
+    - { url: /images/extra/homo-luzonensis-1.webp, credit: "Homo schollensis, CC BY-SA 4.0, via Wikimedia Commons", caption: "Teeth and a toe bone of Homo luzonensis compared with A. afarensis and modern humans, drawn from the 3D scans of Détroit et al. (2019)", source: "https://commons.wikimedia.org/wiki/File:Homo_luzonensis_teeth_and_foot_bones_diagram.jpg" }
+    - { url: /images/extra/homo-luzonensis-2.webp, credit: "Ervin Malicdem, CC BY-SA 4.0, via Wikimedia Commons", caption: "Inside Callao Cave in Cagayan, northern Luzon, where the fossils were found", source: "https://commons.wikimedia.org/wiki/File:Callao_Cave.jpg" }
+    - { url: /images/extra/homo-luzonensis-3.webp, credit: "Warrendering, CC BY-SA 4.0, via Wikimedia Commons", caption: "Daylight through the opening in the roof of Callao Cave's first chamber", source: "https://commons.wikimedia.org/wiki/File:The_Oculus_of_the_First_Chamber.jpg" }
+    - { url: /images/extra/homo-luzonensis-4.webp, credit: "Warrendering, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Pinacanauan River seen from the mouth of Callao Cave", source: "https://commons.wikimedia.org/wiki/File:Pinacanauan_River_from_the_Callao_Caves.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=mBnzNpbaqS4
