@@ -1023,6 +1023,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Chicken
   image_url: /images/events/chicken-domestication.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/chicken-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/chicken-domestication-1.webp, credit: "dhfischer, CC BY 4.0, via Wikimedia Commons", caption: "Red junglefowl, the wild ancestor of the chicken, in Khao Yai, Thailand", source: "https://commons.wikimedia.org/wiki/File:Gallus_gallus,_Khao_Yai_Lam_Ta_Khong,_Thailand_477443293.jpg" }
     - { url: /images/events/extra/chicken-domestication-2.webp, credit: "Alison Kyra Carter, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavating a Neolithic burial at Ban Non Wat, Thailand", source: "https://commons.wikimedia.org/wiki/File:Excavation_at_Ban_Non_wat.jpg" }
