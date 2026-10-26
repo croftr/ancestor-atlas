@@ -891,6 +891,7 @@
   description: Flourishing along the arid Pacific river valleys of central coastal Peru, Caral is the oldest known civilization and urban center in the Americas, developing monumental stepped platform pyramids and sunken circular plazas contemporary with Egypt's Old Kingdom. Sustained by maritime trade exchanging anchovies and mollusks from the coast for cotton and squash irrigated from the Supe River, Caral lacked defensive fortifications or signs of warfare, instead organizing complex regional labor through shared religious ritual, music played on carved pelican-bone flutes, and recording systems including early knotted quipu strings.
   image_url: /images/events/caral-supe.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/caral-supe-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/caral-supe-1.webp, credit: "Jon Gudorf Photography, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Pirámide Mayor and sunken circular plaza at the ancient sacred city of Caral, Peru", source: "https://commons.wikimedia.org/wiki/File:Mayor_Pyramid_and_circular_enclosure._Caral,_Peru.jpg" }
     - { url: /images/events/extra/caral-supe-2.webp, credit: "Håkan Svensson Xauxa, CC BY 2.5, via Wikimedia Commons", caption: "Platform mounds and ceremonial architecture in the Supe Valley", source: "https://commons.wikimedia.org/wiki/File:PeruCaral01.jpg" }
