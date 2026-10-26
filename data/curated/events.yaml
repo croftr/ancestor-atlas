@@ -911,7 +911,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
   image_url: /images/events/indus-cities.webp
   image_credit: AI-generated illustration
-  video: { src: video/events/indus-cities-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  video: { src: video/events/indus-cities-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/indus-cities-3.webp, credit: "Comrogues, CC BY 2.0, via Wikimedia Commons", caption: "Standardized baked-brick walls and straight streets at Mohenjo-daro", source: "https://commons.wikimedia.org/wiki/File:Mohenjo-daro-2010.jpg" }
     - { url: /images/events/extra/indus-cities-2.webp, credit: "Prof Ranga Sai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Manholes in the drainage network at Dholavira, another Indus city", source: "https://commons.wikimedia.org/wiki/File:Manholes_at_Dholavira_water_management_network.jpg" }
