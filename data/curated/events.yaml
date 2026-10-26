@@ -780,6 +780,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Wheel
   image_url: /images/events/invention-of-the-wheel.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/invention-of-the-wheel-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/invention-of-the-wheel-1.webp, credit: "Petar Milošević, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ljubljana Marshes Wheel and axle, about 3150 BCE", source: "https://commons.wikimedia.org/wiki/File:Ljubljana_Marshes_Wheel_with_axle_(oldest_wooden_wheel_yet_discovered).jpg" }
     - { url: /images/events/extra/invention-of-the-wheel-2.webp, credit: "Silar, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Bronocice pot, about 3500 BCE, with one of the earliest pictures of a wagon", source: "https://commons.wikimedia.org/wiki/File:0854_Ein_Krug_aus_Bronocice,_3.550_v._Chr..JPG" }
