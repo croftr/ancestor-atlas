@@ -735,6 +735,7 @@
   description: In the hyper-arid coastal desert of northern Chile and southern Peru, the Chinchorro hunter-gatherer-fishers developed the earliest known artificial mummification in human history, predating Egyptian mummies by over two millennia. Mortuary artisans carefully removed internal organs, reinforced skeletal structures with wooden sticks and totora reeds, modeled fine clay paste over the body, and sculpted serene portrait masks painted with black manganese or red ochre and fitted with natural human hair wigs. Mummification was practiced across all ages and social ranks, keeping deceased ancestors as physical, enduring members of the community.
   image_url: /images/events/chinchorro-mummies.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/chinchorro-mummies-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/chinchorro-mummies-1.webp, credit: "WeHaKa, CC BY-SA 4.0, via Wikimedia Commons", caption: "Red mummy of an infant at the Museo Arqueológico San Miguel de Azapa, Chile", source: "https://commons.wikimedia.org/wiki/File:Momia_Chinchorro_Roja.jpg" }
     - { url: /images/events/extra/chinchorro-mummies-2.webp, credit: "WeHaKa, CC BY-SA 4.0, via Wikimedia Commons", caption: "Black mummy of an infant with sculpted facial manganese mask and human-hair wig", source: "https://commons.wikimedia.org/wiki/File:Momia_Chinchorro_Negra.jpg" }
