@@ -1002,6 +1002,7 @@
   description: In northeastern Louisiana along Bayou Maçon, Indigenous hunter-gatherer-fishers constructed one of the most astonishing monumental earthwork complexes in North America, moving an estimated 750,000 cubic meters of earth without beasts of burden or wheeled carts. The site features six massive concentric semi-elliptical earthen ridges surrounding a central plaza and dominated by the 22-meter-tall bird-shaped Mound A. A vibrant continental trade hub, Poverty Point imported tons of exotic lithic raw materials—novaculite, galena, quartz crystal, and copper—from across eastern North America, alongside millions of distinctive baked-clay cooking balls known as Poverty Point Objects.
   image_url: /images/events/poverty-point.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/poverty-point-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/poverty-point-1.webp, credit: "Herb Roe, CC BY-SA 4.0, via Wikimedia Commons", caption: "Aerial artist's reconstruction of the concentric earthen ridges and Mound A at Poverty Point", source: "https://commons.wikimedia.org/wiki/File:Poverty_Point_Aerial_HRoe_2014.jpg" }
     - { url: /images/events/extra/poverty-point-2.webp, credit: "Knieml, CC BY-SA 2.0, via Wikimedia Commons", caption: "Monumental Mound A rising 72 feet above the Poverty Point landscape", source: "https://commons.wikimedia.org/wiki/File:Mound_A_at_Poverty_Point.jpg" }
