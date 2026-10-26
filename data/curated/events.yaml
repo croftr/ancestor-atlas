@@ -824,6 +824,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Cuneiform
   image_url: /images/events/development-of-writing.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/development-of-writing-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/development-of-writing-3.webp, credit: "Francesco Bini, CC BY-SA 4.0, via Wikimedia Commons", caption: "Spherical clay envelope (bulla) and accounting tokens used to record transactions at Susa, about 3100 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Iran,_bulla_e_gettoni_usati_per_attestare_una_transazione_commerciale,_da_susa,_3100-2800_ac_ca._(louvre).jpg" }
     - { url: /images/events/extra/development-of-writing-1.webp, credit: "Vassil, CC0, via Wikimedia Commons", caption: "Tablet with archaic numbers, Uruk, about 3300 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:British_Museum_Middle_east_14022019_Gypsum_tablet_with_archaic_numbers_Late_Uruk_Period_3667.jpg" }
