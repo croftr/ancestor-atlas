@@ -980,6 +980,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Code_of_Hammurabi
   image_url: /images/events/code-of-hammurabi.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/code-of-hammurabi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/code-of-hammurabi-1.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "The Code of Hammurabi stele (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg" }
     - { url: /images/events/extra/code-of-hammurabi-2.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "Hammurabi before the sun god Shamash, at the top of the stele", source: "https://commons.wikimedia.org/wiki/File:P1050771_Louvre_code_Hammurabi_bas_relief_rwk.JPG" }
