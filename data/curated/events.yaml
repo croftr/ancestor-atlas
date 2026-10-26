@@ -958,6 +958,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Proto-Sinaitic_script
   image_url: /images/events/alphabetic-script.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/alphabetic-script-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/alphabetic-script-3.webp, credit: "NASA/METI/AIST/Japan Space Systems, public domain, via Wikimedia Commons", caption: "Satellite view of Serabit el-Khadim in Sinai, site of the Egyptian turquoise mines where Proto-Sinaitic was inscribed", source: "https://commons.wikimedia.org/wiki/File:Serabit_el-Khadim,_Egypt_(ASTER).jpg" }
     - { url: /images/events/extra/alphabetic-script-1.webp, credit: "Onceinawhile, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sphinx from Serabit el-Khadim with Proto-Sinaitic inscriptions (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Serabit_sphinx_(EA41748).png" }
