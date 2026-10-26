@@ -847,6 +847,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sorghum
   image_url: /images/events/sorghum-and-millet.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/sorghum-and-millet-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/sorghum-and-millet-1.webp, credit: "RamboSD, CC BY 4.0, via Wikimedia Commons", caption: "A sorghum crop in White Nile State, Sudan", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85_%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A_%D9%81%D9%8A_%D9%88%D9%84%D8%A7%D9%8A%D8%A9_%D8%A7%D9%84%D9%86%D9%8A%D9%84_%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6_%D8%AE%D8%B1%D9%8A%D9%81_2024_%D9%85%D8%AD%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%B0%D8%B1%D8%A9_13.jpg" }
     - { url: /images/events/extra/sorghum-and-millet-2.webp, credit: "Shanmugamp7, CC BY-SA 3.0, via Wikimedia Commons", caption: "A field of pearl millet", source: "https://commons.wikimedia.org/wiki/File:Pearl_millet_-_Pennisetum_glaucum.jpg" }
