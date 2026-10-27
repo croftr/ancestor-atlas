@@ -1044,6 +1044,7 @@
   related: [lapita]
   image_url: /images/events/lapita-voyaging.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/lapita-voyaging-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/lapita-voyaging-1.webp, credit: "Torbenbrinker, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstructed Lapita earthenware vessel displayed at the Vanuatu Cultural Centre in Port Vila", source: "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg" }
     - { url: /images/events/extra/lapita-voyaging-2.webp, credit: "Metropolitan Museum of Art / Szilas, CC0, via Wikimedia Commons", caption: "Cast of a Lapita pot sherd featuring an intricate anthropomorphic stamped face motif (Santa Cruz Islands)", source: "https://commons.wikimedia.org/wiki/File:Cast_of_a_Pot_Sherd_MET_vs1980_153_2.jpg" }
