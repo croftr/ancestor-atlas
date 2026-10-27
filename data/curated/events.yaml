@@ -1193,6 +1193,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_paper
   image_url: /images/events/papermaking.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/papermaking-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/papermaking-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Fragment of the Fangmatan paper map, early 2nd century BCE", source: "https://commons.wikimedia.org/wiki/File:Fangmatan_paper_map.jpg" }
     - { url: /images/events/extra/papermaking-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Western Han paper found in Shaanxi in 1978", source: "https://commons.wikimedia.org/wiki/File:Western_Han_Paper_(9831941586).jpg" }
@@ -1213,6 +1214,7 @@
   related: [han-dynasty]
   image_url: /images/events/silk-road.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/silk-road-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/silk-road-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "The Galloping Bronze Horse of Gansu, symbol of the prized 'Heavenly Horses' of the Silk Road", source: "https://commons.wikimedia.org/wiki/File:HanHorse.jpg" }
     - { url: /images/events/extra/silk-road-2.webp, credit: "John Hill, CC BY-SA 3.0, via Wikimedia Commons", caption: "Remains of the Western Han dynasty frontier granary and outpost near Dunhuang", source: "https://commons.wikimedia.org/wiki/File:Han_Dynasty_Granary_west_of_Dunhuang.jpg" }
