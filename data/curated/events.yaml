@@ -1110,6 +1110,7 @@
   description: On the Jos Plateau of central Nigeria, the Nok culture created sub-Saharan Africa's earliest known monumental figurative art tradition alongside early bloomery iron-smelting technology. Nok artisans sculpted hollow, coiled terracotta human figures and animal effigies remarkable for their expressive stylization, pierced triangular eyes and pupils, elaborate braided hairstyles, and detailed beadwork ornaments. Contemporaneous with their terracotta sculpture, Nok settlements at Taruga operated sophisticated shaft bloomeries, demonstrating the independent or early development of iron metallurgy in West Africa without a preceding bronze age.
   image_url: /images/events/nok-terracotta.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/nok-terracotta-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/nok-terracotta-1.webp, credit: "FA2010, public domain, via Wikimedia Commons", caption: "Sculpted Nok terracotta head with elaborate coiffure and pierced triangular eyes (Kimbell Art Museum)", source: "https://commons.wikimedia.org/wiki/File:Africa_Nok_Head_Kimbell.jpg" }
     - { url: /images/events/extra/nok-terracotta-2.webp, credit: "Javier Ayarza, CC BY-SA 3.0, via Wikimedia Commons", caption: "Nok seated male figure known as 'The Thinker', resting head on knee", source: "https://commons.wikimedia.org/wiki/File:El_Pensador_(Cultura_Nok).jpg" }
@@ -1129,6 +1130,7 @@
   related: [greek-city-states]
   image_url: /images/events/first-olympic-games.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/first-olympic-games-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/first-olympic-games-1.webp, credit: "Livioandronico2013, CC BY-SA 4.0, via Wikimedia Commons", caption: "Roman marble copy of Myron's Discobolus (Discus Thrower), celebrating athletic virtue (National Roman Museum)", source: "https://commons.wikimedia.org/wiki/File:Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG" }
     - { url: /images/events/extra/first-olympic-games-2.webp, credit: "Jamesscottbrown, CC BY 3.0, via Wikimedia Commons", caption: "The stone starting line (balbis) with toe grooves at the ancient stadium of Olympia", source: "https://commons.wikimedia.org/wiki/File:Ancient_Olympic_Starting_Line.JPG" }
