@@ -1171,7 +1171,7 @@
   related: [qin-dynasty]
   image_url: /images/events/unification-of-china.webp
   image_credit: AI-generated illustration
-  video: { src: video/events/unification-of-china-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  video: { src: video/events/unification-of-china-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/unification-of-china-1.webp, credit: "Gremelm, CC BY-SA 3.0, via Wikimedia Commons", caption: "Group of restored life-sized ceramic warriors from the Terracotta Army of Qin Shi Huang", source: "https://commons.wikimedia.org/wiki/File:01_terracottawarriorsgroup.jpg" }
     - { url: /images/events/extra/unification-of-china-2.webp, credit: "Jmhullot, CC BY 3.0, via Wikimedia Commons", caption: "Imperial half-scale bronze chariot and four horses excavated from the mausoleum complex", source: "https://commons.wikimedia.org/wiki/File:Qin_bronze_chariot_two.jpg" }
