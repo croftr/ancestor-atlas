@@ -1906,6 +1906,9 @@
       credit: Epoch Atlas, YouTube
 - id: phoenician-colonies
   description: The widespread network of trading posts, naval stations, and permanent colonies established across the Mediterranean basin by Phoenician mother-cities like Tyre and Sidon. Spanning Cyprus, Malta, Sicily, Sardinia, North Africa (Carthage), and southern Iberia (Gadir), these settlements secured critical mineral and agricultural trade routes, diffusing Levantine culture and alphabetic writing.
+  image_url: /images/civilisations/phoenician-colonies.webp
+  image_caption: Western Mediterranean Phoenician trading colony at Gadir with the Temple of Melqart, hippoi merchant ships, silver and tin ingots, core-formed glass flasks, and alphabetic scribes.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/phoenician-colonies-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "The Nora Stone from Sardinia, one of the oldest Phoenician inscriptions in the western Mediterranean, 9th–8th century BCE (National Archaeological Museum, Cagliari)", source: "https://commons.wikimedia.org/wiki/File:Stele_von_Nora_01.jpg" }
     - { url: /images/extra/phoenician-colonies-2.webp, credit: "b.roveran, CC BY 2.0, via Wikimedia Commons", caption: "The island of Motya (Mozia) off western Sicily, a Phoenician colony founded in the 8th century BCE", source: "https://commons.wikimedia.org/wiki/File:Isola_di_Mozia_vue_générale.jpg" }
@@ -2058,6 +2061,9 @@
       credit: History Leaks, YouTube
 - id: ptolemaic-kingdom
   description: The wealthy Hellenistic kingdom founded in Egypt by Ptolemy I Soter, Alexander the Great's companion general, which ruled from 305 to 30 BCE. Governed from Alexandria—a global capital of scholarship and commerce boasting the Great Library and Pharos lighthouse—the dynasty blended Greek and Egyptian traditions, concluding with Cleopatra VII's defeat by Octavian.
+  image_url: /images/civilisations/ptolemaic-egypt.webp
+  image_caption: Royal Alexandria under the Ptolemies with the Pharos lighthouse in the harbor, blending Greek colonnades and papyrus scholars with traditional Egyptian temple pylons.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/ptolemaic-kingdom-1.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Marble portrait bust of Ptolemy I Soter, founder of the Ptolemaic dynasty and companion general of Alexander the Great (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Ptolemy_I_Soter_Louvre_Ma849.jpg" }
     - { url: /images/extra/ptolemaic-kingdom-2.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Monumental relief of Queen Cleopatra VII and her son Caesarion offering to the gods on the exterior wall of Dendera Temple", source: "https://commons.wikimedia.org/wiki/File:Dendera_Tempel_14.JPG" }
@@ -2109,6 +2115,9 @@
     - { url: /images/extra/sumerian-city-states-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "The 'War' panel of the Standard of Ur, showing Sumerian war-carts and infantry (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Standard_of_Ur_-_War.jpg" }
 - id: akkadian-empire
   description: "Around 2334 BCE Sargon of Akkad, a man of humble birth according to legend, conquered the Sumerian cities and created what is often called the world's first empire, stretching from the Persian Gulf towards the Mediterranean. His grandson Naram-Sin called himself king of the four quarters of the world and was worshipped as a god. Within two centuries the empire had collapsed, weakened by revolts, by raids from the Zagros mountains and, many believe, by a severe drought."
+  image_url: /images/civilisations/akkadian-empire.webp
+  image_caption: Imperial Agade on the Euphrates with artisans finishing the bronze royal head of Sargon, Enheduanna holding her alabaster disk, the Victory Stele of Naram-Sin, and cylinder-seal scribes.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/akkadian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "912a730cb8" }
   media:
     - kind: video
@@ -2217,6 +2226,9 @@
       credit: Epimetheus, YouTube
 - id: phoenicia
   description: "On the narrow coast of what is now Lebanon, Phoenician city-states such as Tyre, Sidon and Byblos became the great seafarers and traders of the Iron Age. They sailed the length of the Mediterranean and beyond, founding colonies such as Carthage, and traded cedar wood, glass and cloth dyed with a precious purple made from sea snails. Their simple alphabet of 22 letters was taken up by the Greeks and became the ancestor of most alphabets used today. Assyria, Babylon and Persia in turn brought the cities under their rule."
+  image_url: /images/civilisations/phoenicia.webp
+  image_caption: Island harbor of Tyre with horse-headed Phoenician hippoi ships, Lebanon cedar timber, murex shell heaps, and artisans boiling and drying Tyrian purple cloth.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/phoenicia-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1e0f11aafa" }
   media:
     - kind: video
@@ -2505,6 +2517,9 @@
       credit: Invicta, YouTube
 - id: nabataeans
   description: An ancient Arab seafaring and caravan trading civilization that dominated the desert crossroads of the southern Levant and northern Arabia. Master hydrologists, they transformed their capital at Petra into a thriving trading hub carved directly into sandstone cliffs, controlling vital incense routes before Roman annexation.
+  image_url: /images/civilisations/nabataean-kingdom.webp
+  image_caption: Rock-cut sandstone facade of Petra along the Nabataean incense caravan route with camel traders, hydraulic water channels, and fine painted ceramics.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/nabataeans-1.webp, credit: "Richard Messenger, CC BY 2.0, via Wikimedia Commons", caption: "Al-Khazneh (The Treasury), monumental rock-cut Nabataean classical facade at Petra, Jordan", source: "https://commons.wikimedia.org/wiki/File:Al_Khazneh_Petra_edit.jpg" }
     - { url: /images/extra/nabataeans-2.webp, credit: "Argenberg, CC BY-SA 3.0, via Wikimedia Commons", caption: "Nabataean painted fine ware eggshell-thin terracotta bowls with delicate floral motifs (Petra Museum)", source: "https://commons.wikimedia.org/wiki/File:Nabataean_Pottery.JPG" }
@@ -3246,6 +3261,9 @@
       credit: Battles In History, YouTube
 - id: maurya-empire
   description: "Around 320 BCE Chandragupta Maurya seized power in the kingdom of Magadha and built the first empire to unite most of the Indian subcontinent, governed from the great city of Pataliputra. His grandson Ashoka, horrified by the bloodshed of his conquest of Kalinga, turned to Buddhism, and had edicts urging non-violence and tolerance carved on rocks and pillars across his realm. After Ashoka's death the empire weakened, and in about 185 BCE the last Mauryan king was killed by his own general."
+  image_url: /images/civilisations/maurya-empire.webp
+  image_caption: Maurya Empire under Emperor Ashoka featuring the Great Stupa at Sanchi, the polished sandstone Lion Capital pillar, Brahmi rock edicts, and punch-marked silver karshapana coins.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/maurya-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f9ac22c521" }
   media:
     - kind: video
