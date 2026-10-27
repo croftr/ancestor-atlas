@@ -746,6 +746,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Aurignacian
   image_url: /images/cultures/aurignacian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/aurignacian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Upper Paleolithic hunter-artists carving mammoth ivory figurines, playing bone flutes, and blowing ochre hand stencils"
   source_ids:
     - recall
