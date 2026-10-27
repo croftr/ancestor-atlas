@@ -2093,6 +2093,9 @@
       credit: Yohannes, YouTube
 - id: sumerian-city-states
   description: "In the river plains of southern Mesopotamia, cities such as Uruk, Ur and Lagash grew in the late fourth millennium BCE into the world's first urban civilization. Sumerian scribes invented cuneiform writing on clay tablets, temple communities raised stepped ziggurats, and canals turned the dry plain into rich farmland. The city-states fought one another over water and land for centuries, fell under Akkadian and later Babylonian rule, and by about 1750 BCE had lost their independence, though their language lived on in temples and schools."
+  image_url: /images/civilisations/sumerian-city-states.webp
+  image_caption: Early Dynastic Sumerian city with stepped mudbrick ziggurat, canal reed boats, citizens in tufted kaunakes kilts, cuneiform cylinder-seal scribes, and the Bull Lyre of Ur.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/sumerian-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "523b4fd799" }
   media:
     - kind: video
@@ -2131,6 +2134,9 @@
       credit: History with Cy, YouTube
 - id: babylonia
   description: An influential cultural and political state in central-southern Mesopotamia, centered on the ancient metropolis of Babylon along the Euphrates. Under Hammurabi and later dynasties, Babylonia became famed across the ancient world for its monumental architecture, astronomical scholarship, mathematical innovations, and enduring legal traditions.
+  image_url: /images/civilisations/babylonia.webp
+  image_caption: Babylon along the Euphrates featuring the blue-glazed Ishtar Gate, the Etemenanki ziggurat, the Stele of Hammurabi's Code, and Babylonian astronomer-scribes.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/babylonia-1.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "Hammurabi of Babylon before the sun god Shamash, on top of the stele of his law code, about 1750 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050771_Louvre_code_Hammurabi_bas_relief_rwk.JPG" }
     - { url: /images/extra/babylonia-2.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Queen of the Night (Burney Relief), a fired clay plaque of a winged goddess, Old Babylonian period, 1800–1750 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Queen_of_the_Night_relief_(also_Burney_relief),_1800-1750_BC,_from_Iraq._The_British_Museum,_London.jpg" }
@@ -2152,6 +2158,9 @@
       credit: History with Cy, YouTube
 - id: hittites
   description: "From their fortified capital of Hattusa in central Anatolia, the Hittites built one of the great powers of the Bronze Age. Their kings sacked Babylon around 1595 BCE, fought Egypt at the battle of Kadesh in 1274 BCE, and later sealed one of the earliest surviving peace treaties with Ramesses the Second. Thousands of clay tablets from their archives preserve the oldest written Indo-European language. Around 1180 BCE the empire collapsed and Hattusa was abandoned, in the wider upheaval at the end of the Bronze Age."
+  image_url: /images/civilisations/hittites.webp
+  image_caption: Royal citadel of Hattusa and the Sphinx Gate with Hittite three-man war chariots, royal guards with sickle-swords, and scribes cataloging cuneiform clay tablets.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/hittites-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b28fa1fd38" }
   media:
     - kind: video
@@ -2179,6 +2188,9 @@
       credit: History with Cy, YouTube
 - id: neo-hittite-states
   description: A collection of Luwian- and Aramean-speaking Iron Age successor principalities across southeastern Anatolia and northern Syria following the collapse of the Hittite Empire. These small kingdoms—such as Carchemish and Tabal—preserved distinctive Hittite artistic, architectural, and hieroglyphic traditions until swallowed by the expanding Neo-Assyrian Empire.
+  image_url: /images/civilisations/neo-hittite-states.webp
+  image_caption: Syro-Hittite citadel of Carchemish on the Euphrates with alternating black basalt and white limestone orthostat reliefs, portal lions, and Luwian stone carvers.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/neo-hittite-states-1.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Basalt orthostats from the Long Wall at Carchemish: a war chariot running down an enemy, 9th century BCE (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Ankara_Anatolian_Civilizations_Carchemish_orthostats_Long_Wall_Chariot_scene_D_in_2011_07.jpg" }
     - { url: /images/extra/neo-hittite-states-2.webp, credit: "Klaus-Peter Simon, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reliefs at the north gate of Karatepe (Azatiwataya), a hill fort of the kingdom of Adana whose bilingual Luwian-Phoenician inscription helped decipher Luwian hieroglyphs", source: "https://commons.wikimedia.org/wiki/File:KaratepeNVl6-8.jpg" }
@@ -2191,6 +2203,9 @@
       credit: Gospel and Spade, YouTube
 - id: philistia
   description: A confederation of five coastal city-states—Gaza, Ashkelon, Ashdod, Ekron, and Gath—established in southwestern Canaan during the Early Iron Age. Associated with the migrating Sea Peoples, the Philistines introduced distinctive Aegean-style pottery and advanced ironworking techniques, frequently clashing with neighboring Israelites and Canaanites.
+  image_url: /images/civilisations/philistia.webp
+  image_caption: Coastal Philistine seaport of Ashkelon with Aegean galleys, feathered-helmet Peleset warriors, stone olive-oil presses, and artisans painting bichrome pottery.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/philistia-1.webp, credit: "Oren Rozen, CC BY-SA 4.0, via Wikimedia Commons", caption: "Royal dedication of Ekron, naming Achish, king of the Philistine city, 7th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:JRSLM_300116_Ekron_inscription.jpg" }
     - { url: /images/extra/philistia-2.webp, credit: "Hanay, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine bichrome pottery: jugs, a bottle and a krater painted in red and black, 12th–11th century BCE", source: "https://commons.wikimedia.org/wiki/File:Philistine_pottery.JPG" }
@@ -2306,6 +2321,9 @@
       credit: PeriscopeFilm, YouTube
 - id: lydia
   description: A prosperous Iron Age kingdom in western Anatolia centered on the wealthy capital of Sardis along the Pactolus River. Renowned for inventiveness, the Lydians introduced the world's first standardized minted coinage stamped from electrum under King Alyattes and reached legendary opulence under King Croesus before falling to Cyrus the Great.
+  image_url: /images/civilisations/lydia.webp
+  image_caption: Royal mint at Sardis along the gold-bearing Pactolus River, showing Lydian artisans striking the world's first lion-and-bull electrum and gold coins.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/lydia-1.webp, credit: "Classical Numismatic Group, CC BY-SA 2.5, via Wikimedia Commons", caption: "Lydian electrum third-stater (trite) of King Alyattes from Sardis (c. 620–563 BCE), showing a roaring lion head with sunburst knob—among the world's earliest coins", source: "https://commons.wikimedia.org/wiki/File:Electrum_trite,_Alyattes,_Lydia,_620-563_BC.jpg" }
     - { url: /images/extra/lydia-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Heavy gold stater of King Croesus (\"Croeseid\"), depicting confronted foreparts of a roaring lion and bull (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Gold_stater._Lydia._ca._560%E2%80%93546_B.C._The_Metropolitan_Museum_of_Art.jpg" }
@@ -2603,6 +2621,9 @@
       credit: Germania Magna ENG, YouTube
 - id: mycenaean-greece
   description: The mainland Greek civilization of the Late Bronze Age, immortalized in Homeric epic poetry, centered at fortified citadels such as Mycenae, Tiryns, and Pylos. Governed by warrior-kings (wanakes), the Mycenaeans developed the Linear B syllabic script—the earliest attested Greek—and established trade networks across the Mediterranean before collapsing around 1200 BCE.
+  image_url: /images/civilisations/mycenaean-greece.webp
+  image_caption: Bronze Age citadel of Mycenae and the Lion Gate with cyclopean walls, warriors in boar's-tusk helmets with figure-of-eight shields, and a Linear B scribe.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/mycenaean-greece-1.webp, credit: "DieBuche, CC BY-SA 3.0, via Wikimedia Commons", caption: "The repoussé gold funerary mask known as the \"Mask of Agamemnon\", from Grave Circle A at Mycenae (National Archaeological Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Funeral_mask_of_Agamemnon-colorcorr.jpg" }
     - { url: /images/extra/mycenaean-greece-2.webp, credit: "Berthold Werner, CC BY-SA 3.0, via Wikimedia Commons", caption: "The megalithic Lion Gate entrance and heraldic relief over the main approach to the citadel of Mycenae", source: "https://commons.wikimedia.org/wiki/File:Mykene_BW_2017-10-10_13-23-40.jpg" }
@@ -2626,6 +2647,9 @@
       credit: Kings and Generals, YouTube
 - id: greek-city-states
   description: "Among the mountains and islands of Greece, hundreds of independent city-states, each a polis with its own laws and gods, grew up after about 800 BCE. They planted colonies around the Mediterranean and the Black Sea, competed at the Olympic Games, and joined forces to drive back the Persian invasions of 490 and 480 BCE. Athens gave the world democracy, drama, philosophy and the Parthenon, but long wars between Athens and Sparta wore the cities down, and in 338 BCE Philip the Second of Macedon brought them under his control."
+  image_url: /images/civilisations/greek-city-states.webp
+  image_caption: Classical Greek coastal polis with an acropolis temple, Aegean harbor triremes, citizen-hoplites with emblazoned aspis shields, and black-figure vase painters.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/greek-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d52e548e7b" }
   media:
     - kind: video
@@ -3377,6 +3401,9 @@
       credit: GatesOfKilikien, YouTube
 - id: qin-dynasty
   description: "After centuries of war between rival states, the kingdom of Qin conquered the last of its rivals in 221 BCE, and its king declared himself Qin Shi Huang, the First Emperor of a united China. He imposed one script, one currency and standard weights and measures, linked older walls into a great wall against the northern nomads, and was buried with an army of thousands of life-size terracotta soldiers. His harsh rule did not outlast him: the dynasty collapsed in rebellion in 206 BCE."
+  image_url: /images/civilisations/qin-dynasty.webp
+  image_caption: Imperial capital of Xianyang with tiered Qin palace halls, armored Qin crossbowmen and halberdiers, royal chariot, and officials inspecting standardized Ban Liang coins and bamboo slips.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/qin-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "32437c007b" }
   media:
     - kind: video
@@ -3390,6 +3417,9 @@
     - { url: /images/extra/qin-dynasty-4.webp, credit: "Bianchi David, CC BY 4.0, via Wikimedia Commons", caption: "Armoured terracotta soldier from the tomb of Qin Shi Huang", source: "https://commons.wikimedia.org/wiki/File:TERRACOTTA_WARRIOR.jpg" }
 - id: han-dynasty
   description: "Out of the rebellions that ended the Qin, a former village official named Liu Bang founded the Han dynasty in 202 BCE. Over four centuries the Han built a lasting model for Chinese government, staffed by officials trained in Confucian learning, and their armies pushed into Central Asia, opening the trade routes later called the Silk Road. Paper was invented in the Han era. So central was this age that most Chinese people still call themselves the Han; the dynasty finally broke apart in 220 CE."
+  image_url: /images/civilisations/han-dynasty.webp
+  image_caption: Imperial Chang'an with twin que watchtowers, a Silk Road camel caravan loading silk bolts, and Han scholars beside a boshanlu censer, lacquerware, and early paper scrolls.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/han-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2c8c8b5fe0" }
   media:
     - kind: video
