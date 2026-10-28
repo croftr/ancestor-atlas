@@ -733,6 +733,7 @@
     - road
   image_url: /images/cultures/chatelperronian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/chatelperronian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/chatelperronian-3.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 4.0, via Wikimedia Commons", caption: "Entrance to the Grotte des Fées at Châtelperron, the type site of the Châtelperronian", source: "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telperron_-_grotte_des_f%C3%A9es_-_1.jpg" }
     - { url: /images/extra/chatelperronian-1.webp, credit: "Rios-Garaizar et al., PLOS ONE 2022, CC BY 4.0, via Wikimedia Commons", caption: "Châtelperronian stone tools from Aranbaltza, Spain", source: "https://commons.wikimedia.org/wiki/File:Aranbaltza_Ch%C3%A2telperronian_lithic_assemblage.tiff" }
@@ -772,6 +773,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Gravettian
   image_url: /images/cultures/gravettian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/gravettian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Mammoth-hunter winter camp at Dolní Věstonice: mammoth-bone dwellings, kiln-fired clay Venus figurines, and ivory carving"
   source_ids:
     - recall
