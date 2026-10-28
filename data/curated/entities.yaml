@@ -1125,6 +1125,9 @@
 - id: roman-empire
   category: civilization
   description: "From a small city on the Tiber, Rome conquered Italy and then the whole Mediterranean. In 27 BCE, after a century of civil wars, Augustus became its first emperor, and for two centuries the Roman peace let trade, roads and cities flourish from Britain to Syria under one law. Latin became the root of many European languages. Divided in two in 395 CE, the western empire fell to Germanic kings in 476, while the eastern half, ruled from Constantinople, lasted until 1453."
+  image_url: /images/civilisations/roman-empire.webp
+  image_caption: Imperial Rome during the Pax Romana with the Colosseum, Pantheon, Trajan's Column, Augustus statue, and legionaries carrying the golden Aquila standard.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/roman-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "90c4997a67" }
   media:
     - kind: video
@@ -2265,6 +2268,9 @@
       credit: Epimetheus, YouTube
 - id: neo-assyrian-empire
   description: "From its heartland on the upper Tigris, Assyria rose in the ninth century BCE to become the largest empire of its time, stretching from Egypt to western Iran. Its kings ruled through a professional army, deported conquered peoples on a vast scale and built great palaces at Nimrud and Nineveh lined with carved stone reliefs, and Ashurbanipal gathered a famous library of clay tablets. Overstretched and torn by civil war, the empire fell to the Babylonians and Medes, who destroyed Nineveh in 612 BCE."
+  image_url: /images/civilisations/neo-assyrian-empire.webp
+  image_caption: Nineveh on the Tigris with winged bull lamassu guardians, Assyrian royal lion-hunt reliefs, iron-armored infantry, and Ashurbanipal's cuneiform library.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/neo-assyrian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3801b35914" }
   media:
     - kind: video
@@ -2678,6 +2684,9 @@
     - { url: /images/extra/greek-city-states-2.webp, credit: "A.Savin, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Parthenon on the Acropolis of Athens", source: "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_35_Parthenon.jpg" }
 - id: macedonian-empire
   description: "Macedon, a kingdom on the northern edge of the Greek world, was turned into a military power by Philip the Second. His son Alexander, king at twenty, crossed into Asia in 334 BCE and in little more than ten years conquered the Persian Empire, Egypt and lands as far as the Indus, founding cities named Alexandria along the way. When he died in Babylon in 323 BCE, aged thirty-two, his generals fought over the empire and carved it into rival kingdoms that spread Greek language and culture across the east."
+  image_url: /images/civilisations/macedonian-empire.webp
+  image_caption: Pella and the Royal Tomb at Vergina with a Macedonian sarissa phalanx, Companion cavalry, pebble mosaic courtyard, and Philip II's golden larnax.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/macedonian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "51a1eaafb0" }
   media:
     - kind: video
@@ -2732,6 +2741,9 @@
       credit: World's Secret Stories, YouTube
 - id: achaemenid-empire
   description: "In 550 BCE Cyrus the Great of Persia overthrew his Median overlords, then conquered Lydia and Babylon, founding an empire far larger than any before it. Under Darius the First it stretched from Egypt and the Balkans to the Indus, held together by provincial governors called satraps, a common coinage and the Royal Road with its relays of mounted messengers. Its kings ruled from Persepolis and Susa and generally let conquered peoples keep their gods and customs. In 330 BCE it fell to Alexander the Great."
+  image_url: /images/civilisations/achaemenid-empire.webp
+  image_caption: Persepolis, Susa, and the Tomb of Cyrus with the glazed-brick Frieze of the Immortals, the Cyrus Cylinder, golden rhyton, and Royal Road messengers.
+  image_credit: AI-generated illustration
   narration: { src: narration/civilizations/achaemenid-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f1cce7939b" }
   media:
     - kind: video
