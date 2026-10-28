@@ -796,6 +796,7 @@
   narration: { src: narration/cultures/solutrean-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4adebe205a" }
   image_url: /images/cultures/solutrean.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/solutrean-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Periglacial winter camp beneath the Rock of Solutré with pressure-flaked laurel-leaf points and tailored fur sewing"
   wikipedia_url: https://en.wikipedia.org/wiki/Solutrean
   source_ids:
@@ -819,6 +820,7 @@
   narration: { src: narration/cultures/magdalenian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "95239209a2" }
   image_url: /images/cultures/magdalenian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/magdalenian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Late Ice Age reindeer hunter camp by a limestone cave with carved antler spear-throwers and harpoons"
   wikipedia_url: https://en.wikipedia.org/wiki/Magdalenian
   source_ids:
