@@ -648,6 +648,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Mousterian
   image_url: /images/cultures/levallois-mousterian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/levallois-mousterian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Neanderthal toolmaker preparing a Levallois core and striking off a planned triangular point at a rock shelter"
   source_ids:
     - recall
@@ -671,6 +672,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Middle_Stone_Age
   image_url: /images/cultures/middle-stone-age.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/middle-stone-age-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early modern humans engraving geometric patterns on red ochre and pressure-flaking spear points in a South African sea cave"
   source_ids:
     - recall
