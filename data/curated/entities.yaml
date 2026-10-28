@@ -2097,6 +2097,9 @@
       credit: TimelessTreasury, YouTube
 - id: kingdom-of-numidia
   description: A powerful ancient Berber kingdom in northwest Africa (modern Algeria and parts of Tunisia), forged through the unification of the Massylii and Masaesyli tribes under King Masinissa. Famed across antiquity for agile light cavalry that served decisively in the Punic Wars, Numidia clashed famously with the Roman Republic during the Jugurthine War.
+  image_url: /images/civilisations/kingdom-of-numidia.webp
+  image_caption: Cirta and Thugga in the Kingdom of Numidia, featuring the Medracen and Dougga royal mausolea, galloping-horse silver coins, and bareback Numidian javelin cavalry.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-numidia-1.webp, credit: "Dan Sloan, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Medracen, a royal mausoleum of the Numidian kings near Batna, Algeria, built in the 3rd century BCE", source: "https://commons.wikimedia.org/wiki/File:Medracen_tomb_(Numidian)_(15685968210).jpg" }
     - { url: /images/extra/kingdom-of-numidia-2.webp, credit: "Patrick Giraud, CC BY 3.0, via Wikimedia Commons", caption: "The Libyco-Punic mausoleum of Dougga (Thugga), Tunisia, built for a Numidian prince in the 2nd century BCE", source: "https://commons.wikimedia.org/wiki/File:TUNISIA_DOUGGA_MAUSOLEE_LIBYCO_PUNIQUE_001.jpg" }
@@ -2141,6 +2144,9 @@
     - { url: /images/extra/akkadian-empire-4.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "Akkadian cylinder seal and its rolled impression (Ashmolean Museum)", source: "https://commons.wikimedia.org/wiki/File:Cylinder_seal_Akkadian_AN1931.105.jpg" }
 - id: assyria
   description: A major ancient Mesopotamian civilization centered along the upper Tigris River in modern northern Iraq. Spanning Old, Middle, and Imperial periods, Assyria developed into a formidable military and commercial power renowned for sophisticated statecraft, monumental palaces, and the preservation of vast cuneiform libraries.
+  image_url: /images/civilisations/assyria.webp
+  image_caption: Sacred city of Assur on the Tigris, with the double Temple of Anu and Adad, cuneiform merchant tablets and cylinder seals, tin-laden donkey caravans, and scale-armored charioteers.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/assyria-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Old Assyrian clay tablet and its sealed envelope, a silver debt note from the merchant colony at Kanesh (Kültepe), 19th century BCE (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Clay_tablet_and_its_stamped_envelop._Legal_debt-note_on_silver._Old_Assyrian_dialect._Assyrian_Colony_Period,_19th_century_BCE._Ancient_Orient_Museum,_Istanbul.jpg" }
     - { url: /images/extra/assyria-2.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Cult altar of King Tukulti-Ninurta I, showing the king twice before the god Nusku, from Assur, 13th century BCE (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Altar_Tukulti-Ninurta_I_Assur_IAM.jpg" }
@@ -2267,6 +2273,9 @@
       credit: UsefulCharts, YouTube
 - id: kingdom-of-judah
   description: An Iron Age kingdom centered in the southern Judean hill country of the Levant, governed from Jerusalem by the Davidic dynasty. Emerging after the division of the united monarchy, Judah maintained religious and cultural identity under Assyrian and Babylonian vassalage until Jerusalem was sacked by Nebuchadnezzar II in 586 BCE.
+  image_url: /images/civilisations/kingdom-of-judah.webp
+  image_caption: Iron Age Jerusalem in the Kingdom of Judah, showing the Broad Wall, scribes writing on ostraca beside royal storage jars, masons cutting Hezekiah's Tunnel, and the First Temple.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-judah-1.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "Hezekiah's Tunnel, cut through the bedrock of Jerusalem to bring the Gihon spring inside the walls, late 8th century BCE", source: "https://commons.wikimedia.org/wiki/File:Inside_Hezekiah's_Tunnel-A_(3782613123).jpg" }
     - { url: /images/extra/kingdom-of-judah-2.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "Foundations of the Broad Wall of Jerusalem, built in the late 8th century BCE as the city grew, with later structures against it", source: "https://commons.wikimedia.org/wiki/File:Urban_structures_abutting_the_broad_wall_in_Jerusalem_(7007570939).jpg" }
@@ -2382,6 +2391,9 @@
       credit: History with Cy, YouTube
 - id: neo-babylonian-empire
   description: The resurgent Chaldean dynasty that succeeded the Neo-Assyrian Empire, dominating the Near East from 626 to 539 BCE under rulers like Nebuchadnezzar II. Famed for rebuilding Babylon with the Ishtar Gate, monumental temples, and the legendary Hanging Gardens, the empire ended with the Persian conquest by Cyrus the Great.
+  image_url: /images/civilisations/neo-babylonian-empire.webp
+  image_caption: Babylon under Nebuchadnezzar II in the Neo-Babylonian Empire, featuring the glazed-brick Ishtar Gate, Etemenanki ziggurat, Babylonian Map of the World tablet, and royal foundation cylinder.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/neo-babylonian-empire-1.webp, credit: "Radomil, CC BY-SA 3.0, via Wikimedia Commons", caption: "Glazed brick relief of the Mušḫuššu (horned snake-dragon of Marduk) from the Ishtar Gate of Babylon (Pergamon Museum)", source: "https://commons.wikimedia.org/wiki/File:Ishtar_Gate_Dragon.JPG" }
     - { url: /images/extra/neo-babylonian-empire-2.webp, credit: "Carole Raddato, CC BY 2.0, via Wikimedia Commons", caption: "Glazed molded brick Striding Lion from the Processional Way of Babylon leading to the Ishtar Gate (c. 575 BCE)", source: "https://commons.wikimedia.org/wiki/File:A_lion_on_the_Ishtar_Gate_of_Babylon_reconstructed_with_original_bricks_at_the_Pergamon_Museum_in_Berlin_575_BCE_(3)_(32577951406).jpg" }
@@ -2470,6 +2482,9 @@
       credit: Study of Antiquity and the Middle Ages, YouTube
 - id: kingdom-of-pontus
   description: A powerful Hellenistic kingdom on the southern Black Sea coast of northern Anatolia, founded by the Persian Mithridatic dynasty. Melding Greek, Persian, and Anatolian cultures, Pontus expanded rapidly under King Mithridates VI Eupator, who waged three fierce wars against Roman hegemony before final defeat by Pompey.
+  image_url: /images/civilisations/kingdom-of-pontus.webp
+  image_caption: Amaseia and Sinope in the Kingdom of Pontus, showing cliff-cut royal tombs, a bust of Mithridates VI, Pegasus and star-and-crescent tetradrachms, and a Black Sea fleet.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-pontus-1.webp, credit: "Louvre Museum / Jastrow, public domain, via Wikimedia Commons", caption: "Marble portrait bust of King Mithridates VI Eupator Dionysos in the likeness of Alexander the Great (Louvre Museum, Paris)", source: "https://commons.wikimedia.org/wiki/File:Mithridates_VI_Louvre.jpg" }
     - { url: /images/extra/kingdom-of-pontus-2.webp, credit: "British Museum, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Mithridates VI Eupator with diademed head and wind-blown hair (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Tetradrachm_of_Mithridates_VI_CM_SNG_BM_1038.jpg" }
@@ -2494,6 +2509,9 @@
       credit: Study of Antiquity and the Middle Ages, YouTube
 - id: kingdom-of-pergamon
   description: An influential Hellenistic kingdom in western Anatolia ruled by the Attalid dynasty from the dramatic acropolis of Pergamon. Celebrated for patronage of the arts, the great Library of Pergamon, and the monumental Pergamon Altar, the kingdom allied closely with Rome until its last ruler bequeathed the realm to the Roman people in 133 BCE.
+  image_url: /images/civilisations/kingdom-of-pergamon.webp
+  image_caption: Acropolis of Pergamon in the Attalid Kingdom, with the Great Altar of Pergamon, steep cliffside theatre, Library scholars with parchment scrolls, and the Dying Gaul bronze statue.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-pergamon-1.webp, credit: "QuartierLatin1968, CC BY-SA 2.0, via Wikimedia Commons", caption: "The acropolis of Pergamon seen from the middle city, seat of the Attalid kings", source: "https://commons.wikimedia.org/wiki/File:Acropolis_from_middle_city_Pergamum_466.jpg" }
     - { url: /images/extra/kingdom-of-pergamon-2.webp, credit: "Tomisti, CC BY-SA 3.0, via Wikimedia Commons", caption: "The steep Hellenistic theatre cut into the acropolis hill at Pergamon", source: "https://commons.wikimedia.org/wiki/File:Pergamon_theatre_panorama_2.jpg" }
@@ -2949,6 +2967,9 @@
       credit: Fall of Civilizations, YouTube
 - id: parthian-empire
   description: A major Iranian empire founded in 247 BCE by Arsaces I after the Parni tribe seized Parthia from the Seleucid Empire. Governed through a decentralized feudal nobility and famed for invincible armored cataphracts and mounted archers utilizing the deceptive 'Parthian shot', the Arsacids dominated Silk Road trade and repeatedly repelled Roman legions until overthrown by the Sasanians.
+  image_url: /images/civilisations/parthian-empire.webp
+  image_caption: Ctesiphon and Hatra in the Parthian Empire, featuring the bronze Shami nobleman statue, Nisa ivory rhytons, armored cataphract lancers, and horse archers firing the Parthian shot.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/parthian-empire-1.webp, credit: "Nasser-sadeghi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Monumental bronze statue of a Parthian prince or nobleman in aristocratic belted tunic from the sanctuary at Shami (National Museum of Iran, Tehran)", source: "https://commons.wikimedia.org/wiki/File:Parthian_man_statue.jpg" }
     - { url: /images/extra/parthian-empire-2.webp, credit: "Hans Birger Nilsen, CC BY 2.0, via Wikimedia Commons", caption: "Carved ivory drinking rhytons terminating in mythical horned lion-griffins and centaurs, from royal Old Nisa, 2nd century BCE (Turkmenistan)", source: "https://commons.wikimedia.org/wiki/File:Parthian_ivory_rhytons_from_Old_Nisa_(1)_(45282255565).jpg" }
@@ -3348,6 +3369,9 @@
       credit: Crazy Color Facts, YouTube
 - id: satavahana-dynasty
   description: A major Deccan empire that arose in the 2nd century BCE following the decline of the Mauryas, spanning modern Maharashtra, Andhra Pradesh, and Telangana. Governed from capitals at Pratishthana and Amaravati, the Satavahanas defended central India against Saka incursions, issued multilingual bilingual coinage, and sponsored rock-cut Buddhist chaityas at Karla and Ajanta.
+  image_url: /images/civilisations/satavahana-dynasty.webp
+  image_caption: Amaravati and the Karle Caves in the Satavahana Empire, showing the rock-cut Buddhist Chaitya hall, Great Stupa of Amaravati, limestone relief carvers, and two-masted ship coins.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/satavahana-dynasty-1.webp, credit: "Nvvchar, CC0, via Wikimedia Commons", caption: "The Great Rock-cut Buddhist Chaitya Hall at Karle Caves, Maharashtra, built under the Satavahana dynasty (c. 1st c. BCE – 2nd c. CE)", source: "https://commons.wikimedia.org/wiki/File:Grand_Chaitya_at_Karla_Caves_-_2025_-_01.jpg" }
     - { url: /images/extra/satavahana-dynasty-2.webp, credit: "World Imaging, CC BY-SA 3.0, via Wikimedia Commons", caption: "Intricately carved Palnad limestone drum frieze depicting scenes from the life of the Buddha, Amaravati Stupa (British Museum)", source: "https://commons.wikimedia.org/wiki/File:AmaravatiFrieze.jpg" }
@@ -3370,6 +3394,9 @@
       credit: The Occasional Professor, YouTube
 - id: shunga-empire
   description: The Magadhan imperial dynasty established in 185 BCE by Pushyamitra Shunga after the assassination of the last Maurya emperor, Brihadratha. Ruling from Pataliputra and Vidisha, the Shungas repelled Indo-Greek invasions, patronized traditional Vedic horse sacrifices (Ashvamedha), and sponsored magnificent Buddhist architectural expansions at Bharhut and the Great Stupa of Sanchi.
+  image_url: /images/civilisations/shunga-empire.webp
+  image_caption: Bharhut Stupa and Pataliputra during the Shunga Empire, featuring the carved red-sandstone torana gateway, Gajalakshmi medallion, terracotta plaques, and Vedic Ashvamedha fire ritual.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/shunga-empire-1.webp, credit: "Tinucherian, CC BY 3.0, via Wikimedia Commons", caption: "The carved sandstone railing and gateway of the Bharhut stupa, Shunga period (Indian Museum, Kolkata)", source: "https://commons.wikimedia.org/wiki/File:Polished_sandstone_Vedika,_Bharhut_stupa,_Shunga_dynasty,_Indian_Museum,_Kolkata_1515.jpg" }
     - { url: /images/extra/shunga-empire-2.webp, credit: "Biswarup Ganguly, CC BY 3.0, via Wikimedia Commons", caption: "Gajalakshmi bathed by elephants, a medallion from the Bharhut railing, 2nd century BCE (Indian Museum, Kolkata)", source: "https://commons.wikimedia.org/wiki/File:Gajalaxmi_-_Medallion_-_2nd_Century_BCE_-_Red_Sand_Stone_-_Bharhut_Stupa_Railing_Pillar_-_Madhya_Pradesh_-_Indian_Museum_-_Kolkata_2012-11-16_1837_Cropped.JPG" }
@@ -3389,6 +3416,9 @@
       credit: Let's Crack UPSC CSE, YouTube
 - id: indo-greeks
   description: The Hellenistic kingdom established in the 2nd century BCE when Greco-Bactrian rulers like Demetrius and Menander I expanded into northwestern South Asia (modern Afghanistan, Pakistan, and northwestern India). Famous for artistic bilingual coinage in Greek and Kharosthi, the kingdom fostered the rich synthesis of Greco-Buddhist religion, philosophy, and Gandharan sculpture.
+  image_url: /images/civilisations/indo-greeks.webp
+  image_caption: Taxila and Sagala in the Indo-Greek Kingdom, showing King Menander conversing with Buddhist monks beside the Heliodorus Garuda pillar, square elephant-and-bull coins, and Gandharan sculpture.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/indo-greeks-1.webp, credit: "Vidishaprakash, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Heliodorus pillar at Vidisha, set up about 110 BCE by Heliodorus, ambassador of the Indo-Greek king Antialcidas", source: "https://commons.wikimedia.org/wiki/File:Heliodorus_pillar.JPG" }
     - { url: /images/extra/indo-greeks-2.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Portrait of King Menander I (about 165–130 BCE) on his coinage", source: "https://commons.wikimedia.org/wiki/File:Menander_I,_portrait_from_coinage.jpg" }
@@ -3426,6 +3456,9 @@
 # Batch 5A: East Asia Dynasties, Korea, Steppe & Warring States
 - id: shang-dynasty
   description: The earliest historically confirmed Chinese dynasty, ruling the fertile Yellow River valley from capitals like Anyang (Yinxu) between c. 1600 and 1046 BCE. Renowned for masterful piece-mold ritual bronze casting, horse-drawn chariot warfare, and the earliest surviving Chinese writing inscribed on divination oracle bones.
+  image_url: /images/civilisations/shang-dynasty.webp
+  image_caption: Yinxu (Anyang) during the Shang Dynasty, featuring a monumental rectangular bronze ding cauldron, owl wine vessel, jade dragon, inscribed turtle oracle bones, and piece-mold bronze foundries.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/shang-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Inscribed Shang dynasty divination oracle bone on ox scapula from Yinxu, Anyang", source: "https://commons.wikimedia.org/wiki/File:Ancient_Chinese_Writing_on_Ox_Scapula,_Shang_Dynasty_Oracle_Bone,_Yinxu,_Anyang.jpg" }
     - { url: /images/extra/shang-dynasty-2.webp, credit: "Mlogic, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monumental Houmuwu Ding (c. 1200 BCE, 832 kg), the largest ancient Chinese sacrificial bronze vessel ever discovered (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:HouMuWuDingFullView.jpg" }
@@ -3438,6 +3471,9 @@
       credit: Bronze Goblet, YouTube
 - id: zhou-dynasty
   description: The longest-lasting dynasty in Chinese history (1046–256 BCE), which overthrew the Shang and established the political doctrine of the 'Mandate of Heaven'. Initially ruling through a decentralized feudal network of kinship fiefs (fengjian), the Western Zhou fostered classical Chinese cultural, ritual, and philosophical foundations.
+  image_url: /images/civilisations/zhou-dynasty.webp
+  image_caption: Fenghao and Luoyang during the Zhou Dynasty, with court musicians playing graduated bronze bianzhong chime bells, ritual bronze vessels, jade bi discs, and four-horse war chariots.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/zhou-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The Mao Gong Ding (Duke Mao Tripod), late Western Zhou Dynasty bronze ritual vessel carrying a 500-character commemorative inscription, the longest bronze inscription from antiquity (National Palace Museum, Taipei)", source: "https://commons.wikimedia.org/wiki/File:Bronze_Mao_Gong_Ding%2C_Late_Western_Zhou.jpg" }
     - { url: /images/extra/zhou-dynasty-2.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Bianzhong of Marquis Yi of Zeng (c. 433 BCE), monumental ritual set of 65 two-tone tuned bronze bells mounted on lacquered timber racks (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:20230208_Chime_bells_of_Marquis_Yi_of_Zeng.jpg" }
