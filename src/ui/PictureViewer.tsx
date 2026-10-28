@@ -4,7 +4,7 @@ import { useStore } from "../store";
 import { tourById } from "../tours/tours";
 import { MINI_GLOBE } from "../config";
 import { CategoryBadge } from "./CategoryIcon";
-import { creditLine } from "./PictureNav";
+import { creditLine, isAiCredit } from "./PictureNav";
 import TourVideo from "./TourVideo";
 import type { Entity } from "../types";
 import type { Picture } from "../tours/tourPicture";
@@ -166,10 +166,10 @@ export default function PictureViewer({
       )}
 
       <footer className="pv-foot">
-        {(picture.caption || picture.credit) && (
+        {(picture.caption || (picture.credit && !isAiCredit(picture.credit))) && (
           <div className="pv-caption" aria-live="polite">
             {picture.caption && <div className="pv-caption-text">{picture.caption}</div>}
-            {picture.credit && <div className="pv-credit">{creditLine(picture.credit, undefined, picture.source)}</div>}
+            {picture.credit && !isAiCredit(picture.credit) && <div className="pv-credit">{creditLine(picture.credit, undefined, picture.source)}</div>}
           </div>
         )}
         {count > 1 && (

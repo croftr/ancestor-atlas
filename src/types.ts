@@ -17,15 +17,15 @@ export interface Entity {
   color?: string; // civilizations: build-time colour
   region?: string; // civilizations: where most of the territory lay (scripts/lib/regions.ts), or set in entities.yaml
   image_url?: string; // optional WebP image asset URL
-  image_credit?: string; // required with image_url: author/licence, or that it is AI-generated
-  image_caption?: string; // optional description of what the illustration depicts
+  image_credit?: string; // required with image_url: author/licence, or that it is AI-generated (not shown)
+  image_caption?: string; // what the picture shows; required for an AI-generated one, shown in place of its credit
   /**
    * More pictures after the main one (image_url stays the display picture), in the order they are
    * shown. For now only shown while a tour holds on this entity's card (src/tours/tourPicture.ts).
    */
   extra_images?: ExtraImage[];
   /** Shared stand-in picture (picture-groups.yaml), shown until the entity has its own. */
-  fallback_image?: { url: string; credit: string; label: string };
+  fallback_image?: { url: string; credit: string; label: string; caption?: string };
   // Events only
   year?: number; // best date (start_year..end_year is the stated range, or equal to it)
   date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"

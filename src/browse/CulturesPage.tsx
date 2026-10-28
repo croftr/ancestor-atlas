@@ -14,6 +14,7 @@ import Totals from "./Totals";
 import { videoCount } from "../youtube";
 import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
+import { isAiCredit } from "../ui/PictureNav";
 import "./browse.css";
 
 interface Stage extends CultureStage {
@@ -236,8 +237,8 @@ export default function CulturesPage() {
         ))}
         {shown.length > 0 && sharedCredit && (
           <p className="cu-credit muted">
-            Pictures: {sharedCredit} (reconstructions, not records). Many culture pages also show photographs of real
-            finds.
+            {isAiCredit(sharedCredit) ? "The paintings are" : <>Pictures: {sharedCredit};</>} reconstructions, not
+            records. Many culture pages also show photographs of real finds.
           </p>
         )}
       </main>

@@ -17,7 +17,7 @@ import { videoCount } from "../youtube";
 import { globeUrl } from "../globeLink";
 import { CategoryBadge, SINGULAR } from "./CategoryIcon";
 import { CardAction, CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "./CardParts";
-import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPicture";
+import { entityPictures, preloadPictures, standInNote, tourPictureFor } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "./PictureNav";
 import PictureViewer from "./PictureViewer";
 import CardResizer from "./CardResizer";
@@ -222,9 +222,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     : entity.image_url
       ? { url: entity.image_url, name: entity.name, credit: entity.image_credit, note: entity.image_caption }
       : parent?.image_url
-        ? { url: parent.image_url, name: parent.name, credit: parent.image_credit, note: `Shows ${parent.name} as a whole` }
+        ? { url: parent.image_url, name: parent.name, credit: parent.image_credit, note: standInNote(`${parent.name} as a whole`, parent.image_caption) }
         : entity.fallback_image
-          ? { url: entity.fallback_image.url, name: entity.name, credit: entity.fallback_image.credit, note: `Shows ${entity.fallback_image.label}` }
+          ? { url: entity.fallback_image.url, name: entity.name, credit: entity.fallback_image.credit, note: standInNote(entity.fallback_image.label, entity.fallback_image.caption) }
           : undefined;
 
   const pictures = entityPictures(entity, parent);
@@ -618,7 +618,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
         </EventImage>
       )}
       {isEvent && eventPicture?.credit && (
-        <div className="muted image-credit">{creditLine(eventPicture.credit, extra?.caption, extra?.source)}</div>
+        <div className="muted image-credit">{creditLine(eventPicture.credit, extra ? extra.caption : entity.image_caption, extra?.source)}</div>
       )}
       {shown && brokenImage !== shown.url && (
         <>

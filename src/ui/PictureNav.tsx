@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 
+/** An AI-generated picture's credit is not shown (Rob's call, 28 Oct 2026): its caption says what it shows instead. */
+export const isAiCredit = (credit: string | undefined) => !!credit && /^AI-generated/i.test(credit);
+
 /** A picture's credit (linked to where it came from, if known), then what it shows. */
 export function creditLine(credit: string | undefined, note: string | undefined, source: string | undefined): ReactNode {
+  if (isAiCredit(credit)) credit = undefined;
   return (
     <>
       {source && credit ? (

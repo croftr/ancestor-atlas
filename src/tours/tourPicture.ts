@@ -8,6 +8,11 @@ export interface Picture {
   source?: string;
 }
 
+/** Said under a picture that is not the entity's own: what it stands for, then what it shows. */
+export function standInNote(what: string, caption?: string): string {
+  return `Shows ${what}${caption ? `: ${caption}` : ""}`;
+}
+
 /**
  * The main picture then the extras, in order. The main picture is the entity's own, else its group's
  * or shared stand-in; followed by any `extra_images`.
@@ -21,9 +26,9 @@ export function entityPictures(entity: Entity, parent?: Entity): Picture[] {
     : entity.image_url
       ? { url: entity.image_url, credit: entity.image_credit, caption: entity.image_caption }
       : parent?.image_url
-        ? { url: parent.image_url, credit: parent.image_credit, caption: `Shows ${parent.name} as a whole` }
+        ? { url: parent.image_url, credit: parent.image_credit, caption: standInNote(`${parent.name} as a whole`, parent.image_caption) }
         : entity.fallback_image
-          ? { url: entity.fallback_image.url, credit: entity.fallback_image.credit, caption: `Shows ${entity.fallback_image.label}` }
+          ? { url: entity.fallback_image.url, credit: entity.fallback_image.credit, caption: standInNote(entity.fallback_image.label, entity.fallback_image.caption) }
           : undefined;
   return [...(main ? [main] : []), ...(entity.extra_images ?? [])];
 }

@@ -127,9 +127,9 @@ export default function EventMedia({ event }: { event: Entity }) {
       {clip ? (
         <div className="muted image-credit">{clip.credit}</div>
       ) : currentPic ? (
-        <div className="muted image-credit">{creditLine(currentPic.credit, isExtra ? currentPic.caption : undefined, isExtra ? currentPic.source : undefined)}</div>
+        <div className="muted image-credit">{creditLine(currentPic.credit, currentPic.caption, isExtra ? currentPic.source : undefined)}</div>
       ) : event.image_credit ? (
-        <div className="muted image-credit">{event.image_credit}</div>
+        <div className="muted image-credit">{creditLine(event.image_credit, event.image_caption, undefined)}</div>
       ) : null}
       {failed && <div className="ev-media-error">Couldn't load “{failed}”.</div>}
       {media.length > 0 && (

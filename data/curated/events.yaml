@@ -19,6 +19,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Human_evolution
   image_url: /images/events/divergence-hominin-lineage.webp
   image_credit: AI-generated illustration
+  image_caption: "Apes in the riverside forest at sunset, while a small upright group walks off across the grassland on the far bank"
   video: { src: video/events/hominin-divergence-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/hominin-divergence-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Toumaï cranium (TM 266-01-060-1), Sahelanthropus tchadensis", source: "https://commons.wikimedia.org/wiki/File:Sahelanthropus_tchadensis_-_TM_266-01-060-1.jpg" }
@@ -44,6 +45,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Laetoli
   image_url: /images/events/laetoli-footprints.webp
   image_credit: AI-generated illustration
+  image_caption: "Two trails of footprints across fresh volcanic ash, a smoking volcano on the horizon"
   video: { src: video/events/laetoli-footprints-v3.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/laetoli-footprints-1.webp, credit: "Fidelis T. Masao et al., CC BY 4.0, via Wikimedia Commons", caption: "Fossilized hominin footprints exposed in the Footprint Tuff at Laetoli Site S, Tanzania", source: "https://commons.wikimedia.org/wiki/File:Test-pit_L8_at_Laetoli_Site_S.jpg" }
@@ -64,6 +66,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwi
   image_url: /images/events/earliest-stone-tools.webp
   image_credit: AI-generated illustration
+  image_caption: "Early hominins by a river at sunset, one bringing a big stone down on a cobble set on a boulder anvil, sharp flakes scattered round"
   video: { src: video/events/lomekwian-tools-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/lomekwian-tools-3.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Where Lomekwi lies on the western side of Lake Turkana in Kenya", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus-Lomekwi.jpg" }
@@ -86,6 +89,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
   image_url: /images/events/systematic-oldowan-tools.webp
   image_credit: AI-generated illustration
+  image_caption: "On the savanna by a river at sunrise, a hominin strikes flakes from a cobble with a hammerstone while another holds up a sharp flake"
   video: { src: video/events/oldowan-tools-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/oldowan-tools-1.webp, credit: "David R. Braun, CC BY-SA 2.0, via Wikimedia Commons", caption: "Oldowan tools from Bokol Dora 1, Ethiopia, about 2.6 million years old", source: "https://commons.wikimedia.org/wiki/File:Bokol_Dora_Stone_Tool_(cropped).jpg" }
@@ -110,6 +114,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Dmanisi_hominins
   image_url: /images/events/out-of-africa.webp
   image_credit: AI-generated illustration
+  image_caption: "A small band of early Homo by a river below snow-capped mountains, knapping stone and butchering a deer, animals on the plain beyond"
   video: { src: video/events/out-of-africa-dmanisi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/out-of-africa-dmanisi-1.webp, credit: "Guy Bar-Oz, CC BY-SA 3.0, via Wikimedia Commons", caption: "Dmanisi Skull 5 as it lay in the ground", source: "https://commons.wikimedia.org/wiki/File:Skull_in_dmanisi_archaeological_site.JPG" }
@@ -132,6 +137,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   image_url: /images/events/acheulean-handaxe-technology.webp
   image_credit: AI-generated illustration
+  image_caption: "Toolmakers on red earth below a volcano, shaping teardrop handaxes with hammerstones"
   video: { src: video/events/acheulean-handaxes-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/acheulean-handaxes-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Handaxe from Saint-Acheul, France, the site that gave the Acheulean its name", source: "https://commons.wikimedia.org/wiki/File:Biface_de_St_Acheul_MHNT.jpg" }
@@ -154,6 +160,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans
   image_url: /images/events/control-of-fire.webp
   image_credit: AI-generated illustration
+  image_caption: "A family gathered round a hearth in a cave mouth at sunset, one feeding the fire with sticks"
   video: { src: video/events/control-of-fire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/control-of-fire-3.webp, credit: "66AVI, CC BY-SA 3.0, via Wikimedia Commons", caption: "Excavations at Qesem Cave, Israel, where hominins maintained a central hearth in an enclosed shelter", source: "https://commons.wikimedia.org/wiki/File:%D7%9E%D7%A2%D7%A8%D7%AA_%D7%A7%D7%A1%D7%9D_2.jpg" }
@@ -178,6 +185,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Kalambo_structure
   image_url: /images/events/kalambo-falls-wood.webp
   image_credit: AI-generated illustration
+  image_caption: "By a river below a waterfall, hominins shaping and notching logs into an interlocking timber structure"
   video: { src: video/events/kalambo-falls-wood-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/kalambo-falls-wood-1.webp, credit: "L. Barham et al., CC BY 4.0, via Wikimedia Commons", caption: "The interlocking bushwillow logs excavated at Kalambo Falls, Zambia, at least 476,000 years old, with arrows marking stone-tool shaping marks", source: "https://commons.wikimedia.org/wiki/File:Shaping_marks_on_the_upper_surfaces_of_object_1033_and_on_the_underlying_treetrunk.webp" }
@@ -198,6 +206,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Jebel_Irhoud
   image_url: /images/events/emergence-modern-humans.webp
   image_credit: AI-generated illustration
+  image_caption: "A band of early modern humans with stone-tipped spears on a clifftop, looking out over a green valley at sunrise"
   video: { src: video/events/modern-humans-emerge-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/modern-humans-emerge-1.webp, credit: "Jonathan Chen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Jebel Irhoud 1 skull (cast)", source: "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg" }
@@ -222,6 +231,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sch%C3%B6ningen_spears
   image_url: /images/events/schoningen-spears.webp
   image_credit: AI-generated illustration
+  image_caption: "Hunters crouched in the reeds of a lakeshore with long wooden spears, wild horses grazing on the far bank"
   video: { src: video/events/schoningen-spears-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/schoningen-spears-1.webp, credit: "P. Pfarr / NLD, CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Spear VII in place in the waterlogged lakeshore sediment at Schöningen during excavation in 1997", source: "https://commons.wikimedia.org/wiki/File:Sch%C3%B6ningen_Speer_VII_im_Sediment_1997_%C2%A9_P._Pfarr_NLD.jpg" }
@@ -244,6 +254,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Skhul_and_Qafzeh_hominins
   image_url: /images/events/earliest-burials.webp
   image_credit: AI-generated illustration
+  image_caption: "Mourners in a cave mouth kneeling round a grave, laying a body curled on its side with an antler and red ochre"
   video: { src: video/events/earliest-burials-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/earliest-burials-1.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of the Qafzeh 11 burial from Qafzeh Cave, Israel, about 100,000 years old, where a young adolescent was laid in a pit with red deer antlers across the chest (Anthropos Pavilion, Brno)", source: "https://commons.wikimedia.org/wiki/File:Middle_Paleolithic%2C_Cast_of_funeral_of_child_from_Cave_of_Qafzeh_Anthropos%2C_Brno%2C_187947.jpg" }
@@ -267,6 +278,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Blombos_Cave
   image_url: /images/events/symbolic-culture.webp
   image_credit: AI-generated illustration
+  image_caption: "Above the shore at sunset, a man engraves cross-hatching on a slab of red ochre while a woman threads a shell-bead necklace"
   video: { src: video/events/symbolic-culture-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/symbolic-culture-1.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 3.0, via Wikimedia Commons", caption: "Blombos Cave on the southern Cape coast, South Africa", source: "https://commons.wikimedia.org/wiki/File:Blombos.jpg" }
@@ -291,6 +303,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Prehistory_of_Australia
   image_url: /images/events/seafaring-to-sahul.webp
   image_credit: AI-generated illustration
+  image_caption: "A family paddling a bamboo raft across a calm sea at sunset towards red cliffs on a new shore"
   video: { src: video/events/sahul-seafaring-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/sahul-seafaring-3.webp, credit: "Kanguole, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sunda, Wallacea and the Pleistocene continent of Sahul (Australia and New Guinea)", source: "https://commons.wikimedia.org/wiki/File:Map_of_Sunda_and_Sahul.svg" }
@@ -315,6 +328,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Bow_and_arrow
   image_url: /images/events/bow-and-arrow.webp
   image_credit: AI-generated illustration
+  image_caption: "A hunter draws a bow at a rock shelter above a river valley, while another fits stone points to arrows by the fire"
   video: { src: video/events/bow-and-arrow-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/bow-and-arrow-1.webp, credit: "DarkaRolandStark, CC BY-SA 3.0, via Wikimedia Commons", caption: "The sandstone cliff and rock shelter of Sibudu Cave in KwaZulu-Natal, South Africa", source: "https://commons.wikimedia.org/wiki/File:Sibudu_cave_KZN_02.JPG" }
@@ -339,6 +353,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Archaic_human_admixture_with_modern_humans
   image_url: /images/events/archaic-human-admixture.webp
   image_credit: AI-generated illustration
+  image_caption: "Modern humans and Neanderthals sharing a fire in a mountain valley, a mother holding a child among them"
   video: { src: video/events/archaic-human-admixture-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/archaic-human-admixture-3.webp, credit: "Max Planck Institute for Evolutionary Anthropology, public domain, via Wikimedia Commons", caption: "Extracting ancient DNA from a Neanderthal bone in a clean room at Leipzig", source: "https://commons.wikimedia.org/wiki/File:Neanderthal_DNA_extraction.jpg" }
@@ -363,6 +378,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Karampuang_cave
   image_url: /images/events/figurative-cave-art.webp
   image_credit: AI-generated illustration
+  image_caption: "By torchlight, a painter adds a red pig to hunting scenes on a cave wall above a forested limestone valley"
   video: { src: video/events/figurative-cave-art-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/figurative-cave-art-1.webp, credit: "Anhar Karim, CC BY-SA 4.0, via Wikimedia Commons", caption: "Leang Karampuang in the Maros karst, Sulawesi", source: "https://commons.wikimedia.org/wiki/File:Karampuang,_a_cave_which_has_world%27s_oldest_cave_painting.jpg" }
@@ -387,6 +403,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sewing_needle
   image_url: /images/events/eyed-needle-clothing.webp
   image_credit: AI-generated illustration
+  image_caption: "Inside a hide tent, a woman in a fur-trimmed hood stitches furs with a bone needle by the fire, awls and needles laid out on a hide"
   video: { src: video/events/eyed-needle-clothing-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/eyed-needle-clothing-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Upper Paleolithic flat bone sewing needle with eye from Gourdan Cave, France (Muséum de Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Aiguille_os_246.1_Global.jpg" }
@@ -410,6 +427,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Paleolithic_flute
   image_url: /images/events/earliest-musical-instruments.webp
   image_credit: AI-generated illustration
+  image_caption: "Outside a cave, a boy plays a long bone flute while a family listens round the fire, more flutes lying on a hide"
   video: { src: video/events/earliest-musical-instruments-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/earliest-musical-instruments-1.webp, credit: "Tomatenpflanze, CC BY-SA 4.0, via Wikimedia Commons", caption: "Griffon vulture bone flute from Hohle Fels, about 40,000 years old", source: "https://commons.wikimedia.org/wiki/File:Fl%C3%B6te_aus_G%C3%A4nsegeierknochen_vom_Hohle_Fels_im_urmu.jpg" }
@@ -436,6 +454,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Neanderthal_extinction
   image_url: /images/events/neanderthal-extinction.webp
   image_credit: AI-generated illustration
+  image_caption: "A Neanderthal family at a cave mouth looks across a dusky bay to the campfires of newcomers on the far shore"
   video: { src: video/events/neanderthal-extinction-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/neanderthal-extinction-1.webp, credit: "Stewart Finlayson / Gibraltar Museum, CC BY-SA 4.0, via Wikimedia Commons", caption: "Neanderthal rock engraving etched into the bedrock floor of Gorham's Cave, Gibraltar", source: "https://commons.wikimedia.org/wiki/File:Neanderthal_Engraving_(Gorham%27s_Cave_Gibraltar).jpg" }
@@ -460,6 +479,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Settlement_of_the_Americas
   image_url: /images/events/peopling-of-the-americas.webp
   image_credit: AI-generated illustration
+  image_caption: "Fur-clad travellers with spears walk a rocky shore past skin boats, with a glacier, mammoths and bison behind"
   video: { src: video/events/peopling-of-the-americas-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/peopling-of-the-americas-1.webp, credit: "U.S. Geological Survey, public domain, via Wikimedia Commons", caption: "Human footprints at White Sands, New Mexico", source: "https://commons.wikimedia.org/wiki/File:Human_fossil_tracks_at_White_Sands_New_Mexico.jpg" }
@@ -485,6 +505,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Xianren_Cave
   image_url: /images/events/invention-of-pottery.webp
   image_credit: AI-generated illustration
+  image_caption: "In a wooded limestone valley at sunset, people shape clay vessels by hand and fire pots in an open hearth"
   video: { src: video/events/first-pottery-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/first-pottery-3.webp, credit: "Zhangzhugang, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Xianrendong Cave in Jiangxi, China, where 20,000-year-old pottery was found", source: "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8816.jpg" }
@@ -507,6 +528,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_dog
   image_url: /images/events/domestication-of-the-dog.webp
   image_credit: AI-generated illustration
+  image_caption: "A man and a child with friendly yellow dogs at a riverside camp of hide tents"
   video: { src: video/events/dog-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/dog-domestication-3.webp, credit: "Clément Bardot, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Eurasian gray wolf (Canis lupus lupus), wild ancestor of domestic dogs", source: "https://commons.wikimedia.org/wiki/File:Loup_gris_(Canis_lupus_).jpg" }
@@ -531,6 +553,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Late_Pleistocene_extinctions
   image_url: /images/events/quaternary-megafauna-extinction.webp
   image_credit: AI-generated illustration
+  image_caption: "A woolly mammoth, a sabre-toothed cat and a giant ground sloth on the steppe, hunters with spears on the ridge behind"
   video: { src: video/events/quaternary-megafauna-extinction-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/quaternary-megafauna-extinction-1.webp, credit: "WikiWhens, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavated skull and tusks of 'Zed', a Columbian mammoth (Mammuthus columbi), at the La Brea Tar Pits Museum lab", source: "https://commons.wikimedia.org/wiki/File:Zed%27s_Skull_La_Brea_Tar_Pits_Museum.jpg" }
@@ -553,6 +576,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe
   image_url: /images/events/gobekli-tepe.webp
   image_credit: AI-generated illustration
+  image_caption: "People among the carved T-shaped pillars of a stone enclosure, with boar, fox and bird reliefs on them"
   video: { src: video/events/gobekli-tepe-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/gobekli-tepe-1.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carved stones at Göbekli Tepe", source: "https://commons.wikimedia.org/wiki/File:Gobekli_Tepe_Under_temporary_roof_in_2014_3127.jpg" }
@@ -577,6 +601,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Neolithic_Revolution
   image_url: /images/events/birth-of-agriculture.webp
   image_credit: AI-generated illustration
+  image_caption: "Harvesters in a field of ripe wheat on rolling hills at sunset"
   video: { src: video/events/birth-of-agriculture-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/birth-of-agriculture-3.webp, credit: "Roger Culos, CC BY-SA 3.0, via Wikimedia Commons", caption: "Ears of emmer wheat (Triticum dicoccum), one of the Neolithic founder crops of the Fertile Crescent", source: "https://commons.wikimedia.org/wiki/File:Triticum_turgidum_subsp._dicoccum_MHNT.BOT.2015.2.36.jpg" }
@@ -601,6 +626,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Cattle
   image_url: /images/events/cattle-and-pigs.webp
   image_credit: AI-generated illustration
+  image_caption: "Herders with long-horned cattle and pigs outside thatched houses by a river"
   video: { src: video/events/cattle-and-pigs-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/cattle-and-pigs-1.webp, credit: "Eldrichr, CC BY-SA 3.0, via Wikimedia Commons", caption: "Skeleton of an aurochs, the wild ancestor of cattle (National Museum of Denmark)", source: "https://commons.wikimedia.org/wiki/File:Aurochs,_Danish_National_Museum.jpg" }
@@ -623,6 +649,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Maize
   image_url: /images/events/maize-and-squash.webp
   image_credit: AI-generated illustration
+  image_caption: "Women gathering squash and maize among agave and prickly pear below a cave on a dry hillside"
   video: { src: video/events/maize-and-squash-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/maize-and-squash-1.webp, credit: "John Doebley, CC BY 3.0, via Wikimedia Commons", caption: "Teosinte (top), a maize–teosinte hybrid (middle) and maize (bottom)", source: "https://commons.wikimedia.org/wiki/File:Maize-teosinte.jpg" }
@@ -645,6 +672,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_rice_cultivation
   image_url: /images/events/rice-and-millet.webp
   image_credit: AI-generated illustration
+  image_caption: "Planting rice in flooded paddies below karst peaks, with golden millet and thatched round houses by the river"
   video: { src: video/events/rice-and-millet-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/rice-and-millet-1.webp, credit: "Huangchenhai, CC BY-SA 4.0, via Wikimedia Commons", caption: "Carbonized Neolithic rice from the Longqiuzhuang site, China", source: "https://commons.wikimedia.org/wiki/File:Carbonized_Rice.jpg" }
@@ -668,6 +696,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Kuk_Swamp
   image_url: /images/events/new-guinea-farming.webp
   image_credit: AI-generated illustration
+  image_caption: "Farmers digging drainage ditches between mounded beds of taro in a misty highland valley, bananas and sugarcane at the edges"
   video: { src: video/events/new-guinea-farming-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/new-guinea-farming-1.webp, credit: "NASA/JPL, public domain, via Wikimedia Commons", caption: "Satellite view of the highland valley around the Kuk Early Agricultural Site, New Guinea", source: "https://commons.wikimedia.org/wiki/File:Kuk_New_Guinea_2002.jpg" }
@@ -690,6 +719,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Milk
   image_url: /images/events/dairying.webp
   image_credit: AI-generated illustration
+  image_caption: "A woman milks a cow into a pottery bowl outside a thatched timber house while a man pours milk into a jar"
   video: { src: video/events/dairying-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/dairying-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Milking cows and making dairy products, on a Sumerian frieze from the temple of Ninhursag at Tell al-'Ubaid, 2800–2600 BCE (Iraq Museum)", source: "https://commons.wikimedia.org/wiki/File:Sumerian_scene,_milking_cows_and_making_dairy_products._From_the_facade_of_the_Temple_of_Ninhursag_at_Tell_al-%27Ubaid,_Iraq,_2800-2600_BCE._Iraq_Museum.jpg" }
@@ -714,6 +744,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Potato
   image_url: /images/events/andean-domestication.webp
   image_credit: AI-generated illustration
+  image_caption: "Families harvesting potatoes of many colours on the high plains, llamas and alpacas grazing, a blue lake and snowy peaks behind"
   video: { src: video/events/andean-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/andean-domestication-1.webp, credit: "Thayne Tuason, CC BY 4.0, via Wikimedia Commons", caption: "Potato varieties at the market in Huancayo, Peru", source: "https://commons.wikimedia.org/wiki/File:Mercado_Modelo_de_Huancayo_Peru-_Solanum_tuberosum_varieties_V.jpg" }
@@ -735,6 +766,7 @@
   description: In the hyper-arid coastal desert of northern Chile and southern Peru, the Chinchorro hunter-gatherer-fishers developed the earliest known artificial mummification in human history, predating Egyptian mummies by over two millennia. Mortuary artisans carefully removed internal organs, reinforced skeletal structures with wooden sticks and totora reeds, modeled fine clay paste over the body, and sculpted serene portrait masks painted with black manganese or red ochre and fitted with natural human hair wigs. Mummification was practiced across all ages and social ranks, keeping deceased ancestors as physical, enduring members of the community.
   image_url: /images/events/chinchorro-mummies.webp
   image_credit: AI-generated illustration
+  image_caption: "Under a shelter on a desert shore, two people prepare a body bound with reeds and model a clay face mask"
   video: { src: video/events/chinchorro-mummies-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/chinchorro-mummies-1.webp, credit: "WeHaKa, CC BY-SA 4.0, via Wikimedia Commons", caption: "Red mummy of an infant at the Museo Arqueológico San Miguel de Azapa, Chile", source: "https://commons.wikimedia.org/wiki/File:Momia_Chinchorro_Roja.jpg" }
@@ -756,6 +788,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Chalcolithic
   image_url: /images/events/copper-smelting.webp
   image_credit: AI-generated illustration
+  image_caption: "A smith pours molten copper from a crucible into a stone mould while another tends a clay furnace; baskets of green ore and charcoal"
   video: { src: video/events/copper-smelting-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/copper-smelting-3.webp, credit: "JJ Harrison, CC BY-SA 3.0, via Wikimedia Commons", caption: "Malachite, a green carbonate copper mineral smelted into molten metal in early kilns", source: "https://commons.wikimedia.org/wiki/File:Malachite,_Zaire.jpg" }
@@ -780,6 +813,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Wheel
   image_url: /images/events/invention-of-the-wheel.webp
   image_credit: AI-generated illustration
+  image_caption: "Craftsmen shape a wooden wheel in a Mesopotamian town, an ox cart loaded with jars and a ziggurat behind"
   video: { src: video/events/invention-of-the-wheel-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/invention-of-the-wheel-1.webp, credit: "Petar Milošević, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ljubljana Marshes Wheel and axle, about 3150 BCE", source: "https://commons.wikimedia.org/wiki/File:Ljubljana_Marshes_Wheel_with_axle_(oldest_wooden_wheel_yet_discovered).jpg" }
@@ -802,6 +836,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Bronze_Age
   image_url: /images/events/bronze-age.webp
   image_credit: AI-generated illustration
+  image_caption: "A metalworker pours molten bronze into stone moulds in a walled harbour town, finished swords, ingots and sacks of ore beside him"
   video: { src: video/events/bronze-age-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/bronze-age-3.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "Early Bronze Age stone casting moulds alongside cast bronze tools and weapons (Museum of Western Bohemia)", source: "https://commons.wikimedia.org/wiki/File:Stone_molds_for_bronze_casting,_Museum_of_Western_Bohemia,_187766.jpg" }
@@ -824,6 +859,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Cuneiform
   image_url: /images/events/development-of-writing.webp
   image_credit: AI-generated illustration
+  image_caption: "A scribe presses signs into clay tablets with a reed stylus while a boy watches, a ziggurat behind"
   video: { src: video/events/development-of-writing-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/development-of-writing-3.webp, credit: "Francesco Bini, CC BY-SA 4.0, via Wikimedia Commons", caption: "Spherical clay envelope (bulla) and accounting tokens used to record transactions at Susa, about 3100 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Iran,_bulla_e_gettoni_usati_per_attestare_una_transazione_commerciale,_da_susa,_3100-2800_ac_ca._(louvre).jpg" }
@@ -847,6 +883,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sorghum
   image_url: /images/events/sorghum-and-millet.webp
   image_credit: AI-generated illustration
+  image_caption: "Women grinding grain on a stone and sorting sorghum and pearl millet under a thatched shade, harvesters in the tall fields behind"
   video: { src: video/events/sorghum-and-millet-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/sorghum-and-millet-1.webp, credit: "RamboSD, CC BY 4.0, via Wikimedia Commons", caption: "A sorghum crop in White Nile State, Sudan", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85_%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A_%D9%81%D9%8A_%D9%88%D9%84%D8%A7%D9%8A%D8%A9_%D8%A7%D9%84%D9%86%D9%8A%D9%84_%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6_%D8%AE%D8%B1%D9%8A%D9%81_2024_%D9%85%D8%AD%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%B0%D8%B1%D8%A9_13.jpg" }
@@ -869,6 +906,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza
   image_url: /images/events/great-pyramid.webp
   image_credit: AI-generated illustration
+  image_caption: "Workers haul a limestone block on a sledge up a ramp beside the rising Great Pyramid, an overseer with a plan, the Nile behind"
   video: { src: video/events/great-pyramid-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/great-pyramid-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Ivory statuette of Khufu, the only complete figure of the king known", source: "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Statuette_Cheops_03_(cropped).jpg" }
@@ -891,6 +929,7 @@
   description: Flourishing along the arid Pacific river valleys of central coastal Peru, Caral is the oldest known civilization and urban center in the Americas, developing monumental stepped platform pyramids and sunken circular plazas contemporary with Egypt's Old Kingdom. Sustained by maritime trade exchanging anchovies and mollusks from the coast for cotton and squash irrigated from the Supe River, Caral lacked defensive fortifications or signs of warfare, instead organizing complex regional labor through shared religious ritual, music played on carved pelican-bone flutes, and recording systems including early knotted quipu strings.
   image_url: /images/events/caral-supe.webp
   image_credit: AI-generated illustration
+  image_caption: "Musicians and crowds round the sunken circular plaza of Caral, workers carrying stones in baskets up the stepped platform mounds"
   video: { src: video/events/caral-supe-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/caral-supe-1.webp, credit: "Jon Gudorf Photography, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Pirámide Mayor and sunken circular plaza at the ancient sacred city of Caral, Peru", source: "https://commons.wikimedia.org/wiki/File:Mayor_Pyramid_and_circular_enclosure._Caral,_Peru.jpg" }
@@ -911,6 +950,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
   image_url: /images/events/indus-cities.webp
   image_credit: AI-generated illustration
+  image_caption: "A straight brick street with covered drains between flat-roofed houses in an Indus city, the citadel mound at the end"
   video: { src: video/events/indus-cities-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/indus-cities-3.webp, credit: "Comrogues, CC BY 2.0, via Wikimedia Commons", caption: "Standardized baked-brick walls and straight streets at Mohenjo-daro", source: "https://commons.wikimedia.org/wiki/File:Mohenjo-daro-2010.jpg" }
@@ -936,6 +976,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Domestication_of_the_horse
   image_url: /images/events/horse-domestication.webp
   image_credit: AI-generated illustration
+  image_caption: "Riders and a chariot race across the steppe, a herd of horses and a riverside village behind"
   video: { src: video/events/horse-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/horse-domestication-1.webp, credit: "IAEA Imagebank, CC BY-SA 2.0, via Wikimedia Commons", caption: "Przewalski's horse, descended from the horses herded at Botai", source: "https://commons.wikimedia.org/wiki/File:Przewalski%27s_Horse_(02710137).jpg" }
@@ -958,6 +999,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Proto-Sinaitic_script
   image_url: /images/events/alphabetic-script.webp
   image_credit: AI-generated illustration
+  image_caption: "Among desert cliffs, a miner carves ox-head, house and eye signs into the rock beside a basket of turquoise"
   video: { src: video/events/alphabetic-script-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/alphabetic-script-3.webp, credit: "NASA/METI/AIST/Japan Space Systems, public domain, via Wikimedia Commons", caption: "Satellite view of Serabit el-Khadim in Sinai, site of the Egyptian turquoise mines where Proto-Sinaitic was inscribed", source: "https://commons.wikimedia.org/wiki/File:Serabit_el-Khadim,_Egypt_(ASTER).jpg" }
@@ -980,6 +1022,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Code_of_Hammurabi
   image_url: /images/events/code-of-hammurabi.webp
   image_credit: AI-generated illustration
+  image_caption: "Townspeople gather round the black stone stele of Hammurabi's laws in a Babylonian city, one reading from a tablet"
   video: { src: video/events/code-of-hammurabi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/code-of-hammurabi-1.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "The Code of Hammurabi stele (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg" }
@@ -1002,6 +1045,7 @@
   description: In northeastern Louisiana along Bayou Maçon, Indigenous hunter-gatherer-fishers constructed one of the most astonishing monumental earthwork complexes in North America, moving an estimated 750,000 cubic meters of earth without beasts of burden or wheeled carts. The site features six massive concentric semi-elliptical earthen ridges surrounding a central plaza and dominated by the 22-meter-tall bird-shaped Mound A. A vibrant continental trade hub, Poverty Point imported tons of exotic lithic raw materials—novaculite, galena, quartz crystal, and copper—from across eastern North America, alongside millions of distinctive baked-clay cooking balls known as Poverty Point Objects.
   image_url: /images/events/poverty-point.webp
   image_credit: AI-generated illustration
+  image_caption: "People cooking with clay balls round a hearth on the earthen ridges of Poverty Point, the curving rings and a mound by the bayou"
   video: { src: video/events/poverty-point-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/poverty-point-1.webp, credit: "Herb Roe, CC BY-SA 4.0, via Wikimedia Commons", caption: "Aerial artist's reconstruction of the concentric earthen ridges and Mound A at Poverty Point", source: "https://commons.wikimedia.org/wiki/File:Poverty_Point_Aerial_HRoe_2014.jpg" }
@@ -1023,6 +1067,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Chicken
   image_url: /images/events/chicken-domestication.webp
   image_credit: AI-generated illustration
+  image_caption: "A junglefowl rooster on a bamboo fence with hens and chicks, villagers and stilt houses in a forest clearing"
   video: { src: video/events/chicken-domestication-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/chicken-domestication-1.webp, credit: "dhfischer, CC BY 4.0, via Wikimedia Commons", caption: "Red junglefowl, the wild ancestor of the chicken, in Khao Yai, Thailand", source: "https://commons.wikimedia.org/wiki/File:Gallus_gallus,_Khao_Yai_Lam_Ta_Khong,_Thailand_477443293.jpg" }
@@ -1044,6 +1089,7 @@
   related: [lapita]
   image_url: /images/events/lapita-voyaging.webp
   image_credit: AI-generated illustration
+  image_caption: "A double-sailed outrigger canoe laden with pots, plants and pigs, a family aboard, heading for a green volcanic island"
   video: { src: video/events/lapita-voyaging-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/lapita-voyaging-1.webp, credit: "Torbenbrinker, CC BY-SA 3.0, via Wikimedia Commons", caption: "Reconstructed Lapita earthenware vessel displayed at the Vanuatu Cultural Centre in Port Vila", source: "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg" }
@@ -1065,6 +1111,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Iron_Age
   image_url: /images/events/iron-age.webp
   image_credit: AI-generated illustration
+  image_caption: "A smith hammers a glowing iron bloom on an anvil while a helper holds it with tongs, a clay furnace and stone city walls behind"
   video: { src: video/events/iron-age-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/iron-age-2.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "Tutankhamun's dagger, about 1325 BCE, forged from meteoric iron before smelted iron was common", source: "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Eisendolch_Tutanchamun_01.jpg" }
@@ -1087,6 +1134,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Sea_Peoples
   image_url: /images/events/sea-peoples.webp
   image_credit: AI-generated illustration
+  image_caption: "Warriors in horned and feathered helmets escort ox carts of families along a coast, ships offshore and a city burning in the distance"
   video: { src: video/events/sea-peoples-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/sea-peoples-1.webp, credit: "Antonio Beato, CC0, via Wikimedia Commons", caption: "The naval battle relief on the north wall at Medinet Habu, photographed by Antonio Beato, late 1800s", source: "https://commons.wikimedia.org/wiki/File:Theban_region,_Medinet_Habu,_19th_century_pictures,_1870-1896,_photo_44_of_51_-_Archivio_fotografico_Museo_Egizio,_Turin_INV10_001.jpg" }
@@ -1110,6 +1158,7 @@
   description: On the Jos Plateau of central Nigeria, the Nok culture created sub-Saharan Africa's earliest known monumental figurative art tradition alongside early bloomery iron-smelting technology. Nok artisans sculpted hollow, coiled terracotta human figures and animal effigies remarkable for their expressive stylization, pierced triangular eyes and pupils, elaborate braided hairstyles, and detailed beadwork ornaments. Contemporaneous with their terracotta sculpture, Nok settlements at Taruga operated sophisticated shaft bloomeries, demonstrating the independent or early development of iron metallurgy in West Africa without a preceding bronze age.
   image_url: /images/events/nok-terracotta.webp
   image_credit: AI-generated illustration
+  image_caption: "A sculptor shapes a terracotta head with an elaborate hairstyle, an iron furnace smoking and thatched houses behind"
   video: { src: video/events/nok-terracotta-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/nok-terracotta-1.webp, credit: "FA2010, public domain, via Wikimedia Commons", caption: "Sculpted Nok terracotta head with elaborate coiffure and pierced triangular eyes (Kimbell Art Museum)", source: "https://commons.wikimedia.org/wiki/File:Africa_Nok_Head_Kimbell.jpg" }
@@ -1130,6 +1179,7 @@
   related: [greek-city-states]
   image_url: /images/events/first-olympic-games.webp
   image_credit: AI-generated illustration
+  image_caption: "A discus thrower on the track at Olympia, runners behind and a judge holding up an olive wreath before a temple"
   video: { src: video/events/first-olympic-games-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/first-olympic-games-1.webp, credit: "Livioandronico2013, CC BY-SA 4.0, via Wikimedia Commons", caption: "Roman marble copy of Myron's Discobolus (Discus Thrower), celebrating athletic virtue (National Roman Museum)", source: "https://commons.wikimedia.org/wiki/File:Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG" }
@@ -1150,6 +1200,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lydia
   image_url: /images/events/minted-coinage.webp
   image_credit: AI-generated illustration
+  image_caption: "A moneyer strikes coins with hammer and punch on an anvil while another checks them on a balance, a Greek city with temples behind"
   video: { src: video/events/minted-coinage-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/minted-coinage-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Lydian electrum coin with a lion's head, about 600 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Lydia_-_600-530_BC_-_elektron_trite_-_head_of_lion_-_two_quadrata_incusa_-_London_BM_1890-0804-8.jpg" }
@@ -1171,6 +1222,7 @@
   related: [qin-dynasty]
   image_url: /images/events/unification-of-china.webp
   image_credit: AI-generated illustration
+  image_caption: "Officials compare standard weights, coins and written scrolls at a table, ranks of armoured soldiers, a chariot and the Great Wall behind"
   video: { src: video/events/unification-of-china-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/unification-of-china-1.webp, credit: "Gremelm, CC BY-SA 3.0, via Wikimedia Commons", caption: "Group of restored life-sized ceramic warriors from the Terracotta Army of Qin Shi Huang", source: "https://commons.wikimedia.org/wiki/File:01_terracottawarriorsgroup.jpg" }
@@ -1193,6 +1245,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/History_of_paper
   image_url: /images/events/papermaking.webp
   image_credit: AI-generated illustration
+  image_caption: "Papermakers lift a sheet of pulp from a vat on a screen and hang sheets to dry, bundles of bark and a tiled courtyard behind"
   video: { src: video/events/papermaking-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/papermaking-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Fragment of the Fangmatan paper map, early 2nd century BCE", source: "https://commons.wikimedia.org/wiki/File:Fangmatan_paper_map.jpg" }
@@ -1214,6 +1267,7 @@
   related: [han-dynasty]
   image_url: /images/events/silk-road.webp
   image_credit: AI-generated illustration
+  image_caption: "A camel caravan laden with bolts of silk leaves a walled frontier fort, merchants and a horse in front, mountains beyond the dunes"
   video: { src: video/events/silk-road-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/events/extra/silk-road-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "The Galloping Bronze Horse of Gansu, symbol of the prized 'Heavenly Horses' of the Silk Road", source: "https://commons.wikimedia.org/wiki/File:HanHorse.jpg" }

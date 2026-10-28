@@ -1,5 +1,6 @@
 import type { Data } from "../map/data";
 import type { Entity } from "../types";
+import { standInNote } from "../tours/tourPicture";
 
 /** A picture for an entity, as on the info card: its own, else its group's, else a shared stand-in. */
 export interface Picture {
@@ -12,9 +13,9 @@ export interface Picture {
 export function pictureOf(entity: Entity, data: Data): Picture | undefined {
   if (entity.image_url) return { url: entity.image_url, credit: entity.image_credit, note: entity.image_caption };
   const parent = entity.parent_id ? data.entityById.get(entity.parent_id) : undefined;
-  if (parent?.image_url) return { url: parent.image_url, credit: parent.image_credit, note: `Shows ${parent.name} as a whole` };
+  if (parent?.image_url) return { url: parent.image_url, credit: parent.image_credit, note: standInNote(`${parent.name} as a whole`, parent.image_caption) };
   const fb = entity.fallback_image;
-  if (fb) return { url: fb.url, credit: fb.credit, note: `Shows ${fb.label}` };
+  if (fb) return { url: fb.url, credit: fb.credit, note: standInNote(fb.label, fb.caption) };
   return undefined;
 }
 

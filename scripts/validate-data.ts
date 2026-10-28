@@ -52,6 +52,9 @@ for (const e of entityList) {
   else for (const s of e.source_ids) if (!sources.has(s)) err(`entity ${id}: unknown source ${s}`);
   if (e.color !== undefined && !HEX.test(e.color)) err(`entity ${id}: bad colour ${e.color}`);
   if (e.image_url && !e.image_credit) err(`entity ${id}: image_url needs an image_credit (author/licence, or "AI-generated")`);
+  // The app shows an AI-generated picture's caption in place of its credit, so it needs one.
+  if (e.image_url && /^AI-generated/i.test(e.image_credit ?? "") && !e.image_caption)
+    err(`entity ${id}: AI-generated picture needs an image_caption saying what it shows`);
   if (e.extra_images !== undefined) {
     if (!Array.isArray(e.extra_images)) err(`entity ${id}: extra_images must be a list`);
     else {
@@ -75,6 +78,7 @@ for (const e of entityList) {
   if (e.fallback_image) {
     const f = e.fallback_image;
     if (!f.url || !f.credit || !f.label) err(`entity ${id}: fallback_image needs url, credit and label`);
+    else if (/^AI-generated/i.test(f.credit) && !f.caption) err(`entity ${id}: AI-generated stand-in picture needs an image_caption in picture-groups.yaml`);
     else if (!existsSync(`public${f.url}`)) missingPictures.add(f.url);
   }
   if (e.media !== undefined) {

@@ -458,6 +458,10 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - Species: 4:3, 640x477 WebP (`public/images/species/`); civilizations and culture stage pictures: 4:3, 1200x900 WebP
   (`public/images/civilisations/`, `public/images/cultures/`). All shown in a 4:3 frame; events: square (see above). Every picture needs
   an `image_credit`. Civilization pictures are overlaid by id at the end of `entities.yaml`.
+- AI-generated pictures (credit "AI-generated ...") never show that credit (Rob's call, 28 Oct 2026): the app shows
+  their `image_caption` instead (`isAiCredit`/`creditLine` in `src/ui/PictureNav.tsx`), so every one needs a caption
+  saying what it shows (validator-enforced; entities, events and picture groups, whose caption follows "Shows ...").
+  The credit stays in the data as the record.
 - Extra pictures: `extra_images` on an event (events.yaml) or a species/culture/civilization (entities.yaml): an
   ordered list of `{ url, credit, caption?, at? }` after the main `image_url`, which stays the display picture
   (validator-checked: file exists, credit, `at` increasing). For now shown only while a tour holds on that card:

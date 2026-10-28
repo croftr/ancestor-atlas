@@ -10,6 +10,7 @@
     - recall
   image_url: /images/species/sahelanthropus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Sahelanthropus tchadensis, not a scientific reconstruction: a heavy brow, flat face and close-cropped dark hair"
   video: { src: video/species/sahelanthropus-v2.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/sahelanthropus-1.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Cast of the Toumaï skull from the side", source: "https://commons.wikimedia.org/wiki/File:Sahelenthropus_tchadensis-MGL_95214-P4150636-black.jpg" }
@@ -32,6 +33,7 @@
     - recall
   image_url: /images/species/orrorin-tugenensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Orrorin tugenensis, not a scientific reconstruction: a bearded, ape-like face with lips parted over its teeth"
   video: { src: video/species/orrorin-tugenensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/orrorin-tugenensis-1.webp, credit: "Jonathan Chen, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of the thigh bone BAR 1002'00, whose neck and shaft suggest Orrorin walked upright (Smithsonian National Museum of Natural History)", source: "https://commons.wikimedia.org/wiki/File:Orrorin_NMNH.jpg" }
@@ -54,6 +56,7 @@
     - recall
   image_url: /images/species/ardipithecus-kadabba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Ardipithecus kadabba, not a scientific reconstruction: a bust on a stone plinth, with a jutting jaw and dark hair"
   video: { src: video/species/ardipithecus-kadabba-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/ardipithecus-kadabba-1.webp, credit: "it:User:Lucius, CC BY-SA 3.0, via Wikimedia Commons", caption: "Outline drawings of Ardipithecus kadabba fossils from the Middle Awash: teeth, a jaw fragment and limb bones", source: "https://commons.wikimedia.org/wiki/File:Ardipithecus_kadabba_fossils.jpg" }
@@ -77,6 +80,7 @@
     - recall
   image_url: /images/species/ardipithecus-ramidus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Ardipithecus ramidus, not a scientific reconstruction: an ape-like face turned to the left, lips parted"
   video: { src: video/species/ardipithecus-ramidus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/ardipithecus-ramidus-1.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Middle Awash in Ethiopia's Afar region; Aramis lies within it", source: "https://commons.wikimedia.org/wiki/File:Middle_Awash_map.jpg" }
@@ -99,6 +103,7 @@
     - recall
   image_url: /images/species/australopithecus-anamensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus anamensis, not a scientific reconstruction: a jutting jaw with bared teeth and a dark beard"
   video: { src: video/species/australopithecus-anamensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-anamensis-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Australopithecus anamensis fossils from Kanapoi, west of Lake Turkana, at the Nairobi National Museum", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_081.jpg" }
@@ -122,6 +127,7 @@
     - recall
   image_url: /images/species/australopithecus-afarensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus afarensis, not a scientific reconstruction: deep-set eyes, a broad nose and a dark beard"
   video: { src: video/species/australopithecus-afarensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-afarensis-1.webp, credit: "Commons user 120, CC BY 2.5, via Wikimedia Commons", caption: "Cast of Lucy's skeleton, about 40 percent complete", source: "https://commons.wikimedia.org/wiki/File:Lucy_blackbg.jpg" }
@@ -144,6 +150,7 @@
     - recall
   image_url: /images/species/kenyanthropus-platyops.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Kenyanthropus platyops, not a scientific reconstruction: a flat face turned to the left, bare shoulders"
   video: { src: video/species/kenyanthropus-platyops-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/kenyanthropus-platyops-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "The flat-faced skull KNM-WT 40000, found at Lomekwi west of Lake Turkana in 1999 (Nairobi National Museum)", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_083.jpg" }
@@ -168,6 +175,7 @@
     - literature
   image_url: /images/species/australopithecus-bahrelghazali.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus bahrelghazali, not a scientific reconstruction: a heavy brow, wrinkled face and furred shoulders"
   video: { src: video/species/australopithecus-bahrelghazali-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-bahrelghazali-1.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Koro Toro site KT 12 in northern Chad, where the jaw was found in 1995; the dashed line marks the largest extent of Holocene Lake Mega-Chad", source: "https://commons.wikimedia.org/wiki/File:Koro-Toro.jpg" }
@@ -187,6 +195,7 @@
     - literature
   image_url: /images/species/australopithecus-deyiremeda.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus deyiremeda, not a scientific reconstruction: reddish-brown hair and furred shoulders"
   video: { src: video/species/australopithecus-deyiremeda-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-deyiremeda-1.webp, credit: "A. C. Tatarinov, CC0, via Wikimedia Commons", caption: "Drawing of the type fossils from Burtele, the upper jaw BRT-VP-3/1 and the lower jaw BRT-VP-3/14, shown together", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_deyiremeda.png" }
@@ -204,6 +213,7 @@
     - recall
   image_url: /images/species/australopithecus-africanus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus africanus, not a scientific reconstruction: long dark hair, a broad nose and a steady gaze"
   video: { src: video/species/australopithecus-africanus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-africanus-1.webp, credit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Taung Child fossil cast (c. 2.8 Ma): face, lower jaw, and natural limestone brain endocast discovered in 1924 (Museum of Toulouse)", source: "https://commons.wikimedia.org/wiki/File:Australopithecus_africanus_-_Cast_of_taung_child.jpg" }
@@ -226,6 +236,7 @@
     - recall
   image_url: /images/species/australopithecus-garhi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus garhi, not a scientific reconstruction: bared teeth with prominent canines"
   video: { src: video/species/australopithecus-garhi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-garhi-1.webp, credit: "Sailko, CC BY 3.0, via Wikimedia Commons", caption: "Reconstructed skull of Australopithecus garhi from Bouri, about 2.5 million years old (National Museum of Ethiopia)", source: "https://commons.wikimedia.org/wiki/File:Resti_di_australopithecus_garhi,_da_bouri_in_afar,_2,5_milioni_di_anni_fa.jpg" }
@@ -248,6 +259,7 @@
     - recall
   image_url: /images/species/australopithecus-sediba.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Australopithecus sediba, not a scientific reconstruction: a small ape-like face with amber eyes"
   video: { src: video/species/australopithecus-sediba-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/australopithecus-sediba-1.webp, credit: "Brett Eloff / Lee R. Berger, CC BY-SA 3.0, via Wikimedia Commons", caption: 'Holotype cranium MH1 ("Karabo"), juvenile Australopithecus sediba skull (c. 1.98 Ma) discovered at Malapa Cave, South Africa', source: "https://commons.wikimedia.org/wiki/File:Australopithecus_sediba.JPG" }
@@ -270,6 +282,7 @@
     - recall
   image_url: /images/species/paranthropus-aethiopicus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Paranthropus aethiopicus, not a scientific reconstruction: a crest along the top of the skull and a heavy brow"
   video: { src: video/species/paranthropus-aethiopicus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/paranthropus-aethiopicus-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Black Skull, KNM-WT 17000, found west of Lake Turkana in 1985 (Nairobi National Museum)", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_102.jpg" }
@@ -293,6 +306,7 @@
     - recall
   image_url: /images/species/paranthropus-boisei.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Paranthropus boisei, not a scientific reconstruction: a crested skull, a broad face and bared teeth"
   video: { src: video/species/paranthropus-boisei-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/paranthropus-boisei-1.webp, credit: "Guérin Nicolas, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cast of OH 5, the skull Mary Leakey found at Olduvai in 1959", source: "https://commons.wikimedia.org/wiki/File:Paranthropus_boisei_(University_of_Zurich).JPG" }
@@ -315,6 +329,7 @@
     - recall
   image_url: /images/species/paranthropus-robustus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Paranthropus robustus, not a scientific reconstruction: a crested skull and broad cheekbones"
   video: { src: video/species/paranthropus-robustus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/paranthropus-robustus-1.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Original cranium of SK 48, adult Paranthropus robustus discovered at Swartkrans with massive zygomatic arches and sagittal crest", source: "https://commons.wikimedia.org/wiki/File:Original_of_Paranthropus_robustus_Face.jpg" }
@@ -338,6 +353,7 @@
     - recall
   image_url: /images/species/homo-habilis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo habilis, not a scientific reconstruction: a broad face with a full dark beard"
   video: { src: video/species/homo-habilis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-habilis-2.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "OH 7 (replica): the jaw from Olduvai that defined Homo habilis in 1964", source: "https://commons.wikimedia.org/wiki/File:OH_7_replica_01.JPG" }
@@ -360,6 +376,7 @@
     - recall
   image_url: /images/species/homo-rudolfensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo rudolfensis, not a scientific reconstruction: long dark hair and a half smile"
   video: { src: video/species/homo-rudolfensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-rudolfensis-1.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "KNM-ER 1470 holotype cranium (1.9 Ma), discovered at Koobi Fora by Bernard Ngeneo, with a large 750 cc braincase", source: "https://commons.wikimedia.org/wiki/File:Homo_rudolfensis-KNM_ER_1470.jpg" }
@@ -383,6 +400,7 @@
     - recall
   image_url: /images/species/homo-erectus.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo erectus, not a scientific reconstruction: long dark hair and a beard, wearing a hide"
   video: { src: video/species/homo-erectus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-erectus-3.webp, credit: "Gerbil, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skull 5 from Dmanisi in Georgia, about 1.8 million years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Dmanisi_fossils_D4500_%2B_D2600.jpg" }
@@ -406,6 +424,7 @@
     - recall
   image_url: /images/species/homo-antecessor.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo antecessor, not a scientific reconstruction: a young face with short dark hair, in a hide garment"
   video: { src: video/species/homo-antecessor-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-antecessor-1.webp, credit: "Malopez 21, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Gran Dolina dig in the Sierra de Atapuerca, Spain", source: "https://commons.wikimedia.org/wiki/File:Atapuerca,_excavaci%C3%B3n_TD.jpg" }
@@ -429,6 +448,7 @@
     - recall
   image_url: /images/species/homo-heidelbergensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo heidelbergensis, not a scientific reconstruction: a heavy brow and a full beard"
   video: { src: video/species/homo-heidelbergensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-heidelbergensis-1.webp, credit: "Gerbil, CC BY 3.0, via Wikimedia Commons", caption: "The Mauer jaw, found near Heidelberg in 1907", source: "https://commons.wikimedia.org/wiki/File:Mandibel_from_Mauer.JPG" }
@@ -452,6 +472,7 @@
     - recall
   image_url: /images/species/neanderthal.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Neanderthal, not a scientific reconstruction: a heavy brow, a large nose and a full beard"
   video: { src: video/species/neanderthal-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/neanderthal-1.webp, credit: "Nachosan, CC BY-SA 3.0, via Wikimedia Commons", caption: "Model of the Sima de los Huesos shaft, Museum of Human Evolution, Burgos", source: "https://commons.wikimedia.org/wiki/File:MEH_Sima_de_los_Huesos_29-04-2012_9-38-44_1466x2073.JPG" }
@@ -475,6 +496,7 @@
     - recall
   image_url: /images/species/denisovan.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Denisovan, not a scientific reconstruction: a bust on a plinth, with a dark beard and a fur cloak"
   video: { src: video/species/denisovan-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/denisovan-3.webp, credit: "ЧуваевНиколай, CC BY-SA 3.0, via Wikimedia Commons", caption: "Entrance to Denisova Cave in Siberia's Altai Mountains", source: "https://commons.wikimedia.org/wiki/File:Turist_den-peschera.jpg" }
@@ -498,6 +520,7 @@
     - recall
   image_url: /images/species/homo-floresiensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo floresiensis, not a scientific reconstruction: a woman with long hair and a heavy brow, in a woven garment"
   video: { src: video/species/homo-floresiensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-floresiensis-1.webp, credit: "Rosino, CC BY-SA 2.0, via Wikimedia Commons", caption: "Liang Bua cave on Flores, Indonesia", source: "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_cave.jpg" }
@@ -520,6 +543,7 @@
     - recall
   image_url: /images/species/homo-luzonensis.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo luzonensis, not a scientific reconstruction: a bust on a plinth of a woman with her hair tied back"
   video: { src: video/species/homo-luzonensis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-luzonensis-1.webp, credit: "Homo schollensis, CC BY-SA 4.0, via Wikimedia Commons", caption: "Teeth and a toe bone of Homo luzonensis compared with A. afarensis and modern humans, drawn from the 3D scans of Détroit et al. (2019)", source: "https://commons.wikimedia.org/wiki/File:Homo_luzonensis_teeth_and_foot_bones_diagram.jpg" }
@@ -543,6 +567,7 @@
     - recall
   image_url: /images/species/homo-naledi.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An imagined Homo naledi, not a scientific reconstruction: a broad nose and furred shoulders, the head turned aside"
   video: { src: video/species/homo-naledi-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-naledi-1.webp, credit: "Simon Fraser University, CC BY 2.0, via Wikimedia Commons", caption: "Scientists working in the Rising Star cave system, South Africa", source: "https://commons.wikimedia.org/wiki/File:Rising_star_cave_exploration_(14054047275).jpg" }
@@ -566,6 +591,7 @@
     - recall
   image_url: /images/species/homo-sapiens.webp
   image_credit: AI-generated illustration, not a scientific reconstruction
+  image_caption: "An early Homo sapiens man with short locks and a trimmed beard, a bust on a plinth (not a scientific reconstruction)"
   video: { src: video/species/homo-sapiens-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/homo-sapiens-3.webp, credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Jebel Irhoud 1 skull from Morocco, about 315,000 years old (cast)", source: "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg" }
@@ -699,6 +725,7 @@
     - road
   image_url: /images/cultures/micoquian.webp
   image_credit: AI-generated illustration
+  image_caption: "Neanderthal camp below a rock shelter in autumn: knapping flint on a boulder, a red deer brought in, meat drying on racks, bison grazing in the valley below"
   extra_images:
     - { url: /images/extra/micoquian-1.webp, credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "A large Bockstein knife, a backed bifacial knife (Keilmesser), from the Bocksteinschmiede in the Lone valley, Germany", source: "https://commons.wikimedia.org/wiki/File:Bocksteinmesser_Nr_2482.jpg" }
     - { url: /images/extra/micoquian-2.webp, credit: "Einsamer Schütze, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Keilmesser from Löbnitz, Saxony, 80,000–50,000 years old (State Museum of Archaeology, Chemnitz)", source: "https://commons.wikimedia.org/wiki/File:Smac_Paläolithikum_034.jpg" }
@@ -716,6 +743,7 @@
     - road
   image_url: /images/cultures/szeletian.webp
   image_credit: AI-generated illustration
+  image_caption: "Camp at a limestone cave mouth with a dusting of snow: knapping leaf-shaped points by a stone hearth, hide shelters behind"
   extra_images:
     - { url: /images/extra/szeletian-1.webp, credit: "Don Hitchcock, CC BY 4.0, via Wikimedia Commons", caption: "Szeletian leaf-shaped points (Moravian Museum, Brno)", source: "https://commons.wikimedia.org/wiki/File:Pointes_foliacées_Brno_Museum.jpg" }
     - { url: /images/extra/szeletian-2.webp, credit: "Jenő Hillebrand, public domain, via Wikimedia Commons", caption: "A leaf-shaped point from Szeleta Cave, drawn in Jenő Hillebrand's excavation report", source: "https://commons.wikimedia.org/wiki/File:Szeleta-barlang,_babérlevél_alakú_hegy.jpg" }
@@ -733,6 +761,7 @@
     - road
   image_url: /images/cultures/chatelperronian.webp
   image_credit: AI-generated illustration
+  image_caption: "Rock shelter above a river valley: making stone tools and bone ornaments, grinding red ochre, meat drying over the fires"
   video: { src: video/cultures/chatelperronian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/chatelperronian-3.webp, credit: "Vincent Mourre / Inrap, CC BY-SA 4.0, via Wikimedia Commons", caption: "Entrance to the Grotte des Fées at Châtelperron, the type site of the Châtelperronian", source: "https://commons.wikimedia.org/wiki/File:Ch%C3%A2telperron_-_grotte_des_f%C3%A9es_-_1.jpg" }
@@ -849,6 +878,7 @@
     - road
   image_url: /images/cultures/epigravettian.webp
   image_credit: AI-generated illustration
+  image_caption: "Camp in the Mediterranean limestone hills: making spears, weaving baskets and grinding seeds, fish drying, hide tents by the sea"
   extra_images:
     - { url: /images/extra/epigravettian-1.webp, credit: "Wobble, CC BY-SA 3.0, via Wikimedia Commons", caption: "Europe about 20,000 years ago: the ice sheets, the coast of the time and the refuges where people held on: Solutrean in orange, Epigravettian in purple", source: "https://commons.wikimedia.org/wiki/File:Europe20000ya.png" }
     - { url: /images/extra/epigravettian-2.webp, credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "Replica of an Epigravettian burial from the Riparo Tagliente rock shelter near Verona, Italy", source: "https://commons.wikimedia.org/wiki/File:Riparo_Tagliente_10_burial_2015-09-16.jpg" }

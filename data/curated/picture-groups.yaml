@@ -7,48 +7,56 @@
   label: early stone toolmakers in general
   image_url: /images/cultures/early-toolmakers.webp
   image_credit: AI-generated illustration
+  image_caption: "Early hominins at a river's edge knapping stones and butchering an antelope, zebra and antelope grazing on the savanna beyond"
   members: [lomekwian, oldowan, acheulean]
 
 - id: middle-stone-age-toolmakers
   label: Middle Stone Age and Neanderthal toolmakers in general
   image_url: /images/cultures/middle-stone-age-toolmakers.webp
   image_credit: AI-generated illustration
+  image_caption: "A busy camp under a rock overhang above a river valley: hafting spears, scraping a hide, grinding red ochre, meat drying"
   members: [middle-stone-age, levallois-mousterian, micoquian, szeletian, chatelperronian]
 
 - id: ice-age-hunters
   label: Ice Age hunter-gatherers in general
   image_url: /images/cultures/ice-age-hunters.webp
   image_credit: AI-generated illustration
+  image_caption: "Winter camp of hide-covered mammoth-bone huts beside a painted cave, hunters with spears, mammoths and reindeer on the snowy tundra"
   members: [aurignacian, gravettian, solutrean, magdalenian, epigravettian]
 
 - id: paleo-indian
   label: Paleo-Indian traditions of the Americas in general
   image_url: /images/cultures/clovis.webp
   image_credit: AI-generated illustration
+  image_caption: "Hunters with spears creeping through the grass towards a herd of mammoths, snowy mountains and a camp of tents behind"
   members: [clovis]
 
 - id: epipaleolithic-north-africa
   label: Epipaleolithic North Africa in general
   image_url: /images/cultures/capsian.webp
   image_credit: AI-generated illustration
+  image_caption: "Camp of brush huts beside a great mound of snail shells: decorating ostrich eggshells, knapping stone and cooking"
   members: [capsian]
 
 - id: neolithic-near-east
   label: Neolithic communities of the Near East in general
   image_url: /images/cultures/neolithic-near-east.webp
   image_credit: AI-generated illustration
+  image_caption: "A village of flat-roofed mud-brick houses with ladders and bread ovens, sheep and goats in stone pens, wheat harvested on the terraces"
   members: [natufian, pre-pottery-neolithic, halaf, ubaid]
 
 - id: predynastic-egypt
   label: Predynastic Egypt in general
   image_url: /images/cultures/predynastic-egypt.webp
   image_credit: AI-generated illustration
+  image_caption: "A Nile village of reed and mud-brick houses: a potter with a red-and-black jar, a man carving a stone palette, cattle at the river, a fisherman's boat"
   members: [badarian, naqada]
 
 - id: early-farmers
   label: early European farming communities in general
   image_url: /images/cultures/early-farmers.webp
   image_credit: AI-generated illustration
+  image_caption: "Thatched longhouses in a forest clearing: grinding grain on querns, cooking, cattle, sheep and pigs, wheat fields behind"
   members:
     [starcevo-koros-cris, cardial, linear-pottery, vinca, lengyel, chasseen,
      michelsberg, funnelbeaker, cucuteni-trypillia,
@@ -58,12 +66,14 @@
   label: Copper and Bronze Age Europe in general
   image_url: /images/cultures/copper-bronze-europe.webp
   image_credit: AI-generated illustration
+  image_caption: "A village by a river: a smith pouring molten metal into a mould, people in bead necklaces sharing drinks, an ox cart and horses, a burial mound being raised"
   members: [baden, globular-amphora, corded-ware, bell-beaker, unetice]
 
 - id: bronze-age-steppe
   label: Bronze Age steppe herders in general
   image_url: /images/cultures/bronze-age-steppe.webp
   image_credit: AI-generated illustration
+  image_caption: "Covered wagons and herders on the open steppe beside a burial mound, cattle, sheep and horses grazing, a family round a fire"
   members: [yamnaya, afanasievo, sintashta, andronovo]
 
 
@@ -71,12 +81,14 @@
   label: Ancient Rome in general
   image_url: /images/civilisations/ancient-rome.webp
   image_credit: AI-generated illustration
+  image_caption: "A busy street in Rome: market stalls, citizens in togas and legionaries before temples, a triumphal arch and an aqueduct"
   members: [roman-kingdom, roman-republic, roman-empire, italian-city-states]
 
 - id: mahajanapadas
   label: the Mahajanapadas and early Vedic kingdoms in general
   image_url: /images/civilisations/ancient-india.webp
   image_credit: AI-generated illustration
+  image_caption: "A riverside city of the Ganges plain: market stalls, an elephant in procession, monks in saffron, boats at the steps, a stupa and palaces"
   members:
     [mahajanapadas, janapada-of-anga, janapada-of-asmaka, janapada-of-avanti, janapada-of-cedi,
      janapada-of-gandhara, janapada-of-kamboja, janapada-of-kasi, janapada-of-kosala,
@@ -87,6 +99,7 @@
   label: Imperial Magadha and the Maurya dynasty in general
   image_url: /images/civilisations/imperial-magadha.webp
   image_credit: AI-generated illustration
+  image_caption: "Workers carve a polished stone pillar beside a timber-walled city on the Ganges, a ruler and Buddhist monks looking on, war elephants and river boats"
   members:
     [magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
      shunga-empire, kanva-dynasty]
@@ -95,54 +108,63 @@
   label: ancient Deccan and Kalinga kingdoms in general
   image_url: /images/civilisations/deccan-kingdoms.webp
   image_credit: AI-generated illustration
+  image_caption: "Monks and masons at a rock-cut cave temple in the Deccan, a merchant caravan of bullock carts and donkeys passing on the road"
   members: [satavahana-dynasty, kalinga, mahameghavahana-dynasty]
 
 - id: tamil-sangam
   label: the Tamil Sangam and early South Indian kingdoms in general
   image_url: /images/civilisations/tamil-sangam.webp
   image_credit: AI-generated illustration
+  image_caption: "A Tamil port on a palm-fringed coast: dockers carrying sacks and jars, foreign merchants trading, sailing ships in the bay"
   members: [early-cheras, early-cholas, early-pandyas, anuradhapura]
 
 - id: phoenicia
   label: the Phoenician maritime world in general
   image_url: /images/civilisations/phoenicia.webp
   image_credit: AI-generated illustration
+  image_caption: "Island harbour of Tyre with horse-headed Phoenician ships, Lebanon cedar timber, murex shell heaps, and artisans boiling and drying Tyrian purple cloth"
   members: [phoenicia, phoenician-colonies]
 
 - id: carthage
   label: the Punic world and Carthage in general
   image_url: /images/civilisations/carthage.webp
   image_credit: AI-generated illustration
+  image_caption: "The circular naval harbour of Carthage lined with vaulted ship-sheds round the Admiralty island, Punic warships, and the Byrsa citadel crowned by a temple"
   members: [carthage]
 
 - id: ancient-israel-judah
   label: ancient Israel and Judah in general
   image_url: /images/civilisations/ancient-israel-judah.webp
   image_credit: AI-generated illustration
+  image_caption: "A walled hill town of stone houses, terraced olive groves and vineyards, soldiers at the gate and jars of oil"
   members: [kingdom-of-israel, kingdom-of-judah, judea, philistia]
 
 - id: nabataean-kingdom
   label: the Nabataean kingdom in general
   image_url: /images/civilisations/nabataean-kingdom.webp
   image_credit: AI-generated illustration
+  image_caption: "Petra's Treasury carved into the rose-red cliff, camel caravans and market stalls in the gorge before it"
   members: [nabataeans]
 
 - id: ancient-south-arabia
   label: ancient South Arabia and the incense kingdoms in general
   image_url: /images/civilisations/ancient-south-arabia.webp
   image_credit: AI-generated illustration
+  image_caption: "Camel caravans laden with incense pass the sluice gates of the great Marib dam, a mud-brick city among palm groves behind"
   members: [sabaeans, hadhramaut, minaeans, qataban, himyarite-kingdom]
 
 - id: anatolian-kingdoms
   label: Ancient Anatolian kingdoms in general
   image_url: /images/civilisations/hittite-anatolia.webp
   image_credit: AI-generated illustration
+  image_caption: "The Lion Gate of a Hittite citadel: a chariot and soldiers, a smith at his forge and townspeople on the stone-paved road"
   members: [hittites, neo-hittite-states, phrygia, lydia, tabal-kingdom]
 
 - id: urartu-and-caucasus
   label: Ancient Armenia, Urartu and the Caucasus in general
   image_url: /images/civilisations/urartu-and-caucasus.webp
   image_credit: AI-generated illustration
+  image_caption: "Smiths cast great bronze cauldrons below a fortress on a cliff above Lake Van, an inscription carved into the rock, terraced vineyards and canals"
   members:
     [kingdom-of-urartu, kingdom-of-armenia, colchis, lazica, caucasian-albania,
      caucasian-iberia]
@@ -151,6 +173,7 @@
   label: Hellenistic and Roman-era Anatolian kingdoms in general
   image_url: /images/civilisations/hellenistic-anatolia.webp
   image_credit: AI-generated illustration
+  image_caption: "A Hellenistic city below rock-cut royal tombs: temples, towers and a river gorge, horsemen and townspeople in the streets"
   members:
     [kingdom-of-pontus, kingdom-of-cappadocia, kingdom-of-commagene, kingdom-of-sophene,
      paphlagonia, galatia, kingdom-of-adiabene, kingdom-of-gordyene, kingdom-of-osroene,
@@ -160,12 +183,14 @@
   label: Eurasian Steppe Nomads in general
   image_url: /images/civilisations/steppe-nomads.webp
   image_credit: AI-generated illustration
+  image_caption: "Mounted steppe archers with bows and quivers, felt yurts, wagons and a horse herd on the golden grassland, mountains behind"
   members: [scythia, yuezhi, wusun, indo-scythians]
 
 - id: hellenistic-aegean
   label: the Macedonian Empire and Aegean Hellenistic kingdoms in general
   image_url: /images/civilisations/hellenistic-world.webp
   image_credit: AI-generated illustration
+  image_caption: "A Hellenistic harbour city: statues and philosophers on a terrace, soldiers, merchants with jars, ships and a lighthouse in the bay"
   members:
     [macedonian-empire, antigonid-macedonia, antigonid-dynasty, kingdom-of-pergamon,
      kingdom-of-lysimachus, rhodes, sacred-band-of-thebes, greek-colonies,
@@ -175,18 +200,21 @@
   label: the Ptolemaic Kingdom of Egypt in general
   image_url: /images/civilisations/ptolemaic-egypt.webp
   image_credit: AI-generated illustration
+  image_caption: "Alexandria: scholars among the columns of the Library, an Egyptian temple beside Greek colonnades, the Pharos lighthouse over the harbour"
   members: [ptolemaic-kingdom]
 
 - id: eastern-hellenistic
   label: the Seleucid Empire and Greco-Bactrian kingdoms in general
   image_url: /images/civilisations/eastern-hellenistic.webp
   image_credit: AI-generated illustration
+  image_caption: "A Hellenistic city in the east: colonnaded courts and a theatre, a war elephant, horsemen and merchants with silks"
   members: [seleucid-empire, greco-bactrian-kingdom, indo-greeks]
 
 - id: ancient-korea
   label: Ancient Korea in general
   image_url: /images/civilisations/ancient-korea.webp
   image_credit: AI-generated illustration
+  image_caption: "A walled village in a misty mountain valley, dolmens and rice paddies below, craftsmen showing bronze daggers, mirrors and red pottery"
   members:
     [gojoseon, korean-jin, byeonhan, jinhan, mahan, dongye, dong-okjeo, goguryeo]
 
@@ -194,18 +222,21 @@
   label: ancient Berber kingdoms in general
   image_url: /images/civilisations/numidia.webp
   image_credit: AI-generated illustration
+  image_caption: "Numidian horsemen ride past traders at a cliff-top city above a gorge, a great round royal tomb beside it"
   members: [kingdom-of-numidia, mauretania]
 
 - id: ancient-thrace
   label: Ancient Thrace in general
   image_url: /images/civilisations/thrace.webp
   image_credit: AI-generated illustration
+  image_caption: "Thracian nobles inspect gold vessels at a table beside horsemen with spears, burial mounds and a fortified residence in the valley"
   members: [odrysian-kingdom, thracian-kingdom]
 
 - id: baiyue
   label: the Baiyue kingdoms in general
   image_url: /images/civilisations/baiyue.webp
   image_credit: AI-generated illustration
+  image_caption: "A river port in the south: palace courtyards, stilt houses, market stalls of pottery and drums, sailing boats on the water"
   members: [nanyue, minyue]
 
 

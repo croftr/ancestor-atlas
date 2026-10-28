@@ -126,6 +126,7 @@ interface CuratedEvent {
   date_source?: string;
   image_url?: string;
   image_credit?: string;
+  image_caption?: string;
   video?: { src: string; credit: string };
   extra_images?: ExtraImage[];
   media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
@@ -154,6 +155,7 @@ for (const ev of curatedEvents) {
     wikipedia_url: ev.wikipedia_url,
     image_url: ev.image_url,
     image_credit: ev.image_credit,
+    image_caption: ev.image_caption,
     video: ev.video,
     extra_images: ev.extra_images?.length ? ev.extra_images : undefined,
     media: ev.media?.length ? ev.media : undefined,
@@ -318,7 +320,7 @@ for (const c of curated) {
 }
 
 // ---------- shared stand-in pictures (data/curated/picture-groups.yaml) ----------
-interface PictureGroup { id: string; label: string; image_url: string; image_credit: string; members: string[] }
+interface PictureGroup { id: string; label: string; image_url: string; image_credit: string; image_caption?: string; members: string[] }
 const pictureGroups = existsSync(`${CURATED}/picture-groups.yaml`)
   ? ((parseYaml(readFileSync(`${CURATED}/picture-groups.yaml`, "utf8")) as PictureGroup[]) ?? [])
   : [];
@@ -330,7 +332,7 @@ for (const g of pictureGroups) {
     if (!e) fail(`picture-groups.yaml: ${g.id}: unknown entity ${m}`);
     if (inPictureGroup.has(m)) fail(`picture-groups.yaml: ${m} is in both ${inPictureGroup.get(m)} and ${g.id}`);
     inPictureGroup.set(m, g.id);
-    e!.fallback_image = { url: g.image_url, credit: g.image_credit, label: g.label };
+    e!.fallback_image = { url: g.image_url, credit: g.image_credit, label: g.label, caption: g.image_caption };
   }
 }
 
