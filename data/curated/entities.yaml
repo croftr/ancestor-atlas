@@ -1938,6 +1938,9 @@
       credit: National History, YouTube
 - id: roman-kingdom
   description: The foundational monarchical period of ancient Rome, traditionally inaugurated by Romulus in 753 BCE and ending with the expulsion of the tyrant Tarquin the Proud in 509 BCE. During this era, Rome evolved from a modest pastoral settlement on the Tiber into an organized city-state, establishing the Senate, curiae, and core religious institutions.
+  image_url: /images/civilisations/roman-kingdom.webp
+  image_caption: Archaic Rome during the Roman Kingdom, featuring an Etruscan-style Roman king with lictors carrying fasces, an augur with a lituus, the Capitoline Wolf, Palatine huts, and the early Temple of Jupiter.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/roman-kingdom-1.webp, credit: "Ursus, public domain, via Wikimedia Commons", caption: "The inscribed stone under the Lapis Niger in the Roman Forum, one of the oldest Latin inscriptions, 6th century BCE", source: "https://commons.wikimedia.org/wiki/File:Lapis_niger_stele.JPG" }
     - { url: /images/extra/roman-kingdom-2.webp, credit: "Jordiferrer, CC BY-SA 4.0, via Wikimedia Commons", caption: "The sacred area of Sant'Omobono in Rome, where an archaic temple of the time of the kings was excavated", source: "https://commons.wikimedia.org/wiki/File:2016_Sacred_area_of_Sant'Omobono_02.jpg" }
@@ -1988,6 +1991,9 @@
       credit: Antiquity for All, YouTube
 - id: antigonid-macedonia
   description: The restored Macedonian kingdom under Antigonid rule, serving as the strategic and military northern bulwark of the Hellenistic Greek world. Guarding Aegean frontiers against Balkan incursions while projecting garrisons across Greece, the kingdom fought three hard-fought Macedonian Wars against the expanding Roman Republic before being dismantled into four Roman client republics.
+  image_url: /images/civilisations/antigonid-macedonia.webp
+  image_caption: Pella and Demetrias in Antigonid Macedonia, showing commanders inspecting silver shield tetradrachms and a geared astronomical mechanism, a sarissa phalanx, and Hellenistic polyremes.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/antigonid-macedonia-1.webp, credit: "Jean Housen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The excavated city of Pella, royal capital of Macedon", source: "https://commons.wikimedia.org/wiki/File:20160518_297_pella.jpg" }
     - { url: /images/extra/antigonid-macedonia-2.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Antigonus II Gonatas with Athena Alkidemos, about 270 BCE (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Macedonia_-_king_Antigonos_II_Gonatas_-_270_BC_-_silver_tetradrachm_-_head_of_Pan_-_Athena_-_Berlin_MK_BM.jpg" }
@@ -2000,6 +2006,9 @@
       credit: Ancient History Guy, YouTube
 - id: greek-colonies
   description: The energetic Archaic and Classical diaspora of self-governing Greek settlements established across the Mediterranean and Black Sea coasts from the 8th to 6th centuries BCE. From Magna Graecia in southern Italy and Sicily (Syracuse) to Massalia in Gaul and the Black Sea, these colonies spread Greek civic institutions, commerce, and Mediterranean maritime culture.
+  image_url: /images/civilisations/greek-colonies.webp
+  image_caption: Syracuse and Paestum in the Greek Colonies of Magna Graecia, featuring a Doric peripteral temple, hillside theatre, bronze volute krater, Syracuse decadrachms, and island harbor triremes.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/greek-colonies-1.webp, credit: "Norbert Nagel, CC BY-SA 3.0, via Wikimedia Commons", caption: "The second Temple of Hera at Paestum (Poseidonia), a Greek colony in southern Italy, about 460 BCE", source: "https://commons.wikimedia.org/wiki/File:Hera_temple_II_-_Paestum_-_Poseidonia_-_July_13th_2013_-_04.jpg" }
     - { url: /images/extra/greek-colonies-2.webp, credit: "Berthold Werner, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Temple of Concordia at Akragas (Agrigento), Sicily, about 440 BCE", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Concordia,_Agrigento_BW_2012-10-07_13-09-13.jpg" }
@@ -2470,6 +2479,9 @@
       credit: Schwerpunkt, YouTube
 - id: kingdom-of-armenia
   description: A major kingdom in the Armenian Highlands that reached imperial status under Tigranes the Great in the 1st century BCE, stretching from the Caspian to the Mediterranean. Buffering the Roman and Parthian empires, Armenia fostered a distinct national identity and became the world's first state to officially adopt Christianity in 301 CE.
+  image_url: /images/civilisations/kingdom-of-armenia.webp
+  image_caption: Garni and the Azat River gorge in the Kingdom of Armenia, showing King Tigranes the Great in the star-and-eagle tiara, silver tetradrachms, the Ionic Temple of Garni, and Mount Ararat.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-armenia-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Silver tetradrachm of Tigranes II the Great (c. 95–55 BCE) wearing the Armenian tiara adorned with eight-pointed star and eagles, reverse showing the Tyche of Antioch", source: "https://commons.wikimedia.org/wiki/File:Tetradrachm_Tigranes_II.jpg" }
     - { url: /images/extra/kingdom-of-armenia-2.webp, credit: "Kevork Berberian, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monumental Ionic Temple of Garni (1st century CE), colonnaded royal sanctuary of the Artaxiad/Arsacid kings of Armenia", source: "https://commons.wikimedia.org/wiki/File:The_Temple_of_Garni.JPG" }
@@ -2531,6 +2543,9 @@
       credit: Costas Melas, YouTube
 - id: galatia
   description: A highland territory in central Anatolia settled in the 3rd century BCE by migrating Celtic Gauls (Tectosages, Tolistobogii, and Trocmi). Operating as feared mercenary warriors throughout the Hellenistic Wars, the Galatian tribes maintained distinctive Celtic customs, language, and tetrarchic governance until becoming a client kingdom and Roman province.
+  image_url: /images/civilisations/galatia.webp
+  image_caption: Celtic Galatia in central Anatolia, showing tetrarch chieftains wearing twisted gold torques and horned helmets, a bronze boar-headed carnyx war trumpet, Celtic chariots, and a hilltop oppidum.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/galatia-1.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "The Dying Gaul, a Roman marble copy of a bronze set up at Pergamon to celebrate Attalus I's victories over the Galatians (Capitoline Museums, Rome)", source: "https://commons.wikimedia.org/wiki/File:Dying_Gaul_Musei_Capitolini_MC747.jpg" }
     - { url: /images/extra/galatia-2.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Terracotta of a war elephant trampling a Galatian warrior, from Myrina, recalling the Seleucid 'Elephant Victory' over the Galatians (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Éléphant_chargeant_un_guerrier_galate_-_Musée_du_Louvre_AGER_Myrina_131_;_Myr_284.jpg" }
@@ -2656,6 +2671,9 @@
       credit: Treasured Inheritance Ministry Int., YouTube
 - id: kingdom-of-commagene
   description: A prosperous Hellenistic buffer kingdom nestled in the Taurus Mountains along the upper Euphrates in modern southeastern Turkey. Ruled by the Orontid dynasty claiming descent from both Persian kings and Alexander the Great, the kingdom is renowned for the monumental mountaintop sanctuary of Mount Nemrut built by King Antiochus I.
+  image_url: /images/civilisations/kingdom-of-commagene.webp
+  image_caption: Mount Nemrut sanctuary in the Kingdom of Commagene, featuring King Antiochus I beside the Herakles dexiosis stele, Lion Horoscope relief, and colossal seated god statues before the tumulus peak.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-commagene-1.webp, credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Colossal enthroned statues of gods and King Antiochus I on the east terrace of his tomb-sanctuary at Nemrut Dağ, 1st century BCE", source: "https://commons.wikimedia.org/wiki/File:Nemrut_Enthroned_statues_on_east_terrace_in_2006_1474.jpg" }
     - { url: /images/extra/kingdom-of-commagene-2.webp, credit: "Klearchos Kapoutsis, CC BY 3.0, via Wikimedia Commons", caption: "Fallen stone heads of the colossal statues at Nemrut Dağ", source: "https://commons.wikimedia.org/wiki/File:Heads_Nemrut_dag_temple.jpg" }
@@ -2857,6 +2875,9 @@
       credit: World of Antiquity, YouTube
 - id: odrysian-kingdom
   description: The largest and most powerful Thracian tribal state, founded by King Teres I in the 5th century BCE in modern Bulgaria, northern Greece, and European Turkey. Bridging the Greek and barbarian worlds through lavish cavalry forces and diplomatic marriages, the Odrysians dominated regional Balkan trade before fracturing under Macedonian and Roman pressure.
+  image_url: /images/civilisations/odrysian-kingdom.webp
+  image_caption: Seuthopolis and Kazanlak in the Thracian Odrysian Kingdom, displaying the Panagyurishte gold treasure, bronze head of Seuthes III, peltast warriors, and painted Kazanlak tholos tomb.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/odrysian-kingdom-1.webp, credit: "National Archaeological Museum Sofia / MrPanyGoff, CC BY-SA 3.0, via Wikimedia Commons", caption: "Life-size cast bronze portrait head of King Seuthes III with alabaster eyes, from his royal tomb in the Golyama Kosmatka mound (Sofia)", source: "https://commons.wikimedia.org/wiki/File:National_Archaeological_Museum_Sofia_-_Bronze_Head_from_the_Golyama_Kosmatka_Tumulus_near_Shipka.jpg" }
     - { url: /images/extra/odrysian-kingdom-2.webp, credit: "Pudelek, CC BY-SA 4.0, via Wikimedia Commons", caption: "Solid gold amphora-rhyton from the Panagyurishte gold treasure, depicting the Seven against Thebes and satyr handles, 4th–3rd century BCE (Plovdiv)", source: "https://commons.wikimedia.org/wiki/File:Panagyurishte_Treasure,_Amphora-Rhyton.jpg" }
@@ -2869,6 +2890,9 @@
       credit: Kings and Things, YouTube
 - id: cimmerian-bosporus
   description: An enduring Hellenistic-Scythian kingdom centered on the Kerch Strait between the Black Sea and the Sea of Azov in modern Crimea. Melding Greek polis culture with Steppe nomad traditions, the Bosporan Kingdom prospered as a primary grain exporter to classical Athens and survived for centuries as a vital Roman client state.
+  image_url: /images/civilisations/cimmerian-bosporus.webp
+  image_caption: Panticapaeum on the Kerch Strait in the Bosporan Kingdom, showing Greek-Scythian gold griffin staters, jeweled diadem, Scythian gold vessel, Crimean grain ships, and Mount Mithridat acropolis.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/cimmerian-bosporus-1.webp, credit: "Sergey Ashmarin, CC BY-SA 3.0, via Wikimedia Commons", caption: "Columns re-erected on Mount Mithridates in Kerch, on the acropolis of Panticapaeum, capital of the Bosporan Kingdom", source: "https://commons.wikimedia.org/wiki/File:The_ruins_of_Panticapaeum_(6th_century_BC)_-_Kerch,_Ukraine_-_panoramio.jpg" }
     - { url: /images/extra/cimmerian-bosporus-2.webp, credit: "Alexxx1979, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Royal Kurgan near Kerch, the stone-vaulted tomb of a Bosporan king of the 4th century BCE", source: "https://commons.wikimedia.org/wiki/File:Kerch_Tsarskiy_Kurgan_IMG_2160_1725.jpg" }
@@ -3465,6 +3489,9 @@
       credit: Kings and Generals, YouTube
 - id: indo-scythians
   description: A confederation of Saka (Scythian) nomadic tribes who migrated from Central Asia into northwestern South Asia (Gandhara, Punjab, Gujarat, and Mathura) during the 1st century BCE. Adopting Buddhism and Indian royal titles while retaining Iranian cavalry traditions, the Sakas established powerful satrapies that influenced North Indian coin design, art, and urban governance.
+  image_url: /images/civilisations/indo-scythians.webp
+  image_caption: Taxila and Gandhara under the Indo-Scythians, featuring the golden Bimaran reliquary casket, Mathura Lion Capital, Azes equestrian coins, and scale-armored Saka cataphracts before a stupa.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/indo-scythians-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Coin of Maues, the first Indo-Scythian king in Gandhara, about 80 BCE", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Maues.jpg" }
     - { url: /images/extra/indo-scythians-2.webp, credit: "PHG, CC BY-SA 3.0, via Wikimedia Commons", caption: "Coin of Azes II with the king on horseback, 1st century BCE", source: "https://commons.wikimedia.org/wiki/File:Coin_of_Azes_II.jpg" }
