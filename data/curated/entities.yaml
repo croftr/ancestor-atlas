@@ -1114,6 +1114,9 @@
   description: The transformative era of classical Roman civilization governed under an unwritten constitution balancing consuls, the Senate, and popular assemblies from 509 to 27 BCE. Expanding relentlessly across Italy and the Mediterranean through disciplined legions and strategic diplomacy, the Republic ultimately fractured through internal civil wars, paving the way for the autocratic Roman Empire.
   category: civilization
   wikidata: Q17167
+  image_url: /images/civilisations/roman-republic.webp
+  image_caption: Forum Romanum and Capitoline Hill during the Roman Republic, with the Capitoline Brutus, a Punic War bronze rostrum, debating senators, and Republican legionaries.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/roman-republic-1.webp, credit: "Capitoline Museums / Sailko, CC0, via Wikimedia Commons", caption: "The Capitoline Brutus (c. 4th–3rd century BCE), bronze portrait head traditionally identified as Lucius Junius Brutus, founder of the Roman Republic (Capitoline Museums, Rome)", source: "https://commons.wikimedia.org/wiki/File:Capitoline_Brutus_Musei_Capitolini.jpg" }
     - { url: /images/extra/roman-republic-2.webp, credit: "Classical Numismatic Group / Public domain, via Wikimedia Commons", caption: "Silver denarius struck by Marcus Junius Brutus in 42 BCE celebrating the assassination of Julius Caesar, reverse showing the cap of liberty between daggers and EID·MAR", source: "https://commons.wikimedia.org/wiki/File:Brutus_Eid_Mar.jpg" }
@@ -2247,6 +2250,9 @@
     - { url: /images/extra/phoenicia-2.webp, credit: "O.Mustafin, public domain, via Wikimedia Commons", caption: "Sarcophagus of Ahiram of Byblos, with one of the earliest Phoenician alphabet inscriptions", source: "https://commons.wikimedia.org/wiki/File:Ahiram_Sarcophagus_1.JPG" }
 - id: kingdom-of-israel
   description: An Iron Age kingdom in the northern central highlands and fertile Jezreel Valley of the southern Levant, with Samaria as its prominent capital. Boasting significant agricultural wealth and international trade links, the kingdom was a major regional power before its destruction and population deportation by the Neo-Assyrian Empire in 720 BCE.
+  image_url: /images/civilisations/kingdom-of-israel.webp
+  image_caption: Samaria and Megiddo in the Kingdom of Israel, featuring carved Samaria ivories, a royal stele, pillared chariot stables, and a rock-cut water shaft.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-israel-1.webp, credit: "Oren Rozen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Tel Dan Stele, an Aramaic victory inscription naming a king of Israel and the 'House of David', 9th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:JRSLM_300116_Tel_Dan_Stele_01.jpg" }
     - { url: /images/extra/kingdom-of-israel-2.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "The Mesha Stele, on which Mesha, king of Moab, records his revolt against the kingdom of Israel, about 840 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1120873_Louvre_stèle_de_Mésha_AO5066_rwk.JPG" }
@@ -2286,6 +2292,9 @@
     - { url: /images/extra/neo-assyrian-empire-2.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Flood Tablet of the Epic of Gilgamesh, from Ashurbanipal's library", source: "https://commons.wikimedia.org/wiki/File:Tablet_XI_or_the_Flood_Tablet_of_the_Epic_of_Gilgamesh,_currently_housed_in_the_British_Museum_in_London.jpg" }
 - id: phrygia
   description: An influential Iron Age kingdom located in west-central Anatolia along the Sangarios River, centered at the legendary city of Gordion. Celebrated in Greek mythology for King Midas and the Gordian Knot, Phrygia was famed for advanced bronze metalworking, elaborate rock-cut tombs, and musical traditions before being overrun by Cimmerians and Lydians.
+  image_url: /images/civilisations/phrygia.webp
+  image_caption: Gordion and Tumulus MM in the Kingdom of Phrygia, with geometric wooden marquetry, a siren-handled bronze cauldron, lion situla, and the Gordian Knot ox-cart.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/phrygia-1.webp, credit: "Elizabeth Simpson, CC BY-SA, via Wikimedia Commons", caption: "Intricately inlaid wooden banquet screen/table crafted with geometric marquetry from Tumulus MM (King Midas Mound) at Gordion (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Inlaid_Table_TumMM_Gordion.jpg" }
     - { url: /images/extra/phrygia-2.webp, credit: "EvgenyGenkin, CC BY 2.5, via Wikimedia Commons", caption: "Monumental Phrygian bronze cauldron with cast winged siren handle attachments from Tumulus MM at Gordion, late 8th century BCE (Ankara)", source: "https://commons.wikimedia.org/wiki/File:UrartianCaldron03~.jpg" }
@@ -2307,6 +2316,9 @@
       credit: Dig., YouTube
 - id: kingdom-of-urartu
   description: A powerful Iron Age kingdom centered around Lake Van in the mountainous Armenian Highlands, spanning modern eastern Turkey, Armenia, and northwestern Iran. Renowned for impregnable mountain cyclopean fortresses, sophisticated irrigation canals, and master bronzeworking, Urartu fiercely contested Near Eastern supremacy with the Neo-Assyrian Empire.
+  image_url: /images/civilisations/kingdom-of-urartu.webp
+  image_caption: Tushpa on Lake Van in the Kingdom of Urartu, showing a shield-hung tower temple, winged-bull bronze cauldron, conical helmet, and Mount Ararat.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-urartu-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Urartian cast bronze winged bull cauldron handle attachment from Toprakkale, Lake Van (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Bronze_winged_bull%27s_heads_from_the_handles_of_a_large_cauldron_,8th-7th_century_BCE,_Urartian_From_Toprakkale,_east_Turkey,_British_Museum.jpg" }
     - { url: /images/extra/kingdom-of-urartu-2.webp, credit: "Wolfgang Sauber, CC BY-SA 3.0, via Wikimedia Commons", caption: "Urartian conical bronze warrior helmet decorated with engraved deities and chariots, 8th century BCE (Archäologische Staatssammlung Munich)", source: "https://commons.wikimedia.org/wiki/File:Spitzhelm_urartaisch.JPG" }
@@ -2319,6 +2331,9 @@
       credit: History Class, YouTube
 - id: sabaeans
   description: An ancient South Arabian kingdom located in the fertile highlands and desert fringes of modern Yemen, centered on the capital of Marib. Renowned as the biblical realm of Sheba, the Sabaeans built the monumental Great Dam of Marib and monopolized lucrative frankincense and myrrh caravan routes across the Arabian Peninsula.
+  image_url: /images/civilisations/sabaeans.webp
+  image_caption: Marib in the Kingdom of Saba, with the Great Dam of Marib, monolithic pillars of the Temple of Bar'an, frankincense merchants, and camel caravans.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/sabaeans-1.webp, credit: "Jialiang Gao, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Dam of Marib, monumental masonry sluice gates engineered by the Kingdom of Saba (8th c. BCE)", source: "https://commons.wikimedia.org/wiki/File:Marib_dam.jpg" }
     - { url: /images/extra/sabaeans-2.webp, credit: "Yemen-1986, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monolithic limestone pillars of the Temple of Bar'an (Arsh Bilqis) near Marib, dedicated to Almaqah", source: "https://commons.wikimedia.org/wiki/File:Bar'an_temple_1986-2.jpg" }
@@ -2718,6 +2733,9 @@
       credit: Luke Reagan, YouTube
 - id: scythia
   description: An expansive confederation of Iranian equestrian nomadic pastoralists who dominated the Pontic-Caspian steppe north of the Black Sea from the 7th to 3rd centuries BCE. Renowned as formidable mounted archers, the Scythians resisted Persian invasions by Darius the Great and left behind spectacular burial kurgans filled with intricate gold animal-style metallurgy.
+  image_url: /images/civilisations/scythia.webp
+  image_caption: Scythian steppe encampment and royal burial kurgan, featuring the Tovsta Mohyla gold pectoral, Kostromskaya golden stag, and mounted horse archers.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/scythia-1.webp, credit: "Curryfauvel, CC0, via Wikimedia Commons", caption: "Detail of the Royal Scythian golden pectoral from Tovsta Mohyla kurgan, showing nomadic pastoralists sewing a sheepskin fleece", source: "https://commons.wikimedia.org/wiki/File:Scythian_gold_pectoral_Tovsta_Mohyla_(detail_2).jpg" }
     - { url: /images/extra/scythia-2.webp, credit: "sailko, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Kostromskaya Golden Stag, iconic Scythian animal-style shield plaque in hammered gold, early 6th century BCE (Hermitage)", source: "https://commons.wikimedia.org/wiki/File:Placca_cervo,_da_regione_di_krasnodar,_kostromskaja,_oro_fuso_e_cesellato,_inizio_VI_sec_ac.jpg" }
@@ -2837,6 +2855,9 @@
       credit: Historic Battles, YouTube
 - id: seleucid-empire
   description: The major Hellenistic empire founded by Seleucus I Nicator in 312 BCE following the partition of Alexander the Great's empire, stretching from Anatolia and Syria across Mesopotamia to Bactria. Ruling from Antioch and Seleucia on the Tigris, the Seleucid kings established Greek colonist cities and military settlements that cross-pollinated Greek, Babylonian, and Iranian cultures.
+  image_url: /images/civilisations/seleucid-empire.webp
+  image_caption: Seleucia on the Tigris in the Seleucid Empire, blending Greek colonnades and Babylonian glazed-brick gates with armored war elephants, the Antiochus Cylinder, and Cybele plate.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/seleucid-empire-1.webp, credit: "Münzkabinett Berlin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Seleucus I Nicator (minted c. 300 BCE) showing Zeus Nikephoros and Athena fighting in a horned elephant biga (Münzkabinett Berlin)", source: "https://commons.wikimedia.org/wiki/File:Seleukiden-_Seleukos_I._-_M%C3%BCnzkabinett,_Berlin_-_5501386.jpg" }
     - { url: /images/extra/seleucid-empire-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Gilded silver votive plate depicting the goddess Cybele in a lion-drawn chariot, from the Hellenistic city of Ai-Khanoum, 3rd century BCE (National Museum of Afghanistan)", source: "https://commons.wikimedia.org/wiki/File:AiKhanoumPlateSharp.jpg" }
@@ -2895,6 +2916,9 @@
       credit: 3388 Films, YouTube
 - id: greco-bactrian-kingdom
   description: An extraordinary Hellenistic kingdom established around 250 BCE by Diodotus I in Central Asia (modern Afghanistan, Uzbekistan, and Tajikistan). Renowned for opulent cities like Ai-Khanoum, magnificent Hellenistic coin minting, and fortified oasis settlements, the kingdom bridged Greek Mediterranean culture with India and the Steppe, eventually expanding south to create the Indo-Greek Kingdom.
+  image_url: /images/civilisations/greco-bactrian-kingdom.webp
+  image_caption: Ai-Khanoum on the Oxus in the Greco-Bactrian Kingdom, featuring the Eucratides gold medallion, Demetrius elephant-scalp tetradrachm, Greek theatre, and Hindu Kush peaks.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/greco-bactrian-kingdom-1.webp, credit: "Cabinet des Médailles, public domain, via Wikimedia Commons", caption: "The 20-stater gold medallion of King Eucratides I (c. 171–145 BCE, 169 g), the largest gold coin minted in the ancient world (Cabinet des Médailles, Paris)", source: "https://commons.wikimedia.org/wiki/File:EucratidesStatere.jpg" }
     - { url: /images/extra/greco-bactrian-kingdom-2.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver tetradrachm of Demetrius I of Bactria wearing an elephant-skin scalp, with Herakles resting on the reverse", source: "https://commons.wikimedia.org/wiki/File:Demetrios_I_Baktria_Tetradrachm_200-185_BC.jpg" }
