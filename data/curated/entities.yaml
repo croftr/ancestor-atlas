@@ -1516,6 +1516,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Yamnaya_culture
   image_url: /images/cultures/yamnaya.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/yamnaya-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Pontic-Caspian steppe nomad encampment: solid-wheel ox wagons, horseback herders, and an ochre kurgan grave ritual"
   wikidata: Q426737
   source_ids: []
@@ -1535,6 +1536,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Afanasievo_culture
   image_url: /images/cultures/afanasievo.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/afanasievo-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early Bronze Age pastoralists in the Altai Mountains: stone kurgan, pointed-bottom pottery, copper knives, and alpine pastures"
   wikidata: Q80974
   source_ids: []
