@@ -113,7 +113,11 @@
 .dna-key .dna-swatch { align-self: center; }
 .dna-key-label { font-weight: 600; white-space: nowrap; }
 .dna-key .muted { font-size: 0.76rem; }
+/* Small screens: the colours and their names in one wrapping line. */
+.dna-key.compact { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.dna-key.compact li { align-items: center; }
 .dna-explain { margin: 8px 4px 0; font-size: 0.78rem; line-height: 1.45; }
+.dna-explain > .dna-key { margin: 8px 0 0; }
 .dna-explain summary { cursor: pointer; color: #9ec5f4; }
 .dna-explain summary:hover { text-decoration: underline; }
 .dna-explain p { margin: 6px 0 0; color: #c9cfdc; }

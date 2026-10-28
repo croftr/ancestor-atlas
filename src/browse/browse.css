@@ -381,6 +381,9 @@
   .cu-hero-text { padding: 16px 16px 14px; }
   .cu-hero::after { background: linear-gradient(0deg, rgba(8, 12, 26, 0.96) 0%, rgba(8, 12, 26, 0.86) 55%, rgba(8, 12, 26, 0.3) 100%); }
   .cu-hero-kicker { text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8); }
+  /* The span keeps its own line rather than breaking after the dot. */
+  .cu-hero-kicker > [aria-hidden] { display: none; }
+  .cu-hero-span { flex-basis: 100%; }
   .cu-hero-blurb { font-size: 0.86rem; }
   .cu-gantt { display: none; }
   /* Phones: one card per row, the picture on the left. */
@@ -440,11 +443,24 @@
 .br-totals > div { padding: 6px 14px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
 .br-totals dt { font-size: 0.72rem; color: #8b95ab; text-transform: uppercase; letter-spacing: 0.04em; }
 .br-totals dd { margin: 0; font-size: 1.35rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+/* Small screens: one joined strip, the counts sharing its width (as separate boxes they wrapped onto two rows and
+   pushed the page down). */
 @media (max-width: 760px) {
-  .br-totals { gap: 6px; margin-top: 8px; }
-  .br-totals > div { padding: 4px 10px; }
-  .br-totals dt { font-size: 0.64rem; }
-  .br-totals dd { font-size: 1.05rem; }
+  .br-totals {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .br-totals > div { padding: 6px 10px 7px; background: none; border: 0; border-radius: 0; }
+  .br-totals > div + div { border-left: 1px solid rgba(255, 255, 255, 0.08); }
+  .br-totals dt { font-size: 0.6rem; line-height: 1.2; letter-spacing: 0.03em; color: #97a1b6; }
+  .br-totals dd { margin-top: 1px; font-size: 1.05rem; }
 }
 /* Desktop: one joined panel holds the page's icon and heading as its first cell and the counts as the cells after
    it, with the page's description text following the panel. .ev-title is unwrapped (display: contents) so its heading
@@ -484,6 +500,17 @@
     border: 0;
     border-radius: 0;
     border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  /* A page with no counts yet (Data updates, before the first one): the heading keeps the panel look on its own. */
+  .ev-header.br-intro:not(:has(> .br-totals)) > .ev-title { gap: 18px; }
+  .ev-header.br-intro:not(:has(> .br-totals)) .ev-title h1 {
+    gap: 10px;
+    min-height: 58px;
+    padding: 0 20px 0 14px;
+    font-size: 1.3rem;
+    background: color-mix(in srgb, var(--accent) 12%, rgba(255, 255, 255, 0.03));
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, rgba(255, 255, 255, 0.08));
+    border-radius: 12px;
   }
 }
 .sp-note { margin: 22px 0 0; font-size: 0.76rem; text-align: center; }

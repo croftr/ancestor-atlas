@@ -24,7 +24,8 @@
 
 .nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .nav-bottom { margin-top: auto; }
-.nav-li { position: relative; }
+/* Not positioned: a flyout (below) sits against the rail itself, so it can use the window's full height. */
+.nav-li { position: static; }
 
 .nav-item {
   position: relative;
@@ -65,17 +66,20 @@
 .side-nav.expanded .nav-label { opacity: 1; transition-delay: 0.06s; }
 .nav-collapse { height: 36px; margin-top: 4px; color: #7e899f; }
 
-/* Flyout panel beside the rail (Settings, and later other tools). */
+/* Flyout panel beside the rail (Settings, Sources), from the rail's foot, never taller than the window (anchored to
+   its own item at the foot of the rail, a tall one ran off the top of the screen, heading and all). */
 .nav-flyout {
   position: absolute;
-  left: calc(100% + 16px);
-  bottom: 0;
+  left: calc(100% + 10px);
+  bottom: 10px;
   width: 260px;
   z-index: 41;
 }
 .nav-flyout.panel {
   background: #0d1424;
-  max-height: calc(100vh - 24px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  max-height: calc(100% - 20px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(142, 160, 200, 0.3) transparent;
@@ -95,7 +99,12 @@
 /* Make room for the rail: globe overlays and the timeline page start to its right. */
 .app .legend-dock { left: calc(var(--nav-w) + 18px); }
 .app .search { left: calc(50% + var(--nav-w) / 2); }
-.app .time-slider { left: calc(50% + var(--nav-w) / 2); width: min(calc(100% - 120px - var(--nav-w)), 1100px); }
+/* --left-clear: how far the left column reaches past the rail when it comes down beside the bar on a short window
+   (ui/sliderClearance.ts); the bar narrows from both ends by that much, staying centred. */
+.app .time-slider {
+  left: calc(50% + var(--nav-w) / 2);
+  width: min(calc(100% - 120px - var(--nav-w)), 1100px, max(420px, 100vw - var(--nav-w) - 2 * var(--left-clear, 0px)));
+}
 /* The card is 352px unless dragged wider or narrower (--card-user-w, ui/CardResizer.tsx), always
    leaving at least 480px. It never moves the globe, the search or the slider (Rob's call, 17 Oct
    2026): they stay centred beside the rail, as with no card, and the card covers the space on the
@@ -105,7 +114,11 @@
   --card-w: clamp(300px, var(--card-user-w, 352px), max(300px, 100vw - var(--nav-w) - 480px));
 }
 .app.has-card .time-slider {
-  width: min(calc(100% - 120px - var(--nav-w)), 1100px, max(420px, 100vw - var(--nav-w) - 2 * var(--card-w) - 48px));
+  width: min(
+    calc(100% - 120px - var(--nav-w)), 1100px,
+    max(420px, 100vw - var(--nav-w) - 2 * var(--card-w) - 48px),
+    max(420px, 100vw - var(--nav-w) - 2 * var(--left-clear, 0px))
+  );
 }
 .app.has-card .search {
   width: clamp(240px, calc(100vw - var(--nav-w) - 2 * var(--card-w) - 32px), 380px);

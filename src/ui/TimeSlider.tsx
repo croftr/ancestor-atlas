@@ -199,7 +199,11 @@ export default function TimeSlider() {
 
   return (
     <div className="panel time-slider">
-      <div className="year-readout">{formatYear(year)}</div>
+      <div className="year-readout">
+        <span className="year-full">{formatYear(year)}</span>
+        {/* Phones in a tour: the year beside the tour's buttons, in fewer letters ("c. 1.8M years ago"). */}
+        {formatYear(year).includes(" million ") && <span className="year-short">{formatYear(year).replace(" million ", "M ")}</span>}
+      </div>
       <div className="year-sub">
         {era &&
           (stacked ? (

@@ -34,6 +34,51 @@ export default function DnaLegend({ panel = false }: { panel?: boolean }) {
   );
   if (!on) return null;
   const classes = classesFor(mode);
+  // The key: each colour with a few plain words, or (`compact`) just the colours and their names.
+  const key = (compact: boolean) => (
+    <ul className={`dna-key${compact ? " compact" : ""}`}>
+      {mode === "plain" ? (
+        <li>
+          <span className="dna-swatch" style={{ background: PLAIN_COLOR }} />
+          <span>Sampled people</span>
+        </li>
+      ) : (
+        <>
+          {classes.map((c) => (
+            <li key={c.key} title={c.note}>
+              <span className="dna-swatch" style={{ background: c.color }} />
+              <span className="dna-key-label">{c.label}</span>
+              {!compact && <span className="muted">{c.short}</span>}
+            </li>
+          ))}
+          <li title="Any other haplogroup">
+            <span className="dna-swatch" style={{ background: OTHER_COLOR }} />
+            <span className="dna-key-label">Other</span>
+            {!compact && <span className="muted">any other line</span>}
+          </li>
+          <li>
+            <span className="dna-swatch hollow" />
+            <span className="dna-key-label">Not known</span>
+            {!compact && <span className="muted">{mode === "y" ? "often only women sampled" : "not read"}</span>}
+          </li>
+        </>
+      )}
+    </ul>
+  );
+  const explainer = (
+    <>
+      <p>
+        A son inherits his Y chromosome from his father, and everyone inherits their mitochondrial DNA (mtDNA) from
+        their mother, almost unchanged. Rare small changes build up over the generations, so these lines branch like a
+        family tree. Each branch is called a <em>haplogroup</em> and given a code such as R1b or U5.
+      </p>
+      <p>
+        A haplogroup is one line among thousands of ancestors, not a person's whole ancestry. But where and when a line
+        turns up shows how peoples moved and mixed: Europe's hunter-gatherers carried mostly U and I; farmers from
+        Anatolia brought G2 and H; herders from the steppe brought R1b and R1a after 3000 BCE.
+      </p>
+    </>
+  );
   return (
     <section className={panel ? "panel dna-legend dna-panel" : "dna-legend"} aria-label="Ancient DNA">
       <div className="dna-legend-head">
@@ -67,48 +112,28 @@ export default function DnaLegend({ panel = false }: { panel?: boolean }) {
           </button>
         ))}
       </div>
-      <div className="dna-legend-note muted">{NOTE[mode]}</div>
-      <ul className="dna-key">
-        {mode === "plain" ? (
-          <li>
-            <span className="dna-swatch" style={{ background: PLAIN_COLOR }} />
-            <span>Sampled people</span>
-          </li>
-        ) : (
-          <>
-            {classes.map((c) => (
-              <li key={c.key} title={c.note}>
-                <span className="dna-swatch" style={{ background: c.color }} />
-                <span className="dna-key-label">{c.label}</span>
-                <span className="muted">{c.short}</span>
-              </li>
-            ))}
-            <li title="Any other haplogroup">
-              <span className="dna-swatch" style={{ background: OTHER_COLOR }} />
-              <span className="dna-key-label">Other</span>
-              <span className="muted">any other line</span>
-            </li>
-            <li>
-              <span className="dna-swatch hollow" />
-              <span className="dna-key-label">Not known</span>
-              <span className="muted">{mode === "y" ? "often only women sampled" : "not read"}</span>
-            </li>
-          </>
-        )}
-      </ul>
-      <details className="dna-explain">
-        <summary>What are father's and mother's lines?</summary>
-        <p>
-          A son inherits his Y chromosome from his father, and everyone inherits their mitochondrial DNA (mtDNA) from
-          their mother, almost unchanged. Rare small changes build up over the generations, so these lines branch like a
-          family tree. Each branch is called a <em>haplogroup</em> and given a code such as R1b or U5.
-        </p>
-        <p>
-          A haplogroup is one line among thousands of ancestors, not a person's whole ancestry. But where and when a line
-          turns up shows how peoples moved and mixed: Europe's hunter-gatherers carried mostly U and I; farmers from
-          Anatolia brought G2 and H; herders from the steppe brought R1b and R1a after 3000 BCE.
-        </p>
-      </details>
+      {panel ? (
+        <>
+          <div className="dna-legend-note muted">{NOTE[mode]}</div>
+          {key(false)}
+          <details className="dna-explain">
+            <summary>What are father's and mother's lines?</summary>
+            {explainer}
+          </details>
+        </>
+      ) : (
+        // Small screens: the colours in one line; what they mean, and the explainer, folded under it (the full key
+        // took over half a phone's screen above the globe).
+        <>
+          {key(true)}
+          <details className="dna-explain">
+            <summary>What do the colours mean?</summary>
+            <p>{NOTE[mode]}</p>
+            {key(false)}
+            {explainer}
+          </details>
+        </>
+      )}
     </section>
   );
 }

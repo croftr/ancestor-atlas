@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useStore } from "../store";
 import { CATEGORIES, type Category } from "../types";
 import { CATEGORY_STYLE, STACKED_QUERY } from "../config";
@@ -8,6 +8,7 @@ import { useMediaQuery } from "./useMediaQuery";
 import ClimatePanel from "./ClimatePanel";
 import { WhenLine } from "./ClimatePopover";
 import DnaLegend from "../dna/DnaLegend";
+import { useSliderClearance } from "./sliderClearance";
 
 interface ActiveEntityItem {
   id: string;
@@ -56,6 +57,9 @@ export default function Legend() {
   // Small screens always show the legend (as a compact grid under the search); no hide toggle.
   const stacked = useMediaQuery(STACKED_QUERY);
   const collapsed = collapsedPref && !stacked;
+  // A short window: the time bar narrows to keep clear of the column (sliderClearance.ts).
+  const dockRef = useRef<HTMLDivElement>(null);
+  useSliderClearance(dockRef, !stacked && !collapsed);
   const toggleCollapsed = () =>
     setCollapsed((c) => {
       try {
@@ -170,7 +174,7 @@ export default function Legend() {
   if (stacked ? !legendOn : !legendOn && !dnaOn && !climateOn) return null;
 
   return (
-    <div className={`legend-dock${collapsed ? " collapsed" : ""}${legendOn ? "" : " no-legend"}`}>
+    <div ref={dockRef} className={`legend-dock${collapsed ? " collapsed" : ""}${legendOn ? "" : " no-legend"}`}>
       <button
         type="button"
         className="legend-toggle"

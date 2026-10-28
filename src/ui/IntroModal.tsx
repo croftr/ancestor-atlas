@@ -1,6 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { mediaUrl } from "../config";
 import { useStore } from "../store";
+import { useData } from "../map/data";
+import type { Category } from "../types";
+import { CategoryBadge } from "./CategoryIcon";
+import { CardIcon } from "./CardParts";
 import "./intro-modal.css";
 
 /** The videos, newest first (the first plays when the dialog opens). Keys in the media bucket. */
@@ -10,8 +14,50 @@ const VIDEOS = [
   { key: "events/promo-video.mp4", label: "First intro", length: "1:52", aria: "Ancestor Atlas first intro video" },
 ];
 
+const n = (v: number) => v.toLocaleString("en-US");
+
+/** What the atlas holds, one line per category, counted from the data (fixed numbers went stale as it grew). */
+function highlights(counts: Record<Category, { entities: number; sites: number }> | null) {
+  const c = (cat: Category) => counts?.[cat];
+  const sp = c("species");
+  const cu = c("culture");
+  const ci = c("civilization");
+  const ev = c("event");
+  return [
+    {
+      category: "species" as const,
+      title: "Human evolution",
+      text: sp ? `${n(sp.entities)} species at ${n(sp.sites)} fossil sites, from the first upright apes to us.` : "Our ancestors and relatives, from the first upright apes to us.",
+    },
+    {
+      category: "culture" as const,
+      title: "Archaeological cultures",
+      text: cu ? `${n(cu.entities)} cultures at ${n(cu.sites)} sites, many of them radiocarbon-dated.` : "Toolmakers, hunters and the first farmers, many of their sites radiocarbon-dated.",
+    },
+    {
+      category: "civilization" as const,
+      title: "Early civilizations",
+      text: ci ? `${n(ci.entities)} states and empires with their territories, across the ancient world to 1 CE.` : "States and empires with their territories, across the ancient world to 1 CE.",
+    },
+    {
+      category: "event" as const,
+      title: "Events and inventions",
+      text: ev ? `${n(ev.entities)} moments, from the first stone tools to paper, with pictures and narration.` : "Major moments, from the first stone tools to paper, with pictures and narration.",
+    },
+  ];
+}
+
 export default function IntroModal() {
   const setIntroOpen = useStore((s) => s.setIntroOpen);
+  const data = useData();
+  const counts = useMemo(() => {
+    if (!data) return null;
+    const out = { species: { entities: 0, sites: 0 }, culture: { entities: 0, sites: 0 }, civilization: { entities: 0, sites: 0 }, event: { entities: 0, sites: 0 } };
+    // Groups (Ancient Egypt) are counted through their members, as on the Civilizations page.
+    for (const e of data.entities) if (!e.group) out[e.category].entities += 1;
+    for (const f of data.features) out[f.category].sites += 1;
+    return out;
+  }, [data]);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [shown, setShown] = useState(0);
   const video = VIDEOS[shown];
@@ -39,8 +85,9 @@ export default function IntroModal() {
           className="intro-close"
           onClick={() => setIntroOpen(false)}
           aria-label="Close intro video"
+          title="Close (Esc)"
         >
-          ✕
+          <CardIcon name="close" size={16} />
         </button>
 
         <div className="intro-player">
@@ -72,34 +119,15 @@ export default function IntroModal() {
           </p>
 
           <div className="intro-highlights">
-            <div className="intro-feat">
-              <span className="intro-feat-icon" aria-hidden>⏳</span>
-              <div>
-                <strong>Deep-Time Slider</strong>
-                <span className="muted">Scrub across 7 million years of prehistory and ancient history.</span>
+            {highlights(counts).map((h) => (
+              <div key={h.category} className="intro-feat">
+                <CategoryBadge category={h.category} size={30} decorative />
+                <div>
+                  <strong>{h.title}</strong>
+                  <span>{h.text}</span>
+                </div>
               </div>
-            </div>
-            <div className="intro-feat">
-              <span className="intro-feat-icon" aria-hidden>🦴</span>
-              <div>
-                <strong>Hominin Evolution</strong>
-                <span className="muted">Track 24 species across hundreds of verified fossil sites.</span>
-              </div>
-            </div>
-            <div className="intro-feat">
-              <span className="intro-feat-icon" aria-hidden>🪨</span>
-              <div>
-                <strong>Archaeological Cultures</strong>
-                <span className="muted">Over 2,300 calibrated radiocarbon-dated sites from XRONOS.</span>
-              </div>
-            </div>
-            <div className="intro-feat">
-              <span className="intro-feat-icon" aria-hidden>🏛️</span>
-              <div>
-                <strong>Early Civilizations</strong>
-                <span className="muted">Explore territorial boundaries of 200+ ancient states and empires.</span>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="intro-footer">

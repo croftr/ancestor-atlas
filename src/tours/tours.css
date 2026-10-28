@@ -168,6 +168,8 @@
   .app.view-globe.touring .tour-bar-stop { display: none; }
   .app.view-globe.touring .tour-bar { display: contents; }
   .app.view-globe.touring .year-readout { grid-column: 1; grid-row: 1; align-self: end; font-size: 1rem; }
+  .app.view-globe.touring .year-readout:has(.year-short) .year-full { display: none; }
+  .app.view-globe.touring .year-readout .year-short { display: inline; }
   .app.view-globe.touring .tour-bar-text { grid-column: 1; grid-row: 2; align-self: start; }
   .app.view-globe.touring .tour-bar-compact {
     display: block;

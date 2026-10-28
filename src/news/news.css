@@ -112,31 +112,39 @@
   }
 }
 
-/* Phones: picture beside the topic and headline; the summary and footer run full width beneath. */
+/* Phones: a small picture beside the topic, outlet and date; the headline, summary and footer run full width beneath
+   (beside the picture, a long headline ran to seven short lines). */
 @media (max-width: 700px) {
   .nw-main { padding-top: 8px; }
   .nw-section { gap: 10px; }
   .nw-story {
-    grid-template-columns: 108px minmax(0, 1fr);
+    grid-template-columns: 84px minmax(0, 1fr);
     grid-template-rows: auto;
-    gap: 10px 12px;
+    gap: 8px 12px;
     padding: 12px;
   }
   .nw-pic {
     grid-row: 1;
     aspect-ratio: 4 / 3;
     min-height: 0;
+    border-radius: 8px;
   }
-  .nw-head {
+  .nw-head { display: contents; }
+  .nw-meta {
     grid-column: 2;
     grid-row: 1;
     align-self: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
   }
-  .nw-story h3 { font-size: 1.02rem; }
+  .nw-story h3 { grid-column: 1 / -1; grid-row: 2; margin: 2px 0 0; font-size: 1.08rem; line-height: 1.28; }
   .nw-summary {
     grid-column: 1 / -1;
-    grid-row: 2;
+    grid-row: 3;
+    font-size: 0.92rem;
   }
+  .nw-foot { grid-row: 4; }
   .nw-foot {
     margin-top: 0;
     padding-top: 8px;

@@ -2,6 +2,7 @@ import { useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
 import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
+import { shortRange } from "../ui/InfoPanel";
 import { formatRange, yearToPos } from "../time/scale";
 import { erasFor, firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity, FeatureProps } from "../types";
@@ -224,7 +225,7 @@ export default function SpeciesPage() {
                         </span>
                         <span className="sp-text">
                           <span className="sp-name">{s.name}</span>
-                          <span className="sp-date">{formatRange(s.start_year, s.end_year)}</span>
+                          <span className="sp-date" title={formatRange(s.start_year, s.end_year)}>{shortRange(s.start_year, s.end_year)}</span>
                           <span className="br-bar sp-bar" aria-hidden>
                             {ticks.map((t) => <i key={t.y} className="sp-grid" style={{ left: `${t.x}%` }} />)}
                             <span style={bar(s)} />

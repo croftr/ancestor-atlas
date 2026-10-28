@@ -2,6 +2,7 @@ import { useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE } from "../config";
 import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
+import { shortRange } from "../ui/InfoPanel";
 import { formatRange } from "../time/scale";
 import { firstSentence, shortDuration } from "../timeline/layout";
 import type { Entity } from "../types";
@@ -176,7 +177,7 @@ export default function CulturesPage() {
                 <p className="cu-hero-kicker">
                   <span>Stage {stages.findIndex((t) => t.id === s.id) + 1}</span>
                   <span aria-hidden>·</span>
-                  <span>{formatRange(s.axis[0], s.axis[1])}</span>
+                  <span className="cu-hero-span" title={formatRange(s.axis[0], s.axis[1])}>{shortRange(s.axis[0], s.axis[1])}</span>
                 </p>
                 <h2 id={`stage-${s.id}`}>{s.title}</h2>
                 <p className="cu-hero-blurb">{s.blurb}</p>
@@ -215,7 +216,7 @@ export default function CulturesPage() {
                       </span>
                       <span className="cu-card-body">
                         <span className="cu-card-name">{c.name}</span>
-                        <span className="cu-card-date">{formatRange(c.start_year, c.end_year)}</span>
+                        <span className="cu-card-date" title={formatRange(c.start_year, c.end_year)}>{shortRange(c.start_year, c.end_year)}</span>
                         <span className="br-bar" title={`When it ran within ${formatRange(s.axis[0], s.axis[1])}`}>
                           <span style={barStyle(c, s.axis)} />
                         </span>

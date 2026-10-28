@@ -453,6 +453,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .also { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .time-slider { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 120px), 1100px); }
 .year-readout { font-size: 1.8rem; font-weight: 600; }
+.year-readout .year-short { display: none; } /* phones in a tour (tours.css) */
 /* Under the year: the era it's in, and how far a step moves. */
 .year-sub { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .play-speed { margin-left: 10px; display: inline-flex; align-items: baseline; gap: 5px; }
@@ -510,6 +511,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0 2px; }
 .chip { flex: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
 .chip:hover, .controls button:hover { background: rgba(255,255,255,0.18); }
+.chip:focus-visible, .link:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.link:focus-visible { border-radius: 3px; }
 .chip-plain { background: transparent; border-style: dashed; cursor: default; }
 .chip-plain:hover { background: transparent; }
 

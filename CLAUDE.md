@@ -160,6 +160,27 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   full-screen button moves to its bottom right (the close button has the top right).
 - The DNA-site and What Was Here? cards keep their own heads but share the round close button (`.info-panel > .close`).
 
+## App-wide UI polish (28 Oct 2026, after the cards)
+
+- Time bar vs the left column: on a short window the legend/climate/DNA column reached down beside the bar, which
+  slid under it (year and all). `src/ui/sliderClearance.ts` (called by `Legend.tsx`) sets `--left-clear` on the app
+  when a panel comes within 16 px of the bar's top; the bar narrows from both ends by that much (`ui/sidenav.css`),
+  never below 420 px. Tall windows, small screens and a collapsed column leave it at 0.
+- Settings and Sources flyouts sit against the rail's foot (`.nav-li` is no longer positioned) and are never taller
+  than the window: a tall one ran off the top, heading and all.
+- Phones: the ancient DNA key in the compact legend is one line of colours; "What do the colours mean?" folds out the
+  note, the full key and the explainer (`DnaLegend.tsx`; desktop panel unchanged). Browse pages' counts are one
+  joined strip (`.br-totals`, browse.css). News stories put the headline full width under a small picture with the
+  topic, outlet and date beside it. In a tour the time bar's year is shortened ("c. 1.8M years ago", `.year-short`
+  in `TimeSlider.tsx`) so it fits beside the tour's buttons.
+- Species rows, culture cards and the culture stage banners give ranges with the unit said once (`shortRange`,
+  "c. 7.2–6.8 million years ago"; full range as the tooltip).
+- Intro dialog: the four highlights carry the category badges and counts read from the data (they had emoji and
+  fixed numbers that had gone stale: "24 species", "Over 2,300 ... sites"); the footer with Start Exploring stays in
+  view; the video shrinks on short windows; round close button.
+- A page header with no counts (Data updates, before the first one) keeps the joined-panel look.
+- Chips and text links have a visible keyboard focus ring.
+
 ## Guided tours (`src/tours/`)
 
 **To make a tour, follow `docs/tours.md`** (stops, descriptions, narration, music, upload, release).
