@@ -1,0 +1,343 @@
+/*
+ * Cards: the info card on the globe and timeline (InfoPanel.tsx) and the browse pages' detail views
+ * (EntityDetail.tsx, EventsPage.tsx) share these (pieces in CardParts.tsx).
+ *
+ * Text colours, on the card's near-opaque navy (contrast against #0e1422):
+ *   --card-text #e8ecf4 (15:1), --card-text-2 #c3cbdc (11:1), --card-muted #929db3 (6.6:1),
+ *   --card-link #8ec5ff (9.8:1). Category tints are mixed with white for the eyebrow (5.5:1 or more).
+ */
+.info-panel,
+.ev-detail {
+  --card-text: #e8ecf4;
+  --card-text-2: #c3cbdc;
+  --card-muted: #929db3;
+  --card-line: rgba(255, 255, 255, 0.08);
+  --card-link: #8ec5ff;
+  --card-well: rgba(255, 255, 255, 0.045);
+}
+
+/* ---- Head: badge, then eyebrow / name / date on one left edge ---- */
+.card-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: center;
+}
+.card-head > .cat-badge { margin-top: 0; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)); }
+.card-head-text { min-width: 0; }
+/* The eyebrow shares its row with the card's buttons (minimise, close), so the name below has the full width. */
+.card-eyebrow-row { display: flex; align-items: center; gap: 8px; min-height: 22px; }
+.card-eyebrow {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+  font-size: 0.7rem;
+  font-weight: 650;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--cat) 72%, #fff);
+}
+.card-eyebrow-sep { color: var(--card-muted); }
+.card-eyebrow-link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--cat) 45%, transparent);
+  text-underline-offset: 3px;
+}
+.card-eyebrow-link:hover { color: #fff; text-decoration-color: currentColor; }
+.card-eyebrow-link:focus-visible { outline: 2px solid var(--card-link); outline-offset: 2px; border-radius: 3px; }
+.card-tools { flex: none; display: flex; gap: 6px; margin: -4px -4px -4px 0; }
+.card-head .card-title {
+  margin: 2px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.42rem;
+  line-height: 1.18;
+  color: #f6ecd8;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+.card-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-top: 5px;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: var(--card-text-2);
+  font-variant-numeric: tabular-nums;
+}
+.card-sub-pill {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.74rem;
+  color: var(--card-text-2);
+  white-space: nowrap;
+}
+
+/* The card's own round buttons (minimise, close). */
+.info-panel .card-tools > .card-tool {
+  position: static;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--card-text-2);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.info-panel .card-tools > .close { display: grid; }
+.info-panel .card-tools > .card-tool:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.info-panel .card-tools > .card-tool:active { background: rgba(255, 255, 255, 0.2); }
+.info-panel .card-tools > .card-tool:focus-visible { outline: 2px solid var(--card-link); outline-offset: 2px; }
+@media (max-width: 900px) {
+  /* Full-screen card on the timeline: a little bigger, like the page's other buttons. */
+  .timeline-page .info-panel .card-tools > .card-tool { width: 36px; height: 36px; }
+}
+
+/* ---- Actions: round icons over their labels, one row ---- */
+.card-actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 2px;
+  margin: 14px -6px 2px;
+}
+.card-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 2px 2px 4px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  color: var(--card-text-2);
+  touch-action: manipulation;
+}
+.card-action-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(142, 197, 255, 0.1);
+  border: 1px solid rgba(142, 197, 255, 0.22);
+  color: #a6d2ff;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.08s ease;
+}
+.card-action:hover .card-action-icon { background: rgba(142, 197, 255, 0.2); border-color: rgba(142, 197, 255, 0.5); color: #fff; }
+.card-action:active .card-action-icon { transform: scale(0.94); }
+.card-action:focus-visible { outline: none; }
+.card-action:focus-visible .card-action-icon { outline: 2px solid var(--card-link); outline-offset: 2px; }
+.card-action-label { max-width: 100%; font-size: 0.72rem; line-height: 1.2; text-align: center; overflow-wrap: break-word; }
+.card-action:hover .card-action-label { color: #fff; }
+/* Videos to watch on the page, as a small count on its circle. */
+.card-action-badge {
+  position: absolute;
+  top: -5px;
+  right: -9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 17px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #c39bff;
+  color: #1f0f40;
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 2px #0e1422;
+}
+.card-icon { display: block; flex: none; }
+
+/* ---- Body ---- */
+.card-desc { margin: 10px 0 4px; font-size: 0.95rem; line-height: 1.6; color: #e1e6ef; }
+.card-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin: 2px 0 2px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--card-link);
+  text-decoration: none;
+}
+.card-readmore:hover { text-decoration: underline; text-underline-offset: 3px; }
+.card-readmore:focus-visible { outline: 2px solid var(--card-link); outline-offset: 2px; border-radius: 3px; }
+
+/* ---- Sections: a small heading, then chips or a list ---- */
+.card-section { margin-top: 16px; }
+.card-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 7px;
+  font-size: 0.68rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-muted);
+}
+.card-count {
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--card-text-2);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+.card-section .also { margin-top: 0; }
+.card-section .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 2px 11px 2px 4px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--card-text);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  text-align: left;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.card-section .chip:hover { background: rgba(255, 255, 255, 0.13); border-color: rgba(255, 255, 255, 0.26); }
+.card-section .chip:focus-visible { outline: 2px solid var(--card-link); outline-offset: 2px; }
+.card-section .chip-plain { padding-left: 11px; color: var(--card-text-2); }
+.card-section .chip-plain:hover { background: transparent; border-color: rgba(255, 255, 255, 0.12); }
+.card-section .chip > .cat-badge { margin-top: 0; }
+@media (pointer: coarse) {
+  .card-section .chip { min-height: 34px; }
+}
+
+/* A group's members (Ancient Egypt's periods): a colour dot, the name, its dates; each row opens one. */
+.card-members { list-style: none; margin: 0 -8px; padding: 0; }
+.card-member {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 9px;
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: var(--card-text);
+  text-align: left;
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+.card-member:hover { background: rgba(255, 255, 255, 0.07); }
+.card-member:hover .card-member-name { color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.35); text-underline-offset: 3px; }
+.card-member:focus-visible { outline: 2px solid var(--card-link); outline-offset: -2px; }
+.card-member-dot { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35); transform: translateY(-1px); }
+.card-member-date { font-size: 0.76rem; color: var(--card-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---- This site / place / period: what is known about the clicked point ---- */
+.card-site {
+  margin-top: 16px;
+  padding: 11px 13px 12px;
+  border-radius: 12px;
+  background: var(--card-well);
+  border: 1px solid var(--card-line);
+}
+.card-site > .card-section-title { margin-bottom: 4px; }
+.card-site-name { font-size: 0.98rem; font-weight: 650; line-height: 1.3; color: var(--card-text); }
+.card-site-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 3px; font-size: 0.86rem; color: var(--card-text-2); }
+.card-site-note { margin-top: 4px; font-size: 0.8rem; line-height: 1.4; color: var(--card-muted); }
+.card-site .card-section { margin-top: 11px; }
+.card-site-list { margin: 0; padding-left: 18px; font-size: 0.82rem; line-height: 1.45; color: var(--card-text-2); }
+/* How sure the sources are: a dot and a word, in the confidence colours. */
+.card-conf {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px 1px 7px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--conf);
+  background: color-mix(in srgb, var(--conf) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--conf) 32%, transparent);
+}
+.card-conf::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.card-conf.conf-high { --conf: #6ee09c; }
+.card-conf.conf-medium { --conf: #e8c95c; }
+.card-conf.conf-low { --conf: #ff8e7e; }
+
+/* ---- Sources: folded under one line at the foot of the card ---- */
+.card-sources { margin-top: 18px; border-top: 1px solid var(--card-line); }
+.card-sources > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 0 -6px;
+  padding: 0 6px;
+  border-radius: 8px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--card-text-2);
+  font-size: 0.82rem;
+  font-weight: 600;
+  user-select: none;
+}
+.card-sources > summary::-webkit-details-marker { display: none; }
+.card-sources > summary:hover { color: #fff; background: rgba(255, 255, 255, 0.04); }
+.card-sources > summary:focus-visible { outline: 2px solid var(--card-link); outline-offset: -2px; }
+.card-sources > summary .card-icon { color: var(--card-muted); }
+.card-sources-hint { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--card-muted); font-weight: 400; }
+.card-sources-chevron { margin-left: auto; display: grid; color: var(--card-muted); transition: transform 0.2s ease; }
+.card-sources[open] .card-sources-chevron { transform: rotate(180deg); }
+.card-sources-body { padding: 2px 0 4px; font-size: 0.8rem; line-height: 1.5; color: var(--card-text-2); overflow-wrap: anywhere; }
+.card-sources-body a { color: var(--card-link); text-underline-offset: 2px; }
+.card-sources-body details summary { cursor: pointer; color: var(--card-muted); }
+.card-ref-group + .card-ref-group { margin-top: 12px; }
+.card-ref-title {
+  margin-bottom: 3px;
+  font-size: 0.66rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-muted);
+}
+.card-ref-list { list-style: none; margin: 0; padding: 0; }
+.card-ref-list li + li { margin-top: 4px; }
+.card-ref-licence { color: var(--card-muted); white-space: nowrap; }
+.card-ref-list-more { color: var(--card-text-2); }
+
+/* Opening a card: it slides in from the right edge it sits on (from above, where the cards stack on small screens). */
+.info-panel { animation: card-in 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes card-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) {
+  .info-panel { animation-name: card-in-stacked; }
+  @keyframes card-in-stacked { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-panel { animation: none; }
+  .card-action-icon, .card-sources-chevron { transition: none; }
+}

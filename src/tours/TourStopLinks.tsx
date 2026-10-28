@@ -1,5 +1,6 @@
 import { toursOfEntity } from "./tours";
 import { watchTour } from "./ToursPage";
+import { CardSection } from "../ui/CardParts";
 
 const FilmChipIcon = (
   <svg className="tour-chip-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
@@ -19,8 +20,7 @@ export default function TourStopLinks({ entityId }: { entityId: string }) {
   const refs = toursOfEntity(entityId);
   if (refs.length === 0) return null;
   return (
-    <div className="related tour-stop-links">
-      <div className="muted">{refs.length === 1 ? "Guided tour:" : "Guided tours:"}</div>
+    <CardSection title={refs.length === 1 ? "Guided tour" : "Guided tours"} className="tour-stop-links">
       <div className="also">
         {refs.map(({ tour, index }) => (
           <button
@@ -37,6 +37,6 @@ export default function TourStopLinks({ entityId }: { entityId: string }) {
           </button>
         ))}
       </div>
-    </div>
+    </CardSection>
   );
 }

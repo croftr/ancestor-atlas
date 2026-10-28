@@ -6,7 +6,8 @@ import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
-import { clearShrunkCard, navigate, peekShrunkCard, type View } from "../route";
+import { clearShrunkCard, navigate, peekShrunkCard, type BrowseView, type View } from "../route";
+import { formatDuration } from "../timeline/layout";
 import "./events.css";
 import ListenButton from "../audio/ListenButton";
 import EventImage from "../events/EventImage";
@@ -14,7 +15,8 @@ import { STACKED_QUERY } from "../config";
 import { useMediaQuery } from "./useMediaQuery";
 import { videoCount } from "../youtube";
 import { globeUrl } from "../globeLink";
-import { CategoryBadge } from "./CategoryIcon";
+import { CategoryBadge, SINGULAR } from "./CategoryIcon";
+import { CardAction, CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "./CardParts";
 import { entityPictures, preloadPictures, tourPictureFor } from "../tours/tourPicture";
 import { PictureNav, creditLine } from "./PictureNav";
 import PictureViewer from "./PictureViewer";
@@ -50,7 +52,7 @@ const Ref = ({ r }: { r: RefLink }) =>
 /** A list of references: the first few inline, the rest behind a "more" toggle. */
 const RefList = ({ title, items }: { title: string; items: string[] }) =>
   items.length === 0 ? null : (
-    <div className="muted">
+    <div className="card-ref-list-more">
       {title}: {items.slice(0, 3).join("; ")}
       {items.length > 3 && (
         <details>
@@ -60,6 +62,14 @@ const RefList = ({ title, items }: { title: string; items: string[] }) =>
       )}
     </div>
   );
+
+/** The browse page an entity opens on ("Species page"). */
+const PAGE_OF: Record<Entity["category"], BrowseView> = {
+  species: "species",
+  culture: "cultures",
+  civilization: "civilizations",
+  event: "events",
+};
 
 /**
  * A date range in fewer words, for the compact card: the shared unit said once
@@ -77,8 +87,8 @@ export function shortRange(start: number, end: number): string {
   return `${a} – ${b}`;
 }
 
-const Swatch = ({ color }: { color?: string }) =>
-  color ? <span className="swatch" style={{ background: color, borderRadius: 2 }} /> : null;
+/** shortRange, with a "c." said once for the whole span ("c. 438,000 – 418,000 BCE"). */
+const siteRange = (start: number, end: number) => shortRange(start, end).replace(/^(c\. .*– )c\. /, "$1");
 
 export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const data = useData();
@@ -407,6 +417,22 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
     );
   }
   const shrinkToThumb = view === "timeline";
+  const minLabel = shrinkToThumb ? "Shrink card" : minimised ? "Show full card" : "Minimise card";
+  const videos = entity.media?.length ?? 0;
+  // Evidence for the clicked point (folded into Sources), and what else is known about it (shown).
+  const siteRefs = !!feature && !!(coordRef || dateRef || labs || feature.refs || feature.via || (featureSource && featureSource.id !== "recall"));
+  // A period's own dates are already in the stepper above; a site's dating ("c. 5.46 ka cal BP") adds to it.
+  const siteDate =
+    feature?.date_text && !isEvent && (showLabel || feature.date_text !== formatRange(feature.start_year, feature.end_year)) ? feature.date_text : undefined;
+  const siteBlock =
+    !!feature && !!(showLabel || siteDate || feature.confidence || feature.notes || siteCultures.length || feature.cultures || feature.also_recorded);
+  // Chips for other entities: on the timeline they open there, on the globe they fly to it.
+  const chip = (r: Entity, title: string) => (
+    <button key={r.id} className="chip" onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))} title={title}>
+      <CategoryBadge category={r.category} size={18} />
+      {r.name}
+    </button>
+  );
 
   return (
     <>
@@ -418,27 +444,6 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <button
-        className="info-min"
-        onClick={() => setMinimised((m) => !m)}
-        aria-expanded={!minimised}
-        aria-label={shrinkToThumb ? "Shrink card" : minimised ? "Show full card" : "Minimise card"}
-        title={shrinkToThumb ? "Shrink card" : minimised ? "Show full card" : "Minimise card"}
-      >
-        <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
-          <path
-            d={
-              shrinkToThumb
-                ? "M10.5 1.5 7 5M7 1.5V5h3.5M1.5 10.5 5 7M5 10.5V7H1.5" // arrows pointing inward
-                : minimised
-                  ? "M2.5 4.5 6 8l3.5-3.5"
-                  : "M2.5 7.5 6 4l3.5 3.5"
-            }
-            fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-      <button className="close" onClick={() => select(null)} aria-label="Close">✕</button>
       <div
         className="info-head"
         // Minimised, a tap on the title opens the card (links inside keep their own action).
@@ -457,84 +462,104 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             </button>
           </div>
         )}
-        {parent && (
-          <div className="breadcrumb">
-            <button className="link" onClick={() => openGroup(parent.id)}>{parent.name}</button> › {entity.name}
-          </div>
-        )}
-        <h2 className="cat-title">
-          <CategoryBadge category={entity.category} />
-          <span>{entity.name}</span>
-        </h2>
-        <div className="muted">{isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}</div>
+        <CardHead
+          category={entity.category}
+          decorative
+          eyebrow={
+            <>
+              <span>{SINGULAR[entity.category]}</span>
+              {parent && (
+                <>
+                  <span className="card-eyebrow-sep" aria-hidden="true">·</span>
+                  <button className="card-eyebrow-link" onClick={() => openGroup(parent.id)} title={`Open ${parent.name}`}>
+                    {parent.name}
+                  </button>
+                </>
+              )}
+            </>
+          }
+          tools={
+            <>
+              <button className="card-tool info-min" onClick={() => setMinimised((m) => !m)} aria-expanded={!minimised} aria-label={minLabel} title={minLabel}>
+                <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+                  <path
+                    d={
+                      shrinkToThumb
+                        ? "M10.5 1.5 7 5M7 1.5V5h3.5M1.5 10.5 5 7M5 10.5V7H1.5" // arrows pointing inward
+                        : minimised
+                          ? "M2.5 4.5 6 8l3.5-3.5"
+                          : "M2.5 7.5 6 4l3.5 3.5"
+                    }
+                    fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button className="card-tool close" onClick={() => select(null)} aria-label="Close card" title="Close (Esc)">
+                <CardIcon name="close" size={16} />
+              </button>
+            </>
+          }
+          title={entity.name}
+          sub={
+            isEvent && entity.date_text ? (
+              entity.date_text
+            ) : (
+              <>
+                <span>{formatRange(entity.start_year, entity.end_year)}</span>
+                <span className="card-sub-pill">{formatDuration(entity.end_year - entity.start_year)}</span>
+              </>
+            )
+          }
+        />
       </div>
-      <div className="view-link">
+      <div className="card-actions">
         {view === "timeline" ? (
-          <button
-            className="link"
+          <CardAction
+            icon="globe"
+            label="Globe"
+            title="Show on the globe"
             onClick={() => {
               focusEntity(entity.id);
               navigate("globe");
             }}
-          >
-            Show on globe →
-          </button>
+          />
         ) : (
-          <button className="link" onClick={() => navigate("timeline", entity.id)}>
-            See on timeline →
-          </button>
+          <CardAction icon="timeline" label="Timeline" title="See on the timeline" onClick={() => navigate("timeline", entity.id)} />
         )}
-        {isEvent && (
-          <>
-            {" · "}
-            <button className="link" onClick={() => navigate("events", entity.id)}>
-              {entity.media?.length ? `Event page (${videoCount(entity.media.length)}) →` : "Event page →"}
-            </button>
-          </>
-        )}
-        {entity.category === "species" && (
-          <>
-            {" · "}
-            <button className="link" onClick={() => navigate("species", entity.id)}>
-              {entity.media?.length ? `Species page (${videoCount(entity.media.length)}) →` : "Species page →"}
-            </button>
-          </>
-        )}
-        {entity.category === "culture" && (
-          <>
-            {" · "}
-            <button className="link" onClick={() => navigate("cultures", entity.id)}>
-              {entity.media?.length ? `Culture page (${videoCount(entity.media.length)}) →` : "Culture page →"}
-            </button>
-          </>
-        )}
-        {entity.category === "civilization" && (
-          <>
-            {" · "}
-            <button className="link" onClick={() => navigate("civilizations", entity.id)}>
-              {entity.media?.length ? `Civilization page (${videoCount(entity.media.length)}) →` : "Civilization page →"}
-            </button>
-          </>
-        )}
+        <CardAction
+          icon="page"
+          label={`${SINGULAR[entity.category]} page`}
+          title={`${SINGULAR[entity.category]} page${videos ? ` (${videoCount(videos)})` : ""}`}
+          badge={
+            videos > 0 && (
+              <>
+                <svg viewBox="0 0 8 8" width="6" height="6" aria-hidden="true">
+                  <path d="M1.5 1v6L7 4z" fill="currentColor" />
+                </svg>
+                {videos}
+              </>
+            )
+          }
+          onClick={() => navigate(PAGE_OF[entity.category], entity.id)}
+        />
         {view === "globe" && !isTouring && feature && data.bboxOf.get(feature.id) && (
-          <>
-            {" · "}
-            <button
-              className="link"
-              onClick={() => {
-                const b = data.bboxOf.get(feature.id)!;
-                openPlace((b[0] + b[2]) / 2, (b[1] + b[3]) / 2);
-              }}
-              title="See all species, cultures, ancient DNA, and civilizations within 300 km across all 7 million years"
-            >
-              History here →
-            </button>
-          </>
+          <CardAction
+            icon="here"
+            label="History here"
+            title="See all species, cultures, ancient DNA, and civilizations within 300 km across all 7 million years"
+            onClick={() => {
+              const b = data.bboxOf.get(feature.id)!;
+              openPlace((b[0] + b[2]) / 2, (b[1] + b[3]) / 2);
+            }}
+          />
         )}
-        {" · "}
-        <button className="link" onClick={() => share(entity.name)} aria-live="polite">
-          {copied ? "Link copied ✓" : "Share"}
-        </button>
+        <CardAction
+          icon={copied ? "copied" : "share"}
+          label={copied ? "Link copied" : "Share"}
+          title="Share a link to this card"
+          live
+          onClick={() => share(entity.name)}
+        />
       </div>
       {feature && siblings.length > 1 && (
         <div className="feature-nav" role="group" aria-label={`${noun}s of ${entity.name}`}>
@@ -549,16 +574,15 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             </svg>
           </button>
           <div className="feature-nav-mid" aria-live="polite">
-            <div className="feature-nav-count">
-              {noun} {position} of {siblings.length}
-            </div>
             <div className="feature-nav-label">
-              {isEvent ? feature.label : (
-                <>
-                  {showLabel ? `${feature.label} · ` : ""}
-                  {formatRange(feature.start_year, feature.end_year)}
-                </>
-              )}
+              {isEvent || showLabel ? feature.label : formatRange(feature.start_year, feature.end_year)}
+            </div>
+            {/* Two parts set apart by a gap, not a dot, so a narrow card wraps them cleanly onto two lines. */}
+            <div className="feature-nav-count">
+              <span>
+                {noun} {position} of {siblings.length}
+              </span>
+              {!isEvent && showLabel && <span className="feature-nav-dates">{siteRange(feature.start_year, feature.end_year)}</span>}
             </div>
           </div>
           <button
@@ -596,7 +620,6 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
       {isEvent && eventPicture?.credit && (
         <div className="muted image-credit">{creditLine(eventPicture.credit, extra?.caption, extra?.source)}</div>
       )}
-      {isEvent && <ListenButton entity={entity} />}
       {shown && brokenImage !== shown.url && (
         <>
           <div className="info-media pv-open" onClick={canView ? openViewer : undefined}>
@@ -625,150 +648,119 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           <div className="muted image-credit">{creditLine(shown.credit, shown.note, extra?.source)}</div>
         </>
       )}
-      {!isEvent && <ListenButton entity={entity} />}
-      <p>{entity.description}</p>
+      <ListenButton entity={entity} />
+      <p className="card-desc">{entity.description}</p>
+      {wikiUrl && <ReadMore href={wikiUrl} />}
       {entity.category === "culture" && <DnaCultureLink cultureId={entity.id} />}
-      {related.length > 0 && (
-        <div className="related">
-          <div className="muted">Related:</div>
-          <div className="also">
-            {related.map((r) => (
-              <button
-                key={r.id}
-                className="chip"
-                onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))}
-                title={formatRange(r.start_year, r.end_year)}
-              >
-                <CategoryBadge category={r.category} size={16} />
-                {r.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-      {sameTime.length > 0 && (
-        <div className="related">
-          <div className="muted">Alive at the same time:</div>
-          <div className="also">
-            {sameTime.map(({ entity: r, from, to }) => (
-              <button
-                key={r.id}
-                className="chip"
-                onClick={() => (view === "timeline" ? openGroup(r.id) : focusEntity(r.id))}
-                title={`Both alive ${formatRange(from, to)}`}
-              >
-                <CategoryBadge category={r.category} size={16} />
-                {r.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-      {!isTouring && <TourStopLinks entityId={entity.id} />}
       {approximate && (
         <div className="approx-note" role="note">
           <strong>Approximate, unverified.</strong> Location and dates were compiled from general knowledge and have not been checked against a primary source.
         </div>
       )}
-      {feature && (showLabel || feature.date_text || feature.confidence) && (
-        <div className="site-block">
-          {showLabel && <strong>{feature.label}</strong>}
-          {feature.date_text && !isEvent && <div>{feature.date_text}</div>}
-          {feature.notes && <div className="muted">Location: {feature.notes}</div>}
+      {siteBlock && feature && (
+        <section className="card-site" aria-label={`This ${noun.toLowerCase()}`}>
+          <h3 className="card-section-title">This {noun.toLowerCase()}</h3>
+          {showLabel && <div className="card-site-name">{feature.label}</div>}
+          {(siteDate || feature.confidence) && (
+            <div className="card-site-meta">
+              {siteDate && <span>{siteDate}</span>}
+              {feature.confidence && (
+                <span className={`card-conf conf-${feature.confidence}`} title="How sure the sources are of this place and date">
+                  {feature.confidence[0].toUpperCase() + feature.confidence.slice(1)} confidence
+                </span>
+              )}
+            </div>
+          )}
+          {feature.notes && <div className="card-site-note">Location: {feature.notes}</div>}
           {(siteCultures.length > 0 || feature.cultures) && (
-            <div className="related">
-              <div className="muted">Culture in the same layer:</div>
+            <CardSection title="Culture in the same layer">
               <div className="also">
-                {siteCultures.map((c) => (
-                  <button key={c.id} className="chip" onClick={() => focusEntity(c.id)} title={formatRange(c.start_year, c.end_year)}>
-                    <CategoryBadge category={c.category} size={16} />
-                    {c.name}
-                  </button>
-                ))}
+                {siteCultures.map((c) => chip(c, formatRange(c.start_year, c.end_year)))}
                 {asList(feature.cultures).map((n) => <span key={n} className="chip chip-plain">{n}</span>)}
               </div>
-            </div>
+            </CardSection>
           )}
           {feature.also_recorded && (
-            <div className="muted">
-              Also recorded here in ROAD:
-              <ul className="children">
+            <CardSection title="Also recorded here in ROAD">
+              <ul className="card-site-list">
                 {feature.also_recorded.split(" | ").map((r) => <li key={r}>{r}</li>)}
               </ul>
-            </div>
+            </CardSection>
           )}
-          {feature.confidence && (
-            <div className="muted">
-              Confidence: <span className={`conf conf-${feature.confidence}`}>{feature.confidence}</span>
-            </div>
-          )}
-          {(coordRef || dateRef) && (
-            <div className="site-refs">
-              {sameRef ? (
-                <div>Location &amp; date: <Ref r={coordRef} /></div>
-              ) : (
-                <>
-                  {coordRef && <div>Location: <Ref r={coordRef} /></div>}
-                  {dateRef && <div>Date: <Ref r={dateRef} /></div>}
-                </>
-              )}
-              {labs && <div className="muted">Lab nos. {labs}</div>}
-              <RefList title="Published" items={asList(feature.refs)} />
-              <RefList title="Compiled in" items={asList(feature.via)} />
-            </div>
-          )}
-          {!coordRef && !dateRef && featureSource && featureSource.id !== "recall" && (
-            <div className="site-refs">
-              Source: <a href={featureSource.url} target="_blank" rel="noreferrer">{featureSource.name}</a>
-            </div>
-          )}
-        </div>
+        </section>
       )}
-      {kids.length > 0 && (
-        <div>
-          <div className="muted">Includes ({kids.length}), by date:</div>
-          <ul className="children">
-            {kids.map((k) => (
-              <li key={k.id}>
-                <button className="link" onClick={() => jumpTo(k.id)}>
-                  <Swatch color={k.color} /> {k.name}
-                </button>{" "}
-                <span className="muted">{formatRange(k.start_year, k.end_year)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <div className="muted refs">
-        {feature ? `Sources for ${entity.name}: ` : "Sources: "}
-        {sourceIds.map((id, i) => {
-          const s = data.sourceById.get(id);
-          return s ? (
-            <span key={id}>
-              {i > 0 && ", "}
-              <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> ({s.licence})
-            </span>
-          ) : null;
-        })}
-        {wikiUrl && (
-          <>
-            {" "}· <a href={wikiUrl} target="_blank" rel="noreferrer">Read more</a>
-          </>
-        )}
-      </div>
       {others.length > 0 && (
-        <div>
-          <div className="muted">Also here:</div>
+        <CardSection title="Also here">
           <div className="also">
             {others.map((o) => (
               <button key={o.id} className="chip" onClick={() => select(o.id, hits)}>
-                <CategoryBadge category={o.category} size={16} />
+                <CategoryBadge category={o.category} size={18} />
                 {data.entityById.get(o.entity_id)?.name ?? o.entity_id}
               </button>
             ))}
           </div>
-        </div>
+        </CardSection>
       )}
+      {kids.length > 0 && (
+        <CardSection title="Includes, by date" count={kids.length}>
+          <ul className="card-members">
+            {kids.map((k) => (
+              <li key={k.id}>
+                <button className="card-member" onClick={() => jumpTo(k.id)} title={formatRange(k.start_year, k.end_year)}>
+                  <span className="card-member-dot" style={{ background: k.color ?? style.color }} />
+                  <span className="card-member-name">{k.name}</span>
+                  <span className="card-member-date">{shortRange(k.start_year, k.end_year)}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </CardSection>
+      )}
+      {related.length > 0 && (
+        <CardSection title="Related">
+          <div className="also">{related.map((r) => chip(r, formatRange(r.start_year, r.end_year)))}</div>
+        </CardSection>
+      )}
+      {sameTime.length > 0 && (
+        <CardSection title="Alive at the same time">
+          <div className="also">{sameTime.map(({ entity: r, from, to }) => chip(r, `Both alive ${formatRange(from, to)}`))}</div>
+        </CardSection>
+      )}
+      {!isTouring && <TourStopLinks entityId={entity.id} />}
+      <SourcesDisclosure>
+        {siteRefs && feature && (
+          <div className="card-ref-group">
+            <div className="card-ref-title">This {noun.toLowerCase()}{showLabel ? `: ${feature.label}` : ""}</div>
+            {sameRef ? (
+              <div>Location and date: <Ref r={coordRef} /></div>
+            ) : (
+              <>
+                {coordRef && <div>Location: <Ref r={coordRef} /></div>}
+                {dateRef && <div>Date: <Ref r={dateRef} /></div>}
+              </>
+            )}
+            {labs && <div>Lab nos. {labs}</div>}
+            <RefList title="Published" items={asList(feature.refs)} />
+            <RefList title="Compiled in" items={asList(feature.via)} />
+            {!coordRef && !dateRef && featureSource && featureSource.id !== "recall" && (
+              <div>Source: <a href={featureSource.url} target="_blank" rel="noreferrer">{featureSource.name}</a></div>
+            )}
+          </div>
+        )}
+        <div className="card-ref-group">
+          {siteRefs && <div className="card-ref-title">{entity.name}</div>}
+          <ul className="card-ref-list">
+            {sourceIds.map((id) => {
+              const s = data.sourceById.get(id);
+              return s ? (
+                <li key={id}>
+                  <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> <span className="card-ref-licence">{s.licence}</span>
+                </li>
+              ) : null;
+            })}
+          </ul>
+        </div>
+      </SourcesDisclosure>
     </div>
     </>
   );

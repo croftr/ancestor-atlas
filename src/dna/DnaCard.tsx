@@ -8,6 +8,7 @@ import { classOf, classesFor, OTHER_COLOR } from "./haplogroups";
 import { AADR_CITATION, AADR_DATASET_URL, type DnaData, type DnaPerson } from "./types";
 import { DnaIcon } from "./DnaIcon";
 import "./dna.css";
+import { CardIcon } from "../ui/CardParts";
 
 const SEX: Record<string, string> = { M: "Male", F: "Female", U: "Sex unknown" };
 
@@ -95,8 +96,8 @@ export default function DnaCard() {
 
   return (
     <div className="panel info-panel dna-card" role="dialog" aria-label={`Ancient DNA: ${s.name}`}>
-      <button className="close" onClick={close} aria-label="Close">
-        ✕
+      <button className="close" onClick={close} aria-label="Close" title="Close (Esc)">
+        <CardIcon name="close" size={16} />
       </button>
       <div className="info-head">
         {lastPlace && (

@@ -39,16 +39,11 @@
 .br-bar > span { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: var(--accent); opacity: 0.9; }
 
 /* Detail overlay additions */
-.br-kicker { display: flex; align-items: center; gap: 7px; color: var(--accent, #cdb6ff); }
-.br-detail .breadcrumb { margin: 2px 0 0; }
 .br-recall { margin: 8px 0 0; font-size: 0.85rem; color: #ffcf8a; }
-.br-cutoff { margin: 2px 0 0; font-size: 0.8rem; }
-.br-mapline { margin: -4px 0 10px; }
-.br-members { margin: 4px 0 10px; padding: 0 0 0 1.9em; max-height: 15.5em; overflow-y: auto; }
-.br-members li { padding: 2px 0; font-size: 0.92rem; }
-.br-members li::marker { color: #8b95ab; font-variant-numeric: tabular-nums; }
-.br-members .br-member { display: flex; justify-content: space-between; gap: 12px; }
-.br-members .br-member .muted { flex: none; font-variant-numeric: tabular-nums; }
+.br-cutoff { margin: 6px 0 0; font-size: 0.8rem; }
+.br-mapline { margin: 10px 0 0; font-size: 0.86rem; color: var(--card-text-2); }
+/* A group's periods: the card's member rows, scrolling after about ten. */
+.br-detail .card-members { max-height: 22.5em; overflow-y: auto; }
 
 /* ---- Cultures: one section per stage, a banner then a card per culture with its own picture ---- */
 .cu-main { max-width: 1680px; margin: 0 auto; padding-top: 14px; }

@@ -137,6 +137,29 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   clip on the event detail view (`src/events/EventMedia.tsx`). Encode MP4s with `-movflags +faststart`; never overwrite a
   key (uploads are cached for a year), upload a new name instead.
 
+## Cards (redone 28 Oct 2026)
+
+- The info card (`src/ui/InfoPanel.tsx`, globe and timeline) and the browse pages' detail views
+  (`src/browse/EntityDetail.tsx`, `EventDetail` in `src/events/EventsPage.tsx`) share `src/ui/CardParts.tsx` and
+  `src/ui/card.css` (colour tokens and their contrast ratios at the top), so they read as one design.
+- Head (`CardHead`): a 40 px category badge, then eyebrow, name (Georgia) and date (+ duration pill) on one left
+  edge. The eyebrow names the category (or the browse page's kicker) and, for a group member, links the group
+  ("Civilization · Ancient Egypt"; it replaced the breadcrumb). The info card's minimise and close buttons sit at
+  the end of the eyebrow's row, so the name has the full width.
+- Info card order: head; round actions (Timeline or Globe, `<Category> page` with a video count, History here,
+  Share); site stepper (name, then "Site 3 of 22" and its dates); picture; Listen; description and "Read more on
+  Wikipedia"; ancient DNA line; "This site / place / period" box (dating, confidence, location note, cultures in
+  the layer, also in ROAD; a period whose dates the stepper already shows gets none); Also here; Includes (a
+  group's members as rows); Related; Alive at the same time; Guided tours; Sources.
+- Sources and references are folded into one line at the foot (`SourcesDisclosure`, a `<details>`): the clicked
+  point's evidence (location, date, lab numbers, publications) and the entity's sources with licences. Opening it
+  is remembered (localStorage `history-globe.card-sources-open`). Rob's question whether sources were better behind
+  a drop-down; Claude's call to fold them and keep "Read more" in view.
+- Detail views: the same head, then Show on globe (primary) / See on timeline / Compare species, then the text;
+  an event's places stay listed, their coordinate and date references go into Sources. On phones the picture's
+  full-screen button moves to its bottom right (the close button has the top right).
+- The DNA-site and What Was Here? cards keep their own heads but share the round close button (`.info-panel > .close`).
+
 ## Guided tours (`src/tours/`)
 
 **To make a tour, follow `docs/tours.md`** (stops, descriptions, narration, music, upload, release).
@@ -213,7 +236,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `ui/stacked.css`): badge, name (serif), short date range, the picture filling the right edge (events square,
   never faded or covered), and the site stepper; a tap opens the full card, whose minimise button returns to it.
   Above the globe normally, floating over its top during a tour. It replaced both the old minimised card and the
-  tour strip (Rob's call, 13 Oct 2026). The full card itself is unchanged.
+  tour strip (Rob's call, 13 Oct 2026). The full card is described under Cards.
 - Card width (desktop, over 900 px): a drag handle on the info card's left edge (`src/ui/CardResizer.tsx`) sets
   `cardWidth` in the store (in memory only: kept for the visit, reset by a reload, Rob's call). CSS clamps it to
   300 px .. window minus rail minus 480 px (`--card-user-w` -> `--card-w` in `ui/sidenav.css`; `--card-tl-w` on the

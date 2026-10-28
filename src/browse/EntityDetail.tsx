@@ -4,6 +4,7 @@ import { useData } from "../map/data";
 import { navigate, type BrowseView } from "../route";
 import { useStore } from "../store";
 import { formatRange } from "../time/scale";
+import { shortRange } from "../ui/InfoPanel";
 import { formatDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { youtubeId } from "../youtube";
@@ -19,6 +20,8 @@ import { contemporaries } from "../ui/contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
 import TourStopLinks from "../tours/TourStopLinks";
 import TourVideo from "../ui/TourVideo";
+import { CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "../ui/CardParts";
+import { SINGULAR } from "../ui/CategoryIcon";
 import "./browse.css";
 
 /**
@@ -138,8 +141,8 @@ export default function EntityDetail({
     )}
     <div className="ev-overlay" onClick={(e) => e.target === e.currentTarget && navigate(page)}>
       <article className="ev-detail br-detail panel" role="dialog" aria-modal="true" aria-labelledby="br-detail-name">
-        <button ref={closeRef} className="ev-close" onClick={() => navigate(page)} aria-label="Close">
-          ✕
+        <button ref={closeRef} className="ev-close" onClick={() => navigate(page)} aria-label="Close" title="Close (Esc)">
+          <CardIcon name="close" size={16} />
         </button>
         <div className="ev-detail-media">
           {clip?.kind === "video" ? (
@@ -240,107 +243,114 @@ export default function EntityDetail({
           )}
         </div>
         <div className="ev-detail-body">
-          <div className="ev-detail-era br-kicker">
-            <span className="related-dot" style={{ background: color }} />
-            {kicker ?? style.label}
-          </div>
-          {parent && (
-            <div className="breadcrumb">
-              <button className="link" onClick={() => navigate(page, parent.id)}>{parent.name}</button> › {entity.name}
-            </div>
-          )}
-          <h2 id="br-detail-name" className="cat-title">
-            <CategoryBadge category={entity.category} />
-            <span>{entity.name}</span>
-          </h2>
-          <div className="ev-detail-date">
-            {formatRange(entity.start_year, entity.end_year)}
-            {cutOff ? " and later" : ""}
-            <span className="muted"> · {cutOff ? "at least " : ""}{formatDuration(entity.end_year - entity.start_year)}</span>
-          </div>
+          <CardHead
+            category={entity.category}
+            titleId="br-detail-name"
+            eyebrow={
+              <>
+                <span>{kicker ?? SINGULAR[entity.category]}</span>
+                {parent && (
+                  <>
+                    <span className="card-eyebrow-sep" aria-hidden="true">·</span>
+                    <button className="card-eyebrow-link" onClick={() => navigate(page, parent.id)} title={`Open ${parent.name}`}>
+                      {parent.name}
+                    </button>
+                  </>
+                )}
+              </>
+            }
+            title={entity.name}
+            sub={
+              <>
+                <span>
+                  {formatRange(entity.start_year, entity.end_year)}
+                  {cutOff ? " and later" : ""}
+                </span>
+                <span className="card-sub-pill">{cutOff ? "at least " : ""}{formatDuration(entity.end_year - entity.start_year)}</span>
+              </>
+            }
+          />
           {cutOff && <div className="muted br-cutoff">It carried on after 1 CE, where the atlas ends.</div>}
           {approximate && <div className="br-recall">Dates and places recalled, not yet checked against a source.</div>}
-          <ListenButton entity={entity} />
-          <p>{entity.description}</p>
-
-          {mapLine && <div className="muted br-mapline">{mapLine}</div>}
-          {entity.category === "culture" && <DnaCultureLink cultureId={entity.id} />}
-
-          {members.length > 0 && (
-            <div className="related">
-              <div className="muted">Periods:</div>
-              <ol className="br-members">
-                {members.map((m) => (
-                  <li key={m.id}>
-                    <span className="br-member">
-                      <button className="link" onClick={() => navigate(page, m.id)}>{m.name}</button>
-                      <span className="muted">{formatRange(m.start_year, m.end_year)}</span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
-
-          {events.length > 0 && (
-            <div className="related">
-              <div className="muted">Events:</div>
-              <div className="also">
-                {events.map((ev) => (
-                  <button key={ev.id} className="chip" onClick={() => navigate("events", ev.id)} title={ev.date_text}>
-                    <CategoryBadge category="event" size={16} decorative />
-                    {ev.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {sameTime.length > 0 && (
-            <div className="related">
-              <div className="muted">Alive at the same time:</div>
-              <div className="also">
-                {sameTime.map(({ entity: r, from, to }) => (
-                  <button key={r.id} className="chip" onClick={() => navigate(page, r.id)} title={`Both alive ${formatRange(from, to)}`}>
-                    <CategoryBadge category="species" size={16} decorative />
-                    {r.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <TourStopLinks entityId={entity.id} />
-
-          <div className="muted ev-sources">
-            {sources.length > 0 && (
-              <>
-                From{" "}
-                {sources.map((s, k) => (
-                  <span key={s.id}>
-                    {k > 0 && ", "}
-                    {s.url ? <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> : s.name}
-                  </span>
-                ))}
-              </>
-            )}
-            {entity.wikipedia_url && (
-              <>
-                {sources.length ? " · " : ""}
-                <a href={entity.wikipedia_url} target="_blank" rel="noreferrer">Read more</a>
-              </>
-            )}
-          </div>
-
           <div className="ev-actions">
-            <button className="tl-btn" onClick={() => showOnGlobe(entity.id)}>Show on globe</button>
-            <button className="tl-btn" onClick={() => navigate("timeline", entity.id)}>See on timeline</button>
+            <button className="tl-btn primary" onClick={() => showOnGlobe(entity.id)}>
+              <CardIcon name="globe" size={16} />
+              Show on globe
+            </button>
+            <button className="tl-btn" onClick={() => navigate("timeline", entity.id)}>
+              <CardIcon name="timeline" size={16} />
+              See on timeline
+            </button>
             {onCompare && (
               <button className="tl-btn" onClick={() => onCompare(entity.id)}>
+                <CardIcon name="compare" size={16} />
                 Compare species
               </button>
             )}
           </div>
+          <ListenButton entity={entity} />
+          <p className="card-desc">{entity.description}</p>
+          {entity.wikipedia_url && <ReadMore href={entity.wikipedia_url} />}
+
+          {mapLine && <div className="br-mapline">{mapLine}</div>}
+          {entity.category === "culture" && <DnaCultureLink cultureId={entity.id} />}
+
+          {members.length > 0 && (
+            <CardSection title="Periods, by date" count={members.length}>
+              <ol className="card-members">
+                {members.map((m) => (
+                  <li key={m.id}>
+                    <button className="card-member" onClick={() => navigate(page, m.id)} title={formatRange(m.start_year, m.end_year)}>
+                      <span className="card-member-dot" style={{ background: m.color ?? color }} />
+                      <span className="card-member-name">{m.name}</span>
+                      <span className="card-member-date">{shortRange(m.start_year, m.end_year)}</span>
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </CardSection>
+          )}
+
+          {events.length > 0 && (
+            <CardSection title="Events">
+              <div className="also">
+                {events.map((ev) => (
+                  <button key={ev.id} className="chip" onClick={() => navigate("events", ev.id)} title={ev.date_text}>
+                    <CategoryBadge category="event" size={18} decorative />
+                    {ev.name}
+                  </button>
+                ))}
+              </div>
+            </CardSection>
+          )}
+
+          {sameTime.length > 0 && (
+            <CardSection title="Alive at the same time">
+              <div className="also">
+                {sameTime.map(({ entity: r, from, to }) => (
+                  <button key={r.id} className="chip" onClick={() => navigate(page, r.id)} title={`Both alive ${formatRange(from, to)}`}>
+                    <CategoryBadge category="species" size={18} decorative />
+                    {r.name}
+                  </button>
+                ))}
+              </div>
+            </CardSection>
+          )}
+
+          <TourStopLinks entityId={entity.id} />
+
+          {sources.length > 0 && (
+            <SourcesDisclosure>
+              <ul className="card-ref-list">
+                {sources.map((s) => (
+                  <li key={s.id}>
+                    {s.url ? <a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> : s.name}{" "}
+                    <span className="card-ref-licence">{s.licence}</span>
+                  </li>
+                ))}
+              </ul>
+            </SourcesDisclosure>
+          )}
 
           {i >= 0 && order.length > 1 && (
             <nav className="ev-stepper" aria-label="Others">

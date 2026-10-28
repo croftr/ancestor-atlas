@@ -9,6 +9,7 @@ import type { Entity } from "../types";
 import { refLink } from "../ui/refs";
 import EventImage from "./EventImage";
 import EventMedia from "./EventMedia";
+import { CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "../ui/CardParts";
 import ListenButton from "../audio/ListenButton";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import Totals from "../browse/Totals";
@@ -192,75 +193,84 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
   return (
     <div className="ev-overlay" onClick={(e) => e.target === e.currentTarget && navigate("events")}>
       <article className="ev-detail panel" role="dialog" aria-modal="true" aria-labelledby="ev-detail-name">
-        <button ref={closeRef} className="ev-close" onClick={() => navigate("events")} aria-label="Close">
-          ✕
+        <button ref={closeRef} className="ev-close" onClick={() => navigate("events")} aria-label="Close" title="Close (Esc)">
+          <CardIcon name="close" size={16} />
         </button>
         <EventMedia key={event.id} event={event} />
         <div className="ev-detail-body">
-          {era && <div className="ev-detail-era">{era.label}</div>}
-          <h2 id="ev-detail-name" className="cat-title">
-            <CategoryBadge category="event" />
-            <span>{event.name}</span>
-          </h2>
-          <div className="ev-detail-date">{event.date_text}</div>
+          <CardHead
+            category="event"
+            titleId="ev-detail-name"
+            eyebrow={<span>{era ? `Event · ${era.label}` : "Event"}</span>}
+            decorative
+            title={event.name}
+            sub={event.date_text}
+          />
+          <div className="ev-actions">
+            <button className="tl-btn primary" onClick={() => showOnGlobe(event.id)}>
+              <CardIcon name="globe" size={16} />
+              Show on globe
+            </button>
+            <button className="tl-btn" onClick={() => navigate("timeline", event.id)}>
+              <CardIcon name="timeline" size={16} />
+              See on timeline
+            </button>
+          </div>
           <ListenButton entity={event} />
-          <p>{event.description}</p>
+          <p className="card-desc">{event.description}</p>
+          {event.wikipedia_url && <ReadMore href={event.wikipedia_url} />}
 
           {related.length > 0 && (
-            <div className="related">
-              <div className="muted">Related:</div>
+            <CardSection title="Related">
               <div className="also">
                 {related.map((r) => (
                   <button key={r.id} className="chip" onClick={() => showOnGlobe(r.id)} title={`${formatRange(r.start_year, r.end_year)}: show on the globe`}>
-                    <CategoryBadge category={r.category} size={16} />
+                    <CategoryBadge category={r.category} size={18} />
                     {r.name}
                   </button>
                 ))}
               </div>
-            </div>
+            </CardSection>
           )}
 
           <TourStopLinks entityId={event.id} />
 
-          <div className="ev-places">
-            <div className="muted">{places.length === 1 ? "Place" : "Places"}:</div>
-            <ul>
-              {places.map((p) => {
-                const coord = refLink(p.coord_source);
-                return (
+          {places.length > 0 && (
+            <CardSection title={places.length === 1 ? "Place" : "Places"} count={places.length > 1 ? places.length : undefined}>
+              <ul className="ev-places">
+                {places.map((p) => (
                   <li key={p.id}>
                     {p.label}
-                    {coord?.href && (
-                      <>
-                        {" "}
-                        <a className="muted" href={coord.href} target="_blank" rel="noreferrer">({coord.label})</a>
-                      </>
-                    )}
-                    {p.notes && <div className="muted ev-place-note">{p.notes}</div>}
+                    {p.notes && <div className="ev-place-note">{p.notes}</div>}
                   </li>
-                );
-              })}
-            </ul>
-          </div>
-          <div className="muted ev-sources">
-            {dateRef && (
-              <>
-                Date checked against{" "}
-                {dateRef.href ? <a href={dateRef.href} target="_blank" rel="noreferrer">{dateRef.label}</a> : dateRef.label}
-              </>
-            )}
-            {event.wikipedia_url && (
-              <>
-                {dateRef ? " · " : ""}
-                <a href={event.wikipedia_url} target="_blank" rel="noreferrer">Read more</a>
-              </>
-            )}
-          </div>
+                ))}
+              </ul>
+            </CardSection>
+          )}
 
-          <div className="ev-actions">
-            <button className="tl-btn" onClick={() => showOnGlobe(event.id)}>Show on globe</button>
-            <button className="tl-btn" onClick={() => navigate("timeline", event.id)}>See on timeline</button>
-          </div>
+          <SourcesDisclosure>
+            {dateRef && (
+              <div className="card-ref-group">
+                <div className="card-ref-title">Date</div>
+                Checked against {dateRef.href ? <a href={dateRef.href} target="_blank" rel="noreferrer">{dateRef.label}</a> : dateRef.label}
+              </div>
+            )}
+            {places.some((p) => refLink(p.coord_source)) && (
+              <div className="card-ref-group">
+                <div className="card-ref-title">{places.length === 1 ? "Place" : "Places"}</div>
+                <ul className="card-ref-list">
+                  {places.map((p) => {
+                    const coord = refLink(p.coord_source);
+                    return coord ? (
+                      <li key={p.id}>
+                        {p.label}: {coord.href ? <a href={coord.href} target="_blank" rel="noreferrer">{coord.label}</a> : coord.label}
+                      </li>
+                    ) : null;
+                  })}
+                </ul>
+              </div>
+            )}
+          </SourcesDisclosure>
 
           <nav className="ev-stepper" aria-label="Other events">
             <button className="tl-btn" disabled={!prev} onClick={() => prev && navigate("events", prev.id)} title={prev?.name}>

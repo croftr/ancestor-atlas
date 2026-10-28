@@ -1,14 +1,17 @@
 /* Listen button on event cards and the event page. */
-.listen { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 8px 0; }
+/* The button, then (while it plays) its progress, then the credit; the credit drops below when there's no room. */
+.listen { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 10px 0 8px; }
 .listen-btn {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 5px 12px 5px 10px; border-radius: 999px;
   background: rgba(195, 155, 255, 0.16); border: 1px solid rgba(195, 155, 255, 0.45); color: #e6dbff;
   font-size: 0.85rem; font-weight: 600;
 }
-.listen-btn:hover:not(:disabled) { background: rgba(195, 155, 255, 0.28); }
+.listen-btn:hover:not(:disabled) { background: rgba(195, 155, 255, 0.28); border-color: rgba(195, 155, 255, 0.7); }
+.listen-btn:focus-visible { outline: 2px solid #c39bff; outline-offset: 2px; }
 .listen-btn:disabled { opacity: 0.6; cursor: default; }
 .listen-time { font-weight: 400; font-variant-numeric: tabular-nums; color: #c3cbe0; }
 .listen-progress { flex: 1 1 60px; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
 .listen-progress span { display: block; height: 100%; background: #c39bff; }
-.listen-credit { font-size: 0.72rem; flex-basis: 100%; }
+.listen-credit { font-size: 0.72rem; color: #929db3; }
+.listen-progress + .listen-credit { flex-basis: 100%; }

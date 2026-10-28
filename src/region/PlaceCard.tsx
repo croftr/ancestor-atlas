@@ -20,6 +20,7 @@ import {
 } from "./region";
 import { areaAt, useAreasReady, type AreaLevel } from "./area";
 import "./place.css";
+import { CardIcon } from "../ui/CardParts";
 
 export function PlacePinIcon({ size = 15 }: { size?: number }) {
   return (
@@ -177,8 +178,8 @@ export default function PlaceCard() {
             />
           </svg>
         </button>
-        <button className="close" onClick={closePlace} aria-label="Close">
-          ✕
+        <button className="close" onClick={closePlace} aria-label="Close" title="Close (Esc)">
+          <CardIcon name="close" size={16} />
         </button>
         <div
           className="info-head"

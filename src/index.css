@@ -304,7 +304,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
   max-height: calc(100vh - 16px);
   overflow-y: auto;
   border-right: none;
-  border-radius: 12px 0 0 12px;
+  border-radius: 14px 0 0 14px;
+  /* Near-opaque, so the text keeps its contrast over any basemap (the light ones showed through). */
+  padding: 14px 16px 10px;
+  background: rgba(13, 19, 34, 0.95);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
   scrollbar-width: thin;
   scrollbar-color: rgba(142, 160, 200, 0.3) transparent;
 }
@@ -424,8 +430,17 @@ button { font: inherit; color: inherit; cursor: pointer; }
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
 }
 .info-panel h2 { margin: 2px 0 4px; font-size: 1.2rem; }
-.info-panel .info-head { padding-right: 28px; } /* clear of the close button, now the name is the top line */
-.info-panel .close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 1rem; }
+/* Clear of the corner close button (the info card's own buttons sit in its head, CardParts.tsx). */
+.info-panel .info-head:not(:has(> .card-head)) { padding-right: 40px; }
+/* The corner close button of the cards that have one (DNA site, What Was Here?); the info card's own sit in its head. */
+.info-panel > .close {
+  position: absolute; top: 10px; right: 10px; z-index: 2; width: 32px; height: 32px; padding: 0;
+  display: grid; place-items: center; border: none; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06); color: #c3cbdc; font-size: 0.95rem;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.info-panel > .close:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.info-panel > .close:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
 .info-min { display: none; } /* small screens only (stacked.css) */
 /* An entity's name with its category badge before it (CategoryBadge). The badge lines up with the
    first line when a long name wraps. */
@@ -620,17 +635,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .loading-spinner { animation-duration: 2.4s; } }
-.breadcrumb { margin-top: 6px; font-size: 0.85em; color: #b8c1d6; }
 .link { background: none; border: none; padding: 0; color: #8ec5ff; text-align: left; }
 .link:hover { text-decoration: underline; }
-.site-block { background: rgba(255,255,255,0.06); border-radius: 6px; padding: 6px 10px; margin: 8px 0; }
-.children { list-style: none; margin: 4px 0 8px; padding: 0; }
-.children li { padding: 2px 0; }
-.children .swatch { vertical-align: middle; margin-right: 4px; }
-.refs { margin-top: 8px; font-size: 0.85em; }
-.refs a, .sources-list a, .site-refs a { color: #8ec5ff; }
-.image-credit { font-size: 0.75em; font-style: italic; margin-top: 2px; }
-.site-refs { margin-top: 4px; font-size: 0.9em; overflow-wrap: anywhere; }
+.sources-list a { color: #8ec5ff; }
+.image-credit { font-size: 0.75em; font-style: italic; margin-top: 2px; line-height: 1.4; color: #929db3; }
+.image-credit a { color: inherit; text-decoration: underline; text-decoration-color: rgba(146, 157, 179, 0.5); text-underline-offset: 2px; }
+.image-credit a:hover { color: #c3cbdc; }
 .sources-toggle { margin-top: 8px; background: none; border: none; padding: 0; color: #b8c1d6; font-size: 0.85em; }
 .sources-toggle:hover { color: #fff; }
 .sources-list { list-style: none; margin: 6px 0 0; padding: 0; max-height: 40vh; overflow-y: auto; font-size: 0.85em; }
@@ -644,10 +654,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-size: 0.85em;
   line-height: 1.35;
 }
-.conf { font-weight: 600; text-transform: capitalize; }
-.conf-high { color: #5fd38d; }
-.conf-medium { color: #e0c050; }
-.conf-low { color: #ee7b6b; }
 
 .settings { position: absolute; bottom: 12px; left: 12px; z-index: 10; display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
 .settings-toggle { width: 36px; height: 36px; padding: 0; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
@@ -694,8 +700,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .feature-nav-btn svg { transition: transform 0.08s ease; }
 .feature-nav-btn:active svg { transform: scale(0.88); }
 .feature-nav-mid { flex: 1; min-width: 0; text-align: center; align-self: center; padding: 6px 8px; }
-.feature-nav-count { font-size: 0.75rem; color: #8b95ab; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
-.feature-nav-label { font-size: 0.85rem; line-height: 1.3; overflow-wrap: anywhere; }
+/* The site's name (or a period's dates), then where it is in the list and its dates. */
+.feature-nav-label { font-size: 0.88rem; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.feature-nav-count {
+  display: flex; flex-wrap: wrap; justify-content: center; column-gap: 10px;
+  margin-top: 1px; font-size: 0.74rem; line-height: 1.3; color: #9aa5bc; letter-spacing: 0.01em; font-variant-numeric: tabular-nums;
+}
+.feature-nav-dates { color: #c3cbdc; white-space: nowrap; }
 .nowrap { white-space: nowrap; }
 
 /* First-visit hint (WelcomeHint): under the search on large screens, above the time bar on phones. */

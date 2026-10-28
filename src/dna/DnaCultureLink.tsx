@@ -1,6 +1,7 @@
 import { useStore } from "../store";
 import { navigate, useView } from "../route";
 import { useDnaCultureCount } from "./data";
+import { DnaIcon } from "./DnaIcon";
 import "./dna.css";
 
 /**
@@ -23,18 +24,21 @@ export default function DnaCultureLink({ cultureId }: { cultureId: string }) {
     }
   };
   return (
-    <div className="muted dna-culture-link">
-      {people.toLocaleString("en-US")} ancient genome{people === 1 ? "" : "s"} from {sites} site{sites === 1 ? "" : "s"}
-      {onGlobe && on ? (
-        " (ringed on the globe when dated to this time)"
-      ) : (
-        <>
-          {" · "}
-          <button className="link" onClick={show}>
-            Show on the globe
-          </button>
-        </>
-      )}
+    <div className="dna-culture-link">
+      <DnaIcon size={16} />
+      <span>
+        {people.toLocaleString("en-US")} ancient genome{people === 1 ? "" : "s"} from {sites} site{sites === 1 ? "" : "s"}
+        {onGlobe && on ? (
+          <span className="muted"> (ringed on the globe when dated to this time)</span>
+        ) : (
+          <>
+            {" · "}
+            <button className="link" onClick={show}>
+              Show on the globe
+            </button>
+          </>
+        )}
+      </span>
     </div>
   );
 }

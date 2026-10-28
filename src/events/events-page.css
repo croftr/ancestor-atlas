@@ -187,18 +187,28 @@
   border-radius: 16px;
 }
 .ev-detail-media { align-self: start; position: sticky; top: 0; }
-.ev-detail-body h2 { margin: 2px 0 4px; font-size: 1.5rem; line-height: 1.2; }
-.ev-detail-body p { line-height: 1.55; }
-.ev-detail-era { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #cdb6ff; }
-.ev-detail-date { color: #cbd3e6; }
-.ev-close { position: absolute; top: 10px; right: 12px; z-index: 1; background: rgba(11, 16, 32, 0.72); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; width: 34px; height: 34px; }
-.ev-close:hover { background: rgba(40, 52, 84, 0.9); }
-.ev-places ul { margin: 4px 0 8px; padding-left: 18px; }
-.ev-places li { margin: 2px 0; }
-.ev-place-note { font-size: 0.82rem; }
-.ev-sources { font-size: 0.85rem; margin: 6px 0 14px; }
-.ev-sources a, .ev-places a { color: #8ec5ff; }
-.ev-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+/* The head, sections and sources come from ui/card.css (CardParts.tsx); a larger name here. */
+.ev-detail .card-head .card-title { font-size: 1.75rem; }
+.ev-detail .card-desc { font-size: 1rem; }
+.ev-detail-body > .card-head .card-eyebrow-row { padding-right: 36px; } /* clear of the close button */
+.ev-close {
+  position: absolute; top: 12px; right: 12px; z-index: 3; width: 36px; height: 36px; padding: 0;
+  display: grid; place-items: center; border-radius: 50%; color: #e1e6ef;
+  background: rgba(11, 16, 32, 0.72); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.ev-close:hover { background: rgba(40, 52, 84, 0.95); border-color: rgba(255, 255, 255, 0.35); }
+.ev-close:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.ev-places { margin: 0; padding-left: 18px; font-size: 0.9rem; line-height: 1.45; }
+.ev-places li + li { margin-top: 4px; }
+.ev-place-note { font-size: 0.8rem; color: var(--card-muted); }
+.ev-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 4px; }
+.ev-actions .tl-btn { display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 6px 14px 6px 12px; }
+.ev-actions .tl-btn .card-icon { color: #a6d2ff; }
+.ev-actions .tl-btn.primary { background: #3d7bff; border-color: #3d7bff; color: #fff; font-weight: 600; }
+.ev-actions .tl-btn.primary .card-icon { color: #fff; }
+.ev-actions .tl-btn.primary:hover { background: #5a8fff; border-color: #5a8fff; }
+.ev-actions .tl-btn:focus-visible, .ev-stepper .tl-btn:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
 .ev-stepper { display: flex; align-items: center; gap: 10px; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
 .ev-stepper .tl-btn { max-width: 42%; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; min-height: 36px; }
 .ev-step-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -223,7 +233,11 @@
   .ev-overlay { padding: 0; place-items: stretch; }
   .ev-detail.panel { grid-template-columns: minmax(0, 1fr); gap: 14px; max-height: 100vh; border-radius: 0; padding: 16px 16px 24px; }
   .ev-detail-media { position: static; }
-  .ev-detail-body h2 { font-size: 1.25rem; }
+  .ev-detail .card-head .card-title { font-size: 1.45rem; }
+  .ev-detail .card-desc { font-size: 0.97rem; }
+  .ev-detail-body > .card-head .card-eyebrow-row { padding-right: 0; } /* the close button sits over the picture */
+  /* The close button takes the picture's top right corner, so its full-screen button moves to the bottom. */
+  .ev-detail .pv-open-hint { top: auto; bottom: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ev-tile .ev-img, .ev-tile .ev-tile-pic { transition: none; }

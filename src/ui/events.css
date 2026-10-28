@@ -1,11 +1,8 @@
-/* Event additions to the info card. */
-.related { margin: 6px 0 8px; }
 /* Chips led by a category badge (Related, Also here, Events). */
-.related .chip, .chip:has(> .cat-badge) { display: inline-flex; align-items: center; gap: 6px; padding-left: 4px; }
+.chip:has(> .cat-badge) { display: inline-flex; align-items: center; gap: 6px; padding-left: 4px; }
 .chip > .cat-badge { margin-top: 0; }
-.related-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
-.related .tour-chip { padding-left: 8px; border-color: rgba(195, 155, 255, 0.35); background: rgba(195, 155, 255, 0.1); }
-.related .tour-chip:hover { background: rgba(195, 155, 255, 0.22); border-color: rgba(195, 155, 255, 0.6); }
+.card-section.tour-stop-links .tour-chip { padding-left: 9px; border-color: rgba(195, 155, 255, 0.35); background: rgba(195, 155, 255, 0.1); }
+.card-section.tour-stop-links .tour-chip:hover { background: rgba(195, 155, 255, 0.22); border-color: rgba(195, 155, 255, 0.6); }
 .tour-chip-icon { flex: none; color: #c39bff; }
-.tour-chip-stop { font-size: 0.72rem; color: #cdb6ff; opacity: 0.85; font-variant-numeric: tabular-nums; }
+.tour-chip-stop { font-size: 0.72rem; color: #d6c4ff; font-variant-numeric: tabular-nums; }
 
