@@ -142,7 +142,7 @@ export default function EventsPage() {
                 <li key={e.id}>
                   <button className="ev-tile" onClick={() => navigate("events", e.id)}>
                     <span className="ev-tile-pic">
-                      <EventImage event={e} />
+                      <EventImage event={e} sizes="(max-width: 520px) 50vw, 300px" />
                       {e.media && e.media.length > 0 && <span className="ev-tile-flag">{videoCount(e.media.length)}</span>}
                     </span>
                     <span className="ev-tile-date" title={e.date_text}>{e.date_text && shortDate(e.date_text)}</span>

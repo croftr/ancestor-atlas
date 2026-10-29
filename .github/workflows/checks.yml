@@ -1,0 +1,28 @@
+# Runs on every push and pull request: the same checks as `npm run build` (data fresh and valid,
+# types), plus the tests, which the build doesn't run. Never fetches data: raw sources are not in
+# the repo, and tests that need them skip themselves.
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: public/data matches data/curated
+        run: npx tsx scripts/check-data-fresh.ts
+      - name: Validate data
+        run: npm run validate-data
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Tests
+        run: npm test

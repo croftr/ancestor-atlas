@@ -1,3 +1,6 @@
+> **History, not instructions.** The original MVP brief (Oct 2026), kept for the record. The app has long since
+> grown past it; for how things work now, read README.md and CLAUDE.md.
+
 # Implementation plan: Ancestor Atlas MVP
 
 > **For the implementing agent:** this document is self-contained. Build exactly what is described here. Where something is unspecified, choose the simplest option that meets the acceptance checklist (section 9). **Do not add features beyond this scope.**
