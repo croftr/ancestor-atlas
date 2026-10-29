@@ -1366,6 +1366,7 @@
   narration: { src: narration/cultures/unetice-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "7c6fc818e5" }
   image_url: /images/cultures/unetice.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/unetice-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early Bronze Age hilltop stronghold: elite bronze metalworking, halberds, flanged axes, and the Nebra Sky Disc"
   wikipedia_url: https://en.wikipedia.org/wiki/Únětice_culture
   wikidata: Q773818
@@ -1607,6 +1608,7 @@
   narration: { src: narration/cultures/andronovo-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d42c3acbcb" }
   image_url: /images/cultures/andronovo.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/andronovo-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Bronze Age steppe settlement: spoke-wheeled horse chariot warrior, bronze metallurgy, and geometric meander pottery"
   wikipedia_url: https://en.wikipedia.org/wiki/Andronovo_culture
   wikidata: Q459376
