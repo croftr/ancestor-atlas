@@ -57,14 +57,15 @@ describe.each(TOURS)("tour $id", (tour) => {
       console.warn(`tour ${tour.id}: the closing narration no longer matches its closing line`);
   });
 
-  it("as a book tour, has a synopsis and a note on every stop", () => {
+  it("as a book tour, has a synopsis and book stops with their text", () => {
     if (!tour.book) {
       expect(tour.synopsis ?? tour.stops.find((s) => s.note)).toBeUndefined();
       return;
     }
     expect(tour.book.link).toMatch(/^https:\/\//);
     expect(tour.synopsis).toBeTruthy();
-    for (const stop of tour.stops) expect(stop.note?.text, stop.entity).toBeTruthy();
+    expect(tour.stops.some((s) => s.note)).toBe(true);
+    for (const stop of tour.stops) if (stop.note) expect(stop.note.text, stop.entity).toBeTruthy();
     if (tour.book.cover) expect(existsSync(`public${tour.book.cover.url}`), tour.book.cover.url).toBe(true);
     for (const img of tour.stops.flatMap((s) => s.note?.images ?? [])) {
       expect(existsSync(`public${img.url}`), img.url).toBe(true);

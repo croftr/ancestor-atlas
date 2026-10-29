@@ -5,6 +5,9 @@ import { coverPictures, type StopSummary } from "./summary";
 const stop = (index: number, pictured = true): StopSummary => ({
   index,
   entity: { id: `e${index}` } as Entity,
+  name: `e${index}`,
+  book: false,
+  narrated: false,
   year: null,
   picture: pictured ? { url: `/p${index}.webp` } : undefined,
 });

@@ -293,7 +293,9 @@ function setNote(text: string, id: string, index: number, narration: string): st
   const start = lines.indexOf(`    id: "${id}",`);
   const stops = lines.findIndex((l, i) => i > start && l.startsWith("    stops:"));
   if (start < 0 || stops < 0) fail(`no tour ${id} with stops in ${TOURS_FILE}`);
-  const entityLines = lines.flatMap((l, i) => (i > stops && /^ {8}entity: /.test(l) ? [i] : []));
+  // Every stop, one-line ({ entity: … }) or written field by field, in order, up to the tour's end.
+  const close = lines.findIndex((l, i) => i > stops && l.startsWith("    ],"));
+  const entityLines = lines.flatMap((l, i) => (i > stops && i < close && /^( {6}\{ entity: | {8}entity: )/.test(l) ? [i] : []));
   const at = entityLines[index] ?? fail(`tour ${id}: no stop ${index + 1} written one field per line`);
   const next = entityLines[index + 1] ?? lines.length;
   const note = lines.findIndex((l, i) => i > at && i < next && /^ {8}note: \{ text: .*\},$/.test(l));

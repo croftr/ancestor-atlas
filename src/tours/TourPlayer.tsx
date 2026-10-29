@@ -175,32 +175,32 @@ export default function TourPlayer() {
       return;
     }
     const entity = data.entityById.get(stop.entity)!;
-    // Held for the narration if there is one (set once it starts), else for reading time.
-    let holdMs = holdSeconds(stop, entity.description) * 1000;
-    let cancelled = false;
-    const nextEntity = tour.stops[index + 1] && data.entityById.get(tour.stops[index + 1].entity);
-    if (nextEntity?.narration) preloadNarration(nextEntity.narration.src);
-    // A book tour's note comes first (BookNote.tsx): the globe turns to the place, the note is shown and
-    // read (or held for reading time), then the card opens as in any tour.
+    // A book tour's note is a stop of its own (BookNote.tsx): the globe turns to its place and the note
+    // is shown in the card's place and read, with its pictures, instead of the entity's card.
     const note = stop.note;
-    let noting = false;
-    let noteMs = note ? readingSeconds(note.text) * 1000 : 0;
-    if (note?.narration) preloadNarration(note.narration.src);
-    const nextNote = tour.stops[index + 1]?.note?.narration;
-    if (nextNote) preloadNarration(nextNote.src);
-    preloadPictures(entity);
-    preloadPictures(nextEntity);
-    for (const x of [...(stop.note?.images ?? []), ...(tour.stops[index + 1]?.note?.images ?? [])]) new Image().src = x.url;
+    const voice = note ? note.narration : entity.narration;
+    // Held for the narration if there is one (set once it starts), else for reading time.
+    let holdMs = (note ? readingSeconds(note.text) : holdSeconds(stop, entity.description)) * 1000;
+    let cancelled = false;
+    const nextStop = tour.stops[index + 1];
+    const nextEntity = nextStop && data.entityById.get(nextStop.entity);
+    const nextVoice = nextStop?.note ? nextStop.note.narration : nextEntity?.narration;
+    if (voice) preloadNarration(voice.src);
+    if (nextVoice) preloadNarration(nextVoice.src);
+    if (!note) preloadPictures(entity);
+    if (nextEntity && !nextStop.note) preloadPictures(nextEntity);
+    for (const x of [...(note?.images ?? []), ...(nextStop?.note?.images ?? [])]) new Image().src = x.url;
     // The stop's ambient sound, if it has one (tours/ambience.ts), comes in as its card opens.
-    const sound = AMBIENCE[entity.id]?.sound;
-    const nextSound = nextEntity && AMBIENCE[nextEntity.id]?.sound;
+    const sound = note ? undefined : AMBIENCE[entity.id]?.sound;
+    const nextSound = nextEntity && !nextStop.note ? AMBIENCE[nextEntity.id]?.sound : undefined;
     if (sound) preloadAmbience(sound.src);
     if (nextSound) preloadAmbience(nextSound.src);
     const patchTour = (p: Partial<NonNullable<ReturnType<typeof useStore.getState>["tour"]>>) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
-    // Extra pictures take turns on the card during the hold (tourPicture.ts); never stepping back.
+    // Extra pictures take turns on the card (or the note's on the note) during the hold (tourPicture.ts); never stepping back.
+    const extras = note ? note.images : entity.extra_images;
     let picture = 0;
-    patchTour({ picture: { entity: entity.id, index: 0 } });
+    patchTour(note ? { notePicture: 0 } : { picture: { entity: entity.id, index: 0 } });
 
     let from = yearToPos(useStore.getState().year);
     const to = yearToPos(target);
@@ -210,12 +210,16 @@ export default function TourPlayer() {
     }
     const travelMs = travel && to > from ? Math.min(MAX_TRAVEL_MS, Math.max(MIN_TRAVEL_MS, (to - from) * TRAVEL_MS_PER_TRACK)) : 0;
 
-    const openCard = () => {
-      useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
-      patchTour({ phase: "hold", holdMs, gap: undefined, note: undefined, notePicture: undefined });
+    const arrive = () => {
+      if (note) {
+        // Turn to the place with no card open; the note takes the card's place.
+        useStore.getState().select(null);
+        useStore.getState().showEntity(stop.entity, { year: target, site: stop.site });
+      } else useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
+      patchTour({ phase: "hold", holdMs, gap: undefined, note: note ? true : undefined });
       if (sound) startAmbience(sound.src);
-      if (entity.narration && !stop.hold)
-        playNarration(entity.narration.src)
+      if (voice && !stop.hold)
+        playNarration(voice.src)
           .then((seconds) => {
             if (cancelled || !Number.isFinite(seconds)) return;
             if (useStore.getState().tour?.paused) pauseNarration();
@@ -224,27 +228,11 @@ export default function TourPlayer() {
           })
           .catch(() => {}); // blocked or missing: the reading-time hold stands
     };
-    const arrive = () => {
-      if (!note) return openCard();
-      noting = true;
-      useStore.getState().select(null);
-      useStore.getState().showEntity(stop.entity, { year: target, site: stop.site });
-      patchTour({ phase: "hold", holdMs: noteMs, gap: undefined, note: true, notePicture: 0 });
-      if (note.narration)
-        playNarration(note.narration.src)
-          .then((seconds) => {
-            if (cancelled || !Number.isFinite(seconds) || !noting) return;
-            if (useStore.getState().tour?.paused) pauseNarration();
-            noteMs = seconds * 1000 + AFTER_NARRATION_MS;
-            patchTour({ holdMs: noteMs });
-          })
-          .catch(() => {}); // blocked or missing: the reading-time hold stands
-    };
     if (travelMs > 0) {
       useStore.getState().select(null);
       // How long has passed since the stop before (shown over the globe while the slider travels).
       const before = index > 0 ? stopYear(tour.stops[index - 1], data) : null;
-      patchTour({ phase: "travel", holdMs, gap: before === null ? undefined : Math.max(0, target - before) });
+      patchTour({ phase: "travel", holdMs, gap: before === null ? undefined : Math.max(0, target - before), note: undefined });
     } else arrive();
 
     let elapsed = 0;
@@ -265,26 +253,14 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
-      } else if (noting) {
-        // The note's pictures take turns after the cover, through the note's hold.
-        const shown = pictureIndexAt(note?.images, elapsed, noteMs);
-        if (note?.images?.length && shown > (s.tour.notePicture ?? 0)) patchTour({ notePicture: shown });
-        // On to the card when the note has been read (or skipped: its Continue button sets `note` false).
-        const reading = note?.narration && narrationState().playing && narrationState().src === note.narration.src;
-        if (s.tour.note === false || (elapsed >= noteMs && !reading)) {
-          if (reading) stopNarration();
-          noting = false;
-          elapsed = 0;
-          openCard();
-        }
-      } else if (entity.extra_images?.length) {
-        const videoEndMs = entity.video ? (entity.category === "species" ? 5_500 : 9_500) : 0;
-        if (elapsed >= videoEndMs && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
-          picture = pictureIndexAt(entity.extra_images, elapsed, holdMs);
-          patchTour({ picture: { entity: entity.id, index: picture } });
+      } else if (extras?.length) {
+        const videoEndMs = !note && entity.video ? (entity.category === "species" ? 5_500 : 9_500) : 0;
+        if (elapsed >= videoEndMs && pictureIndexAt(extras, elapsed, holdMs) > picture) {
+          picture = pictureIndexAt(extras, elapsed, holdMs);
+          patchTour(note ? { notePicture: picture } : { picture: { entity: entity.id, index: picture } });
         }
       }
-      if (arrived && !noting && elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
+      if (arrived && elapsed >= holdMs && !(narrationState().playing && narrationState().src === voice?.src)) {
         if (index + 1 < tour.stops.length) patchTour({ index: index + 1, travel: true });
         else useStore.getState().tourGo(index + 1); // the epilogue
         return;

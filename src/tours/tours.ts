@@ -18,9 +18,11 @@ import EVENT_IDS from "./event-ids.json";
  * Stops run oldest first. src/tours/tours.test.ts checks every stop lands on something visible.
  *
  * Book tours (docs/book-tours.md): `book` names the book, `synopsis` is shown (and `synopsisNarration` read)
- * on the title card in place of the blurb, and each stop's `note` says what the book makes of it, shown
- * over the globe (and read) before the card opens. A note belongs to the stop, not the entity, so cards
- * read the same in every tour. `draft`: the notes are not yet checked against the book.
+ * on the title card in place of the blurb. A stop with a `note` is a book stop: the globe turns to its
+ * entity (and `site`) at its year, and the note (what the book makes of that place) takes the card's
+ * place, read aloud, with its pictures; the entity's own card is not opened. Book stops and ordinary stops
+ * mix freely, in date order, and play alike. A note belongs to the stop, so cards read the same in every
+ * tour. `draft`: the notes are not yet checked against the book.
  */
 export interface TourStop {
   entity: string;
@@ -32,6 +34,8 @@ export interface TourStop {
 
 export interface BookNote {
   text: string;
+  /** The stop's name, if not its site's label (or, without a site, the entity's name). */
+  title?: string;
   /** Where the book says it, e.g. "Chapter 7"; left out until checked against the book. */
   chapter?: string;
   narration?: { src: string; credit: string; text_hash: string };
@@ -360,7 +364,8 @@ export const TOURS: Tour[] = [
     blurb: "Rebecca Wragg Sykes's portrait of the Neanderthals, told through the places where the evidence was found, from their earliest days to their last.",
     synopsis: "For over a century Neanderthals stood for the brutish cave man. In Kindred, archaeologist Rebecca Wragg Sykes pulls together a generation of new evidence to show a very different people. Across some 350,000 years, from Wales to the borders of China, they made sophisticated tools from stone, wood and birch tar, hunted everything from mammoths to seabirds, cared for the injured, handled their dead, and met and had children with our own ancestors. This tour visits the places where that evidence was found, from their earliest days to their last.",
     closing: "Not brutes and not a failed version of us: in Kindred, Neanderthals are another way of being human, and in our DNA part of them came along.",
-    // Drafts from reviews and the published evidence (docs/book-tours.md); Rob checks each against the book.
+    // Book stops (with a note) and the atlas's own cards, mixed in date order. Notes drafted from reviews and the
+    // published evidence (docs/book-tours.md); Rob checks each against the book.
     synopsisNarration: { src: "narration/books/kindred/synopsis-v1.mp3", credit: "AI-generated narration", text_hash: "7ff691a095" },
     announcement: { src: "narration/tours/kindred-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "61fbdc978a" },
     music: { src: "music/tours/kindred-v1.mp3", credit: "Music: \"Hiraeth\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
@@ -372,10 +377,12 @@ export const TOURS: Tour[] = [
         site: "neanderthal@1",
         note: { text: "At the bottom of a deep shaft in the Atapuerca hills lie the bones of at least twenty-eight people from about 430,000 years ago, the earliest known on the Neanderthal line. Their DNA links them to Neanderthals. How so many ended up there, and whether they were placed there on purpose, is still argued over.", narration: { src: "narration/books/kindred/stop-1-v1.mp3", credit: "AI-generated narration", text_hash: "22b26160b3" }, images: [{ url: "/images/books/kindred/1-1.webp", credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of a skull from the Sima de los Huesos, one of at least 28 people found at the bottom of the shaft", source: "https://commons.wikimedia.org/wiki/File:Réplicas_de_cráneo_adulto_(Agamenón)._Sima_de_los_Huesos.jpg" }, { url: "/images/books/kindred/1-2.webp", credit: "Nohemi Sala et al. (PLoS ONE 2015), CC BY 4.0, via Wikimedia Commons", caption: "Cranium 17 from the Sima de los Huesos, with two matching fractures over the left eye", source: "https://commons.wikimedia.org/wiki/File:Sima_de_los_Huesos_-_Cranium_17.png" }, { url: "/images/books/kindred/1-3.webp", credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of an adult man's pelvis from the Sima de los Huesos, found in 1994", source: "https://commons.wikimedia.org/wiki/File:Pelvis_masculina_(Elvis)._Sima_de_los_Huesos.jpg" }] },
       },
+      { entity: "neanderthal", year: -429_999, site: "neanderthal@1" },
       {
         entity: "schoningen-spears",
-        note: { text: "Wragg Sykes argues that the stone tools that survive show only part of what Neanderthals made. Most of what they made was wood, and has rotted away. Schöningen is the rare exception: spruce and pine spears some 300,000 years old, shaped and balanced for hunting horses by a lakeshore.", narration: { src: "narration/books/kindred/stop-2-v1.mp3", credit: "AI-generated narration", text_hash: "65229ba9ac" }, images: [{ url: "/images/books/kindred/2-1.webp", credit: "P. Pfarr (Lower Saxony State Office for Heritage), CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Excavator Hartmut Thieme explaining Spear VI, still lying where it was found at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Schöningen_Speer_VI_©_P._Pfarr_NLD.jpg" }, { url: "/images/books/kindred/2-2.webp", credit: "Matthias Vogel, Jens Lehmann and Dirk Leder, CC BY 4.0, via Wikimedia Commons", caption: "Pointed split pieces of wood from Schöningen, with close-ups of their worked tips", source: "https://commons.wikimedia.org/wiki/File:Schöningen_pointed_split_woods_Lower_Palaeolithic.jpg" }] },
+        note: { text: "Wragg Sykes argues that the stone tools that survive show only part of what Neanderthals made. Most of what they made was wood, and has rotted away. Schöningen is the rare exception: spruce and pine spears some 300,000 years old, shaped and balanced for hunting horses by a lakeshore.", title: "Schöningen", narration: { src: "narration/books/kindred/stop-2-v1.mp3", credit: "AI-generated narration", text_hash: "65229ba9ac" }, images: [{ url: "/images/books/kindred/2-1.webp", credit: "P. Pfarr (Lower Saxony State Office for Heritage), CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Excavator Hartmut Thieme explaining Spear VI, still lying where it was found at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Schöningen_Speer_VI_©_P._Pfarr_NLD.jpg" }, { url: "/images/books/kindred/2-2.webp", credit: "Matthias Vogel, Jens Lehmann and Dirk Leder, CC BY 4.0, via Wikimedia Commons", caption: "Pointed split pieces of wood from Schöningen, with close-ups of their worked tips", source: "https://commons.wikimedia.org/wiki/File:Schöningen_pointed_split_woods_Lower_Palaeolithic.jpg" }] },
       },
+      { entity: "schoningen-spears" },
       {
         entity: "neanderthal",
         year: -129_999,
@@ -388,11 +395,13 @@ export const TOURS: Tour[] = [
         site: "levallois-mousterian@r:cueva-de-los-aviones",
         note: { text: "On the coast near Cartagena, Neanderthals collected seashells about 115,000 years ago, pierced some and coloured them with red and yellow pigments. If the dates hold, these ornaments are older than any known from our own species in Europe, a strong sign that the urge to adorn was not ours alone.", narration: { src: "narration/books/kindred/stop-4-v1.mp3", credit: "AI-generated narration", text_hash: "b0ab8a28e8" }, images: [{ url: "/images/books/kindred/4-1.webp", credit: "P4K1T0, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cueva de los Aviones, a sea cave under the Fuerte de Navidad in the bay of Cartagena, Spain", source: "https://commons.wikimedia.org/wiki/File:Cueva_de_los_Aviones.JPG" }] },
       },
+      { entity: "levallois-mousterian", year: -109_999, site: "levallois-mousterian@r:cueva-de-los-aviones" },
       {
         entity: "earliest-burials",
         site: "earliest-burials@1",
         note: { text: "Some of the oldest graves anywhere are here, on Mount Carmel and near Nazareth, where early modern humans buried their dead at Skhul and Qafzeh around 100,000 years ago, with antlers, a boar's jaw and red ochre. Neanderthals lived in the same hills, at Tabun and later Kebara. Wragg Sykes looks at the many ways Neanderthals treated their own dead, from cut-marked bones to graves like those at La Chapelle and Shanidar, and at how hard a burial is to prove.", narration: { src: "narration/books/kindred/stop-5-v2.mp3", credit: "AI-generated narration", text_hash: "f05d81ee1e" }, images: [{ url: "/images/books/kindred/burials-1.webp", credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Cast of the Skhul 5 skull, an early modern human buried on Mount Carmel with a boar's jaw", source: "https://commons.wikimedia.org/wiki/File:Skhul_5_cast,_norma_frontalis.jpg" }, { url: "/images/books/kindred/burials-2.webp", credit: "Velatrix, CC0, via Wikimedia Commons", caption: "Cast of the Qafzeh 6 skull, from the burials at Qafzeh Cave near Nazareth (Natural History Museum, London)", source: "https://commons.wikimedia.org/wiki/File:Qafzeh_6_cast.jpg" }, { url: "/images/books/kindred/burials-3.webp", credit: "R Yeshurun, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Nahal Me'arot cliff on Mount Carmel, with the Tabun, Jamal and el-Wad caves, where Neanderthals lived", source: "https://commons.wikimedia.org/wiki/File:Tabun-jamal-elWad_caves.jpg" }] },
       },
+      { entity: "earliest-burials", site: "earliest-burials@1" },
       {
         entity: "neanderthal",
         year: -69_999,
@@ -425,8 +434,9 @@ export const TOURS: Tour[] = [
       },
       {
         entity: "archaic-human-admixture",
-        note: { text: "Ancient DNA shows that Neanderthals and modern humans met and had children more than once. Most people outside Africa carry a little Neanderthal DNA. Wragg Sykes asks why such meetings are so often imagined as violent, and why desire or attachment should seem \"more of a fairy tale than other explanations\".", narration: { src: "narration/books/kindred/stop-10-v1.mp3", credit: "AI-generated narration", text_hash: "b4ec148cfe" }, images: [{ url: "/images/books/kindred/10-1.webp", credit: "Hajdinjak et al. (Nature 2021), CC BY 4.0, via Wikimedia Commons", caption: "Stretches of Neanderthal DNA (blue) in the genomes of early modern humans from Bacho Kiro Cave and Peștera cu Oase", source: "https://commons.wikimedia.org/wiki/File:Geographical_distribution_of_Neanderthal_archaeological_sites_and_genome-wide_distribution_of_Neanderthal_alleles_in_the_genomes_of_ancient_modern_humans.webp" }] },
+        note: { text: "Ancient DNA shows that Neanderthals and modern humans met and had children more than once. Most people outside Africa carry a little Neanderthal DNA. Wragg Sykes asks why such meetings are so often imagined as violent, and why desire or attachment should seem \"more of a fairy tale than other explanations\".", title: "Meeting our ancestors", narration: { src: "narration/books/kindred/stop-10-v1.mp3", credit: "AI-generated narration", text_hash: "b4ec148cfe" }, images: [{ url: "/images/books/kindred/10-1.webp", credit: "Hajdinjak et al. (Nature 2021), CC BY 4.0, via Wikimedia Commons", caption: "Stretches of Neanderthal DNA (blue) in the genomes of early modern humans from Bacho Kiro Cave and Peștera cu Oase", source: "https://commons.wikimedia.org/wiki/File:Geographical_distribution_of_Neanderthal_archaeological_sites_and_genome-wide_distribution_of_Neanderthal_alleles_in_the_genomes_of_ancient_modern_humans.webp" }] },
       },
+      { entity: "archaic-human-admixture" },
       {
         entity: "neanderthal",
         year: -39_999,
@@ -439,12 +449,14 @@ export const TOURS: Tour[] = [
         site: "chatelperronian@r:arcy-sur-cure-grotte-du-renne-bison",
         note: { text: "Late in their time, Neanderthals here made Châtelperronian tools along with pierced teeth and ornaments of bone. Some researchers think they copied newly arrived modern humans. Others think the layers were mixed. Still others think these were their own ideas.", narration: { src: "narration/books/kindred/stop-12-v1.mp3", credit: "AI-generated narration", text_hash: "196650b395" }, images: [{ url: "/images/books/kindred/12-1.webp", credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Grotte du Renne at Arcy-sur-Cure, Burgundy", source: "https://commons.wikimedia.org/wiki/File:Grotte_du_Renne_d'Arcy-sur-Cure_1.jpg" }, { url: "/images/books/kindred/12-2.webp", credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "Neanderthal remains from Arcy-sur-Cure: two jaws from the Grotte de la Hyène (1, 2), and a tooth and ear bone from the Châtelperronian layers of the Grotte du Renne (3, 4)", source: "https://commons.wikimedia.org/wiki/File:Arcy-sur-Cure_Grotte_de_la_Hyène_Neanderthals_1.jpg" }] },
       },
+      { entity: "chatelperronian", year: -37_999, site: "chatelperronian@r:arcy-sur-cure-grotte-du-renne-bison" },
       {
         entity: "neanderthal-extinction",
         year: -37_999,
         site: "neanderthal-extinction@1",
         note: { text: "On the floor of this sea cave someone cut a cross-hatched pattern into the rock. Neanderthals may have lasted here longer than in most places. Wragg Sykes sees no single cause for their end, rather \"a perfect storm\" of climate swings, a crowded continent and perhaps disease. Survival depends on \"time and babies\", not on who was cleverer. Some of them live on in us.", narration: { src: "narration/books/kindred/stop-13-v1.mp3", credit: "AI-generated narration", text_hash: "25d649ad90" }, images: [{ url: "/images/books/kindred/13-1.webp", credit: "Gibmetal77, CC BY 3.0, via Wikimedia Commons", caption: "Gorham's Cave, a sea cave in the east face of the Rock of Gibraltar", source: "https://commons.wikimedia.org/wiki/File:Gorham's_Cave.jpg" }, { url: "/images/books/kindred/13-2.webp", credit: "John Cummings, CC BY-SA 3.0, via Wikimedia Commons", caption: "Looking out to the Mediterranean from inside Gorham's Cave", source: "https://commons.wikimedia.org/wiki/File:View_from_Gorham's_Cave,_Gibraltar.JPG" }] },
       },
+      { entity: "neanderthal-extinction", year: -37_999, site: "neanderthal-extinction@1" },
     ],
   },
 ];
@@ -461,7 +473,8 @@ export interface TourStopRef {
 export function toursOfEntity(entityId: string): TourStopRef[] {
   const hits: TourStopRef[] = [];
   for (const tour of TOURS) {
-    const index = tour.stops.findIndex((s) => s.entity === entityId);
+    // Book stops are about a place, not the entity's card.
+    const index = tour.stops.findIndex((s) => s.entity === entityId && !s.note);
     if (index >= 0) hits.push({ tour, index });
   }
   return hits;

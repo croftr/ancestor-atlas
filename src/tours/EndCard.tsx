@@ -54,8 +54,8 @@ export default function EndCard({ tour }: { tour: Tour }) {
           <li key={s.index} style={{ "--at": `${reachedAt(s.index, n)}ms` } as CSSProperties}>
             <button
               onClick={() => tourGo(s.index)}
-              title={`${i + 1}. ${s.entity.name}${s.year === null ? "" : ` · ${formatYear(s.year)}`}: watch from here`}
-              aria-label={`Back to stop ${i + 1}, ${s.entity.name}`}
+              title={`${i + 1}. ${s.name}${s.book ? " (from the book)" : ""}${s.year === null ? "" : ` · ${formatYear(s.year)}`}: watch from here`}
+              aria-label={`Back to stop ${i + 1}, ${s.name}`}
             >
               {s.picture ? <img src={s.picture.url} alt="" loading="lazy" /> : <span className="tour-end-blank" />}
               <span className="tour-end-num">{i + 1}</span>

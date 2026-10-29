@@ -33,16 +33,17 @@ Everything a normal tour does stays the same. Additions:
 |---|---|---|
 | Tour fields | id, title, blurb, stops, music, closing | plus `book: { title, author, year, publisher, link }` |
 | Intro | title card, announcement reads the title | plus a **synopsis** (about 400–600 characters, narrated) on a longer title card, with the book's details |
-| Each stop | slider travels, card opens, card narration | plus a **book note** (`note: { text, chapter, narration }`): once the globe has turned to the place, the note is shown as an info card on the right (the book cover as its picture) and read aloud (or held for reading time); the card opens when it ends (or on Continue), then its own narration plays |
+| Stops | slider travels, card opens, card narration | the same, plus **book stops** mixed in (a stop with `note: { text, title?, chapter?, narration?, images? }`): the globe turns to the stop's entity/site at its year and the note takes the card's place, read aloud (or held for reading time), with the cover and then its pictures. The entity's card is not opened; put it in as a stop of its own where it belongs (29 Oct 2026, Rob's call: every stop separate). |
 | Between stops | "40,000 years later" title | the same, shown before the note |
 | End | closing line | the closing line becomes a one- or two-sentence verdict on the book |
 | Tours page | tour cards | a "Book tours" section with title, author and a link to the book |
 
 - **The one-text-per-entity rule holds.** The note belongs to the stop and not to the entity, so a card reads
   the same in every tour, and Çatalhöyük can have one note in one book's tour and another in another's.
-- **Length.** With two narrations per stop, a 13-stop tour runs about 13–15 minutes. Notes of 200–350 characters
-  (about 15–25 s) keep it reasonable. If it still feels long, a tour-level option could skip the card's narration
-  and read only the note.
+- **Length.** A card stop for an entity already visited reads its description again, so add each card once, where
+  it fits best. Notes of 200–350 characters (about 15–25 s) keep it moving.
+- **Narrating a book stop:** `audio:narrate -- --book <tour id> --part <n>` counts every stop (book or card), as
+  the tour bar does.
 - **Order.** Stops go in date order, like other tours; the slider and "years later" titles assume that. Each
   note gives its chapter, so the book's own order is still visible.
 - **Narration:** `npm run audio:narrate -- --book <tour id>` (synopsis and notes missing or stale; `--part

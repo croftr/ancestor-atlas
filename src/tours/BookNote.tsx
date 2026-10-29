@@ -14,9 +14,9 @@ import type { Tour } from "./tours";
  * A book tour's note on the stop (docs/book-tours.md): what the book makes of this place, in the info
  * card's place and dress, once the globe has turned there and before the place's own card opens. The
  * book's cover comes first, then the note's pictures of the place take turns while it is read (or the
- * viewer steps through them). As on the info card, its left edge drags to resize it (desktop) and a tap on
- * the picture opens the full-screen viewer, which stays open into the place's card. Continue opens the
- * card straight away.
+ * viewer steps through them). It is a stop of its own and behaves like the info card: its left edge drags
+ * to resize it (desktop), a tap on the picture opens the full-screen viewer, and ✕ closes it (the tour
+ * plays on).
  */
 export default function BookNote({ tour }: { tour: Tour }) {
   const shown = useStore((s) => s.tour?.note === true);
@@ -49,10 +49,11 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
   const entity = data?.entityById.get(stop.entity);
   const feature = stop.site ? data?.featureById.get(stop.site) : undefined;
   const site = feature?.label;
+  const title = note.title ?? site ?? entity?.name ?? "";
   // The viewer steps its own copy of the pictures in a tour; keyed to this note, not the entity's card.
   const viewer = viewerOpen && entity && pictures.length > 0 && (
     <PictureViewer
-      entity={{ ...entity, id: `${tour.id}:note:${index}`, name: site ?? entity.name, video: undefined }}
+      entity={{ ...entity, id: `${tour.id}:note:${index}`, name: title, video: undefined }}
       date={feature?.date_text ?? entity.date_text ?? ""}
       pictures={pictures}
       index={current}
@@ -64,7 +65,7 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
     <>
     {viewer}
     {!stacked && <CardResizer panel={panelEl} />}
-    <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`From the book: ${site ?? entity?.name ?? ""}`}>
+    <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`From the book: ${title}`}>
       <div className="info-head">
         <div className="card-head">
           <span className="book-badge" aria-hidden="true">
@@ -86,9 +87,14 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
                   </span>
                 )}
               </div>
+              <div className="card-tools">
+                <button className="card-tool close" onClick={skipNote} aria-label="Close" title="Close (the tour plays on)">
+                  <CardIcon name="close" size={16} />
+                </button>
+              </div>
             </div>
-            <h2 className="card-title">{site ?? entity?.name}</h2>
-            <div className="card-sub">{site && entity ? entity.name : `${book.title}, ${book.author}`}</div>
+            <h2 className="card-title">{title}</h2>
+            <div className="card-sub">{title !== entity?.name && entity ? entity.name : `${book.title}, ${book.author}`}</div>
           </div>
         </div>
       </div>
@@ -132,12 +138,6 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
         About the book
         <CardIcon name="external" size={14} />
       </a>
-      <button className="book-note-continue" onClick={skipNote}>
-        Continue
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
-          <path fill="currentColor" d="M11 3h2v10h-2zM3 3v10l7-5z" />
-        </svg>
-      </button>
     </aside>
     </>
   );

@@ -111,12 +111,13 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
         <ol>
           {stops.map((s) => (
             <li key={s.index}>
-              <button onClick={() => watchTour(tour.id, s.index)} title={`Start the tour at stop ${s.index + 1}: ${s.entity.name}`}>
+              <button onClick={() => watchTour(tour.id, s.index)} title={`Start the tour at stop ${s.index + 1}: ${s.name}`}>
                 <StopPicture stop={s} className="tp-thumb" />
                 <span className="tp-stop-text">
                   <span className="tp-stop-name">
-                    <span className="tp-stop-n">{s.index + 1}</span> {s.entity.name}
+                    <span className="tp-stop-n">{s.index + 1}</span> {s.name}
                   </span>
+                  {s.book && <span className="tp-stop-book">From the book</span>}
                   {s.year != null && <span className="tp-stop-year muted">{formatYear(s.year)}</span>}
                 </span>
               </button>

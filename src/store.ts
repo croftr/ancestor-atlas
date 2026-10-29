@@ -130,7 +130,7 @@ interface AppState {
     musicOut?: boolean;
     /** Years from the stop before to this one, while the slider travels there (the "40,000 years later" caption). */
     gap?: number;
-    /** A book tour's note on this stop is showing, before its card opens (tours/BookNote.tsx); false once skipped. */
+    /** A book stop's note is showing (tours/BookNote.tsx); false once closed (the tour plays on). */
     note?: boolean;
     /** The picture showing on that note: 0 the book's cover, then the note's `images` (tours/tourPicture.ts). */
     notePicture?: number;
@@ -195,7 +195,7 @@ interface AppState {
   tourGo(index: number): void;
   /** End the title card and play on to the first stop. */
   skipIntro(): void;
-  /** Close a book tour's note and open the stop's card. */
+  /** Close a book stop's note (the tour plays on, as when a card is closed). */
   skipNote(): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;

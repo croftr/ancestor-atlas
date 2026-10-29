@@ -18,6 +18,13 @@ export function readingSeconds(text: string): number {
   return Math.min(40, Math.max(7, 3 + words / 3.3));
 }
 
+/** What a stop is called: the entity, or for a book stop its note's title, else its place (site), else the entity. */
+export function stopName(stop: TourStop, d: Data): string {
+  const name = d.entityById.get(stop.entity)?.name ?? "";
+  if (!stop.note) return name;
+  return stop.note.title ?? (stop.site ? d.featureById.get(stop.site)?.label : undefined) ?? name;
+}
+
 export function stopYear(stop: TourStop, d: Data): number | null {
   const e = d.entityById.get(stop.entity);
   if (!e) return null;
@@ -32,8 +39,7 @@ export function minutes(tour: Tour, d: Data): number {
     const e = d.entityById.get(stop.entity);
     const y = stopYear(stop, d);
     if (!e || y === null) continue;
-    ms += holdSeconds(stop, e.description) * 1000;
-    if (stop.note) ms += readingSeconds(stop.note.text) * 1000;
+    ms += (stop.note ? readingSeconds(stop.note.text) : holdSeconds(stop, e.description)) * 1000;
     const to = yearToPos(y);
     if (to > pos) ms += Math.min(6000, Math.max(1500, (to - pos) * 60_000));
     pos = to;
@@ -44,22 +50,36 @@ export function minutes(tour: Tour, d: Data): number {
 export interface StopSummary {
   index: number;
   entity: Entity;
+  /** What the stop is called: the entity, or for a book stop the place (its site) it is about. */
+  name: string;
+  /** A book stop: the book's note on a place, not the entity's card. */
+  book: boolean;
+  /** The stop is read out (the entity's narration, or the note's). */
+  narrated: boolean;
   year: number | null;
   picture?: Picture;
 }
 
 /**
- * A tour's stops with their entity, year and picture (stops whose entity is missing are left out). A book
- * tour's stop shows its note's first picture of the place, so stops on one entity (a run of Neanderthal
- * sites) don't all look alike.
+ * A tour's stops with their entity, name, year and picture (stops whose entity is missing are left out). A
+ * book stop is named for its place and shows its note's first picture of it.
  */
 export function stopsOf(tour: Tour, d: Data): StopSummary[] {
   return tour.stops.flatMap((stop, index) => {
     const entity = d.entityById.get(stop.entity);
     if (!entity) return [];
-    const own = stop.note?.images?.[0];
+    const note = stop.note;
+    const own = note?.images?.[0];
     const picture = own ? { url: own.url, credit: own.credit, note: own.caption } : pictureOf(entity, d);
-    return [{ index, entity, year: stopYear(stop, d), picture }];
+    return [{
+      index,
+      entity,
+      name: stopName(stop, d),
+      book: !!note,
+      narrated: !!(note ? note.narration : entity.narration),
+      year: stopYear(stop, d),
+      picture,
+    }];
   });
 }
 
@@ -71,4 +91,4 @@ export function coverPictures(stops: StopSummary[], n = 4): StopSummary[] {
 }
 
 /** Whether every stop of the tour has a narration. */
-export const narrated = (stops: StopSummary[]) => stops.length > 0 && stops.every((s) => s.entity.narration);
+export const narrated = (stops: StopSummary[]) => stops.length > 0 && stops.every((s) => s.narrated);

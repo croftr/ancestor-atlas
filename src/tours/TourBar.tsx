@@ -4,7 +4,7 @@ import { useData } from "../map/data";
 import { navigate } from "../route";
 import { TOURS, tourById } from "./tours";
 import { beginTour } from "./TourPlayer";
-import { coverPictures, minutes, stopsOf } from "./summary";
+import { coverPictures, minutes, stopName, stopsOf } from "./summary";
 import { setMusicMuted, useMusicMuted } from "../audio/music";
 
 const Icon = ({ d }: { d: string }) => (
@@ -112,7 +112,7 @@ export default function TourBar() {
   const t = tour && tourById(tour.id);
   if (!tour || !t) return null;
   const stop = t.stops[tour.index];
-  const name = (stop && data?.entityById.get(stop.entity)?.name) ?? "";
+  const name = stop && data ? `${stopName(stop, data)}${stop.note ? " (from the book)" : ""}` : "";
   // Next goes on from the last stop to the epilogue (index = the number of stops).
   const end = t.stops.length;
 

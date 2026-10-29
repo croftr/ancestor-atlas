@@ -333,13 +333,18 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 
 ## Book tours (`docs/book-tours.md`, started 29 Oct 2026)
 
-- A tour built around a book: `book`, `synopsis` (on the title card) and a `note` per stop (what the book says,
-  shown before the card opens, as an info card on the right with the book cover as its picture; `BookNote.tsx`). The note belongs to the stop, so cards still read
-  the same in every tour. A "Book tours" section on `#/tours`. The book's cover (`book.cover`,
+- A tour built around a book: `book`, `synopsis` (on the title card), and book stops mixed with ordinary ones
+  (Rob's call, 29 Oct 2026: every stop separate, assembled like any tour). A book stop is a stop with a `note`: the
+  globe turns to its entity/site at its year and the note (what the book says) takes the card's place, read aloud,
+  with the cover then its pictures (`BookNote.tsx`); the entity's card is not opened. Several book stops can run
+  together; an item can follow its book stop as a stop of its own. Both kinds number, list and step alike; a book
+  stop is named for its place (`note.title`, else its site's label). The note belongs to the stop, so cards still
+  read the same in every tour. A "Book tours" section on `#/tours`. The book's cover (`book.cover`,
   `public/images/books/`, supplied by Rob) is the tour's picture on the Tours page, menu and title card.
 - Rob's calls: only books mostly about the world before 1 CE; pick books the atlas already covers well; notes come
   from the book (drafts from reviews are fine, Rob checks each against his copy and adds the chapter).
-- First: *Kindred* (Wragg Sykes, 2020), 14 stops (First intentional burials at Qafzeh added as stop 5). Merged to
+- First: *Kindred* (Wragg Sykes, 2020): 21 stops, 14 book stops and 7 cards (Neanderthal at Sima, Schöningen spears,
+  Mousterian at Aviones, First intentional burials, archaic admixture, Châtelperronian, Neanderthal extinction). Merged to
   main 29 Oct 2026 without the Draft chip (Rob's call; `draft: true` brings it back). Title (usual voice), synopsis,
   all 14 notes and the closing line narrated (Rob's recordings; synopsis and notes in a different voice). Music "Hiraeth" (Scott Buckley, CC BY 4.0). Narrate with
   `npm run audio:narrate -- --book <tour id>` (docs/book-tours.md). Checking *After the Ice* turned up data gaps (Younger Dryas, Mesolithic Europe, South
