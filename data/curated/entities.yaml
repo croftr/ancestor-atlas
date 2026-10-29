@@ -1231,6 +1231,7 @@
   narration: { src: narration/cultures/corded-ware-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9caffb21cc" }
   image_url: /images/cultures/corded-ware.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/corded-ware-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Single barrow grave ritual with cord-impressed beaker and polished stone battle-axe alongside pastoralist camp"
   wikipedia_url: https://en.wikipedia.org/wiki/Corded_Ware_culture
   wikidata: Q933996
@@ -1254,6 +1255,7 @@
   narration: { src: narration/cultures/bell-beaker-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3c66f9b81f" }
   image_url: /images/cultures/bell-beaker.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/bell-beaker-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Archer and metalworker community crafting copper daggers and decorated beakers by a round barrow"
   wikipedia_url: https://en.wikipedia.org/wiki/Bell_Beaker_culture
   wikidata: Q470867
