@@ -139,7 +139,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `image_url` + `image_credit` in events.yaml. Events without one show a placeholder tile.
 - Video and audio: `media` list on an event (`kind` video|audio, `src`, `title`, `credit`; validator-enforced). Files live
   in the S3 bucket `robs-ancestors-atlas` (eu-west-2), never in the repo; `src` is the bucket key (`events/x.mp4`), resolved
-  by `mediaUrl` in `src/config.ts` (override the base with `VITE_MEDIA_BASE`). A video `src` may instead be a YouTube link
+  by `mediaUrl` in `src/config.ts` (override the base with `VITE_MEDIA_BASE`; production sets it to the CloudFront
+  distribution `E16IAX4YGRRCPZ`, `https://d2xifofuiw60z6.cloudfront.net`, set up 29 Oct 2026: S3 origin with origin access
+  control, CachingOptimized, Managed-SimpleCORS for the Web Audio music; the bucket policy lets it read everything but
+  `raw/`, and the bucket stays public too, since `audio:upload` checks the public S3 URL). A video `src` may instead be a YouTube link
   (played embedded from youtube-nocookie.com; `src/youtube.ts`); credit the channel. Nothing loads until the viewer picks a
   clip on the event detail view (`src/events/EventMedia.tsx`). Encode MP4s with `-movflags +faststart`; never overwrite a
   key (uploads are cached for a year), upload a new name instead.
