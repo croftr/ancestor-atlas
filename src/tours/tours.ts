@@ -359,6 +359,7 @@ export const TOURS: Tour[] = [
     // Drafts from reviews and the published evidence (docs/book-tours.md); Rob checks each against the book.
     synopsisNarration: { src: "narration/books/kindred/synopsis-v1.mp3", credit: "AI-generated narration", text_hash: "7ff691a095" },
     announcement: { src: "narration/tours/kindred-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "61fbdc978a" },
+    music: { src: "music/tours/kindred-v1.mp3", credit: "Music: \"Hiraeth\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     stops: [
       {
         entity: "neanderthal",
