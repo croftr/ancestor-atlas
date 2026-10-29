@@ -13,8 +13,8 @@ import type { Tour } from "./tours";
 /**
  * A book tour's note on the stop (docs/book-tours.md): what the book makes of this place, in the info
  * card's place and dress, once the globe has turned there and before the place's own card opens. The
- * book's cover comes first, then the note's pictures of the place take turns while it is read (or the
- * viewer steps through them). It is a stop of its own and behaves like the info card: its left edge drags
+ * book's cover is its badge; the note's pictures of the place take turns while it is read (or the viewer
+ * steps through them). A note without pictures shows the cover in the frame instead. It is a stop of its own and behaves like the info card: its left edge drags
  * to resize it (desktop), a tap on the picture opens the full-screen viewer, and ✕ closes it (the tour
  * plays on).
  */
@@ -39,13 +39,14 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
   const stop = tour.stops[index];
   const book = tour.book!;
   const note = stop.note!;
-  const pictures: Picture[] = [
-    ...(book.cover ? [{ url: book.cover.url, credit: book.cover.credit, caption: `Cover of ${book.title}` }] : []),
-    ...(note.images ?? []),
-  ];
+  const pictures: Picture[] = note.images?.length
+    ? note.images
+    : book.cover
+      ? [{ url: book.cover.url, credit: book.cover.credit, caption: `Cover of ${book.title}` }]
+      : [];
   const current = Math.min(manual ?? timed, pictures.length - 1);
   const picture = pictures[current];
-  const isCover = !!book.cover && current === 0;
+  const isCover = !note.images?.length;
   const entity = data?.entityById.get(stop.entity);
   const feature = stop.site ? data?.featureById.get(stop.site) : undefined;
   const site = feature?.label;

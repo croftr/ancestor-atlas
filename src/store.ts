@@ -132,7 +132,7 @@ interface AppState {
     gap?: number;
     /** A book stop's note is showing (tours/BookNote.tsx); false once closed (the tour plays on). */
     note?: boolean;
-    /** The picture showing on that note: 0 the book's cover, then the note's `images` (tours/tourPicture.ts). */
+    /** The picture showing on that note: its `images` in turn (tours/tourPicture.ts). */
     notePicture?: number;
   } | null;
   /**

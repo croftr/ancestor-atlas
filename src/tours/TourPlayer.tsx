@@ -198,7 +198,8 @@ export default function TourPlayer() {
     const patchTour = (p: Partial<NonNullable<ReturnType<typeof useStore.getState>["tour"]>>) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     // Extra pictures take turns on the card (or the note's on the note) during the hold (tourPicture.ts); never stepping back.
-    const extras = note ? note.images : entity.extra_images;
+    // A note's first picture leads (the book's cover is the card's badge, not in the rotation); the rest follow.
+    const extras = note ? note.images?.slice(1) : entity.extra_images;
     let picture = 0;
     patchTour(note ? { notePicture: 0 } : { picture: { entity: entity.id, index: 0 } });
 
