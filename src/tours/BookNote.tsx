@@ -68,9 +68,14 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
     <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`From the book: ${title}`}>
       <div className="info-head">
         <div className="card-head">
-          <span className="book-badge" aria-hidden="true">
-            <CardIcon name="page" size={20} />
-          </span>
+          {/* The book's cover in the badge's place: a tall rectangle beside the eyebrow, name and date. */}
+          {book.cover ? (
+            <img className="book-badge-cover" src={book.cover.url} alt="" aria-hidden="true" />
+          ) : (
+            <span className="book-badge" aria-hidden="true">
+              <CardIcon name="page" size={20} />
+            </span>
+          )}
           <div className="card-head-text">
             <div className="card-eyebrow-row">
               <div className="card-eyebrow book-eyebrow">
