@@ -357,7 +357,6 @@ export const TOURS: Tour[] = [
       link: "https://en.wikipedia.org/wiki/Kindred:_Neanderthal_Life,_Love,_Death_and_Art",
       cover: { url: "/images/books/kindred.webp", credit: "Cover © Bloomsbury Sigma" },
     },
-    draft: true,
     blurb: "Rebecca Wragg Sykes's portrait of the Neanderthals, told through the places where the evidence was found, from their earliest days to their last.",
     synopsis: "For over a century Neanderthals stood for the brutish cave man. In Kindred, archaeologist Rebecca Wragg Sykes pulls together a generation of new evidence to show a very different people. Across some 350,000 years, from Wales to the borders of China, they made sophisticated tools from stone, wood and birch tar, hunted everything from mammoths to seabirds, cared for the injured, handled their dead, and met and had children with our own ancestors. This tour visits the places where that evidence was found, from their earliest days to their last.",
     closing: "Not brutes and not a failed version of us: in Kindred, Neanderthals are another way of being human, and in our DNA part of them came along.",
