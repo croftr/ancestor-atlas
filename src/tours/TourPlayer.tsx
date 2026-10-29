@@ -190,6 +190,7 @@ export default function TourPlayer() {
     if (nextNote) preloadNarration(nextNote.src);
     preloadPictures(entity);
     preloadPictures(nextEntity);
+    for (const x of [...(stop.note?.images ?? []), ...(tour.stops[index + 1]?.note?.images ?? [])]) new Image().src = x.url;
     // The stop's ambient sound, if it has one (tours/ambience.ts), comes in as its card opens.
     const sound = AMBIENCE[entity.id]?.sound;
     const nextSound = nextEntity && AMBIENCE[nextEntity.id]?.sound;
@@ -211,7 +212,7 @@ export default function TourPlayer() {
 
     const openCard = () => {
       useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
-      patchTour({ phase: "hold", holdMs, gap: undefined, note: undefined });
+      patchTour({ phase: "hold", holdMs, gap: undefined, note: undefined, notePicture: undefined });
       if (sound) startAmbience(sound.src);
       if (entity.narration && !stop.hold)
         playNarration(entity.narration.src)
@@ -228,7 +229,7 @@ export default function TourPlayer() {
       noting = true;
       useStore.getState().select(null);
       useStore.getState().showEntity(stop.entity, { year: target, site: stop.site });
-      patchTour({ phase: "hold", holdMs: noteMs, gap: undefined, note: true });
+      patchTour({ phase: "hold", holdMs: noteMs, gap: undefined, note: true, notePicture: 0 });
       if (note.narration)
         playNarration(note.narration.src)
           .then((seconds) => {
@@ -265,6 +266,9 @@ export default function TourPlayer() {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
       } else if (noting) {
+        // The note's pictures take turns after the cover, through the note's hold.
+        const shown = pictureIndexAt(note?.images, elapsed, noteMs);
+        if (note?.images?.length && shown > (s.tour.notePicture ?? 0)) patchTour({ notePicture: shown });
         // On to the card when the note has been read (or skipped: its Continue button sets `note` false).
         const reading = note?.narration && narrationState().playing && narrationState().src === note.narration.src;
         if (s.tour.note === false || (elapsed >= noteMs && !reading)) {

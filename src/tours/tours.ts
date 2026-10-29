@@ -1,4 +1,4 @@
-import type { Category } from "../types";
+import type { Category, ExtraImage } from "../types";
 import type { DnaColour } from "../dna/haplogroups";
 /** Every event id, oldest first; written by `npm run data:build` (scripts/build-data.ts). */
 import EVENT_IDS from "./event-ids.json";
@@ -35,6 +35,11 @@ export interface BookNote {
   /** Where the book says it, e.g. "Chapter 7"; left out until checked against the book. */
   chapter?: string;
   narration?: { src: string; credit: string; text_hash: string };
+  /**
+   * Pictures of the place, after the book's cover, taking turns while the note is read (`at` as for
+   * `extra_images`; else spread evenly). public/images/books/<tour id>/<stop n>-<k>.webp.
+   */
+  images?: ExtraImage[];
 }
 
 export interface Book {
@@ -365,75 +370,75 @@ export const TOURS: Tour[] = [
         entity: "neanderthal",
         year: -429_999,
         site: "neanderthal@1",
-        note: { text: "At the bottom of a deep shaft in the Atapuerca hills lie the bones of at least twenty-eight people from about 430,000 years ago, the earliest known on the Neanderthal line. Their DNA links them to Neanderthals. How so many ended up there, and whether they were placed there on purpose, is still argued over.", narration: { src: "narration/books/kindred/stop-1-v1.mp3", credit: "AI-generated narration", text_hash: "22b26160b3" } },
+        note: { text: "At the bottom of a deep shaft in the Atapuerca hills lie the bones of at least twenty-eight people from about 430,000 years ago, the earliest known on the Neanderthal line. Their DNA links them to Neanderthals. How so many ended up there, and whether they were placed there on purpose, is still argued over.", narration: { src: "narration/books/kindred/stop-1-v1.mp3", credit: "AI-generated narration", text_hash: "22b26160b3" }, images: [{ url: "/images/books/kindred/1-1.webp", credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of a skull from the Sima de los Huesos, one of at least 28 people found at the bottom of the shaft", source: "https://commons.wikimedia.org/wiki/File:Réplicas_de_cráneo_adulto_(Agamenón)._Sima_de_los_Huesos.jpg" }, { url: "/images/books/kindred/1-2.webp", credit: "Nohemi Sala et al. (PLoS ONE 2015), CC BY 4.0, via Wikimedia Commons", caption: "Cranium 17 from the Sima de los Huesos, with two matching fractures over the left eye", source: "https://commons.wikimedia.org/wiki/File:Sima_de_los_Huesos_-_Cranium_17.png" }, { url: "/images/books/kindred/1-3.webp", credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Cast of an adult man's pelvis from the Sima de los Huesos, found in 1994", source: "https://commons.wikimedia.org/wiki/File:Pelvis_masculina_(Elvis)._Sima_de_los_Huesos.jpg" }] },
       },
       {
         entity: "schoningen-spears",
-        note: { text: "Wragg Sykes argues that the stone tools that survive show only part of what Neanderthals made. Most of what they made was wood, and has rotted away. Schöningen is the rare exception: spruce and pine spears some 300,000 years old, shaped and balanced for hunting horses by a lakeshore.", narration: { src: "narration/books/kindred/stop-2-v1.mp3", credit: "AI-generated narration", text_hash: "65229ba9ac" } },
+        note: { text: "Wragg Sykes argues that the stone tools that survive show only part of what Neanderthals made. Most of what they made was wood, and has rotted away. Schöningen is the rare exception: spruce and pine spears some 300,000 years old, shaped and balanced for hunting horses by a lakeshore.", narration: { src: "narration/books/kindred/stop-2-v1.mp3", credit: "AI-generated narration", text_hash: "65229ba9ac" }, images: [{ url: "/images/books/kindred/2-1.webp", credit: "P. Pfarr (Lower Saxony State Office for Heritage), CC BY-SA 3.0 de, via Wikimedia Commons", caption: "Excavator Hartmut Thieme explaining Spear VI, still lying where it was found at Schöningen", source: "https://commons.wikimedia.org/wiki/File:Schöningen_Speer_VI_©_P._Pfarr_NLD.jpg" }, { url: "/images/books/kindred/2-2.webp", credit: "Matthias Vogel, Jens Lehmann and Dirk Leder, CC BY 4.0, via Wikimedia Commons", caption: "Pointed split pieces of wood from Schöningen, with close-ups of their worked tips", source: "https://commons.wikimedia.org/wiki/File:Schöningen_pointed_split_woods_Lower_Palaeolithic.jpg" }] },
       },
       {
         entity: "neanderthal",
         year: -129_999,
         site: "neanderthal@2",
-        note: { text: "Krapina has hundreds of Neanderthal bones from about 130,000 years ago, more than any other site, many with cut marks. The book takes cannibalism seriously but asks the reader to weigh other readings, including the care of the dead. Eight white-tailed eagle talons from the site, cut and polished, may have been worn as jewellery.", narration: { src: "narration/books/kindred/stop-3-v1.mp3", credit: "AI-generated narration", text_hash: "9b36f097a3" } },
+        note: { text: "Krapina has hundreds of Neanderthal bones from about 130,000 years ago, more than any other site, many with cut marks. The book takes cannibalism seriously but asks the reader to weigh other readings, including the care of the dead. Eight white-tailed eagle talons from the site, cut and polished, may have been worn as jewellery.", narration: { src: "narration/books/kindred/stop-3-v1.mp3", credit: "AI-generated narration", text_hash: "9b36f097a3" }, images: [{ url: "/images/books/kindred/3-1.webp", credit: "Luka Mjeda (Radovčić et al., PLoS ONE 2015), CC BY 4.0, via Wikimedia Commons", caption: "White-tailed eagle talons from Krapina, about 130,000 years old, with cut marks that suggest they were worn", source: "https://commons.wikimedia.org/wiki/File:Neandertal_Jewelry_(from_PLoS).jpg" }, { url: "/images/books/kindred/3-2.webp", credit: "Divna Jaksic, public domain, via Wikimedia Commons", caption: "Models of Neanderthals at the Hušnjakovo find site in Krapina, Croatia", source: "https://commons.wikimedia.org/wiki/File:Krapina_-_Hušnjakovo_01.jpg" }] },
       },
       {
         entity: "levallois-mousterian",
         year: -109_999,
         site: "levallois-mousterian@r:cueva-de-los-aviones",
-        note: { text: "On the coast near Cartagena, Neanderthals collected seashells about 115,000 years ago, pierced some and coloured them with red and yellow pigments. If the dates hold, these ornaments are older than any known from our own species in Europe, a strong sign that the urge to adorn was not ours alone.", narration: { src: "narration/books/kindred/stop-4-v1.mp3", credit: "AI-generated narration", text_hash: "b0ab8a28e8" } },
+        note: { text: "On the coast near Cartagena, Neanderthals collected seashells about 115,000 years ago, pierced some and coloured them with red and yellow pigments. If the dates hold, these ornaments are older than any known from our own species in Europe, a strong sign that the urge to adorn was not ours alone.", narration: { src: "narration/books/kindred/stop-4-v1.mp3", credit: "AI-generated narration", text_hash: "b0ab8a28e8" }, images: [{ url: "/images/books/kindred/4-1.webp", credit: "P4K1T0, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cueva de los Aviones, a sea cave under the Fuerte de Navidad in the bay of Cartagena, Spain", source: "https://commons.wikimedia.org/wiki/File:Cueva_de_los_Aviones.JPG" }] },
       },
       {
         entity: "neanderthal",
         year: -69_999,
         site: "neanderthal@21",
-        note: { text: "Shanidar 1 lived for years with a crushed eye socket, a withered arm and a damaged leg, which he could hardly have survived without help. Shanidar is also the cave of the \"flower burial\", now in doubt: the pollen may have been brought in by burrowing animals or bees. Wragg Sykes uses such cases to show how the record of injuries and care has been read and reread.", narration: { src: "narration/books/kindred/stop-5-v1.mp3", credit: "AI-generated narration", text_hash: "5deea95c37" } },
+        note: { text: "Shanidar 1 lived for years with a crushed eye socket, a withered arm and a damaged leg, which he could hardly have survived without help. Shanidar is also the cave of the \"flower burial\", now in doubt: the pollen may have been brought in by burrowing animals or bees. Wragg Sykes uses such cases to show how the record of injuries and care has been read and reread.", narration: { src: "narration/books/kindred/stop-5-v1.mp3", credit: "AI-generated narration", text_hash: "5deea95c37" }, images: [{ url: "/images/books/kindred/5-1.webp", credit: "JosephV at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons", caption: "Shanidar Cave in the Zagros Mountains of Iraqi Kurdistan, with two people crouching at its mouth for scale", source: "https://commons.wikimedia.org/wiki/File:Erbil_governorate_shanidar_cave.jpg" }, { url: "/images/books/kindred/5-2.webp", credit: "Khoshhat, CC BY-SA 4.0, via Wikimedia Commons", caption: "Shanidar Cave on Bradost Mountain, Erbil Governorate", source: "https://commons.wikimedia.org/wiki/File:Shanidar_Cave1.jpg" }] },
       },
       {
         entity: "neanderthal",
         year: -68_999,
         site: "neanderthal@20",
-        note: { text: "Far to the east, in a cave in the mountains of Uzbekistan, a Neanderthal child was found in 1938 among ibex horns. Whether the horns were set around the child on purpose is still argued over. It is one of the sites that take Neanderthal country from France to Central Asia.", narration: { src: "narration/books/kindred/stop-6-v1.mp3", credit: "AI-generated narration", text_hash: "d4ab440703" } },
+        note: { text: "Far to the east, in a cave in the mountains of Uzbekistan, a Neanderthal child was found in 1938 among ibex horns. Whether the horns were set around the child on purpose is still argued over. It is one of the sites that take Neanderthal country from France to Central Asia.", narration: { src: "narration/books/kindred/stop-6-v1.mp3", credit: "AI-generated narration", text_hash: "d4ab440703" }, images: [{ url: "/images/books/kindred/6-1.webp", credit: "Stanislav Kozlovskiy, CC BY 3.0, via Wikimedia Commons", caption: "Skull of the Neanderthal child from Teshik-Tash (State Museum of History of Uzbekistan)", source: "https://commons.wikimedia.org/wiki/File:Skull_of_Teshik-Tash_Boy.jpg" }, { url: "/images/books/kindred/6-2.webp", credit: "Ryan Somma, CC BY-SA 2.0, via Wikimedia Commons", caption: "Cast of the Teshik-Tash child's skull at the Smithsonian's Hall of Human Origins", source: "https://commons.wikimedia.org/wiki/File:Teshik-Task._Homo_neanderthalensis_child.jpg" }] },
       },
       {
         entity: "levallois-mousterian",
         year: -59_999,
         site: "levallois-mousterian@r:abric-romani",
-        note: { text: "Under this rock shelter, layer after layer of hearths survive, with the imprints of wooden objects. The book reads homes like this from the traces of fireplaces: where people sat, worked and slept, and how often the same small band came back.", narration: { src: "narration/books/kindred/stop-7-v1.mp3", credit: "AI-generated narration", text_hash: "4bcb1cfcbb" } },
+        note: { text: "Under this rock shelter, layer after layer of hearths survive, with the imprints of wooden objects. The book reads homes like this from the traces of fireplaces: where people sat, worked and slept, and how often the same small band came back.", narration: { src: "narration/books/kindred/stop-7-v1.mp3", credit: "AI-generated narration", text_hash: "4bcb1cfcbb" }, images: [{ url: "/images/books/kindred/7-1.webp", credit: "Teogomez, CC BY-SA 4.0, via Wikimedia Commons", caption: "Excavation at the Abric Romaní rock shelter, Capellades, Catalonia", source: "https://commons.wikimedia.org/wiki/File:Abric_romaní.jpg" }, { url: "/images/books/kindred/7-2.webp", credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "Copy of a wooden tool from the Abric Romaní, known from the hollow its wood left in the deposit", source: "https://commons.wikimedia.org/wiki/File:Abric_Romani_wooden_tool.jpg" }] },
       },
       {
         entity: "neanderthal",
         year: -58_999,
         site: "neanderthal@7",
-        note: { text: "The \"Old Man\" found here in 1908 was rebuilt as a stooped brute and fixed the cave-man image for decades. Wragg Sykes traces how mistakes like this shaped what we thought of Neanderthals. He had in fact lost most of his teeth and had arthritis, and recent digs suggest he was laid in a pit dug for him.", narration: { src: "narration/books/kindred/stop-8-v1.mp3", credit: "AI-generated narration", text_hash: "454df08a4e" } },
+        note: { text: "The \"Old Man\" found here in 1908 was rebuilt as a stooped brute and fixed the cave-man image for decades. Wragg Sykes traces how mistakes like this shaped what we thought of Neanderthals. He had in fact lost most of his teeth and had arthritis, and recent digs suggest he was laid in a pit dug for him.", narration: { src: "narration/books/kindred/stop-8-v1.mp3", credit: "AI-generated narration", text_hash: "454df08a4e" }, images: [{ url: "/images/books/kindred/8-1.webp", credit: "V. Mourre, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Bouffia Bonneval at La Chapelle-aux-Saints, where the Old Man was found in 1908", source: "https://commons.wikimedia.org/wiki/File:Bouffia_Bonneval_1.jpg" }, { url: "/images/books/kindred/8-2.webp", credit: "Pflege24, CC BY-SA 4.0, via Wikimedia Commons", caption: "Casts of the La Chapelle-aux-Saints skull with reconstructions of his face (Brussels)", source: "https://commons.wikimedia.org/wiki/File:Homme_de_Chapelle-aux-saints.jpg" }] },
       },
       {
         entity: "neanderthal",
         year: -54_999,
         site: "neanderthal@5",
-        note: { text: "Kebara 2 kept the small hyoid bone of the throat, and its shape matches ours. The book argues that Neanderthals were very likely able to speak.", narration: { src: "narration/books/kindred/stop-9-v1.mp3", credit: "AI-generated narration", text_hash: "d9d6c8aa16" } },
+        note: { text: "Kebara 2 kept the small hyoid bone of the throat, and its shape matches ours. The book argues that Neanderthals were very likely able to speak.", narration: { src: "narration/books/kindred/stop-9-v1.mp3", credit: "AI-generated narration", text_hash: "d9d6c8aa16" }, images: [{ url: "/images/books/kindred/9-1.webp", credit: "Velatrix, CC0, via Wikimedia Commons", caption: "Copy of the Kebara 2 skeleton as it was found in 1983 (Natural History Museum, London)", source: "https://commons.wikimedia.org/wiki/File:Kebara_2_skeleton_replica.jpg" }, { url: "/images/books/kindred/9-2.webp", credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "The hyoid bone of Kebara 2, about 60,000 years old, shaped like our own (Neanderthal Museum, Mettmann)", source: "https://commons.wikimedia.org/wiki/File:Zungenbein_Homo_neanderthalensis_Kebara_a.jpg" }] },
       },
       {
         entity: "archaic-human-admixture",
-        note: { text: "Ancient DNA shows that Neanderthals and modern humans met and had children more than once. Most people outside Africa carry a little Neanderthal DNA. Wragg Sykes asks why such meetings are so often imagined as violent, and why desire or attachment should seem \"more of a fairy tale than other explanations\".", narration: { src: "narration/books/kindred/stop-10-v1.mp3", credit: "AI-generated narration", text_hash: "b4ec148cfe" } },
+        note: { text: "Ancient DNA shows that Neanderthals and modern humans met and had children more than once. Most people outside Africa carry a little Neanderthal DNA. Wragg Sykes asks why such meetings are so often imagined as violent, and why desire or attachment should seem \"more of a fairy tale than other explanations\".", narration: { src: "narration/books/kindred/stop-10-v1.mp3", credit: "AI-generated narration", text_hash: "b4ec148cfe" }, images: [{ url: "/images/books/kindred/10-1.webp", credit: "Hajdinjak et al. (Nature 2021), CC BY 4.0, via Wikimedia Commons", caption: "Stretches of Neanderthal DNA (blue) in the genomes of early modern humans from Bacho Kiro Cave and Peștera cu Oase", source: "https://commons.wikimedia.org/wiki/File:Geographical_distribution_of_Neanderthal_archaeological_sites_and_genome-wide_distribution_of_Neanderthal_alleles_in_the_genomes_of_ancient_modern_humans.webp" }] },
       },
       {
         entity: "neanderthal",
         year: -39_999,
         site: "neanderthal@r:feldhofer-grotte",
-        note: { text: "In 1856 quarrymen cleared bones from a small cave here, and the Neanderthals got their name. A century and a half later, archaeologists found the old spoil heaps and pieces of the same skeleton. The book tells the story of discovery, of bones scattered, lost and found again.", narration: { src: "narration/books/kindred/stop-11-v1.mp3", credit: "AI-generated narration", text_hash: "80d48ef81a" } },
+        note: { text: "In 1856 quarrymen cleared bones from a small cave here, and the Neanderthals got their name. A century and a half later, archaeologists found the old spoil heaps and pieces of the same skeleton. The book tells the story of discovery, of bones scattered, lost and found again.", narration: { src: "narration/books/kindred/stop-11-v1.mp3", credit: "AI-generated narration", text_hash: "80d48ef81a" }, images: [{ url: "/images/books/kindred/11-1.webp", credit: "Hans Weingartz, CC BY-SA 2.0 de, via Wikimedia Commons", caption: "The skullcap found in the Feldhofer Cave in 1856 (Rhineland Museum, Bonn)", source: "https://commons.wikimedia.org/wiki/File:Neander1.jpg" }, { url: "/images/books/kindred/11-2.webp", credit: "Walter Koch, CC BY-SA 3.0, via Wikimedia Commons", caption: "The river Düssel in the Neander valley, by the site of the Feldhofer Cave", source: "https://commons.wikimedia.org/wiki/File:Duessel-im-Neandertal.jpg" }] },
       },
       {
         entity: "chatelperronian",
         year: -37_999,
         site: "chatelperronian@r:arcy-sur-cure-grotte-du-renne-bison",
-        note: { text: "Late in their time, Neanderthals here made Châtelperronian tools along with pierced teeth and ornaments of bone. Some researchers think they copied newly arrived modern humans. Others think the layers were mixed. Still others think these were their own ideas.", narration: { src: "narration/books/kindred/stop-12-v1.mp3", credit: "AI-generated narration", text_hash: "196650b395" } },
+        note: { text: "Late in their time, Neanderthals here made Châtelperronian tools along with pierced teeth and ornaments of bone. Some researchers think they copied newly arrived modern humans. Others think the layers were mixed. Still others think these were their own ideas.", narration: { src: "narration/books/kindred/stop-12-v1.mp3", credit: "AI-generated narration", text_hash: "196650b395" }, images: [{ url: "/images/books/kindred/12-1.webp", credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Grotte du Renne at Arcy-sur-Cure, Burgundy", source: "https://commons.wikimedia.org/wiki/File:Grotte_du_Renne_d'Arcy-sur-Cure_1.jpg" }, { url: "/images/books/kindred/12-2.webp", credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "Neanderthal remains from Arcy-sur-Cure: two jaws from the Grotte de la Hyène (1, 2), and a tooth and ear bone from the Châtelperronian layers of the Grotte du Renne (3, 4)", source: "https://commons.wikimedia.org/wiki/File:Arcy-sur-Cure_Grotte_de_la_Hyène_Neanderthals_1.jpg" }] },
       },
       {
         entity: "neanderthal-extinction",
         year: -37_999,
         site: "neanderthal-extinction@1",
-        note: { text: "On the floor of this sea cave someone cut a cross-hatched pattern into the rock. Neanderthals may have lasted here longer than in most places. Wragg Sykes sees no single cause for their end, rather \"a perfect storm\" of climate swings, a crowded continent and perhaps disease. Survival depends on \"time and babies\", not on who was cleverer. Some of them live on in us.", narration: { src: "narration/books/kindred/stop-13-v1.mp3", credit: "AI-generated narration", text_hash: "25d649ad90" } },
+        note: { text: "On the floor of this sea cave someone cut a cross-hatched pattern into the rock. Neanderthals may have lasted here longer than in most places. Wragg Sykes sees no single cause for their end, rather \"a perfect storm\" of climate swings, a crowded continent and perhaps disease. Survival depends on \"time and babies\", not on who was cleverer. Some of them live on in us.", narration: { src: "narration/books/kindred/stop-13-v1.mp3", credit: "AI-generated narration", text_hash: "25d649ad90" }, images: [{ url: "/images/books/kindred/13-1.webp", credit: "Gibmetal77, CC BY 3.0, via Wikimedia Commons", caption: "Gorham's Cave, a sea cave in the east face of the Rock of Gibraltar", source: "https://commons.wikimedia.org/wiki/File:Gorham's_Cave.jpg" }, { url: "/images/books/kindred/13-2.webp", credit: "John Cummings, CC BY-SA 3.0, via Wikimedia Commons", caption: "Looking out to the Mediterranean from inside Gorham's Cave", source: "https://commons.wikimedia.org/wiki/File:View_from_Gorham's_Cave,_Gibraltar.JPG" }] },
       },
     ],
   },

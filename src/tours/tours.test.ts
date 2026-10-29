@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { TOURS, announcementText, toursOfEntity } from "./tours";
 import { textHash } from "../../scripts/lib/text-hash";
@@ -65,6 +65,11 @@ describe.each(TOURS)("tour $id", (tour) => {
     expect(tour.book.link).toMatch(/^https:\/\//);
     expect(tour.synopsis).toBeTruthy();
     for (const stop of tour.stops) expect(stop.note?.text, stop.entity).toBeTruthy();
+    if (tour.book.cover) expect(existsSync(`public${tour.book.cover.url}`), tour.book.cover.url).toBe(true);
+    for (const img of tour.stops.flatMap((s) => s.note?.images ?? [])) {
+      expect(existsSync(`public${img.url}`), img.url).toBe(true);
+      expect(img.credit && img.caption && img.source, img.url).toBeTruthy();
+    }
     for (const narration of [tour.synopsisNarration, ...tour.stops.map((s) => s.note?.narration)])
       if (narration) expect(narration.src).toMatch(new RegExp(`^narration/books/${tour.id}/[\\w-]+-v\\d+\\.mp3$`));
   });

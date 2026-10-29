@@ -132,6 +132,8 @@ interface AppState {
     gap?: number;
     /** A book tour's note on this stop is showing, before its card opens (tours/BookNote.tsx); false once skipped. */
     note?: boolean;
+    /** The picture showing on that note: 0 the book's cover, then the note's `images` (tours/tourPicture.ts). */
+    notePicture?: number;
   } | null;
   /**
    * The tour's title over the globe as it ends, from the start of the outro (tours/TourFinale.tsx); it
@@ -397,7 +399,7 @@ export const useStore = create<AppState>((set, get) => ({
       if (!s.tour || !t) return {};
       if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {};
       if (index < 0 || index > t.stops.length) return {};
-      const { gap: _g, musicOut: _m, note: _n, ...rest } = s.tour;
+      const { gap: _g, musicOut: _m, note: _n, notePicture: _p, ...rest } = s.tour;
       return { tour: { ...rest, index, epilogue: index === t.stops.length, travel: false, phase: "travel", holdMs: 0 } };
     }),
   skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {})),

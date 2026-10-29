@@ -298,7 +298,10 @@ function setNote(text: string, id: string, index: number, narration: string): st
   const next = entityLines[index + 1] ?? lines.length;
   const note = lines.findIndex((l, i) => i > at && i < next && /^ {8}note: \{ text: .*\},$/.test(l));
   if (note < 0) fail(`tour ${id}: stop ${index + 1} has no one-line note`);
-  lines[note] = lines[note].replace(/(, narration: \{[^}]*\})? \},$/, `, narration: ${narration} },`);
+  // Replace the narration, or add it straight after the text (pictures may follow it on the line).
+  lines[note] = /, narration: \{[^}]*\}/.test(lines[note])
+    ? lines[note].replace(/, narration: \{[^}]*\}/, `, narration: ${narration}`)
+    : lines[note].replace(/^( {8}note: \{ text: "(?:[^"\\]|\\.)*")/, `$1, narration: ${narration}`);
   return lines.join("\n");
 }
 

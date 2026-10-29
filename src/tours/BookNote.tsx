@@ -1,26 +1,45 @@
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import { useStore } from "../store";
 import { useData } from "../map/data";
 import { CardIcon } from "../ui/CardParts";
+import { PictureNav, creditLine } from "../ui/PictureNav";
+import type { Picture } from "./tourPicture";
 import type { Tour } from "./tours";
 
 /**
  * A book tour's note on the stop (docs/book-tours.md): what the book makes of this place, in the info
  * card's place and dress, once the globe has turned there and before the place's own card opens. The
- * book's cover is its picture. Continue opens the card straight away.
+ * book's cover comes first, then the note's pictures of the place take turns while it is read (or the
+ * viewer steps through them). Continue opens the card straight away.
  */
 export default function BookNote({ tour }: { tour: Tour }) {
-  const data = useData();
   const shown = useStore((s) => s.tour?.note === true);
   const index = useStore((s) => s.tour?.index ?? 0);
-  const skipNote = useStore((s) => s.skipNote);
   const stop = tour.stops[index];
-  const book = tour.book;
-  if (!shown || !stop?.note || !book) return null;
+  if (!shown || !stop?.note || !tour.book) return null;
+  return <NoteCard key={index} tour={tour} index={index} />;
+}
+
+function NoteCard({ tour, index }: { tour: Tour; index: number }) {
+  const data = useData();
+  const skipNote = useStore((s) => s.skipNote);
+  const timed = useStore((s) => s.tour?.notePicture ?? 0);
+  // Stepped by hand, the pictures stay where the viewer put them for this stop.
+  const [manual, setManual] = useState<number | null>(null);
+  const stop = tour.stops[index];
+  const book = tour.book!;
+  const note = stop.note!;
+  const pictures: Picture[] = [
+    ...(book.cover ? [{ url: book.cover.url, credit: book.cover.credit, caption: `Cover of ${book.title}` }] : []),
+    ...(note.images ?? []),
+  ];
+  const current = Math.min(manual ?? timed, pictures.length - 1);
+  const picture = pictures[current];
+  const isCover = !!book.cover && current === 0;
   const entity = data?.entityById.get(stop.entity);
   const site = stop.site ? data?.featureById.get(stop.site)?.label : undefined;
   return (
-    <aside key={index} className="panel info-panel book-note-card" aria-label={`From the book: ${site ?? entity?.name ?? ""}`}>
+    <aside className="panel info-panel book-note-card" aria-label={`From the book: ${site ?? entity?.name ?? ""}`}>
       <div className="info-head">
         <div className="card-head">
           <span className="book-badge" aria-hidden="true">
@@ -30,10 +49,10 @@ export default function BookNote({ tour }: { tour: Tour }) {
             <div className="card-eyebrow-row">
               <div className="card-eyebrow book-eyebrow">
                 <span>From the book</span>
-                {stop.note.chapter && (
+                {note.chapter && (
                   <>
                     <span className="card-eyebrow-sep" aria-hidden="true">·</span>
-                    <span>{stop.note.chapter}</span>
+                    <span>{note.chapter}</span>
                   </>
                 )}
                 {tour.draft && (
@@ -48,15 +67,22 @@ export default function BookNote({ tour }: { tour: Tour }) {
           </div>
         </div>
       </div>
-      {book.cover && (
+      {picture && (
         <>
-          <div className="info-media book-note-media" style={{ "--cover": `url(${book.cover.url})` } as CSSProperties}>
-            <img src={book.cover.url} alt={`Cover of ${book.title}`} />
+          <div className={`info-media book-note-media${isCover ? " is-cover" : ""}`} style={{ "--cover": `url(${picture.url})` } as CSSProperties}>
+            <img key={picture.url} className={current > 0 ? "picture-in" : undefined} src={picture.url} alt={picture.caption ?? ""} />
+            <PictureNav
+              count={pictures.length}
+              current={current}
+              onPrev={() => setManual((current - 1 + pictures.length) % pictures.length)}
+              onNext={() => setManual((current + 1) % pictures.length)}
+              onSelect={setManual}
+            />
           </div>
-          <div className="muted image-credit">{book.cover.credit}</div>
+          <div className="muted image-credit">{isCover ? picture.credit : creditLine(picture.credit, picture.caption, picture.source)}</div>
         </>
       )}
-      <p className="card-desc">{stop.note.text}</p>
+      <p className="card-desc">{note.text}</p>
       <div className="book-note-source">
         <cite>{book.title}</cite> by {book.author} ({book.publisher}, {book.year})
       </div>
