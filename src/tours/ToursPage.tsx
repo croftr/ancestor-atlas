@@ -46,16 +46,24 @@ function ShareTour({ tour }: { tour: Tour }) {
 
 function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; mins: number }) {
   const cover = coverPictures(stops);
+  const book = tour.book;
   const first = stops[0];
   const last = stops.at(-1);
   return (
     <article className="tp-card" aria-labelledby={`tp-${tour.id}`}>
       <button className="tp-cover" onClick={() => watchTour(tour.id)} aria-label={`Watch ${tour.title}`}>
-        <span className={`tp-mosaic n${cover.length}`}>
-          {cover.map((s) => (
-            <StopPicture key={s.index} stop={s} className="tp-cell" />
-          ))}
-        </span>
+        {book?.cover ? (
+          // A book tour shows the book: whole, over a blurred copy of itself.
+          <span className="tp-book-cover" style={{ "--cover": `url(${book.cover.url})` } as CSSProperties} title={book.cover.credit}>
+            <img src={book.cover.url} alt={`Cover of ${book.title}`} loading="lazy" />
+          </span>
+        ) : (
+          <span className={`tp-mosaic n${cover.length}`}>
+            {cover.map((s) => (
+              <StopPicture key={s.index} stop={s} className="tp-cell" />
+            ))}
+          </span>
+        )}
         <span className="tp-play" aria-hidden>
           <svg viewBox="0 0 16 16" width="22" height="22">
             <path d="M4.5 2.5v11L13.5 8z" fill="currentColor" />

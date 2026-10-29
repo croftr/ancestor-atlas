@@ -166,3 +166,10 @@
 @media (max-width: 760px) {
   .tp-book { grid-column: 1 / -1; }
 }
+/* A book tour's cover: the book whole, centred over a blurred, darkened copy of itself. */
+.tp-book-cover { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; }
+.tp-book-cover::before {
+  content: ""; position: absolute; inset: -20px;
+  background: var(--cover) center / cover; filter: blur(16px) brightness(0.45);
+}
+.tp-book-cover img { position: relative; height: 88%; width: auto; border-radius: 3px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55); }

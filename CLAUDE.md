@@ -331,7 +331,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 
 - A tour built around a book: `book`, `synopsis` (on the title card) and a `note` per stop (what the book says,
   shown over the globe before the card opens; `BookNote.tsx`). The note belongs to the stop, so cards still read
-  the same in every tour. A "Book tours" section on `#/tours`.
+  the same in every tour. A "Book tours" section on `#/tours`. The book's cover (`book.cover`,
+  `public/images/books/`, supplied by Rob) is the tour's picture on the Tours page, menu and title card.
 - Rob's calls: only books mostly about the world before 1 CE; pick books the atlas already covers well; notes come
   from the book (drafts from reviews are fine, Rob checks each against his copy and adds the chapter).
 - First: *Kindred* (Wragg Sykes, 2020), 13 Neanderthal stops, `draft: true` (Draft chip) until Rob has checked the

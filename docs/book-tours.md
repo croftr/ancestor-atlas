@@ -16,8 +16,11 @@ it works, and the draft notes with their sources.
 - **Notes come from the book.** Drafts may be written from public material (publisher text, reviews,
   interviews), but Rob checks every note against the book (for *Kindred*, his audiobook) and adds its chapter
   before release. If a note can't be confirmed, leave it out.
-- **Our own words.** Paraphrase with at most a short quote now and then, credited to the author. No cover
-  image unless its licence allows it; link to the publisher instead.
+- **Our own words.** Paraphrase with at most a short quote now and then, credited to the author.
+- **The book's cover is the tour's picture** (Rob's call, 29 Oct 2026; he supplies it): `book.cover`, 600 px wide
+  WebP in `public/images/books/<tour id>.webp` (`ffmpeg -i cover.jpg -vf scale=600:-2 -quality 85 …`), credited
+  to the publisher. Shown on the Tours page (whole, over a blurred copy), in the Tours menu and on the title card.
+  The cover is the publisher's copyright, shown as a review would show it.
 - **The book's claims belong to the book.** "Wragg Sykes argues …" rather than stating them as fact,
   especially where specialists disagree. The card, which goes on as normal, keeps the atlas's own text, so
   where the two differ the viewer sees both.

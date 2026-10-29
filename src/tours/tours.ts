@@ -44,6 +44,8 @@ export interface Book {
   publisher: string;
   /** A page about the book (the publisher's, or its Wikipedia article). */
   link: string;
+  /** The front cover (public/images/books/<id>.webp, 600 px wide): the tour's picture on the Tours page, menu and title card. */
+  cover?: { url: string; credit: string };
 }
 
 export interface Tour {
@@ -348,6 +350,7 @@ export const TOURS: Tour[] = [
       year: 2020,
       publisher: "Bloomsbury Sigma",
       link: "https://en.wikipedia.org/wiki/Kindred:_Neanderthal_Life,_Love,_Death_and_Art",
+      cover: { url: "/images/books/kindred.webp", credit: "Cover © Bloomsbury Sigma" },
     },
     draft: true,
     blurb: "Rebecca Wragg Sykes's portrait of the Neanderthals, told through the places where the evidence was found, from their earliest days to their last.",

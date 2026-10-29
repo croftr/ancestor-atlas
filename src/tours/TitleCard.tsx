@@ -27,6 +27,9 @@ export default function TitleCard({ tour }: { tour: Tour }) {
           {tour.book ? "Book tour" : "Guided tour"}
           {tour.draft && <span className="book-draft" title="Draft: the notes are not yet checked against the book">Draft</span>}
         </div>
+        {tour.book?.cover && (
+          <img className="book-title-cover" src={tour.book.cover.url} alt={`Cover of ${tour.book.title}`} title={tour.book.cover.credit} />
+        )}
         <h2 className="tour-title-name">{tour.title}</h2>
         {tour.book && (
           <div className="book-title-by">

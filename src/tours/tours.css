@@ -411,3 +411,8 @@
   .book-note { padding: 14px 16px 12px; }
   .book-note-text { font-size: 0.9rem; }
 }
+.book-title-cover { display: block; height: 150px; width: auto; margin: 12px auto 0; border-radius: 3px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55); }
+.tour-item-thumb.is-book img { object-position: top; }
+@media (max-width: 900px), (max-height: 700px) {
+  .book-title-cover { height: 96px; }
+}
