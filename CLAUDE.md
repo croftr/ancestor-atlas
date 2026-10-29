@@ -74,6 +74,11 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `data/curated`, `data/reference`, `scripts/build-data.ts`, `scripts/ingest`, and the date/colour/calibration/country libs).
   After changing any of those, run `npm run data:build` and commit `public/data` in the same commit.
 - Years are astronomical (1 CE = 1, 1 BCE = 0); ka and cal BP count back from 1950.
+- Stylesheets are imported only from `src/styles.ts`, in cascade order (`ui/stacked.css` last); a new one goes
+  there, never in a component (`styles.test.ts`). The pages load lazily (`App.tsx`), and the bundler would order
+  per-component CSS by chunk, not by import. The globe gets a slim in-memory copy of the features
+  (`mapGeoJSON` in `src/map/data.ts`: geometry and the props its layers read); a click looks the full record up
+  by id (`featureById`), so a new layer that reads another property must add it to `MAP_PROPS`.
 - GitHub Actions (`.github/workflows/checks.yml`) run on every push and pull request: data fresh and valid, types,
   tests. Tests needing `data/raw` skip themselves there.
 

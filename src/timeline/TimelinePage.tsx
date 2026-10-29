@@ -37,7 +37,6 @@ import {
   type Row,
   type Window,
 } from "./layout";
-import "./timeline.css";
 
 /** A lane narrower than this (px) at the current zoom is summarised instead of listed. */
 const SQUASH_PX = 36;

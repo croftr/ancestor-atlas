@@ -54,7 +54,7 @@ export const globeUrl = () => {
  */
 export function showSite(id: string, year?: number): boolean {
   const d = getData();
-  const site = d?.features.find((f) => f.id === id);
+  const site = d?.featureById.get(id);
   if (!d || !site) return false;
   const s = useStore.getState();
   const bbox = d.bboxOf.get(site.id);

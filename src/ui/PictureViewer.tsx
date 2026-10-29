@@ -8,7 +8,6 @@ import { creditLine, isAiCredit } from "./PictureNav";
 import TourVideo from "./TourVideo";
 import type { Entity } from "../types";
 import type { Picture } from "../tours/tourPicture";
-import "./picture-viewer.css";
 
 const Chevron = ({ dir }: { dir: -1 | 1 }) => (
   <svg viewBox="0 0 12 12" width="18" height="18" aria-hidden="true">

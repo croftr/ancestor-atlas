@@ -7,7 +7,6 @@ import { aliveAt, dnaSiteById, useDna } from "./data";
 import { classOf, classesFor, OTHER_COLOR } from "./haplogroups";
 import { AADR_CITATION, AADR_DATASET_URL, type DnaData, type DnaPerson } from "./types";
 import { DnaIcon } from "./DnaIcon";
-import "./dna.css";
 import { CardIcon } from "../ui/CardParts";
 
 const SEX: Record<string, string> = { M: "Male", F: "Female", U: "Sex unknown" };

@@ -4,7 +4,6 @@ import { useStore } from "../store";
 import SettingsContent from "./SettingsPanel";
 import SourcesContent from "./SourcesPanel";
 import { CategoryIcon } from "./CategoryIcon";
-import "./sidenav.css";
 
 /**
  * Left navigation rail, on every page. Desktop: a slim icon rail that widens to show labels.

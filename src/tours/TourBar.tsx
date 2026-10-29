@@ -6,7 +6,6 @@ import { TOURS, tourById } from "./tours";
 import { beginTour } from "./TourPlayer";
 import { coverPictures, minutes, stopsOf } from "./summary";
 import { setMusicMuted, useMusicMuted } from "../audio/music";
-import "./tours.css";
 
 const Icon = ({ d }: { d: string }) => (
   <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">

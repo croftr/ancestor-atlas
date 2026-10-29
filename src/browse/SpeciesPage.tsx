@@ -13,9 +13,7 @@ import SpeciesCompare from "./SpeciesCompare";
 import EntityDetail from "./EntityDetail";
 import Totals from "./Totals";
 import { useSectionNav } from "./useSectionNav";
-import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
-import "./browse.css";
 
 /**
  * Fossil finds at a site: the specimens ROAD catalogues there (FeatureProps.finds); a site without a ROAD record

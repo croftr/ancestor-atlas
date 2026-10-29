@@ -2,7 +2,6 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import { CATEGORY_STYLE } from "../config";
 import type { Category } from "../types";
 import { CategoryBadge } from "./CategoryIcon";
-import "./card.css";
 
 /**
  * Pieces shared by the info card (InfoPanel.tsx) and the browse pages' detail views (EntityDetail.tsx,

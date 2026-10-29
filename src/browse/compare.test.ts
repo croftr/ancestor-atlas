@@ -81,6 +81,8 @@ describe("speciesCompare", () => {
       ]),
       childrenOf: new Map(),
       features: [f1, f2],
+      featureById: new Map([f1, f2].map((f) => [f.id, f])),
+      mapGeoJSON: { type: "FeatureCollection", features: [] },
       featuresOf: new Map([
         ["neanderthal", [f1]],
         ["homo-sapiens", [f2]],

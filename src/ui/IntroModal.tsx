@@ -5,7 +5,6 @@ import { useData } from "../map/data";
 import type { Category } from "../types";
 import { CategoryBadge } from "./CategoryIcon";
 import { CardIcon } from "./CardParts";
-import "./intro-modal.css";
 
 /** The videos, newest first (the first plays when the dialog opens). Keys in the media bucket. */
 const VIDEOS = [

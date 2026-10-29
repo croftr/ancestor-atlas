@@ -2,7 +2,6 @@ import { useStore } from "../store";
 import { navigate, useView } from "../route";
 import { useDnaCultureCount } from "./data";
 import { DnaIcon } from "./DnaIcon";
-import "./dna.css";
 
 /**
  * On a culture's card and page: how many ancient genomes link to it, and a button that turns the ancient DNA layer

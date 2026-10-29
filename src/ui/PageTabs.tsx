@@ -5,7 +5,6 @@ import { CATEGORY_STYLE } from "../config";
 import { CategoryIcon } from "./CategoryIcon";
 import { TimelineIcon, ToursIcon } from "./SideNav";
 import { useMediaQuery } from "./useMediaQuery";
-import "./page-tabs.css";
 
 /**
  * Phones only (the width below which the side rail becomes a drawer): a tab bar across the top of

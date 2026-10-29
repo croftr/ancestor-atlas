@@ -17,8 +17,6 @@ import Totals from "../browse/Totals";
 import { useSectionNav } from "../browse/useSectionNav";
 import TourStopLinks from "../tours/TourStopLinks";
 import { videoCount } from "../youtube";
-import "./events-page.css";
-import "../browse/browse.css";
 
 const yearOf = (e: Entity) => e.year ?? e.start_year;
 const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();

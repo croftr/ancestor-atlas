@@ -23,9 +23,7 @@ import { fold, index, marks, nearMisses, NOT_COVERED, search, type SearchRecord 
 import CivTimeline from "./CivTimeline";
 import EntityDetail from "./EntityDetail";
 import Totals from "./Totals";
-import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
-import "./browse.css";
 
 type Sort = "date" | "name";
 type View = "list" | "timeline";

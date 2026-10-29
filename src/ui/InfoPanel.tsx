@@ -8,7 +8,6 @@ import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
 import { clearShrunkCard, navigate, peekShrunkCard, type BrowseView, type View } from "../route";
 import { formatDuration } from "../timeline/layout";
-import "./events.css";
 import ListenButton from "../audio/ListenButton";
 import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";

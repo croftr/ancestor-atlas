@@ -5,7 +5,6 @@ import { primeMusic } from "./music";
 import { AMBIENCE } from "../tours/ambience";
 import type { Entity } from "../types";
 import { useStore } from "../store";
-import "./listen.css";
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 

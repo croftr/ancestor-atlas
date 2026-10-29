@@ -13,7 +13,7 @@ const sharePage = (path: string, hash: string) =>
 /** The globe as it is now (year and open card), through the open entity's share page. */
 export function globeShareUrl(): string {
   const s = useStore.getState();
-  const entity = s.selectedId ? getData()?.features.find((f) => f.id === s.selectedId)?.entity_id : s.groupId;
+  const entity = s.selectedId ? getData()?.featureById.get(s.selectedId)?.entity_id : s.groupId;
   return entity ? sharePage(encodeURIComponent(entity), globeHash(s)) : globeUrl();
 }
 

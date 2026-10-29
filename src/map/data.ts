@@ -10,6 +10,13 @@ export interface Data {
   /** Features of each entity, ordered by start year. */
   featuresOf: Map<string, FeatureProps[]>;
   features: FeatureProps[];
+  featureById: Map<string, FeatureProps>;
+  /**
+   * The globe's own copy of the features: geometry plus only the properties its layers read, handed
+   * to MapLibre as data (not by URL), so the 4 MB file is fetched and parsed once and the map's
+   * worker doesn't tile the card text (dates, references, notes). Clicks look the full record up by id.
+   */
+  mapGeoJSON: GeoJSON.FeatureCollection;
   /** [west, south, east, north] of each feature's geometry, by feature id. */
   bboxOf: Map<string, BBox>;
   /** Civilization territories' geometry, by feature id (for the selected one's badge). */
@@ -19,6 +26,9 @@ export interface Data {
 }
 
 export type BBox = [number, number, number, number];
+
+/** The properties the globe's layers read (map/layers.ts), plus the id they're keyed on. */
+const MAP_PROPS = ["id", "category", "start_year", "end_year", "color", "line_color", "weight"] as const;
 
 export interface GeoFeature {
   properties: FeatureProps;
@@ -96,12 +106,22 @@ export function loadData(): Promise<Data | null> {
       const featuresOf = group(features, (f) => f.entity_id);
       for (const l of childrenOf.values()) l.sort(byStart);
       for (const l of featuresOf.values()) l.sort(byStart);
+      const mapGeoJSON: Data["mapGeoJSON"] = {
+        type: "FeatureCollection",
+        features: gj.features.map((f) => ({
+          type: "Feature",
+          geometry: f.geometry as GeoJSON.Geometry,
+          properties: Object.fromEntries(MAP_PROPS.filter((k) => f.properties[k] !== undefined).map((k) => [k, f.properties[k]])),
+        })),
+      };
       data = {
         entities,
         entityById: new Map(entities.map((e) => [e.id, e])),
         childrenOf,
         featuresOf,
         features,
+        featureById: new Map(features.map((f) => [f.id, f])),
+        mapGeoJSON,
         bboxOf,
         geometryOf,
         sources,

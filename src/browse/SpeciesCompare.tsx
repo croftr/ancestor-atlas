@@ -14,7 +14,6 @@ import {
   type SitePoint,
   type SpeciesComparison,
 } from "./compare";
-import "./species-compare.css";
 
 const COLOR_A = "#f6b95b";
 const COLOR_B = "#5bc8f6";

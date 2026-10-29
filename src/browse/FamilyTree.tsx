@@ -5,7 +5,6 @@ import { formatRange } from "../time/scale";
 import type { Entity } from "../types";
 import { scaleLabel, scaleTicks } from "./browse";
 import { layoutTree, leavesOf, REFS, type Clade, type Support } from "./phylogeny";
-import "./family-tree.css";
 
 /** Row height (px), the room kept left of the tree's root and right of the bars, and the step between nested branching points. */
 const ROW = 40;

@@ -155,6 +155,8 @@ describe("queryRegion", () => {
     entityById: new Map(entities.map((e) => [e.id, e])),
     childrenOf: new Map(),
     features,
+    featureById: new Map(features.map((f) => [f.id, f])),
+    mapGeoJSON: { type: "FeatureCollection", features: [] },
     featuresOf: new Map([
       ["erectus", [features[0], features[4]]],
       ["natufian", [features[1], features[2]]],

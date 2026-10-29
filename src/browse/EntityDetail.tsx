@@ -10,7 +10,6 @@ import type { Entity } from "../types";
 import { youtubeId } from "../youtube";
 import { eventsAbout, pictureOf, typing } from "./browse";
 import { runsOn } from "./civLayout";
-import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import ListenButton from "../audio/ListenButton";
 import { entityPictures, preloadPictures } from "../tours/tourPicture";
@@ -22,7 +21,6 @@ import TourStopLinks from "../tours/TourStopLinks";
 import TourVideo from "../ui/TourVideo";
 import { CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "../ui/CardParts";
 import { SINGULAR } from "../ui/CategoryIcon";
-import "./browse.css";
 
 /**
  * One species, culture or civilization over its browse page: picture, text, what is on the map, related

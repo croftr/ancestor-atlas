@@ -13,10 +13,8 @@ import EntityDetail from "./EntityDetail";
 import { useSectionNav } from "./useSectionNav";
 import Totals from "./Totals";
 import { videoCount } from "../youtube";
-import "../events/events-page.css";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import { isAiCredit } from "../ui/PictureNav";
-import "./browse.css";
 
 interface Stage extends CultureStage {
   cultures: Entity[];

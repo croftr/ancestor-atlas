@@ -19,7 +19,6 @@ import {
   type RegionEntry,
 } from "./region";
 import { areaAt, useAreasReady, type AreaLevel } from "./area";
-import "./place.css";
 import { CardIcon } from "../ui/CardParts";
 
 export function PlacePinIcon({ size = 15 }: { size?: number }) {

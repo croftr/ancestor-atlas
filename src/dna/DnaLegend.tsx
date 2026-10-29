@@ -3,7 +3,6 @@ import { useStore } from "../store";
 import { aliveAt, useDna } from "./data";
 import { DnaBadge } from "./DnaIcon";
 import { classesFor, OTHER_COLOR, PLAIN_COLOR, type DnaColour } from "./haplogroups";
-import "./dna.css";
 
 /** What the colours mean, in a line under the switch. */
 const NOTE: Record<DnaColour, string> = {

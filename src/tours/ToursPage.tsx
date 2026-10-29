@@ -1,26 +1,15 @@
 import DataLoading from "../ui/DataLoading";
 import { useMemo, useState, type CSSProperties } from "react";
 import { useData } from "../map/data";
-import { navigate } from "../route";
-import { useStore } from "../store";
 import { formatYear } from "../time/scale";
 import { CATEGORY_STYLE } from "../config";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import Totals from "../browse/Totals";
 import { TOURS, type Tour } from "./tours";
-import { beginTour } from "./TourPlayer";
+import { watchTour } from "./watchTour";
 import { coverPictures, minutes, narrated, stopsOf, type StopSummary } from "./summary";
 import { ToursIcon } from "../ui/SideNav";
 import { shareLink, tourShareUrl } from "../share";
-import "../events/events-page.css";
-import "../browse/browse.css";
-import "./tours-page.css";
-
-/** From a tap: start the tour (at stop `index`) and go to the globe to watch it. */
-export function watchTour(id: string, index = 0) {
-  beginTour(() => useStore.getState().startTour(id, { index }));
-  navigate("globe");
-}
 
 /** A stop's picture, or its category's badge on a tinted tile. */
 function StopPicture({ stop, className }: { stop: StopSummary; className: string }) {

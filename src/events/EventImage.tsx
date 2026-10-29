@@ -1,7 +1,6 @@
 import type { Entity } from "../types";
 import type { Picture } from "../tours/tourPicture";
 import type { ReactNode } from "react";
-import "./events-page.css";
 
 /** The 500 px copy beside each title card in public/images/events/ (events.test.ts checks each has one). */
 export const smallEventImage = (url: string) =>

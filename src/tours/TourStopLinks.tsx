@@ -1,5 +1,5 @@
 import { toursOfEntity } from "./tours";
-import { watchTour } from "./ToursPage";
+import { watchTour } from "./watchTour";
 import { CardSection } from "../ui/CardParts";
 
 const FilmChipIcon = (

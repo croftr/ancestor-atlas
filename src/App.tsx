@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from "react";
+import { lazy, Suspense, useEffect, type CSSProperties } from "react";
 import MapView from "./map/MapView";
 import Legend from "./ui/Legend";
 import InfoPanel from "./ui/InfoPanel";
@@ -9,25 +9,26 @@ import SearchBox from "./ui/SearchBox";
 import SideNav from "./ui/SideNav";
 import PageTabs from "./ui/PageTabs";
 import WelcomeHint from "./ui/WelcomeHint";
-import IntroModal from "./ui/IntroModal";
 import TourPlayer from "./tours/TourPlayer";
 import ClimateHud from "./tours/ClimateHud";
 import TourFinale from "./tours/TourFinale";
-import ToursPage from "./tours/ToursPage";
-import UpdatesPage from "./updates/UpdatesPage";
-import NewsPage from "./news/NewsPage";
-import TimelinePage from "./timeline/TimelinePage";
-import EventsPage from "./events/EventsPage";
-import CulturesPage from "./browse/CulturesPage";
-import SpeciesPage from "./browse/SpeciesPage";
-import CivilizationsPage from "./browse/CivilizationsPage";
 import ErrorBoundary from "./ui/ErrorBoundary";
 import { useHash, useView } from "./route";
 import { useStore } from "./store";
 import { readTourHash, useGlobeLink } from "./globeLink";
 import { usePageTitle } from "./pageTitle";
-// Last, so the small-screen layout overrides the component styles above.
-import "./ui/stacked.css";
+
+// The pages and the intro dialog load when first opened, so a visit to the globe downloads only the
+// globe (their stylesheets are in styles.ts with the rest).
+const ToursPage = lazy(() => import("./tours/ToursPage"));
+const UpdatesPage = lazy(() => import("./updates/UpdatesPage"));
+const NewsPage = lazy(() => import("./news/NewsPage"));
+const TimelinePage = lazy(() => import("./timeline/TimelinePage"));
+const EventsPage = lazy(() => import("./events/EventsPage"));
+const CulturesPage = lazy(() => import("./browse/CulturesPage"));
+const SpeciesPage = lazy(() => import("./browse/SpeciesPage"));
+const CivilizationsPage = lazy(() => import("./browse/CivilizationsPage"));
+const IntroModal = lazy(() => import("./ui/IntroModal"));
 
 export default function App() {
   const view = useView();
@@ -95,19 +96,25 @@ export default function App() {
       {view !== "globe" && (
         // Keyed on the address, so opening another page or entry tries again after a failure.
         <ErrorBoundary what="This page" resetKey={hash} className="page-error">
-          {view === "timeline" && <TimelinePage />}
-          {view === "events" && <EventsPage />}
-          {view === "species" && <SpeciesPage />}
-          {view === "cultures" && <CulturesPage />}
-          {view === "civilizations" && <CivilizationsPage />}
-          {view === "tours" && <ToursPage />}
-          {view === "news" && <NewsPage />}
-          {view === "updates" && <UpdatesPage />}
+          <Suspense fallback={<div className="events-page"><div className="ev-loading muted">Loading…</div></div>}>
+            {view === "timeline" && <TimelinePage />}
+            {view === "events" && <EventsPage />}
+            {view === "species" && <SpeciesPage />}
+            {view === "cultures" && <CulturesPage />}
+            {view === "civilizations" && <CivilizationsPage />}
+            {view === "tours" && <ToursPage />}
+            {view === "news" && <NewsPage />}
+            {view === "updates" && <UpdatesPage />}
+          </Suspense>
         </ErrorBoundary>
       )}
       <PageTabs />
       <SideNav />
-      {introOpen && <IntroModal />}
+      {introOpen && (
+        <Suspense fallback={null}>
+          <IntroModal />
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useStore } from "../store";
 import { CARD_MIN, clampCardWidth, maxCardWidth } from "./cardWidth";
-import "./card-resizer.css";
 
 const STEP = 24;
 const clamp = clampCardWidth;

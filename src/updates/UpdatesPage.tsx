@@ -8,9 +8,6 @@ import Totals from "../browse/Totals";
 import type { Category } from "../types";
 import type { LogDetails, LogEntry, LogSite } from "./types";
 import { describeChange, entryChips, formatDay, groupByEntity, PAGE_OF, plural, SOURCE_NAMES, useDetails, useLog, type SiteGroup } from "./updates";
-import "../events/events-page.css";
-import "../browse/browse.css";
-import "./updates.css";
 
 const ACCENT = "#7fc8f8";
 /** Sites shown per group before "Show all". */

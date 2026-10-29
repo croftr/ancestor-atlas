@@ -602,7 +602,7 @@ export default function MapView() {
       prevSelected = selectedId;
       // A selected civilization gets its temple badge inside its territory.
       const geometry = selectedId ? getData()?.geometryOf.get(selectedId) : undefined;
-      const props = selectedId ? getData()?.features.find((f) => f.id === selectedId) : undefined;
+      const props = selectedId ? getData()?.featureById.get(selectedId) : undefined;
       const at = geometry ? polygonAnchor(geometry) : null;
       (map.getSource(ANCHOR_SOURCE_ID) as maplibregl.GeoJSONSource | undefined)?.setData({
         type: "FeatureCollection",
@@ -771,7 +771,10 @@ export default function MapView() {
           "circle-stroke-width": 2.5,
         },
       });
-      map.addSource(SOURCE_ID, { type: "geojson", data: "/data/features.geojson", promoteId: "id" });
+      // The globe's slim copy of the features, once loaded (map/data.ts mapGeoJSON).
+      map.addSource(SOURCE_ID, { type: "geojson", data: getData()?.mapGeoJSON ?? EMPTY, promoteId: "id" });
+      if (!getData())
+        loadData().then((d) => d && (map.getSource(SOURCE_ID) as maplibregl.GeoJSONSource | undefined)?.setData(d.mapGeoJSON));
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
       // Ancient DNA sites: sized by how many people date to the year, coloured by haplogroup (dna/haplogroups.ts),
@@ -995,8 +998,9 @@ export default function MapView() {
       const under = map.queryRenderedFeatures(e.point, { layers: INTERACTIVE_LAYERS.filter((l) => !POINT_LAYERS.includes(l)) });
       const seen = new Map<string, { props: FeatureProps; rank: number; dist: number }>();
       for (const f of [...near, ...under]) {
-        const props = f.properties as unknown as FeatureProps;
-        if (seen.has(props.id)) continue;
+        // The map carries only what its layers need; the card gets the full record.
+        const props = getData()?.featureById.get(String(f.properties.id));
+        if (!props || seen.has(props.id)) continue;
         let dist = 0;
         if (f.geometry.type === "Point") {
           const p = map.project(f.geometry.coordinates as [number, number]);
