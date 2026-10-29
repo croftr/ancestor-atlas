@@ -5,7 +5,10 @@
 //   npm run audio:narrate -- --stale [--yes]            everything whose description changed since recording
 //   npm run audio:narrate -- --announce <tour id>|all   a tour's title-card announcement, read slowly (all: missing or stale)
 //   npm run audio:narrate -- --closing <tour id>|all    a tour's closing line, read in its epilogue (all: missing or stale)
-//   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead
+//   npm run audio:narrate -- --book <tour id> [--part synopsis|<stop n>] [--yes]
+//                                                       a book tour's synopsis and stop notes (no --part: missing or stale);
+//                                                       stops count from 1; voice ELEVENLABS_BOOK_VOICE_ID if set
+//   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead (with --book: needs --part)
 //   npm run audio:narrate -- --voices                   list your ElevenLabs voices (to pick ELEVENLABS_VOICE_ID)
 // Options: --no-upload (prepare only; prints the upload command), --credit "<text>".
 //
@@ -40,7 +43,7 @@ const option = (f: string) => {
   return i >= 0 ? args[i + 1] : undefined;
 };
 const file = option("--file");
-const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--credit", "--tour", "--announce", "--closing"].includes(args[i - 1]));
+const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--credit", "--tour", "--announce", "--closing", "--book", "--part"].includes(args[i - 1]));
 const fail = (m: string): never => {
   console.error(`✗ ${m}`);
   process.exit(1);
@@ -66,13 +69,15 @@ if (flag("--voices")) {
  */
 interface Target {
   id: string;
-  category: keyof typeof NARRATION_FOLDER | "tour" | "tour-closing";
+  category: keyof typeof NARRATION_FOLDER | "tour" | "tour-closing" | "book";
   description: string;
   narration?: { src: string; text_hash: string };
   file: string;
   /** What is sent to ElevenLabs, if not the description (announcements), and with which model. */
   spoken?: string;
   model?: string;
+  /** A book tour's part: "synopsis", or the stop's 0-based index (its note). */
+  part?: "synopsis" | number;
 }
 const built = new Map(
   readFileSync(ENTITIES, "utf8")
@@ -110,11 +115,35 @@ const closing = (t: (typeof TOURS)[number]): Target => ({
   file: TOURS_FILE,
 });
 const staleClosing = (t: (typeof TOURS)[number]) => !!t.closing && (!t.closingNarration || t.closingNarration.text_hash !== textHash(t.closing));
+/** A book tour's synopsis or a stop's note (docs/book-tours.md), set in src/tours/tours.ts. */
+const bookPart = (t: (typeof TOURS)[number], part: "synopsis" | number): Target =>
+  part === "synopsis"
+    ? { id: t.id, category: "book", part, description: t.synopsis ?? fail(`tour ${t.id} has no synopsis`), narration: t.synopsisNarration, file: TOURS_FILE }
+    : {
+        id: t.id,
+        category: "book",
+        part,
+        description: t.stops[part]?.note?.text ?? fail(`tour ${t.id} has no note on stop ${part + 1}`),
+        narration: t.stops[part].note!.narration,
+        file: TOURS_FILE,
+      };
+const bookParts = (t: (typeof TOURS)[number]): Target[] => [
+  ...(t.synopsis ? [bookPart(t, "synopsis")] : []),
+  ...t.stops.flatMap((st, i) => (st.note ? [bookPart(t, i)] : [])),
+];
+const staleBook = (b: Target) => !b.narration || b.narration.text_hash !== textHash(b.description);
+const bookId = option("--book");
+const partArg = option("--part");
+const bookTour = bookId ? (TOURS.find((t) => t.id === bookId && t.book) ?? fail(`no book tour ${bookId}`)) : undefined;
 const announceId = option("--announce");
 const closingId = option("--closing");
 const tourId = option("--tour");
 const tour = tourId ? (TOURS.find((t) => t.id === tourId) ?? fail(`no tour ${tourId}`)) : undefined;
-const targets: Target[] = closingId
+const targets: Target[] = bookTour
+  ? partArg
+    ? [bookPart(bookTour, partArg === "synopsis" ? "synopsis" : Number(partArg) - 1)]
+    : bookParts(bookTour).filter(staleBook)
+  : closingId
   ? closingId === "all"
     ? TOURS.filter(staleClosing).map(closing)
     : [closing(TOURS.find((t) => t.id === closingId) ?? fail(`no tour ${closingId}`))]
@@ -131,9 +160,10 @@ const targets: Target[] = closingId
           ...[...built.values()].filter((e) => e.narration && e.narration.text_hash !== textHash(e.description)).map((e) => target(e.id)),
           ...TOURS.filter((t) => t.announcement && staleAnnouncement(t)).map(announcement),
           ...TOURS.filter((t) => t.closingNarration && staleClosing(t)).map(closing),
+          ...TOURS.flatMap(bookParts).filter((b) => b.narration && staleBook(b)),
         ]
       : ids.map(target);
-if (targets.length === 0) fail(ids.length || tour || announceId || closingId || flag("--missing") || flag("--stale") ? "nothing to narrate" : "usage: see the top of scripts/audio/narrate.ts");
+if (targets.length === 0) fail(ids.length || tour || announceId || closingId || bookId || flag("--missing") || flag("--stale") ? "nothing to narrate" : "usage: see the top of scripts/audio/narrate.ts");
 if (file && targets.length !== 1) fail("--file takes one entity");
 
 // A batch spends ElevenLabs characters: show what it will cost and ask for --yes.
@@ -152,7 +182,7 @@ if (!file) {
     process.exit(0);
   }
 }
-const voice = file ? "" : process.env.ELEVENLABS_VOICE_ID || fail("set ELEVENLABS_VOICE_ID in .env.local (npm run audio:narrate -- --voices lists them)");
+const voice = file ? "" : (bookTour && process.env.ELEVENLABS_BOOK_VOICE_ID) || process.env.ELEVENLABS_VOICE_ID || fail("set ELEVENLABS_VOICE_ID in .env.local (npm run audio:narrate -- --voices lists them)");
 const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-generated narration (ElevenLabs)");
 
 /** The description spoken, cached by its text so the same words are never paid for twice. */
@@ -160,7 +190,7 @@ async function speak(e: Target): Promise<string> {
   const text = e.spoken ?? e.description;
   const model = e.model ?? (process.env.ELEVENLABS_MODEL || MODEL_DEFAULT);
   const hash = e.spoken ? textHash(`${model}:${text}`) : textHash(text);
-  const path = `data/build/audio/tts/${e.category.startsWith("tour") ? `${e.category}-` : ""}${e.id}-${hash}.mp3`;
+  const path = `data/build/audio/tts/${e.category.startsWith("tour") || e.category === "book" ? `${e.category}-` : ""}${e.id}-${e.part ?? ""}${hash}.mp3`;
   if (existsSync(path)) return path;
   const res = await api(`/text-to-speech/${voice}?output_format=mp3_44100_128`, {
     method: "POST",
@@ -254,6 +284,24 @@ function setEntity(text: string, id: string, narration: object): string {
   return lines.join("\n");
 }
 
+/**
+ * Set the narration on a book tour's stop note in tours.ts: the note line after the entity line of the
+ * tour's stop `index` (0-based). Replaces an existing narration. Stops must be written one field per line.
+ */
+function setNote(text: string, id: string, index: number, narration: string): string {
+  const lines = text.split("\n");
+  const start = lines.indexOf(`    id: "${id}",`);
+  const stops = lines.findIndex((l, i) => i > start && l.startsWith("    stops:"));
+  if (start < 0 || stops < 0) fail(`no tour ${id} with stops in ${TOURS_FILE}`);
+  const entityLines = lines.flatMap((l, i) => (i > stops && /^ {8}entity: /.test(l) ? [i] : []));
+  const at = entityLines[index] ?? fail(`tour ${id}: no stop ${index + 1} written one field per line`);
+  const next = entityLines[index + 1] ?? lines.length;
+  const note = lines.findIndex((l, i) => i > at && i < next && /^ {8}note: \{ text: .*\},$/.test(l));
+  if (note < 0) fail(`tour ${id}: stop ${index + 1} has no one-line note`);
+  lines[note] = lines[note].replace(/(, narration: \{[^}]*\})? \},$/, `, narration: ${narration} },`);
+  return lines.join("\n");
+}
+
 /** Set a tour's announcement or closingNarration line in tours.ts (before its stops), as audio:music does. */
 function setTour(text: string, id: string, line: string): string {
   const lines = text.split("\n");
@@ -276,7 +324,9 @@ const pending: string[] = [];
 for (const e of targets) {
   const version = Number(e.narration?.src.match(/-v(\d+)\.mp3$/)?.[1] ?? 0) + 1;
   const key =
-    e.category === "tour" || e.category === "tour-closing"
+    e.category === "book"
+      ? `narration/books/${e.id}/${e.part === "synopsis" ? "synopsis" : `stop-${(e.part as number) + 1}`}-v${version}.mp3`
+      : e.category === "tour" || e.category === "tour-closing"
       ? `narration/tours/${e.id}${e.category === "tour-closing" ? "-closing" : ""}-v${version}.mp3`
       : `narration/${NARRATION_FOLDER[e.category]}/${e.id}-v${version}.mp3`;
   const out = `data/build/audio/${key}`;
@@ -294,6 +344,11 @@ for (const e of targets) {
   console.log(`${uploaded ? "✓" : "…"} ${e.id}: ${key} (${seconds.toFixed(1)} s)${uploaded ? "" : " not uploaded"}`);
   if (!uploaded) pending.push(uploadCommand(out, key));
   const narration = { src: key, credit, text_hash: textHash(e.description) };
+  if (e.category === "book") {
+    const line = `{ src: "${key}", credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" }`;
+    toursFile = e.part === "synopsis" ? setTour(toursFile, e.id, `    synopsisNarration: ${line},`) : setNote(toursFile, e.id, e.part as number, line);
+    continue;
+  }
   if (e.category === "tour" || e.category === "tour-closing") {
     const field = e.category === "tour" ? "announcement" : "closingNarration";
     toursFile = setTour(toursFile, e.id, `    ${field}: { src: "${key}", credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" },`);
@@ -303,13 +358,13 @@ for (const e of targets) {
   entities = setEntity(entities, e.id, narration);
 }
 
-const changed = [...new Set(targets.filter((t) => !t.category.startsWith("tour")).map((t) => t.file))];
+const changed = [...new Set(targets.filter((t) => !t.category.startsWith("tour") && t.category !== "book").map((t) => t.file))];
 for (const f of changed) writeFileSync(f, yamlFiles[f]);
 if (changed.length) {
   writeFileSync(ENTITIES, entities);
   changed.push(ENTITIES);
 }
-if (targets.some((t) => t.category.startsWith("tour"))) {
+if (targets.some((t) => t.category.startsWith("tour") || t.category === "book")) {
   writeFileSync(TOURS_FILE, toursFile);
   changed.push(TOURS_FILE);
 }

@@ -45,10 +45,12 @@ Everything a normal tour does stays the same. Additions:
   and read only the note.
 - **Order.** Stops go in date order, like other tours; the slider and "years later" titles assume that. Each
   note gives its chapter, so the book's own order is still visible.
-- **Narration (not built yet):** keys `narration/books/<tour id>/<name>-v<n>.mp3` (`tours.test.ts` checks the
-  pattern), same voice as the stops. Next step: teach `audio:narrate` a `--book <tour id>` batch for the synopsis
-  and notes, with `--stale` covering them. Until then the player holds each note and the synopsis for reading time
-  (`readingSeconds` in `summary.ts`, about 200 words a minute).
+- **Narration:** `npm run audio:narrate -- --book <tour id>` (synopsis and notes missing or stale; `--part
+  synopsis|<stop n>` for one, stops counted from 1; `--file <mp3>` for a recording made elsewhere). Keys
+  `narration/books/<tour id>/synopsis-v<n>.mp3` and `stop-<n>-v<n>.mp3`; sets `synopsisNarration` or the note's
+  `narration` in tours.ts; `--stale` covers them. Generated clips use `ELEVENLABS_BOOK_VOICE_ID` if set (Rob is
+  trying a different voice for book tours, 29 Oct 2026), else the usual voice. The synopsis clip plays in place of
+  the announcement. Without a clip, a note or synopsis holds for reading time (`readingSeconds` in `summary.ts`).
 
 ### What's built (29 Oct 2026)
 

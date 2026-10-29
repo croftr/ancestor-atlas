@@ -336,8 +336,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - Rob's calls: only books mostly about the world before 1 CE; pick books the atlas already covers well; notes come
   from the book (drafts from reviews are fine, Rob checks each against his copy and adds the chapter).
 - First: *Kindred* (Wragg Sykes, 2020), 13 Neanderthal stops, `draft: true` (Draft chip) until Rob has checked the
-  notes against his audiobook. No narration or music yet; notes hold for reading time. Next: an `audio:narrate`
-  batch for synopsis and notes. Checking *After the Ice* turned up data gaps (Younger Dryas, Mesolithic Europe, South
+  notes against his audiobook. Synopsis and stop 1 narrated (Rob's recordings in a different voice, 29 Oct 2026, to try it); the rest hold for reading time. Narrate with
+  `npm run audio:narrate -- --book <tour id>` (docs/book-tours.md). Checking *After the Ice* turned up data gaps (Younger Dryas, Mesolithic Europe, South
   Asia, the Americas); Rob has notes.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)

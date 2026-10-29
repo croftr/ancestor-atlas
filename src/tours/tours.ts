@@ -357,12 +357,13 @@ export const TOURS: Tour[] = [
     synopsis: "For over a century Neanderthals stood for the brutish cave man. In Kindred, archaeologist Rebecca Wragg Sykes pulls together a generation of new evidence to show a very different people. Across some 350,000 years, from Wales to the borders of China, they made sophisticated tools from stone, wood and birch tar, hunted everything from mammoths to seabirds, cared for the injured, handled their dead, and met and had children with our own ancestors. This tour visits the places where that evidence was found, from their earliest days to their last.",
     closing: "Not brutes and not a failed version of us: in Kindred, Neanderthals are another way of being human, and in our DNA part of them came along.",
     // Drafts from reviews and the published evidence (docs/book-tours.md); Rob checks each against the book.
+    synopsisNarration: { src: "narration/books/kindred/synopsis-v1.mp3", credit: "AI-generated narration", text_hash: "7ff691a095" },
     stops: [
       {
         entity: "neanderthal",
         year: -429_999,
         site: "neanderthal@1",
-        note: { text: "At the bottom of a deep shaft in the Atapuerca hills lie the bones of at least twenty-eight people from about 430,000 years ago, the earliest known on the Neanderthal line. Their DNA links them to Neanderthals. How so many ended up there, and whether they were placed there on purpose, is still argued over." },
+        note: { text: "At the bottom of a deep shaft in the Atapuerca hills lie the bones of at least twenty-eight people from about 430,000 years ago, the earliest known on the Neanderthal line. Their DNA links them to Neanderthals. How so many ended up there, and whether they were placed there on purpose, is still argued over.", narration: { src: "narration/books/kindred/stop-1-v1.mp3", credit: "AI-generated narration", text_hash: "22b26160b3" } },
       },
       {
         entity: "schoningen-spears",
