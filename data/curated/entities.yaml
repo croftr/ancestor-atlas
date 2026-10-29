@@ -962,6 +962,7 @@
   narration: { src: narration/cultures/linear-pottery-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b2054134a8" }
   image_url: /images/cultures/linear-pottery.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/linear-pottery-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early Neolithic village with monumental timber longhouses and incised linear pottery"
   wikipedia_url: https://en.wikipedia.org/wiki/Linear_Pottery_culture
   source_ids:
@@ -1630,6 +1631,7 @@
   narration: { src: narration/cultures/bantu-farmers-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9fdfd4b17a" }
   image_url: /images/cultures/bantu-farmers.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/bantu-farmers-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early Bantu-speaking farming village with pearl millet fields, dimpled pottery, and early iron smelting"
   extra_images:
     - { url: /images/extra/bantu-farmers-1.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Sculpted terracotta ceremonial head with incised neck rings from the Lydenburg assemblage (c. 500 CE), among the earliest known Iron Age sculptures in southern Africa (Iziko South African Museum)", source: "https://commons.wikimedia.org/wiki/File:Castle_of_Good_Hope_-_Lydenburg_Head_1.jpg" }
