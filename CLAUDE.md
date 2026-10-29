@@ -586,6 +586,15 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   entities.yaml): few XRONOS dates, all on genome-sampled burials (Afanasievo 2 sites, Sintashta 4, Andronovo 1:
   Kytmanovo). No pictures yet (Rob to provide). The steppe tour also rewrote Yamnaya, Corded Ware, Bell Beaker and
   Únětice as narration-length paragraphs (Rob to review).
+- African Later Stone Age cultures added 29 Oct 2026 (first coverage step outside Europe; spans from pinned Wikipedia
+  revisions, descriptions written from them, Rob to review; no pictures yet): Iberomaurusian (North Africa, 25,000-11,000
+  cal BP; XRONOS spellings Iberomaurusian, Iberomarousian, Ibéromaurusien, Eastern Oranian; Haua Fteah kept by a
+  `keep` fix), Oakhurst (southern Africa, 12,000-8,000 years ago, dated only in the Wilton culture article) and Wilton
+  (8,000-4,000 years ago, so later "Wilton" dates are dropped). Mixed labels (Iberomaurusian with Rharbian or Keremian)
+  are not mapped. Robberg was left out: no article of its own, and the Nelson Bay Cave article contradicts itself on
+  its dates. Other candidates outside Europe (29 Oct list): ROAD's Lupemban, Fauresmith, Sangoan, Dabban, Pietersburg,
+  Ahmarian, Acheulo-Yabrudian; XRONOS PPNC (an AADR label of Pre-Pottery Neolithic already); Jōmon (about 1,770
+  Japanese dates under some 600 pottery-type labels, Yayoi types to be kept out).
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

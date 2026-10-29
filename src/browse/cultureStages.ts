@@ -34,9 +34,9 @@ export const CULTURE_STAGES: CultureStage[] = [
   {
     id: "ice-age-hunters",
     title: "Ice Age hunters",
-    blurb: "Hunter-gatherers of the last glacial period, who carved ivory, painted caves and followed mammoth, reindeer and horse; and, at its end, the first widespread culture of the Americas.",
+    blurb: "Hunter-gatherers of the last glacial period, who carved ivory, painted caves and followed mammoth, reindeer and horse in Europe, made tiny bladelets along the coasts of North Africa, and, at its end, spread the first widespread culture of the Americas.",
     picture: painting("ice-age-hunters"),
-    members: ["aurignacian", "gravettian", "solutrean", "epigravettian", "magdalenian", "clovis"],
+    members: ["aurignacian", "gravettian", "solutrean", "epigravettian", "magdalenian", "iberomaurusian", "clovis"],
   },
   {
     id: "first-farmers-near-east",
@@ -48,8 +48,8 @@ export const CULTURE_STAGES: CultureStage[] = [
   {
     id: "after-the-ice",
     title: "As the ice melted",
-    blurb: "Hunter-gatherers of a warming world: camps by forest lakes and seashores in Europe, and snail-shell middens in North Africa.",
-    members: ["azilian", "capsian", "maglemosian", "ertebolle"],
+    blurb: "Hunter-gatherers of a warming world: camps by forest lakes and seashores in Europe, snail-shell middens in North Africa, and rock shelters across southern Africa.",
+    members: ["azilian", "capsian", "oakhurst", "maglemosian", "wilton", "ertebolle"],
   },
   {
     id: "early-farmers-europe",

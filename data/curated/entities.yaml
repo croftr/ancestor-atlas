@@ -1717,6 +1717,16 @@
     - { url: /images/extra/maglemosian-4.webp, credit: "Walker, Gaffney et al. (map by M. Muru), CC BY 4.0, via Wikimedia Commons", caption: "The drowning of Doggerland: the North Sea coast about 10,000, 9,000, 8,200 and 7,000 years ago", source: "https://commons.wikimedia.org/wiki/File:Doggerland.png" }
   wikidata: Q928511
   source_ids: []
+# Span from English Wikipedia: Iberomaurusian@1374169940 (c. 25/23,000 to c. 11,000 cal BP).
+- id: iberomaurusian
+  name: Iberomaurusian
+  category: culture
+  start_year: -23050
+  end_year: -9050
+  description: "From around the coldest point of the last Ice Age, some 25,000 years ago, until about 11,000 years ago, hunter-gatherers near the coasts of Morocco, Algeria and Tunisia made the Iberomaurusian toolkit: tiny stone bladelets with one edge blunted, many of them crescent-shaped, found in their thousands at sites such as Taforalt and Afalou. The name, coined in 1909, means ‘of Iberia and Mauretania’, from a belief that the same industry reached across the Strait of Gibraltar into Spain. That idea has long been given up, but the name stuck. In Algeria, Tunisia and Libya it was followed by the Capsian; in Morocco, after a long gap, by the first potters."
+  wikipedia_url: https://en.wikipedia.org/wiki/Iberomaurusian
+  wikidata: Q1470903
+  source_ids: []
 # Span from English Wikipedia: Capsian_culture@1371764415.
 - id: capsian
   name: Capsian culture
@@ -1735,6 +1745,24 @@
     - { url: /images/extra/capsian-4.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "Drawing of a Capsian burial from Tunisia, the body laid on its side with knees drawn up", source: "https://commons.wikimedia.org/wiki/File:Capsien_burial_(Tunisia).png" }
   wikipedia_url: https://en.wikipedia.org/wiki/Capsian_culture
   wikidata: Q766150
+  source_ids: []
+# Span from English Wikipedia: Wilton_culture@1378611874 ("from 12,000 to 8,000 years ago, corresponding to Oakhurst technology"); no article of its own.
+- id: oakhurst
+  name: Oakhurst industry
+  category: culture
+  start_year: -10050
+  end_year: -6050
+  description: "Between about 12,000 and 8,000 years ago, as the climate after the last Ice Age turned kinder, hunter-gatherers lived across much of southern Africa in larger numbers than before, leaving many more sites behind. Archaeologists call their toolkit Oakhurst, after a site in the southern Cape: large, informal stone tools, among them big scrapers of quartzite, made by people who still hunted large animals. Around 8,000 years ago it gave way to the smaller, more carefully shaped tools of the Wilton culture."
+  source_ids: []
+# Span from English Wikipedia: Wilton_culture@1378611874 (middle Holocene, ~8,000-4,000 years ago, after Deacon).
+- id: wilton
+  name: Wilton culture
+  category: culture
+  start_year: -6050
+  end_year: -2050
+  description: "From about 8,000 to 4,000 years ago, hunter-gatherers from the southern tip of Africa to Zimbabwe and Zambia made the small, carefully shaped stone tools archaeologists call Wilton, after a rock shelter on a farm in the Eastern Cape first dug in 1921: thumbnail-sized scrapers and backed pieces, probably fixed into arrows and other tools with ochre. They hunted smaller game and gathered more plants than the Oakhurst people before them, and on the south coast came to rely more and more on fish, seals and shellfish. Ostrich eggshell travelled hundreds of kilometres between groups, deep into the Drakensberg mountains."
+  wikipedia_url: https://en.wikipedia.org/wiki/Wilton_culture
+  wikidata: Q2986725
   source_ids: []
 # Span from English Wikipedia: Halaf_culture@1372302292.
 - id: halaf
