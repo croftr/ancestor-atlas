@@ -365,6 +365,7 @@ export const TOURS: Tour[] = [
     synopsisNarration: { src: "narration/books/kindred/synopsis-v1.mp3", credit: "AI-generated narration", text_hash: "7ff691a095" },
     announcement: { src: "narration/tours/kindred-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "61fbdc978a" },
     music: { src: "music/tours/kindred-v1.mp3", credit: "Music: \"Hiraeth\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    closingNarration: { src: "narration/tours/kindred-closing-v1.mp3", credit: "AI-generated narration", text_hash: "83476b7474" },
     stops: [
       {
         entity: "neanderthal",
