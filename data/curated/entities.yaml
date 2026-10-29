@@ -1666,6 +1666,7 @@
   narration: { src: narration/cultures/lapita-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "11a98ac96a" }
   image_url: /images/cultures/lapita.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/lapita-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Lapita seafaring settlement on a tropical island coast with outrigger voyaging canoes and dentate-stamped pottery"
   extra_images:
     - { url: /images/extra/lapita-1.webp, credit: "Patrick Nunn, CC BY-SA 4.0, via Wikimedia Commons", caption: "Lapita earthenware potsherd with intricate dentate-stamped human face motif (c. 1000 BCE), excavated from the Bourewa settlement site on Viti Levu, Fiji", source: "https://commons.wikimedia.org/wiki/File:Lapita_potsherd_from_Fiji_with_face_design.jpg" }
@@ -1686,6 +1687,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Azilian
   image_url: /images/cultures/azilian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/azilian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Rock shelter in the Pyrenean foothills: painting pebbles with red ochre, carving antler harpoons, hunters bringing in a red deer"
   extra_images:
     - { url: /images/extra/azilian-1.webp, credit: "Chatsam, CC BY-SA 4.0, via Wikimedia Commons", caption: "The great cave of Le Mas d'Azil in the French Pyrenees, which gave the Azilian its name; a road runs right through it", source: "https://commons.wikimedia.org/wiki/File:Grotte_du_Mas-d%27Azil_101.jpg" }
