@@ -168,7 +168,9 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
   const next = i < events.length - 1 ? events[i + 1] : undefined;
   const places = data.featuresOf.get(event.id) ?? [];
   const related = (event.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
-  const dateRef = refLink(places[0]?.date_source);
+  // A place may be dated on its own (events.yaml): its date and source are given with it.
+  const ownDate = (p: (typeof places)[number]) => p.date_text !== undefined && p.date_text !== event.date_text;
+  const dateRef = refLink(places.find((p) => !ownDate(p))?.date_source);
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -240,6 +242,7 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
                 {places.map((p) => (
                   <li key={p.id}>
                     {p.label}
+                    {ownDate(p) && <div className="ev-place-note">{p.date_text}</div>}
                     {p.notes && <div className="ev-place-note">{p.notes}</div>}
                   </li>
                 ))}
@@ -252,6 +255,14 @@ function EventDetail({ event, events, era }: { event: Entity; events: Entity[]; 
               <div className="card-ref-group">
                 <div className="card-ref-title">Date</div>
                 Checked against {dateRef.href ? <a href={dateRef.href} target="_blank" rel="noreferrer">{dateRef.label}</a> : dateRef.label}
+                {places.filter(ownDate).map((p) => {
+                  const ref = refLink(p.date_source);
+                  return ref ? (
+                    <div key={p.id}>
+                      {p.label}: {ref.href ? <a href={ref.href} target="_blank" rel="noreferrer">{ref.label}</a> : ref.label}
+                    </div>
+                  ) : null;
+                })}
               </div>
             )}
             {places.some((p) => refLink(p.coord_source)) && (

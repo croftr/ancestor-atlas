@@ -267,7 +267,9 @@
   places:
     - { label: Qafzeh Cave, lat: 32.68852, lon: 35.318, wikidata: Q2121357 }
     - { label: Skhul Cave, lat: 32.62586, lon: 34.95852, wikidata: Q287341 }
-    - { label: Shanidar Cave, lat: 36.8006, lon: 44.2433, wikidata: Q909799 }
+    # Shanidar's burials are Neanderthal and later than Skhul and Qafzeh: its own dates (remains 65,000-35,000
+    # years ago; Shanidar Z more than 70,000, about 75,000).
+    - { label: Shanidar Cave, lat: 36.8006, lon: 44.2433, wikidata: Q909799, start_year: -73050, end_year: -33050, date_text: "c. 75,000–35,000 years ago (Neanderthal burials)", date_source: "wikipedia:Shanidar_Cave@1368889989" }
 
 - id: symbolic-culture
   name: Early symbolic and decorative culture

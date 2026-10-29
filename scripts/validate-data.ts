@@ -186,7 +186,9 @@ for (const [i, f] of (gj.features ?? []).entries()) {
     withFeatures.add(e.id);
     if (e.group) err(`${id}: group entity ${e.id} must not have features`);
     if (e.category !== p.category) err(`${id}: category ${p.category} differs from entity's ${e.category}`);
-    if (p.start_year < e.start_year || p.end_year > e.end_year)
+    // An event place dated on its own (events.yaml) may fall outside the event's stated span.
+    const ownDated = e.category === "event" && p.date_text !== e.date_text;
+    if (!ownDated && (p.start_year < e.start_year || p.end_year > e.end_year))
       err(`${id}: dates ${p.start_year}..${p.end_year} fall outside entity span ${e.start_year}..${e.end_year}`);
   }
   if (!CATS.includes(p.category)) { err(`${id}: invalid category ${p.category}`); continue; }

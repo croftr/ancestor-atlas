@@ -126,6 +126,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   range), `date_text`, a paragraph `description`, `related` entity ids, and `places` (one globe point each).
 - Coordinates from Wikidata P625 (item recorded); `note` marks place-level or region points. `date_source` pins the
   English Wikipedia revision the date was checked against. A place is `wikimedia`-sourced only with both, else `recall`.
+- A place may carry its own dates (`start_year`, `end_year`, `date_text`, with its own `date_source`) when its evidence
+  is from another time than the event's (added 29 Oct 2026 for Shanidar on First intentional burials: Neanderthal
+  burials 75,000-35,000 years ago, later than Skhul and Qafzeh). The event keeps the span it states (the build no
+  longer stretches event spans to their places); the card's stepper and the events page show the place's date.
 - On the globe an event shows while the slider is within 3 slider steps of it (`eventTolerance` in `src/map/data.ts`).
 - Events page (`#/events`, 22 Oct 2026): only the search (name, description, date) and the era chips stay pinned;
   the chips jump to an era and follow the scroll (`useSectionNav`); tiles with videos carry a badge; tile dates and
@@ -335,7 +339,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   `public/images/books/`, supplied by Rob) is the tour's picture on the Tours page, menu and title card.
 - Rob's calls: only books mostly about the world before 1 CE; pick books the atlas already covers well; notes come
   from the book (drafts from reviews are fine, Rob checks each against his copy and adds the chapter).
-- First: *Kindred* (Wragg Sykes, 2020), 13 Neanderthal stops, `draft: true` (Draft chip) until Rob has checked the
+- First: *Kindred* (Wragg Sykes, 2020), 14 stops (First intentional burials at Qafzeh added as stop 5; its note is not narrated yet), `draft: true` (Draft chip) until Rob has checked the
   notes against his audiobook. Title (usual voice), synopsis and all 13 notes narrated (Rob's recordings; synopsis and notes in a different voice, 29 Oct 2026). Music "Hiraeth" (Scott Buckley, CC BY 4.0). Narrate with
   `npm run audio:narrate -- --book <tour id>` (docs/book-tours.md). Checking *After the Ice* turned up data gaps (Younger Dryas, Mesolithic Europe, South
   Asia, the Americas); Rob has notes.

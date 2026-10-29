@@ -65,7 +65,7 @@ Everything a normal tour does stays the same. Additions:
 - Running times count the synopsis and notes.
 - Pictures on a note: `note.images` (as `extra_images`: url, credit, caption, source, optional `at`), after the
   book cover, taking turns through the note's hold (store `tour.notePicture`); arrows and dots step them by hand.
-  Files: 900 px WebP in `public/images/books/<tour id>/<stop n>-<k>.webp`, free-licence Commons photos picked on a
+  Files: 900 px WebP in `public/images/books/<tour id>/<stop n or name>-<k>.webp` (numbers as first drafted), free-licence Commons photos picked on a
   contact sheet (same rules as `extra_images`). Kindred: 2–3 per stop (1 for Aviones and the admixture stop).
 - The music starts with the tour, under the title and synopsis (Rob's call, 29 Oct 2026; other tours bring it in
   after the announcement). It dips under every reading as usual.
@@ -120,6 +120,16 @@ Years are astronomical and snapped to the slider. Site ids are features on the g
    > On the coast near Cartagena, Neanderthals collected seashells about 115,000 years ago, pierced some and
    > coloured them with red and yellow pigments. If the dates hold, these ornaments are older than any known from
    > our own species in Europe, a strong sign that the urge to adorn was not ours alone. **(check)**
+
+5. **First intentional burials (Skhul and Qafzeh, the Levant)**: event `earliest-burials`, site
+   `earliest-burials@1` (added 29 Oct 2026, after Shanidar was given its own dates on that event)
+   > Some of the oldest graves anywhere are here, on Mount Carmel and near Nazareth, where early modern humans
+   > buried their dead at Skhul and Qafzeh around 100,000 years ago, with antlers, a boar's jaw and red ochre.
+   > Neanderthals lived in the same hills, at Tabun and later Kebara. Wragg Sykes looks at the many ways
+   > Neanderthals treated their own dead, from cut-marked bones to graves like those at La Chapelle and Shanidar,
+   > and at how hard a burial is to prove. **(review: funerary practices; check: the rest)**
+
+   Stops below are numbered as drafted; in the tour they are now one later (Shanidar is stop 6).
 
 5. **Shanidar, Iraq**: `neanderthal`, site `neanderthal@21`, year `-69_999`
    > Shanidar 1 lived for years with a crushed eye socket, a withered arm and a damaged leg, which he could hardly

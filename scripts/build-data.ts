@@ -131,7 +131,22 @@ interface CuratedEvent {
   extra_images?: ExtraImage[];
   media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
   narration?: { src: string; credit: string; text_hash: string };
-  places: { label: string; lat: number; lon: number; wikidata?: string; coord_source?: string; note?: string }[];
+  /**
+   * One globe point each. A place may carry its own dates (all of start_year, end_year and date_text, with the
+   * date_source they come from) when its evidence is from another time than the event's; else it takes the event's.
+   */
+  places: {
+    label: string;
+    lat: number;
+    lon: number;
+    wikidata?: string;
+    coord_source?: string;
+    note?: string;
+    start_year?: number;
+    end_year?: number;
+    date_text?: string;
+    date_source?: string;
+  }[];
 }
 const curatedEvents = existsSync(`${CURATED}/events.yaml`)
   ? ((parseYaml(readFileSync(`${CURATED}/events.yaml`, "utf8")) as CuratedEvent[]) ?? [])
@@ -164,20 +179,26 @@ for (const ev of curatedEvents) {
   });
   ev.places.forEach((p, i) => {
     const coord_source = p.coord_source ?? (p.wikidata ? `wikidata:${p.wikidata}#P625` : undefined);
+    // A place dated on its own needs its own date evidence: the event's source does not cover it.
+    const dated = p.start_year !== undefined || p.end_year !== undefined || p.date_text !== undefined;
+    if (dated && (p.start_year === undefined || p.end_year === undefined || !p.date_text))
+      fail(`events.yaml: ${ev.id}: place ${p.label} needs start_year, end_year and date_text together`);
+    if (dated && p.start_year! > p.end_year!) fail(`events.yaml: ${ev.id}: place ${p.label} starts after it ends`);
+    const date_source = dated ? p.date_source : ev.date_source;
     const props: FeatureProps = {
       id: `${ev.id}@${i + 1}`,
       entity_id: ev.id,
       category: "event",
-      start_year: start,
-      end_year: end,
+      start_year: dated ? p.start_year! : start,
+      end_year: dated ? p.end_year! : end,
       label: p.label,
-      date_text: ev.date_text,
+      date_text: dated ? p.date_text! : ev.date_text,
       // Sourced once both the place and the date are evidenced; otherwise flagged as unverified.
-      source_id: coord_source && ev.date_source ? "wikimedia" : "recall",
+      source_id: coord_source && date_source ? "wikimedia" : "recall",
     };
     if (p.wikidata) props.wikidata = p.wikidata;
     if (coord_source) props.coord_source = coord_source;
-    if (ev.date_source) props.date_source = ev.date_source;
+    if (date_source) props.date_source = date_source;
     if (p.note) props.notes = p.note;
     features.push({ props, geometry: { type: "Point", coordinates: [p.lon, p.lat] } });
   });
@@ -414,9 +435,10 @@ if (mixedRegions.length)
 
 // ---------- spans ----------
 // Species/culture spans must cover every site window (bulk sources can extend what the curated rows give).
+// An event keeps the span it states: a place dated on its own (a later example, say) does not stretch it.
 for (const f of features) {
   const e = entities.get(f.props.entity_id);
-  if (!e || e.category === "civilization") continue;
+  if (!e || e.category === "civilization" || e.category === "event") continue;
   e.start_year = Math.min(e.start_year, f.props.start_year);
   e.end_year = Math.max(e.end_year, f.props.end_year);
 }

@@ -575,6 +575,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
                 {noun} {position} of {siblings.length}
               </span>
               {!isEvent && showLabel && <span className="feature-nav-dates">{siteRange(feature.start_year, feature.end_year)}</span>}
+              {/* An event place dated on its own (a later example of the event) says when. */}
+              {isEvent && feature.date_text && feature.date_text !== entity.date_text && <span className="feature-nav-dates">{feature.date_text}</span>}
             </div>
           </div>
           <button

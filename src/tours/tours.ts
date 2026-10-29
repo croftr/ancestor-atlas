@@ -389,6 +389,11 @@ export const TOURS: Tour[] = [
         note: { text: "On the coast near Cartagena, Neanderthals collected seashells about 115,000 years ago, pierced some and coloured them with red and yellow pigments. If the dates hold, these ornaments are older than any known from our own species in Europe, a strong sign that the urge to adorn was not ours alone.", narration: { src: "narration/books/kindred/stop-4-v1.mp3", credit: "AI-generated narration", text_hash: "b0ab8a28e8" }, images: [{ url: "/images/books/kindred/4-1.webp", credit: "P4K1T0, CC BY-SA 3.0, via Wikimedia Commons", caption: "Cueva de los Aviones, a sea cave under the Fuerte de Navidad in the bay of Cartagena, Spain", source: "https://commons.wikimedia.org/wiki/File:Cueva_de_los_Aviones.JPG" }] },
       },
       {
+        entity: "earliest-burials",
+        site: "earliest-burials@1",
+        note: { text: "Some of the oldest graves anywhere are here, on Mount Carmel and near Nazareth, where early modern humans buried their dead at Skhul and Qafzeh around 100,000 years ago, with antlers, a boar's jaw and red ochre. Neanderthals lived in the same hills, at Tabun and later Kebara. Wragg Sykes looks at the many ways Neanderthals treated their own dead, from cut-marked bones to graves like those at La Chapelle and Shanidar, and at how hard a burial is to prove.", images: [{ url: "/images/books/kindred/burials-1.webp", credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Cast of the Skhul 5 skull, an early modern human buried on Mount Carmel with a boar's jaw", source: "https://commons.wikimedia.org/wiki/File:Skhul_5_cast,_norma_frontalis.jpg" }, { url: "/images/books/kindred/burials-2.webp", credit: "Velatrix, CC0, via Wikimedia Commons", caption: "Cast of the Qafzeh 6 skull, from the burials at Qafzeh Cave near Nazareth (Natural History Museum, London)", source: "https://commons.wikimedia.org/wiki/File:Qafzeh_6_cast.jpg" }, { url: "/images/books/kindred/burials-3.webp", credit: "R Yeshurun, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Nahal Me'arot cliff on Mount Carmel, with the Tabun, Jamal and el-Wad caves, where Neanderthals lived", source: "https://commons.wikimedia.org/wiki/File:Tabun-jamal-elWad_caves.jpg" }] },
+      },
+      {
         entity: "neanderthal",
         year: -69_999,
         site: "neanderthal@21",

@@ -326,9 +326,13 @@ const pending: string[] = [];
 
 for (const e of targets) {
   const version = Number(e.narration?.src.match(/-v(\d+)\.mp3$/)?.[1] ?? 0) + 1;
+  // Book keys are named by stop number, which moves when a stop is added, so the version also goes past
+  // any key of that name already in tours.ts (keys are never reused).
+  const bookName = e.category === "book" ? `narration/books/${e.id}/${e.part === "synopsis" ? "synopsis" : `stop-${(e.part as number) + 1}`}` : "";
+  const bookVersion = Math.max(version, ...[...toursFile.matchAll(new RegExp(`${bookName}-v(\\d+)\\.mp3`, "g"))].map((m) => Number(m[1]) + 1));
   const key =
     e.category === "book"
-      ? `narration/books/${e.id}/${e.part === "synopsis" ? "synopsis" : `stop-${(e.part as number) + 1}`}-v${version}.mp3`
+      ? `${bookName}-v${bookVersion}.mp3`
       : e.category === "tour" || e.category === "tour-closing"
       ? `narration/tours/${e.id}${e.category === "tour-closing" ? "-closing" : ""}-v${version}.mp3`
       : `narration/${NARRATION_FOLDER[e.category]}/${e.id}-v${version}.mp3`;
