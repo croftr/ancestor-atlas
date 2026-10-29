@@ -7,7 +7,7 @@ import { beginTour } from "../tours/TourPlayer";
 import { minutes } from "../tours/summary";
 
 /** The tour offered to first-time visitors: the globe opens in its era. */
-const FEATURED_TOUR = "human-evolution";
+const FEATURED_TOUR = "out-of-africa";
 
 const SEEN_KEY = "history-globe.welcome-seen";
 

@@ -214,7 +214,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   4 events, Sumer to Rome); Out of the steppe (`steppe-migration`, 16 Oct 2026: the wheel + 7 steppe-descended
   cultures, Yamnaya to Andronovo; `dna: "y"` turns the ancient DNA layer on for the tour and puts the viewer's setting
   back after). Every stop narrated; 36 species/culture/civilization descriptions were rewritten as
-  narration-length paragraphs for them (Rob to review). Music: Human evolution and Out of Africa have "Apeman Suite" by Paul Lawler (16 Oct 2026; no licence for it, see backlog item 5); the others share "Adrift Among Infinite Stars" (Scott Buckley, CC BY 4.0).
+  narration-length paragraphs for them (Rob to review). Music: Human evolution and Out of Africa have "Apeman Suite" by Paul Lawler (16 Oct 2026; no licence for it, kept by Rob's call 29 Oct 2026, see backlog item 5); the others share "Adrift Among Infinite Stars" (Scott Buckley, CC BY 4.0).
   Added 20 Oct 2026: The first Americans (`first-americans`, 12 stops, White Sands to Teotihuacan; music "Memories Of
   Stone") and When the ice melted (`when-the-ice-melted`, 10 stops, Xianrendong pottery to Ertebølle; music
   "Permafrost"; both Scott Buckley, CC BY 4.0). `paleo: true` on a tour turns the coastlines and ice sheets on for
@@ -304,7 +304,8 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 4. Done 17 Oct 2026: Events and inventions runs every event, picked up automatically (Rob chose all over a trimmed list).
 5. Music: Human evolution and Out of Africa play "Apeman Suite" by Paul Lawler (keys human-evolution-v2,
    out-of-africa-v2; 6:22); Rob believes it is not
-   licensed, so swap it for a licensed track (or get permission) before relying on it publicly. The other three
+   licensed but chose to keep it (29 Oct 2026). Out of Africa is the tour offered to first-time visitors
+   (`FEATURED_TOUR` in `src/ui/WelcomeHint.tsx`, Rob's call 29 Oct 2026). The other three
    share "Adrift Among Infinite Stars" (separate keys, so each can be swapped); its 6:45 loop seam is audible on
    longer tours. Levels and the dip under narration are untested by ear on phones (iOS Web Audio, the Start tour tap).
 6. Rob reviews the 36 rewritten descriptions (species, cultures, civilizations; commits fd9cc09, c537034, fe91b57,
