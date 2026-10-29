@@ -1788,6 +1788,66 @@
   wikipedia_url: https://en.wikipedia.org/wiki/J%C5%8Dmon_period
   wikidata: Q52824
   source_ids: []
+# Span from English Wikipedia: Peiligang_culture@1355461674 (about 7000 to 5000 BC).
+- id: peiligang
+  name: Peiligang culture
+  category: culture
+  start_year: -6999
+  end_year: -4999
+  description: "Some 9,000 years ago, in the valley of the Yi and Luo rivers in today's Henan, villagers began to farm millet and raise pigs. The Peiligang culture, named after a village near Zhengzhou, lasted from about 7000 to 5000 BCE, in more than a hundred small settlements close together along the river. They hunted deer and wild boar, fished for carp with nets of hemp, cut grain with stone sickles and made some of the oldest pottery in China. Homes and graves lay apart, and nothing suggests chiefs or rich and poor. At Jiahu, to the south, people also grew rice, played flutes carved from the wing bones of cranes, and cut signs into tortoise shells."
+  wikipedia_url: https://en.wikipedia.org/wiki/Peiligang_culture
+  wikidata: Q1193609
+  source_ids: []
+# Span from English Wikipedia: Hemudu_culture@1369639744 (5500 BC to 3300 BC).
+- id: hemudu
+  name: Hemudu culture
+  category: culture
+  start_year: -5499
+  end_year: -3299
+  description: "On the coast south of Hangzhou Bay, between about 5500 and 3300 BCE, the people of the Hemudu culture were among the first anywhere to grow rice. They lived in long houses raised on stilts above the wet ground, worked their fields with hoes made from the shoulder blades of animals, and gathered water caltrop, lotus, acorns and wild kiwifruit. They kept pigs, hunted deer and water buffalo, and fished for carp with bone harpoons. A red lacquered wooden bowl from Hemudu is thought to be the oldest lacquerware in the world. In the end, floods turned the soil salty and the villages were abandoned."
+  wikipedia_url: https://en.wikipedia.org/wiki/Hemudu_culture
+  wikidata: Q948642
+  source_ids: []
+# Span from English Wikipedia: Yangshao_culture@1379047029 (around 5000 BC to 3000 BC).
+- id: yangshao
+  name: Yangshao culture
+  category: culture
+  start_year: -4999
+  end_year: -2999
+  description: "From about 5000 to 3000 BCE, farming villages spread along the middle Yellow River, in the heartland of later Chinese civilization. The Yangshao people grew millet and some rice, kept pigs and dogs, wove hemp, made a little silk, and brewed beer from millet and rice for their feasts. They lived in pit houses thatched with millet stalks, set around a central square and often inside a ditch, as at Banpo near Xi'an. Their potters, working without a wheel, painted fine red, white and black pots with human faces, fish, animals and geometric patterns. The culture is named after the village in Henan where it was first dug, in 1921."
+  wikipedia_url: https://en.wikipedia.org/wiki/Yangshao_culture
+  wikidata: Q854631
+  source_ids: []
+# Span from English Wikipedia: Hongshan_culture@1375049650 (about 4700 to 2900 BC).
+- id: hongshan
+  name: Hongshan culture
+  category: culture
+  start_year: -4699
+  end_year: -2899
+  description: "In the West Liao river basin of north-east China, from Inner Mongolia to Liaoning, the Hongshan culture flourished from about 4700 to 2900 BCE, at the same time as the Yangshao to the south, and the two influenced each other. Hongshan is best known for carved jade, some of the earliest jade-working known, including curled pig dragons. At Niuheliang its people built a ritual complex of stone cairns, altars and an underground Goddess Temple, named for a clay female head with eyes of inlaid jade, among clay figures up to three times life size. Hongshan jades have much in common with those of the Shang, two thousand years later."
+  wikipedia_url: https://en.wikipedia.org/wiki/Hongshan_culture
+  wikidata: Q1195031
+  source_ids: []
+# Span from English Wikipedia: Liangzhu_culture@1381879788 (3300-2300 BC).
+- id: liangzhu
+  name: Liangzhu culture
+  category: culture
+  start_year: -3299
+  end_year: -2299
+  description: "Between about 3300 and 2300 BCE, in the Yangtze delta, the Liangzhu culture became one of the first states in East Asia. At its centre, near today's Hangzhou, stood a walled city with a great palace platform, and around it the earliest known large-scale water-management system in the world: dams and embankments controlling nearly a hundred square kilometres. Rice paddies fed it. Its rulers were buried with jade cong tubes and bi discs, silk, ivory and lacquer, while ordinary graves held only pottery. In the end the city was abandoned, after great floods as the climate changed."
+  wikipedia_url: https://en.wikipedia.org/wiki/Liangzhu_culture
+  wikidata: Q1204909
+  source_ids: []
+# Span from English Wikipedia: Longshan_culture@1360689710 (about 3000 to 1900 BC).
+- id: longshan
+  name: Longshan culture
+  category: culture
+  start_year: -2999
+  end_year: -1899
+  description: "From about 3000 to 1900 BCE, along the middle and lower Yellow River, the population of northern China grew fast and many towns were walled with rammed earth, twenty in Shandong alone, a sign of rivalry between small states. Longshan potters used the wheel to throw thin, highly polished black pots, some as fine as eggshell. People grew foxtail millet and also rice and wheat, raised silkworms and practised divination. At Taosi in Shanxi, a walled town of 280 hectares had what may be the oldest observatory in East Asia. One of its local branches gave rise to the Erlitou culture of the early Bronze Age."
+  wikipedia_url: https://en.wikipedia.org/wiki/Longshan_culture
+  wikidata: Q1057935
+  source_ids: []
 # Span from English Wikipedia: Halaf_culture@1372302292.
 - id: halaf
   name: Halaf culture

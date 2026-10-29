@@ -645,6 +645,15 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   vague (?, 不明, 以降, "/"), and Yayoi or Yayoi-contemporary types (Sunazawa, Aokihata, Ongagawa, Itazuke, Yusu,
   Totaimon, Nagahara, Ōbora A'). 27 new points (Kamikuroiwa, Senpukuji, Mizuko, Hikozaki...); the rest fall on
   curated sites. Only the labels at placed sites are mapped; the other ~420 sites (1,790 dates) have no Wikidata item.
+- Chinese Neolithic added 29 Oct 2026 (stage "First farmers of East Asia"; spans from each culture's pinned
+  article, descriptions written from them, Rob to review; no pictures yet): Peiligang (7000-5000 BCE), Hemudu
+  (5500-3300), Yangshao (5000-3000), Hongshan (4700-2900), Liangzhu (3300-2300), Longshan (3000-1900). 13 sites with
+  Wikidata coordinates: Peiligang, Jiahu; Hemudu, Tianluoshan; Yangshao, Banpo, Jiangzhai, Dadiwan (Yangshao layers);
+  Niuheliang, Xinglonggou 2; Liangzhu City; Taosi, Chengziya. Type sites and Tianluoshan have no dated article, so
+  they carry the culture's span (confidence low). Shimao left out (its article puts it in the Longshan period, not
+  the culture). AADR: Longshan links 9 genomes at 3 sites; the Yangshao label is mapped but its only genomes
+  (Baligang) are PROVISIONAL_PASS, so none show. XRONOS's Chinese dates have no culture labels. Not added: Dawenkou,
+  Majiayao, Dadiwan, Cishan, Xinglongwa, Kuahuqiao, Shangshan (candidates).
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

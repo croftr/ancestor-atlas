@@ -52,6 +52,12 @@ export const CULTURE_STAGES: CultureStage[] = [
     members: ["jomon", "azilian", "capsian", "oakhurst", "maglemosian", "wilton", "ertebolle"],
   },
   {
+    id: "first-farmers-east-asia",
+    title: "First farmers of East Asia",
+    blurb: "Millet along the Yellow River and rice in the Yangtze delta: villages, carved jade and the first walled towns of China.",
+    members: ["peiligang", "hemudu", "yangshao", "hongshan", "liangzhu", "longshan"],
+  },
+  {
     id: "early-farmers-europe",
     title: "Early farmers of Europe",
     blurb: "Farming spread from the Balkans up the Danube and along the Mediterranean coast, bringing longhouses, ditched enclosures and the first megaliths.",
