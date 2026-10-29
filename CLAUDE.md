@@ -84,13 +84,25 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Curated sites (`data/curated/species-sites.csv`, `culture-sites.csv`)
 
-- 208 rows: 183 sourced, 21 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent). Since 23 Oct 2026 only
+- 218 rows: 194 sourced, 20 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent). Since 23 Oct 2026 only
   sourced rows are drawn (Rob's call: when unsure, leave it out); the 25 others are left out by `loadSites` in
   `scripts/build-data.ts` and come back by themselves once both evidence columns are filled (ids keep counting every
   row, so nothing is renumbered). XRONOS and ROAD points they used to hide now show (Isturitz, Pincevent,
   Laugerie-Haute, Feldhofer Grotte). Tour stops moved off hidden sites: Clovis to Anzick (`clovis@4`; first-americans
   now at 11,050 BCE, snapping to the megafauna stop's step), when-the-ice-melted's Magdalenian to Les Trois-Frères
   (`magdalenian@4`).
+- Added 29 Oct 2026 (coverage outside Europe, from Rob's list of missing places): ten H. sapiens sites in the Americas
+  and Australia, Meadowcroft, Bluefish Caves, Pedra Furada, Caverna da Pedra Pintada, Guitarrero Cave, Koster,
+  Kennewick Man, Kow Swamp, Puritjarra, Kutikina; dates from pinned Wikipedia revisions (Kutikina's from four XRONOS
+  dates, calibrated). Meadowcroft and Bluefish are early claims the articles call disputed (confidence low); Pedra
+  Furada shows only the undisputed 12-7 ka phase. Bluefish's coordinates come from the article (Wikidata's and
+  XRONOS's are far off); Pedra Pintada's are place-level (Monte Alegre State Park). Blackwater Draw (Clovis) became
+  sourced (the article's 11,290 14C BP average, calibrated). ROAD's "Acheulean (S Asia)" labels now map to Acheulean
+  (six Indian sites); Bhimbetka's ROAD layer (200-120 ka) falls after the Acheulean span and is dropped.
+  Still missing from Rob's list (nothing usable in our data, or needs a culture or event first): Folsom culture,
+  Mehrgarh, Ganges Mesolithic cemeteries, East Asian Neolithic cultures (Peiligang, Pengtoushan, Kuahuqiao, Hemudu;
+  XRONOS has unlabelled dates), Jōmon, Jebel Sahaba and Nabta Playa (as events), Uan Afuda/Muhuggiag, Ishango,
+  Gwisho, Turkana harpoon sites, Coobool Creek, the Peruvian Paloma.
 - Added 17 Oct 2026 for the migration routes: cultures Early Bantu-speaking farmers (Shum Laka, Katuruka), Dapenkeng
   (Fengbitou) and Lapita (Talepakemalai/Mussau, Teouma, Site 13, Moturiki, Nukuleka, Mulifanua), Wikidata coordinates
   (several place-level) and dates from pinned Wikipedia revisions; descriptions written from those articles (Rob to
