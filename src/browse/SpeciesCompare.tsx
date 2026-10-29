@@ -40,7 +40,7 @@ let landPromise: Promise<LandCollection | null> | null = null;
 function loadLand(): Promise<LandCollection | null> {
   if (landCache) return Promise.resolve(landCache);
   if (!landPromise) {
-    landPromise = fetch("/data/land.geojson")
+    landPromise = fetch("/data/basemap/land.geojson")
       .then((r) => (r.ok ? (r.json() as Promise<LandCollection>) : null))
       .then((d) => {
         landCache = d;

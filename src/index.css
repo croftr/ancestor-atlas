@@ -829,3 +829,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .route-popup.maplibregl-popup-anchor-top .maplibregl-popup-tip { border-bottom-color: rgba(17, 24, 42, 0.96); }
 .route-popup.maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: rgba(17, 24, 42, 0.96); }
 .route-popup.maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: rgba(17, 24, 42, 0.96); }
+
+/* A page or card that failed to render (ui/ErrorBoundary.tsx). */
+.error-note p { margin: 0 0 10px; line-height: 1.4; }
+.error-note-actions { display: flex; gap: 8px; }
+.error-note-actions button {
+  padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+}
+.error-note-actions button:hover { background: rgba(255,255,255,0.16); }
+.page-error { position: absolute; top: 40px; left: calc(var(--nav-w, 0px) + 40px); right: 40px; max-width: 520px; }

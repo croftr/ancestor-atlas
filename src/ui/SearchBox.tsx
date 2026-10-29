@@ -2,7 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "../store";
 import { useData } from "../map/data";
 import { formatRange } from "../time/scale";
-import { buildIndex, normalize, searchEntities } from "../search/search";
+import { buildIndex, buildPlaceIndex, normalize, searchEntities, searchPlaces, type Place } from "../search/search";
+import { showSite } from "../globeLink";
 import type { Entity } from "../types";
 import { CategoryBadge, SINGULAR } from "./CategoryIcon";
 import { useMediaQuery } from "./useMediaQuery";
@@ -36,7 +37,20 @@ function Highlight({ text, query }: { text: string; query: string }) {
   );
 }
 
-/** `onChoose` replaces the default (show the entity on the globe), e.g. on the timeline page. */
+/** A row in the results: an entity, or (on the globe) a named place. */
+type Result = { kind: "entity"; id: string; entity: Entity } | { kind: "place"; id: string; place: Place };
+
+const MAX_RESULTS = 8;
+/** Rows kept for places when entities match too, so a site such as "Olduvai Gorge" is never crowded out. */
+const MIN_PLACE_ROWS = 3;
+
+/** "Denisovan, Neanderthal +2" */
+const entityList = (names: string[]) => names.slice(0, 2).join(", ") + (names.length > 2 ? ` +${names.length - 2}` : "");
+
+/**
+ * `onChoose` replaces the default (show the entity on the globe), e.g. on the timeline page; places
+ * (site names) are searched only on the globe.
+ */
 export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void } = {}) {
   const data = useData();
   const focusEntity = useStore((s) => s.focusEntity);
@@ -48,7 +62,19 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
   const inputRef = useRef<HTMLInputElement>(null);
 
   const index = useMemo(() => (data ? buildIndex(data.entities) : []), [data]);
-  const results = useMemo(() => searchEntities(index, query, 8), [index, query]);
+  const places = useMemo(
+    () => (data && !onChoose ? buildPlaceIndex(data.features, (id) => data.entityById.get(id)?.name, data.bboxOf) : []),
+    [data, onChoose],
+  );
+  const results = useMemo((): Result[] => {
+    const entities = searchEntities(index, query, MAX_RESULTS);
+    const sites = searchPlaces(places, query, MAX_RESULTS);
+    const placeRows = Math.min(sites.length, Math.max(MIN_PLACE_ROWS, MAX_RESULTS - entities.length));
+    return [
+      ...entities.slice(0, MAX_RESULTS - placeRows).map((e): Result => ({ kind: "entity", id: e.id, entity: e })),
+      ...sites.slice(0, placeRows).map((p): Result => ({ kind: "place", id: `place-${p.features[0].id}`, place: p })),
+    ];
+  }, [index, places, query]);
 
   useEffect(() => setActive(0), [query]);
 
@@ -72,9 +98,11 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const choose = (e: Entity) => {
-    if (onChoose) onChoose(e);
-    else focusEntity(e.id);
+  const choose = (r: Result) => {
+    // A place opens its oldest site; the card's "Also here" lists the rest.
+    if (r.kind === "place") showSite(r.place.features[0].id);
+    else if (onChoose) onChoose(r.entity);
+    else focusEntity(r.entity.id);
     setQuery("");
     setOpen(false);
     inputRef.current?.blur();
@@ -109,8 +137,8 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
           ref={inputRef}
           type="search"
           value={query}
-          placeholder={narrow ? "Search the atlas…" : "Search species, cultures, civilizations…"}
-          aria-label="Search by name"
+          placeholder={narrow ? "Search the atlas…" : onChoose ? "Search species, cultures, civilizations…" : "Search species, cultures, places…"}
+          aria-label={onChoose ? "Search by name" : "Search by name or place"}
           aria-expanded={showList}
           aria-controls="search-results"
           aria-activedescendant={showList && results[active] ? `search-opt-${results[active].id}` : undefined}
@@ -150,27 +178,30 @@ export default function SearchBox({ onChoose }: { onChoose?: (e: Entity) => void
       )}
       {showList && (
         <ul id="search-results" className="search-results panel" role="listbox">
-          {results.length === 0 && <li className="search-empty muted">No matching names</li>}
-          {results.map((e, i) => {
+          {results.length === 0 && <li className="search-empty muted">{onChoose ? "No matching names" : "No matching names or places"}</li>}
+          {results.map((r, i) => {
+            const first = r.kind === "place" ? r.place.features[0] : null;
             return (
               <li
-                key={e.id}
-                id={`search-opt-${e.id}`}
+                key={r.id}
+                id={`search-opt-${r.id}`}
                 role="option"
                 aria-selected={i === active}
                 className={`search-result${i === active ? " active" : ""}`}
                 onMouseDown={(ev) => ev.preventDefault() /* keep focus so blur doesn't close first */}
                 onMouseEnter={() => setActive(i)}
-                onClick={() => choose(e)}
+                onClick={() => choose(r)}
               >
                 <span className="search-badge">
-                  <CategoryBadge category={e.category} size={24} decorative />
+                  <CategoryBadge category={r.kind === "entity" ? r.entity.category : first!.category} size={24} decorative />
                 </span>
                 <span className="search-name">
-                  <Highlight text={e.name} query={query} />
+                  <Highlight text={r.kind === "entity" ? r.entity.name : r.place.label} query={query} />
                 </span>
                 <span className="search-meta muted">
-                  {e.group ? "Group" : SINGULAR[e.category]} · {formatRange(e.start_year, e.end_year)}
+                  {r.kind === "entity"
+                    ? `${r.entity.group ? "Group" : SINGULAR[r.entity.category]} · ${formatRange(r.entity.start_year, r.entity.end_year)}`
+                    : `Site · ${entityList(r.place.entities)}`}
                 </span>
               </li>
             );

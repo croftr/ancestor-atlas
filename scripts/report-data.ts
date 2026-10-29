@@ -126,7 +126,13 @@ section(
   nonGroup.filter((e) => !withFeatures.has(e.id)).map((e) => `- \`${e.id}\` (${e.category})`),
 );
 const isSite = (e: { category: string }) => e.category === "species" || e.category === "culture";
-const recallOnly = nonGroup.filter((e) => isSite(e) && (byEntity.get(e.id) ?? []).every((r) => r.status !== "sourced"));
+// Points from the bulk imports (XRONOS, ROAD) carry their own sources, so they count as sourced sites too.
+const bulkSourced = new Set(
+  features.filter((f) => f.properties.source_id === "xronos" || f.properties.source_id === "road").map((f) => f.properties.entity_id),
+);
+const recallOnly = nonGroup.filter(
+  (e) => isSite(e) && !bulkSourced.has(e.id) && (byEntity.get(e.id) ?? []).every((r) => r.status !== "sourced"),
+);
 section(
   "Entities with no sourced sites",
   recallOnly.length

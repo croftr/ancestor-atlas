@@ -1,3 +1,4 @@
+import DataLoading from "../ui/DataLoading";
 import { useMemo, type CSSProperties } from "react";
 import { useData } from "../map/data";
 import { navigate } from "../route";
@@ -107,7 +108,7 @@ export default function ToursPage() {
     [data],
   );
 
-  if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
+  if (!data) return <div className="events-page"><div className="ev-loading muted"><DataLoading /></div></div>;
 
   const totalStops = tours.reduce((n, t) => n + t.stops.length, 0);
   const totalMins = tours.reduce((n, t) => n + t.mins, 0);

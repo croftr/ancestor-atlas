@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bestYear, buildIndex, navOrder, normalize, searchEntities } from "./search";
+import { bestYear, buildIndex, buildPlaceIndex, navOrder, normalize, searchEntities, searchPlaces } from "./search";
 import { unionBBox } from "../map/data";
 import type { Entity, FeatureProps } from "../types";
 
@@ -71,5 +71,42 @@ describe("navOrder", () => {
       ["west", [2, 50, 2, 50]],
     ]);
     expect(navOrder(fs, boxes).map((f) => f.id)).toEqual(["west", "east", "late"]);
+  });
+});
+
+describe("searchPlaces", () => {
+  const site = (id: string, entity_id: string, label: string, start: number, category: FeatureProps["category"] = "species"): FeatureProps => ({
+    id, entity_id, label, category, start_year: start, end_year: start + 1000, source_id: "x",
+  });
+  const features = [
+    site("den@1", "denisovan", "Denisova Cave", -200_000),
+    site("nea@1", "neanderthal", "Denisova Cave", -250_000),
+    site("nea@far", "neanderthal", "Denisova Cave", -100_000), // same label, far away: another place
+    site("pb@1", "boisei", "Olduvai Gorge", -1_800_000),
+    site("ur@1", "ubaid", "Tell Uruk", -5_000, "culture"),
+    site("civ@1", "rome", "Roman Empire", -26, "civilization"),
+  ];
+  const bbox = new Map<string, [number, number, number, number]>([
+    ["den@1", [84.68, 51.4, 84.68, 51.4]],
+    ["nea@1", [84.69, 51.41, 84.69, 51.41]],
+    ["nea@far", [10, 50, 10, 50]],
+    ["pb@1", [35.35, -2.99, 35.35, -2.99]],
+    ["ur@1", [45.6, 31.3, 45.6, 31.3]],
+    ["civ@1", [0, 40, 20, 50]],
+  ]);
+  const names: Record<string, string> = { denisovan: "Denisovans", neanderthal: "Neanderthal", boisei: "P. boisei", ubaid: "Ubaid" };
+  const places = buildPlaceIndex(features, (id) => names[id], bbox);
+
+  it("joins sites with one label at one spot, oldest first, and leaves territories out", () => {
+    const den = searchPlaces(places, "denisova");
+    expect(den.map((p) => p.features.map((f) => f.id))).toEqual([["nea@1", "den@1"], ["nea@far"]]);
+    expect(den[0].entities).toEqual(["Neanderthal", "Denisovans"]);
+    expect(searchPlaces(places, "roman")).toEqual([]);
+  });
+  it("finds word starts, ignores accents, and needs 3 letters for a match inside a word", () => {
+    expect(searchPlaces(places, "olduvái").map((p) => p.label)).toEqual(["Olduvai Gorge"]);
+    expect(searchPlaces(places, "gorge").map((p) => p.label)).toEqual(["Olduvai Gorge"]);
+    expect(searchPlaces(places, "ru")).toEqual([]);
+    expect(searchPlaces(places, "ruk").map((p) => p.label)).toEqual(["Tell Uruk"]);
   });
 });

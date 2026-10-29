@@ -81,3 +81,59 @@ export function navOrder(
   }
   return order;
 }
+
+/** A named place on the globe: every site with the same label within a few km, across entities. */
+export interface Place {
+  label: string;
+  norm: string;
+  /** The place's sites, oldest first. */
+  features: FeatureProps[];
+  /** Names of the entities found there, oldest first, without repeats. */
+  entities: string[];
+}
+
+/**
+ * Index the site labels (species, culture and event points; civilization territories are named
+ * after their entity, which the entity search finds already). Sites sharing a label within about
+ * 5 km are one place, so "Denisova Cave" lists Denisovans and Neanderthals together.
+ */
+export function buildPlaceIndex(
+  features: FeatureProps[],
+  entityName: (id: string) => string | undefined,
+  bboxOf: Map<string, [number, number, number, number]>,
+): Place[] {
+  const byKey = new Map<string, Place>();
+  for (const f of features) {
+    if (f.category === "civilization" || !f.label) continue;
+    const b = bboxOf.get(f.id);
+    if (!b) continue;
+    const norm = normalize(f.label);
+    const key = `${norm}|${Math.round(b[0] * 20)}|${Math.round(b[1] * 20)}`;
+    let p = byKey.get(key);
+    if (!p) byKey.set(key, (p = { label: f.label, norm, features: [], entities: [] }));
+    p.features.push(f);
+  }
+  const places = [...byKey.values()];
+  for (const p of places) {
+    p.features.sort((a, b) => a.start_year - b.start_year);
+    p.entities = [...new Set(p.features.map((f) => entityName(f.entity_id)).filter((n): n is string => !!n))];
+  }
+  return places;
+}
+
+/**
+ * Match place labels, ranked as `searchEntities`. Substring matches need 3+ letters, so a short
+ * query ("ur") doesn't list every site with those letters inside a word.
+ */
+export function searchPlaces(places: Place[], query: string, limit = 8): Place[] {
+  const q = normalize(query);
+  if (!q) return [];
+  const qWords = words(q);
+  const hits: { p: Place; s: number }[] = [];
+  for (const p of places) {
+    const s = score(p.norm, q, qWords);
+    if (s !== null && (s < 3 || q.length >= 3)) hits.push({ p, s });
+  }
+  hits.sort((a, b) => a.s - b.s || a.p.norm.length - b.p.norm.length || a.p.features[0].start_year - b.p.features[0].start_year);
+  return hits.slice(0, limit).map((h) => h.p);
+}

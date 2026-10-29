@@ -32,7 +32,7 @@ const itemOfHash = (hash: string): string | null => {
   return m ? decodeURIComponent(m[1]) : null;
 };
 
-function useHash(): string {
+export function useHash(): string {
   const [hash, setHash] = useState(() => window.location.hash);
   useEffect(() => {
     const onHash = () => setHash(window.location.hash);

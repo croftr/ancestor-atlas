@@ -1,3 +1,4 @@
+import DataLoading from "../ui/DataLoading";
 import { Fragment, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { CATEGORY_STYLE } from "../config";
 import { useData } from "../map/data";
@@ -218,7 +219,7 @@ export default function CivilizationsPage() {
     [civs, placeOf],
   );
 
-  if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
+  if (!data) return <div className="events-page"><div className="ev-loading muted"><DataLoading /></div></div>;
 
   const q = query.trim();
   const inRegion = (id: string) => region === null || placeOf.get(id)?.entry.region === region;

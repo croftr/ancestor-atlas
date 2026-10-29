@@ -21,7 +21,8 @@ import EventsPage from "./events/EventsPage";
 import CulturesPage from "./browse/CulturesPage";
 import SpeciesPage from "./browse/SpeciesPage";
 import CivilizationsPage from "./browse/CivilizationsPage";
-import { useView } from "./route";
+import ErrorBoundary from "./ui/ErrorBoundary";
+import { useHash, useView } from "./route";
 import { useStore } from "./store";
 import { readTourHash, useGlobeLink } from "./globeLink";
 import { usePageTitle } from "./pageTitle";
@@ -30,6 +31,7 @@ import "./ui/stacked.css";
 
 export default function App() {
   const view = useView();
+  const hash = useHash();
   useGlobeLink(view);
   usePageTitle();
   const introOpen = useStore((s) => s.introOpen);
@@ -50,6 +52,8 @@ export default function App() {
   // An open info card on the globe: the time slider narrows so the two never overlap.
   const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.place !== null);
   const touring = useStore((s) => s.tour !== null);
+  // Another card (or none) clears a card that failed to render.
+  const cardKey = useStore((s) => `${s.selectedId}|${s.groupId}|${s.dnaSite}|${s.place ? `${s.place.lon},${s.place.lat}` : ""}`);
   // The card's width as dragged (desktop); the CSS clamps it to the window (ui/sidenav.css).
   const cardWidth = useStore((s) => s.cardWidth);
   return (
@@ -67,9 +71,11 @@ export default function App() {
             <SearchBox />
             <ClimateHud />
             <Legend />
-            <InfoPanel />
-            <DnaCard />
-            <PlaceCard />
+            <ErrorBoundary what="This card" resetKey={cardKey} className="info-panel" onClose={() => useStore.getState().select(null)}>
+              <InfoPanel />
+              <DnaCard />
+              <PlaceCard />
+            </ErrorBoundary>
             <TimeSlider />
             <WelcomeHint />
             <TourPlayer />
@@ -77,14 +83,19 @@ export default function App() {
           </>
         )}
       </div>
-      {view === "timeline" && <TimelinePage />}
-      {view === "events" && <EventsPage />}
-      {view === "species" && <SpeciesPage />}
-      {view === "cultures" && <CulturesPage />}
-      {view === "civilizations" && <CivilizationsPage />}
-      {view === "tours" && <ToursPage />}
-      {view === "news" && <NewsPage />}
-      {view === "updates" && <UpdatesPage />}
+      {view !== "globe" && (
+        // Keyed on the address, so opening another page or entry tries again after a failure.
+        <ErrorBoundary what="This page" resetKey={hash} className="page-error">
+          {view === "timeline" && <TimelinePage />}
+          {view === "events" && <EventsPage />}
+          {view === "species" && <SpeciesPage />}
+          {view === "cultures" && <CulturesPage />}
+          {view === "civilizations" && <CivilizationsPage />}
+          {view === "tours" && <ToursPage />}
+          {view === "news" && <NewsPage />}
+          {view === "updates" && <UpdatesPage />}
+        </ErrorBoundary>
+      )}
       <PageTabs />
       <SideNav />
       {introOpen && <IntroModal />}

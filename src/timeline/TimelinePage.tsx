@@ -1,3 +1,4 @@
+import DataLoading from "../ui/DataLoading";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "../store";
 import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
@@ -260,7 +261,7 @@ export default function TimelinePage() {
   );
   const [tip, setTip] = useState<{ e: Entity; x: number; y: number } | null>(null);
 
-  if (!data || !entities) return <div className="timeline-page"><div className="tl-loading muted">Loading…</div></div>;
+  if (!data || !entities) return <div className="timeline-page"><div className="tl-loading muted"><DataLoading /></div></div>;
 
   const step = tickStep(span, Math.max(2, Math.floor(trackW / 110)));
   const tickYears = ticks(win, Math.max(2, Math.floor(trackW / 110)));

@@ -1,3 +1,4 @@
+import DataLoading from "../ui/DataLoading";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE, TIMELINE_ERAS } from "../config";
 import { useData } from "../map/data";
@@ -54,7 +55,7 @@ export default function EventsPage() {
   );
   const { barRef, chipsRef, active, jump } = useSectionNav(pageRef, [shown]);
 
-  if (!data) return <div className="events-page"><div className="ev-loading muted">Loading…</div></div>;
+  if (!data) return <div className="events-page"><div className="ev-loading muted"><DataLoading /></div></div>;
 
   const open = openId ? events.find((e) => e.id === openId) : undefined;
   const visible = shown.flatMap((s) => s.events);
