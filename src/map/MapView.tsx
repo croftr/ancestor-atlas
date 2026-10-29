@@ -341,6 +341,11 @@ export default function MapView() {
         ],
       },
     });
+    // The markers can't be reached by keyboard or screen reader; say where the same things are listed.
+    map.getCanvas().setAttribute(
+      "aria-label",
+      "Interactive globe of sites through time. The same species, cultures, civilizations and events are listed on their own pages, linked from the menu.",
+    );
     if (FILM) Object.assign(window, { __map: map });
     // The globe stays centred beside the rail whether or not the info card is open (Rob's call, 17 Oct
     // 2026): the card covers the space on the right, as the legend column does on the left.

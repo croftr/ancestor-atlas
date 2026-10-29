@@ -61,6 +61,15 @@ export default function App() {
       className={`app view-${view}${view === "globe" && hasCard ? " has-card" : ""}${touring ? " touring" : ""}`}
       style={cardWidth ? ({ "--card-user-w": `${cardWidth}px` } as CSSProperties) : undefined}
     >
+      {/* Keyboard and screen-reader users can't reach the globe's markers: the first Tab stop offers
+          the pages that list the same things (hidden until focused). */}
+      <nav className="skip-links" aria-label="Skip to lists">
+        <a href="#/species">Species list</a>
+        <a href="#/cultures">Cultures list</a>
+        <a href="#/civilizations">Civilizations list</a>
+        <a href="#/events">Events list</a>
+        <a href="#/tours">Guided tours</a>
+      </nav>
       {/* Small screens stack the globe page in a scrolling column (search, legend, card, globe,
           slider): see ui/stacked.css. Elsewhere the wrapper is display: contents. */}
       <div className="globe-page">

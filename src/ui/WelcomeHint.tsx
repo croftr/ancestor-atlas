@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
 import { useStore } from "../store";
+import { useData } from "../map/data";
+import { navigate } from "../route";
+import { tourById, TOURS } from "../tours/tours";
+import { beginTour } from "../tours/TourPlayer";
+import { minutes } from "../tours/summary";
+
+/** The tour offered to first-time visitors: the globe opens in its era. */
+const FEATURED_TOUR = "human-evolution";
 
 const SEEN_KEY = "history-globe.welcome-seen";
 
@@ -12,13 +20,15 @@ const seen = () => {
 };
 
 /**
- * First visit to the globe: how to get going, in two lines. Shown once per browser; goes away
+ * First visit to the globe: a guided tour to start with, or a few tips. Shown once per browser; goes away
  * with "Got it" or as soon as the visitor starts exploring (moves through time, presses play,
  * or picks something).
  */
 export default function WelcomeHint() {
   const [open, setOpen] = useState(() => !seen());
   const setIntroOpen = useStore((s) => s.setIntroOpen);
+  const data = useData();
+  const tour = tourById(FEATURED_TOUR);
 
   useEffect(() => {
     if (!open) return;
@@ -48,6 +58,39 @@ export default function WelcomeHint() {
   return (
     <div className="panel welcome-hint" role="region" aria-label="Getting started">
       <div className="welcome-title">Explore 7 million years of human history</div>
+      {tour && (
+        <div className="welcome-tour">
+          <button
+            className="welcome-tour-btn"
+            onClick={() => {
+              setOpen(false);
+              beginTour(() => useStore.getState().startTour(tour.id));
+            }}
+          >
+            <span className="welcome-tour-play" aria-hidden>
+              <svg viewBox="0 0 16 16" width="14" height="14">
+                <path d="M4.5 2.5v11L13.5 8z" fill="currentColor" />
+              </svg>
+            </span>
+            <span>
+              <strong>Take a guided tour: {tour.title}</strong>
+              <span className="welcome-tour-meta">
+                {tour.stops.length} narrated stops{data ? ` · about ${minutes(tour, data)} min` : ""}
+              </span>
+            </span>
+          </button>
+          <button
+            className="welcome-tour-all"
+            onClick={() => {
+              setOpen(false);
+              navigate("tours");
+            }}
+          >
+            or choose from all {TOURS.length} tours
+          </button>
+        </div>
+      )}
+      <div className="welcome-or">Or explore on your own:</div>
       <ul>
         <li>
           <strong>Travel through time</strong> with the slider below, or press {"▶\uFE0E"} to watch it unfold.

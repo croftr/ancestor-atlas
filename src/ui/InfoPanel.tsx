@@ -14,7 +14,7 @@ import EventImage from "../events/EventImage";
 import { STACKED_QUERY } from "../config";
 import { useMediaQuery } from "./useMediaQuery";
 import { videoCount } from "../youtube";
-import { globeUrl } from "../globeLink";
+import { globeShareUrl, shareLink } from "../share";
 import { CategoryBadge, SINGULAR } from "./CategoryIcon";
 import { CardAction, CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "./CardParts";
 import { entityPictures, preloadPictures, standInNote, tourPictureFor } from "../tours/tourPicture";
@@ -112,16 +112,9 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // Share: the phone's share sheet where there is one, else copy the link ("Link copied").
   const [copied, setCopied] = useState(false);
   const share = async (title: string) => {
-    const url = globeUrl();
-    try {
-      if (navigator.share) await navigator.share({ title: `${title} · Ancestor Atlas`, url });
-      else {
-        await navigator.clipboard.writeText(url);
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 2000);
-      }
-    } catch {
-      /* share sheet dismissed, or clipboard unavailable */
+    if (await shareLink(title, globeShareUrl())) {
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
     }
   };
   // Small screens: the card can shrink to give the page room: on the globe to its title (and

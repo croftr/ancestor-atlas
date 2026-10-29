@@ -1,5 +1,5 @@
 import DataLoading from "../ui/DataLoading";
-import { useMemo, type CSSProperties } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { useData } from "../map/data";
 import { navigate } from "../route";
 import { useStore } from "../store";
@@ -11,6 +11,7 @@ import { TOURS, type Tour } from "./tours";
 import { beginTour } from "./TourPlayer";
 import { coverPictures, minutes, narrated, stopsOf, type StopSummary } from "./summary";
 import { ToursIcon } from "../ui/SideNav";
+import { shareLink, tourShareUrl } from "../share";
 import "../events/events-page.css";
 import "../browse/browse.css";
 import "./tours-page.css";
@@ -32,6 +33,25 @@ function StopPicture({ stop, className }: { stop: StopSummary; className: string
         <CategoryBadge category={stop.entity.category} decorative />
       )}
     </span>
+  );
+}
+
+/** Share a tour: the phone's share sheet, else copy the link ("Link copied"). */
+function ShareTour({ tour }: { tour: Tour }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      className="tp-share"
+      aria-live="polite"
+      onClick={async () => {
+        if (await shareLink(tour.title, tourShareUrl(tour.id))) {
+          setCopied(true);
+          window.setTimeout(() => setCopied(false), 2000);
+        }
+      }}
+    >
+      {copied ? "Link copied" : "Share"}
+    </button>
   );
 }
 
@@ -67,12 +87,15 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
           {narrated(stops) && <span>narrated</span>}
           {tour.music && <span>with music</span>}
         </div>
-        <button className="tp-watch" onClick={() => watchTour(tour.id)}>
-          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden>
-            <path d="M4.5 2.5v11L13.5 8z" fill="currentColor" />
-          </svg>
-          Watch the tour
-        </button>
+        <div className="tp-actions">
+          <button className="tp-watch" onClick={() => watchTour(tour.id)}>
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden>
+              <path d="M4.5 2.5v11L13.5 8z" fill="currentColor" />
+            </svg>
+            Watch the tour
+          </button>
+          <ShareTour tour={tour} />
+        </div>
       </div>
       <details className="tp-stops">
         <summary>The stops, or start from one</summary>

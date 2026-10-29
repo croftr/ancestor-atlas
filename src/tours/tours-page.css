@@ -79,6 +79,14 @@
 }
 .tp-watch:hover { background: #d5b8ff; }
 .tp-watch:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.tp-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; }
+.tp-actions .tp-watch { margin-top: 0; }
+.tp-share {
+  min-height: 40px; padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(195, 155, 255, 0.5); background: transparent; color: #d5b8ff; font-weight: 600;
+}
+.tp-share:hover { background: rgba(195, 155, 255, 0.14); }
+.tp-share:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
 /* The stops: a list to start from any one of them. */
 .tp-stops { grid-column: 1 / -1; margin-top: 8px; }

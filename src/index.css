@@ -721,6 +721,24 @@ button { font: inherit; color: inherit; cursor: pointer; }
   animation: welcome-in 0.3s ease-out both 0.6s;
 }
 .welcome-title { font-weight: 650; font-size: 1rem; margin-bottom: 6px; }
+.welcome-tour { margin: 4px 0 10px; }
+.welcome-tour-btn {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; text-align: left;
+  border-radius: 10px; border: 1px solid rgba(195, 155, 255, 0.55); background: rgba(195, 155, 255, 0.16);
+  font-size: 0.9rem; line-height: 1.35;
+}
+.welcome-tour-btn:hover { background: rgba(195, 155, 255, 0.28); }
+.welcome-tour-btn:focus-visible, .welcome-tour-all:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.welcome-tour-play {
+  flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  background: #c39bff; color: #1d1036;
+}
+.welcome-tour-meta { display: block; color: #cbd3e6; font-size: 0.82rem; }
+.welcome-tour-all {
+  margin-top: 4px; padding: 2px 0; border: none; background: none; color: #8ec5ff; font-size: 0.82rem;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.welcome-or { font-size: 0.82rem; color: #8b95ab; margin-bottom: 2px; }
 .welcome-hint ul { margin: 0 0 10px; padding-left: 18px; font-size: 0.9rem; line-height: 1.45; color: #cbd3e6; }
 .welcome-hint li { margin: 3px 0; }
 .welcome-hint strong { color: #fff; font-weight: 600; }
@@ -838,3 +856,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .error-note-actions button:hover { background: rgba(255,255,255,0.16); }
 .page-error { position: absolute; top: 40px; left: calc(var(--nav-w, 0px) + 40px); right: 40px; max-width: 520px; }
+
+/* Links to the list pages, first in the Tab order and shown only while focused (App.tsx). */
+.skip-links { position: fixed; top: 8px; left: 8px; z-index: 1000; display: flex; flex-wrap: wrap; gap: 6px; }
+.skip-links a {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.skip-links:focus-within a {
+  position: static; width: auto; height: auto; overflow: visible; clip-path: none;
+  padding: 8px 12px; border-radius: 8px; background: #3d7bff; color: #fff; font-weight: 600; text-decoration: none;
+}
+.skip-links a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
