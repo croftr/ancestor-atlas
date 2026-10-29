@@ -358,6 +358,7 @@ export const TOURS: Tour[] = [
     closing: "Not brutes and not a failed version of us: in Kindred, Neanderthals are another way of being human, and in our DNA part of them came along.",
     // Drafts from reviews and the published evidence (docs/book-tours.md); Rob checks each against the book.
     synopsisNarration: { src: "narration/books/kindred/synopsis-v1.mp3", credit: "AI-generated narration", text_hash: "7ff691a095" },
+    announcement: { src: "narration/tours/kindred-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "61fbdc978a" },
     stops: [
       {
         entity: "neanderthal",

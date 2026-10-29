@@ -45,6 +45,8 @@ const ANNOUNCE_DELAY_MS = 1_500;
 /** Without the outro (blocked or missing), the tour's title stays this long before the tour ends. */
 const FINALE_MS = 5_000;
 const AFTER_ANNOUNCEMENT_MS = 2_000;
+/** A book tour's title card: the pause between the title read out and the synopsis. */
+const BETWEEN_CLIPS_MS = 800;
 const INTRO_MS = 6_000;
 const MUSIC_DELAY_MS = 3_000;
 
@@ -83,13 +85,17 @@ export default function TourPlayer() {
       return;
     }
     let cancelled = false;
-    // A book tour reads its synopsis here instead (or, unrecorded, holds the card for reading time).
-    const announcement = tour.synopsisNarration ?? tour.announcement;
+    // The title read by the usual narrator, then a book tour's synopsis (its own voice), one after the
+    // other; an unrecorded synopsis holds the card for reading time.
+    const clips = [tour.announcement, tour.synopsisNarration].filter((c) => c !== undefined);
     const introMs = tour.synopsis ? Math.max(INTRO_MS, readingSeconds(tour.synopsis) * 1000) : INTRO_MS;
-    let holdMs = announcement ? ANNOUNCE_DELAY_MS + INTRO_MS : introMs;
-    let musicAt = announcement ? Infinity : MUSIC_DELAY_MS; // set when the announcement ends
-    let announced = false;
-    let finished = false;
+    const readMs = tour.synopsis && !tour.synopsisNarration ? introMs : 0; // the least the card stays, read
+    let holdMs = clips.length ? ANNOUNCE_DELAY_MS + introMs : introMs;
+    let musicAt = clips.length ? Infinity : MUSIC_DELAY_MS; // set when the last clip ends
+    let playing = -1; // the clip started last
+    let ended = -1; // the clip finished (or failed) last
+    let nextAt = ANNOUNCE_DELAY_MS;
+    const failed = new Set<number>();
     const patchTour = (p: { phase?: "hold"; holdMs?: number; musicIn?: boolean }) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     const on = (data.featuresOf.get(stop.entity) ?? []).filter((f) => isActive(f, target) && (!stop.site || f.id === stop.site));
@@ -107,17 +113,18 @@ export default function TourPlayer() {
     patchTour({ phase: "hold", holdMs });
     const first = data.entityById.get(stop.entity);
     if (first?.narration) preloadNarration(first.narration.src);
-    const announce = (src: string) =>
-      playNarration(src)
+    const announce = (i: number, startedAt: number) =>
+      playNarration(clips[i].src)
         .then((seconds) => {
           if (cancelled || !Number.isFinite(seconds)) throw new Error("no length");
           if (useStore.getState().tour?.paused) pauseNarration();
-          // An estimate for the card and the progress bar; set exactly when the clip ends.
-          holdMs = ANNOUNCE_DELAY_MS + seconds * 1000 + AFTER_ANNOUNCEMENT_MS;
+          // An estimate for the card and the progress bar (another clip to come: a rough one); set exactly when the last ends.
+          const after = i + 1 < clips.length ? BETWEEN_CLIPS_MS + INTRO_MS : AFTER_ANNOUNCEMENT_MS;
+          holdMs = Math.max(readMs, startedAt + seconds * 1000 + after);
           patchTour({ phase: "hold", holdMs });
         })
         .catch(() => {
-          if (!cancelled) musicAt = Math.min(musicAt, ANNOUNCE_DELAY_MS + MUSIC_DELAY_MS); // blocked or missing
+          if (!cancelled) failed.add(i); // blocked or missing: on as if it had been read
         });
     let elapsed = 0;
     let last = performance.now();
@@ -127,19 +134,23 @@ export default function TourPlayer() {
       if (!s.tour) return;
       if (!s.tour.paused) elapsed += now - last;
       last = now;
-      if (announcement && !announced && elapsed >= ANNOUNCE_DELAY_MS) {
-        announced = true;
-        announce(announcement.src);
-      }
       const n = narrationState();
-      if (announced && !finished && n.src === announcement?.src && n.ended && !n.failed) {
-        finished = true;
-        musicAt = elapsed;
-        holdMs = elapsed + AFTER_ANNOUNCEMENT_MS;
-        patchTour({ phase: "hold", holdMs });
+      if (playing >= 0 && ended < playing && (failed.has(playing) || (n.src === clips[playing].src && (n.ended || n.failed)))) {
+        ended = playing;
+        if (playing + 1 < clips.length) nextAt = elapsed + BETWEEN_CLIPS_MS;
+        else {
+          musicAt = elapsed;
+          holdMs = Math.max(readMs, elapsed + AFTER_ANNOUNCEMENT_MS);
+          patchTour({ phase: "hold", holdMs });
+        }
+      }
+      if (ended === playing && playing + 1 < clips.length && elapsed >= nextAt) {
+        playing++;
+        announce(playing, elapsed);
       }
       if (!s.tour.musicIn && elapsed >= musicAt) patchTour({ musicIn: true });
-      if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === announcement?.src)) {
+      const reading = n.playing && clips.some((c) => c.src === n.src);
+      if (elapsed >= holdMs && !reading && ended === clips.length - 1) {
         s.skipIntro();
         return;
       }
