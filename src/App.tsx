@@ -51,7 +51,7 @@ export default function App() {
   }, [setIntroOpen]);
 
   // An open info card on the globe: the time slider narrows so the two never overlap.
-  const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.place !== null);
+  const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.place !== null || s.tour?.note === true);
   const touring = useStore((s) => s.tour !== null);
   // Another card (or none) clears a card that failed to render.
   const cardKey = useStore((s) => `${s.selectedId}|${s.groupId}|${s.dnaSite}|${s.place ? `${s.place.lon},${s.place.lat}` : ""}`);

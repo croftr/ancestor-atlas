@@ -330,7 +330,7 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 ## Book tours (`docs/book-tours.md`, started 29 Oct 2026)
 
 - A tour built around a book: `book`, `synopsis` (on the title card) and a `note` per stop (what the book says,
-  shown over the globe before the card opens; `BookNote.tsx`). The note belongs to the stop, so cards still read
+  shown before the card opens, as an info card on the right with the book cover as its picture; `BookNote.tsx`). The note belongs to the stop, so cards still read
   the same in every tour. A "Book tours" section on `#/tours`. The book's cover (`book.cover`,
   `public/images/books/`, supplied by Rob) is the tour's picture on the Tours page, menu and title card.
 - Rob's calls: only books mostly about the world before 1 CE; pick books the atlas already covers well; notes come

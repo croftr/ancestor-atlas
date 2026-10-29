@@ -33,7 +33,7 @@ Everything a normal tour does stays the same. Additions:
 |---|---|---|
 | Tour fields | id, title, blurb, stops, music, closing | plus `book: { title, author, year, publisher, link }` |
 | Intro | title card, announcement reads the title | plus a **synopsis** (about 400–600 characters, narrated) on a longer title card, with the book's details |
-| Each stop | slider travels, card opens, card narration | plus a **book note** (`note: { text, chapter, narration }`): once the globe has turned to the place, the note is shown low over the globe and read aloud (or held for reading time); the card opens when it ends (or on Continue), then its own narration plays |
+| Each stop | slider travels, card opens, card narration | plus a **book note** (`note: { text, chapter, narration }`): once the globe has turned to the place, the note is shown as an info card on the right (the book cover as its picture) and read aloud (or held for reading time); the card opens when it ends (or on Continue), then its own narration plays |
 | Between stops | "40,000 years later" title | the same, shown before the note |
 | End | closing line | the closing line becomes a one- or two-sentence verdict on the book |
 | Tours page | tour cards | a "Book tours" section with title, author and a link to the book |
