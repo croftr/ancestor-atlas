@@ -63,6 +63,8 @@ Everything a normal tour does stays the same. Additions:
   book's credit and link), `ToursPage.tsx` (a "Book tours" section after the themed tours; the book under the
   title). A `draft` tour carries a Draft chip on the title card, notes and tours page.
 - Running times count the synopsis and notes.
+- The music starts with the tour, under the title and synopsis (Rob's call, 29 Oct 2026; other tours bring it in
+  after the announcement). It dips under every reading as usual.
 
 ## Draft 1: *Kindred* (Rebecca Wragg Sykes, 2020)
 

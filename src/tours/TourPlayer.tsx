@@ -91,7 +91,8 @@ export default function TourPlayer() {
     const introMs = tour.synopsis ? Math.max(INTRO_MS, readingSeconds(tour.synopsis) * 1000) : INTRO_MS;
     const readMs = tour.synopsis && !tour.synopsisNarration ? introMs : 0; // the least the card stays, read
     let holdMs = clips.length ? ANNOUNCE_DELAY_MS + introMs : introMs;
-    let musicAt = clips.length ? Infinity : MUSIC_DELAY_MS; // set when the last clip ends
+    // Music comes in as the last clip ends; a book tour starts with it (Rob's call, 29 Oct 2026), under the readings.
+    let musicAt = tour.book ? 0 : clips.length ? Infinity : MUSIC_DELAY_MS;
     let playing = -1; // the clip started last
     let ended = -1; // the clip finished (or failed) last
     let nextAt = ANNOUNCE_DELAY_MS;
@@ -139,7 +140,7 @@ export default function TourPlayer() {
         ended = playing;
         if (playing + 1 < clips.length) nextAt = elapsed + BETWEEN_CLIPS_MS;
         else {
-          musicAt = elapsed;
+          musicAt = Math.min(musicAt, elapsed);
           holdMs = Math.max(readMs, elapsed + AFTER_ANNOUNCEMENT_MS);
           patchTour({ phase: "hold", holdMs });
         }
