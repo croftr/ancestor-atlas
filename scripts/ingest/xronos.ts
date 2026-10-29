@@ -26,7 +26,7 @@ export interface XronosSite {
   site: string; country: string; lat: number; lon: number;
   dates: XronosDate[];
   setAside?: XronosDate[]; // isolated end dates left out of the window (see setAsideOutliers)
-  fix?: { action: "move" | "keep"; wikidata: string }; // hand-checked coordinates (data/curated/xronos-site-fixes.csv): no country checks
+  fix?: { action: "move" | "keep"; wikidata: string; label?: string }; // hand-checked coordinates (data/curated/xronos-site-fixes.csv): no country checks; label: the name to show (XRONOS writes some sites in a script other than Latin)
 }
 export interface XronosDate { labnr: string; recordId: string; bp: number; std: number; median: number; from: number; to: number; refs: string[]; via: string[] }
 export interface XronosStats { rows: number; labelled: number; conflicting: number; noCoords: number; uncalibrated: number; duplicates: number; outOfWindow: number; coarse: number; countryMismatch: number; merged: number; setAside: number; sites: number }
@@ -74,9 +74,13 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
   }
   // Hand-checked sites: "move" replaces XRONOS coordinates that are wrong with Wikidata ones; "keep" marks coordinates
   // that are right although the record's country code is not. Matched on site name, country and XRONOS coordinates.
+  // A "move" row with no XRONOS coordinates places the records of that site that have none (Wikidata item found by
+  // the site's name and checked against the place its report names).
   const fixes = existsSync(fixesPath) ? parse(readFileSync(fixesPath, "utf8"), { columns: true }) as Record<string, string>[] : [];
   const fixFor = (site: string, country: string, lat: number, lon: number) => fixes.find((f) => f.site === site && f.country === country &&
-    Math.abs(Number(f.xronos_lat) - lat) < 1e-3 && Math.abs(Number(f.xronos_lon) - lon) < 1e-3);
+    f.xronos_lat !== "" && Math.abs(Number(f.xronos_lat) - lat) < 1e-3 && Math.abs(Number(f.xronos_lon) - lon) < 1e-3);
+  const placeFor = (site: string, country: string) => fixes.find((f) => f.site === site && f.country === country &&
+    f.action === "move" && f.xronos_lat === "" && f.xronos_lon === "");
   const curve = loadCurve();
   const stats: XronosStats = { rows: 0, labelled: 0, conflicting: 0, noCoords: 0, uncalibrated: 0, duplicates: 0, outOfWindow: 0, coarse: 0, countryMismatch: 0, merged: 0, setAside: 0, sites: 0 };
   const byCountry = new Map<string, [number, number][]>(); // all XRONOS coordinates per country, for a consistency check
@@ -123,8 +127,10 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
     if (!targets.length) continue;
     stats.labelled++;
     let lat = Number(r.lat), lon = Number(r.lng);
-    if (!r.lat || !r.lng || !Number.isFinite(lat) || !Number.isFinite(lon)) { stats.noCoords++; continue; }
-    const fix = fixFor(r.site.trim(), r.country, lat, lon);
+    const placed = !r.lat && !r.lng ? placeFor(r.site.trim(), r.country) : undefined;
+    if (placed) { lat = Number(placed.lat); lon = Number(placed.lon); }
+    else if (!r.lat || !r.lng || !Number.isFinite(lat) || !Number.isFinite(lon)) { stats.noCoords++; continue; }
+    const fix = placed ?? fixFor(r.site.trim(), r.country, lat, lon);
     if (fix?.action === "move") { lat = Number(fix.lat); lon = Number(fix.lon); }
     if (Number.isInteger(lat) && Number.isInteger(lon)) { stats.coarse++; continue; } // whole-degree point: ~100 km
     const bp = Number(r.bp), std = Number(r.std);
@@ -146,7 +152,7 @@ export function readXronosSites(labelsPath = "data/curated/culture-labels.csv", 
       const id = `${entity_id}|${r.site.trim()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
       const s = sites.get(id) ?? sites.set(id, {
         entity_id, category: entity_id === HUMAN_ENTITY ? "species" : "culture", range: ranges.get(entity_id)!,
-        site: r.site.trim(), country: r.country, lat, lon, dates: [], ...(fix ? { fix: { action: fix.action as "move" | "keep", wikidata: fix.wikidata } } : {}),
+        site: r.site.trim(), country: r.country, lat, lon, dates: [], ...(fix ? { fix: { action: fix.action as "move" | "keep", wikidata: fix.wikidata, ...(fix.label ? { label: fix.label } : {}) } } : {}),
       }).get(id)!;
       s.dates.push({ labnr: key, recordId: r.id, bp, std, median: c.median, from: c.from, to: c.to, refs: refsOf(r), via: viaOf(r) });
     }
@@ -230,13 +236,14 @@ export function xronosFeatures(sites: XronosSite[]): { props: FeatureProps; geom
     if (end > hi) [start, end] = [Math.max(lo, hi - (end - start)), hi];
     const n = s.dates.length;
     const ka = (x: number) => (x / 1000).toFixed(x >= 10000 ? 1 : 2).replace(/\.?0+$/, "");
-    let id = `${s.entity_id}@x:${slug(s.site) || "site"}`;
-    for (let k = 2; used.has(id); k++) id = `${s.entity_id}@x:${slug(s.site)}-${k}`;
+    const label = s.fix?.label || s.site;
+    let id = `${s.entity_id}@x:${slug(label) || "site"}`;
+    for (let k = 2; used.has(id); k++) id = `${s.entity_id}@x:${slug(label)}-${k}`;
     used.add(id);
     return {
       props: {
         id, entity_id: s.entity_id, category: s.category, start_year: start, end_year: end,
-        label: s.site,
+        label,
         date_text: (oldest === youngest ? `c. ${ka(oldest)} ka cal BP (1 date` : `${ka(oldest)}–${ka(youngest)} ka cal BP (${n} dates`) +
           (s.category === "species" ? ", human remains" : "") +
           (s.setAside?.length ? `; ${s.setAside.length} set aside as outlying: ${s.setAside.map((d) => d.labnr || `${d.bp} ± ${d.std} BP`).join(", ")}` : "") + ")",

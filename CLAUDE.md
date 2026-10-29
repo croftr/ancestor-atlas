@@ -636,7 +636,15 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   Shijimizuka, Tsukumo, Kamegaoka). AADR labels Jomon, InitialJomon, EarlyJomon, MidLateJomon link 17 genomes at
   8 sites. XRONOS can't help as it stands: its 2,132 labelled Japanese dates (Crema & Kobayashi 2020, ~645
   pottery-type labels) have no coordinates, and its 1,433 p3k14c dates there have coordinates but no labels.
-  Possible later: geocode the Crema sites (Japanese names) from Wikidata into a new hand-checked coordinates file.
+  Then (same day) 35 of those sites placed from Wikidata: an exact Japanese-name match to an archaeological item,
+  confirmed by the prefecture or town the date's report names, or checked by hand (14: a well-known site with a
+  unique name, or the report's place). Left out: 前原遺跡 (report in Kagoshima, Wikidata's in Tokyo), 立石遺跡 (common
+  name), 菜畑, 寺野東, 三ツ沢貝塚 (nothing to confirm). They are `move` rows with no XRONOS coordinates in
+  xronos-site-fixes.csv, with an English `label` (Wikidata's; two without a sure reading keep the Japanese name and
+  the town). 86 pottery-type labels at those sites map to jomon (window 14,500-300 BCE ± 500); left out: hedged or
+  vague (?, 不明, 以降, "/"), and Yayoi or Yayoi-contemporary types (Sunazawa, Aokihata, Ongagawa, Itazuke, Yusu,
+  Totaimon, Nagahara, Ōbora A'). 27 new points (Kamikuroiwa, Senpukuji, Mizuko, Hikozaki...); the rest fall on
+  curated sites. Only the labels at placed sites are mapped; the other ~420 sites (1,790 dates) have no Wikidata item.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

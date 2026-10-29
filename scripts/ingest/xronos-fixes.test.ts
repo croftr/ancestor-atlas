@@ -10,7 +10,9 @@ describe("data/curated/xronos-site-fixes.csv", () => {
     expect(["move", "keep"]).toContain(r.action);
     expect(r.wikidata).toMatch(QID);
     expect(r.note.length).toBeGreaterThan(10);
-    for (const k of ["xronos_lat", "xronos_lon"]) expect(Number.isFinite(Number(r[k])) && r[k] !== "").toBe(true);
+    // Empty XRONOS coordinates: a "move" that places records without any.
+    if (r.xronos_lat === "" && r.xronos_lon === "") expect(r.action).toBe("move");
+    else for (const k of ["xronos_lat", "xronos_lon"]) expect(Number.isFinite(Number(r[k])) && r[k] !== "").toBe(true);
     if (r.action === "move") {
       const lat = Number(r.lat), lon = Number(r.lon);
       expect(r.lat !== "" && Math.abs(lat) <= 90 && r.lon !== "" && Math.abs(lon) <= 180).toBe(true);
