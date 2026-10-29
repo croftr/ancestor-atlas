@@ -43,7 +43,9 @@ export default function EndCard({ tour }: { tour: Tour }) {
   return (
     <section className={`tour-end${paused ? " paused" : ""}`} aria-label={`End of the tour: ${tour.title}`}>
       <div className="tour-end-kicker">Journey's end</div>
+      {tour.book?.cover && <img className="tour-end-cover" src={tour.book.cover.url} alt={`Cover of ${tour.book.title}`} title={tour.book.cover.credit} />}
       <h2 className="tour-end-title">{tour.title}</h2>
+      {tour.book && <p className="tour-end-by">{tour.book.author}</p>}
       <p className="tour-end-span">
         {span > 0 && <>{spanWords(span)} in </>}about {minutes(tour, data)} minutes
       </p>

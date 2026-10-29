@@ -416,7 +416,7 @@
 }
 .book-eyebrow { color: #d9c2ff; }
 .book-eyebrow .book-draft { margin-left: 2px; vertical-align: 0; }
-.book-note-media::before {
+.book-note-media.is-cover::before {
   content: ""; position: absolute; inset: -20px;
   background: var(--cover) center / cover; filter: blur(16px) brightness(0.45);
 }
@@ -430,3 +430,7 @@
 }
 .book-note-continue:hover { background: #d4b6ff; }
 .book-note-continue:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+/* A book tour's end card: the cover over the title, the author under it. */
+.tour-end-cover { display: block; height: 120px; width: auto; margin: 10px auto 2px; border-radius: 3px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55); }
+.tour-end-by { margin: -2px 0 6px; font-size: 0.85rem; color: #e9dcc0; }
+@media (max-width: 900px) { .tour-end-cover { height: 72px; } }

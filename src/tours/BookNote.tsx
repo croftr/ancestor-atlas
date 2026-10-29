@@ -1,8 +1,12 @@
 import { useState, type CSSProperties } from "react";
 import { useStore } from "../store";
 import { useData } from "../map/data";
+import { STACKED_QUERY } from "../config";
 import { CardIcon } from "../ui/CardParts";
+import CardResizer from "../ui/CardResizer";
+import PictureViewer from "../ui/PictureViewer";
 import { PictureNav, creditLine } from "../ui/PictureNav";
+import { useMediaQuery } from "../ui/useMediaQuery";
 import type { Picture } from "./tourPicture";
 import type { Tour } from "./tours";
 
@@ -10,7 +14,9 @@ import type { Tour } from "./tours";
  * A book tour's note on the stop (docs/book-tours.md): what the book makes of this place, in the info
  * card's place and dress, once the globe has turned there and before the place's own card opens. The
  * book's cover comes first, then the note's pictures of the place take turns while it is read (or the
- * viewer steps through them). Continue opens the card straight away.
+ * viewer steps through them). As on the info card, its left edge drags to resize it (desktop) and a tap on
+ * the picture opens the full-screen viewer, which stays open into the place's card. Continue opens the
+ * card straight away.
  */
 export default function BookNote({ tour }: { tour: Tour }) {
   const shown = useStore((s) => s.tour?.note === true);
@@ -26,6 +32,10 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
   const timed = useStore((s) => s.tour?.notePicture ?? 0);
   // Stepped by hand, the pictures stay where the viewer put them for this stop.
   const [manual, setManual] = useState<number | null>(null);
+  const viewerOpen = useStore((s) => s.pictureViewer);
+  const setViewerOpen = useStore((s) => s.setPictureViewer);
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const [panelEl, setPanelEl] = useState<HTMLElement | null>(null);
   const stop = tour.stops[index];
   const book = tour.book!;
   const note = stop.note!;
@@ -37,9 +47,24 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
   const picture = pictures[current];
   const isCover = !!book.cover && current === 0;
   const entity = data?.entityById.get(stop.entity);
-  const site = stop.site ? data?.featureById.get(stop.site)?.label : undefined;
+  const feature = stop.site ? data?.featureById.get(stop.site) : undefined;
+  const site = feature?.label;
+  // The viewer steps its own copy of the pictures in a tour; keyed to this note, not the entity's card.
+  const viewer = viewerOpen && entity && pictures.length > 0 && (
+    <PictureViewer
+      entity={{ ...entity, id: `${tour.id}:note:${index}`, name: site ?? entity.name, video: undefined }}
+      date={feature?.date_text ?? entity.date_text ?? ""}
+      pictures={pictures}
+      index={current}
+      onIndex={setManual}
+      miniGlobe={!stacked}
+    />
+  );
   return (
-    <aside className="panel info-panel book-note-card" aria-label={`From the book: ${site ?? entity?.name ?? ""}`}>
+    <>
+    {viewer}
+    {!stacked && <CardResizer panel={panelEl} />}
+    <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`From the book: ${site ?? entity?.name ?? ""}`}>
       <div className="info-head">
         <div className="card-head">
           <span className="book-badge" aria-hidden="true">
@@ -69,8 +94,25 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
       </div>
       {picture && (
         <>
-          <div className={`info-media book-note-media${isCover ? " is-cover" : ""}`} style={{ "--cover": `url(${picture.url})` } as CSSProperties}>
+          <div
+            className={`info-media book-note-media pv-open${isCover ? " is-cover" : ""}`}
+            style={{ "--cover": `url(${picture.url})` } as CSSProperties}
+            onClick={() => setViewerOpen(true)}
+          >
             <img key={picture.url} className={current > 0 ? "picture-in" : undefined} src={picture.url} alt={picture.caption ?? ""} />
+            <button
+              className="pv-open-hint"
+              onClick={(e) => {
+                e.stopPropagation();
+                setViewerOpen(true);
+              }}
+              aria-label="View pictures full screen"
+              title="View full screen"
+            >
+              <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true">
+                <path d="M7 1.5h3.5V5M5 10.5H1.5V7M10.5 1.5 7 5M1.5 10.5 5 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
             <PictureNav
               count={pictures.length}
               current={current}
@@ -97,5 +139,6 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
         </svg>
       </button>
     </aside>
+    </>
   );
 }

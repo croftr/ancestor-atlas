@@ -64,7 +64,10 @@ Everything a normal tour does stays the same. Additions:
   title). A `draft` tour carries a Draft chip on the title card, notes and tours page.
 - Running times count the synopsis and notes.
 - Pictures on a note: `note.images` (as `extra_images`: url, credit, caption, source, optional `at`), after the
-  book cover, taking turns through the note's hold (store `tour.notePicture`); arrows and dots step them by hand.
+  book cover, taking turns through the note's hold (store `tour.notePicture`); arrows and dots step them by hand;
+  a tap opens the full-screen viewer (it stays open into the card), and the card's left edge drags to resize it.
+  The end card shows the cover and author, and each stop's first note picture in its strip (also the Tours page's
+  stop list).
   Files: 900 px WebP in `public/images/books/<tour id>/<stop n or name>-<k>.webp` (numbers as first drafted), free-licence Commons photos picked on a
   contact sheet (same rules as `extra_images`). Kindred: 2–3 per stop (1 for Aviones and the admixture stop).
 - The music starts with the tour, under the title and synopsis (Rob's call, 29 Oct 2026; other tours bring it in

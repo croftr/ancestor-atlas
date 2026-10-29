@@ -48,11 +48,18 @@ export interface StopSummary {
   picture?: Picture;
 }
 
-/** A tour's stops with their entity, year and picture (stops whose entity is missing are left out). */
+/**
+ * A tour's stops with their entity, year and picture (stops whose entity is missing are left out). A book
+ * tour's stop shows its note's first picture of the place, so stops on one entity (a run of Neanderthal
+ * sites) don't all look alike.
+ */
 export function stopsOf(tour: Tour, d: Data): StopSummary[] {
   return tour.stops.flatMap((stop, index) => {
     const entity = d.entityById.get(stop.entity);
-    return entity ? [{ index, entity, year: stopYear(stop, d), picture: pictureOf(entity, d) }] : [];
+    if (!entity) return [];
+    const own = stop.note?.images?.[0];
+    const picture = own ? { url: own.url, credit: own.credit, note: own.caption } : pictureOf(entity, d);
+    return [{ index, entity, year: stopYear(stop, d), picture }];
   });
 }
 
