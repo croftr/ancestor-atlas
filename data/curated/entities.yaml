@@ -1437,6 +1437,7 @@
   narration: { src: narration/cultures/ertebolle-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "56b378561d" }
   image_url: /images/cultures/ertebolle.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/ertebolle-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Shoreline camp beside a shell midden, with a dugout canoe and wicker fish traps"
   extra_images:
     - { url: /images/extra/ertebolle-1.webp, credit: "Kristian.HP, CC0, via Wikimedia Commons", caption: "The shore at Ertebølle on the Limfjord in Denmark, where the great shell mound that named the culture was dug", source: "https://commons.wikimedia.org/wiki/File:Erteb%C3%B8lle_strand_fra_Erteb%C3%B8lle_hoved.jpg" }
@@ -1707,6 +1708,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Maglemosian_culture
   image_url: /images/cultures/maglemosian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/maglemosian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Summer camp by a forest lake: bark huts on a brushwood platform, a dugout canoe, pike spearing and arrow making"
   extra_images:
     - { url: /images/extra/maglemosian-1.webp, credit: "Kirsty High, Free Art Licence, via Wikimedia Commons", caption: "Star Carr in Yorkshire today: the level fields were once the bed of a lake, with the camp on its shore", source: "https://commons.wikimedia.org/wiki/File:View_of_Star_Carr_site_looking_NWW..jpg" }
