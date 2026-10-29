@@ -327,6 +327,18 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
    XRONOS export drops most culture points (data:build now refuses while the locked one is missing: `npm run data:pull`).
    `npm run audio:upload -- --dry-run` shows any clips still to upload.
 
+## Book tours (`docs/book-tours.md`, started 29 Oct 2026)
+
+- A tour built around a book: `book`, `synopsis` (on the title card) and a `note` per stop (what the book says,
+  shown over the globe before the card opens; `BookNote.tsx`). The note belongs to the stop, so cards still read
+  the same in every tour. A "Book tours" section on `#/tours`.
+- Rob's calls: only books mostly about the world before 1 CE; pick books the atlas already covers well; notes come
+  from the book (drafts from reviews are fine, Rob checks each against his copy and adds the chapter).
+- First: *Kindred* (Wragg Sykes, 2020), 13 Neanderthal stops, `draft: true` (Draft chip) until Rob has checked the
+  notes against his audiobook. No narration or music yet; notes hold for reading time. Next: an `audio:narrate`
+  batch for synopsis and notes. Checking *After the Ice* turned up data gaps (Younger Dryas, Mesolithic Europe, South
+  Asia, the Americas); Rob has notes.
+
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
 
 - Coastlines and ice sheets of the slider's year: `npm run data:fetch:paleo` (ETOPO 2022 at 0.1° over OPeNDAP; the

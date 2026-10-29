@@ -395,3 +395,19 @@
   .hud-wave { animation: none; }
   .hud-thermo-fill, .hud-water, .hud-value { transition: none; }
 }
+
+/* A book tour: the book under the title card's name, and the note on each stop (BookNote.tsx), low over
+   the globe so the place it has turned to stays in view. */
+.book-title-by { margin: -4px 0 12px; font-size: 0.86rem; color: #c3cbe0; }
+.tour-title-blurb.book-synopsis { max-width: 52ch; font-size: 0.95rem; text-align: left; }
+.book-note-wrap { align-content: end; grid-template-columns: minmax(0, 620px); }
+.book-note { margin: 0; text-align: left; padding: 18px 24px 16px; }
+.book-note-place { margin-top: 4px; font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; color: #f6e7c8; }
+.book-note-place span { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #8ec5ff; }
+.book-note-text { margin: 10px 0 8px; font-size: 0.98rem; line-height: 1.55; color: #e2e7f3; }
+.book-note-source { font-size: 0.75rem; color: #8b95ab; }
+.book-note .tour-title-skip { margin-top: 10px; }
+@media (max-width: 900px) {
+  .book-note { padding: 14px 16px 12px; }
+  .book-note-text { font-size: 0.9rem; }
+}

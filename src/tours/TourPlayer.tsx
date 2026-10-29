@@ -3,8 +3,9 @@ import { useStore } from "../store";
 import { isActive, unionBBox, useData } from "../map/data";
 import { posToYear, yearToPos } from "../time/scale";
 import { OUTRO, tourById } from "./tours";
-import { holdSeconds, stopYear } from "./summary";
+import { holdSeconds, readingSeconds, stopYear } from "./summary";
 import TitleCard from "./TitleCard";
+import BookNote from "./BookNote";
 import EndCard from "./EndCard";
 import { AFTER_CLOSING_MS, closingAt, MUSIC_FADE_S, MUSIC_HOLD_MS, OUTRO_GAP_MS } from "./epilogue";
 import TimeGap from "./TimeGap";
@@ -82,8 +83,10 @@ export default function TourPlayer() {
       return;
     }
     let cancelled = false;
-    const announcement = tour.announcement;
-    let holdMs = announcement ? ANNOUNCE_DELAY_MS + INTRO_MS : INTRO_MS;
+    // A book tour reads its synopsis here instead (or, unrecorded, holds the card for reading time).
+    const announcement = tour.synopsisNarration ?? tour.announcement;
+    const introMs = tour.synopsis ? Math.max(INTRO_MS, readingSeconds(tour.synopsis) * 1000) : INTRO_MS;
+    let holdMs = announcement ? ANNOUNCE_DELAY_MS + INTRO_MS : introMs;
     let musicAt = announcement ? Infinity : MUSIC_DELAY_MS; // set when the announcement ends
     let announced = false;
     let finished = false;
@@ -136,7 +139,7 @@ export default function TourPlayer() {
         patchTour({ phase: "hold", holdMs });
       }
       if (!s.tour.musicIn && elapsed >= musicAt) patchTour({ musicIn: true });
-      if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === tour.announcement?.src)) {
+      if (elapsed >= holdMs && !(narrationState().playing && narrationState().src === announcement?.src)) {
         s.skipIntro();
         return;
       }
@@ -165,6 +168,14 @@ export default function TourPlayer() {
     let cancelled = false;
     const nextEntity = tour.stops[index + 1] && data.entityById.get(tour.stops[index + 1].entity);
     if (nextEntity?.narration) preloadNarration(nextEntity.narration.src);
+    // A book tour's note comes first (BookNote.tsx): the globe turns to the place, the note is shown and
+    // read (or held for reading time), then the card opens as in any tour.
+    const note = stop.note;
+    let noting = false;
+    let noteMs = note ? readingSeconds(note.text) * 1000 : 0;
+    if (note?.narration) preloadNarration(note.narration.src);
+    const nextNote = tour.stops[index + 1]?.note?.narration;
+    if (nextNote) preloadNarration(nextNote.src);
     preloadPictures(entity);
     preloadPictures(nextEntity);
     // The stop's ambient sound, if it has one (tours/ambience.ts), comes in as its card opens.
@@ -186,9 +197,9 @@ export default function TourPlayer() {
     }
     const travelMs = travel && to > from ? Math.min(MAX_TRAVEL_MS, Math.max(MIN_TRAVEL_MS, (to - from) * TRAVEL_MS_PER_TRACK)) : 0;
 
-    const arrive = () => {
+    const openCard = () => {
       useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
-      patchTour({ phase: "hold", holdMs, gap: undefined });
+      patchTour({ phase: "hold", holdMs, gap: undefined, note: undefined });
       if (sound) startAmbience(sound.src);
       if (entity.narration && !stop.hold)
         playNarration(entity.narration.src)
@@ -197,6 +208,22 @@ export default function TourPlayer() {
             if (useStore.getState().tour?.paused) pauseNarration();
             holdMs = seconds * 1000 + AFTER_NARRATION_MS;
             patchTour({ holdMs });
+          })
+          .catch(() => {}); // blocked or missing: the reading-time hold stands
+    };
+    const arrive = () => {
+      if (!note) return openCard();
+      noting = true;
+      useStore.getState().select(null);
+      useStore.getState().showEntity(stop.entity, { year: target, site: stop.site });
+      patchTour({ phase: "hold", holdMs: noteMs, gap: undefined, note: true });
+      if (note.narration)
+        playNarration(note.narration.src)
+          .then((seconds) => {
+            if (cancelled || !Number.isFinite(seconds) || !noting) return;
+            if (useStore.getState().tour?.paused) pauseNarration();
+            noteMs = seconds * 1000 + AFTER_NARRATION_MS;
+            patchTour({ holdMs: noteMs });
           })
           .catch(() => {}); // blocked or missing: the reading-time hold stands
     };
@@ -225,6 +252,15 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
+      } else if (noting) {
+        // On to the card when the note has been read (or skipped: its Continue button sets `note` false).
+        const reading = note?.narration && narrationState().playing && narrationState().src === note.narration.src;
+        if (s.tour.note === false || (elapsed >= noteMs && !reading)) {
+          if (reading) stopNarration();
+          noting = false;
+          elapsed = 0;
+          openCard();
+        }
       } else if (entity.extra_images?.length) {
         const videoEndMs = entity.video ? (entity.category === "species" ? 5_500 : 9_500) : 0;
         if (elapsed >= videoEndMs && pictureIndexAt(entity.extra_images, elapsed, holdMs) > picture) {
@@ -232,7 +268,7 @@ export default function TourPlayer() {
           patchTour({ picture: { entity: entity.id, index: picture } });
         }
       }
-      if (arrived && elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
+      if (arrived && !noting && elapsed >= holdMs && !(narrationState().playing && narrationState().src === entity.narration?.src)) {
         if (index + 1 < tour.stops.length) patchTour({ index: index + 1, travel: true });
         else useStore.getState().tourGo(index + 1); // the epilogue
         return;
@@ -375,7 +411,17 @@ export default function TourPlayer() {
 
   const tour = id === undefined ? undefined : tourById(id);
   if (!tour) return null;
-  if (!gate) return intro ? <TitleCard tour={tour} /> : epilogue ? <EndCard tour={tour} /> : <TimeGap />;
+  if (!gate)
+    return intro ? (
+      <TitleCard tour={tour} />
+    ) : epilogue ? (
+      <EndCard tour={tour} />
+    ) : (
+      <>
+        <TimeGap />
+        {tour.book && <BookNote tour={tour} />}
+      </>
+    );
   // A tour opened from a link waits for a tap: browsers only play sound after one.
   const title = tour.title;
   return (

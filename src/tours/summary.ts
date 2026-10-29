@@ -12,6 +12,12 @@ export function holdSeconds(stop: TourStop, description: string): number {
   return Math.min(22, Math.max(8, 4 + words / 4.5));
 }
 
+/** Seconds to read a book tour's note or synopsis without narration: about 200 words a minute, within 7–40 s. */
+export function readingSeconds(text: string): number {
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.min(40, Math.max(7, 3 + words / 3.3));
+}
+
 export function stopYear(stop: TourStop, d: Data): number | null {
   const e = d.entityById.get(stop.entity);
   if (!e) return null;
@@ -20,13 +26,14 @@ export function stopYear(stop: TourStop, d: Data): number | null {
 
 /** Rough running time of a tour in minutes: the title card, the holds and the slider travel between stops. */
 export function minutes(tour: Tour, d: Data): number {
-  let ms = 8_000;
+  let ms = tour.synopsis ? Math.max(8, readingSeconds(tour.synopsis)) * 1000 : 8_000;
   let pos = 0;
   for (const stop of tour.stops) {
     const e = d.entityById.get(stop.entity);
     const y = stopYear(stop, d);
     if (!e || y === null) continue;
     ms += holdSeconds(stop, e.description) * 1000;
+    if (stop.note) ms += readingSeconds(stop.note.text) * 1000;
     const to = yearToPos(y);
     if (to > pos) ms += Math.min(6000, Math.max(1500, (to - pos) * 60_000));
     pos = to;

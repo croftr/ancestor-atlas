@@ -2,8 +2,9 @@
 
 A book tour is a guided tour built around one book: a short synopsis first, then a stop for each place or
 moment the book talks about. At each stop a **book note** says what the book makes of it, then the item's card
-opens and plays as in any tour. Started 29 Oct 2026; nothing is built yet. This file lays out the idea and holds
-the first draft, *Kindred*.
+opens and plays as in any tour. Started 29 Oct 2026. The player supports book tours (text only, no narration
+recorded yet), and the first, *Kindred*, is in `src/tours/tours.ts` as a draft. This file holds the rules, how
+it works, and the draft notes with their sources.
 
 ## Rules
 
@@ -29,7 +30,7 @@ Everything a normal tour does stays the same. Additions:
 |---|---|---|
 | Tour fields | id, title, blurb, stops, music, closing | plus `book: { title, author, year, publisher, link }` |
 | Intro | title card, announcement reads the title | plus a **synopsis** (about 400–600 characters, narrated) on a longer title card, with the book's details |
-| Each stop | slider travels, card opens, card narration | plus a **book note** (`note: { text, chapter, narration }`) shown as a caption while the globe travels and read aloud; the card opens when the note ends, then its own narration plays |
+| Each stop | slider travels, card opens, card narration | plus a **book note** (`note: { text, chapter, narration }`): once the globe has turned to the place, the note is shown low over the globe and read aloud (or held for reading time); the card opens when it ends (or on Continue), then its own narration plays |
 | Between stops | "40,000 years later" title | the same, shown before the note |
 | End | closing line | the closing line becomes a one- or two-sentence verdict on the book |
 | Tours page | tour cards | a "Book tours" section with title, author and a link to the book |
@@ -41,8 +42,22 @@ Everything a normal tour does stays the same. Additions:
   and read only the note.
 - **Order.** Stops go in date order, like other tours; the slider and "years later" titles assume that. Each
   note gives its chapter, so the book's own order is still visible.
-- **Narration** reuses `audio:narrate` with new keys `narration/books/<tour id>/<stop n>-v<n>.mp3` and the
-  same voice, so the existing `--stale` check covers notes too.
+- **Narration (not built yet):** keys `narration/books/<tour id>/<name>-v<n>.mp3` (`tours.test.ts` checks the
+  pattern), same voice as the stops. Next step: teach `audio:narrate` a `--book <tour id>` batch for the synopsis
+  and notes, with `--stale` covering them. Until then the player holds each note and the synopsis for reading time
+  (`readingSeconds` in `summary.ts`, about 200 words a minute).
+
+### What's built (29 Oct 2026)
+
+- Types `Book` and `BookNote`; tour fields `book`, `synopsis`, `synopsisNarration`, `draft`; stop field `note`
+  (`src/tours/tours.ts`).
+- `TourPlayer.tsx`: the title card holds for the synopsis (or plays `synopsisNarration` in place of the
+  announcement); at each stop with a note, the globe turns to the place with the card closed, the note shows
+  (store `tour.note`, `skipNote`), then the card opens as usual. Back and Next work as in any tour.
+- `BookNote.tsx` (the note card), `TitleCard.tsx` ("Book tour", author and publisher, synopsis), `EndCard.tsx` (the
+  book's credit and link), `ToursPage.tsx` (a "Book tours" section after the themed tours; the book under the
+  title). A `draft` tour carries a Draft chip on the title card, notes and tours page.
+- Running times count the synopsis and notes.
 
 ## Draft 1: *Kindred* (Rebecca Wragg Sykes, 2020)
 

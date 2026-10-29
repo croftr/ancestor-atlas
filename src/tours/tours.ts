@@ -16,12 +16,34 @@ import EVENT_IDS from "./event-ids.json";
  * `closing`: a line or two for the end card, after the last stop; `closingNarration` reads it in the epilogue
  * (narration/tours/<id>-closing-v<n>.mp3; `npm run audio:narrate -- --closing <id>|all`).
  * Stops run oldest first. src/tours/tours.test.ts checks every stop lands on something visible.
+ *
+ * Book tours (docs/book-tours.md): `book` names the book, `synopsis` is shown (and `synopsisNarration` read)
+ * on the title card in place of the blurb, and each stop's `note` says what the book makes of it, shown
+ * over the globe (and read) before the card opens. A note belongs to the stop, not the entity, so cards
+ * read the same in every tour. `draft`: the notes are not yet checked against the book.
  */
 export interface TourStop {
   entity: string;
   year?: number;
   site?: string;
   hold?: number;
+  note?: BookNote;
+}
+
+export interface BookNote {
+  text: string;
+  /** Where the book says it, e.g. "Chapter 7"; left out until checked against the book. */
+  chapter?: string;
+  narration?: { src: string; credit: string; text_hash: string };
+}
+
+export interface Book {
+  title: string;
+  author: string;
+  year: number;
+  publisher: string;
+  /** A page about the book (the publisher's, or its Wikipedia article). */
+  link: string;
 }
 
 export interface Tour {
@@ -37,6 +59,10 @@ export interface Tour {
   announcement?: { src: string; credit: string; text_hash: string };
   closing?: string;
   closingNarration?: { src: string; credit: string; text_hash: string };
+  book?: Book;
+  synopsis?: string;
+  synopsisNarration?: { src: string; credit: string; text_hash: string };
+  draft?: true;
   stops: TourStop[];
 }
 
@@ -311,6 +337,98 @@ export const TOURS: Tour[] = [
       { entity: "maglemosian", year: -8_899, site: "maglemosian@x:starr-carr" },
       { entity: "capsian", year: -6_999, site: "capsian@x:el-mekta" },
       { entity: "ertebolle", year: -4_499, site: "ertebolle@x:erteb-lle" },
+    ],
+  },
+  {
+    id: "kindred",
+    title: "Kindred",
+    book: {
+      title: "Kindred: Neanderthal Life, Love, Death and Art",
+      author: "Rebecca Wragg Sykes",
+      year: 2020,
+      publisher: "Bloomsbury Sigma",
+      link: "https://en.wikipedia.org/wiki/Kindred:_Neanderthal_Life,_Love,_Death_and_Art",
+    },
+    draft: true,
+    blurb: "Rebecca Wragg Sykes's portrait of the Neanderthals, told through the places where the evidence was found, from their earliest days to their last.",
+    synopsis: "For over a century Neanderthals stood for the brutish cave man. In Kindred, archaeologist Rebecca Wragg Sykes pulls together a generation of new evidence to show a very different people. Across some 350,000 years, from Wales to the borders of China, they made sophisticated tools from stone, wood and birch tar, hunted everything from mammoths to seabirds, cared for the injured, handled their dead, and met and had children with our own ancestors. This tour visits the places where that evidence was found, from their earliest days to their last.",
+    closing: "Not brutes and not a failed version of us: in Kindred, Neanderthals are another way of being human, and in our DNA part of them came along.",
+    // Drafts from reviews and the published evidence (docs/book-tours.md); Rob checks each against the book.
+    stops: [
+      {
+        entity: "neanderthal",
+        year: -429_999,
+        site: "neanderthal@1",
+        note: { text: "At the bottom of a deep shaft in the Atapuerca hills lie the bones of at least twenty-eight people from about 430,000 years ago, the earliest known on the Neanderthal line. Their DNA links them to Neanderthals. How so many ended up there, and whether they were placed there on purpose, is still argued over." },
+      },
+      {
+        entity: "schoningen-spears",
+        note: { text: "Wragg Sykes argues that the stone tools that survive show only part of what Neanderthals made. Most of what they made was wood, and has rotted away. Schöningen is the rare exception: spruce and pine spears some 300,000 years old, shaped and balanced for hunting horses by a lakeshore." },
+      },
+      {
+        entity: "neanderthal",
+        year: -129_999,
+        site: "neanderthal@2",
+        note: { text: "Krapina has hundreds of Neanderthal bones from about 130,000 years ago, more than any other site, many with cut marks. The book takes cannibalism seriously but asks the reader to weigh other readings, including the care of the dead. Eight white-tailed eagle talons from the site, cut and polished, may have been worn as jewellery." },
+      },
+      {
+        entity: "levallois-mousterian",
+        year: -109_999,
+        site: "levallois-mousterian@r:cueva-de-los-aviones",
+        note: { text: "On the coast near Cartagena, Neanderthals collected seashells about 115,000 years ago, pierced some and coloured them with red and yellow pigments. If the dates hold, these ornaments are older than any known from our own species in Europe, a strong sign that the urge to adorn was not ours alone." },
+      },
+      {
+        entity: "neanderthal",
+        year: -69_999,
+        site: "neanderthal@21",
+        note: { text: "Shanidar 1 lived for years with a crushed eye socket, a withered arm and a damaged leg, which he could hardly have survived without help. Shanidar is also the cave of the \"flower burial\", now in doubt: the pollen may have been brought in by burrowing animals or bees. Wragg Sykes uses such cases to show how the record of injuries and care has been read and reread." },
+      },
+      {
+        entity: "neanderthal",
+        year: -68_999,
+        site: "neanderthal@20",
+        note: { text: "Far to the east, in a cave in the mountains of Uzbekistan, a Neanderthal child was found in 1938 among ibex horns. Whether the horns were set around the child on purpose is still argued over. It is one of the sites that take Neanderthal country from France to Central Asia." },
+      },
+      {
+        entity: "levallois-mousterian",
+        year: -59_999,
+        site: "levallois-mousterian@r:abric-romani",
+        note: { text: "Under this rock shelter, layer after layer of hearths survive, with the imprints of wooden objects. The book reads homes like this from the traces of fireplaces: where people sat, worked and slept, and how often the same small band came back." },
+      },
+      {
+        entity: "neanderthal",
+        year: -58_999,
+        site: "neanderthal@7",
+        note: { text: "The \"Old Man\" found here in 1908 was rebuilt as a stooped brute and fixed the cave-man image for decades. Wragg Sykes traces how mistakes like this shaped what we thought of Neanderthals. He had in fact lost most of his teeth and had arthritis, and recent digs suggest he was laid in a pit dug for him." },
+      },
+      {
+        entity: "neanderthal",
+        year: -54_999,
+        site: "neanderthal@5",
+        note: { text: "Kebara 2 kept the small hyoid bone of the throat, and its shape matches ours. The book argues that Neanderthals were very likely able to speak." },
+      },
+      {
+        entity: "archaic-human-admixture",
+        note: { text: "Ancient DNA shows that Neanderthals and modern humans met and had children more than once. Most people outside Africa carry a little Neanderthal DNA. Wragg Sykes asks why such meetings are so often imagined as violent, and why desire or attachment should seem \"more of a fairy tale than other explanations\"." },
+      },
+      {
+        entity: "neanderthal",
+        year: -39_999,
+        site: "neanderthal@r:feldhofer-grotte",
+        note: { text: "In 1856 quarrymen cleared bones from a small cave here, and the Neanderthals got their name. A century and a half later, archaeologists found the old spoil heaps and pieces of the same skeleton. The book tells the story of discovery, of bones scattered, lost and found again." },
+      },
+      {
+        entity: "chatelperronian",
+        year: -37_999,
+        site: "chatelperronian@r:arcy-sur-cure-grotte-du-renne-bison",
+        note: { text: "Late in their time, Neanderthals here made Châtelperronian tools along with pierced teeth and ornaments of bone. Some researchers think they copied newly arrived modern humans. Others think the layers were mixed. Still others think these were their own ideas." },
+      },
+      {
+        entity: "neanderthal-extinction",
+        year: -37_999,
+        site: "neanderthal-extinction@1",
+        note: { text: "On the floor of this sea cave someone cut a cross-hatched pattern into the rock. Neanderthals may have lasted here longer than in most places. Wragg Sykes sees no single cause for their end, rather \"a perfect storm\" of climate swings, a crowded continent and perhaps disease. Survival depends on \"time and babies\", not on who was cleverer. Some of them live on in us." },
+      },
     ],
   },
 ];

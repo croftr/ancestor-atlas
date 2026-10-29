@@ -63,7 +63,18 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
         </span>
       </button>
       <div className="tp-body">
-        <h2 id={`tp-${tour.id}`}>{tour.title}</h2>
+        <h2 id={`tp-${tour.id}`}>
+          {tour.title}
+          {tour.draft && <span className="book-draft" title="Draft: the notes are not yet checked against the book">Draft</span>}
+        </h2>
+        {tour.book && (
+          <div className="tp-book">
+            <cite>{tour.book.title}</cite> by {tour.book.author} ({tour.book.year}) ·{" "}
+            <a href={tour.book.link} target="_blank" rel="noreferrer">
+              about the book
+            </a>
+          </div>
+        )}
         {first?.year != null && last?.year != null && (
           <div className="tp-span muted">
             {formatYear(first.year)} to {formatYear(last.year)}
@@ -74,6 +85,7 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
           <span>{stops.length} stops</span>
           <span>about {mins} min</span>
           {narrated(stops) && <span>narrated</span>}
+          {tour.book && <span>notes from the book</span>}
           {tour.music && <span>with music</span>}
         </div>
         <div className="tp-actions">
@@ -110,7 +122,7 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
 
 /**
  * Tours page (#/tours): every guided tour as a card (a cover from its stops' pictures, what it
- * covers, how long it runs), to watch from the start or from any stop. The time bar's Tours menu
+ * covers, how long it runs), to watch from the start or from any stop; book tours in a section of their own. The time bar's Tours menu
  * is the quick way in from the globe.
  */
 export default function ToursPage() {
@@ -144,9 +156,23 @@ export default function ToursPage() {
         />
       </header>
       <main className="ev-main tp-main">
-        {tours.map(({ tour, stops, mins }) => (
+        {tours.filter((t) => !t.tour.book).map(({ tour, stops, mins }) => (
           <TourCard key={tour.id} tour={tour} stops={stops} mins={mins} />
         ))}
+        {tours.some((t) => t.tour.book) && (
+          <>
+            <div className="tp-section">
+              <h2>Book tours</h2>
+              <p className="muted">
+                A book on the deep past, told through its places: what the book says about each, then the place on the
+                globe.
+              </p>
+            </div>
+            {tours.filter((t) => t.tour.book).map(({ tour, stops, mins }) => (
+              <TourCard key={tour.id} tour={tour} stops={stops} mins={mins} />
+            ))}
+          </>
+        )}
         <p className="muted tp-note">
           The pause button on the tour bar (or Space) pauses a tour; the arrow keys step between stops and Escape ends it.
           Touching the globe or the card does not stop it.

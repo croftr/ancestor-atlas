@@ -57,6 +57,18 @@ describe.each(TOURS)("tour $id", (tour) => {
       console.warn(`tour ${tour.id}: the closing narration no longer matches its closing line`);
   });
 
+  it("as a book tour, has a synopsis and a note on every stop", () => {
+    if (!tour.book) {
+      expect(tour.synopsis ?? tour.stops.find((s) => s.note)).toBeUndefined();
+      return;
+    }
+    expect(tour.book.link).toMatch(/^https:\/\//);
+    expect(tour.synopsis).toBeTruthy();
+    for (const stop of tour.stops) expect(stop.note?.text, stop.entity).toBeTruthy();
+    for (const narration of [tour.synopsisNarration, ...tour.stops.map((s) => s.note?.narration)])
+      if (narration) expect(narration.src).toMatch(new RegExp(`^narration/books/${tour.id}/[\\w-]+-v\\d+\\.mp3$`));
+  });
+
   it("runs oldest first", () => {
     const years = tour.stops.map((s) => s.year ?? byId.get(s.entity)?.year ?? 0);
     expect(years).toEqual([...years].sort((a, b) => a - b));

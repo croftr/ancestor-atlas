@@ -6,7 +6,8 @@ import type { Tour } from "./tours";
 
 /**
  * The title card before a tour's first stop: its name, blurb and length over the globe as it turns
- * to the first place, while the announcement reads them out. Fades in and out over its hold (frozen
+ * to the first place, while the announcement reads them out. A book tour shows the book and its synopsis
+ * in place of the blurb. Fades in and out over its hold (frozen
  * while paused); Skip goes straight to the first stop.
  */
 export default function TitleCard({ tour }: { tour: Tour }) {
@@ -22,9 +23,17 @@ export default function TitleCard({ tour }: { tour: Tour }) {
         role="status"
         style={{ animationDuration: `${holdMs}ms`, animationPlayState: paused ? "paused" : "running" } as CSSProperties}
       >
-        <div className="tour-title-kicker">Guided tour</div>
+        <div className="tour-title-kicker">
+          {tour.book ? "Book tour" : "Guided tour"}
+          {tour.draft && <span className="book-draft" title="Draft: the notes are not yet checked against the book">Draft</span>}
+        </div>
         <h2 className="tour-title-name">{tour.title}</h2>
-        <p className="tour-title-blurb">{tour.blurb}</p>
+        {tour.book && (
+          <div className="book-title-by">
+            {tour.book.author} · {tour.book.publisher}, {tour.book.year}
+          </div>
+        )}
+        <p className={`tour-title-blurb${tour.synopsis ? " book-synopsis" : ""}`}>{tour.synopsis ?? tour.blurb}</p>
         <div className="tour-title-meta">
           {tour.stops.length} stops{data && ` · about ${minutes(tour, data)} min`}
         </div>

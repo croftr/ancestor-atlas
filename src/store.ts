@@ -130,6 +130,8 @@ interface AppState {
     musicOut?: boolean;
     /** Years from the stop before to this one, while the slider travels there (the "40,000 years later" caption). */
     gap?: number;
+    /** A book tour's note on this stop is showing, before its card opens (tours/BookNote.tsx); false once skipped. */
+    note?: boolean;
   } | null;
   /**
    * The tour's title over the globe as it ends, from the start of the outro (tours/TourFinale.tsx); it
@@ -191,6 +193,8 @@ interface AppState {
   tourGo(index: number): void;
   /** End the title card and play on to the first stop. */
   skipIntro(): void;
+  /** Close a book tour's note and open the stop's card. */
+  skipNote(): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
@@ -393,10 +397,11 @@ export const useStore = create<AppState>((set, get) => ({
       if (!s.tour || !t) return {};
       if (s.tour.intro) return index > s.tour.index ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {};
       if (index < 0 || index > t.stops.length) return {};
-      const { gap: _g, musicOut: _m, ...rest } = s.tour;
+      const { gap: _g, musicOut: _m, note: _n, ...rest } = s.tour;
       return { tour: { ...rest, index, epilogue: index === t.stops.length, travel: false, phase: "travel", holdMs: 0 } };
     }),
   skipIntro: () => set((s) => (s.tour?.intro ? { tour: { ...s.tour, intro: false, musicIn: true, travel: true, phase: "travel", holdMs: 0 } } : {})),
+  skipNote: () => set((s) => (s.tour?.note ? { tour: { ...s.tour, note: false } } : {})),
   stepFeature: (dir) => {
     const d = getData();
     const s = get();

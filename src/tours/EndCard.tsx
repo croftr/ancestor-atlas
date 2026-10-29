@@ -89,6 +89,14 @@ export default function EndCard({ tour }: { tour: Tour }) {
           <Icon d={ICON.globe} /> Explore the globe
         </button>
       </div>
+      {tour.book && (
+        <div className="tour-end-credit">
+          From <cite>{tour.book.title}</cite> by {tour.book.author} ({tour.book.publisher}, {tour.book.year}).{" "}
+          <a href={tour.book.link} target="_blank" rel="noreferrer">
+            About the book
+          </a>
+        </div>
+      )}
       {tour.music && <div className="tour-end-credit">{tour.music.credit}</div>}
     </section>
   );

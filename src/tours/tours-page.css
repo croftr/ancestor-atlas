@@ -151,3 +151,18 @@
   .tp-stops { margin-top: 0; }
   .tp-stops ol { grid-template-columns: 1fr; }
 }
+
+/* Book tours: their own section after the themed tours, the book under each title. */
+.tp-section { grid-column: 1 / -1; margin-top: 10px; }
+.tp-section h2 { margin: 0 0 4px; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; color: #f6eedc; }
+.tp-section p { margin: 0; max-width: 70ch; font-size: 0.9rem; line-height: 1.5; }
+.tp-book { font-size: 0.85rem; color: #cbd3e6; }
+.tp-book a { color: #c39bff; }
+.book-draft {
+  display: inline-block; margin-left: 8px; padding: 1px 7px; border-radius: 999px; vertical-align: 0.15em;
+  font-family: system-ui, sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #ffd27a; border: 1px solid rgba(255, 210, 122, 0.5);
+}
+@media (max-width: 760px) {
+  .tp-book { grid-column: 1 / -1; }
+}
