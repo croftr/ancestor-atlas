@@ -1773,6 +1773,18 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Wilton_culture
   wikidata: Q2986725
   source_ids: []
+# Span from English Wikipedia: Jōmon_period@1380542509 (lead: c. 14,000-300 BC; its pottery section: the oldest
+# known ceramics around 14,500 BCE, so the span starts there, taking in Ōdai Yamamoto I). Not the Ryukyus (the
+# article: the Jōmon period does not apply there).
+- id: jomon
+  name: Jōmon culture
+  category: culture
+  start_year: -14499
+  end_year: -299
+  description: "For more than ten thousand years, from before 14,000 to about 300 BCE, the islands of Japan were home to hunter-gatherers who made some of the oldest pottery in the world. Jōmon means \"cord-marked\": they decorated their pots by pressing cords into the wet clay. Forests of chestnut, beech and oak, rivers full of salmon and rich coasts let them settle down without farming, in villages of pit dwellings beside great shell mounds. At Sannai-Maruyama in the far north, more than six hundred houses were built over some seventeen centuries. They made lacquered wood, ornaments of bone, shell and antler, and strange clay figurines called dogū. After about 1500 BCE the climate cooled and their numbers fell, and in the last centuries BCE they mixed with the rice-farming Yayoi."
+  wikipedia_url: https://en.wikipedia.org/wiki/J%C5%8Dmon_period
+  wikidata: Q52824
+  source_ids: []
 # Span from English Wikipedia: Halaf_culture@1372302292.
 - id: halaf
   name: Halaf culture

@@ -84,7 +84,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Curated sites (`data/curated/species-sites.csv`, `culture-sites.csv`)
 
-- 218 rows: 194 sourced, 20 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent). Since 23 Oct 2026 only
+- 230 rows: 206 sourced, 20 partial, 4 recall (Lokalalei, Kokiselei, Majuangou, Dent). Since 23 Oct 2026 only
   sourced rows are drawn (Rob's call: when unsure, leave it out); the 25 others are left out by `loadSites` in
   `scripts/build-data.ts` and come back by themselves once both evidence columns are filled (ids keep counting every
   row, so nothing is renumbered). XRONOS and ROAD points they used to hide now show (Isturitz, Pincevent,
@@ -101,7 +101,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   (six Indian sites); Bhimbetka's ROAD layer (200-120 ka) falls after the Acheulean span and is dropped.
   Still missing from Rob's list (nothing usable in our data, or needs a culture or event first): Folsom culture,
   Mehrgarh, Ganges Mesolithic cemeteries, East Asian Neolithic cultures (Peiligang, Pengtoushan, Kuahuqiao, Hemudu;
-  XRONOS has unlabelled dates), Jōmon, Jebel Sahaba and Nabta Playa (as events), Uan Afuda/Muhuggiag, Ishango,
+  XRONOS has unlabelled dates), Jebel Sahaba and Nabta Playa (as events), Uan Afuda/Muhuggiag, Ishango,
   Gwisho, Turkana harpoon sites, Coobool Creek, the Peruvian Paloma.
 - Added 17 Oct 2026 for the migration routes: cultures Early Bantu-speaking farmers (Shum Laka, Katuruka), Dapenkeng
   (Fengbitou) and Lapita (Talepakemalai/Mussau, Teouma, Site 13, Moturiki, Nukuleka, Mulifanua), Wikidata coordinates
@@ -628,8 +628,15 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   (8,000-4,000 years ago, so later "Wilton" dates are dropped). Mixed labels (Iberomaurusian with Rharbian or Keremian)
   are not mapped. Robberg was left out: no article of its own, and the Nelson Bay Cave article contradicts itself on
   its dates. Other candidates outside Europe (29 Oct list): ROAD's Lupemban, Fauresmith, Sangoan, Dabban, Pietersburg,
-  Ahmarian, Acheulo-Yabrudian; XRONOS PPNC (an AADR label of Pre-Pottery Neolithic already); Jōmon (about 1,770
-  Japanese dates under some 600 pottery-type labels, Yayoi types to be kept out).
+  Ahmarian, Acheulo-Yabrudian; XRONOS PPNC (an AADR label of Pre-Pottery Neolithic already).
+- Jōmon culture added 29 Oct 2026 (span 14,500-300 BCE from Jōmon_period@1380542509: the lead's c. 14,000 BC moved
+  back to the 14,500 BCE pottery its own pottery section gives; not the Ryukyus; "As the ice melted" stage; no
+  picture yet). Twelve curated sites, Hokkaido to Kyushu, Wikidata coordinates and dates from each site's pinned
+  article (Ōdai Yamamoto I, Fukui Cave, Torihama, Uenohara, Kakinoshima, Sannai-Maruyama, Ōfune, Goshono, Ōyu,
+  Shijimizuka, Tsukumo, Kamegaoka). AADR labels Jomon, InitialJomon, EarlyJomon, MidLateJomon link 17 genomes at
+  8 sites. XRONOS can't help as it stands: its 2,132 labelled Japanese dates (Crema & Kobayashi 2020, ~645
+  pottery-type labels) have no coordinates, and its 1,433 p3k14c dates there have coordinates but no labels.
+  Possible later: geocode the Crema sites (Japanese names) from Wikidata into a new hand-checked coordinates file.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

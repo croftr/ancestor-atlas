@@ -48,8 +48,8 @@ export const CULTURE_STAGES: CultureStage[] = [
   {
     id: "after-the-ice",
     title: "As the ice melted",
-    blurb: "Hunter-gatherers of a warming world: camps by forest lakes and seashores in Europe, snail-shell middens in North Africa, and rock shelters across southern Africa.",
-    members: ["azilian", "capsian", "oakhurst", "maglemosian", "wilton", "ertebolle"],
+    blurb: "Hunter-gatherers of a warming world: pottery-making villages in Japan, camps by forest lakes and seashores in Europe, snail-shell middens in North Africa, and rock shelters across southern Africa.",
+    members: ["jomon", "azilian", "capsian", "oakhurst", "maglemosian", "wilton", "ertebolle"],
   },
   {
     id: "early-farmers-europe",
