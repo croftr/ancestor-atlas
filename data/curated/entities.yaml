@@ -2487,6 +2487,9 @@
       credit: Para Bellum, YouTube
 - id: kingdom-of-bithynia
   description: A Hellenistic kingdom located in northwestern Anatolia bordering the Sea of Marmara and the Black Sea, centered on cities like Nicomedia. Governed by a resilient local Thracian dynasty, Bithynia maintained autonomy against neighboring Diadochi kingdoms before its last king, Nicomedes IV, bequeathed the realm to the Roman Republic in 74 BCE.
+  image_url: /images/civilisations/kingdom-of-bithynia.webp
+  image_caption: Nicomedia on the Propontis in the Kingdom of Bithynia, showing King Prusias I examining silver tetradrachms beside covered ship-sheds and naval galleys beneath Mount Olympus.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-bithynia-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Prusias I of Bithynia (228–182 BCE) (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Bithynia_-_king_Prusias_I_-_228-182_BC_-_silver_tetradrachm_-_head_of_Prusias_I_-_Zeus_-_London_BM_1993-0629-1.jpg" }
     - { url: /images/extra/kingdom-of-bithynia-2.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "Silver tetradrachm of Nicomedes II of Bithynia (149–127 BCE) (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Greece,_Bithynia,_reign_of_Nicomedes_II_-_Tetradrachm-_Nicomedes_II_(obverse)_-_1917.990.a_-_Cleveland_Museum_of_Art.jpg" }
@@ -3266,6 +3269,9 @@
       credit: AIEkAdhyayan, YouTube
 - id: janapada-of-gandhara
   description: An ancient kingdom situated in the fertile Peshawar valley and Potohar plateau of northwestern Pakistan and eastern Afghanistan, centered at Taxila and Pushkalavati. Positioned at the western gateway of the Indian subcontinent, Gandhara was famed for Vedic scholarship, cosmopolitan Silk Road trade, and later the magnificent synthesis of Greco-Buddhist art.
+  image_url: /images/civilisations/janapada-of-gandhara.webp
+  image_caption: Early Taxila (Bhir Mound) in the Janapada of Gandhāra, showing Vedic scholars examining curved silver bent-bar punch-marked coins overlooking mudbrick streets and Hindu Kush foothills.
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/janapada-of-gandhara-1.webp, credit: "Classical Numismatic Group, CC BY-SA 3.0, via Wikimedia Commons", caption: "Silver bent-bar coins of the Gandhara Janapada, among the earliest coins of South Asia", source: "https://commons.wikimedia.org/wiki/File:Bent_bars_Gandhara_Janapada.jpg" }
     - { url: /images/extra/janapada-of-gandhara-2.webp, credit: "Dawoodmajoka, public domain, via Wikimedia Commons", caption: "The Bhir Mound at Taxila, Pakistan, the oldest city of Taxila, capital of Gandhara", source: "https://commons.wikimedia.org/wiki/File:BhirMound.JPG" }
