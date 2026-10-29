@@ -92,7 +92,7 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
         <div className="tp-meta">
           <span>{stops.length} stops</span>
           <span>about {mins} min</span>
-          {narrated(stops) && <span>narrated</span>}
+          {narrated(stops) && (!tour.book || tour.stops.every((s) => s.note?.narration)) && <span>narrated</span>}
           {tour.book && <span>notes from the book</span>}
           {tour.music && <span>with music</span>}
         </div>
