@@ -878,6 +878,7 @@
     - road
   image_url: /images/cultures/epigravettian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/epigravettian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Camp in the Mediterranean limestone hills: making spears, weaving baskets and grinding seeds, fish drying, hide tents by the sea"
   extra_images:
     - { url: /images/extra/epigravettian-1.webp, credit: "Wobble, CC BY-SA 3.0, via Wikimedia Commons", caption: "Europe about 20,000 years ago: the ice sheets, the coast of the time and the refuges where people held on: Solutrean in orange, Epigravettian in purple", source: "https://commons.wikimedia.org/wiki/File:Europe20000ya.png" }
@@ -893,6 +894,7 @@
   narration: { src: narration/cultures/natufian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ce8c282e22" }
   image_url: /images/cultures/natufian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/natufian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Epipaleolithic hillside hamlet with circular stone pit dwellings, mortars, and wild cereal harvesting"
   wikipedia_url: https://en.wikipedia.org/wiki/Natufian_culture
   source_ids:
