@@ -2933,6 +2933,7 @@
   image_url: /images/civilisations/greek-city-states.webp
   image_caption: Classical Greek coastal polis with an acropolis temple, Aegean harbor triremes, citizen-hoplites with emblazoned aspis shields, and black-figure vase painters.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/greek-city-states-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/greek-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d52e548e7b" }
   media:
     - kind: video
@@ -3010,8 +3011,13 @@
   image_url: /images/civilisations/achaemenid-empire.webp
   image_caption: Persepolis, Susa, and the Tomb of Cyrus with the glazed-brick Frieze of the Immortals, the Cyrus Cylinder, golden rhyton, and Royal Road messengers.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/achaemenid-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/achaemenid-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f1cce7939b" }
   media:
+    - kind: video
+      src: video/civilizations/achaemenid-empire-scene-v1.mp4
+      title: "Persepolis Palace Scene"
+      credit: "AI-generated video (Google Veo)"
     - kind: video
       src: https://www.youtube.com/watch?v=ZoH2UQZBaPY
       title: "Cyrus the Great - Rise of the Achaemenid Empire"
