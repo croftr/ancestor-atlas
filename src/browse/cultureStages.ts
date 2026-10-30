@@ -52,6 +52,12 @@ export const CULTURE_STAGES: CultureStage[] = [
     members: ["jomon", "azilian", "capsian", "oakhurst", "maglemosian", "wilton", "ertebolle"],
   },
   {
+    id: "first-farmers-south-asia",
+    title: "First farmers of South Asia",
+    blurb: "Barley, wheat and cattle at the foot of the Bolan Pass: the villages from which the Indus civilization grew.",
+    members: ["mehrgarh"],
+  },
+  {
     id: "first-farmers-east-asia",
     title: "First farmers of East Asia",
     blurb: "Millet along the Yellow River and rice in the Yangtze delta: villages, carved jade and the first walled towns of China.",

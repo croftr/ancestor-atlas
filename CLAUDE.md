@@ -654,6 +654,12 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   the culture). AADR: Longshan links 9 genomes at 3 sites; the Yangshao label is mapped but its only genomes
   (Baligang) are PROVISIONAL_PASS, so none show. XRONOS's Chinese dates have no culture labels. Not added: Dawenkou,
   Majiayao, Dadiwan, Cishan, Xinglongwa, Kuahuqiao, Shangshan (candidates).
+- Mehrgarh added 30 Oct 2026 (stage "First farmers of South Asia"; description written from Mehrgarh@1382032917,
+  Rob to review; no picture yet): span 5250-2600 BCE (the article's infobox and Mutin and Zazzo's dates on teeth;
+  Jarrige's pre-7000 BCE start is mentioned in the description, not used). Sites: Mehrgarh (coordinates from the
+  article: Wikidata's are ~18 km off, too far from Nausharo) and Nausharo's first phase (3000-2550 BC, like
+  Mehrgarh's later periods). Linked both ways to the Indus civilization (related_ids). No AADR genomes. Indus city
+  points (Dholavira, Lothal, Rakhigarhi...) would need civilization point sites, which the build does not support.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

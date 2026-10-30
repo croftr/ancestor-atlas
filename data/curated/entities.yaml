@@ -1850,6 +1850,19 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Longshan_culture
   wikidata: Q1057935
   source_ids: []
+# Span from English Wikipedia: Mehrgarh@1382032917 (infobox: built c. 5200 BCE, abandoned c. 2600 BCE; Period I
+# 5250-4650 BCE by Mutin and Zazzo's dates on teeth, against Jarrige's earlier pre-7000-5500 BCE: the later,
+# narrower start is used). The article covers the site; there is no culture article.
+- id: mehrgarh
+  name: Mehrgarh
+  category: culture
+  start_year: -5249
+  end_year: -2599
+  description: "At the foot of the Bolan Pass in Balochistan, on the western edge of the Indus plain, Mehrgarh is one of the earliest farming villages in South Asia. Its first farmers grew barley and einkorn and emmer wheat, herded sheep, goats and cattle, lived in mud-brick houses and stored their grain in granaries. The excavators dated the first village to before 7000 BCE; newer radiocarbon dates on teeth put it nearer 5250 BCE. The dead were buried with shells from distant coasts and lapis lazuli from Badakhshan, and some had had their teeth drilled while alive, the earliest known evidence of dentistry. Over the next two thousand years the village took up pottery, copper and the potter's wheel, until around 2600 BCE it was abandoned for the town of Nausharo nearby, as the Indus civilization grew."
+  wikipedia_url: https://en.wikipedia.org/wiki/Mehrgarh
+  wikidata: Q242148
+  related_ids: [indus-valley-civilization]
+  source_ids: []
 # Span from English Wikipedia: Halaf_culture@1372302292.
 - id: halaf
   name: Halaf culture
@@ -2019,6 +2032,7 @@
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
   image_caption: "Planned Bronze Age city of Mohenjo-daro with baked-brick streets, covered drainage, ox carts, and the Citadel mound overlooking the Indus River"
+  related_ids: [mehrgarh]
   extra_images:
     - { url: /images/extra/indus-valley-civilization-1.webp, credit: "Umair Shaikh Shaikh, CC BY-SA 2.0, via Wikimedia Commons", caption: "Steatite bust of the 'Priest-King' from Mohenjo-daro, wearing a trefoil-patterned cloak and fillet headband (National Museum of Pakistan, Karachi)", source: "https://commons.wikimedia.org/wiki/File:The_Priest_King_of_Moenjo_Daro.jpg" }
     - { url: /images/extra/indus-valley-civilization-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze statuette of the 'Dancing Girl' from Mohenjo-daro, adorned with bangles and resting a hand on her hip (National Museum, New Delhi)", source: "https://commons.wikimedia.org/wiki/File:Bronze_%22Dancing_Girl,%22_Mohenjo-daro,_c._2500_BC.jpg" }
