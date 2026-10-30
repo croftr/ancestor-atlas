@@ -2017,6 +2017,7 @@
   narration: { src: narration/civilizations/new-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/new-kingdom-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Thebes during the Opet Festival, with priests carrying the sacred barque of Amun-Ra from a temple pylon flanked by colossal statues of Ramesses II"
   extra_images:
     - { url: /images/extra/new-kingdom-of-egypt-3.webp, credit: "Bjørn Christian Tørrissen, CC BY-SA 3.0, via Wikimedia Commons", caption: "The gold funerary mask of Pharaoh Tutankhamun (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Mask_of_Tutankhamun_2003-12-07.jpg" }
@@ -2048,6 +2049,7 @@
   description: "On the island of Crete the Minoans built Europe's first great palaces, at Knossos, Phaistos and Malia: centres of storage, craft and ritual, decorated with vivid frescoes of bulls, dolphins and processions. They traded across the eastern Mediterranean with Egypt and the Levant, and wrote in a script, Linear A, that is still undeciphered. After about 1450 BCE most of the palaces were destroyed, and Knossos came under the control of Mycenaean Greeks from the mainland."
   image_url: /images/civilisations/minoan-civilization.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/minoan-civilization-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Palace of Knossos on Crete with downward-tapering red columns, dolphin frescoes, rooftop courtyards with storage pithoi, and Aegean trading galleys"
   extra_images:
     - { url: /images/extra/minoan-civilization-1.webp, credit: "Wolfgang Moroder, CC BY-SA 3.0, via Wikimedia Commons", caption: "The west court of the palace at Knossos, Crete", source: "https://commons.wikimedia.org/wiki/File:Knossos_in_Crete_west_court.jpg" }
