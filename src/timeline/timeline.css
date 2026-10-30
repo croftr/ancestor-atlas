@@ -361,6 +361,9 @@
 .timeline-page.has-card { --card-w: calc(16px + var(--card-tl-w)); }
 .tl-main, .tl-overview { margin-right: calc(16px + var(--card-w)); }
 .timeline-page .info-panel { top: 92px; right: 16px; width: var(--card-tl-w); max-height: calc(100vh - 104px); z-index: 25; }
+@media (min-width: 901px) {
+  .timeline-page .info-panel { height: calc(100vh - 104px); height: calc(100dvh - 104px); }
+}
 .timeline-page .card-resize { top: 92px; right: calc(16px + var(--card-tl-w) - 6px); }
 @media (max-width: 900px) {
   /* Too narrow to share: the card floats over the chart instead. */

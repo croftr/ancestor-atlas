@@ -68,15 +68,15 @@ Everything a normal tour does stays the same. Additions:
   through the note's hold (store `tour.notePicture`); arrows and dots step them by hand; a tap opens the full-screen
   viewer, and the card's left edge drags to resize it. The book's cover is the card's badge (a tall rectangle top
   left), not part of the rotation (Rob, 29 Oct 2026); it fills the picture frame only for a note without pictures.
+  The end card shows the cover and author, and each stop's first note picture in its strip (also the Tours page's
+  stop list).
+  Files: 900 px WebP in `public/images/books/<tour id>/<stop n or name>-<k>.webp` (numbers as first drafted), free-licence Commons photos picked on a
+  contact sheet (same rules as `extra_images`). Kindred: 2–3 per stop (1 for Aviones and the admixture stop).
 - Marking the note as the book's (30 Oct 2026, Rob asked for it to read more clearly as from the book): a violet
   band along the card's top and a wash behind its head, the cover larger (66 x 100), the book and author under
   the title, and the note set as a quotation (serif, violet rule).
 - Pauses: in a book tour each narration is followed by 2.5 s (1.5 s in other tours), plus 2 s where the voice
   changes (a book stop to a card or back), so the two voices don't run into each other (`TourPlayer.tsx`).
-  The end card shows the cover and author, and each stop's first note picture in its strip (also the Tours page's
-  stop list).
-  Files: 900 px WebP in `public/images/books/<tour id>/<stop n or name>-<k>.webp` (numbers as first drafted), free-licence Commons photos picked on a
-  contact sheet (same rules as `extra_images`). Kindred: 2–3 per stop (1 for Aviones and the admixture stop).
 - The music starts with the tour, under the title and synopsis (Rob's call, 29 Oct 2026; other tours bring it in
   after the announcement). It dips under every reading as usual.
 

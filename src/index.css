@@ -314,6 +314,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
   scrollbar-width: thin;
   scrollbar-color: rgba(142, 160, 200, 0.3) transparent;
 }
+/* On desktop the card always runs the full height (Rob's call, 30 Oct 2026): a short card leaves space at its foot
+   rather than changing size from stop to stop. Phones keep their own sizing (stacked.css). */
+@media (min-width: 901px) {
+  .info-panel { height: calc(100vh - 16px); height: calc(100dvh - 16px); }
+}
 .info-panel::-webkit-scrollbar { width: 8px; }
 .info-panel::-webkit-scrollbar-track { background: transparent; }
 .info-panel::-webkit-scrollbar-thumb {
