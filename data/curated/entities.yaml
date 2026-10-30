@@ -1742,6 +1742,7 @@
   narration: { src: narration/cultures/capsian-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "40487b2cd3" }
   image_url: /images/cultures/capsian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/capsian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Maghreb camp centered on a snail-shell midden with engraved ostrich eggshells"
   extra_images:
     - { url: /images/extra/capsian-1.webp, credit: "José-Manuel Benito Álvarez, public domain, via Wikimedia Commons", caption: "The Capsian heartland (blue) around Gafsa, in the hills of Tunisia and eastern Algeria; the older Iberomaurusian lands in green", source: "https://commons.wikimedia.org/wiki/File:Iberomaurisiense-Capsiense.png" }
