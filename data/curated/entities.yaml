@@ -2306,6 +2306,7 @@
   image_url: /images/civilisations/sumerian-city-states.webp
   image_caption: Early Dynastic Sumerian city with stepped mudbrick ziggurat, canal reed boats, citizens in tufted kaunakes kilts, cuneiform cylinder-seal scribes, and the Bull Lyre of Ur.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/sumerian-city-states-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/sumerian-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "523b4fd799" }
   media:
     - kind: video
@@ -2322,6 +2323,7 @@
   image_url: /images/civilisations/akkadian-empire.webp
   image_caption: Imperial Agade on the Euphrates with artisans finishing the bronze royal head of Sargon, Enheduanna holding her alabaster disk, the Victory Stele of Naram-Sin, and cylinder-seal scribes.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/akkadian-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/akkadian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "912a730cb8" }
   media:
     - kind: video
