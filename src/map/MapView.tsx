@@ -403,6 +403,14 @@ export default function MapView() {
         if (!skyRaf) skyRaf = requestAnimationFrame(skySettle);
       });
 
+    // The place under a pixel, or null off the globe: there unproject gives the nearest point on
+    // the horizon, which projects back somewhere else.
+    const onGlobe = (x: number, y: number) => {
+      const ll = map.unproject([x, y]);
+      if (!Number.isFinite(ll.lng) || !Number.isFinite(ll.lat) || Math.abs(ll.lat) > 85) return null;
+      const back = map.project(ll);
+      return Math.hypot(back.x - x, back.y - y) <= 2 ? ll : null;
+    };
     // Right-drag or Shift+drag slides the globe aside (desktop), out from under a card or panel;
     // Recentre (below) puts it back. Caught before MapLibre sees the press, so it neither turns the
     // globe nor (after a Shift+drag) counts as a click on a marker.
@@ -410,10 +418,8 @@ export default function MapView() {
     const openPlaceAtClient = (clientX: number, clientY: number) => {
       if (!loaded || useStore.getState().tour) return;
       const rect = container.getBoundingClientRect();
-      const ll = map.unproject([clientX - rect.left, clientY - rect.top]);
-      if (Number.isFinite(ll.lng) && Number.isFinite(ll.lat) && Math.abs(ll.lat) <= 85) {
-        useStore.getState().openPlace(ll.lng, ll.lat);
-      }
+      const ll = onGlobe(clientX - rect.left, clientY - rect.top);
+      if (ll) useStore.getState().openPlace(ll.lng, ll.lat);
     };
     let slide: { x: number; y: number; from: [number, number]; moved: boolean; button: number } | null = null;
     const slideMove = (e: MouseEvent) => {
@@ -980,7 +986,8 @@ export default function MapView() {
     map.on("click", (e) => {
       if (!loaded) return;
       if (useStore.getState().placeMode) {
-        useStore.getState().openPlace(e.lngLat.lng, e.lngLat.lat);
+        const ll = onGlobe(e.point.x, e.point.y);
+        if (ll) useStore.getState().openPlace(ll.lng, ll.lat);
         return;
       }
       // Markers count as hit within a finger's reach of the tap (less with a mouse), nearest
