@@ -2487,6 +2487,7 @@
   image_url: /images/civilisations/neo-assyrian-empire.webp
   image_caption: Nineveh on the Tigris with winged bull lamassu guardians, Assyrian royal lion-hunt reliefs, iron-armored infantry, and Ashurbanipal's cuneiform library.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/neo-assyrian-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/neo-assyrian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3801b35914" }
   media:
     - kind: video
@@ -2964,6 +2965,7 @@
   image_url: /images/civilisations/olmec-civilization.webp
   image_caption: La Venta ceremonial center in the Gulf lowlands, sculptors carving a colossal basalt head surrounded by jadeite-adorned rulers and earthen pyramids.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/olmec-civilization-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/olmec-civilization-3.webp, credit: "Ruben Charles, CC BY 2.0, via Wikimedia Commons", caption: "Altar 4 from La Venta, Tabasco, showing an Olmec ruler emerging from a cave niche", source: "https://commons.wikimedia.org/wiki/File:Altar_4_La_Venta_(Ruben_Charles).jpg" }
     - { url: /images/extra/olmec-civilization-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Colossal head from San Lorenzo, Veracruz", source: "https://commons.wikimedia.org/wiki/File:Olmec_Colossal_Head,_San_Lorenzo,_Veracruz,_1200-600_BC.jpg" }
