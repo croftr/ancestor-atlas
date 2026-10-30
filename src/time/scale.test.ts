@@ -3,7 +3,7 @@ import { formatYear, posToYear, segmentOfBce, snapYear, stepYear, yearToPos } fr
 
 describe("scale", () => {
   it("maps endpoints", () => {
-    expect(posToYear(0)).toBe(-9_999_999);
+    expect(posToYear(0)).toBe(-7_999_999);
     expect(posToYear(1)).toBe(1);
   });
 
@@ -41,7 +41,7 @@ describe("scale", () => {
 
   it("steps and clamps", () => {
     expect(stepYear(1, 1)).toBe(1);
-    expect(stepYear(-9_999_999, -1)).toBe(-9_999_999);
+    expect(stepYear(-7_999_999, -1)).toBe(-7_999_999);
     expect(stepYear(-2999, 1)).toBe(-2989);
     expect(stepYear(-2999, -1)).toBe(-3099);
     expect(stepYear(-999_999, 1)).toBe(-989_999);

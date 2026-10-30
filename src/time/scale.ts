@@ -1,9 +1,9 @@
 import { scaleLinear } from "d3-scale";
 
-export const BCE_BREAKS = [10_000_000, 1_000_000, 100_000, 10_000, 3_000, 0];
+export const BCE_BREAKS = [8_000_000, 1_000_000, 100_000, 10_000, 3_000, 0];
 export const POS_BREAKS = [0, 0.15, 0.35, 0.55, 0.75, 1];
 export const STEPS = [100_000, 10_000, 1_000, 100, 10];
-export const MIN_YEAR = 1 - BCE_BREAKS[0]; // -9_999_999
+export const MIN_YEAR = 1 - BCE_BREAKS[0]; // -7_999_999
 export const MAX_YEAR = 1;
 
 const posToBce = scaleLinear().domain(POS_BREAKS).range(BCE_BREAKS).clamp(true);

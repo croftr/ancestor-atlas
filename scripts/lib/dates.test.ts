@@ -22,7 +22,7 @@ describe("dates", () => {
   });
 
   it("keeps widened windows inside the slider range", () => {
-    expect(minWindow(-9_999_999, -9_999_999, 100)).toEqual([-9_999_999, -9_999_899]);
+    expect(minWindow(-7_999_999, -7_999_999, 100)).toEqual([-7_999_999, -7_999_899]);
     expect(minWindow(1, 1, 100)).toEqual([-99, 1]);
   });
 });
