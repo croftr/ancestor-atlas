@@ -105,13 +105,15 @@
   left: calc(50% + var(--nav-w) / 2);
   width: min(calc(100% - 120px - var(--nav-w)), 1100px, max(420px, 100vw - var(--nav-w) - 2 * var(--left-clear, 0px)));
 }
-/* The card is 352px unless dragged wider or narrower (--card-user-w, ui/CardResizer.tsx), always
+/* The card is 352px, widening with the window to 440px (26vw; Rob's call, 30 Oct 2026), unless dragged wider or narrower (--card-user-w, ui/CardResizer.tsx), always
    leaving at least 480px. It never moves the globe, the search or the slider (Rob's call, 17 Oct
    2026): they stay centred beside the rail, as with no card, and the card covers the space on the
    right. The slider and the search narrow from both ends to keep clear of it, down to a minimum
    (a card dragged wider than that covers their right end). */
 .app {
-  --card-w: clamp(300px, var(--card-user-w, 352px), max(300px, 100vw - var(--nav-w) - 480px));
+  /* Its own property: Vite's CSS transform collapsed the clamp to 352px when nested in var()'s fallback. */
+  --card-default-w: min(440px, max(352px, 26vw));
+  --card-w: clamp(300px, var(--card-user-w, var(--card-default-w)), max(300px, 100vw - var(--nav-w) - 480px));
 }
 .app.has-card .time-slider {
   width: min(
