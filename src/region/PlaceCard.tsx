@@ -297,7 +297,7 @@ export default function PlaceCard() {
             </div>
 
             <div className="place-axis" aria-hidden="true">
-              <span>10M BCE</span>
+              <span>8M BCE</span>
               <span>100k BCE</span>
               <span>10k BCE</span>
               <span>1 CE</span>

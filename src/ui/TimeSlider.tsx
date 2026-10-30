@@ -25,9 +25,9 @@ import {
 } from "../time/scale";
 
 // Plain words, not geologists' "Ma" / "ka".
-const TICK_LABELS = ["10M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", "3,000 BCE", "1 CE"];
+const TICK_LABELS = ["8M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", "3,000 BCE", "1 CE"];
 /** Narrow screens: the same ticks, shortened so neighbours don't run together. */
-const TICK_SHORT = ["10M yrs", "1M yrs", "100k yrs", "10k BCE", "3k BCE", "1 CE"];
+const TICK_SHORT = ["8M yrs", "1M yrs", "100k yrs", "10k BCE", "3k BCE", "1 CE"];
 
 /** Play speeds: 1× crosses the whole slider in a minute. Remembered per browser. */
 const SPEEDS = [0.25, 0.5, 1, 2, 4];

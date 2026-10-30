@@ -40,7 +40,7 @@ import {
 
 /** A lane narrower than this (px) at the current zoom is summarised instead of listed. */
 const SQUASH_PX = 36;
-const OVERVIEW_TICKS = ["10M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", "3,000 BCE", "1 CE"];
+const OVERVIEW_TICKS = ["8M yrs ago", "1M yrs ago", "100k yrs ago", "10,000 BCE", "3,000 BCE", "1 CE"];
 
 
 // Kept between visits so going to the globe and back returns to the same view.
