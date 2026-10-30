@@ -2381,6 +2381,7 @@
   image_url: /images/civilisations/hittites.webp
   image_caption: Royal citadel of Hattusa and the Sphinx Gate with Hittite three-man war chariots, royal guards with sickle-swords, and scribes cataloging cuneiform clay tablets.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/hittites-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/hittites-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b28fa1fd38" }
   media:
     - kind: video
@@ -2440,6 +2441,7 @@
   image_url: /images/civilisations/phoenicia.webp
   image_caption: Island harbor of Tyre with horse-headed Phoenician hippoi ships, Lebanon cedar timber, murex shell heaps, and artisans boiling and drying Tyrian purple cloth.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/phoenicia-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/phoenicia-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1e0f11aafa" }
   media:
     - kind: video
