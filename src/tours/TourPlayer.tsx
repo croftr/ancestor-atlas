@@ -36,6 +36,10 @@ const END_FADE_S = 4;
 
 /** After a narration ends, the card stays up this long before the tour moves on. */
 const AFTER_NARRATION_MS = 1_500;
+/** A book tour leaves more room after each narration, and more again where the voice changes (a book stop
+ * to a card or back), so the two voices don't run into each other. */
+const BOOK_AFTER_NARRATION_MS = 2_500;
+const VOICE_CHANGE_MS = 2_000;
 /**
  * The title card: the announcement starts ANNOUNCE_DELAY_MS after the card appears and the music comes in
  * as it ends; the card stays AFTER_ANNOUNCEMENT_MS more. Without an announcement (or if it fails to
@@ -185,6 +189,9 @@ export default function TourPlayer() {
     const nextStop = tour.stops[index + 1];
     const nextEntity = nextStop && data.entityById.get(nextStop.entity);
     const nextVoice = nextStop?.note ? nextStop.note.narration : nextEntity?.narration;
+    const after = !tour.book
+      ? AFTER_NARRATION_MS
+      : BOOK_AFTER_NARRATION_MS + (nextStop && !!nextStop.note !== !!note ? VOICE_CHANGE_MS : 0);
     if (voice) preloadNarration(voice.src);
     if (nextVoice) preloadNarration(nextVoice.src);
     if (!note) preloadPictures(entity);
@@ -224,7 +231,7 @@ export default function TourPlayer() {
           .then((seconds) => {
             if (cancelled || !Number.isFinite(seconds)) return;
             if (useStore.getState().tour?.paused) pauseNarration();
-            holdMs = seconds * 1000 + AFTER_NARRATION_MS;
+            holdMs = seconds * 1000 + after;
             patchTour({ holdMs });
           })
           .catch(() => {}); // blocked or missing: the reading-time hold stands

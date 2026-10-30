@@ -100,7 +100,10 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
               </div>
             </div>
             <h2 className="card-title">{title}</h2>
-            <div className="card-sub">{title !== entity?.name && entity ? entity.name : `${book.title}, ${book.author}`}</div>
+            {title !== entity?.name && entity && <div className="card-sub">{entity.name}</div>}
+            <div className="book-head-by">
+              <cite>{book.title}</cite> · {book.author}
+            </div>
           </div>
         </div>
       </div>
@@ -136,7 +139,7 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
           <div className="muted image-credit">{isCover ? picture.credit : creditLine(picture.credit, picture.caption, picture.source)}</div>
         </>
       )}
-      <p className="card-desc">{note.text}</p>
+      <blockquote className="card-desc book-note-text">{note.text}</blockquote>
       <div className="book-note-source">
         <cite>{book.title}</cite> by {book.author} ({book.publisher}, {book.year})
       </div>

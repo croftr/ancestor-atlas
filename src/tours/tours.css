@@ -407,15 +407,28 @@
 .book-title-by { margin: -4px 0 12px; font-size: 0.86rem; color: #c3cbe0; }
 .tour-title-blurb.book-synopsis { max-width: 52ch; font-size: 0.95rem; text-align: left; }
 
-/* The book's note on each stop (BookNote.tsx): an info card in the card's place, its badge a book in the
-   tours' violet, the cover whole in the picture frame over a blurred copy of itself. */
+/* The book's note on each stop (BookNote.tsx): an info card in the card's place, marked as the book's by
+   the tours' violet (a band along the top, a wash behind the head), the cover large in the badge's place,
+   the book named under the title, and the note set as a quotation. A note without pictures shows the
+   cover whole in the picture frame over a blurred copy of itself. */
+.info-panel.book-note-card {
+  border-top: 3px solid #c39bff;
+  background-image: linear-gradient(180deg, rgba(195, 155, 255, 0.13), rgba(195, 155, 255, 0) 150px);
+}
+.book-note-card .card-head { align-items: start; column-gap: 14px; }
+.book-head-by { margin-top: 4px; font-size: 0.84rem; color: #d9c2ff; }
+.book-head-by cite { font-family: Georgia, "Times New Roman", serif; font-size: 0.95rem; }
+.book-note-card .book-note-text {
+  margin: 12px 0 8px; padding: 2px 0 2px 14px; border-left: 3px solid rgba(195, 155, 255, 0.7);
+  font-family: Georgia, "Times New Roman", serif; font-size: 1.02rem; line-height: 1.55; color: #f1e9f9;
+}
 .book-badge {
   flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
   background: #2a1d4a; color: #d9c2ff; box-shadow: inset 0 0 0 2px #c39bff;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 .book-badge-cover {
-  flex: none; display: block; width: 42px; height: 64px; object-fit: cover; border-radius: 3px;
+  flex: none; display: block; width: 66px; height: 100px; object-fit: cover; border-radius: 3px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 .book-eyebrow { color: #d9c2ff; }
