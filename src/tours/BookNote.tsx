@@ -101,9 +101,6 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
             </div>
             <h2 className="card-title">{title}</h2>
             {title !== entity?.name && entity && <div className="card-sub">{entity.name}</div>}
-            <div className="book-head-by">
-              <cite>{book.title}</cite> · {book.author}
-            </div>
           </div>
         </div>
       </div>

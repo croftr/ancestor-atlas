@@ -409,15 +409,13 @@
 
 /* The book's note on each stop (BookNote.tsx): an info card in the card's place, marked as the book's by
    the tours' violet (a band along the top, a wash behind the head), the cover large in the badge's place,
-   the book named under the title, and the note set as a quotation. A note without pictures shows the
+   and the note set as a quotation. A note without pictures shows the
    cover whole in the picture frame over a blurred copy of itself. */
 .info-panel.book-note-card {
   border-top: 3px solid #c39bff;
   background-image: linear-gradient(180deg, rgba(195, 155, 255, 0.13), rgba(195, 155, 255, 0) 150px);
 }
 .book-note-card .card-head { align-items: start; column-gap: 14px; }
-.book-head-by { margin-top: 4px; font-size: 0.84rem; color: #d9c2ff; }
-.book-head-by cite { font-family: Georgia, "Times New Roman", serif; font-size: 0.95rem; }
 .book-note-card .book-note-text {
   margin: 12px 0 8px; padding: 2px 0 2px 14px; border-left: 3px solid rgba(195, 155, 255, 0.7);
   font-family: Georgia, "Times New Roman", serif; font-size: 1.02rem; line-height: 1.55; color: #f1e9f9;
