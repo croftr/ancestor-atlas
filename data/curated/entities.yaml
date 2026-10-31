@@ -2950,6 +2950,7 @@
   image_url: /images/civilisations/macedonian-empire.webp
   image_caption: Pella and the Royal Tomb at Vergina with a Macedonian sarissa phalanx, Companion cavalry, pebble mosaic courtyard, and Philip II's golden larnax.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/macedonian-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/macedonian-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "51a1eaafb0" }
   media:
     - kind: video
@@ -3566,6 +3567,7 @@
   image_url: /images/civilisations/maurya-empire.webp
   image_caption: Maurya Empire under Emperor Ashoka featuring the Great Stupa at Sanchi, the polished sandstone Lion Capital pillar, Brahmi rock edicts, and punch-marked silver karshapana coins.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/maurya-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/maurya-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "f9ac22c521" }
   media:
     - kind: video
