@@ -1157,6 +1157,10 @@
   description: "Within a few decades either side of 1200 BCE, the connected world of the Late Bronze Age came apart. The Hittite capital Hattusa was burned or abandoned around 1190 BCE and the Hittite Empire disappeared. In Greece none of the Mycenaean palaces survived: Pylos was destroyed by a great fire around 1180 BCE, and Mycenae was destroyed too. Ugarit fell to an assault, while Egypt and Assyria came through, weakened. Trade routes broke, literacy fell away, and Greece slipped into the small, isolated villages of its Dark Ages. Historians once blamed the Sea Peoples, or earthquakes, but no single cause explains it. Prolonged drought, crop failure and famine, raiders cutting the sea lanes and perhaps disease struck kingdoms that were centralized and dependent on one another, and they fell together, a systems collapse. Out of it came the Iron Age, and room for others, such as the Phoenicians, to grow."
   related: [hittites, mycenaean-greece, new-kingdom-of-egypt, assyria, late-bronze-age-cyprus, canaanite-city-states, phoenicia]
   wikipedia_url: https://en.wikipedia.org/wiki/Late_Bronze_Age_collapse
+  image_url: /images/events/late-bronze-age-collapse.webp
+  image_credit: AI-generated illustration
+  video: { src: video/events/late-bronze-age-collapse-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  image_caption: "A palace burns above a coastal town as families flee along a road with a donkey and a broken cart, spearmen watching and ships alight in the bay"
   extra_images:
     - { url: /images/events/extra/late-bronze-age-collapse-1.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Lion Gate of Hattusa, the Hittite capital, which was burned or abandoned around 1190 BCE", source: "https://commons.wikimedia.org/wiki/File:Lion_Gate,_Hattusa_01.jpg" }
     - { url: /images/events/extra/late-bronze-age-collapse-2.webp, credit: "Jean Housen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Palace of Nestor at Pylos in Greece, destroyed by fire around 1180 BCE", source: "https://commons.wikimedia.org/wiki/File:20190508_077_pylos_nestor.jpg" }
