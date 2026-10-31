@@ -1113,6 +1113,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Amarna_letters
   image_url: /images/events/amarna-letters.webp
   image_credit: AI-generated illustration
+  video: { src: video/events/amarna-letters-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Foreign envoys bring clay tablets and gifts of gold, lapis lazuli and ivory to Egyptian scribes in a columned hall at Amarna, the Nile at sunrise beyond"
   extra_images:
     - { url: /images/events/extra/amarna-letters-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Letter from the king of Alashiya (Cyprus) to the pharaoh, 'your brother', sending copper and asking for silver in return, c. 1350 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Amarna_letter._%22Message_from_the_king_of_Alashiya,_your_brother%22_to_the_Pharaoh_of_Egypt,_possibly_Akhenaten._C._1350_BCE._From_Tell_e-Amarna,_Egypt._British_Museum.jpg" }
