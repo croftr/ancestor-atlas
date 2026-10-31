@@ -1170,6 +1170,7 @@
   image_url: /images/civilisations/roman-empire.webp
   image_caption: Imperial Rome during the Pax Romana with the Colosseum, Pantheon, Trajan's Column, Augustus statue, and legionaries carrying the golden Aquila standard.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/roman-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/roman-empire-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "90c4997a67" }
   media:
     - kind: video
@@ -3130,6 +3131,7 @@
   image_url: /images/civilisations/zapotec-civilization.webp
   image_caption: Mountaintop ceremonial center of Monte Albán overlooking the Oaxaca Valley, with Building J, Danzantes slabs, and priests holding grey-ware urns.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/zapotec-civilization-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/zapotec-civilization-1.webp, credit: "DavidConFran, CC BY-SA 3.0, via Wikimedia Commons", caption: "Monte Albán on its levelled mountaintop, looking out over the Valley of Oaxaca", source: "https://commons.wikimedia.org/wiki/File:Panoramica_Monte_Alban.JPG" }
     - { url: /images/extra/zapotec-civilization-2.webp, credit: "Rob Young, CC BY 2.0, via Wikimedia Commons", caption: "The Gran Plaza of Monte Albán and the temple platforms around it", source: "https://commons.wikimedia.org/wiki/File:Gran_Plaza_(8264625316).jpg" }

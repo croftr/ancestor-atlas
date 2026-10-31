@@ -1183,7 +1183,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Late_Bronze_Age_collapse
   image_url: /images/events/late-bronze-age-collapse.webp
   image_credit: AI-generated illustration
-  video: { src: video/events/late-bronze-age-collapse-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  video: { src: video/events/late-bronze-age-collapse-v2.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "A palace burns above a coastal town as families flee along a road with a donkey and a broken cart, spearmen watching and ships alight in the bay"
   extra_images:
     - { url: /images/events/extra/late-bronze-age-collapse-1.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Lion Gate of Hattusa, the Hittite capital, which was burned or abandoned around 1190 BCE", source: "https://commons.wikimedia.org/wiki/File:Lion_Gate,_Hattusa_01.jpg" }
