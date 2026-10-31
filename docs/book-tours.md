@@ -25,6 +25,60 @@ it works, and the draft notes with their sources.
   especially where specialists disagree. The card, which goes on as normal, keeps the atlas's own text, so
   where the two differ the viewer sees both.
 
+## Playbook: making the next book tour
+
+How *1177 B.C.* was made (31 Oct 2026), step by step. Rob's working pattern: he names the book, Claude checks
+coverage and proposes additions, Rob supplies the main pictures, videos and any recordings (in his Downloads
+folder), Claude does the rest. Commit to `main` (Rob's call, 29 Oct 2026); push only when he asks, and never run
+`npm run audio:upload` (Rob uploads every clip to S3 himself).
+
+1. **Check the book fits.** Mostly before 1 CE. List the book's main places, peoples and moments (from reviews, the
+   publisher's text, the book's Wikipedia article), then search `public/data/entities.json`, `features.geojson`
+   and `data/curated/events.yaml` for each. Report what is covered, what would land vaguely (only a civilization's
+   whole territory), and what is missing.
+2. **Propose additions; Rob picks.** Only what makes the tour land on real places. Patterns:
+   - A people or polity Cliopatria lacks becomes a **culture with curated sites** (`entities.yaml` +
+     `culture-sites.csv` + a stage in `src/browse/cultureStages.ts`), not hand-drawn borders.
+   - A key moment becomes an **event** in `events.yaml` with `places` (one globe point each); a place may carry its
+     own dates (`start_year`, `end_year`, `date_text`, `date_source`). Events sort by `year`, so set it where the
+     event should fall in order (the collapse took its range's end to follow the Sea Peoples).
+   - Sources: the English Wikipedia article at a pinned revision (`Title@revid`, via the API) for spans and dates,
+     Wikidata P625 for coordinates (note place-level points). Descriptions written from those articles, one
+     narration-length paragraph. `date_text` must lead with the range ("c. 1300–1050 BCE (…)") or the QA flags it.
+   - Links: `related_ids` both ways between entities (never to an event); an event's `related` lists entities.
+   - XRONOS and AADR links only when the labels are clean; say so in CLAUDE.md when they aren't.
+   - Then `npm run data:build` (commit `public/data` with the sources) and the tests.
+3. **Pictures for the new items.** Four free-licence Commons photos each (CC BY, CC BY-SA, CC0, PD; never NC/ND;
+   skip files whose uploader isn't the author, or whose source is a book, website or news site), checked on a
+   contact sheet, 900 px WebP q85 in `public/images/extra/<id>-<n>.webp` (events: `public/images/events/extra/`),
+   each `{ url, credit: "Author, licence, via Wikimedia Commons", caption, source }`. Better short than wrong.
+   Commons API: sleep ~2 s between calls, back off on 429; thumbnails at 1200 px. Rob's own pictures: cultures and
+   civilizations 1200×900 plus a 600×450 `-600` copy; events 1000×1000 plus a `-500` copy, `image_credit:
+   AI-generated illustration` and an `image_caption` saying what it shows. Look at every file he supplies before
+   wiring it: one "collapse" video turned out to be the Amarna one under another name.
+   Event videos: `npm run video:species -- <id> --file <mp4> --no-upload`. His narration recordings:
+   `npm run audio:narrate -- <id> --file <mp3>`.
+4. **Write the tour** in `src/tours/tours.ts` after the last book tour (copy `1177-bc`): `book` (title, author,
+   edition year, publisher, link: the book's Wikipedia article), `cover` (Rob's image, 600 px wide WebP at
+   `public/images/books/<tour id>.webp`, credited to the publisher), `blurb`, `synopsis` (about 500–600 characters),
+   `closing` (one or two sentences), `music` (a CC BY track under the tour's own key; copying an encoded one from
+   `data/build/audio/music/tours/` is fine). Stops in date order, a book stop (`note: { text, title, images }`)
+   followed by its card where the atlas has one. Notes about 300–400 characters, the claims credited to the author
+   ("Cline argues…"). Civilization stops need a `year`; site ids come from `features.geojson`; the tests check
+   every stop is on the globe at its snapped year and that stops run oldest first. Note pictures: 1–3 Commons photos
+   each in `public/images/books/<tour id>/<stop n>-<k>.webp` (stop n counts every stop, book or card), none
+   repeating the card that follows.
+5. **Narrate** (ElevenLabs; batches need `--yes`):
+   - cards without narration, usual voice: `npm run audio:narrate -- <id> <id> --yes`;
+   - synopsis and notes, author voice (`ELEVENLABS_AUTHOR_VOICE_ID`): `npm run audio:narrate -- --book <tour id> --yes`;
+   - title and closing line, usual voice: `--announce <tour id>`, `--closing <tour id>`.
+   Then `npm run audio:upload -- --dry-run` lists what Rob has to upload.
+6. **Check it plays.** `npx tsc --noEmit -p .`, `npx vitest run` (the Cliopatria timeout is known), then the dev
+   server (`npm run dev -- --port 5180 --strictPort`): `#/tours`, then `#/tour/<id>`, Start tour, arrow keys
+   to step.
+7. **Write it up** here and in CLAUDE.md's "Book tours", and list the notes Rob should check against the book
+   first (claims you were least sure the book makes).
+
 ## How it fits the tour player
 
 Everything a normal tour does stays the same. Additions:
