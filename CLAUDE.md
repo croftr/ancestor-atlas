@@ -671,7 +671,12 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   the Sea Peoples event. Four Commons pictures each and Rob's illustrations (31 Oct); no narration yet (to be made
   with the tour). Event "The Amarna letters" added the same day (c. 1350 BCE, Amarna_letters@1382435019; point at
   Amarna; Rob's title card, four British Museum letters from Commons: Alashiya, Mitanni, Babylon, Megiddo), linked
-  to Egypt, Babylonia, Assyria, Mitanni, the Hittites and both new cultures; no narration, ambience or video yet. Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
+  to Egypt, Babylonia, Assyria, Mitanni, the Hittites and both new cultures (Rob added its narration and video).
+  Event "The Late Bronze Age collapse" (`late-bronze-age-collapse`, c. 1250-1150 BCE, Late_Bronze_Age_collapse@1382749486)
+  added the same day, beside the Sea Peoples (which keeps Medinet Habu and Ugarit): points at Hattusa (own date c. 1190
+  BCE, Hattusa@1381682685), Pylos (the Palace of Nestor; the collapse article's fire c. 1180 BCE, against c. 1250 BCE in
+  the palace's own short article) and Mycenae, so the book tour's climax can land on them. Four Commons pictures;
+  no title card, narration, ambience or video yet (Rob). Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
   `Lebanon_MBA` can't be matched by a single label part without catching other countries' MLBA/MBA genomes.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.

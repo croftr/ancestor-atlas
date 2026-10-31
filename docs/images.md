@@ -50,6 +50,7 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   - `late-bronze-age-cyprus` (4 images, 31 Oct 2026: Enkomi ruins, the Horned God of Enkomi, the Mycenaean "Zeus krater" from Enkomi, a Cypro-Minoan tablet from Enkomi)
   - `canaanite-city-states` (4 images, 31 Oct 2026: Megiddo's Canaanite gate, a Megiddo ivory griffin plaque, Rib-Hadda's Amarna letter EA 362, the Hazor Orthostat Temple stele)
   - Event `amarna-letters` (4 images, 31 Oct 2026: letters from the king of Alashiya, Tushratta of Mitanni, Burna-Buriash II of Babylon and Biridiya of Megiddo, all British Museum)
+  - Event `late-bronze-age-collapse` (4 images, 31 Oct 2026: Hattusa's Lion Gate, the Palace of Nestor at Pylos, Mycenae's Lion Gate, a Pylos Linear B tablet)
   - `lapita` (4 images: Bourewa dentate-stamped pottery face sherd, Bourewa carved shell rings, Port Vila reconstructed cooking jar, Solomon Islands stamped sherd cast)
   *Hominin Species*:
   - `australopithecus-africanus` (4 images: Taung Child skull & endocast cast, Mrs. Ples Sts 5 cranium, Little Foot StW 573 skeleton, Sts 14 pelvis & spine)

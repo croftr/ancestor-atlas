@@ -1148,6 +1148,26 @@
   places:
     - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007 }
 
+- id: late-bronze-age-collapse
+  name: The Late Bronze Age collapse
+  year: -1199
+  start_year: -1249
+  end_year: -1149
+  date_text: c. 1250–1150 BCE (late 13th to early 12th century BCE)
+  description: "Within a few decades either side of 1200 BCE, the connected world of the Late Bronze Age came apart. The Hittite capital Hattusa was burned or abandoned around 1190 BCE and the Hittite Empire disappeared. In Greece none of the Mycenaean palaces survived: Pylos was destroyed by a great fire around 1180 BCE, and Mycenae was destroyed too. Ugarit fell to an assault, while Egypt and Assyria came through, weakened. Trade routes broke, literacy fell away, and Greece slipped into the small, isolated villages of its Dark Ages. Historians once blamed the Sea Peoples, or earthquakes, but no single cause explains it. Prolonged drought, crop failure and famine, raiders cutting the sea lanes and perhaps disease struck kingdoms that were centralized and dependent on one another, and they fell together, a systems collapse. Out of it came the Iron Age, and room for others, such as the Phoenicians, to grow."
+  related: [hittites, mycenaean-greece, new-kingdom-of-egypt, assyria, late-bronze-age-cyprus, canaanite-city-states, phoenicia]
+  wikipedia_url: https://en.wikipedia.org/wiki/Late_Bronze_Age_collapse
+  extra_images:
+    - { url: /images/events/extra/late-bronze-age-collapse-1.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Lion Gate of Hattusa, the Hittite capital, which was burned or abandoned around 1190 BCE", source: "https://commons.wikimedia.org/wiki/File:Lion_Gate,_Hattusa_01.jpg" }
+    - { url: /images/events/extra/late-bronze-age-collapse-2.webp, credit: "Jean Housen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Palace of Nestor at Pylos in Greece, destroyed by fire around 1180 BCE", source: "https://commons.wikimedia.org/wiki/File:20190508_077_pylos_nestor.jpg" }
+    - { url: /images/events/extra/late-bronze-age-collapse-3.webp, credit: "George E. Koronaios, CC0, via Wikimedia Commons", caption: "The Lion Gate of Mycenae, one of the Mycenaean palace centres destroyed around 1200 BCE", source: "https://commons.wikimedia.org/wiki/File:The_Lion_Gate_on_26_March_2019.jpg" }
+    - { url: /images/events/extra/late-bronze-age-collapse-4.webp, credit: "historia, CC BY-SA 4.0, via Wikimedia Commons", caption: "Linear B tablet from the palace at Pylos listing men serving in its forces, 13th century BCE", source: "https://commons.wikimedia.org/wiki/File:Linear_B_clay_tablet_from_Pylos.jpg" }
+  date_source: wikipedia:Late_Bronze_Age_collapse@1382749486
+  places:
+    - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007, start_year: -1189, end_year: -1189, date_text: "c. 1190 BCE (burned or abandoned, with the Hittite state)", date_source: "wikipedia:Hattusa@1381682685" }
+    - { label: Pylos (Palace of Nestor), lat: 37.02722, lon: 21.695, wikidata: Q2047396, note: "destroyed by fire around 1180 BC per the collapse article; the Palace of Nestor article (@1347576307) says around 1250 BC" }
+    - { label: Mycenae, lat: 37.73083, lon: 22.75611, wikidata: Q132564 }
+
 - id: sea-peoples
   name: Invasion of the Sea Peoples
   year: -1174
