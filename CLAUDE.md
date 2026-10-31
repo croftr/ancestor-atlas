@@ -668,8 +668,10 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   Byblos, Tel Kabri, Tell Abu Hawam. Ugarit left out of Canaan (the article: its people counted themselves
   non-Canaanite; it is a Sea Peoples place). Kalavasos and Maroni have no usable article. Linked both ways to Egypt
   (New Kingdom), the Hittites, Mycenaean Greece (Cyprus), Mitanni, Phoenicia, Philistia, Israel (Canaan), and on
-  the Sea Peoples event. Four Commons pictures each; no main pictures yet (Rob) and no narration (to be made with
-  the tour). Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
+  the Sea Peoples event. Four Commons pictures each and Rob's illustrations (31 Oct); no narration yet (to be made
+  with the tour). Event "The Amarna letters" added the same day (c. 1350 BCE, Amarna_letters@1382435019; point at
+  Amarna; Rob's title card, four British Museum letters from Commons: Alashiya, Mitanni, Babylon, Megiddo), linked
+  to Egypt, Babylonia, Assyria, Mitanni, the Hittites and both new cultures; no narration, ambience or video yet. Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
   `Lebanon_MBA` can't be matched by a single label part without catching other countries' MLBA/MBA genomes.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.

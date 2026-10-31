@@ -1104,6 +1104,25 @@
     - { label: "Teouma", lat: -17.7856, lon: 168.3862, wikidata: Q7701210 }
     - { label: "Bourewa", lat: -18.08859, lon: 177.30902, wikidata: Q139659526, note: "early Lapita site in southwestern Viti Levu, Fiji" }
 
+- id: amarna-letters
+  name: The Amarna letters
+  year: -1349
+  date_text: c. 1350 BCE (mid-14th century BCE)
+  description: "In the middle of the 14th century BCE the pharaohs Amenhotep III and Akhenaten kept a diplomatic archive at Akhetaten, Akhenaten's new capital at Amarna in Upper Egypt. Its 382 clay tablets are written not in Egyptian but in cuneiform, mostly in Akkadian, the language of diplomacy. The kings of Babylonia, Assyria, Mitanni, the Hittites and Alashiya, which is Cyprus, write to the pharaoh about gold, copper, lapis lazuli and royal brides, calling him brother; the king of Mitanni complains that the solid gold statues he was promised came as gilded wood. Hundreds more letters come from Egypt's vassals in Canaan and Syria: Rib-Hadda of Byblos pleads for troops in over fifty of them, and Abdi-Heba of Jerusalem begs for archers against the Habiru. Dug up by local people around 1887 and scattered among museums, the letters are a rare close-up of a world of connected kingdoms in the Late Bronze Age."
+  related: [new-kingdom-of-egypt, babylonia, assyria, mitanni, hittites, late-bronze-age-cyprus, canaanite-city-states]
+  wikipedia_url: https://en.wikipedia.org/wiki/Amarna_letters
+  image_url: /images/events/amarna-letters.webp
+  image_credit: AI-generated illustration
+  image_caption: "Foreign envoys bring clay tablets and gifts of gold, lapis lazuli and ivory to Egyptian scribes in a columned hall at Amarna, the Nile at sunrise beyond"
+  extra_images:
+    - { url: /images/events/extra/amarna-letters-1.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Letter from the king of Alashiya (Cyprus) to the pharaoh, 'your brother', sending copper and asking for silver in return, c. 1350 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Amarna_letter._%22Message_from_the_king_of_Alashiya,_your_brother%22_to_the_Pharaoh_of_Egypt,_possibly_Akhenaten._C._1350_BCE._From_Tell_e-Amarna,_Egypt._British_Museum.jpg" }
+    - { url: /images/events/extra/amarna-letters-2.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Letter from Tushratta, king of Mitanni, to Amenhotep III, negotiating a royal marriage and asking for gold (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Amarna_letter._Letter_from_Tushratta_king_of_Mitanni_to_Amenhotep_III._From_Tell_el-Amarna,_Egypt._1st_half_of_the_14th_century_BCE._British_Museum.jpg" }
+    - { url: /images/events/extra/amarna-letters-3.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Letter from Burna-Buriash II, Kassite king of Babylon, asking the pharaoh for more gold, c. 1350 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Amarna_letter._Letter_from_the_Kassite_king_Burna-Buriash_II_(in_Babylonia,_Mesopotamia)_to_the_Egyptian_Pharaoh_Amenhotep_III._From_Tell_El-Amarna,_Egypt._Circa_1350_BCE._British_Museum.jpg" }
+    - { url: /images/events/extra/amarna-letters-4.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "Letter from Biridiya, king of Megiddo, to the pharaoh, 14th century BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Amarna_letters._Letter_from_Biridiya,_King_of_Megiddo,_to_the_Egyptian_Pharaoh_Amenhotep_III_or_his_son_Akhenaten._14th_century_BCE._From_Tell_el-Amarna,_Egypt._British_Museum.jpg" }
+  date_source: wikipedia:Amarna_letters@1382435019
+  places:
+    - { label: Amarna, lat: 27.66167, lon: 30.90556, wikidata: Q5736, note: "Akhetaten, the city where the archive was found" }
+
 - id: iron-age
   name: Bloomery iron (the Iron Age)
   year: -1199
