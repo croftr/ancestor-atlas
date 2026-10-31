@@ -6,9 +6,12 @@ import { CategoryBadge } from "../ui/CategoryIcon";
 import { NewsIcon } from "../ui/SideNav";
 import Totals from "../browse/Totals";
 import { pictureOf } from "../browse/browse";
-import { PAGE_OF } from "../updates/updates";
+import type { BrowseView } from "../route";
 import { matches, sectionsOf, shortDay, TOPIC_LABELS, useFeed } from "./news";
 import { NEWS_TOPICS, type NewsStory, type NewsTopic } from "./types";
+
+/** The browse page each entity category opens on. */
+const PAGE_OF: Record<string, BrowseView> = { species: "species", culture: "cultures", civilization: "civilizations", event: "events" };
 
 const ACCENT = "#f0b86e";
 

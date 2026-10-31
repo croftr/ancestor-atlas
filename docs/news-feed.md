@@ -7,8 +7,7 @@ command Rob runs. Plan agreed with Rob 24 Oct 2026.
 
 - **Fully automatic**: no approval step. Claude picks and summarises the stories; doubtful items are left out (the
   atlas rule: when unsure, leave it out), and the page says the summaries are machine-written.
-- **Rob runs the command** (`npm run news:update`, or `npm run refresh` / `npm run update` to refresh XRONOS, app data and news together); no schedule yet.
-- **A page of its own**, separate from `#/updates`.
+- **Rob runs the command** (`npm run news:update`, or `npm run refresh` / `npm run update` to download and lock XRONOS, rebuild the data and update the news together); no schedule yet.
 - **Only stories about the time before 1 CE** (where the globe ends). A story that starts before 1 CE and runs past
   it is kept, its period clipped at 1 CE.
 
@@ -45,7 +44,7 @@ narrows the window.
 - Stories under This week / Last week / month headings: the atlas's own picture of the first linked entity (never the
   outlet's photo), topic, outlet and date, the headline linking to the article, the summary, the period and place,
   chips to the linked atlas entries, "The paper" (DOI) and "Also in" other outlets.
-- In the rail (News, above Updates); on phones in the drawer only, like Updates.
+- In the rail (News, last); on phones in the drawer only.
 
 ## Next: into the atlas
 

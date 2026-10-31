@@ -5,9 +5,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 ## Working agreements
 
-- Work on a branch, not `main` (Rob's call, 17 Oct 2026, as the app grows): one branch per piece of work, named for it
-  (`family-tree`, `link-previews`), from an up-to-date `main`. When another agent is working in the same checkout, use
-  a git worktree so the two don't switch branches under each other. Merge into `main` and push only when Rob asks.
+- Always work on `main` (Rob's call, 31 Oct 2026), unless Rob asks for a branch for a piece of work; then name it for
+  the work (`family-tree`, `link-previews`), from an up-to-date `main`, and merge into `main` and push only when he
+  asks. When another agent is working in the same checkout, use a git worktree so the two don't get in each other's way.
 - Check `git status` first and stage only your own files: Rob often has uncommitted work (README, `src/` UI,
   `src/index.css`, images). Never overwrite or sweep up his changes.
 - `public/data` is built, so never hand-merge it: on a conflict there (or in `build-meta.json`), merge the sources,
@@ -19,50 +19,34 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   it; no crawling or repeated requests (their robots.txt disallows the CSVs for that reason).
 - When unsure, leave it out (Rob's call, 23 Oct 2026): he would rather the atlas missed something than showed something
   wrong. Never map a hedged label or taxon (validator-enforced), never apply a suggestion automatically, and hold
-  back doubtful new data for a person to confirm. Rules in `docs/data-updates.md` ("When unsure, leave it out").
+  back doubtful new data for a person to confirm. Rules in `docs/raw-data.md` ("When unsure, leave it out").
 - Cite XRONOS in its requested format (in `data/curated/sources.yaml` and the README), together with the original
   publications listed on each point.
 - Species images are AI-generated illustrations; every `image_url` needs an `image_credit` (the validator enforces it).
 
-## Data updates (`docs/data-updates.md`, started 23 Oct 2026)
+## Raw data (`docs/raw-data.md`)
 
-- Plan for a semi-automated update (check upstream, fetch, rebuild, report, commit to a branch, public change log
-  page `#/updates`), with Rob's decisions. Step 1 done: raw snapshots shared between machines.
 - `data/sources.lock.json` records every raw file (hash, size, key); snapshots live in the media bucket under the
   private `raw/` prefix. `npm run data:raw` (status), `data:push -- <source>…`, `data:pull`. `data:build` refuses to
   run when a locked raw file it reads is missing or different (`--ignore-lock` for side builds), and the locked
-  xronos/cliopatria/wikidata hashes are part of the build fingerprint.
-- All six sources locked 23 Oct 2026 (xronos, cliopatria, wikidata, aadr from the XRONOS machine; road, paleo from
-  Rob's Linux machine); a full build on the Linux machine then reproduced public/data, dna.json and the ROAD CSVs
-  exactly. Any machine with Rob's AWS login builds the full dataset after `npm run data:pull`: no more splicing.
-- Step 2 done 23 Oct 2026: `npm run data:update -- --check` (read-only, ~45 s; `--offline`) writes
-  `data/build/update-report.md`: upstream versions (pins in `scripts/fetch/pins.ts`), pinned Wikipedia pages edited
-  since their pin, Wikidata coordinate mismatches, labels not mapped yet (XRONOS, ROAD, AADR; a gap naming an existing
-  culture is marked; decided-against labels go in `data/update-ignore.yaml`), other work lists. `npm run
-  data:fetch:xronos` is Rob's XRONOS download (conditional request, no enforced wait since 24 Oct; never run it as an agent).
-- Step 3 done 23 Oct 2026: `npm run data:update` (fetch/lock what changed, rebuild, compare with the last published
-  update, hold back doubtful new bulk points in `data/curated/held-back.csv`, tests, report) then `-- --publish`
-  (refuses with doubts or failing tests; change log entry in `public/data/changelog.json` + `changelog/<id>.json`;
-  commits to a new branch `data-update-<date>` and pushes it; Rob merges). The build leaves out every
-  held-back.csv row with status `held`; setting it to `confirmed` lets it in (rows stay, so each is asked once).
-- Step 4 done 23 Oct 2026: the public change log page `#/updates` (`src/updates/`, Updates in the rail; drawer only on
-  phones), newest update first: sources moved on, count chips, and on opening the sites added / changed / removed by
-  entity with "Show on the globe", genomes, and what was held back and why. Types shared with the scripts in
-  `src/updates/types.ts`. Empty until the first `--publish`. Optional step 5 (weekly `--check` Action) not started.
+  xronos/cliopatria/wikidata hashes are part of the build fingerprint. Any machine with Rob's AWS login builds the
+  full dataset after `npm run data:pull`.
+- The semi-automated update (`npm run data:update`, held-back points, the public change log page `#/updates`) was
+  removed 31 Oct 2026 (Rob's call: it never worked reliably). Upstream version pins stay in `scripts/fetch/pins.ts`.
 
 ## News feed (`docs/news-feed.md`, started 24 Oct 2026)
 
 - Public page `#/news` (`src/news/`, News in the rail; drawer only on phones): recent research on human evolution and
   the world before 1 CE. Fully automatic, run by Rob (`npm run news:update`; no schedule). Rob's calls: no approval
-  step, only stories about before 1 CE, a page separate from `#/updates`.
+  step, only stories about before 1 CE, a page of its own.
 - `news:update` reads the allow-listed RSS/Atom feeds (`scripts/news/feeds.ts`), has Claude (`claude-opus-5-5` at
   low effort, or `NEWS_MODEL`) keep or leave out each new item and summarise, date, place and link it to atlas
   entities, joins reports of one finding, and uploads `news/feed.json` to the media bucket (5-minute cache; read at
   runtime, so no deploy needed). Needs `ANTHROPIC_API_KEY` in `.env.local` and Rob's AWS login; `--no-upload` writes
   `public/news/feed.json` (gitignored) for the dev server; `--dry-run` lists new items only.
 - `npm run refresh` (or `npm run update`, `scripts/refresh.ts`; run by Rob only, never an agent, since it fetches XRONOS)
-  runs all three in sequence: `data:fetch:xronos` -> `data:update` -> `news:update` (pass `-- --publish` to also push
-  the `data-update-<date>` branch, or `-- --check` for a read-only check of both data and news).
+  runs in sequence: `data:fetch:xronos`, `data:push -- xronos` (locks the export), `data:build`, `news:update`
+  (`--no-xronos`, `--no-upload`, `--dry-run`, `--days <n>`). Rob commits the result.
 - Next (Rob): link news into the atlas (globe pins, "In the news" on cards).
 
 ## Pipeline

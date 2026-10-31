@@ -21,7 +21,6 @@ import { usePageTitle } from "./pageTitle";
 // The pages and the intro dialog load when first opened, so a visit to the globe downloads only the
 // globe (their stylesheets are in styles.ts with the rest).
 const ToursPage = lazy(() => import("./tours/ToursPage"));
-const UpdatesPage = lazy(() => import("./updates/UpdatesPage"));
 const NewsPage = lazy(() => import("./news/NewsPage"));
 const TimelinePage = lazy(() => import("./timeline/TimelinePage"));
 const EventsPage = lazy(() => import("./events/EventsPage"));
@@ -104,7 +103,6 @@ export default function App() {
             {view === "civilizations" && <CivilizationsPage />}
             {view === "tours" && <ToursPage />}
             {view === "news" && <NewsPage />}
-            {view === "updates" && <UpdatesPage />}
           </Suspense>
         </ErrorBoundary>
       )}

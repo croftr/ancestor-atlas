@@ -18,7 +18,6 @@ import "./region/place.css";
 import "./tours/tours.css";
 import "./ui/page-tabs.css";
 import "./ui/intro-modal.css";
-import "./updates/updates.css";
 import "./news/news.css";
 import "./timeline/timeline.css";
 import "./browse/family-tree.css";

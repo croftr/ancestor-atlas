@@ -98,10 +98,7 @@ data/raw (fetched, gitignored) → data/curated (hand-edited) → public/data (b
 ```bash
 npm run data:fetch        # Download raw sources (Cliopatria polities ~300 MB + Wikidata descriptions)
 npm run data:pull         # Download the locked raw snapshots (data/sources.lock.json) missing on this machine
-npm run data:push -- road # Lock this machine's raw files for a source and upload them (see docs/data-updates.md)
-npm run data:update -- --check  # Compare every source with upstream and list what is new or not mapped yet
-npm run data:update       # Bring the data up to date, rebuild, hold back doubtful new points, report (no commit)
-npm run data:update -- --publish  # Commit that update with a change log entry to a new branch and push it
+npm run data:push -- road # Lock this machine's raw files for a source and upload them (see docs/raw-data.md)
 npm run data:fetch:xronos # Download the XRONOS export (by hand, about once a day at most)
 npm run data:build        # Ingest, merge curated files, write public/data/*, and validate
 npm run data:check        # Verify public/data matches curated inputs (runs on build)
@@ -227,6 +224,6 @@ outside `data:build` and its fingerprint, loaded only when the layer is switched
 - **Strict sourcing**: Every coordinate and date must trace to a primary source, DOI, or verified Wikidata statement.
 - **When unsure, leave it out**: a hand-curated site is drawn only once both its place and its date have a source; data
   that hedges (uncertain labels or identifications, provisional genome grades, dates claimed by two cultures) is not
-  imported. See `docs/data-updates.md`.
+  imported. See `docs/raw-data.md`.
 - **Open licensing**: All underlying sources and text adhere to open licenses (CC0, CC BY, CC BY-SA, or CC BY-NC) with full attribution.
 - **Astronomical dating**: Years use astronomical conventions (1 CE = 1, 1 BCE = 0). Deep-time ages in "ka" (thousands of years ago) or "Ma" (millions of years ago) are measured before 1950.

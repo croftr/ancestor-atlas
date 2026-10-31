@@ -4,7 +4,7 @@
 // downloaded at most about daily and cached; Rob keeps to that himself (his call, 24 Oct 2026: the command no longer
 // enforces a wait). It asks only for changes since the last download (If-None-Match / If-Modified-Since), so a repeat
 // costs XRONOS next to nothing when nothing changed. Every request is recorded in data/raw/xronos/download.json. A new file is checked for XRONOS's columns before it replaces the
-// old one; then `npm run data:update -- --check` shows it, and locking it (data:push -- xronos) lets data:build use it.
+// old one; locking it (data:push -- xronos) then lets data:build use it.
 import { createHash } from "node:crypto";
 import { createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { Readable } from "node:stream";
@@ -84,7 +84,7 @@ async function main() {
     });
     console.log(`✓ ${XRONOS_CSV}: ${rows.toLocaleString("en")} rows, ${(statSync(XRONOS_CSV).size / 1e6).toFixed(1)} MB` +
       (prev?.rows !== undefined ? ` (last download: ${prev.rows.toLocaleString("en")} rows)` : "") + (same ? ", identical to the last download" : ""));
-    console.log("  Next: npm run data:update -- --check (data:build keeps refusing it until it is locked: npm run data:push -- xronos)");
+    console.log("  Next: npm run data:push -- xronos (data:build refuses it until it is locked), then npm run data:build");
   } catch (e) {
     if (existsSync(part)) rmSync(part);
     writeStamp({ ...stamp, ok: false, error: (e as Error).message });

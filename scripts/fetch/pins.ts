@@ -1,6 +1,5 @@
-// The upstream releases the raw data is pinned to, in one place for the fetch scripts, the ingests and
-// `npm run data:update -- --check` (which compares them with the latest upstream). No side effects on import.
-// Moving to a new release: change the constants here, fetch, rebuild (docs/data-updates.md).
+// The upstream releases the raw data is pinned to, in one place for the fetch scripts, the ingests.
+// No side effects on import. Moving to a new release: change the constants here, fetch, rebuild.
 
 /** Cliopatria on Zenodo: record of v0.2.1, doi:10.5281/zenodo.23128623. Keep in sync with data/curated/sources.yaml. */
 export const CLIOPATRIA_RECORD = "23128623";
