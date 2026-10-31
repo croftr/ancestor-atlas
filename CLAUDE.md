@@ -658,7 +658,8 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   they carry the culture's span (confidence low). Shimao left out (its article puts it in the Longshan period, not
   the culture). AADR: Longshan links 9 genomes at 3 sites; the Yangshao label is mapped but its only genomes
   (Baligang) are PROVISIONAL_PASS, so none show. XRONOS's Chinese dates have no culture labels. Not added: Dawenkou,
-  Majiayao, Dadiwan, Cishan, Xinglongwa, Kuahuqiao, Shangshan (candidates).
+  Majiayao, Dadiwan, Cishan, Xinglongwa, Kuahuqiao, Shangshan (candidates). Four Commons pictures each added 31 Oct 2026
+  (Mehrgarh three); main pictures to come from Rob.
 - Mehrgarh added 30 Oct 2026 (stage "First farmers of South Asia"; description written from Mehrgarh@1382032917,
   Rob to review; no picture yet): span 5250-2600 BCE (the article's infobox and Mutin and Zazzo's dates on teeth;
   Jarrige's pre-7000 BCE start is mentioned in the description, not used). Sites: Mehrgarh (coordinates from the

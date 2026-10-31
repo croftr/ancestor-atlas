@@ -1801,6 +1801,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Peiligang_culture
   wikidata: Q1193609
   source_ids: []
+  extra_images:
+    - { url: /images/extra/peiligang-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bone flute from Jiahu, made from a crane's wing bone, about 8,700–8,200 years old: among the oldest playable instruments known (Henan)", source: "https://commons.wikimedia.org/wiki/File:Early_Peiligang_Culture_Bone_Flute,_Wuyang.jpg" }
+    - { url: /images/extra/peiligang-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Stone grinding slab on legs with its roller, from Peiligang at Xinzheng, used to grind grain (Zhengzhou City Museum)", source: "https://commons.wikimedia.org/wiki/File:Peiligang_Culture_Stone_Roller_&_Quern,_Xinzheng.jpg" }
+    - { url: /images/extra/peiligang-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Red pottery pot from Peiligang at Xinzheng (Zhengzhou City Museum)", source: "https://commons.wikimedia.org/wiki/File:Peiligang_Culture_Red_Pottery_Pot,_Xinzheng.jpg" }
+    - { url: /images/extra/peiligang-4.webp, credit: "Cangminzho, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tortoise shell with an incised sign, from the Peiligang-culture site of Jiahu", source: "https://commons.wikimedia.org/wiki/File:Tortoise_shell_engraved_symbol_(Jiahu;_cropped).jpg" }
 # Span from English Wikipedia: Hemudu_culture@1369639744 (5500 BC to 3300 BC).
 - id: hemudu
   name: Hemudu culture
@@ -1811,6 +1816,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Hemudu_culture
   wikidata: Q948642
   source_ids: []
+  extra_images:
+    - { url: /images/extra/hemudu-1.webp, credit: "Siyuwj, CC BY-SA 3.0, via Wikimedia Commons", caption: "Pottery sherd incised with rice plants, from the Hemudu site (Zhejiang)", source: "https://commons.wikimedia.org/wiki/File:Pottery_sherd_decorated_with_rice_motif,_Hemudu_Site.jpg" }
+    - { url: /images/extra/hemudu-2.webp, credit: "Gary Lee Todd, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bone spade from Hemudu, made from an animal's shoulder blade, found in 1974 (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Neolithic_bone_spade,_Hemudu_Culture,_Zhejiang,_1974.jpg" }
+    - { url: /images/extra/hemudu-3.webp, credit: "Gary Lee Todd, CC BY-SA 4.0, via Wikimedia Commons", caption: "Paddle-shaped ivory carving with a bird design, Hemudu culture, about 5200–4200 BCE", source: "https://commons.wikimedia.org/wiki/File:Paddle-shaped_ivory_phoenix,_Hemudu_Culture.jpg" }
+    - { url: /images/extra/hemudu-4.webp, credit: "Adelehant, CC BY-SA 4.0, via Wikimedia Commons", caption: "Scale model of a Hemudu village of pile-built houses (Field Museum, Chicago)", source: "https://commons.wikimedia.org/wiki/File:Hemudu-Diorama-Aaron-Delehanty.jpg" }
 # Span from English Wikipedia: Yangshao_culture@1379047029 (around 5000 BC to 3000 BC).
 - id: yangshao
   name: Yangshao culture
@@ -1821,6 +1831,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Yangshao_culture
   wikidata: Q854631
   source_ids: []
+  extra_images:
+    - { url: /images/extra/yangshao-1.webp, credit: "Augusthaiho, CC BY-SA 4.0, via Wikimedia Commons", caption: "Painted basin with a human face and fish, found at Banpo in 1955, Yangshao culture", source: "https://commons.wikimedia.org/wiki/File:人面鱼纹形彩陶盆08737.jpg" }
+    - { url: /images/extra/yangshao-2.webp, credit: "Will Clayton, CC BY 2.0, via Wikimedia Commons", caption: "The excavated Neolithic village at Banpo, near Xi'an, about 4500–3750 BCE", source: "https://commons.wikimedia.org/wiki/File:Banpo_Neolithic_Village_(4535396415).jpg" }
+    - { url: /images/extra/yangshao-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Painted Yangshao pottery (Yangshao Culture Museum, Yangshao Village, Henan)", source: "https://commons.wikimedia.org/wiki/File:Yangshao_Culture_Pottery_04.jpg" }
+    - { url: /images/extra/yangshao-4.webp, credit: "Ismoon, CC BY-SA 4.0, via Wikimedia Commons", caption: "Pointed-base amphora with cord marks, Banpo phase, about 4800 BCE (Musée Guimet, Paris)", source: "https://commons.wikimedia.org/wiki/File:Bouteille_en_forme_d'amphore,_Banpo._Musée_Guimet.jpg" }
 # Span from English Wikipedia: Hongshan_culture@1375049650 (about 4700 to 2900 BC).
 - id: hongshan
   name: Hongshan culture
@@ -1831,6 +1846,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Hongshan_culture
   wikidata: Q1195031
   source_ids: []
+  extra_images:
+    - { url: /images/extra/hongshan-1.webp, credit: "Vassil, CC0, via Wikimedia Commons", caption: "Jade 'pig-dragon', Hongshan culture, about 3500 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:British_Museum_Chinese_jade_Neolithic_period_Hongshan_culture_Coiled_dragon_Pig-dragon_11022019_1393.jpg" }
+    - { url: /images/extra/hongshan-2.webp, credit: "Gary Lee Todd, CC BY-SA 4.0, via Wikimedia Commons", caption: "Clay figurine of a pregnant woman, Hongshan culture, about 3500 BCE, from Liaoning (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Neolithic_pottery_pregnant_woman,_Hongshan_Culture,_Liaoning,_1982.JPG" }
+    - { url: /images/extra/hongshan-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Jade bird, Hongshan culture (Capital Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Hongshan_Culture_Jade_Bird.jpg" }
+    - { url: /images/extra/hongshan-4.webp, credit: "Gary Lee Todd, CC BY-SA 4.0, via Wikimedia Commons", caption: "Painted pottery vessel, Hongshan culture, found in Liaoning in 1988 (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Neolithic_pottery_vessel,_Hongshan_Culture,_Liaoning,_1988.jpg" }
 # Span from English Wikipedia: Liangzhu_culture@1381879788 (3300-2300 BC).
 - id: liangzhu
   name: Liangzhu culture
@@ -1841,6 +1861,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Liangzhu_culture
   wikidata: Q1204909
   source_ids: []
+  extra_images:
+    - { url: /images/extra/liangzhu-1.webp, credit: "Gary Lee Todd, CC0, via Wikimedia Commons", caption: "Jade cong, the square tube with a round hole typical of Liangzhu (Shanghai Museum)", source: "https://commons.wikimedia.org/wiki/File:Liangzhu_Culture_Jade_Cong_06.jpg" }
+    - { url: /images/extra/liangzhu-2.webp, credit: "LukeLOU, CC BY-SA 3.0, via Wikimedia Commons", caption: "Detail of a jade cong from Liangzhu, found in 1986, carved with a face-like design (Zhejiang Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Jade_cong_from_the_Liangzhu_culture(Neolithic)_in_Zhejiang_Museum(Partial_view).JPG" }
+    - { url: /images/extra/liangzhu-3.webp, credit: "Gary Lee Todd, CC0, via Wikimedia Commons", caption: "Jade huang, a semicircular pendant, Liangzhu culture (Shanghai Museum)", source: "https://commons.wikimedia.org/wiki/File:Liangzhu_Culture_Jade_Huang.jpg" }
+    - { url: /images/extra/liangzhu-4.webp, credit: "Gary Lee Todd, CC0, via Wikimedia Commons", caption: "Jade ceremonial axe-head, Liangzhu culture (Shanghai Museum)", source: "https://commons.wikimedia.org/wiki/File:Liangzhu_Culture_Jade_Scepter.jpg" }
 # Span from English Wikipedia: Longshan_culture@1360689710 (about 3000 to 1900 BC).
 - id: longshan
   name: Longshan culture
@@ -1851,6 +1876,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Longshan_culture
   wikidata: Q1057935
   source_ids: []
+  extra_images:
+    - { url: /images/extra/longshan-1.webp, credit: "Ismoon, CC0, via Wikimedia Commons", caption: "Eggshell-thin cup of burnished black earthenware on an openwork foot, Longshan culture (Victoria and Albert Museum)", source: "https://commons.wikimedia.org/wiki/File:Longshan_eggshell_thin_cup._VandA.JPG" }
+    - { url: /images/extra/longshan-2.webp, credit: "Editor at Large, CC BY-SA 2.5, via Wikimedia Commons", caption: "Black pottery goblet, Shandong Longshan culture, about 2500–2000 BCE, found at Jiaoxian in 1975", source: "https://commons.wikimedia.org/wiki/File:CMOC_Treasures_of_Ancient_China_exhibit_-_black_pottery_goblet.jpg" }
+    - { url: /images/extra/longshan-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Three-legged pottery li cooking pot, Longshan culture (Sanmenxia City Museum, Henan)", source: "https://commons.wikimedia.org/wiki/File:Longshan_Culture_Pottery_Li.jpg" }
+    - { url: /images/extra/longshan-4.webp, credit: "G41rn8, CC BY-SA 4.0, via Wikimedia Commons", caption: "Pottery stem cups, Longshan culture, 3rd millennium BCE (Shandong Provincial Museum, Jinan)", source: "https://commons.wikimedia.org/wiki/File:Jinan_2009_1144.jpg" }
 # Span from English Wikipedia: Mehrgarh@1382032917 (infobox: built c. 5200 BCE, abandoned c. 2600 BCE; Period I
 # 5250-4650 BCE by Mutin and Zazzo's dates on teeth, against Jarrige's earlier pre-7000-5500 BCE: the later,
 # narrower start is used). The article covers the site; there is no culture article.
@@ -1864,6 +1894,10 @@
   wikidata: Q242148
   related_ids: [indus-valley-civilization]
   source_ids: []
+  extra_images:
+    - { url: /images/extra/mehrgarh-1.webp, credit: "Mhtoori, CC BY-SA 4.0, via Wikimedia Commons", caption: "Mud-brick ruins at Mehrgarh, Balochistan", source: "https://commons.wikimedia.org/wiki/File:Mehrgarh_Site.jpg" }
+    - { url: /images/extra/mehrgarh-2.webp, credit: "Mhtoori, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Kachi plain at Mehrgarh, below the hills of the Bolan Pass", source: "https://commons.wikimedia.org/wiki/File:Mehrgarh_Archaeological_Site.jpg" }
+    - { url: /images/extra/mehrgarh-3.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Seated female figurine in the Mehrgarh style, about 3000–2500 BCE (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Seated_Mother_Goddess_,3000–2500_B.C._Pakistan_(Baluchistan)_Mehrgarh_style.jpg" }
 # Span from English Wikipedia: Enkomi_(archaeological_site)@1368148299 (its Late Cypriot chronology: LC I from
 # 1650 BC to LC IIIB ending 1050 BC). Alashiya as Cyprus, its copper and the Amarna letters from Alashiya@1380493692;
 # the island's Late Bronze Age from Prehistoric_Cyprus@1380023422.
