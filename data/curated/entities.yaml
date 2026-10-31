@@ -3747,6 +3747,7 @@
   image_url: /images/civilisations/qin-dynasty.webp
   image_caption: Imperial capital of Xianyang with tiered Qin palace halls, armored Qin crossbowmen and halberdiers, royal chariot, and officials inspecting standardized Ban Liang coins and bamboo slips.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/qin-dynasty-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/qin-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "32437c007b" }
   media:
     - kind: video
@@ -3763,6 +3764,7 @@
   image_url: /images/civilisations/han-dynasty.webp
   image_caption: Imperial Chang'an with twin que watchtowers, a Silk Road camel caravan loading silk bolts, and Han scholars beside a boshanlu censer, lacquerware, and early paper scrolls.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/han-dynasty-v1.mp4, credit: "AI-generated video (Google Veo)" }
   narration: { src: narration/civilizations/han-dynasty-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2c8c8b5fe0" }
   media:
     - kind: video
