@@ -660,6 +660,17 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   article: Wikidata's are ~18 km off, too far from Nausharo) and Nausharo's first phase (3000-2550 BC, like
   Mehrgarh's later periods). Linked both ways to the Indus civilization (related_ids). No AADR genomes. Indus city
   points (Dholavira, Lothal, Rakhigarhi...) would need civilization point sites, which the build does not support.
+- Late Bronze Age Cyprus (Alashiya) and the Canaanite city-states added 31 Oct 2026 for a *1177 B.C.* book tour
+  (Cline; Rob's call: cultures with points, since Cliopatria has no polity for either and drawing borders would be
+  guesswork). New stage "Bronze Age eastern Mediterranean". Cyprus 1650-1050 BCE (the Late Cypriot table in
+  Enkomi_(archaeological_site)@1368148299), sites Enkomi, Hala Sultan Tekke, Kition, Alassa, Pyla-Kokkinokremos;
+  Canaan 2000-1200 BCE (Canaan@1373261872's Middle and Late Bronze Age), sites Hazor, Megiddo, Lachish, Gezer,
+  Byblos, Tel Kabri, Tell Abu Hawam. Ugarit left out of Canaan (the article: its people counted themselves
+  non-Canaanite; it is a Sea Peoples place). Kalavasos and Maroni have no usable article. Linked both ways to Egypt
+  (New Kingdom), the Hittites, Mycenaean Greece (Cyprus), Mitanni, Phoenicia, Philistia, Israel (Canaan), and on
+  the Sea Peoples event. Four Commons pictures each; no main pictures yet (Rob) and no narration (to be made with
+  the tour). Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
+  `Lebanon_MBA` can't be matched by a single label part without catching other countries' MLBA/MBA genomes.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.
 - The conflicting-label rule keys on lab number alone, so unrelated dates that share a lab number (MC-499, Ly-1392) or

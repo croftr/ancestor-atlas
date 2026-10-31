@@ -1864,6 +1864,42 @@
   wikidata: Q242148
   related_ids: [indus-valley-civilization]
   source_ids: []
+# Span from English Wikipedia: Enkomi_(archaeological_site)@1368148299 (its Late Cypriot chronology: LC I from
+# 1650 BC to LC IIIB ending 1050 BC). Alashiya as Cyprus, its copper and the Amarna letters from Alashiya@1380493692;
+# the island's Late Bronze Age from Prehistoric_Cyprus@1380023422.
+- id: late-bronze-age-cyprus
+  name: Late Bronze Age Cyprus (Alashiya)
+  category: culture
+  start_year: -1649
+  end_year: -1049
+  description: "In the Late Bronze Age Cyprus was Alashiya, the copper island named in the texts of Egypt, the Hittites and Ugarit. Harbour towns grew up around its coast, Enkomi in the east, Hala Sultan Tekke and Kition in the south, smelting copper mined in the foothills of the Troodos Mountains and shipping it across the eastern Mediterranean. In the Amarna letters of about 1350 BCE the king of Alashiya writes to the pharaoh as his brother, sending copper and asking for silver and ivory in return. Cypriots wrote in their own Cypro-Minoan script, borrowed from Cretan Linear A, and built great ashlar halls for pressing and storing olive oil. Around 1200 BCE Hittite kings fought on the island, Enkomi and Kition were destroyed, and the hilltop refuge of Pyla-Kokkinokremos was abandoned within fifty years, its hoards of metal still buried. As the Bronze Age ended Mycenaean Greeks settled the island. Where Alashiya's capital lay is still unknown: Enkomi, Alassa and Kalavasos have all been proposed."
+  wikipedia_url: https://en.wikipedia.org/wiki/Alashiya
+  wikidata: Q1760729
+  related_ids: [canaanite-city-states, new-kingdom-of-egypt, hittites, mycenaean-greece]
+  source_ids: []
+  extra_images:
+    - { url: /images/extra/late-bronze-age-cyprus-1.webp, credit: "Jerrye and Roy Klotz MD, CC BY-SA 3.0, via Wikimedia Commons", caption: "Ruins of Enkomi on the east coast of Cyprus, a Late Bronze Age town that grew rich on copper", source: "https://commons.wikimedia.org/wiki/File:ENGOMI_RUINS,_CYPRUS.jpg" }
+    - { url: /images/extra/late-bronze-age-cyprus-2.webp, credit: "Gerhard Haubold, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Horned God of Enkomi, a bronze statuette of the 12th century BCE (Cyprus Museum, Nicosia)", source: "https://commons.wikimedia.org/wiki/File:Gehörnter_Gott,_Enkomi.jpg" }
+    - { url: /images/extra/late-bronze-age-cyprus-3.webp, credit: "Молли, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Mycenaean 'Zeus krater' from Enkomi, painted with a chariot, early 14th century BCE: Greek pottery traded to Cyprus (Cyprus Museum, Nicosia)", source: "https://commons.wikimedia.org/wiki/File:Arheologicheski-_Mycenaean_crater.jpg" }
+    - { url: /images/extra/late-bronze-age-cyprus-4.webp, credit: "Jastrow, Public domain, via Wikimedia Commons", caption: "Clay tablet inscribed in the Cypro-Minoan script, from Enkomi, c. 1230–1050 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Tablet_cypro-minoan_2_Louvre_AM2336.jpg" }
+# Span from English Wikipedia: Canaan@1373261872 (its Middle Bronze Age, 2000-1550 BC, and Late Bronze Age, 1550-1200
+# BC; the article's Canaan is "the late 2nd millennium BC", and the city-states are older: Hazor from about 1750 BCE,
+# the Kabri palace in the Middle Bronze Age). Ugarit is left out: its people counted themselves non-Canaanite (same article).
+- id: canaanite-city-states
+  name: Canaanite city-states
+  category: culture
+  start_year: -1999
+  end_year: -1199
+  description: "Canaan was a land of Semitic-speaking city-states in the southern Levant, where the interests of Egypt, the Hittites, Mitanni and Assyria met. In the Middle Bronze Age walled cities grew rich: Hazor, the largest in the region, Megiddo, Gezer and Lachish, and at Kabri a palace with Minoan-style wall paintings and the oldest known palace wine cellar. In the 15th century BCE the pharaoh Thutmose III defeated a Canaanite coalition at Megiddo and made the region part of Egypt's empire. In the Amarna letters of about 1350 BCE its rulers write to the pharaoh: the kings of Gezer swear loyalty, Rib-Hadda of Byblos begs again and again for troops, and many complain of the Habiru, brigands who fought for whoever paid them. Ramesses II fought the Hittites for the north at Kadesh in 1275 BCE. Hazor's palace burned in the 13th century BCE, but many cities came through the years around 1200 BCE unharmed as Egypt slowly withdrew. Canaanite culture lived on in the Phoenician cities of the coast, and in early Israel."
+  wikipedia_url: https://en.wikipedia.org/wiki/Canaan
+  wikidata: Q163329
+  related_ids: [late-bronze-age-cyprus, new-kingdom-of-egypt, hittites, mitanni, phoenicia, philistia, kingdom-of-israel]
+  source_ids: []
+  extra_images:
+    - { url: /images/extra/canaanite-city-states-1.webp, credit: "Mboesch, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Canaanite city gate at Megiddo", source: "https://commons.wikimedia.org/wiki/File:Tel-megiddo-kanaanitisches-tor-a.JPG" }
+    - { url: /images/extra/canaanite-city-states-2.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Ivory plaque of a griffin from Megiddo, Late Bronze Age, 1300–1200 BCE (Oriental Institute Museum, Chicago)", source: "https://commons.wikimedia.org/wiki/File:Griffin_plaque,_Megiddo,_Stratum_VIIA,_Late_Bronze_IIB,_1300-1200_BC,_ivory_-_Oriental_Institute_Museum,_University_of_Chicago_-_DSC07715.JPG" }
+    - { url: /images/extra/canaanite-city-states-3.webp, credit: "Jastrow, CC BY 2.5, via Wikimedia Commons", caption: "Amarna letter EA 362 from Rib-Hadda of Byblos to the pharaoh, 14th century BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Letter_Rib_Addi_Louvre_AO7093.jpg" }
+    - { url: /images/extra/canaanite-city-states-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Basalt stele from the holy of holies of the Orthostat Temple at Hazor, 15th–13th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:Basalt_Stele,_Holy_of_Holies,_Orthostat_Temple,_Hazor,_15th-13th_C._BC_(43167790192).jpg" }
 # Span from English Wikipedia: Halaf_culture@1372302292.
 - id: halaf
   name: Halaf culture
@@ -2015,6 +2051,7 @@
 - id: new-kingdom-of-egypt
   description: "After driving out the Hyksos rulers of the north around 1550 BCE, the pharaohs of the New Kingdom made Egypt an imperial power reaching from Nubia to Syria. It was the age of Hatshepsut, Thutmose the Third, Akhenaten, Tutankhamun and Ramesses the Second, of the temples of Karnak and Luxor and the royal tombs in the Valley of the Kings. After about 1100 BCE, worn down by the Sea Peoples, by drought and by rivalry between priests and kings, the kingdom split apart."
   narration: { src: narration/civilizations/new-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
+  related_ids: [late-bronze-age-cyprus, canaanite-city-states]
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/new-kingdom-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -2378,6 +2415,7 @@
       credit: History with Cy, YouTube
 - id: hittites
   description: "From their fortified capital of Hattusa in central Anatolia, the Hittites built one of the great powers of the Bronze Age. Their kings sacked Babylon around 1595 BCE, fought Egypt at the battle of Kadesh in 1274 BCE, and later sealed one of the earliest surviving peace treaties with Ramesses the Second. Thousands of clay tablets from their archives preserve the oldest written Indo-European language. Around 1180 BCE the empire collapsed and Hattusa was abandoned, in the wider upheaval at the end of the Bronze Age."
+  related_ids: [late-bronze-age-cyprus, canaanite-city-states]
   image_url: /images/civilisations/hittites.webp
   image_caption: Royal citadel of Hattusa and the Sphinx Gate with Hittite three-man war chariots, royal guards with sickle-swords, and scribes cataloging cuneiform clay tablets.
   image_credit: AI-generated illustration
@@ -2395,6 +2433,7 @@
     - { url: /images/extra/hittites-4.webp, credit: "Mx. Granger, CC0, via Wikimedia Commons", caption: "Clay tablet in Hittite cuneiform from the royal archives, preserving the oldest written Indo-European language", source: "https://commons.wikimedia.org/wiki/File:Hittite_Cuneiform_Tablet-_Cultic_Festival_Script.jpg" }
 - id: mitanni
   description: A powerful Hurrian-speaking kingdom centered in northern Syria and Upper Mesopotamia that flourished as a major Near Eastern empire during the mid-second millennium BCE. Renowned for horse breeding and chariot warfare, Mitanni rivaled Egypt and the Hittite Empire before falling to Assyrian and Hittite expansion.
+  related_ids: [canaanite-city-states]
   image_url: /images/civilisations/mitanni.webp
   image_caption: Hurrian capital of Washukanni with maryannu chariot warriors in pointed bronze helmets and scale armor driving war chariots outside fortified city walls.
   image_credit: AI-generated illustration
@@ -2424,6 +2463,7 @@
       credit: Gospel and Spade, YouTube
 - id: philistia
   description: A confederation of five coastal city-states—Gaza, Ashkelon, Ashdod, Ekron, and Gath—established in southwestern Canaan during the Early Iron Age. Associated with the migrating Sea Peoples, the Philistines introduced distinctive Aegean-style pottery and advanced ironworking techniques, frequently clashing with neighboring Israelites and Canaanites.
+  related_ids: [canaanite-city-states]
   image_url: /images/civilisations/philistia.webp
   image_caption: Coastal Philistine seaport of Ashkelon with Aegean galleys, feathered-helmet Peleset warriors, stone olive-oil presses, and artisans painting bichrome pottery.
   image_credit: AI-generated illustration
@@ -2438,6 +2478,7 @@
       credit: Epimetheus, YouTube
 - id: phoenicia
   description: "On the narrow coast of what is now Lebanon, Phoenician city-states such as Tyre, Sidon and Byblos became the great seafarers and traders of the Iron Age. They sailed the length of the Mediterranean and beyond, founding colonies such as Carthage, and traded cedar wood, glass and cloth dyed with a precious purple made from sea snails. Their simple alphabet of 22 letters was taken up by the Greeks and became the ancestor of most alphabets used today. Assyria, Babylon and Persia in turn brought the cities under their rule."
+  related_ids: [canaanite-city-states]
   image_url: /images/civilisations/phoenicia.webp
   image_caption: Island harbor of Tyre with horse-headed Phoenician hippoi ships, Lebanon cedar timber, murex shell heaps, and artisans boiling and drying Tyrian purple cloth.
   image_credit: AI-generated illustration
@@ -2455,6 +2496,7 @@
     - { url: /images/extra/phoenicia-2.webp, credit: "O.Mustafin, public domain, via Wikimedia Commons", caption: "Sarcophagus of Ahiram of Byblos, with one of the earliest Phoenician alphabet inscriptions", source: "https://commons.wikimedia.org/wiki/File:Ahiram_Sarcophagus_1.JPG" }
 - id: kingdom-of-israel
   description: An Iron Age kingdom in the northern central highlands and fertile Jezreel Valley of the southern Levant, with Samaria as its prominent capital. Boasting significant agricultural wealth and international trade links, the kingdom was a major regional power before its destruction and population deportation by the Neo-Assyrian Empire in 720 BCE.
+  related_ids: [canaanite-city-states]
   image_url: /images/civilisations/kingdom-of-israel.webp
   image_caption: Samaria and Megiddo in the Kingdom of Israel, featuring carved Samaria ivories, a royal stele, pillared chariot stables, and a rock-cut water shaft.
   image_credit: AI-generated illustration
@@ -2904,6 +2946,7 @@
       credit: Germania Magna ENG, YouTube
 - id: mycenaean-greece
   description: The mainland Greek civilization of the Late Bronze Age, immortalized in Homeric epic poetry, centered at fortified citadels such as Mycenae, Tiryns, and Pylos. Governed by warrior-kings (wanakes), the Mycenaeans developed the Linear B syllabic script—the earliest attested Greek—and established trade networks across the Mediterranean before collapsing around 1200 BCE.
+  related_ids: [late-bronze-age-cyprus]
   image_url: /images/civilisations/mycenaean-greece.webp
   image_caption: Bronze Age citadel of Mycenae and the Lion Gate with cyclopean walls, warriors in boar's-tusk helmets with figure-of-eight shields, and a Linear B scribe.
   image_credit: AI-generated illustration

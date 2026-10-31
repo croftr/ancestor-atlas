@@ -94,6 +94,12 @@ export const CULTURE_STAGES: CultureStage[] = [
     members: ["baden", "globular-amphora", "corded-ware", "bell-beaker", "unetice"],
   },
   {
+    id: "bronze-age-east-mediterranean",
+    title: "Bronze Age eastern Mediterranean",
+    blurb: "Copper from Cyprus and walled city-states in Canaan, trading by sea between the empires of Egypt and the Hittites until the collapse around 1200 BCE.",
+    members: ["canaanite-city-states", "late-bronze-age-cyprus"],
+  },
+  {
     id: "bronze-age-steppe",
     title: "Bronze Age steppe herders",
     blurb: "Herders with wagons, horses and later chariots, from the Pontic–Caspian steppe east to the Altai.",
