@@ -12,7 +12,10 @@ export interface Ambience {
 }
 
 export const AMBIENCE: Record<string, Ambience> = {
-  // hominin-divergence: no sound (Rob's call, 16 Oct 2026).
+  "hominin-divergence": {
+    prompt: "Evening at a slow African river between forest and open grassland: water gently flowing, leaves rustling in the trees, chimpanzee-like apes hooting softly in the canopy, dry grass swishing in a warm breeze, insects and frogs starting up at dusk",
+    sound: { src: "ambience/events/hominin-divergence-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "189709aac0" },
+  },
   "laetoli-footprints": {
     prompt: "Slow bare footsteps pressing into damp volcanic ash after light rain, gentle East African savanna wind, distant birds calling",
     sound: { src: "ambience/events/laetoli-footprints-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7bc93dff7e" },
@@ -201,6 +204,10 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Open Pacific ocean voyage: large outrigger canoe wooden timbers creaking as it rides ocean swells, water rushing past the hulls, wind in woven pandanus sails, distant tropical terns calling",
     sound: { src: "ambience/events/lapita-voyaging-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "05f72e75df" },
   },
+  "amarna-letters": {
+    prompt: "Late afternoon in a shaded colonnade beside the Nile in ancient Egypt: soft indistinct murmuring of a few people with no clear words, small clay tablets set down on a wooden table, the rustle of linen robes, a horse snorting and shifting its hooves, gentle river water lapping, distant birds over the reeds",
+    sound: { src: "ambience/events/amarna-letters-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5dc254f9fd" },
+  },
   "iron-age": {
     prompt: "Blacksmith forging iron: heavy hammer strikes on hot metal, bellows breathing, sparks, a hiss of quenching in water",
     sound: { src: "ambience/events/iron-age-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a75cc0a93f" },
@@ -208,6 +215,10 @@ export const AMBIENCE: Record<string, Ambience> = {
   "sea-peoples": {
     prompt: "Ancient sea battle: waves, oars splashing, wooden ships creaking and colliding, distant shouts and clashing bronze",
     sound: { src: "ambience/events/sea-peoples-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7d5a9cf0f4" },
+  },
+  "late-bronze-age-collapse": {
+    prompt: "A burning ancient stone palace at dusk: roaring crackling fire, timbers cracking and crashing down, a donkey cart's wooden wheels creaking along a dusty road, footsteps of people fleeing, distant anxious voices with no clear words, the low rumble of a coastal wind",
+    sound: { src: "ambience/events/late-bronze-age-collapse-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "cddf744ad4" },
   },
   "nok-terracotta": {
     prompt: "Ancient West African savanna settlement: clay pottery being burnished and tapped, rhythmic leather bellows pumping air into an iron furnace, crackling charcoal embers, tropical birds calling",
