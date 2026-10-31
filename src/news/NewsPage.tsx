@@ -1,13 +1,13 @@
 import { useMemo, useRef, useState, type CSSProperties } from "react";
 import { useData, type Data } from "../map/data";
 import { navigate } from "../route";
-import { formatYear, yearToPos } from "../time/scale";
+import { formatYear, MAX_YEAR, MIN_YEAR, yearToPos } from "../time/scale";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import { NewsIcon } from "../ui/SideNav";
 import Totals from "../browse/Totals";
-import { pictureOf } from "../browse/browse";
 import type { BrowseView } from "../route";
 import { matches, sectionsOf, shortDay, TOPIC_LABELS, useFeed } from "./news";
+import { TopicIcon, TopicTile } from "./TopicIcon";
 import { NEWS_TOPICS, type NewsStory, type NewsTopic } from "./types";
 
 /** The browse page each entity category opens on. */
@@ -53,41 +53,58 @@ function DeepTimeStrip({ stories, onPick }: { stories: NewsStory[]; onPick: (id:
   );
 }
 
-function StoryPicture({ story, data }: { story: NewsStory; data: Data | null }) {
-  const entity = story.entities.map((id) => data?.entityById.get(id)).find((e) => e && pictureOf(e, data!));
-  const pic = entity && data ? pictureOf(entity, data) : undefined;
+/** The slider's scale in miniature: where in deep time a story is set, with the eras marked. */
+const RULER_TICKS: { year: number; label: string }[] = [
+  { year: -999_999, label: "1 Ma" },
+  { year: -99_999, label: "100 ka" },
+  { year: -9_999, label: "10 ka" },
+  { year: -2_999, label: "3000 BCE" },
+];
+
+function TimeRuler({ period }: { period: NewsStory["period"] }) {
+  const from = yearToPos(Math.max(MIN_YEAR, period.from));
+  const to = yearToPos(Math.min(MAX_YEAR, Math.max(period.from, period.to)));
+  const range = `${formatYear(period.from)}${period.to !== period.from ? ` – ${formatYear(period.to)}` : ""}`;
   return (
-    <span className={`nw-pic topic-${story.topic}`} title={pic ? `Picture from the atlas: ${entity!.name}` : undefined}>
-      {pic ? <img src={pic.url} alt="" loading="lazy" decoding="async" /> : <span className="nw-pic-label">{TOPIC_LABELS[story.topic]}</span>}
-    </span>
+    <div className="nw-ruler" role="img" aria-label={`Set ${period.text} on the atlas's time scale`} title={range}>
+      <div className="nw-ruler-track">
+        {RULER_TICKS.map((t) => (
+          <span key={t.year} className="nw-ruler-tick" style={{ left: `${yearToPos(t.year) * 100}%` }}>
+            <span>{t.label}</span>
+          </span>
+        ))}
+        <span className="nw-ruler-mark" style={{ left: `${from * 100}%`, width: `${(to - from) * 100}%` }} />
+      </div>
+    </div>
   );
 }
 
 function Story({ story, data, flash }: { story: NewsStory; data: Data | null; flash: boolean }) {
   const entities = story.entities.map((id) => data?.entityById.get(id)).filter((e) => e !== undefined);
   return (
-    <article id={`news-${story.id}`} className={`nw-story${flash ? " flash" : ""}`}>
-      <StoryPicture story={story} data={data} />
-      <div className="nw-head">
-        <div className="nw-meta">
-          <span className={`nw-topic topic-${story.topic}`}>{TOPIC_LABELS[story.topic]}</span>
+    <article id={`news-${story.id}`} className={`nw-story topic-${story.topic}${flash ? " flash" : ""}`}>
+      <div className="nw-meta">
+        <TopicTile topic={story.topic} />
+        <span className="nw-meta-text">
+          <span className="nw-topic">{TOPIC_LABELS[story.topic]}</span>
           <span className="muted">
-            {story.source} · {shortDay(story.published)}
+            {story.source} · <time dateTime={story.published}>{shortDay(story.published)}</time>
           </span>
-        </div>
-        <h3>
-          <a href={story.url} target="_blank" rel="noopener noreferrer">
-            {story.title}
-          </a>
-        </h3>
+        </span>
       </div>
+      <h3>
+        <a href={story.url} target="_blank" rel="noopener noreferrer">
+          {story.title}
+        </a>
+      </h3>
       <p className="nw-summary">{story.summary}</p>
       <footer className="nw-foot">
         <div className="nw-when">
-          <span className="nw-period" title={`${formatYear(story.period.from)}${story.period.to !== story.period.from ? ` – ${formatYear(story.period.to)}` : ""}`}>
-            {story.period.text}
-          </span>
-          {story.place && <span className="muted">{story.place}</span>}
+          <TimeRuler period={story.period} />
+          <div className="nw-when-text">
+            <span className="nw-period">{story.period.text}</span>
+            {story.place && <span className="nw-place">{story.place}</span>}
+          </div>
         </div>
         {(entities.length > 0 || story.doi || story.also?.length) && (
           <div className="nw-links">
@@ -215,7 +232,9 @@ export default function NewsPage() {
           </button>
           {NEWS_TOPICS.filter((t) => counts.get(t)).map((t) => (
             <button key={t} className={`chip${topic === t ? " active" : ""}`} aria-pressed={topic === t} onClick={() => setTopic(topic === t ? null : t)}>
-              <span className={`nw-dot topic-${t}`} aria-hidden />
+              <span className={`nw-chip-icon topic-${t}`} aria-hidden>
+                <TopicIcon topic={t} size={13} />
+              </span>
               {TOPIC_LABELS[t]} <span className="ev-chip-count">{counts.get(t)}</span>
             </button>
           ))}
@@ -255,7 +274,7 @@ export default function NewsPage() {
           <p className="nw-about muted">
             Headlines link to the outlets that published them. Stories are picked and summarised automatically by Claude
             (an AI model) from the outlets' news feeds, so a summary can miss a nuance: the article and the paper are the
-            sources. Pictures are the atlas's own, not the outlets'.
+            sources.
           </p>
         )}
       </main>

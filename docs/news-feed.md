@@ -41,9 +41,13 @@ narrows the window.
   away, like the other browse pages.
 - A deep-time strip on the time slider's scale: one mark per story of the last 30 days at the time it is about; a
   tap scrolls to the story.
-- Stories under This week / Last week / month headings: the atlas's own picture of the first linked entity (never the
-  outlet's photo), topic, outlet and date, the headline linking to the article, the summary, the period and place,
-  chips to the linked atlas entries, "The paper" (DOI) and "Also in" other outlets.
+- Stories under This week / Last week / month headings: a topic tile (`src/news/TopicIcon.tsx`: the species, culture
+  and civilization silhouettes, the DNA helix, an hourglass for methods) with the topic, outlet and date, the
+  headline linking to the article, the summary, then a footer with a small ruler on the slider's scale (8 Ma to
+  1 CE, the story's period lit), the period and place, chips to the linked atlas entries, "The paper" (DOI) and
+  "Also in" other outlets. The topic's colour tints the tile, the card's top edge and corner. No pictures since
+  31 Oct 2026 (Claude's call, Rob to judge): the atlas's picture of the first linked entity was seldom the find
+  itself, and event title cards were cropped through their painted titles.
 - In the rail (News, last); on phones in the drawer only.
 
 ## Next: into the atlas
