@@ -672,7 +672,8 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   with the tour). Event "The Amarna letters" added the same day (c. 1350 BCE, Amarna_letters@1382435019; point at
   Amarna; Rob's title card, four British Museum letters from Commons: Alashiya, Mitanni, Babylon, Megiddo), linked
   to Egypt, Babylonia, Assyria, Mitanni, the Hittites and both new cultures (Rob added its narration and video).
-  Event "The Late Bronze Age collapse" (`late-bronze-age-collapse`, c. 1250-1150 BCE, Late_Bronze_Age_collapse@1382749486)
+  Event "The Late Bronze Age collapse" (`late-bronze-age-collapse`, c. 1250-1150 BCE, best year 1150 BCE so it follows the
+  Sea Peoples in event order (Rob's call; events sort by `year`), Late_Bronze_Age_collapse@1382749486)
   added the same day, beside the Sea Peoples (which keeps Medinet Habu and Ugarit): points at Hattusa (own date c. 1190
   BCE, Hattusa@1381682685), Pylos (the Palace of Nestor; the collapse article's fire c. 1180 BCE, against c. 1250 BCE in
   the palace's own short article) and Mycenae, so the book tour's climax can land on them. Four Commons pictures;
