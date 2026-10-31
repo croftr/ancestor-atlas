@@ -676,7 +676,7 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   added the same day, beside the Sea Peoples (which keeps Medinet Habu and Ugarit): points at Hattusa (own date c. 1190
   BCE, Hattusa@1381682685), Pylos (the Palace of Nestor; the collapse article's fire c. 1180 BCE, against c. 1250 BCE in
   the palace's own short article) and Mycenae, so the book tour's climax can land on them. Four Commons pictures;
-  Rob's title card and video (31 Oct); no narration or ambience yet. Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
+  Rob's title card, video and narration (31 Oct); no ambience yet. Not linkable: XRONOS has only generic "Bronze Age" labels there, and AADR's `Israel_MLBA` /
   `Lebanon_MBA` can't be matched by a single label part without catching other countries' MLBA/MBA genomes.
 - Azilian window follows Wikipedia (12,500–10,000 BP), which looks like uncalibrated radiocarbon years: 143 of 310
   Azilian dates fall before it. A sourced calibrated range would bring in the Early Azilian.

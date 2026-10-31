@@ -1166,6 +1166,7 @@
     - { url: /images/events/extra/late-bronze-age-collapse-2.webp, credit: "Jean Housen, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Palace of Nestor at Pylos in Greece, destroyed by fire around 1180 BCE", source: "https://commons.wikimedia.org/wiki/File:20190508_077_pylos_nestor.jpg" }
     - { url: /images/events/extra/late-bronze-age-collapse-3.webp, credit: "George E. Koronaios, CC0, via Wikimedia Commons", caption: "The Lion Gate of Mycenae, one of the Mycenaean palace centres destroyed around 1200 BCE", source: "https://commons.wikimedia.org/wiki/File:The_Lion_Gate_on_26_March_2019.jpg" }
     - { url: /images/events/extra/late-bronze-age-collapse-4.webp, credit: "historia, CC BY-SA 4.0, via Wikimedia Commons", caption: "Linear B tablet from the palace at Pylos listing men serving in its forces, 13th century BCE", source: "https://commons.wikimedia.org/wiki/File:Linear_B_clay_tablet_from_Pylos.jpg" }
+  narration: { src: narration/events/late-bronze-age-collapse-v1.mp3, credit: "AI-generated narration", text_hash: "124362e3ad" }
   date_source: wikipedia:Late_Bronze_Age_collapse@1382749486
   places:
     - { label: Hattusa, lat: 40.01972, lon: 34.61528, wikidata: Q181007, start_year: -1189, end_year: -1189, date_text: "c. 1190 BCE (burned or abandoned, with the Hittite state)", date_source: "wikipedia:Hattusa@1381682685" }
