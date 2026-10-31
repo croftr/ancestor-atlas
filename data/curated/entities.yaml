@@ -1873,6 +1873,7 @@
   start_year: -1649
   end_year: -1049
   description: "In the Late Bronze Age Cyprus was Alashiya, the copper island named in the texts of Egypt, the Hittites and Ugarit. Harbour towns grew up around its coast, Enkomi in the east, Hala Sultan Tekke and Kition in the south, smelting copper mined in the foothills of the Troodos Mountains and shipping it across the eastern Mediterranean. In the Amarna letters of about 1350 BCE the king of Alashiya writes to the pharaoh as his brother, sending copper and asking for silver and ivory in return. Cypriots wrote in their own Cypro-Minoan script, borrowed from Cretan Linear A, and built great ashlar halls for pressing and storing olive oil. Around 1200 BCE Hittite kings fought on the island, Enkomi and Kition were destroyed, and the hilltop refuge of Pyla-Kokkinokremos was abandoned within fifty years, its hoards of metal still buried. As the Bronze Age ended Mycenaean Greeks settled the island. Where Alashiya's capital lay is still unknown: Enkomi, Alassa and Kalavasos have all been proposed."
+  narration: { src: narration/cultures/late-bronze-age-cyprus-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "856d118e10" }
   image_url: /images/cultures/late-bronze-age-cyprus.webp
   image_credit: AI-generated illustration
   image_caption: "Late Bronze Age harbour town on Cyprus: copper smelted in furnaces, oxhide ingots stacked and loaded on donkeys, potters and traders at work, ships in the bay"
@@ -1894,6 +1895,7 @@
   start_year: -1999
   end_year: -1199
   description: "Canaan was a land of Semitic-speaking city-states in the southern Levant, where the interests of Egypt, the Hittites, Mitanni and Assyria met. In the Middle Bronze Age walled cities grew rich: Hazor, the largest in the region, Megiddo, Gezer and Lachish, and at Kabri a palace with Minoan-style wall paintings and the oldest known palace wine cellar. In the 15th century BCE the pharaoh Thutmose III defeated a Canaanite coalition at Megiddo and made the region part of Egypt's empire. In the Amarna letters of about 1350 BCE its rulers write to the pharaoh: the kings of Gezer swear loyalty, Rib-Hadda of Byblos begs again and again for troops, and many complain of the Habiru, brigands who fought for whoever paid them. Ramesses II fought the Hittites for the north at Kadesh in 1275 BCE. Hazor's palace burned in the 13th century BCE, but many cities came through the years around 1200 BCE unharmed as Egypt slowly withdrew. Canaanite culture lived on in the Phoenician cities of the coast, and in early Israel."
+  narration: { src: narration/cultures/canaanite-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0d4bd2cb84" }
   image_url: /images/cultures/canaanite-city-states.webp
   image_credit: AI-generated illustration
   image_caption: "Walled Canaanite city on its mound above olive groves and fields: standing stones within the walls, a scribe writing on clay, potters and metalworkers, a chariot at the gate"
@@ -2952,6 +2954,7 @@
       credit: Germania Magna ENG, YouTube
 - id: mycenaean-greece
   description: The mainland Greek civilization of the Late Bronze Age, immortalized in Homeric epic poetry, centered at fortified citadels such as Mycenae, Tiryns, and Pylos. Governed by warrior-kings (wanakes), the Mycenaeans developed the Linear B syllabic script—the earliest attested Greek—and established trade networks across the Mediterranean before collapsing around 1200 BCE.
+  narration: { src: narration/civilizations/mycenaean-greece-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "c1e074b4de" }
   related_ids: [late-bronze-age-cyprus]
   image_url: /images/civilisations/mycenaean-greece.webp
   image_caption: Bronze Age citadel of Mycenae and the Lion Gate with cyclopean walls, warriors in boar's-tusk helmets with figure-of-eight shields, and a Linear B scribe.

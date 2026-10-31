@@ -7,7 +7,7 @@
 //   npm run audio:narrate -- --closing <tour id>|all    a tour's closing line, read in its epilogue (all: missing or stale)
 //   npm run audio:narrate -- --book <tour id> [--part synopsis|<stop n>] [--yes]
 //                                                       a book tour's synopsis and stop notes (no --part: missing or stale);
-//                                                       stops count from 1; voice ELEVENLABS_BOOK_VOICE_ID if set
+//                                                       stops count from 1; the author voice, ELEVENLABS_AUTHOR_VOICE_ID (or ELEVENLABS_BOOK_VOICE_ID) if set
 //   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead (with --book: needs --part)
 //   npm run audio:narrate -- --voices                   list your ElevenLabs voices (to pick ELEVENLABS_VOICE_ID)
 // Options: --no-upload (prepare only; prints the upload command), --credit "<text>".
@@ -182,7 +182,7 @@ if (!file) {
     process.exit(0);
   }
 }
-const voice = file ? "" : (bookTour && process.env.ELEVENLABS_BOOK_VOICE_ID) || process.env.ELEVENLABS_VOICE_ID || fail("set ELEVENLABS_VOICE_ID in .env.local (npm run audio:narrate -- --voices lists them)");
+const voice = file ? "" : (bookTour && (process.env.ELEVENLABS_AUTHOR_VOICE_ID || process.env.ELEVENLABS_BOOK_VOICE_ID)) || process.env.ELEVENLABS_VOICE_ID || fail("set ELEVENLABS_VOICE_ID in .env.local (npm run audio:narrate -- --voices lists them)");
 const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-generated narration (ElevenLabs)");
 
 /** The description spoken, cached by its text so the same words are never paid for twice. */

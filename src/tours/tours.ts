@@ -78,7 +78,7 @@ export interface Tour {
 }
 
 /** What the title card's announcement says: the tour's title (the blurb is only shown). */
-export const announcementText = (t: Pick<Tour, "title">) => `${t.title}.`;
+export const announcementText = (t: Pick<Tour, "title">) => (t.title.endsWith(".") ? t.title : `${t.title}.`);
 
 /** Played at the end of every tour, straight after the closing line is read; the music fades away under it. */
 export const OUTRO = "music/tours/outro-v1.mp3";
@@ -457,6 +457,125 @@ export const TOURS: Tour[] = [
         note: { text: "On the floor of this sea cave someone cut a cross-hatched pattern into the rock. Neanderthals may have lasted here longer than in most places. Wragg Sykes sees no single cause for their end, rather \"a perfect storm\" of climate swings, a crowded continent and perhaps disease. Survival depends on \"time and babies\", not on who was cleverer. Some of them live on in us.", narration: { src: "narration/books/kindred/stop-13-v1.mp3", credit: "AI-generated narration", text_hash: "25d649ad90" }, images: [{ url: "/images/books/kindred/13-1.webp", credit: "Gibmetal77, CC BY 3.0, via Wikimedia Commons", caption: "Gorham's Cave, a sea cave in the east face of the Rock of Gibraltar", source: "https://commons.wikimedia.org/wiki/File:Gorham's_Cave.jpg" }, { url: "/images/books/kindred/13-2.webp", credit: "John Cummings, CC BY-SA 3.0, via Wikimedia Commons", caption: "Looking out to the Mediterranean from inside Gorham's Cave", source: "https://commons.wikimedia.org/wiki/File:View_from_Gorham's_Cave,_Gibraltar.JPG" }] },
       },
       { entity: "neanderthal-extinction", year: -37_999, site: "neanderthal-extinction@1" },
+    ],
+  },
+  {
+    id: "1177-bc",
+    title: "1177 B.C.",
+    book: {
+      title: "1177 B.C.: The Year Civilization Collapsed (Revised and Updated)",
+      author: "Eric H. Cline",
+      year: 2021,
+      publisher: "Princeton University Press",
+      link: "https://en.wikipedia.org/wiki/1177_B.C.:_The_Year_Civilization_Collapsed",
+      cover: { url: "/images/books/1177-bc.webp", credit: "Cover © Princeton University Press" },
+    },
+    blurb: "Eric Cline's account of how the great civilizations of the Late Bronze Age rose together and fell together, told through the places where it happened, from the Nile to Mycenae.",
+    synopsis: "For more than three centuries the eastern Mediterranean was a world of empires and trade: Egyptians and Hittites, Minoans and Mycenaeans, Canaanites and Cypriots, Assyrians and Babylonians, bound together by diplomacy, marriage and merchant ships. Then, within a few decades around 1177 BCE, it fell apart. In 1177 B.C., archaeologist Eric Cline asks why. His answer is not a single enemy but a perfect storm of drought, earthquakes, famine, invasion and collapse, spreading through a connected world. This tour follows that world from its rise to its fall.",
+    closing: "The Late Bronze Age fell not to one enemy but to many troubles at once, in a world too closely bound for any part to stand alone. Cline's warning is that ours is bound more closely still.",
+    // Book stops (with a note) and the atlas's own cards, mixed in date order. Notes drafted from the book's
+    // published summaries and the evidence it discusses (docs/book-tours.md); Rob checks each against the book.
+    music: { src: "music/tours/1177-bc-v1.mp3", credit: "Music: \"Hiraeth\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    synopsisNarration: { src: "narration/books/1177-bc/synopsis-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "db92615e45" },
+    announcement: { src: "narration/tours/1177-bc-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "16dc8e73c0" },
+    closingNarration: { src: "narration/tours/1177-bc-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "9ac5995c6c" },
+    stops: [
+      {
+        entity: "fifteenth-dynasty-of-egypt",
+        year: -1_549,
+        note: { text: "Cline begins around 1550 BCE, when the Egyptian king Ahmose drove the Hyksos, rulers from Canaan, out of their capital Avaris in the Nile Delta and founded the New Kingdom. In the ruins of Avaris archaeologists later found wall paintings of bull-leapers in the Minoan style, an early sign of the ties between Egypt and the Aegean that run through the whole book.", narration: { src: "narration/books/1177-bc/stop-1-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "1bee910812" }, title: "Avaris", images: [{ url: "/images/books/1177-bc/1-1.webp", credit: "Georges Daressy, Public domain, via Wikimedia Commons", caption: "The pharaoh Ahmose striking down a Hyksos enemy, on a ceremonial axe from the burial of Queen Ahhotep (drawing after Daressy)", source: "https://commons.wikimedia.org/wiki/File:Pharaoh_Ahmose_I_slaying_a_Hyksos_(axe_of_Ahmose_I,_from_the_Treasure_of_Queen_Aahhotep_II)_Colorized_per_source.jpg" }, { url: "/images/books/1177-bc/1-2.webp", credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Head of Ahmose I, founder of Egypt's New Kingdom (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Head_of_Ahmose_I_MET_DP140854.jpg" }] },
+      },
+      { entity: "new-kingdom-of-egypt", year: -1_499 },
+      {
+        entity: "canaanite-city-states",
+        year: -1_478,
+        site: "canaanite-city-states@2",
+        note: { text: "In 1479 BCE Thutmose III marched on a coalition of Canaanite kings gathered at Megiddo, leading his army through a narrow mountain pass that his generals thought too dangerous. His scribes carved the campaign on the walls of Karnak, the first battle in history we can follow in detail. Cline, who dug at Megiddo for years, reminds us that its name lives on as Armageddon.", narration: { src: "narration/books/1177-bc/stop-3-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "9b2adeec70" }, title: "Megiddo, 1479 BCE", images: [{ url: "/images/books/1177-bc/3-1.webp", credit: "Marsupium, CC BY 4.0, via Wikimedia Commons", caption: "Statue of Thutmose III, the victor at Megiddo in 1479 BCE (Luxor Museum)", source: "https://commons.wikimedia.org/wiki/File:Statue_of_the_Thutmosis_III_CG_42054-JE_36927_-_greywacke_-_Luxor_Museum_01.jpg" }] },
+      },
+      { entity: "canaanite-city-states", year: -1_478, site: "canaanite-city-states@2" },
+      {
+        entity: "minoan-civilization",
+        year: -1_449,
+        note: { text: "Egyptian tombs of this time show men called Keftiu, from Crete, bringing gifts of fine vessels, metal and cloth. In the tomb of Rekhmire, vizier to Thutmose III, the painters later redrew the Keftiu's kilts in a new style. Cline reads the change as a sign that Mycenaeans from mainland Greece had taken over Crete. For him, trade and gifts like these were the glue of the age.", narration: { src: "narration/books/1177-bc/stop-5-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "aaa196de75" }, title: "Keftiu", images: [{ url: "/images/books/1177-bc/5-1.webp", credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Keftiu bringing gifts, painted in the tomb of Rekhmire, vizier of Thutmose III (facsimile by Nina de Garis Davies, Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Cretans_Bringing_Gifts,_Tomb_of_Rekhmire_MET_DT10883.jpg" }] },
+      },
+      { entity: "minoan-civilization", year: -1_449 },
+      {
+        entity: "mycenaean-greece",
+        year: -1_369,
+        note: { text: "Around 1370 BCE, on statue bases in the funerary temple of Amenhotep III, whose Colossi of Memnon still stand, Egyptian carvers listed places across the Aegean: Knossos, Mycenae, Nauplion, Kythera and more, in an order that reads like a voyage around Crete and Greece. Cline suggests it records an Egyptian embassy, and plaques bearing Amenhotep's name have turned up at Mycenae.", narration: { src: "narration/books/1177-bc/stop-7-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "47d9ce5dfe" }, title: "The Aegean List", images: [{ url: "/images/books/1177-bc/7-1.webp", credit: "Diego Delso, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Colossi of Memnon, which stood before the funerary temple of Amenhotep III, where the Aegean List was carved", source: "https://commons.wikimedia.org/wiki/File:Colosos_de_Memnón,_Luxor,_Egipto,_2022-04-03,_DD_132.jpg" }, { url: "/images/books/1177-bc/7-2.webp", credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bull-leaper wall painting from the Mycenaean palace at Tiryns, about 1250 BCE (National Archaeological Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Wall_painting_of_taureador_from_Tiryns_-_Athens_NAM_1595.jpg" }] },
+      },
+      { entity: "mycenaean-greece", year: -1_369 },
+      {
+        entity: "amarna-letters",
+        site: "amarna-letters@1",
+        note: { text: "Cline reads the Amarna letters as the correspondence of a club of great powers. The kings of Egypt, Babylon, Mitanni, Assyria and the Hittites called one another brother, exchanged gifts and princesses, and complained when the gold fell short. It was, he argues, a globalized world, bound together by diplomacy, marriage and trade, so a crisis in one corner could ripple through all the rest.", narration: { src: "narration/books/1177-bc/stop-9-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "79e925d205" }, title: "A club of great powers", images: [{ url: "/images/books/1177-bc/9-1.webp", credit: "Philip Pikart, CC BY-SA 3.0, via Wikimedia Commons", caption: "Bust of Nefertiti, Akhenaten's queen, made at Amarna (Neues Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Nofretete_Neues_Museum.jpg" }] },
+      },
+      { entity: "amarna-letters", site: "amarna-letters@1" },
+      {
+        entity: "late-bronze-age-cyprus",
+        year: -1_319,
+        note: { text: "Around 1300 BCE a merchant ship went down off Uluburun, on the south coast of Turkey. Found by a sponge diver in 1982, it carried ten tons of Cypriot copper and one ton of tin, the right mix for bronze, along with Canaanite jars, glass ingots, ebony, ivory, Mycenaean pottery and a gold scarab of Nefertiti. For Cline it is the whole interconnected age in a single cargo.", narration: { src: "narration/books/1177-bc/stop-11-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8b522b49ea" }, title: "The Uluburun shipwreck", images: [{ url: "/images/books/1177-bc/11-1.webp", credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "An oxhide-shaped copper ingot from the Uluburun shipwreck, about 1300 BCE (Bodrum Museum of Underwater Archaeology)", source: "https://commons.wikimedia.org/wiki/File:Uluburun_copper_ingot_oxhide_shaped.jpg" }, { url: "/images/books/1177-bc/11-2.webp", credit: "Georges Jansoone, CC BY-SA 3.0, via Wikimedia Commons", caption: "Full-size replica of the Uluburun ship (Bodrum Museum of Underwater Archaeology)", source: "https://commons.wikimedia.org/wiki/File:Turkey.Bodrum091.jpg" }, { url: "/images/books/1177-bc/11-3.webp", credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Cypriot Base Ring bowl from the Uluburun cargo (Bodrum Museum of Underwater Archaeology)", source: "https://commons.wikimedia.org/wiki/File:Uluburun_cypriot_base_ring_bowl.jpg" }] },
+      },
+      { entity: "late-bronze-age-cyprus", year: -1_319 },
+      {
+        entity: "hittites",
+        year: -1_273,
+        note: { text: "In 1274 BCE Ramesses II and the Hittite king Muwatalli II met at Kadesh in Syria, in one of the largest chariot battles ever fought. Ramesses carved his victory on temple walls across Egypt, but the battle was a draw. About fifteen years later the two empires signed the earliest peace treaty whose text survives, in Egyptian and in Akkadian, and later sealed it with a royal marriage.", narration: { src: "narration/books/1177-bc/stop-13-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "188393dc6c" }, title: "Kadesh, 1274 BCE", images: [{ url: "/images/books/1177-bc/13-1.webp", credit: "Diego Delso, CC BY-SA 4.0, via Wikimedia Commons", caption: "Ramesses II in his chariot at the Battle of Kadesh, relief in the Great Temple at Abu Simbel", source: "https://commons.wikimedia.org/wiki/File:Templo_de_Ramsés_II,_Abu_Simbel,_Egipto,_2022-04-02,_DD_74-76_HDR.jpg" }, { url: "/images/books/1177-bc/13-2.webp", credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Hittite copy of the peace treaty between Ramesses II and Hattusili III, written in Akkadian, from Hattusa (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Kadesh_Treaty,_written_in_Akkadian._1269_BCE._From_Boğazköy,_Turkey._Clay_tablet._Museum_of_the_Ancient_Orient,_Istanbul,_Turkey.jpg" }] },
+      },
+      { entity: "hittites", year: -1_273 },
+      {
+        entity: "mycenaean-greece",
+        year: -1_249,
+        note: { text: "Hittite letters complain of a king of Ahhiyawa, most likely the Mycenaean Greeks, stirring up trouble in western Anatolia, and they name a city called Wilusa, which many scholars equate with Troy, Homer's Ilios. Cline, who has also written on the Trojan War, thinks Homer's story may hold memories of real conflicts from these years, though no text proves it.", narration: { src: "narration/books/1177-bc/stop-15-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "af7d77371a" }, title: "Ahhiyawa and Wilusa", images: [{ url: "/images/books/1177-bc/15-1.webp", credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The walls of Troy, the city many scholars equate with the Hittites' Wilusa", source: "https://commons.wikimedia.org/wiki/File:Portion_of_the_legendary_walls_of_Troy_(VII),_Troy_(Ilion),_Turkey_(7446479164).jpg" }, { url: "/images/books/1177-bc/15-2.webp", credit: "Mark Landon, CC BY 4.0, via Wikimedia Commons", caption: "Wall of a great house of Troy VI, the Late Bronze Age city", source: "https://commons.wikimedia.org/wiki/File:Troy_VI_House_VI_M_southwest_wall_(1991).jpg" }] },
+      },
+      {
+        entity: "assyria",
+        year: -1_229,
+        note: { text: "Assyria was on the rise. Its king Tukulti-Ninurta I claimed victory over the Hittites and captured Babylon. In reply the Hittite king Tudhaliya IV bound a vassal by treaty to stop Ahhiyawan ships from trading with Assyria, one of the earliest trade embargoes on record, says Cline. The great powers were straining against each other just as the troubles began.", narration: { src: "narration/books/1177-bc/stop-16-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "bab9de3d91" }, title: "Assyria on the rise", images: [{ url: "/images/books/1177-bc/16-1.webp", credit: "Marie-Lan Nguyen, Public domain, via Wikimedia Commons", caption: "Altar of Tukulti-Ninurta I from Assur, showing the king standing and kneeling before a god's emblem (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Altar_Tukulti-Ninurta_I_Assur_IAM.jpg" }] },
+      },
+      {
+        entity: "late-bronze-age-collapse",
+        year: -1_189,
+        site: "late-bronze-age-collapse@1",
+        note: { text: "In its last decades the Hittite court begged for grain. One letter calls a shipment from Ugarit a matter of life or death, and the pharaoh sent grain to keep the land of Hatti alive. Around 1190 BCE Hattusa burned, but Cline notes that its rulers seem to have left first, taking what they could carry. The empire that had fought Egypt to a standstill simply came to an end.", narration: { src: "narration/books/1177-bc/stop-17-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "2722c8408b" }, title: "Hattusa", images: [{ url: "/images/books/1177-bc/17-1.webp", credit: "Rita1234, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Great Temple in the lower city of Hattusa", source: "https://commons.wikimedia.org/wiki/File:Hattusa_Lower_city_great_temple.JPG" }, { url: "/images/books/1177-bc/17-2.webp", credit: "Klaus-Peter Simon, CC BY 3.0, via Wikimedia Commons", caption: "Tudhaliya IV embraced by his god Sharruma, carved at Yazılıkaya beside Hattusa", source: "https://commons.wikimedia.org/wiki/File:Yazilikaya_B_Thudalija.jpg" }] },
+      },
+      {
+        entity: "sea-peoples",
+        year: -1_184,
+        site: "sea-peoples@2",
+        note: { text: "Ugarit, the great port of Syria, fell around 1185 BCE. Among its tablets is a letter from its last king, Ammurapi, to the king of Alashiya: enemy ships have come and burned his cities, while his own troops and ships are away serving the Hittites. Cline's revised edition also lays to rest a famous story, that the city's last letters were found still baking in a kiln, never sent.", narration: { src: "narration/books/1177-bc/stop-18-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "d8db97477c" }, title: "Ugarit", images: [{ url: "/images/books/1177-bc/18-1.webp", credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Rooms of the royal palace at Ugarit where archives of tablets were found", source: "https://commons.wikimedia.org/wiki/File:Ugarit_Royal_Palace_archives_space_3912.jpg" }, { url: "/images/books/1177-bc/18-2.webp", credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "The main courtyard of the royal palace at Ugarit", source: "https://commons.wikimedia.org/wiki/File:Ugarit_Royal_Palace_main_courtyard_3907.jpg" }] },
+      },
+      {
+        entity: "late-bronze-age-collapse",
+        year: -1_179,
+        site: "late-bronze-age-collapse@2",
+        note: { text: "At Pylos, the palace of King Nestor in Homer, fire destroyed everything around 1180 BCE and baked hard the clay tablets of its final year. They record rowers being called up and watchers posted along the coast. It is tempting to read a kingdom bracing for attack, but Cline warns that the tablets never say what the watchers were watching for.", narration: { src: "narration/books/1177-bc/stop-19-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "195290007f" }, title: "Pylos", images: [{ url: "/images/books/1177-bc/19-1.webp", credit: "Synesis17, Public domain, via Wikimedia Commons", caption: "The bathtub in the Palace of Nestor at Pylos", source: "https://commons.wikimedia.org/wiki/File:Bathtub-of-nestor.jpg" }, { url: "/images/books/1177-bc/19-2.webp", credit: "Peulle, CC BY-SA 4.0, via Wikimedia Commons", caption: "The base of the throne in the Palace of Nestor", source: "https://commons.wikimedia.org/wiki/File:Palace_of_Nestor_throne_base_(1).jpg" }] },
+      },
+      {
+        entity: "sea-peoples",
+        year: -1_176,
+        site: "sea-peoples@1",
+        note: { text: "This is where the book begins. In the eighth year of Ramesses III, which Cline dates to 1177 BCE, the pharaoh's temple walls tell of foreign peoples who conspired in their islands and swept all before them, from Hatti to Alashiya, until Ramesses defeated them on land and in the Nile Delta. Cline takes the year as a symbol: the moment a whole world began to end.", narration: { src: "narration/books/1177-bc/stop-20-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "73e26a1596" }, title: "Medinet Habu, 1177 BCE", images: [{ url: "/images/books/1177-bc/20-1.webp", credit: "Vyacheslav Argenberg, CC BY 4.0, via Wikimedia Commons", caption: "The first pylon of Ramesses III's temple at Medinet Habu", source: "https://commons.wikimedia.org/wiki/File:Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_First_Pylon.jpg" }, { url: "/images/books/1177-bc/20-2.webp", credit: "Carl Richard Lepsius, Public domain, via Wikimedia Commons", caption: "Ramesses III leading captive Sea Peoples before the gods, relief at Medinet Habu (drawing by Lepsius)", source: "https://commons.wikimedia.org/wiki/File:Medinet_Habu_Ramses_III._Tempel_Erster_Hof_(Lepsius)_01.jpg" }] },
+      },
+      { entity: "sea-peoples", site: "sea-peoples@1" },
+      {
+        entity: "elam",
+        year: -1_157,
+        note: { text: "Even Babylon was not spared. Around 1158 BCE the Elamite king Shutruk-Nakhunte raided Mesopotamia and carried trophies home to Susa, among them the stele of Hammurabi's laws, where French archaeologists found it in 1901. Within a few years the long-ruling Kassite dynasty of Babylon had fallen.", narration: { src: "narration/books/1177-bc/stop-22-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e562a717a8" }, title: "Elam and Babylon", images: [{ url: "/images/books/1177-bc/22-1.webp", credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "The stele of Hammurabi's laws, carried off to Susa by the Elamites (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk.JPG" }] },
+      },
+      {
+        entity: "late-bronze-age-collapse",
+        year: -1_149,
+        site: "late-bronze-age-collapse@3",
+        note: { text: "So what happened? Cline rejects a single culprit. A run of earthquakes struck Mycenae, Tiryns and other cities; pollen from the Sea of Galilee points to a long drought; there were famines, raiders, and perhaps revolts. Any one of these might have been survived. Together, in a world so tightly linked, they made what he calls a perfect storm, a systems collapse that spread from kingdom to kingdom.", narration: { src: "narration/books/1177-bc/stop-23-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "7f81fc2d94" }, title: "A perfect storm", images: [{ url: "/images/books/1177-bc/23-1.webp", credit: "George E. Koronaios, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Cyclopean walls of Tiryns, one of the Mycenaean citadels damaged by earthquakes", source: "https://commons.wikimedia.org/wiki/File:The_Cyclopean_Walls_of_Tiryns.jpg" }] },
+      },
+      { entity: "late-bronze-age-collapse", site: "late-bronze-age-collapse@3" },
+      {
+        entity: "phoenicia",
+        year: -1_099,
+        note: { text: "Not everyone lost. In the centuries that followed, Cline shows, Phoenician cities such as Byblos, Tyre and Sidon rose to carry trade and their alphabet across the Mediterranean, Neo-Hittite kingdoms ruled from cities like Carchemish, and Philistines and Israelites settled in Canaan. Greece took centuries to recover and learn to write again, but from the wreckage the Iron Age world was born.", narration: { src: "narration/books/1177-bc/stop-25-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e4482af2a3" }, title: "Out of the ashes", images: [{ url: "/images/books/1177-bc/25-1.webp", credit: "O.Mustafin, Public domain, via Wikimedia Commons", caption: "Sarcophagus of Ahiram, king of Byblos (National Museum of Beirut)", source: "https://commons.wikimedia.org/wiki/File:Ahiram_Sarcophagus_1.JPG" }, { url: "/images/books/1177-bc/25-2.webp", credit: "Onceinawhile, CC BY-SA 4.0, via Wikimedia Commons", caption: "The inscription on Ahiram's sarcophagus, one of the earliest in the Phoenician alphabet (National Museum of Beirut)", source: "https://commons.wikimedia.org/wiki/File:National_Museum_of_Beirut_–_Ahiram_sarcophagus_inscription_2.jpg" }, { url: "/images/books/1177-bc/25-3.webp", credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Warriors carved at Carchemish, capital of a Neo-Hittite kingdom, 10th–9th century BCE (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Ankara_Anatolian_Civilizations_Carchemish_orthostats_Long_Wall_Warriors_in_2011_01.jpg" }] },
+      },
+      { entity: "phoenicia", year: -1_099 },
     ],
   },
 ];

@@ -214,3 +214,30 @@ Years are astronomical and snapped to the slider. Site ids are features on the g
   chapter topics, skeletons reunited, interbreeding quote, cannibalism, speech, fireplaces and home sites.
 - [Wikipedia: Kindred](https://en.wikipedia.org/wiki/Kindred:_Neanderthal_Life,_Love,_Death_and_Art):
   publication details and awards.
+
+## Second book: *1177 B.C.* (Eric H. Cline, revised and updated edition, 2021)
+
+Built 31 Oct 2026 (tour id `1177-bc`). Rob prepared the atlas for it first: the cultures Late Bronze Age Cyprus
+(Alashiya) and the Canaanite city-states with their sites, and the events The Amarna letters and The Late Bronze
+Age collapse (with points at Hattusa, Pylos and Mycenae), so the stops can land on real places.
+
+- **26 stops, 16 book stops and 10 cards**, oldest first, following the book's arc: the rise (Avaris, Megiddo,
+  Keftiu, the Aegean List, Amarna, Uluburun), the great powers (Kadesh, Ahhiyawa and Wilusa, Assyria), the fall
+  (Hattusa, Ugarit, Pylos, Medinet Habu in 1177 BCE, Elam and Babylon, "a perfect storm") and the aftermath
+  (Phoenicians, Neo-Hittites, Philistines and Israelites). Cards: New Kingdom Egypt, the Canaanite city-states (at
+  Megiddo), the Minoans, Mycenaean Greece, the Amarna letters, Late Bronze Age Cyprus, the Hittites, the Sea
+  Peoples, the Late Bronze Age collapse (at Mycenae) and Phoenicia.
+- **Where the atlas has no point**, a stop lands on the nearest thing it has: Uluburun on the Cyprus culture's sites,
+  Kadesh on the Hittite territory, Ahhiyawa and Wilusa on Mycenaean Greece, the Aegean List on Mycenaean Greece.
+  The note names the real place.
+- **Voices:** the title, the three new card narrations (Mycenaean Greece, Cyprus, Canaan) and the closing line in
+  the usual voice (`ELEVENLABS_VOICE_ID`); the synopsis and every note in the author voice
+  (`ELEVENLABS_AUTHOR_VOICE_ID`, read by `audio:narrate -- --book`; `ELEVENLABS_BOOK_VOICE_ID` still works).
+- **Pictures:** 27 Commons photos (free licences) in `public/images/books/1177-bc/<stop n>-<k>.webp`, none repeating
+  a card's own pictures. Cover from Rob (`public/images/books/1177-bc.webp`, credited to Princeton University Press).
+- **Music:** "Hiraeth" again (Scott Buckley, CC BY 4.0), under its own key `music/tours/1177-bc-v1.mp3`, so it can be
+  swapped without touching *Kindred*.
+- **Notes are drafts** written from the book's published descriptions and the evidence it discusses (Wikipedia
+  articles on each site, Cline's own published arguments): Rob checks each against the book and adds chapters.
+  Points to check in particular: the Ugarit "kiln" correction (revised edition), the embargo wording (Assyria),
+  the Rekhmire kilts (Keftiu), and the Aegean List reading as an embassy.

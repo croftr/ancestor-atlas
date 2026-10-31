@@ -349,6 +349,11 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   all 14 notes and the closing line narrated (Rob's recordings; synopsis and notes in a different voice). Music "Hiraeth" (Scott Buckley, CC BY 4.0). Narrate with
   `npm run audio:narrate -- --book <tour id>` (docs/book-tours.md). Checking *After the Ice* turned up data gaps (Younger Dryas, Mesolithic Europe, South
   Asia, the Americas); Rob has notes.
+- Second: *1177 B.C.* (Cline, revised edition 2021; tour `1177-bc`, 31 Oct 2026): 26 stops, 16 book stops and 10
+  cards, from Avaris (1550 BCE) to the Phoenicians, landing on the new Cyprus and Canaan cultures and the Amarna
+  letters and Late Bronze Age collapse events. Notes, synopsis and closing written by Claude (Rob to check against
+  the book); notes and synopsis in the author voice (`ELEVENLABS_AUTHOR_VOICE_ID`), title, closing and cards in the
+  usual one. Music "Hiraeth" under its own key. Details in docs/book-tours.md.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
 
