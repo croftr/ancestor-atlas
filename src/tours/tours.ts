@@ -361,7 +361,7 @@ export const TOURS: Tour[] = [
     closing: "From a stone tower at Jericho to the walls of Babylon took eight thousand years. Today more than half of all people live in cities.",
     blurb: "From the first walled town at Jericho to Babylon, the greatest city of the ancient world: how people first came to live together in their thousands, and what they built, wrote and worshipped there.",
     layers: ["culture", "civilization", "city", "event"],
-    announcement: { src: "narration/tours/first-cities-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "94ba2be449" },
+    announcement: { src: "narration/tours/first-cities-v2.mp3", credit: "AI-generated narration", text_hash: "94ba2be449" },
     closingNarration: { src: "narration/tours/first-cities-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "76ed387ee8" },
     music: { src: "music/tours/first-cities-v2.mp3", credit: "Music: \"Memories Of Stone\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     stops: [
