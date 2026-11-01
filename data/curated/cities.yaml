@@ -77,6 +77,7 @@
   lon: 46.104444
   image_url: /images/cities/ur.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/ur-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Ur from a rooftop: scribes with tablets, a craftsman inlaying a game board, a gold headdress, lyre and bull figure set out for a royal burial, boats on the canal, and the ziggurat in its walled precinct beyond"
   extra_images:
     - { url: /images/extra/ur-1.webp, credit: "Alli Khalil, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ziggurat of Ur, built for the moon god Nanna under King Ur-Nammu in the 21st century BCE, with its restored stairways", source: "https://commons.wikimedia.org/wiki/File:Ziggurat_of_Ur_Site_in_Nasiriyah_01.jpg" }
@@ -100,6 +101,7 @@
   lon: 44.421111
   image_url: /images/cities/babylon.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/babylon-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Babylon from its blue-glazed walls: officials and a scribe at work, a procession passing through the Ishtar Gate below, terraced gardens, a bridge over the Euphrates, and the great ziggurat beyond"
   extra_images:
     - { url: /images/extra/babylon-1.webp, credit: "American Colony Photo Department, public domain (Library of Congress), via Wikimedia Commons", caption: "The excavated ruins of Babylon, photographed in 1932", source: "https://commons.wikimedia.org/wiki/File:Babylon,_1932.jpg" }
