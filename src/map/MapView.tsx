@@ -1085,7 +1085,9 @@ export default function MapView() {
         return;
       }
       if (sorted.length === 0) {
-        useStore.getState().select(null);
+        // A click on empty globe or sky closes the card, but never during a tour, which owns the card
+        // (Rob's call: touching the globe in a tour changes nothing).
+        if (!useStore.getState().tour) useStore.getState().select(null);
         const route = map.queryRenderedFeatures(
           [
             [x - r, y - r],
