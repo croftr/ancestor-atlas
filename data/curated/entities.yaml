@@ -1911,6 +1911,7 @@
   narration: { src: narration/cultures/late-bronze-age-cyprus-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "856d118e10" }
   image_url: /images/cultures/late-bronze-age-cyprus.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/late-bronze-age-cyprus-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Late Bronze Age harbour town on Cyprus: copper smelted in furnaces, oxhide ingots stacked and loaded on donkeys, potters and traders at work, ships in the bay"
   wikipedia_url: https://en.wikipedia.org/wiki/Alashiya
   wikidata: Q1760729
