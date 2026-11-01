@@ -285,7 +285,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   turns to the stop; Back / Next put it straight in place. While the slider travels between stops an intertitle
   says how much time passes ("40,000 years later", "Meanwhile" for none; `TimeGap.tsx`, `tour.gap`), from the
   stop before's year; it stays 1.6 s past arrival, then fades.
-- Ambient sound per stop (added 16 Oct 2026; events only for now): `AMBIENCE` in `src/tours/ambience.ts` (entity id ->
+- Ambient sound per stop (added 16 Oct 2026; events, a few cultures and civilizations, and since 1 Nov 2026 all ten cities): `AMBIENCE` in `src/tours/ambience.ts` (entity id ->
   ElevenLabs `prompt`, plus `sound` once made), played by `src/audio/ambience.ts`: a short burst (decoded buffer, random start
   point), 2 s after the card opens, about 5 s at full level, then faded out (Rob's call, 16 Oct 2026: playing all
   through the narration was too long; `DELAY`/`HOLD`/fades at the top of that file), ducked under narration, on

@@ -252,5 +252,46 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Ancient Mediterranean harbour: gentle waves lapping against stone quays, rhythmic wooden galley oars dipping in water, creaking ship timbers, distant gulls",
     sound: { src: "ambience/civilizations/carthage-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a7b7c6bcd1" },
   },
+  // Cities (cities.yaml), oldest first.
+  jericho: {
+    prompt: "Neolithic town beside a desert spring: water bubbling up from the spring, a stone rubbing grain on a grinding stone, goats bleating, dry valley wind, desert birds",
+    sound: { src: "ambience/cities/jericho-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "336d854423" },
+  },
+  catalhoyuk: {
+    prompt: "Neolithic mud-brick town on a plain: a wooden ladder creaking on a flat roof, soft clicks of obsidian being flaked, a hearth crackling below, wind over marshland, cattle lowing far off",
+    sound: { src: "ambience/cities/catalhoyuk-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "0e0b3a5dd2" },
+  },
+  uruk: {
+    prompt: "Ancient Mesopotamian city by a canal: reed boats poled through still water, a potter's wheel turning, a stylus pressing into wet clay, palm fronds in a warm wind, distant donkeys",
+    sound: { src: "ambience/cities/uruk-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "24e19f7b4d" },
+  },
+  memphis: {
+    prompt: "Nile riverside workshops: chisels tapping on stone, water lapping against moored wooden boats, palm leaves in a warm breeze, distant ibis and egret calls",
+    sound: { src: "ambience/cities/memphis-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c9c1798de0" },
+  },
+  ur: {
+    prompt: "Sumerian temple quarter by the marshes: soft footsteps on baked brick, sheep and goats bleating in the distance, water lapping in a canal, reeds rustling in a light wind, marsh birds",
+    sound: { src: "ambience/cities/ur-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8dad2054cc" },
+  },
+  "mohenjo-daro": {
+    prompt: "Brick city street near a great river: water trickling through a covered drain, a bucket drawn up a brick well on a rope, ox-cart wheels creaking slowly, sparrows chirping in warm air",
+    sound: { src: "ambience/cities/mohenjo-daro-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "4f14292d06" },
+  },
+  harappa: {
+    prompt: "Brick workshop yard by a river: small hammers tapping beads and shell, a potter's wheel turning, ox-cart wheels on packed earth, river birds and a dry warm breeze",
+    sound: { src: "ambience/cities/harappa-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1eeaed2047" },
+  },
+  knossos: {
+    prompt: "Minoan palace courtyard on a hillside: footsteps on stone paving, clay storage jars set down gently, a bull lowing in the distance, cicadas and a warm Mediterranean breeze",
+    sound: { src: "ambience/cities/knossos-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6e1ba2e993" },
+  },
+  yinxu: {
+    prompt: "Bronze Age capital by a river in northern China: distant ringing of bronze being worked, chariot wheels rolling over packed earth, horses snorting, wind across millet fields",
+    sound: { src: "ambience/cities/yinxu-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8ac86f5020" },
+  },
+  babylon: {
+    prompt: "Brick processional way in a great ancient city: many footsteps on stone paving, a donkey braying in the distance, palm leaves rustling in a warm wind, faint river water",
+    sound: { src: "ambience/cities/babylon-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8bad29da21" },
+  },
 };
 
