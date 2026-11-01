@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useStore } from "../store";
 import { climateAt, useClimate } from "../time/climate";
+import SkyObjects from "../sky/SkyObjects";
 
 /**
  * The star canvases reach this far past each edge, so they can drift with the globe's turning
@@ -276,6 +277,7 @@ export default function SpaceBackground() {
       <canvas ref={canvasStaticRef} className="space-canvas space-canvas-static" />
       <canvas ref={canvasTwinkleARef} className="space-canvas space-canvas-twinkle-a" />
       <canvas ref={canvasTwinkleBRef} className="space-canvas space-canvas-twinkle-b" />
+      <SkyObjects />
       <canvas ref={canvasMeteorRef} className="space-canvas space-canvas-meteor" />
     </div>
   );

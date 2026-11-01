@@ -487,6 +487,12 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - Drift: the star canvases reach 40 px past each edge (`SKY_MARGIN`) and slide a little against the globe's
   turning, then settle back (`--sky-x` / `--sky-y`, set in `MapView.tsx`).
 - Shooting stars and drift are off for reduced motion.
+- In the sky (added 1 Nov 2026): `src/sky/sky.ts` lists dated supernovae and comets (iron-60 waves 8.7–6.5 and
+  3.2–1.5 Ma, Vela about 11 ka, Halley's recorded returns 240/164/87/12 BCE), drawn with CSS by
+  `src/sky/SkyObjects.tsx` at fixed places in the upper sky (the background is not a real sky) while the slider is
+  within one step, and named in the climate panel ("In the sky") and the Sources panel. A span (iron-60) flares now
+  and then, never shines steadily. Left out on purpose (sourcing doubts): Caesar's Comet, Hipparchus's nova, Thales'
+  eclipse, Laschamp/Miyake auroras, Halley's computed returns before 240 BCE. `sky.test.ts`: one of each kind at once.
 
 ## What Was Here? (`src/region/`)
 

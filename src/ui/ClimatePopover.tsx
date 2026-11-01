@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useStore } from "../store";
 import { STAGE_NOTES, climateAt, kaOf, climateColor, climateWords, stageName, type Climate } from "../time/climate";
 import { formatYear, snapYear } from "../time/scale";
+import { skyAt } from "../sky/sky";
 
 /** Rounds to `n` significant figures. */
 const sig = (v: number, n: number) => {
@@ -156,6 +157,21 @@ export function ClimateFacts({ climate, year, gauged = false }: { climate: Clima
             </dd>
           </div>
         )}
+        {skyAt(year).map((e) => (
+          <div key={e.id}>
+            <dt>In the sky</dt>
+            <dd>
+              <strong className="cp-sky-name">{e.name}</strong>
+              <span className="muted">{e.date_text}</span>
+              <span className="cp-note">
+                {e.description}{" "}
+                <a href={e.source.url} target="_blank" rel="noreferrer" title={e.source.label}>
+                  Source
+                </a>
+              </span>
+            </dd>
+          </div>
+        ))}
       </dl>
 
       <MiniChart climate={climate} ka={at.ka} />

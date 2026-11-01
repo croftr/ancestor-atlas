@@ -2,6 +2,7 @@ import { useData } from "../map/data";
 import { usePaleo } from "../map/paleo";
 import { ROUTES } from "../routes/routes";
 import { GENE_FLOWS } from "../geneflow/geneflow";
+import { SKY_EVENTS } from "../sky/sky";
 import { useClimate } from "../time/climate";
 
 /**
@@ -14,6 +15,7 @@ export default function SourcesContent() {
   const climate = useClimate();
   const routeSources = [...new Map(ROUTES.map((r) => [r.source.url, r.source])).values()];
   const geneFlowSources = [...new Map(GENE_FLOWS.map((g) => [g.source.url, g.source])).values()];
+  const skySources = [...new Map(SKY_EVENTS.map((e) => [e.source.url, e.source])).values()];
   return (
     <div className="sources-panel">
       <p className="muted sources-intro">
@@ -44,6 +46,12 @@ export default function SourcesContent() {
         {geneFlowSources.map((s) => (
           <li key={s.url}>
             Interbreeding: <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a> <span className="muted">· CC BY-SA 4.0</span>
+          </li>
+        ))}
+        {skySources.map((s) => (
+          <li key={s.url}>
+            In the sky: <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
+            {s.url.includes("wikipedia.org") && <span className="muted"> · CC BY-SA 4.0</span>}
           </li>
         ))}
       </ul>
