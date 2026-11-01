@@ -24,6 +24,13 @@
 | **`bantu-farmers`** | Early Bantu-speaking farmers | `public/images/cultures/bantu-farmers.webp` | "Taming the wild" tour (stop 11), Shum Laka, Katuruka, Urewe dimpled pottery, iron smelting |
 | **`lapita`** | Lapita culture | `public/images/cultures/lapita.webp` | "Taming the wild" tour (stop 14), Bismarck Archipelago, Teouma, voyaging canoes, dentate-stamped pottery |
 | **`dapenkeng`** | Dapenkeng culture | `public/images/cultures/dapenkeng.webp` | Austronesian migration route, Taiwan coastal settlements, cord-marked pottery, dugout canoes |
+| **`peiligang`** | Peiligang culture | `public/images/cultures/peiligang.webp` | Henan / Jiahu, bone flute, quern slab and roller, red pottery, incised tortoise shell |
+| **`hemudu`** | Hemudu culture | `public/images/cultures/hemudu.webp` | Zhejiang stilt houses, rice-motif pottery, scapula bone spade, ivory bird carving |
+| **`yangshao`** | Yangshao culture | `public/images/cultures/yangshao.webp` | Banpo village, face-and-fish painted basin, cord-marked pointed amphora, kilns |
+| **`hongshan`** | Hongshan culture | `public/images/cultures/hongshan.webp` | Niuheliang, jade pig-dragon, pregnant woman figurine, jade bird, painted vessels |
+| **`liangzhu`** | Liangzhu culture | `public/images/cultures/liangzhu.webp` | Yangtze delta canals, jade cong with deity mask, jade huang pendant, jade axe-head |
+| **`longshan`** | Longshan culture | `public/images/cultures/longshan.webp` | Walled town, eggshell-thin black goblet, tripod cooking pot (li), stem cups |
+| **`mehrgarh`** | Mehrgarh | `public/images/cultures/mehrgarh.webp` | Bolan Pass plain, mud-brick granaries, Mehrgarh seated female terracotta figurine |
 
 ---
 
@@ -714,5 +721,140 @@ Scene:
 - In the middle ground: bronze metallurgists operating a stone melting furnace, pouring golden bronze into clay casting molds; on a nearby rocky granite outcrop, petroglyphs of sacred bulls and radiating sun figures are freshly carved into the rock face.
 - In the background: vast herds of cattle and horses grazing peacefully across the boundless grassy steppe plains beneath an immense, sun-drenched sky.
 Negative prompt: Absolutely no modern clothes, no steel, no modern firearms, no Islamic architecture, no stirrups, no text, no words, no watermarks.
+```
+
+---
+
+### 36. `peiligang` (Peiligang culture)
+- **Target File**: `public/images/cultures/peiligang.webp` (+ `peiligang-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Neolithic Yellow River settlement: Jiahu bone flute music, saddle quern grinding millet, red pottery, and incised tortoise shells"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting an early Neolithic Peiligang and Jiahu settlement in the Yellow and Huai river basins of Henan, China (c. 6500 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm soft morning sunlight, lush alluvial riverbank landscape.
+Scene:
+- A small Neolithic farming village of circular and semi-subterranean thatched roundhouses along a river terrace.
+- In the foreground: an artisan sitting on a woven mat playing a slender bone flute carved from a red-crowned crane wing bone with multiple fingerholes (the ancient Jiahu flute); beside him, a woman kneels at a four-legged stone saddle quern (grinding slab) vigorously grinding foxtail millet grains with a stone roller pin.
+- Resting on reed mats nearby: smooth unpainted red pottery earthenware pots, tripod cooking vessels, and a carapace tortoise shell inscribed with an early carved sign.
+- In the middle ground: villagers tending domestic pigs in timber-fenced enclosures, cultivating small millet and early rice garden patches with stone sickles, and fishermen hauling hemp fiber nets from the river.
+- In the background: broad alluvial river with wild waterbirds, wetland reeds, and low mist-covered hills under a clear dawn sky.
+Negative prompt: Absolutely no modern clothing, no text, no words, no watermarks, no pagodas, no Chinese dynastic palaces, no metal tools, no plastic.
+```
+
+---
+
+### 37. `hemudu` (Hemudu culture)
+- **Target File**: `public/images/cultures/hemudu.webp` (+ `hemudu-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Lower Yangtze wetland settlement: pile-built stilt village, scapula bone spades, rice cultivation, and carved ivory birds"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Neolithic Hemudu wetland village south of Hangzhou Bay in the Lower Yangtze valley, China (c. 5000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, humid misty morning light, lush subtropical wetland marsh and tidal estuary.
+Scene:
+- A raised Neolithic settlement of large rectangular timber houses built on elevated wooden stilts and pilings with mortise-and-tenon joints over wet marshy ground and tidal waterways (based on the Field Museum pile-house village reconstruction).
+- In the foreground: farmers returning from waterlogged paddy fields carrying wooden handles fitted with polished animal scapula bone spades (hoe-spades made from water buffalo shoulder blades); a craftsman sitting on a wooden veranda carving a delicate paddle-shaped ivory plaque adorned with facing bird motifs flanking a sun emblem.
+- Resting on timber decking: coarse dark earthenware pottery bowls and jars, including a pottery sherd clearly incised with ripe rice plant heads, and a small red-lacquered wooden bowl.
+- In the middle ground: villagers gathering water caltrops and lotus seeds from dugout canoes, tending domesticated water buffalo and pigs, and cultivating early wet rice fields.
+- In the background: dense subtropical reedbeds, meandering river channels, and mist-shrouded forested hills.
+Negative prompt: Absolutely no modern clothes, no text, no words, no watermarks, no dynastic Chinese architecture, no metal tools, no modern boats.
+```
+
+---
+
+### 38. `yangshao` (Yangshao culture)
+- **Target File**: `public/images/cultures/yangshao.webp` (+ `yangshao-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Neolithic Banpo village on the Wei River: painted pottery with face-and-fish motifs, pointed amphorae, and circular thatched pit houses"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting the Neolithic Yangshao settlement of Banpo along the Wei River terrace near Xi'an, Shaanxi, China (c. 4500 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, warm golden afternoon daylight, loess plateau river valley scenery.
+Scene:
+- A vibrant organized Neolithic village surrounded by a deep protective defensive moat: clustered circular and square semi-subterranean pit dwellings with conical thatched roofs supported by central timber posts.
+- In the foreground: a skilled woman potter painting black slip designs onto fine red ceramic ware—specifically painting the iconic stylized human face and leaping fish motif inside a wide red earthenware basin (the Banpo face-and-fish basin); beside her sits a classic cord-marked pointed-bottom amphora with double handles (used for drawing water from the river).
+- In the middle ground: open pottery updraft kilns firing burnished painted pottery vessels with swirling geometric and spiral patterns; communal courtyards with drying racks of foxtail millet, spinning whorls, and villagers weaving hemp cloth.
+- In the background: children and domestic dogs playing near the timber gateway bridging the village ditch, with loess river terraces and yellow bluffs rising under a blue sky.
+Negative prompt: Absolutely no modern clothes, no iron or bronze tools, no text, no words, no watermarks, no dynastic temples, no tile roofs.
+```
+
+---
+
+### 39. `hongshan` (Hongshan culture)
+- **Target File**: `public/images/cultures/hongshan.webp` (+ `hongshan-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Hongshan ceremonial center at Niuheliang: jade pig-dragons, pregnant woman clay figurines, jade birds, and stone stepped altars"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Hongshan ceremonial and ritual temple complex at Niuheliang in the Liao River basin, northeast China (c. 3500 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, dramatic late afternoon golden light, sweeping rugged hilly steppe-forest landscape.
+Scene:
+- A monumental hilltop ceremonial precinct featuring circular stepped stone altars and the semi-subterranean "Goddess Temple" sanctuary built of stone and timber plaster.
+- In the foreground: a ritual priest or priestess in layered fine buckskin and hemp robes holding up a translucent greenish-yellow nephrite jade pig-dragon (zhulong / coiled dragon pendant) catching the low sun; laid on a ritual stone slab are a carved jade bird figurine with outspread wings, a terracotta figurine of a seated pregnant woman with exaggerated fertility contours, and tall cylindrical painted pottery vessels decorated with hook-and-cloud motifs.
+- In the middle ground: shamans and clan leaders assembled on the stepped stone platforms offering ceremonial libations, with plumes of sacred incense smoke rising from stone hearths.
+- In the background: undulating ridges of the Liaoning highlands with birch-pine groves and distant ceremonial stone cairn mounds silhouetted against a dramatic sunset sky.
+Negative prompt: Absolutely no modern clothes, no text, no words, no watermarks, no Buddhist statues, no dynastic palaces, no steel weapons.
+```
+
+---
+
+### 40. `liangzhu` (Liangzhu culture)
+- **Target File**: `public/images/cultures/liangzhu.webp` (+ `liangzhu-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Hydraulic city of the Yangtze delta: master craftsmen carving jade cong with deity masks, ceremonial jade axes, and monumental canals"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting the monumental walled city and hydraulic landscape of Liangzhu in the Lake Tai basin, Zhejiang, China (c. 3000 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, luminous morning sunlight across still water canals, humid lush delta atmosphere.
+Scene:
+- An advanced Neolithic urban center with massive rammed-earth ramparts, timber docks, and artificial water canals crisscrossing the settlement.
+- In the foreground: an elite jade master lapidary in an open-air workshop using bamboo drills, quartz sand abrasive, and string saws to carve a monumental square-section cylindrical nephrite jade cong; in close detail on the cong corner is carved the intricate combined deity-and-beast mask with prominent round eyes, wide mouth, and fangs; on the workbench also lie a polished jade ceremonial axe-head (yue) hafted to a wooden handle, a curved jade huang pendant, and jade bi discs.
+- In the middle ground: wooden rafts and canoes laden with harvested grain navigating stone-lined canal locks; elite stepped earthen platform terraces (like Mojiaoshan) topped with timber palatial halls in the center of the city.
+- In the background: broad irrigated rice paddies, monumental earthen reservoir dams, and rolling green mountains on the horizon.
+Negative prompt: Absolutely no modern clothes, no iron tools, no text, no words, no watermarks, no pagodas, no dynastic Chinese palaces.
+```
+
+---
+
+### 41. `longshan` (Longshan culture)
+- **Target File**: `public/images/cultures/longshan.webp` (+ `longshan-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Walled Longshan town: fast-wheel black pottery masters crafting eggshell-thin cups, stemmed goblets, and tripod cooking pots"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting a Late Neolithic fortified Longshan town in the Yellow River valley of Shandong/Henan, China (c. 2300 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, crisp bright daylight, elevated vantage over fortified rammed-earth ramparts.
+Scene:
+- A heavily fortified walled town enclosed by massive rammed-earth (hangtu) walls and timber gatehouses along a fertile river valley.
+- In the foreground: specialized pottery masters working beside rapid flywheels (early potter's fast-wheel): a craftsman gently lifting a glossy, jet-black, paper-thin eggshell ceramic stemmed cup (the famous V&A-style eggshell-thin goblet with openwork perforated stem); arrayed on drying tables are polished black goblets, three-legged hollow-legged tripod cooking pots (li tripods), and tall stem cups (dou).
+- In the middle ground: townspeople bustling along packed-earth streets between rectangular timber-and-mud dwellings, bronze-working artisans inspecting early copper/bronze awls, and guards patrolling the top of the rammed-earth defensive wall.
+- In the background: agricultural fields of foxtail millet, herds of domestic cattle and sheep, and a winding river with trade barges under a sunlit sky.
+Negative prompt: Absolutely no modern clothes, no text, no words, no watermarks, no Great Wall of China, no medieval European castles.
+```
+
+---
+
+### 42. `mehrgarh` (Mehrgarh)
+- **Target File**: `public/images/cultures/mehrgarh.webp` (+ `mehrgarh-600.webp`)
+- **Aspect Ratio**: 4:3 landscape (1200×900)
+- **Caption**: *"Early farming village at the Bolan Pass: compartmentalized mud-brick granaries, terracotta mother goddess figurines, and barley harvests"*
+- **Prompt**:
+```text
+A wide 4:3 archaeological reconstruction illustration depicting the early Neolithic farming settlement of Mehrgarh on the Kachi plain near the Bolan Pass, Balochistan (c. 4500 BCE).
+
+Style: Painterly historical illustration in the style of archaeological reconstruction paintings, radiant warm desert morning sunlight, stark arid mountain foothills and fertile river plain.
+Scene:
+- An ancient mud-brick agricultural town built of sun-dried rectangular mud bricks, featuring multi-room houses and distinctive multi-compartment communal mud-brick granaries.
+- In the foreground: a Mehrgarh artisan shaping terracotta seated female figurines (the iconic Mehrgarh mother-goddess style with elaborate braided coiffure, disc ear ornaments, and stylized necklace bands); on a woven palm mat beside her are baskets of harvested six-row barley and einkorn wheat, along with stone bead drillers crafting beads from lapis lazuli, turquoise, and marine shells.
+- In the middle ground: villagers unloading donkey and bullock packs laden with grain into the elevated square compartments of mud-brick granary ruins; herds of humped zebu cattle, sheep, and goats drinking from irrigation channels.
+- In the background: the vast, sun-baked alluvial Kachi plain stretching toward the rugged, arid limestone cliffs and barren gorge of the Bolan Pass in the distance.
+Negative prompt: Absolutely no modern clothes, no modern vehicles, no text, no words, no watermarks, no Islamic domes or minarets, no Mughal architecture.
 ```
 

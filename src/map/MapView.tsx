@@ -5,6 +5,7 @@ import { BASEMAP_THEMES, CATEGORY_STYLE, MINI_GLOBE, STACKED_QUERY } from "../co
 import { type FeatureProps } from "../types";
 import { ANCHOR_SOURCE_ID, ICON_IMAGE, INTERACTIVE_LAYERS, LAYER_DEFS, MAP_ICON_PX, SOURCE_ID, timeFilter } from "./layers";
 import { polygonAnchor } from "./anchor";
+import { ARRIVAL_MS, HIGHLIGHT_GLOW, HIGHLIGHT_RINGS, HIGHLIGHT_SOURCE, MAX_WAIT_MS, highlightFrame } from "./highlight";
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground, { SKY_MARGIN } from "./SpaceBackground";
@@ -619,6 +620,52 @@ export default function MapView() {
       });
     };
 
+    // The item in focus: the open card's point, or the place a book stop has turned to (its note
+    // takes the card's place, so nothing is selected). A civilization's point is its badge's.
+    const focusOf = (): { id: string; at: [number, number] } | null => {
+      const data = getData();
+      if (!data) return null;
+      const { selectedId, tour, year } = useStore.getState();
+      let id = selectedId;
+      if (!id && tour?.note && tour.phase === "hold") {
+        const stop = tourById(tour.id)?.stops[tour.index];
+        id = stop ? (stop.site ?? data.featuresOf.get(stop.entity)?.find((f) => isActive(f, year))?.id ?? null) : null;
+      }
+      if (!id) return null;
+      const geometry = data.geometryOf.get(id);
+      const b = data.bboxOf.get(id);
+      const at = geometry ? polygonAnchor(geometry) : b ? ([(b[0] + b[2]) / 2, (b[1] + b[3]) / 2] as [number, number]) : null;
+      return at ? { id, at } : null;
+    };
+    // Ring it, and once the globe has stopped turning there, pulse (map/highlight.ts).
+    let focusId: string | null = null;
+    let highlightRaf = 0;
+    const applyHighlight = () => {
+      const focus = focusOf();
+      if ((focus?.id ?? null) === focusId) return;
+      focusId = focus?.id ?? null;
+      cancelAnimationFrame(highlightRaf);
+      const source = map.getSource(HIGHLIGHT_SOURCE) as maplibregl.GeoJSONSource | undefined;
+      if (!source) return;
+      if (!focus) return source.setData(EMPTY);
+      source.setData(highlightFrame(focus.at, null));
+      if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+      const since = performance.now();
+      let still: number | null = null;
+      let arrived: number | null = null;
+      const frame = (now: number) => {
+        if (arrived === null) {
+          // Give a flight a moment to start (phones resize the map first), then wait for it to end.
+          still = map.isMoving() ? null : (still ?? now);
+          if ((still !== null && now - since > 250 && now - still > 100) || now - since > MAX_WAIT_MS) arrived = now;
+        }
+        if (arrived !== null) source.setData(highlightFrame(focus.at, now - arrived));
+        if (arrived === null || now - arrived < ARRIVAL_MS) highlightRaf = requestAnimationFrame(frame);
+        else source.setData(highlightFrame(focus.at, null));
+      };
+      highlightRaf = requestAnimationFrame(frame);
+    };
+
     const flyTo = ([w, s, e, n]: [number, number, number, number], gentle = false, turn = false) => {
       // Keep the target clear of the legend (left), info card (right) and time slider (bottom).
       // On small screens those are stacked around the globe rather than over it.
@@ -783,6 +830,7 @@ export default function MapView() {
         loadData().then((d) => d && (map.getSource(SOURCE_ID) as maplibregl.GeoJSONSource | undefined)?.setData(d.mapGeoJSON));
       map.addSource(ANCHOR_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
       for (const d of LAYER_DEFS) map.addLayer(d.spec);
+      map.addSource(HIGHLIGHT_SOURCE, { type: "geojson", data: EMPTY });
       // Ancient DNA sites: sized by how many people date to the year, coloured by haplogroup (dna/haplogroups.ts),
       // with a dark ring so they read on pale land; a white ring marks the open one.
       const firstMarker = LAYER_DEFS.find((d) => d.category !== "civilization")?.spec.id;
@@ -835,6 +883,8 @@ export default function MapView() {
         },
         firstMarker,
       );
+      // The highlight's glow sits under every marker (over the territories and DNA sites); its rings go on top of everything.
+      map.addLayer(HIGHLIGHT_GLOW, firstMarker);
       // The path a tour has taken so far: faint, under the epilogue's bright thread.
       map.addSource("tour-path", { type: "geojson", data: EMPTY });
       // A dark casing under the gold, so it shows on pale land as well as on the sea.
@@ -952,8 +1002,10 @@ export default function MapView() {
           "circle-stroke-width": 2,
         },
       });
+      for (const layer of HIGHLIGHT_RINGS) map.addLayer(layer);
       loaded = true;
       applyPath();
+      applyHighlight();
       if (useStore.getState().tour?.epilogue) startEpilogue(pathPoints);
       applyPaleo();
       applyDna();
@@ -1255,6 +1307,7 @@ export default function MapView() {
       if (state.place !== prev.place || state.lastPlace !== prev.lastPlace) applyPlace();
       if (state.enabled !== prev.enabled) applyVisibility();
       if (state.selectedId !== prev.selectedId) applySelection();
+      if (state.selectedId !== prev.selectedId || state.tour !== prev.tour) applyHighlight();
     });
 
     return () => {
@@ -1270,6 +1323,7 @@ export default function MapView() {
       container.removeEventListener("touchcancel", clearLongPress);
       stopEpilogue();
       cancelAnimationFrame(pathRaf);
+      cancelAnimationFrame(highlightRaf);
       mini.dispose();
       cancelAnimationFrame(raf);
       map.remove();
