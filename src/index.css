@@ -168,6 +168,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   to { transform: translateX(3%) scaleY(1.06); opacity: 1; }
 }
 /* Two planets almost touching: Venus (brighter, whiter) and Jupiter (creamier), a few pixels apart. */
+.space-sky .sky-conjunction { transform: scale(1.6); }
 .sky-planet { position: absolute; border-radius: 50%; }
 .sky-planet.venus {
   left: -12px; top: -11px; width: 22px; height: 22px;

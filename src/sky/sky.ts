@@ -469,7 +469,7 @@ export const SKY_PLACE: Record<SkyKind, [x: number, y: number]> = {
   comet: [29, 12],
   eclipse: [84, 24],
   aurora: [88, 6], // the glow spans the top of the sky; its button sits here, clear of the search bar
-  conjunction: [17, 30],
+  conjunction: [31, 32], // left of the globe, clear of the left-hand panels
 };
 
 /**
