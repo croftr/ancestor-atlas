@@ -26,6 +26,9 @@
   date_source: wikipedia:Uruk@1382628940
   lat: 31.3259
   lon: 45.6374
+  image_url: /images/cities/uruk.webp
+  image_credit: AI-generated illustration
+  image_caption: "Uruk from a terrace of cone-mosaic columns: a scribe writing on a clay tablet, grain measured into bowls, a priest with a carved vase beside a marble mask, kilns and a canal with boats, and the White Temple on its high terrace beyond"
   extra_images:
     - { url: /images/extra/uruk-1.webp, credit: "Annemarie Schwarzenbach, public domain (Swiss National Library), via Wikimedia Commons", caption: "A ziggurat mound rising over the ruins of Uruk (Warka), photographed in 1933–34", source: "https://commons.wikimedia.org/wiki/File:CH-NB_-_Irak,_Uruk_(Warka)-_Zikurrat_-_Annemarie_Schwarzenbach_-_SLA-Schwarzenbach-A-5-03-131.jpg" }
     - { url: /images/extra/uruk-2.webp, credit: "Neoclassicism Enthusiast, CC0, via Wikimedia Commons", caption: "Columns covered in a mosaic of coloured clay cones, from the Eanna temple precinct at Uruk, 3600–3200 BCE (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Columns_with_clay_mosaic_cones_from_the_Eanna_precinct_in_Uruk_(southern_Mesopotamia),_Pergamon_Museum,_Berlin,_Germany,_unknown_architect,_3600-3200_BC_(01).jpg" }
@@ -44,6 +47,9 @@
   date_source: wikipedia:Mohenjo-daro@1376909925
   lat: 27.329167
   lon: 68.138889
+  image_url: /images/cities/mohenjo-daro.webp
+  image_credit: AI-generated illustration
+  image_caption: "Mohenjo-daro from a brick rooftop: traders with scales, weights and bead necklaces, the Great Bath in its courtyard, a straight street lined with drains, wells and ox-carts, and the Indus beyond the walls"
   extra_images:
     - { url: /images/extra/mohenjo-daro-1.webp, credit: "Ziegler175, CC BY-SA 3.0, via Wikimedia Commons", caption: "The brick houses and streets of Mohenjo-daro, seen from the stupa mound on the citadel", source: "https://commons.wikimedia.org/wiki/File:MoenjoDaroVS.jpg" }
     - { url: /images/extra/mohenjo-daro-2.webp, credit: "Smn121, CC BY-SA 3.0, via Wikimedia Commons", caption: "One of Mohenjo-daro's round brick wells, among the walls of the houses it served", source: "https://commons.wikimedia.org/wiki/File:Moenjodaro_by_smn121_-12.JPG" }
