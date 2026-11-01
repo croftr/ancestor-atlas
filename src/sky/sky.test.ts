@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { SKY_EVENTS, SKY_PLACE, skyAt, skyShownAt } from "./sky";
+import { SKY_EVENTS, SKY_KIND_PLURAL, SKY_PLACE, skyAt, skyShownAt, skyYear } from "./sky";
 import { MAX_YEAR, MIN_YEAR, snapYear, stepYear } from "../time/scale";
 
 describe("SKY_EVENTS", () => {
@@ -17,6 +17,10 @@ describe("SKY_EVENTS", () => {
       const stops = new Set<number>();
       for (let y = e.start_year - 100_000; y <= e.end_year + 100_000; y += 5) stops.add(snapYear(y));
       expect([...stops].some((y) => skyShownAt(e, y))).toBe(true);
+      // "Show in the sky" lands on a slider stop where it shows.
+      expect(snapYear(skyYear(e))).toBe(skyYear(e));
+      expect(skyShownAt(e, skyYear(e))).toBe(true);
+      expect(SKY_KIND_PLURAL.some(([k]) => k === e.kind)).toBe(true);
     });
   }
 

@@ -100,30 +100,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 /* The tail points away from the globe: up and to the left. */
 /* Click targets over the map (sky/SkyObjects.tsx, SkyHits), at the same places (the stars' drift moves
-   them less than the target's radius), and the details panel under them. */
+   them less than the target's radius); a click opens the sky object's card (sky/SkyCard.tsx). */
 .sky-hit {
   position: absolute; left: var(--sky-ox); top: var(--sky-oy); width: 64px; height: 64px; margin: -32px 0 0 -32px;
   border: 0; border-radius: 50%; background: transparent; cursor: pointer; padding: 0;
 }
-.sky-hit:hover, .sky-hit[aria-expanded="true"] { box-shadow: 0 0 0 1.5px rgba(200, 225, 255, 0.45); }
+.sky-hit:hover, .sky-hit[aria-pressed="true"] { box-shadow: 0 0 0 1.5px rgba(200, 225, 255, 0.45); }
 .sky-hit:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
-.sky-panel {
-  position: absolute; z-index: 5; top: calc(var(--sky-oy) + 40px); width: min(330px, calc(100% - 24px));
-  left: clamp(12px, calc(var(--sky-ox) - 165px), calc(100% - min(330px, calc(100% - 24px)) - 12px));
-  padding: 12px 14px 12px; font-size: 0.86rem; line-height: 1.45; color: #e6ebf5;
-}
-.sky-panel p { margin: 6px 0 0; }
-.sky-panel-close {
-  position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%; border: 0;
-  background: rgba(255, 255, 255, 0.08); color: inherit; font-size: 1.1rem; line-height: 1; cursor: pointer;
-}
-.sky-panel-close:hover { background: rgba(255, 255, 255, 0.16); }
-.sky-panel-kind { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #8b95ab; padding-right: 30px; }
-.sky-panel-name { font-family: Georgia, serif; font-size: 1.2rem; margin-top: 2px; }
-.sky-panel-date { color: #c4d4ee; font-size: 0.82rem; }
-.sky-panel-note { font-size: 0.76rem; }
-.sky-panel-source { display: block; margin-top: 8px; font-size: 0.76rem; color: #8ec5ff; }
-.map-wrap.mini .sky-hit, .map-wrap.mini .sky-panel { display: none; }
+.map-wrap.mini .sky-hit { display: none; }
 /* A fanned, slightly curved dust tail, and a fainter straight blue ion tail, so it never reads as a
    shooting star. */
 .sky-comet-tail {
@@ -199,6 +183,25 @@ button { font: inherit; color: inherit; cursor: pointer; }
   background: rgba(240, 178, 122, 0.16); color: #f0c9a0; vertical-align: 1px;
 }
 .cp-facts dd .sky-certainty { margin-left: 0; }
+/* A sky object's drawing on a patch of night: the sky card's picture, the Sky page's thumbnails and detail
+   (sky/SkyCard.tsx SkyPicture). The drawing is the sky's own, scaled up. */
+.sky-picture {
+  position: relative; overflow: hidden; aspect-ratio: 4 / 3; width: 100%; border-radius: 10px;
+  background:
+    radial-gradient(1px 1px at 18% 30%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 72% 18%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1.2px 1.2px at 84% 66%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 34% 78%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 58% 52%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(ellipse 80% 70% at 50% 40%, #121a36 0%, #070b18 70%, #03050c 100%);
+}
+.sky-picture > .sky-object { opacity: 1; transform: scale(1.7); transition: none; }
+.sky-picture > .sky-object.sky-comet { left: 62%; top: 62%; }
+.sky-picture > .sky-object.sky-aurora { transform: none; height: 100%; }
+.sky-picture > .sky-object.sky-conjunction { transform: scale(2.4); }
+/* A span's supernova flares on the globe; in a picture it shines steadily. */
+.sky-picture .sky-supernova.sky-span.on .sky-supernova-glow { animation: sky-pulse 7s ease-in-out infinite alternate; }
+.sky-card .sky-picture { margin: 4px 0 12px; }
 .space-canvas-twinkle-a {
   animation: space-twinkle-a 6s ease-in-out infinite alternate;
 }
@@ -228,6 +231,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .sky-supernova.sky-span.on .sky-supernova-glow { animation: none; opacity: 0.7; }
   .sky-supernova.sky-span.on.open .sky-supernova-glow { animation: none; opacity: 1; }
   .sky-nova.on .sky-supernova-glow, .sky-eclipse.on .sky-eclipse-corona, .sky-aurora.on .sky-aurora-curtain { animation: none; }
+  .sky-picture .sky-supernova.sky-span .sky-supernova-glow { opacity: 1; }
 }
 .app:not(.view-globe) .space-background {
   display: none;

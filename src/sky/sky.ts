@@ -1,4 +1,4 @@
-import { STEPS, segmentOfBce } from "../time/scale";
+import { STEPS, segmentOfBce, snapYear, stepYear } from "../time/scale";
 
 /**
  * Things seen in the sky, drawn on the star background while the slider is near them (sky/SkyObjects.tsx)
@@ -482,3 +482,33 @@ export function skyShownAt(e: SkyEvent, year: number): boolean {
 }
 
 export const skyAt = (year: number): SkyEvent[] => SKY_EVENTS.filter((e) => skyShownAt(e, year));
+
+/** The sky's colours, like a category's (config.ts CATEGORY_STYLE): the badge, the page's accent. */
+export const SKY_STYLE = { label: "In the sky", color: "#9db4ff", ink: "#16245a" } as const;
+
+/** What each kind is called in a list ("Comets"), in the order the Sky page shows them. */
+export const SKY_KIND_PLURAL: [SkyKind, string][] = [
+  ["supernova", "Supernovae"],
+  ["nova", "New stars"],
+  ["comet", "Comets"],
+  ["eclipse", "Eclipses of the Sun"],
+  ["aurora", "Auroras"],
+  ["conjunction", "Planets"],
+];
+
+export const skyById = (id: string | null): SkyEvent | undefined => (id ? SKY_EVENTS.find((e) => e.id === id) : undefined);
+
+/**
+ * The slider stop to show it at ("Show in the sky"): its year, or the middle of a span, snapped to the
+ * slider and nudged to a neighbouring stop if snapping left the window.
+ */
+export function skyYear(e: SkyEvent): number {
+  const mid = e.span ? Math.round((e.start_year + e.end_year) / 2) : e.start_year;
+  const y = snapYear(mid);
+  if (skyShownAt(e, y)) return y;
+  for (const dir of [1, -1] as const) {
+    const n = stepYear(y, dir);
+    if (skyShownAt(e, n)) return n;
+  }
+  return y;
+}

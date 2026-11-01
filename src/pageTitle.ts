@@ -5,6 +5,7 @@ import { useData } from "./map/data";
 import { tourById } from "./tours/tours";
 import { dnaSiteById, useDna } from "./dna/data";
 import { formatCoords } from "./region/region";
+import { skyById } from "./sky/sky";
 
 const SITE_NAME = "Ancestor Atlas";
 
@@ -17,6 +18,7 @@ const VIEW_LABELS: Record<Exclude<View, "globe">, string> = {
   cultures: "Cultures",
   civilizations: "Civilizations",
   cities: "Cities",
+  sky: "In the Sky",
 };
 
 /** Compute the page title for a given view and selection state. */
@@ -58,13 +60,14 @@ export function usePageTitle() {
   const groupId = useStore((s) => s.groupId);
   const hits = useStore((s) => s.hits);
   const dnaSiteId = useStore((s) => s.dnaSite);
+  const skyId = useStore((s) => s.skyId);
   const place = useStore((s) => s.place);
   const dna = useDna(!!dnaSiteId);
 
   const openItemName = openId ? data?.entityById.get(openId)?.name : undefined;
   const tourTitle = tourId ? tourById(tourId)?.title : undefined;
   const selectedEntityId = groupId ?? (selectedId ? hits.find((h) => h.id === selectedId)?.entity_id : undefined);
-  const selectedEntityName = selectedEntityId ? data?.entityById.get(selectedEntityId)?.name : undefined;
+  const selectedEntityName = selectedEntityId ? data?.entityById.get(selectedEntityId)?.name : skyById(skyId)?.name;
   const dnaSiteName = dnaSiteById(dna, dnaSiteId)?.name;
   const placeLabel = place ? formatCoords(place.lon, place.lat) : undefined;
 

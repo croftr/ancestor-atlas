@@ -605,3 +605,17 @@
   .sp-row, .sp-pic img { transition: none; }
   .sp-row:hover .sp-pic img { transform: none; }
 }
+
+/* ---- In the sky (#/sky, sky/SkyPage.tsx): sections by kind, the browse pages' cards with the sky's drawing
+   in the picture's place, and the detail view. ---- */
+.sky-section-head { margin: 8px 0 14px; }
+.sky-section-head h2 { margin: 0 0 4px; font-family: Georgia, serif; font-weight: 500; font-size: 1.45rem; }
+.sky-section-head p { margin: 0; max-width: 70ch; }
+.cu-card-img.sky-thumb { background: #03050c; }
+.cu-card-img.sky-thumb .sky-picture { position: absolute; inset: 0; height: 100%; border-radius: 0; aspect-ratio: auto; }
+.cu-card-date .sky-certainty { margin-left: 8px; }
+.sky-detail .ev-detail-media .sky-picture { border-radius: 12px; }
+.sky-detail-note { font-size: 0.85rem; }
+.sky-detail-source { font-size: 0.85rem; }
+.sky-detail-source a { color: #8ec5ff; }
+.sky-detail-nav { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 14px; }

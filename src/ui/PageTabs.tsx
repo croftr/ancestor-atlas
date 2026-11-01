@@ -3,12 +3,14 @@ import { navigate, useOpenItem, useView, type View } from "../route";
 import { useStore } from "../store";
 import { CATEGORY_STYLE } from "../config";
 import { CategoryIcon } from "./CategoryIcon";
+import { SkyIcon } from "../sky/SkyCard";
+import { SKY_STYLE } from "../sky/sky";
 import { TimelineIcon, ToursIcon } from "./SideNav";
 import { useMediaQuery } from "./useMediaQuery";
 
 /**
  * Phones only (the width below which the side rail becomes a drawer): a tab bar across the top of
- * the Timeline, Events, Species, Cultures, Civilizations, Cities and Tours pages. The current tab shows its name,
+ * the Timeline, Events, Species, Cultures, Civilizations, Cities, Sky and Tours pages. The current tab shows its name,
  * so it stands in for the page title (the page's own <h1> stays for screen readers). Swipe left or
  * right on the page to move to the next or previous tab. The globe, intro, sources and settings
  * stay in the menu drawer, whose button sits at the left end of the bar.
@@ -29,6 +31,7 @@ export const TABS: Tab[] = [
   { view: "cultures", label: "Cultures", icon: <CategoryIcon category="culture" />, accent: CATEGORY_STYLE.culture.color },
   { view: "civilizations", label: "Civilizations", icon: <CategoryIcon category="civilization" />, accent: CATEGORY_STYLE.civilization.color },
   { view: "cities", label: "Cities", icon: <CategoryIcon category="city" />, accent: CATEGORY_STYLE.city.color },
+  { view: "sky", label: "Sky", icon: <SkyIcon />, accent: SKY_STYLE.color },
   { view: "tours", label: "Tours", icon: ToursIcon, accent: "#c39bff" },
 ];
 

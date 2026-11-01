@@ -502,10 +502,16 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   conjunction of 2 BCE. Drawn with CSS by `src/sky/SkyObjects.tsx` at fixed places per kind (`SKY_PLACE`; the
   background is not a real sky; auroras span the top) while the slider is within one step, and named in the climate
   panel ("In the sky") and the Sources panel. A span (iron-60) flares now and then, never shines steadily.
-  Clickable: `SkyHits` (over the map in `MapView.tsx`) opens a small panel (what, when, source; Escape, a click
-  elsewhere or the slider moving away closes it). Unlike things on the ground, the sky may carry doubtful dates
-  (Rob's call, 1 Nov 2026) if `certainty` says so ("Disputed", "Legend", "Auroras inferred"...), shown as a tag.
-  `sky.test.ts`: never two things in one place at once.
+  Clickable: `SkyHits` (over the map in `MapView.tsx`) opens the sky object's card in the info card's place
+  (`src/sky/SkyCard.tsx`, store `skyId` / `openSky`; built from the card parts like the others: step-through bar,
+  head with the sky's star badge (`SKY_STYLE`), Sky page action, the drawing as its picture, description, an
+  "In the atlas" note, Sources); it closes when the slider leaves its time. Unlike things on the ground, the sky may
+  carry doubtful dates (Rob's call, 1 Nov 2026) if `certainty` says so ("Disputed", "Legend"...), shown as a tag.
+  `sky.test.ts`: never two things in one place at once; `skyYear` (where "Show in the sky" lands) shows it.
+- Sky page `#/sky` (`src/sky/SkyPage.tsx`, Rob's call, 1 Nov 2026; in the rail and phone tabs): sections by kind
+  (`SKY_KIND_PLURAL`, blurbs written by Claude), the browse pages' cards with the drawing as the picture, search and
+  pinned kind chips, a detail view at `#/sky/<id>` (arrow keys step) whose "Show in the sky" (store `showSky`) moves
+  the slider and opens the card on the globe.
 
 ## What Was Here? (`src/region/`)
 

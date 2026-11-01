@@ -5,9 +5,9 @@ import type { Category } from "./types";
  * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
  * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, and "#/events",
  * "#/species", "#/cultures", "#/civilizations" and "#/cities" the browse pages, with "#/<page>/<id>" one entry open on it,
- * "#/tours" the guided tours (a tour itself plays on the globe: "#/tour/<id>"), "#/news" recent research news.
+ * "#/sky" what was seen in the sky ("#/sky/<id>" one of them), "#/tours" the guided tours (a tour itself plays on the globe: "#/tour/<id>"), "#/news" recent research news.
  */
-export type View = "globe" | "timeline" | "tours" | "news" | BrowseView;
+export type View = "globe" | "timeline" | "tours" | "news" | "sky" | BrowseView;
 /** Pages that list one category and open an entry in a detail view. */
 export type BrowseView = "events" | "species" | "cultures" | "civilizations" | "cities";
 const BROWSE_VIEWS: BrowseView[] = ["events", "species", "cultures", "civilizations", "cities"];
@@ -28,6 +28,7 @@ const viewOfHash = (hash: string): View => {
   if (page === "timeline") return "timeline";
   if (page === "tours") return "tours";
   if (page === "news") return "news";
+  if (page === "sky") return "sky";
   if ((BROWSE_VIEWS as string[]).includes(page)) return page as BrowseView;
   return "globe";
 };

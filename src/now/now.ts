@@ -46,14 +46,14 @@ export function nowItems(data: Data, year: number, enabled: Record<Category, boo
   return items;
 }
 
-/** Where the open card or sky panel is in the list: -1 when neither is (or a group's card is open). */
+/** Where the open card (an entity's or a sky object's) is in the list: -1 when neither is (or a group's card is open). */
 export function nowIndex(
   items: NowItem[],
   s: { selectedId: string | null; hits: FeatureProps[]; groupId: string | null },
-  skyOpen: string | null,
+  skyId: string | null,
 ): number {
-  if (skyOpen) return items.findIndex((i) => i.kind === "sky" && i.id === skyOpen);
   const f = s.selectedId ? s.hits.find((h) => h.id === s.selectedId) : undefined;
-  if (!f) return -1;
-  return items.findIndex((i) => i.kind === "entity" && i.id === f.entity_id);
+  if (f) return items.findIndex((i) => i.kind === "entity" && i.id === f.entity_id);
+  if (s.groupId || !skyId) return -1;
+  return items.findIndex((i) => i.kind === "sky" && i.id === skyId);
 }

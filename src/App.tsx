@@ -3,6 +3,7 @@ import MapView from "./map/MapView";
 import Legend from "./ui/Legend";
 import InfoPanel from "./ui/InfoPanel";
 import DnaCard from "./dna/DnaCard";
+import SkyCard from "./sky/SkyCard";
 import PlaceCard from "./region/PlaceCard";
 import TimeSlider from "./ui/TimeSlider";
 import SearchBox from "./ui/SearchBox";
@@ -28,6 +29,7 @@ const CulturesPage = lazy(() => import("./browse/CulturesPage"));
 const SpeciesPage = lazy(() => import("./browse/SpeciesPage"));
 const CivilizationsPage = lazy(() => import("./browse/CivilizationsPage"));
 const CitiesPage = lazy(() => import("./browse/CitiesPage"));
+const SkyPage = lazy(() => import("./sky/SkyPage"));
 const IntroModal = lazy(() => import("./ui/IntroModal"));
 
 export default function App() {
@@ -51,10 +53,10 @@ export default function App() {
   }, [setIntroOpen]);
 
   // An open info card on the globe: the time slider narrows so the two never overlap.
-  const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.place !== null || s.tour?.note === true);
+  const hasCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.skyId !== null || s.place !== null || s.tour?.note === true);
   const touring = useStore((s) => s.tour !== null);
   // Another card (or none) clears a card that failed to render.
-  const cardKey = useStore((s) => `${s.selectedId}|${s.groupId}|${s.dnaSite}|${s.place ? `${s.place.lon},${s.place.lat}` : ""}`);
+  const cardKey = useStore((s) => `${s.selectedId}|${s.groupId}|${s.dnaSite}|${s.skyId}|${s.place ? `${s.place.lon},${s.place.lat}` : ""}`);
   // The card's width as dragged (desktop); the CSS clamps it to the window (ui/sidenav.css).
   const cardWidth = useStore((s) => s.cardWidth);
   return (
@@ -69,6 +71,7 @@ export default function App() {
         <a href="#/cultures">Cultures list</a>
         <a href="#/civilizations">Civilizations list</a>
         <a href="#/cities">Cities list</a>
+        <a href="#/sky">In the sky list</a>
         <a href="#/events">Events list</a>
         <a href="#/tours">Guided tours</a>
       </nav>
@@ -85,6 +88,7 @@ export default function App() {
             <ErrorBoundary what="This card" resetKey={cardKey} className="info-panel" onClose={() => useStore.getState().select(null)}>
               <InfoPanel />
               <DnaCard />
+              <SkyCard />
               <PlaceCard />
             </ErrorBoundary>
             <TimeSlider />
@@ -104,6 +108,7 @@ export default function App() {
             {view === "cultures" && <CulturesPage />}
             {view === "civilizations" && <CivilizationsPage />}
             {view === "cities" && <CitiesPage />}
+            {view === "sky" && <SkyPage />}
             {view === "tours" && <ToursPage />}
             {view === "news" && <NewsPage />}
           </Suspense>

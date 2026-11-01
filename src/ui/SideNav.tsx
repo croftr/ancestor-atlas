@@ -4,6 +4,7 @@ import { useStore } from "../store";
 import SettingsContent from "./SettingsPanel";
 import SourcesContent from "./SourcesPanel";
 import { CategoryIcon } from "./CategoryIcon";
+import { SkyIcon } from "../sky/SkyCard";
 
 /**
  * Left navigation rail, on every page. Desktop: a slim icon rail that widens to show labels.
@@ -42,6 +43,7 @@ const SpeciesIcon = <CategoryIcon category="species" />;
 const CulturesIcon = <CategoryIcon category="culture" />;
 const CivilizationsIcon = <CategoryIcon category="civilization" />;
 const CitiesIcon = <CategoryIcon category="city" />;
+const SkyNavIcon = <SkyIcon />;
 /** Guided tours: a film frame with a play mark. */
 export const ToursIcon = (
   <Icon>
@@ -91,6 +93,7 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
   { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
   { id: "cities", label: "Cities", icon: CitiesIcon, view: "cities", hint: "The first towns and cities" },
+  { id: "sky", label: "In the sky", icon: SkyNavIcon, view: "sky", hint: "Supernovae, comets, eclipses and auroras people saw" },
   { id: "tours", label: "Tours", icon: ToursIcon, view: "tours", hint: "Guided tours to sit back and watch" },
   { id: "news", label: "News", icon: NewsIcon, view: "news", hint: "New research on human origins and the ancient world" },
 ];

@@ -1,14 +1,12 @@
 import { useEffect } from "react";
 import { useData } from "../map/data";
-import { useSkyOpen } from "../sky/skyOpen";
 import { useStore } from "../store";
 import { formatYear } from "../time/scale";
 import { nowIndex, nowItems } from "./now";
 
 /**
  * "‹ 4 of 37 at this time ›": steps through everything on the globe at the slider's year, sky objects
- * included (now/now.ts, store `stepNow`), from the top of the card (ui/InfoPanel.tsx) or of a sky object's
- * panel (sky/SkyObjects.tsx). The slider stays where it is. Hidden in a tour, which owns the card, and when
+ * included (now/now.ts, store `stepNow`), from the top of the card (ui/InfoPanel.tsx, sky/SkyCard.tsx). The slider stays where it is. Hidden in a tour, which owns the card, and when
  * only one thing is showing. Keys: , and . (useNowKeys).
  */
 export default function NowStepper() {
@@ -20,11 +18,11 @@ export default function NowStepper() {
   const groupId = useStore((s) => s.groupId);
   const touring = useStore((s) => s.tour !== null);
   const stepNow = useStore((s) => s.stepNow);
-  const skyOpen = useSkyOpen((s) => s.open);
+  const skyId = useStore((s) => s.skyId);
   if (!data || touring) return null;
   const items = nowItems(data, year, enabled);
   if (items.length < 2) return null;
-  const i = nowIndex(items, { selectedId, hits, groupId }, skyOpen);
+  const i = nowIndex(items, { selectedId, hits, groupId }, skyId);
   const when = formatYear(year);
   return (
     <div className="now-stepper" role="group" aria-label={`Everything on the globe in ${when}`}>

@@ -9,7 +9,7 @@ import type { DnaColour } from "./dna/haplogroups";
 import { circleBBox, DEFAULT_RADIUS_KM } from "./region/region";
 import { areaAt, type AreaLevel } from "./region/area";
 import { nowIndex, nowItems } from "./now/now";
-import { useSkyOpen } from "./sky/skyOpen";
+import { skyById, skyYear } from "./sky/sky";
 
 export interface PlaceQuery {
   lon: number;
@@ -89,6 +89,8 @@ interface AppState {
   dnaColour: DnaColour;
   /** The ancient DNA site whose card is open (shown only while no other card is). */
   dnaSite: string | null;
+  /** The sky object whose card is open (sky/SkyCard.tsx), shown while no other card is. */
+  skyId: string | null;
   /** Keep the climate details open under the legend, following the slider (desktop; ui/ClimatePanel.tsx). */
   climatePanel: boolean;
   /** Show the legend panel (top left; ui/Legend.tsx). */
@@ -214,6 +216,10 @@ interface AppState {
   setDna(on: boolean): void;
   setDnaColour(mode: DnaColour): void;
   openDnaSite(id: string | null): void;
+  /** Open a sky object's card (null closes it), closing any other card. */
+  openSky(id: string | null): void;
+  /** Move the slider to when a sky object shows and open its card ("Show in the sky"). */
+  showSky(id: string): void;
   /** Regional Explorer ("What Was Here?"): query all 7 million years around a point on the globe. */
   place: PlaceQuery | null;
   /** Kept when drilling into an entity or DNA card from `PlaceCard` so "← Back to region" can return. */
@@ -249,6 +255,7 @@ export const useStore = create<AppState>((set, get) => ({
   dna: loadOn(DNA_KEY),
   dnaColour: loadDnaColour(),
   dnaSite: null,
+  skyId: null,
   place: null,
   lastPlace: null,
   placeMode: false,
@@ -277,6 +284,7 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => ({
       selectedId: id,
       dnaSite: null,
+      skyId: null,
       groupId: null,
       place: null,
       lastPlace: id === null ? null : (s.place ?? s.lastPlace),
@@ -438,14 +446,12 @@ export const useStore = create<AppState>((set, get) => ({
     if (!d || s.tour) return;
     const items = nowItems(d, s.year, s.enabled);
     if (!items.length) return;
-    const i = nowIndex(items, s, useSkyOpen.getState().open);
+    const i = nowIndex(items, s, s.skyId);
     const next = items[i < 0 ? (dir === 1 ? 0 : items.length - 1) : (i + dir + items.length) % items.length];
     if (next.kind === "sky") {
-      useSkyOpen.getState().setOpen(next.id);
-      set((st) => ({ playing: false, selectedId: null, hits: [], groupId: null, place: null, lastPlace: st.place ?? st.lastPlace }));
+      get().openSky(next.id);
       return;
     }
-    useSkyOpen.getState().setOpen(null);
     const bbox = unionBBox(
       next.features.flatMap((f): BBox[] => {
         const b = d.bboxOf.get(f.id);
@@ -455,6 +461,8 @@ export const useStore = create<AppState>((set, get) => ({
     set((st) => ({
       playing: false,
       selectedId: next.features[0].id,
+      skyId: null,
+      dnaSite: null,
       hits: next.features,
       groupId: null,
       place: null,
@@ -495,6 +503,18 @@ export const useStore = create<AppState>((set, get) => ({
       /* storage unavailable */
     }
     set({ dnaColour: mode });
+  },
+  openSky: (id) =>
+    set((s) =>
+      id === null
+        ? { skyId: null }
+        : { skyId: id, selectedId: null, hits: [], groupId: null, dnaSite: null, place: null, lastPlace: null, playing: false, pictureViewer: s.tour ? s.pictureViewer : false },
+    ),
+  showSky: (id) => {
+    const e = skyById(id);
+    if (!e) return;
+    set({ year: skyYear(e) });
+    get().openSky(id);
   },
   openDnaSite: (id) =>
     set((s) => ({
