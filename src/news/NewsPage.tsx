@@ -11,7 +11,7 @@ import { TopicIcon, TopicTile } from "./TopicIcon";
 import { NEWS_TOPICS, type NewsStory, type NewsTopic } from "./types";
 
 /** The browse page each entity category opens on. */
-const PAGE_OF: Record<string, BrowseView> = { species: "species", culture: "cultures", civilization: "civilizations", event: "events" };
+const PAGE_OF: Record<string, BrowseView> = { species: "species", culture: "cultures", civilization: "civilizations", city: "cities", event: "events" };
 
 const ACCENT = "#f0b86e";
 

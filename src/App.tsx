@@ -27,6 +27,7 @@ const EventsPage = lazy(() => import("./events/EventsPage"));
 const CulturesPage = lazy(() => import("./browse/CulturesPage"));
 const SpeciesPage = lazy(() => import("./browse/SpeciesPage"));
 const CivilizationsPage = lazy(() => import("./browse/CivilizationsPage"));
+const CitiesPage = lazy(() => import("./browse/CitiesPage"));
 const IntroModal = lazy(() => import("./ui/IntroModal"));
 
 export default function App() {
@@ -67,6 +68,7 @@ export default function App() {
         <a href="#/species">Species list</a>
         <a href="#/cultures">Cultures list</a>
         <a href="#/civilizations">Civilizations list</a>
+        <a href="#/cities">Cities list</a>
         <a href="#/events">Events list</a>
         <a href="#/tours">Guided tours</a>
       </nav>
@@ -101,6 +103,7 @@ export default function App() {
             {view === "species" && <SpeciesPage />}
             {view === "cultures" && <CulturesPage />}
             {view === "civilizations" && <CivilizationsPage />}
+            {view === "cities" && <CitiesPage />}
             {view === "tours" && <ToursPage />}
             {view === "news" && <NewsPage />}
           </Suspense>

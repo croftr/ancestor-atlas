@@ -1,7 +1,7 @@
 import { type Category, type Entity } from "../types";
 
 /** Lane order on the timeline: events first, as markers over the rest. */
-export const LANE_ORDER: Category[] = ["event", "species", "culture", "civilization"];
+export const LANE_ORDER: Category[] = ["event", "species", "culture", "civilization", "city"];
 
 /**
  * Pure helpers for the timeline page: the zoomable linear time window, axis ticks, duration text

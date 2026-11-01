@@ -199,6 +199,82 @@ for (const ev of curatedEvents) {
   });
 }
 
+// Cities (data/curated/cities.yaml): one entity each, one Point feature. A city belongs to one civilization or culture
+// (`part_of`, which the eyebrow and the Cities page use) and may name others it was ruled by or grew out of (`related`).
+// Its span is its whole life as a settlement, cut at 1 CE where the atlas ends (`date_text` says when it really ended).
+interface CuratedCity {
+  id: string;
+  name: string;
+  start_year: number;
+  end_year: number;
+  date_text: string;
+  description: string;
+  part_of: string;
+  related?: string[];
+  wikipedia_url?: string;
+  wikidata?: string;
+  date_source?: string;
+  lat: number;
+  lon: number;
+  coord_source?: string;
+  note?: string;
+  image_url?: string;
+  image_credit?: string;
+  image_caption?: string;
+  video?: { src: string; credit: string };
+  extra_images?: ExtraImage[];
+  media?: { kind: "video" | "audio"; src: string; title: string; credit: string }[];
+  narration?: { src: string; credit: string; text_hash: string };
+}
+const curatedCities = existsSync(`${CURATED}/cities.yaml`)
+  ? ((parseYaml(readFileSync(`${CURATED}/cities.yaml`, "utf8")) as CuratedCity[]) ?? [])
+  : [];
+for (const c of curatedCities) {
+  if (curatedIds.has(c.id) || entities.has(c.id)) fail(`cities.yaml: duplicate id ${c.id}`);
+  if (!(c.start_year <= c.end_year)) fail(`cities.yaml: ${c.id}: starts after it ends`);
+  if (c.end_year > 1) fail(`cities.yaml: ${c.id}: end_year ${c.end_year} is past 1 CE, where the atlas ends (cut it at 1; date_text says when it ended)`);
+  if (!c.part_of) fail(`cities.yaml: ${c.id}: needs part_of (the civilization or culture it belongs to)`);
+  if (!Number.isFinite(c.lat) || !Number.isFinite(c.lon)) fail(`cities.yaml: ${c.id}: bad coordinates`);
+  entities.set(c.id, {
+    id: c.id,
+    name: c.name,
+    category: "city",
+    start_year: c.start_year,
+    end_year: c.end_year,
+    date_text: c.date_text,
+    description: c.description,
+    part_of: c.part_of,
+    related_ids: [...new Set([c.part_of, ...(c.related ?? [])])],
+    wikidata: c.wikidata,
+    wikipedia_url: c.wikipedia_url,
+    image_url: c.image_url,
+    image_credit: c.image_credit,
+    image_caption: c.image_caption,
+    video: c.video,
+    extra_images: c.extra_images?.length ? c.extra_images : undefined,
+    media: c.media?.length ? c.media : undefined,
+    narration: c.narration,
+    source_ids: [],
+  });
+  const coord_source = c.coord_source ?? (c.wikidata ? `wikidata:${c.wikidata}#P625` : undefined);
+  const props: FeatureProps = {
+    id: `${c.id}@1`,
+    entity_id: c.id,
+    category: "city",
+    start_year: c.start_year,
+    end_year: c.end_year,
+    label: c.name,
+    date_text: c.date_text,
+    // Sourced once both the place and the date are evidenced; otherwise flagged as unverified.
+    source_id: coord_source && c.date_source ? "wikimedia" : "recall",
+  };
+  if (c.wikidata) props.wikidata = c.wikidata;
+  if (coord_source) props.coord_source = coord_source;
+  if (c.date_source) props.date_source = c.date_source;
+  if (c.note) props.notes = c.note;
+  features.push({ props, geometry: { type: "Point", coordinates: [c.lon, c.lat] } });
+}
+
 // Culture sites from XRONOS radiocarbon dates (local copy only; see scripts/ingest/xronos.ts).
 // A XRONOS site within 2 km of a curated site of the same entity is skipped: the curated row wins.
 const xr = readXronosSites();
@@ -426,10 +502,10 @@ if (mixedRegions.length)
 
 // ---------- spans ----------
 // Species/culture spans must cover every site window (bulk sources can extend what the curated rows give).
-// An event keeps the span it states: a place dated on its own (a later example, say) does not stretch it.
+// An event keeps the span it states: a place dated on its own (a later example, say) does not stretch it. So does a city.
 for (const f of features) {
   const e = entities.get(f.props.entity_id);
-  if (!e || e.category === "civilization" || e.category === "event") continue;
+  if (!e || e.category === "civilization" || e.category === "event" || e.category === "city") continue;
   e.start_year = Math.min(e.start_year, f.props.start_year);
   e.end_year = Math.max(e.end_year, f.props.end_year);
 }
@@ -447,6 +523,14 @@ for (const id of descriptionFromWikidata) entities.get(id)!.source_ids.push("wik
 const usedSources = new Set([...entities.values()].flatMap((e) => e.source_ids));
 for (const f of features) usedSources.add(f.props.source_id);
 for (const id of usedSources) if (!sources.has(id)) fail(`unknown source id "${id}" (add it to sources.yaml)`);
+
+// A city's part_of and related ids must name entities (a typo would quietly drop the link on its card).
+for (const c of curatedCities)
+  for (const r of new Set([c.part_of, ...(c.related ?? [])])) {
+    const e = entities.get(r);
+    if (!e) fail(`cities.yaml: ${c.id}: unknown entity ${r}`);
+    else if (e.category === "city" || e.category === "event") fail(`cities.yaml: ${c.id}: ${r} is a ${e.category}; part_of and related name civilizations, cultures or species`);
+  }
 
 // ---------- write ----------
 mkdirSync(OUT, { recursive: true });

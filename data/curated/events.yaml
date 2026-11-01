@@ -5,7 +5,7 @@
 # gives a range. `places` are the points shown on the globe: coordinates from Wikidata (P625) with the
 # item recorded; `note` says when only a place-level item (a district, river or region) has
 # coordinates. `date_source` pins the English Wikipedia revision the date was checked against.
-# `related` links to species / cultures / civilizations by id.
+# `related` links to species / cultures / civilizations / cities by id.
 # Optional media: `image_url` + `image_credit` (author and licence; required together).
 # Optional `extra_images`: more pictures after the main one, in order ({ url, credit, optional caption,
 # optional `at`: seconds into the narration to switch to it; untimed ones share the hold evenly). Tours only, for now.
@@ -811,7 +811,7 @@
   end_year: -3349
   date_text: c. 3500–3350 BCE
   description: The wheel-and-axle mechanism emerged in both potters' turntables and heavy four-wheeled carts across the Eurasian steppes and Mesopotamian floodplains. Replacing dragging sledges with wheeled draft wagons transformed overland cargo transport, agrarian efficiency, and regional military organization.
-  related: [sumerian-city-states, cucuteni-trypillia, funnelbeaker]
+  related: [sumerian-city-states, cucuteni-trypillia, funnelbeaker, uruk]
   wikipedia_url: https://en.wikipedia.org/wiki/Wheel
   image_url: /images/events/invention-of-the-wheel.webp
   image_credit: AI-generated illustration
@@ -857,7 +857,7 @@
   year: -3299
   date_text: c. 3300 BCE (Uruk IV tablets)
   description: Cuneiform script evolved from clay tokens and administrative seals used to track grain stores, livestock and trade in growing city-states. This system of marks moved from basic pictograms to an abstract logosyllabic script, marking the beginning of recorded history, legal codification, and literature.
-  related: [sumerian-city-states]
+  related: [sumerian-city-states, uruk]
   wikipedia_url: https://en.wikipedia.org/wiki/Cuneiform
   image_url: /images/events/development-of-writing.webp
   image_credit: AI-generated illustration
@@ -948,7 +948,7 @@
   year: -2499
   date_text: c. 2500 BCE
   description: The Indus Valley Civilization built cities from standardized baked bricks laid along orthogonal grid plans. Mohenjo-daro had some of the world's earliest urban sanitation, including private bathing rooms, covered street drains, terracotta drain chutes, and public reservoirs like the Great Bath, showing centralized civil engineering centuries ahead of its time.
-  related: [indus-valley-civilization]
+  related: [indus-valley-civilization, mohenjo-daro]
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
   image_url: /images/events/indus-cities.webp
   image_credit: AI-generated illustration

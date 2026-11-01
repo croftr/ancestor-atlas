@@ -1,0 +1,51 @@
+# Cities and towns (category "city"): one entity each, one point on the globe.
+#
+# A city is any lasting town or city, disputed or not (Rob's call, 1 Nov 2026). Its span is its life as a settlement,
+# from founding to abandonment, in astronomical years (1 CE = 1, 1 BCE = 0, N BCE = 1 - N). The atlas ends at 1 CE, so a
+# city that lived on is cut at `end_year: 1` and `date_text` says when it really ended (the card shows date_text).
+# `date_source` pins the English Wikipedia revision the dates were checked against; the point's coordinates come from
+# Wikidata (P625 of `wikidata`) unless `coord_source` says otherwise; `note` marks a place-level point.
+# `part_of`: the civilization or culture the city belongs to (shown on its card and used for its section on the Cities
+# page); `related`: others it grew out of or was ruled by (civilizations, cultures). Events can name a city in their
+# `related`, and the city's page lists them.
+# Pictures: `image_url` is the main picture, 1200x900 (4:3) WebP in public/images/cities/<id>.webp with a 600x450
+# companion <id>-600.webp, plus `image_credit` and, for an AI-generated one, `image_caption`. `extra_images` as for
+# events and entities ({ url, credit, caption, source }), in public/images/extra/<id>-<n>.webp.
+# Narration: npm run audio:narrate -- <id> (bucket key narration/cities/<id>-v<n>.mp3).
+
+- id: uruk
+  name: Uruk
+  start_year: -4999
+  end_year: 1
+  date_text: c. 5000 BCE – c. 700 CE
+  description: "Uruk, in the south of what is now Iraq, was one of the world's first cities. Two small Ubaid farming villages beside a channel of the Euphrates grew into the twin towns of Unug and Kullaba, which merged into one. By about 3100 BCE Uruk may have held up to 50,000 people, the largest city on Earth at the time. At its heart stood two temple districts, Eanna for the goddess Inanna and the terraced Anu district, ringed by workshops and by houses grouped by trade, and canals ran through its streets to the river and the fields. Thousands of the earliest written clay tablets were found there, from about 3300 to 2900 BCE. Later legend made Gilgamesh its king and the builder of its walls. Uruk lost its lead when the Akkadian Empire rose, but revived again and again, under Ur, the Assyrians, the Babylonians and the Seleucids, and was not abandoned until about 700 CE."
+  part_of: sumerian-city-states
+  related: [ubaid, akkadian-empire, babylonia, neo-assyrian-empire, neo-babylonian-empire, achaemenid-empire, seleucid-empire, parthian-empire]
+  wikipedia_url: https://en.wikipedia.org/wiki/Uruk
+  wikidata: Q168518
+  date_source: wikipedia:Uruk@1382628940
+  lat: 31.3259
+  lon: 45.6374
+  extra_images:
+    - { url: /images/extra/uruk-1.webp, credit: "Annemarie Schwarzenbach, public domain (Swiss National Library), via Wikimedia Commons", caption: "A ziggurat mound rising over the ruins of Uruk (Warka), photographed in 1933–34", source: "https://commons.wikimedia.org/wiki/File:CH-NB_-_Irak,_Uruk_(Warka)-_Zikurrat_-_Annemarie_Schwarzenbach_-_SLA-Schwarzenbach-A-5-03-131.jpg" }
+    - { url: /images/extra/uruk-2.webp, credit: "Neoclassicism Enthusiast, CC0, via Wikimedia Commons", caption: "Columns covered in a mosaic of coloured clay cones, from the Eanna temple precinct at Uruk, 3600–3200 BCE (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Columns_with_clay_mosaic_cones_from_the_Eanna_precinct_in_Uruk_(southern_Mesopotamia),_Pergamon_Museum,_Berlin,_Germany,_unknown_architect,_3600-3200_BC_(01).jpg" }
+    - { url: /images/extra/uruk-3.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "One of the first written tablets, from Uruk, about 3200 BCE: a word list naming 58 kinds of pig (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Clay_tablet,_lexical_text,_listing_58_different_terms_for_pig._From_Uruk,_Iraq._3200_BCE._Pergamon_Museum.jpg" }
+    - { url: /images/extra/uruk-4.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Mask of Warka, a woman's face carved in marble at Uruk, 3000–2900 BCE; its eyes and brows were once inlaid (Iraq Museum, Baghdad)", source: "https://commons.wikimedia.org/wiki/File:Warka_mask_(cropped).jpg" }
+
+- id: mohenjo-daro
+  name: Mohenjo-daro
+  start_year: -2499
+  end_year: -1699
+  date_text: c. 2500 – c. 1700 BCE
+  description: "Mohenjo-daro, in Sindh in what is now Pakistan, was built around 2500 BCE and became one of the largest cities of the Indus Valley Civilisation, home to perhaps 40,000 people. It was planned: straight streets on a grid, houses of fired brick around inner courtyards, and covered drains along the main streets to carry waste water away. More than 700 wells, about one for every three houses, gave it water. On a raised mud-brick citadel stood its public buildings, among them the Great Bath, a brick pool sealed with bitumen that may have been used for ritual washing. Its people cast copper and bronze, carved stone seals, and made jewellery of gold and jasper. By about 1700 BCE, as the Indus cities declined, it had been abandoned. Its real name is lost: Mohenjo-daro means 'Mound of the Dead Men'. The ruins were rediscovered in the 1920s."
+  part_of: indus-valley-civilization
+  wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
+  wikidata: Q5725
+  date_source: wikipedia:Mohenjo-daro@1376909925
+  lat: 27.329167
+  lon: 68.138889
+  extra_images:
+    - { url: /images/extra/mohenjo-daro-1.webp, credit: "Ziegler175, CC BY-SA 3.0, via Wikimedia Commons", caption: "The brick houses and streets of Mohenjo-daro, seen from the stupa mound on the citadel", source: "https://commons.wikimedia.org/wiki/File:MoenjoDaroVS.jpg" }
+    - { url: /images/extra/mohenjo-daro-2.webp, credit: "Smn121, CC BY-SA 3.0, via Wikimedia Commons", caption: "One of Mohenjo-daro's round brick wells, among the walls of the houses it served", source: "https://commons.wikimedia.org/wiki/File:Moenjodaro_by_smn121_-12.JPG" }
+    - { url: /images/extra/mohenjo-daro-3.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "A steatite seal from Mohenjo-daro with a 'unicorn' and a line of Indus script, above a modern impression of it (Musée Guimet, Paris)", source: "https://commons.wikimedia.org/wiki/File:Sceau_Indus_unicorne_Guimet.jpg" }
+    - { url: /images/extra/mohenjo-daro-4.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "A terracotta die from Mohenjo-daro, 2600–1900 BCE; its opposite sides add up to seven, as on dice today (Ashmolean Museum, Oxford)", source: "https://commons.wikimedia.org/wiki/File:Dice_Mohenjodaro_EAMd25.jpg" }

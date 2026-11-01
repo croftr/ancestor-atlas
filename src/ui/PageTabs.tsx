@@ -8,7 +8,7 @@ import { useMediaQuery } from "./useMediaQuery";
 
 /**
  * Phones only (the width below which the side rail becomes a drawer): a tab bar across the top of
- * the Timeline, Events, Species, Cultures, Civilizations and Tours pages. The current tab shows its name,
+ * the Timeline, Events, Species, Cultures, Civilizations, Cities and Tours pages. The current tab shows its name,
  * so it stands in for the page title (the page's own <h1> stays for screen readers). Swipe left or
  * right on the page to move to the next or previous tab. The globe, intro, sources and settings
  * stay in the menu drawer, whose button sits at the left end of the bar.
@@ -28,6 +28,7 @@ export const TABS: Tab[] = [
   { view: "species", label: "Species", icon: <CategoryIcon category="species" />, accent: CATEGORY_STYLE.species.color },
   { view: "cultures", label: "Cultures", icon: <CategoryIcon category="culture" />, accent: CATEGORY_STYLE.culture.color },
   { view: "civilizations", label: "Civilizations", icon: <CategoryIcon category="civilization" />, accent: CATEGORY_STYLE.civilization.color },
+  { view: "cities", label: "Cities", icon: <CategoryIcon category="city" />, accent: CATEGORY_STYLE.city.color },
   { view: "tours", label: "Tours", icon: ToursIcon, accent: "#c39bff" },
 ];
 

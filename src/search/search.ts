@@ -93,7 +93,7 @@ export interface Place {
 }
 
 /**
- * Index the site labels (species, culture and event points; civilization territories are named
+ * Index the site labels (species, culture, city and event points; civilization territories are named
  * after their entity, which the entity search finds already). Sites sharing a label within about
  * 5 km are one place, so "Denisova Cave" lists Denisovans and Neanderthals together.
  */

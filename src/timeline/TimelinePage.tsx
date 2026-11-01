@@ -27,6 +27,7 @@ import {
   fitWindow,
   formatDuration,
   laneExtents,
+  LANE_ORDER,
   panWindow,
   shortDate,
   shortDuration,
@@ -660,7 +661,7 @@ function Overview({ entities, win, min, onWindow }: { entities: Entity[]; win: W
   const ref = useRef<HTMLDivElement>(null);
   const brush = useRef<{ p0: number; moved: boolean } | null>(null);
   const [sel, setSel] = useState<[number, number] | null>(null);
-  const lanes: Category[] = ["event", "species", "culture", "civilization"];
+  const lanes = LANE_ORDER;
   const lines = useMemo(
     () => entities.filter((e) => !e.group).map((e) => ({ e, a: yearToPos(e.start_year), b: yearToPos(e.end_year) })),
     [entities],
@@ -712,7 +713,7 @@ function Overview({ entities, win, min, onWindow }: { entities: Entity[]; win: W
             <line key={p} x1={p * 1000} x2={p * 1000} y1={0} y2={30} className="tl-ov-break" />
           ))}
           {lines.map(({ e, a: la, b: lb }) => {
-            const y = 4 + lanes.indexOf(e.category) * 7.3;
+            const y = 3 + lanes.indexOf(e.category) * (24 / (lanes.length - 1));
             return (
               <line
                 key={e.id}

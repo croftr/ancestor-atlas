@@ -6,8 +6,8 @@ export const SOURCE_ID = "features";
 /** One point inside the selected civilization's territory, carrying its badge (set in MapView). */
 export const ANCHOR_SOURCE_ID = "civ-anchor";
 
-/** Map images for the category icons drawn on species and event markers (added in MapView). */
-export const ICON_IMAGE = { species: "icon-species", culture: "icon-culture", civilization: "icon-civilization", event: "icon-event" } as const;
+/** Map images for the category icons drawn on species, city and event markers (added in MapView). */
+export const ICON_IMAGE = { species: "icon-species", culture: "icon-culture", civilization: "icon-civilization", city: "icon-city", event: "icon-event" } as const;
 /** CSS px of those icons on the map. */
 export const MAP_ICON_PX = 14;
 
@@ -145,6 +145,22 @@ export const LAYER_DEFS: LayerDef[] = [
     },
   },
   { category: "species", spec: iconLayer("species-icons", ICON_IMAGE.species) },
+  // Cities: a disc in the city colour carrying the walled-city icon, above the species sites, under the events.
+  {
+    category: "city",
+    spec: {
+      id: "city-dots",
+      type: "circle",
+      source: SOURCE_ID,
+      paint: {
+        "circle-radius": ["case", selected, 13, 11],
+        "circle-color": CATEGORY_STYLE.city.color,
+        "circle-stroke-color": ["case", selected, "#ffffff", CATEGORY_STYLE.city.ink],
+        "circle-stroke-width": ["case", selected, 3, 2],
+      },
+    },
+  },
+  { category: "city", spec: iconLayer("city-icons", ICON_IMAGE.city) },
   // Events on top: a soft halo and a ringed disc in the event colour, carrying the event icon.
   {
     category: "event",
@@ -177,4 +193,4 @@ export const LAYER_DEFS: LayerDef[] = [
   { category: "event", spec: iconLayer("event-icons", ICON_IMAGE.event) },
 ];
 
-export const INTERACTIVE_LAYERS = ["event-dots", "species-circles", "culture-dots", "civ-fill"];
+export const INTERACTIVE_LAYERS = ["event-dots", "city-dots", "species-circles", "culture-dots", "civ-fill"];

@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { CATEGORY_STYLE, mediaUrl } from "../config";
 import { useData } from "../map/data";
-import { navigate, type BrowseView } from "../route";
+import { navigate, PAGE_OF, type BrowseView } from "../route";
 import { useStore } from "../store";
 import { formatRange } from "../time/scale";
 import { shortRange } from "../ui/InfoPanel";
 import { formatDuration } from "../timeline/layout";
 import type { Entity } from "../types";
 import { youtubeId } from "../youtube";
-import { eventsAbout, pictureOf, typing } from "./browse";
+import { citiesOf, eventsAbout, pictureOf, typing } from "./browse";
 import { runsOn } from "./civLayout";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import ListenButton from "../audio/ListenButton";
@@ -23,7 +23,7 @@ import { CardHead, CardIcon, CardSection, ReadMore, SourcesDisclosure } from "..
 import { SINGULAR } from "../ui/CategoryIcon";
 
 /**
- * One species, culture or civilization over its browse page: picture, text, what is on the map, related
+ * One species, culture, civilization or city over its browse page: picture, text, what is on the map, related
  * events and sources, links out. ←/→ step through `order` (what the page is showing), Esc closes.
  */
 export default function EntityDetail({
@@ -63,6 +63,11 @@ export default function EntityDetail({
   const features = entity.group ? members.flatMap((m) => data.featuresOf.get(m.id) ?? []) : (data.featuresOf.get(entity.id) ?? []);
   const xronos = features.filter((f) => f.source_id === "xronos").length;
   const events = eventsAbout(entity, data);
+  const isCity = entity.category === "city";
+  const partOf = entity.part_of ? data.entityById.get(entity.part_of) : undefined;
+  // A city links the civilizations and cultures it belonged to; those list their cities.
+  const related = isCity ? (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []) : [];
+  const cities = isCity ? [] : citiesOf(entity, data);
   const sameTime = contemporaries(entity, data.entities);
   const sources = entity.source_ids.flatMap((id) => data.sourceById.get(id) ?? []);
   const picture = pictureOf(entity, data);
@@ -194,7 +199,7 @@ export default function EntityDetail({
               <img
                 key={shown.url}
                 src={shown.url}
-                {...((shown.url.startsWith("/images/cultures/") || shown.url.startsWith("/images/civilisations/")) && !shown.url.includes("-600.webp")
+                {...(/^\/images\/(cultures|civilisations|cities)\//.test(shown.url) && !shown.url.includes("-600.webp")
                   ? {
                       srcSet: `${shown.url.replace(/\.webp$/, "-600.webp")} 600w, ${shown.url} 1200w`,
                       sizes: "(max-width: 640px) 100vw, 600px",
@@ -255,10 +260,21 @@ export default function EntityDetail({
                     </button>
                   </>
                 )}
+                {partOf && (
+                  <>
+                    <span className="card-eyebrow-sep" aria-hidden="true">·</span>
+                    <button className="card-eyebrow-link" onClick={() => navigate(PAGE_OF[partOf.category], partOf.id)} title={`Open ${partOf.name}`}>
+                      {partOf.name}
+                    </button>
+                  </>
+                )}
               </>
             }
             title={entity.name}
             sub={
+              isCity && entity.date_text ? (
+                entity.date_text
+              ) : (
               <>
                 <span>
                   {formatRange(entity.start_year, entity.end_year)}
@@ -266,6 +282,7 @@ export default function EntityDetail({
                 </span>
                 <span className="card-sub-pill">{cutOff ? "at least " : ""}{formatDuration(entity.end_year - entity.start_year)}</span>
               </>
+              )
             }
           />
           {cutOff && <div className="muted br-cutoff">It carried on after 1 CE, where the atlas ends.</div>}
@@ -306,6 +323,32 @@ export default function EntityDetail({
                   </li>
                 ))}
               </ol>
+            </CardSection>
+          )}
+
+          {cities.length > 0 && (
+            <CardSection title="Cities" count={cities.length}>
+              <div className="also">
+                {cities.map((c) => (
+                  <button key={c.id} className="chip" onClick={() => navigate("cities", c.id)} title={c.date_text}>
+                    <CategoryBadge category="city" size={18} decorative />
+                    {c.name}
+                  </button>
+                ))}
+              </div>
+            </CardSection>
+          )}
+
+          {related.length > 0 && (
+            <CardSection title="Related">
+              <div className="also">
+                {related.map((r) => (
+                  <button key={r.id} className="chip" onClick={() => navigate(PAGE_OF[r.category], r.id)} title={formatRange(r.start_year, r.end_year)}>
+                    <CategoryBadge category={r.category} size={18} decorative />
+                    {r.name}
+                  </button>
+                ))}
+              </div>
             </CardSection>
           )}
 

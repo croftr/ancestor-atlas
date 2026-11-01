@@ -16,6 +16,7 @@ const VIEW_LABELS: Record<Exclude<View, "globe">, string> = {
   species: "Species",
   cultures: "Cultures",
   civilizations: "Civilizations",
+  cities: "Cities",
 };
 
 /** Compute the page title for a given view and selection state. */

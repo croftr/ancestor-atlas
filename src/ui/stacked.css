@@ -91,7 +91,7 @@
   .app.view-globe .legend-title-text { font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; }
   .app.view-globe .legend-breakdown {
     grid-column: 1 / -1;
-    order: 1; /* after all four category rows */
+    order: 1; /* after all the category rows */
     margin: 4px 0 2px;
     padding: 6px 0 0;
     border-left: none;

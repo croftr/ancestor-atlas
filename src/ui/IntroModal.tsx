@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { mediaUrl } from "../config";
 import { useStore } from "../store";
 import { useData } from "../map/data";
-import type { Category } from "../types";
+import { CATEGORIES, type Category } from "../types";
 import { CategoryBadge } from "./CategoryIcon";
 import { CardIcon } from "./CardParts";
 
@@ -51,7 +51,7 @@ export default function IntroModal() {
   const data = useData();
   const counts = useMemo(() => {
     if (!data) return null;
-    const out = { species: { entities: 0, sites: 0 }, culture: { entities: 0, sites: 0 }, civilization: { entities: 0, sites: 0 }, event: { entities: 0, sites: 0 } };
+    const out = Object.fromEntries(CATEGORIES.map((c) => [c, { entities: 0, sites: 0 }])) as Record<Category, { entities: number; sites: number }>;
     // Groups (Ancient Egypt) are counted through their members, as on the Civilizations page.
     for (const e of data.entities) if (!e.group) out[e.category].entities += 1;
     for (const f of data.features) out[f.category].sites += 1;

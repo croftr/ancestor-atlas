@@ -28,7 +28,7 @@ const EMPTY: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: 
 const TAP_SLOP_TOUCH = 14;
 const TAP_SLOP_MOUSE = 6;
 /** Marker layers (points), as opposed to territories. */
-const POINT_LAYERS = ["event-dots", "species-circles", "culture-dots"];
+const POINT_LAYERS = ["event-dots", "city-dots", "species-circles", "culture-dots"];
 
 /** A category icon (24×24 SVG path) in its ink colour for a marker, at the screen's pixel density. */
 function iconImage(path: string, ink: string): { data: ImageData; pixelRatio: number } | null {
@@ -991,7 +991,7 @@ export default function MapView() {
         return;
       }
       // Markers count as hit within a finger's reach of the tap (less with a mouse), nearest
-      // first; markers about equally near keep the layer order (events, species, cultures).
+      // first; markers about equally near keep the layer order (events, cities, species, cultures).
       // Territories need a direct hit, so a tap near a site never opens the land around it.
       const r = window.matchMedia?.("(pointer: coarse)").matches ? TAP_SLOP_TOUCH : TAP_SLOP_MOUSE;
       const { x, y } = e.point;

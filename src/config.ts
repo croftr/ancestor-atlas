@@ -6,6 +6,7 @@ export const CATEGORY_STYLE = {
   species: { label: "Species", color: "#ffd166", ink: "#5a3a0c", shape: "Point sites" },
   culture: { label: "Cultures", color: "#06d6a0", ink: "#0a4535", shape: "Fuzzy zones" },
   civilization: { label: "Civilizations", color: "#ef476f", ink: "#4a0b1d", shape: "Territories" },
+  city: { label: "Cities", color: "#74c0fc", ink: "#0b3a5e", shape: "Towns and cities" },
   event: { label: "Events", color: "#c39bff", ink: "#3a1a6b", shape: "Moments" },
 } as const;
 

@@ -211,7 +211,7 @@ function buildRegionTitle(
   let bestPoint: { label: string; dist: number } | null = null;
   for (const e of pointEntries) {
     const f = e.closestFeature;
-    const label = f.label && f.label !== e.entity.name ? f.label : e.entity.category === "event" ? e.entity.name : "";
+    const label = f.label && f.label !== e.entity.name ? f.label : e.entity.category === "event" || e.entity.category === "city" ? e.entity.name : "";
     if (label && (!bestPoint || e.distanceKm < bestPoint.dist)) {
       bestPoint = { label, dist: e.distanceKm };
     }

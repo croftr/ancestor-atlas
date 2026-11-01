@@ -6,7 +6,7 @@ import { useData } from "../map/data";
 import { wikipediaUrl, type Entity } from "../types";
 import { asList, labNumbers, refLink, type RefLink } from "./refs";
 import { navOrder } from "../search/search";
-import { clearShrunkCard, navigate, peekShrunkCard, type BrowseView, type View } from "../route";
+import { clearShrunkCard, navigate, PAGE_OF, peekShrunkCard, type View } from "../route";
 import { formatDuration } from "../timeline/layout";
 import ListenButton from "../audio/ListenButton";
 import EventImage from "../events/EventImage";
@@ -24,9 +24,10 @@ import TourVideo from "./TourVideo";
 import { contemporaries } from "./contemporaries";
 import DnaCultureLink from "../dna/DnaCultureLink";
 import TourStopLinks from "../tours/TourStopLinks";
+import { citiesOf } from "../browse/browse";
 
 const hasCompanion600 = (url?: string): url is string =>
-  !!url && (url.startsWith("/images/cultures/") || url.startsWith("/images/civilisations/")) && !url.includes("-600.webp");
+  !!url && /^\/images\/(cultures|civilisations|cities)\//.test(url) && !url.includes("-600.webp");
 
 const cultureSrcSet = (url?: string) => {
   if (hasCompanion600(url)) {
@@ -62,13 +63,6 @@ const RefList = ({ title, items }: { title: string; items: string[] }) =>
     </div>
   );
 
-/** The browse page an entity opens on ("Species page"). */
-const PAGE_OF: Record<Entity["category"], BrowseView> = {
-  species: "species",
-  culture: "cultures",
-  civilization: "civilizations",
-  event: "events",
-};
 
 /**
  * A date range in fewer words, for the compact card: the shared unit said once
@@ -203,6 +197,11 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const siblings = feature ? navOrder(data.featuresOf.get(feature.entity_id) ?? [], data.bboxOf) : [];
   const position = feature ? siblings.findIndex((f) => f.id === feature.id) + 1 : 0;
   const isEvent = entity.category === "event";
+  const isCity = entity.category === "city";
+  // Events and cities give their dates as written ("c. 5000 BCE – c. 700 CE": a city may outlive the atlas's 1 CE).
+  const dateText = (isEvent || isCity) && entity.date_text ? entity.date_text : undefined;
+  const partOf = entity.part_of ? data.entityById.get(entity.part_of) : undefined;
+  const cities = isCity || isEvent ? [] : citiesOf(entity, data);
   const noun = entity.category === "civilization" ? "Period" : isEvent ? "Place" : "Site";
   const related = (entity.related_ids ?? []).flatMap((r) => data.entityById.get(r) ?? []);
   const sameTime = contemporaries(entity, data.entities);
@@ -261,7 +260,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const viewer = viewerOpen && canView && (
     <PictureViewer
       entity={entity}
-      date={isEvent && entity.date_text ? entity.date_text : formatRange(entity.start_year, entity.end_year)}
+      date={dateText ?? formatRange(entity.start_year, entity.end_year)}
       pictures={viewerPictures}
       index={viewerIndex}
       onIndex={setManualIndex}
@@ -353,7 +352,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             <CategoryBadge category={entity.category} size={22} decorative />
             <span>{entity.name}</span>
           </span>
-          <span className="ic-date">{isEvent && entity.date_text ? entity.date_text : shortRange(entity.start_year, entity.end_year)}</span>
+          <span className="ic-date">{dateText ?? shortRange(entity.start_year, entity.end_year)}</span>
         </button>
         {/* The picture opens the full-screen viewer; the name beside it opens the card. */}
         <button
@@ -415,7 +414,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const siteRefs = !!feature && !!(coordRef || dateRef || labs || feature.refs || feature.via || (featureSource && featureSource.id !== "recall"));
   // A period's own dates are already in the stepper above; a site's dating ("c. 5.46 ka cal BP") adds to it.
   const siteDate =
-    feature?.date_text && !isEvent && (showLabel || feature.date_text !== formatRange(feature.start_year, feature.end_year)) ? feature.date_text : undefined;
+    feature?.date_text && !isEvent && !isCity && (showLabel || feature.date_text !== formatRange(feature.start_year, feature.end_year)) ? feature.date_text : undefined;
   const siteBlock =
     !!feature && !!(showLabel || siteDate || feature.confidence || feature.notes || siteCultures.length || feature.cultures || feature.also_recorded);
   // Chips for other entities: on the timeline they open there, on the globe they fly to it.
@@ -468,6 +467,18 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
                   </button>
                 </>
               )}
+              {partOf && (
+                <>
+                  <span className="card-eyebrow-sep" aria-hidden="true">·</span>
+                  <button
+                    className="card-eyebrow-link"
+                    onClick={() => (view === "timeline" ? openGroup(partOf.id) : focusEntity(partOf.id))}
+                    title={`Open ${partOf.name}`}
+                  >
+                    {partOf.name}
+                  </button>
+                </>
+              )}
             </>
           }
           tools={
@@ -493,8 +504,8 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           }
           title={entity.name}
           sub={
-            isEvent && entity.date_text ? (
-              entity.date_text
+            dateText ? (
+              dateText
             ) : (
               <>
                 <span>{formatRange(entity.start_year, entity.end_year)}</span>
@@ -708,6 +719,11 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
               </li>
             ))}
           </ul>
+        </CardSection>
+      )}
+      {cities.length > 0 && (
+        <CardSection title="Cities" count={cities.length}>
+          <div className="also">{cities.map((c) => chip(c, c.date_text ?? formatRange(c.start_year, c.end_year)))}</div>
         </CardSection>
       )}
       {related.length > 0 && (

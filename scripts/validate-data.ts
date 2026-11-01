@@ -6,7 +6,7 @@ import { parse as parseCsv } from "csv-parse/sync";
 import { youtubeId } from "../src/youtube.ts";
 import { NARRATION_FOLDER, textHash } from "./lib/text-hash.ts";
 
-const CATS = ["species", "culture", "civilization", "event"];
+const CATS = ["species", "culture", "civilization", "city", "event"];
 const CONFIDENCE = ["high", "medium", "low"];
 const HEX = /^#[0-9a-f]{6}$/i;
 const errors: string[] = [];
@@ -115,12 +115,18 @@ for (const e of entityList) {
     if (!Number.isInteger(e.year) || e.year < e.start_year || e.year > e.end_year) err(`event ${id}: year must be an integer within start_year..end_year`);
     if (typeof e.date_text !== "string" || !e.date_text) err(`event ${id}: missing date_text`);
   }
+  if (e.category === "city") {
+    if (typeof e.date_text !== "string" || !e.date_text) err(`city ${id}: missing date_text`);
+    if (typeof e.part_of !== "string" || !(e.related_ids ?? []).includes(e.part_of)) err(`city ${id}: part_of must be set and listed first in related_ids`);
+  }
 }
 for (const e of entityList)
   for (const r of e.related_ids ?? []) {
     const t = entities.get(r);
     if (!t) err(`entity ${e.id}: related id ${r} does not exist`);
-    else if (t.category === "event") err(`entity ${e.id}: related id ${r} is an event (link species, cultures or civilizations)`);
+    else if (t.category === "event") err(`entity ${e.id}: related id ${r} is an event (link species, cultures, civilizations or cities)`);
+    // Events may name a city; a city names the civilizations and cultures it belonged to, not other cities.
+    else if (t.category === "city" && e.category !== "event") err(`entity ${e.id}: related id ${r} is a city (only events link to cities)`);
   }
 const kids = new Map<string, number>();
 for (const e of entityList) {
@@ -143,7 +149,7 @@ for (const e of entityList) if (e.group && !kids.get(e.id)) warn(`group ${e.id} 
 
 // ---------- features ----------
 const ids = new Set<string>();
-const counts: Record<string, number> = { species: 0, culture: 0, civilization: 0, event: 0 };
+const counts: Record<string, number> = Object.fromEntries(CATS.map((c) => [c, 0]));
 const withFeatures = new Set<string>();
 
 const checkCoord = (id: string, c: unknown) => {

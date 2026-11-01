@@ -30,11 +30,14 @@ function loadCollapsed(): boolean {
 
 const swatchStyle = (c: Category, colorOverride?: string): React.CSSProperties => {
   const color = colorOverride ?? CATEGORY_STYLE[c].color;
-  if (c === "species") return { background: color, borderRadius: "50%" };
+  if (c === "species" || c === "city") return { background: color, borderRadius: "50%" };
   if (c === "culture") return { background: color, borderRadius: "50%", filter: "blur(2px)" };
   if (c === "event") return { background: color, borderRadius: 2, transform: "rotate(45deg) scale(0.8)" };
   return { background: color, borderRadius: 2 };
 };
+
+/** Every category's list folded. */
+const allClosed = () => Object.fromEntries(CATEGORIES.map((c) => [c, false])) as Record<Category, boolean>;
 
 export default function Legend() {
   const year = useStore((s) => s.year);
@@ -69,18 +72,13 @@ export default function Legend() {
       }
       return !c;
     });
-  const [expanded, setExpanded] = useState<Record<Category, boolean>>({
-    species: false,
-    culture: false,
-    civilization: false,
-    event: false,
-  });
+  const [expanded, setExpanded] = useState<Record<Category, boolean>>(allClosed);
 
   const toggleExpanded = (c: Category) => {
     // Small screens show one list at a time, under the category grid.
     setExpanded((prev) =>
       stacked
-        ? { species: false, culture: false, civilization: false, event: false, [c]: !prev[c] }
+        ? { ...allClosed(), [c]: !prev[c] }
         : { ...prev, [c]: !prev[c] },
     );
   };
@@ -93,12 +91,7 @@ export default function Legend() {
   }, [groupId, selectedId, hits, features]);
 
   const breakdown = useMemo(() => {
-    const map: Record<Category, Map<string, ActiveEntityItem>> = {
-      species: new Map(),
-      culture: new Map(),
-      civilization: new Map(),
-      event: new Map(),
-    };
+    const map = Object.fromEntries(CATEGORIES.map((c) => [c, new Map()])) as Record<Category, Map<string, ActiveEntityItem>>;
 
     for (const f of features ?? []) {
       if (!isActive(f, year)) continue;
@@ -119,12 +112,7 @@ export default function Legend() {
       }
     }
 
-    const result: Record<Category, ActiveEntityItem[]> = {
-      species: [],
-      culture: [],
-      civilization: [],
-      event: [],
-    };
+    const result = Object.fromEntries(CATEGORIES.map((c) => [c, []])) as unknown as Record<Category, ActiveEntityItem[]>;
 
     for (const c of CATEGORIES) {
       const items = Array.from(map[c].values());
@@ -143,7 +131,7 @@ export default function Legend() {
 
   const handleSelectEntity = (entityId: string, category: Category) => {
     // Small screens: close the list so the card that opens below has the room.
-    if (stacked) setExpanded({ species: false, culture: false, civilization: false, event: false });
+    if (stacked) setExpanded(allClosed());
     if (selectedEntityId === entityId) {
       select(null);
       return;

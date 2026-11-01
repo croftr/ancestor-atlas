@@ -1,7 +1,7 @@
-export type Category = "species" | "culture" | "civilization" | "event";
-export const CATEGORIES: Category[] = ["species", "culture", "civilization", "event"];
+export type Category = "species" | "culture" | "civilization" | "city" | "event";
+export const CATEGORIES: Category[] = ["species", "culture", "civilization", "city", "event"];
 
-/** Registry entry (public/data/entities.json): one per species / culture / civilization / group. */
+/** Registry entry (public/data/entities.json): one per species / culture / civilization / group / city / event. */
 export interface Entity {
   id: string; // == feature.entity_id
   name: string;
@@ -26,10 +26,11 @@ export interface Entity {
   extra_images?: ExtraImage[];
   /** Shared stand-in picture (picture-groups.yaml), shown until the entity has its own. */
   fallback_image?: { url: string; credit: string; label: string; caption?: string };
-  // Events only
+  // Events (cities use date_text and related_ids too)
   year?: number; // best date (start_year..end_year is the stated range, or equal to it)
   date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"
-  related_ids?: string[]; // species / cultures / civilizations the event concerns
+  related_ids?: string[]; // events: the species / cultures / civilizations they concern; cities: part_of, then the others they were ruled by or grew out of
+  part_of?: string; // cities: the civilization or culture the city belongs to (eyebrow, Cities page)
   media?: MediaItem[]; // videos and audio, hosted outside the repo (see mediaUrl in config.ts)
   /**
    * Animated version of the main picture (`image_url`), played muted once a second after the picture

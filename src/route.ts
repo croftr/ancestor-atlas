@@ -1,16 +1,25 @@
 import { useEffect, useState } from "react";
+import type { Category } from "./types";
 
 /**
  * Views, switched by the URL hash so a refresh or a shared link keeps the view without any
  * server rewrites: "" (or "#/") is the globe, "#/timeline" the timeline, and "#/events",
- * "#/species", "#/cultures" and "#/civilizations" the browse pages, with "#/<page>/<id>" one entry open on it,
+ * "#/species", "#/cultures", "#/civilizations" and "#/cities" the browse pages, with "#/<page>/<id>" one entry open on it,
  * "#/tours" the guided tours (a tour itself plays on the globe: "#/tour/<id>"), "#/news" recent research news.
  */
 export type View = "globe" | "timeline" | "tours" | "news" | BrowseView;
 /** Pages that list one category and open an entry in a detail view. */
-export type BrowseView = "events" | "species" | "cultures" | "civilizations";
-const BROWSE_VIEWS: BrowseView[] = ["events", "species", "cultures", "civilizations"];
+export type BrowseView = "events" | "species" | "cultures" | "civilizations" | "cities";
+const BROWSE_VIEWS: BrowseView[] = ["events", "species", "cultures", "civilizations", "cities"];
 export const isBrowseView = (v: View): v is BrowseView => (BROWSE_VIEWS as View[]).includes(v);
+/** The browse page that lists each category ("Species page"). */
+export const PAGE_OF: Record<Category, BrowseView> = {
+  species: "species",
+  culture: "cultures",
+  civilization: "civilizations",
+  city: "cities",
+  event: "events",
+};
 
 const pathOf = (hash: string) => hash.replace(/^#\/?/, "");
 

@@ -20,6 +20,7 @@ import { TOURS, tourById } from "../../src/tours/tours.ts";
 
 const CURATED_ENTITIES = "data/curated/entities.yaml";
 const CURATED_EVENTS = "data/curated/events.yaml";
+const CURATED_CITIES = "data/curated/cities.yaml";
 const ENTITIES = "public/data/entities.json";
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 const DEFAULT_MODEL = "models/veo-3.1-fast-generate-preview";
@@ -44,7 +45,7 @@ const promptArg = option("--prompt");
 const credit = option("--credit") ?? "AI-generated video (Google Veo)";
 const ids = args.filter((a, i) => !a.startsWith("--") && !["--file", "--tour", "--model", "--credit", "--prompt"].includes(args[i - 1]));
 
-const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations" };
+const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities" };
 
 const SCENE_PROMPTS: Record<string, string> = {
   "modern-humans-emerge":
@@ -226,7 +227,10 @@ const curatedEvents = (parseYaml(readFileSync(CURATED_EVENTS, "utf8")) as Omit<C
   ...e,
   category: "event",
 }));
-const byId = new Map([...curated, ...curatedEvents].map((e) => [e.id, e]));
+const curatedCities = existsSync(CURATED_CITIES)
+  ? ((parseYaml(readFileSync(CURATED_CITIES, "utf8")) ?? []) as Omit<CuratedEntity, "category">[]).map((e) => ({ ...e, category: "city" }))
+  : [];
+const byId = new Map([...curated, ...curatedEvents, ...curatedCities].map((e) => [e.id, e]));
 
 let targets: CuratedEntity[] = [];
 if (tourArg) {
@@ -241,7 +245,7 @@ if (tourArg) {
   }
 } else if (ids.length) {
   targets = ids.map((id) => {
-    const e = byId.get(id) ?? fail(`no entity ${id} in ${CURATED_ENTITIES} or ${CURATED_EVENTS}`);
+    const e = byId.get(id) ?? fail(`no entity ${id} in ${CURATED_ENTITIES}, ${CURATED_EVENTS} or ${CURATED_CITIES}`);
     if (!FOLDER[e.category]) fail(`${id} has unsupported category ${e.category}`);
     if (!e.image_url) fail(`${id} has no image_url`);
     return e;
@@ -434,6 +438,7 @@ const META = JSON.parse(readFileSync(META_PATH, "utf8"));
 const wasFresh = META.inputs_hash === fingerprint().hash;
 let yamlText = readFileSync(CURATED_ENTITIES, "utf8");
 let eventsYamlText = readFileSync(CURATED_EVENTS, "utf8");
+let citiesYamlText = existsSync(CURATED_CITIES) ? readFileSync(CURATED_CITIES, "utf8") : "";
 let entitiesText = readFileSync(ENTITIES, "utf8");
 const pending: string[] = [];
 
@@ -466,6 +471,8 @@ for (const e of targets) {
   const video = { src: key, credit };
   if (e.category === "event") {
     eventsYamlText = setYaml(eventsYamlText, e.id, `  video: { src: ${key}, credit: ${JSON.stringify(credit)} }`, CURATED_EVENTS);
+  } else if (e.category === "city") {
+    citiesYamlText = setYaml(citiesYamlText, e.id, `  video: { src: ${key}, credit: ${JSON.stringify(credit)} }`, CURATED_CITIES);
   } else {
     yamlText = setYaml(yamlText, e.id, `  video: { src: ${key}, credit: ${JSON.stringify(credit)} }`, CURATED_ENTITIES);
   }
@@ -474,11 +481,12 @@ for (const e of targets) {
 
 writeFileSync(CURATED_ENTITIES, yamlText);
 writeFileSync(CURATED_EVENTS, eventsYamlText);
+if (citiesYamlText) writeFileSync(CURATED_CITIES, citiesYamlText);
 writeFileSync(ENTITIES, entitiesText);
 if (wasFresh) writeFileSync(META_PATH, JSON.stringify({ ...META, inputs_hash: fingerprint().hash }) + "\n");
 else console.warn("! public/data was already out of date before this run: run npm run data:build");
 
-console.log(`\nUpdated ${CURATED_ENTITIES}, ${CURATED_EVENTS}, ${ENTITIES}${wasFresh ? `, ${META_PATH}` : ""}: commit them.`);
+console.log(`\nUpdated ${CURATED_ENTITIES}, ${CURATED_EVENTS}${citiesYamlText ? `, ${CURATED_CITIES}` : ""}, ${ENTITIES}${wasFresh ? `, ${META_PATH}` : ""}: commit them.`);
 if (pending.length) {
   console.log(`\nUpload to S3 (new key, never overwrite):\n  ${pending.join("\n  ")}`);
 }

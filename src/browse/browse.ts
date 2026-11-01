@@ -31,6 +31,17 @@ export const eventsAbout = (entity: Entity, data: Data): Entity[] =>
     .filter((e) => e.category === "event" && (e.related_ids ?? []).some((r) => r === entity.id || r === entity.parent_id))
     .sort((a, b) => (a.year ?? a.start_year) - (b.year ?? b.start_year));
 
+/**
+ * Cities that name this entity (or, for a group such as Ancient Egypt, any of its members) as the civilization or
+ * culture they belonged to or were ruled by, oldest first.
+ */
+export const citiesOf = (entity: Entity, data: Data): Entity[] => {
+  const ids = new Set([entity.id, ...(entity.group ? (data.childrenOf.get(entity.id) ?? []).map((m) => m.id) : [])]);
+  return data.entities
+    .filter((e) => e.category === "city" && (e.related_ids ?? []).some((r) => ids.has(r)))
+    .sort((a, b) => a.start_year - b.start_year || a.name.localeCompare(b.name));
+};
+
 /** Placeholder descriptions carried over from the territory data say nothing; leave them out of lists. */
 export const summaryOf = (e: Entity, firstSentence: (t: string) => string) =>
   !e.description || /^aspect of history\.?$/i.test(e.description.trim()) ? "" : firstSentence(e.description);

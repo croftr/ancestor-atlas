@@ -147,6 +147,29 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   clip on the event detail view (`src/events/EventMedia.tsx`). Encode MP4s with `-movflags +faststart`; never overwrite a
   key (uploads are cached for a year), upload a new name instead.
 
+## Cities (`data/curated/cities.yaml`, started 1 Nov 2026)
+
+- A fifth category, `city` (Rob's call, 1 Nov 2026): towns and cities as items of their own, with cards, a main picture
+  (Rob makes them), Commons photos and a page, `#/cities` (`src/browse/CitiesPage.tsx`; in the rail and phone tabs).
+  Disputed cities count too: any lasting town. Started with two, Uruk and Mohenjo-daro, for Rob to review before more.
+- One entity and one point each, built like events (`scripts/build-data.ts`). The span is the city's life as a
+  settlement, cut at 1 CE (`end_year: 1`; `date_text` gives the real end, "c. 5000 BCE – c. 700 CE", and the cards
+  and page show date_text). Dates from a pinned Wikipedia revision (`date_source`), coordinates from Wikidata.
+- `part_of`: the civilization or culture the city belonged to (card eyebrow "City · Sumerian City-States"; the Cities
+  page groups cities by its region). `related`: others it grew out of or was ruled by. Built into `related_ids`
+  (part_of first). Civilization and culture cards and pages list their cities (`citiesOf` in `src/browse/browse.ts`,
+  which counts a group's members). Events may name a city in `related` (writing and the wheel name Uruk; Indus cities
+  names Mohenjo-daro); a city may not name an event or another city (validator).
+- Globe: a sky-blue disc (`#74c0fc`, ink `#0b3a5e`) with a walled-city icon (drawn by hand in `CategoryIcon.tsx`, not
+  traced from design/icons), above species sites and under events (`city-dots`, `city-icons` in `src/map/layers.ts`).
+  Timeline: a Cities lane after Civilizations. Legend layer toggle, What Was Here? and search come from
+  `CATEGORIES`. The intro dialog still shows four highlights (no Cities line yet).
+- Pictures: main picture 1200x900 WebP in `public/images/cities/<id>.webp` plus `<id>-600.webp`, `image_credit` and
+  `image_caption`; until then the card and page show the first extra photo. Extras: four Commons photos each in
+  `public/images/extra/<id>-<n>.webp` (same rules as the other extras). Narration (`npm run audio:narrate -- <id>`,
+  key `narration/cities/`), videos (`npm run video:species -- <id>`, `video/cities/`) and ambience
+  (`ambience/cities/`) all know about cities. Descriptions written by Claude from the pinned articles (Rob to review).
+
 ## Cards (redone 28 Oct 2026)
 
 - The info card (`src/ui/InfoPanel.tsx`, globe and timeline) and the browse pages' detail views

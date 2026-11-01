@@ -41,6 +41,7 @@ const EventsIcon = <CategoryIcon category="event" />;
 const SpeciesIcon = <CategoryIcon category="species" />;
 const CulturesIcon = <CategoryIcon category="culture" />;
 const CivilizationsIcon = <CategoryIcon category="civilization" />;
+const CitiesIcon = <CategoryIcon category="city" />;
 /** Guided tours: a film frame with a play mark. */
 export const ToursIcon = (
   <Icon>
@@ -89,6 +90,7 @@ const VIEW_ITEMS: NavItem[] = [
   { id: "species", label: "Species", icon: SpeciesIcon, view: "species", hint: "Our ancestors and relatives, in the order they appeared" },
   { id: "cultures", label: "Cultures", icon: CulturesIcon, view: "cultures", hint: "Toolmaking and farming cultures, by stage" },
   { id: "civilizations", label: "Civilizations", icon: CivilizationsIcon, view: "civilizations", hint: "States and empires, to search and sort" },
+  { id: "cities", label: "Cities", icon: CitiesIcon, view: "cities", hint: "The first towns and cities" },
   { id: "tours", label: "Tours", icon: ToursIcon, view: "tours", hint: "Guided tours to sit back and watch" },
   { id: "news", label: "News", icon: NewsIcon, view: "news", hint: "New research on human origins and the ancient world" },
 ];

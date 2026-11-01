@@ -33,6 +33,7 @@ This is a personal hobby project born out of a genuine fascination with human pr
 - 🦴 **Ancient Hominid Fossil Sites**: Discover the real-world locations where famous fossils were found — from *Sahelanthropus* and *Australopithecus* ("Lucy") to *Homo erectus*, Neanderthals, and early *Homo sapiens* — complete with artist reconstructions, fossil details, and geological contexts.
 - 🪨 **Archaeological Cultures & Prehistoric Sites**: See where ancient tools, rock art, and early cultural traditions appeared across Africa, Europe, Asia, Oceania, and the Americas.
 - 🏛️ **Early Civilizations & Polities**: Watch early city-states, kingdoms, and civilizations emerge, grow, and interact across the globe.
+- 🏙️ **Early Cities**: The first towns and cities, from Uruk to Mohenjo-daro, each with its own card, photos of the site and its finds, and the civilization it belonged to.
 - 🧊 **Ice Age Coastlines & Ice Sheets**: The globe redraws its coastlines as sea level rose and fell: Beringia, Sunda, Sahul and Doggerland appear as dry land, and the great ice sheets spread over North America and northern Europe (sea level for the last 800,000 years; ice sheets for the last 80,000).
 - 🧭 **Migration Routes**: Watch modern humans spread out of Africa, across Asia to Australia, into Europe and over Beringia into the Americas; then farming spread into Europe, Austronesian seafarers sailed out of Taiwan across the Pacific, and Bantu-speaking farmers spread across Africa. Each route grows as the slider passes the dated sites it joins.
 - 🧬 **Interbreeding**: See when Neanderthals, Denisovans and modern humans had children together, from the first modern human DNA in Neanderthals 250,000 years ago to Denny, a Neanderthal–Denisovan child, and the Neanderthal and Denisovan DNA many people carry today.
@@ -114,13 +115,16 @@ npm test                  # Run automated test suites (Vitest)
 ### Data Files
 
 - **Built files (`public/data/`)**:
-  - `entities.json`: Entity registry (species, cultures, polities).
+  - `entities.json`: Entity registry (species, cultures, polities, cities, events).
   - `features.geojson`: Geographic features per site or polity boundary.
   - `sources.json`: Academic bibliography and attribution records.
 - **Curated inputs (`data/curated/`)**:
   - `entities.yaml`: Descriptions, parent-child relationships, color schemes.
     A civilization's `region` is worked out at build time from its Cliopatria territory maps (where most of the territory lay, weighted by area and years, using UN M49 subregions; see `scripts/lib/regions.ts`); setting `region` here overrides it.
   - `sources.yaml`: Attribution records and licensing metadata.
+  - `events.yaml`, `cities.yaml`: Events and cities, one entity each with its places (events) or point (cities), dates
+    checked against a pinned Wikipedia revision and coordinates from Wikidata. A city names the civilization or culture
+    it belonged to (`part_of`).
   - `*-sites.csv`: Discovery sites with provenance coordinates and dating sources.
   - `culture-labels.csv` / `culture-windows.csv`: Which XRONOS labels map to which culture, and each culture's sourced date range.
   - `road/species-labels.csv`: Which ROAD taxa map to which species (blank `entity_id`: listed but not imported).

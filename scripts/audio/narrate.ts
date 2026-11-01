@@ -15,7 +15,7 @@
 // Per entity: text-to-speech of the description as built (the text on its card) (ElevenLabs API; cached in data/build/audio/tts by text,
 // so a re-run after a failed upload costs nothing), loudness-normalised mono MP3, uploaded to
 // narration/<category>/<id>-v<n>.mp3 (a new key every time: the bucket caches for a year), then the
-// entity's narration is set in events.yaml or entities.yaml and in public/data, so there is nothing to
+// entity's narration is set in events.yaml, cities.yaml or entities.yaml and in public/data, so there is nothing to
 // rebuild: commit both. A species, culture or civilization needs an entry in entities.yaml.
 // Settings in .env.local (gitignored): ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, optional ELEVENLABS_MODEL.
 import { execFileSync, spawnSync } from "node:child_process";
@@ -28,6 +28,7 @@ import { BUCKET, REGION, encode, uploadArgs, uploadCommand } from "./encode.ts";
 
 const EVENTS = "data/curated/events.yaml";
 const CURATED_ENTITIES = "data/curated/entities.yaml";
+const CITIES = "data/curated/cities.yaml";
 const ENTITIES = "public/data/entities.json";
 const API = "https://api.elevenlabs.io/v1";
 const MODEL_DEFAULT = "eleven_multilingual_v2";
@@ -86,9 +87,9 @@ const built = new Map(
     .map((l) => JSON.parse(l.replace(/,$/, "")))
     .map((e: Target) => [e.id, e]),
 );
-const yamlFiles: Record<string, string> = { [EVENTS]: readFileSync(EVENTS, "utf8"), [CURATED_ENTITIES]: readFileSync(CURATED_ENTITIES, "utf8") };
+const yamlFiles: Record<string, string> = Object.fromEntries([EVENTS, CURATED_ENTITIES, CITIES].filter((f) => existsSync(f)).map((f) => [f, readFileSync(f, "utf8")]));
 const curatedIn = new Map<string, string>();
-for (const f of [EVENTS, CURATED_ENTITIES]) for (const e of parseYaml(yamlFiles[f]) as { id: string }[]) curatedIn.set(e.id, f);
+for (const f of Object.keys(yamlFiles)) for (const e of (parseYaml(yamlFiles[f]) ?? []) as { id: string }[]) curatedIn.set(e.id, f);
 const target = (id: string): Target => {
   const e = built.get(id) ?? fail(`no entity ${id} in ${ENTITIES}`);
   const file = curatedIn.get(id) ?? fail(`${id} has no entry in ${CURATED_ENTITIES}: add one (id, category) first`);
@@ -263,7 +264,7 @@ function setYaml(text: string, id: string, line: string, isEvent: boolean): stri
 }
 
 /**
- * Put the narration on the entity in public/data where the build would: events before source_ids;
+ * Put the narration on the entity in public/data where the build would: events and cities before source_ids;
  * civilizations (Cliopatria records with curated fields laid over them) after source_ids; species and
  * cultures (built from entities.yaml in its key order) after description.
  */
@@ -273,7 +274,7 @@ function setEntity(text: string, id: string, narration: object): string {
   if (i < 0) fail(`${id} not in ${ENTITIES}`);
   const comma = lines[i].endsWith(",");
   const { narration: _old, ...rest } = JSON.parse(comma ? lines[i].slice(0, -1) : lines[i]);
-  const after = rest.category === "event" ? null : rest.category === "civilization" ? "source_ids" : "description";
+  const after = rest.category === "event" || rest.category === "city" ? null : rest.category === "civilization" ? "source_ids" : "description";
   const out: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(rest)) {
     if (k === "source_ids" && after === null) out.narration = narration;

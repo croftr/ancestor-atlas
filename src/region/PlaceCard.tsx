@@ -351,7 +351,7 @@ export default function PlaceCard() {
                       </div>
                       <div className="place-item-meta">
                         <span>
-                          {entry.entity.category === "event" && entry.entity.date_text
+                          {(entry.entity.category === "event" || entry.entity.category === "city") && entry.entity.date_text
                             ? entry.entity.date_text
                             : shortRange(entry.localStart, entry.localEnd)}
                         </span>

@@ -21,7 +21,7 @@ const API = "https://api.elevenlabs.io/v1";
 const MODEL = "eleven_text_to_sound_v2";
 /** How closely the sound follows the prompt (0–1): a little freedom sounds more natural. */
 const PROMPT_INFLUENCE = 0.4;
-const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations" };
+const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities" };
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");
 const args = process.argv.slice(2);

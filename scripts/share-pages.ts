@@ -46,6 +46,7 @@ const KIND: Record<Entity["category"], string> = {
   species: "Species",
   culture: "Culture",
   civilization: "Civilization",
+  city: "City",
   event: "Event",
 };
 
