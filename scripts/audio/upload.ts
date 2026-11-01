@@ -6,7 +6,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { BUCKET, MEDIA_BASE_DEFAULT, REGION, uploadArgs } from "./encode.ts";
 
-const files = ["data/curated/events.yaml", "data/curated/entities.yaml", "src/tours/tours.ts", "src/tours/ambience.ts"];
+const files = ["data/curated/events.yaml", "data/curated/entities.yaml", "data/curated/cities.yaml", "src/tours/tours.ts", "src/tours/ambience.ts"];
 const keys = [
   ...new Set(
     files.flatMap((f) => readFileSync(f, "utf8").match(/\b(?:(?:narration|music|ambience)\/[a-z]+\/(?:[a-z0-9-]+\/)?[a-z0-9-]+-v\d+\.mp3|video\/[a-z]+\/[a-z0-9-]+-v\d+\.mp4)/g) ?? []),
