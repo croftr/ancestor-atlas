@@ -197,6 +197,12 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   an event's places stay listed, their coordinate and date references go into Sources. On phones the picture's
   full-screen button moves to its bottom right (the close button has the top right).
 - The DNA-site and What Was Here? cards keep their own heads but share the round close button (`.info-panel > .close`).
+- Everything at this time (added 1 Nov 2026): a slim "‹ 4 of 52 at this time ›" bar at the top of the full card
+  on the globe and of a sky object's panel (`src/now/NowStepper.tsx`) steps through all that is on the globe at
+  the slider's year, one entry per entity (its sites showing now as the card's sites), in the legend's order and
+  oldest first, then the sky objects (`nowItems` in `src/now/now.ts`; switched-off layers left out). The slider
+  stays put. Store `stepNow`; keys `,` and `.` (work with no card open too). Hidden in tours. Not on the phone's
+  compact card yet. The sky panel's open state lives in `src/sky/skyOpen.ts` so the store can open one.
 - A click on nothing (empty globe or sky) does nothing: no card or panel closes, in a tour or not (Rob's call,
   1 Nov 2026). The globe's cursor follows the same hit test as the click (`hitAt` in `MapView.tsx`): a pointer only
   where a click opens something, MapLibre's grab hand on the rest of the globe, a plain arrow on the empty sky.

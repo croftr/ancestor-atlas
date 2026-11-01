@@ -8,6 +8,8 @@ import { tourById } from "./tours/tours";
 import type { DnaColour } from "./dna/haplogroups";
 import { circleBBox, DEFAULT_RADIUS_KM } from "./region/region";
 import { areaAt, type AreaLevel } from "./region/area";
+import { nowIndex, nowItems } from "./now/now";
+import { useSkyOpen } from "./sky/skyOpen";
 
 export interface PlaceQuery {
   lon: number;
@@ -199,6 +201,11 @@ interface AppState {
   skipNote(): void;
   /** Select the next/previous feature of the selected entity (moving the slider if needed). */
   stepFeature(dir: 1 | -1): void;
+  /**
+   * Open the next/previous of everything on the globe at the slider's year (now/now.ts): an entity's card
+   * (its sites showing now, the globe turning to them) or a sky object's panel. The slider stays put.
+   */
+  stepNow(dir: 1 | -1): void;
   setPlaying(p: boolean): void;
   setBasemap(name: string): void;
   setPaleo(on: boolean): void;
@@ -424,6 +431,36 @@ export const useStore = create<AppState>((set, get) => ({
       hits: [next],
       flyTo: bbox ? { bbox, gentle: true } : s.flyTo,
     });
+  },
+  stepNow: (dir) => {
+    const d = getData();
+    const s = get();
+    if (!d || s.tour) return;
+    const items = nowItems(d, s.year, s.enabled);
+    if (!items.length) return;
+    const i = nowIndex(items, s, useSkyOpen.getState().open);
+    const next = items[i < 0 ? (dir === 1 ? 0 : items.length - 1) : (i + dir + items.length) % items.length];
+    if (next.kind === "sky") {
+      useSkyOpen.getState().setOpen(next.id);
+      set((st) => ({ playing: false, selectedId: null, hits: [], groupId: null, place: null, lastPlace: st.place ?? st.lastPlace }));
+      return;
+    }
+    useSkyOpen.getState().setOpen(null);
+    const bbox = unionBBox(
+      next.features.flatMap((f): BBox[] => {
+        const b = d.bboxOf.get(f.id);
+        return b ? [b] : [];
+      }),
+    );
+    set((st) => ({
+      playing: false,
+      selectedId: next.features[0].id,
+      hits: next.features,
+      groupId: null,
+      place: null,
+      lastPlace: st.place ?? st.lastPlace,
+      flyTo: bbox ? { bbox, gentle: true } : st.flyTo,
+    }));
   },
   setPlaying: (p) => set((s) => ({ playing: p, ...(p && s.tour && { tour: null, ...afterTour(s.tour) }) })),
   setBasemap: (name) => {

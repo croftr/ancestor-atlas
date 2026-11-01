@@ -341,3 +341,34 @@
   .info-panel { animation: none; }
   .card-action-icon, .card-sources-chevron { transition: none; }
 }
+
+/* ---- Everything at this time (now/NowStepper.tsx): a slim bar at the top of the card and of a sky
+   object's panel, stepping through all that is on the globe and in the sky at the slider's year. ---- */
+.now-stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -2px 0 10px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.76rem;
+  color: #aab4c8;
+}
+.now-count { flex: 1; min-width: 0; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.now-count strong { color: #e8ecf4; font-weight: 650; font-variant-numeric: tabular-nums; }
+.now-step {
+  flex: none;
+  width: 30px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #dfe6f3;
+  cursor: pointer;
+}
+.now-step:hover { background: rgba(255, 255, 255, 0.15); }
+.now-step:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
+.sky-panel .now-stepper { margin: 0 34px 8px 0; }

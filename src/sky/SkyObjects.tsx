@@ -1,13 +1,8 @@
 import { useEffect, useRef, type CSSProperties } from "react";
-import { create } from "zustand";
 import { useStore } from "../store";
+import NowStepper, { useNowKeys } from "../now/NowStepper";
 import { SKY_EVENTS, SKY_KIND_NAME, SKY_PLACE, skyShownAt, type SkyEvent, type SkyKind } from "./sky";
-
-/** Which sky object's details are open (SkyHits), so the background can hold a flaring one steady meanwhile. */
-const useSkyOpen = create<{ open: string | null; setOpen: (id: string | null) => void }>((set) => ({
-  open: null,
-  setOpen: (open) => set({ open }),
-}));
+import { useSkyOpen } from "./skyOpen";
 
 const placeStyle = (e: SkyEvent) => {
   const [x, y] = SKY_PLACE[e.kind];
@@ -96,6 +91,7 @@ export function SkyHits() {
   const shown = SKY_EVENTS.filter((e) => skyShownAt(e, year));
   const current = shown.find((e) => e.id === open) ?? null;
   const panelRef = useRef<HTMLDivElement>(null);
+  useNowKeys();
 
   // Gone from the sky: close its details.
   useEffect(() => {
@@ -139,6 +135,7 @@ export function SkyHits() {
           <button type="button" className="sky-panel-close" aria-label="Close" onClick={() => setOpen(null)}>
             ×
           </button>
+          <NowStepper />
           <div className="sky-panel-kind">{SKY_KIND_NAME[current.kind]} · in the sky</div>
           <div className="sky-panel-name">{current.name}</div>
           <div className="sky-panel-date">

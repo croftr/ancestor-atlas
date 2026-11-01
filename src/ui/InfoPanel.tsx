@@ -10,6 +10,7 @@ import { clearShrunkCard, navigate, PAGE_OF, peekShrunkCard, type View } from ".
 import { formatDuration } from "../timeline/layout";
 import ListenButton from "../audio/ListenButton";
 import EventImage from "../events/EventImage";
+import NowStepper from "../now/NowStepper";
 import { STACKED_QUERY } from "../config";
 import { useMediaQuery } from "./useMediaQuery";
 import { videoCount } from "../youtube";
@@ -453,6 +454,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
             </button>
           </div>
         )}
+        {view === "globe" && !minimised && <NowStepper />}
         <CardHead
           category={entity.category}
           decorative
