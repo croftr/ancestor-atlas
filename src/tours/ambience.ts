@@ -1,7 +1,7 @@
 /**
  * Ambient sound for a tour stop: a few seconds under the narration, starting a couple of seconds after
- * the stop's card opens (src/audio/ambience.ts plays it; timings at the top of that file). Keyed by entity id, so any tour stopping there gets it; events for
- * now. `prompt` is what was asked of ElevenLabs' sound generator; `sound` is set by
+ * the stop's card opens (src/audio/ambience.ts plays it; timings at the top of that file). Keyed by entity id, so any tour stopping there gets it; events, cities,
+ * cultures and civilizations (not species). `prompt` is what was asked of ElevenLabs' sound generator; `sound` is set by
  * `npm run audio:ambience` (key ambience/<category>/<id>-v<n>.mp3, `prompt_hash` the prompt's
  * fingerprint when generated, so an edited prompt shows as stale). An entry without `sound` plays nothing.
  * Prompts describe the place and the work, never speech or music (except the bone flute).
@@ -292,6 +292,178 @@ export const AMBIENCE: Record<string, Ambience> = {
   babylon: {
     prompt: "Brick processional way in a great ancient city: many footsteps on stone paving, a donkey braying in the distance, palm leaves rustling in a warm wind, faint river water",
     sound: { src: "ambience/cities/babylon-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8bad29da21" },
+  },
+  "sumerian-city-states": {
+    prompt: "Mudbrick city on a canal in southern Mesopotamia: reed boats creaking and paddles dipping in slow water, a stylus pressing into soft clay, sheep bleating in the distance, reeds rustling in a warm wind",
+    sound: { src: "ambience/civilizations/sumerian-city-states-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9c9999e748" },
+  },
+  "akkadian-empire": {
+    prompt: "Royal workshop by the Euphrates: small hammers tapping and chasing bronze, a chisel on stone, footsteps on baked brick, palm leaves rustling, river water and birds in the distance",
+    sound: { src: "ambience/civilizations/akkadian-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e388e27703" },
+  },
+  hittites: {
+    prompt: "Stone citadel on a windy Anatolian upland: chariot wheels rattling over paving, horses snorting and hooves on stone, bronze armour clinking, clay tablets set down on wood, wind across the hills",
+    sound: { src: "ambience/civilizations/hittites-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e1a8216f89" },
+  },
+  "minoan-civilization": {
+    prompt: "Palace terrace above the sea on Crete: footsteps on stone paving, clay storage jars knocked gently, oars and waves in a harbour below, gulls, cicadas and a warm Mediterranean breeze",
+    sound: { src: "ambience/civilizations/minoan-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "4597381d6a" },
+  },
+  "mycenaean-greece": {
+    prompt: "Hilltop citadel of huge stone walls: heavy wooden gate creaking, bronze spears and shields clinking, footsteps on gravel, a stylus scratching clay, wind over dry hills and distant goat bells",
+    sound: { src: "ambience/civilizations/mycenaean-greece-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d2d1180b69" },
+  },
+  "new-kingdom-of-egypt": {
+    prompt: "Festival procession at a great Nile temple: many bare footsteps on stone, the rattle of sistra, wooden carrying poles creaking, river water lapping against boats, ibis calls in hot still air",
+    sound: { src: "ambience/civilizations/new-kingdom-of-egypt-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "91c61096fa" },
+  },
+  phoenicia: {
+    prompt: "Busy island harbour: waves slapping wooden hulls, mooring ropes creaking, cedar logs rolled and thumped onto a quay, a large vat bubbling over a fire, gulls crying",
+    sound: { src: "ambience/civilizations/phoenicia-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "f30fe6d43e" },
+  },
+  "neo-assyrian-empire": {
+    prompt: "Palace city on the Tigris: marching footsteps and iron scale armour jingling, chisels tapping on stone reliefs, clay tablets stacked, horses in the distance, a hot dry wind",
+    sound: { src: "ambience/civilizations/neo-assyrian-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "502b595246" },
+  },
+  "greek-city-states": {
+    prompt: "Classical harbour town below a temple hill: oars dipping in rhythm and water against trireme hulls, bronze shields and spears clinking, a brush on pottery, gulls and cicadas",
+    sound: { src: "ambience/civilizations/greek-city-states-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "cc213348a7" },
+  },
+  "macedonian-empire": {
+    prompt: "Army camp on a plain: hundreds of footsteps marching in step, long wooden pikes knocking together, cavalry hooves and horses snorting, armour clinking, wind over the fields",
+    sound: { src: "ambience/civilizations/macedonian-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "03bcc0009a" },
+  },
+  "achaemenid-empire": {
+    prompt: "Great stone palace terrace: footsteps on stone stairways, a messenger's horse galloping past on a hard road, metal cups set down, banners flapping in a dry upland wind",
+    sound: { src: "ambience/civilizations/achaemenid-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9a441b9fd5" },
+  },
+  "maurya-empire": {
+    prompt: "Stone stupa and pillar in the Indian countryside: chisels tapping on sandstone, silver coins clinking into a pile, temple bells in the distance, birds and a warm breeze in the trees",
+    sound: { src: "ambience/civilizations/maurya-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1b16f6d0ec" },
+  },
+  "qin-dynasty": {
+    prompt: "Imperial palace courtyard in ancient China: soldiers marching in step with armour clinking, chariot wheels and horses on packed earth, bronze coins clinking, bamboo slips rustling, wind",
+    sound: { src: "ambience/civilizations/qin-dynasty-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c3743e6df9" },
+  },
+  "han-dynasty": {
+    prompt: "City gate on the Silk Road: camel bells and camels grunting, bundles of silk thumped down, hooves on packed earth, wind blowing through watchtowers, paper scrolls unrolled",
+    sound: { src: "ambience/civilizations/han-dynasty-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d6bce2aa1b" },
+  },
+  "roman-empire": {
+    prompt: "Imperial Rome: hobnailed boots marching on stone paving, a cart's wheels rattling over cobbles, a fountain splashing in a square, pigeons, distant hammering from a building site",
+    sound: { src: "ambience/civilizations/roman-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c2c108f263" },
+  },
+  "olmec-civilization": {
+    prompt: "Tropical Gulf lowland ceremonial centre: stone tools pecking and grinding at a huge basalt boulder, jade beads clicking, humid rainforest with frogs, insects and howler monkeys in the distance",
+    sound: { src: "ambience/civilizations/olmec-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3b2bf8f849" },
+  },
+  "mayan-city-states": {
+    prompt: "Maya city in the rainforest: howler monkeys and tropical birds, insects buzzing, footsteps on plaster steps, a brush stroking bark paper, light rain on leaves",
+    sound: { src: "ambience/civilizations/mayan-city-states-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "df99d99c75" },
+  },
+  teotihuacan: {
+    prompt: "Wide stone avenue in a great highland city: rhythmic knapping of obsidian, sharp flakes clinking, footsteps on stone, a brush on plaster, dry wind across the valley",
+    sound: { src: "ambience/civilizations/teotihuacan-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "098960289c" },
+  },
+  "zapotec-civilization": {
+    prompt: "Mountaintop ceremonial plaza above a valley: footsteps on stone stairs, clay urns set down, chisels tapping on carved slabs, strong mountain wind, hawks calling far below",
+    sound: { src: "ambience/civilizations/zapotec-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "62f13b3350" },
+  },
+  "middle-stone-age": {
+    prompt: "Seaside cave in southern Africa: a stone rubbed back and forth grinding ochre on a slab, careful scratching of stone on stone, waves breaking on rocks outside, wind and seabirds",
+    sound: { src: "ambience/cultures/middle-stone-age-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8515eb156b" },
+  },
+  "levallois-mousterian": {
+    prompt: "Rock shelter above a river valley: steady knocks of a hammerstone flaking flint, a scraper rasping across hide, embers crackling softly in a hearth, distant horses and wind",
+    sound: { src: "ambience/cultures/levallois-mousterian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8414abb43e" },
+  },
+  chatelperronian: {
+    prompt: "Cave camp in Ice Age France: gentle pressing and clicking of an antler tool flaking stone, a stone awl drilling, a grinding stone rubbing on a slab, crackling campfires, cold wind outside",
+    sound: { src: "ambience/cultures/chatelperronian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "238c5f09e3" },
+  },
+  aurignacian: {
+    prompt: "Ice Age cave by firelight: a crackling campfire and a hissing torch, light tapping as ivory is carved, a few soft breathy notes from a bone flute, cold wind at the cave mouth",
+    sound: { src: "ambience/cultures/aurignacian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ca28c55c36" },
+  },
+  gravettian: {
+    prompt: "Winter camp on a frozen plain: a campfire and a small clay kiln crackling, ivory beads clicking on a cord, snow crunching underfoot, bitter wind, mammoths rumbling far off",
+    sound: { src: "ambience/cultures/gravettian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "48050c3024" },
+  },
+  solutrean: {
+    prompt: "Snowy Ice Age camp: careful clicks of an antler tool pressure-flaking a long stone point, a bone needle pulling sinew through hide, crackling campfires, a horse snorting, snow crunching",
+    sound: { src: "ambience/cultures/solutrean-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "2affc59599" },
+  },
+  magdalenian: {
+    prompt: "Riverside camp at the end of the Ice Age: a fast river rushing over stones, a salmon splashing, a harpoon striking water, stones grinding ochre by a crackling fire, reindeer hooves in the shallows",
+    sound: { src: "ambience/cultures/magdalenian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6a93de475d" },
+  },
+  epigravettian: {
+    prompt: "Mediterranean shore camp at the end of the Ice Age: flint knapping and wood shaving, fish sizzling over a crackling fire, baskets woven, soft waves on the beach and gulls",
+    sound: { src: "ambience/cultures/epigravettian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8c6a7f0d21" },
+  },
+  azilian: {
+    prompt: "Riverside rock shelter: a clear river flowing over pebbles, a flint burin scraping bone, pebbles clicking together, a small fire crackling, footsteps on grass, birds in the trees",
+    sound: { src: "ambience/cultures/azilian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5b63568d10" },
+  },
+  natufian: {
+    prompt: "Stone village in the Levant hills: heavy stone pestles pounding grain in stone mortars, a hearth crackling, a dog panting, footsteps on a stone path, dry wind and larks",
+    sound: { src: "ambience/cultures/natufian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "01e78c0426" },
+  },
+  maglemosian: {
+    prompt: "Misty lake at dusk in a northern forest: gentle water lapping, a dugout canoe bumping, a fishing spear splashing, a dog breathing nearby, a crackling fire, frogs and waterbirds",
+    sound: { src: "ambience/cultures/maglemosian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7a03242138" },
+  },
+  capsian: {
+    prompt: "Dry North African hillside camp: stone tools scratching ostrich eggshell, hammerstones knapping flint blades, small hearths crackling, a dry wind and distant birds",
+    sound: { src: "ambience/cultures/capsian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "67f7207819" },
+  },
+  ertebolle: {
+    prompt: "Rocky Baltic shore by an oak forest: small waves lapping, a paddle dipping beside a dugout canoe, fish sizzling on a rack over a fire, bone scraped with flint, gulls",
+    sound: { src: "ambience/cultures/ertebolle-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "05956ad5fa" },
+  },
+  "linear-pottery": {
+    prompt: "Early farming village of timber longhouses: a stone adze ground on a wet whetstone, a quern rolling and crushing grain, a small fire, cattle lowing, pigs grunting and sheep in a pasture",
+    sound: { src: "ambience/cultures/linear-pottery-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1a48512073" },
+  },
+  lapita: {
+    prompt: "Pacific island lagoon: soft surf on a sandy beach, a canoe hull and pandanus sail creaking in the wind, stamps tapping into soft clay, palm fronds rustling, small pigs grunting",
+    sound: { src: "ambience/cultures/lapita-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b7f2ebd92e" },
+  },
+  "bantu-farmers": {
+    prompt: "African village forge: leather bellows pumping, a furnace roaring, a hammer ringing on hot iron with sparks, pots burnished by hand, millet stalks rustling in a savanna breeze, cattle lowing",
+    sound: { src: "ambience/cultures/bantu-farmers-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1fa50ec047" },
+  },
+  yamnaya: {
+    prompt: "Open steppe grassland: tall feathergrass hissing in a steady wind, powder trickling into a pit, oxen-drawn wooden wagons creaking, horses' hooves on turf, cattle and sheep in the distance",
+    sound: { src: "ambience/cultures/yamnaya-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "22ece6606a" },
+  },
+  afanasievo: {
+    prompt: "Mountain river valley in the Altai: lively river water over stones, a copper blade polished on stone, clay smoothed by hand, footsteps on grass, horses, cattle and sheep grazing",
+    sound: { src: "ambience/cultures/afanasievo-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9162df7cd6" },
+  },
+  "corded-ware": {
+    prompt: "Green pasture on the European plain: oxen pulling creaking four-wheeled wooden wagons, cattle lowing, sheep and horses grazing, wind in the grass, birds",
+    sound: { src: "ambience/cultures/corded-ware-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c62891fe72" },
+  },
+  "bell-beaker": {
+    prompt: "Chalk downland: a copper dagger polished over glowing charcoal, baskets of chalk tipped onto a mound, wooden shovels scraping, skylarks and a light wind",
+    sound: { src: "ambience/cultures/bell-beaker-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "78d0c0bdf5" },
+  },
+  unetice: {
+    prompt: "Bronze Age workshop: leather bellows pumping, a stone furnace roaring, molten bronze hissing into a stone mould, a bronze axe set down on wood, wind across fields",
+    sound: { src: "ambience/cultures/unetice-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8e1669cd5f" },
+  },
+  andronovo: {
+    prompt: "Steppe river valley: chariot horses snorting and shifting, spoked wooden wheels creaking, bellows pumping a furnace, molten bronze hissing in a mould, cattle and sheep in the distance",
+    sound: { src: "ambience/cultures/andronovo-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "edce18855e" },
+  },
+  "late-bronze-age-cyprus": {
+    prompt: "Copper-smelting harbour town on Cyprus: furnaces roaring with bellows, heavy copper ingots clanking as they are stacked, donkeys braying, waves against ships in the bay, gulls",
+    sound: { src: "ambience/cultures/late-bronze-age-cyprus-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3adca1f37b" },
+  },
+  "canaanite-city-states": {
+    prompt: "Walled hill town above olive groves: a stylus pressing into clay, a potter's wheel turning, a hammer tapping metal, chariot wheels creaking at the gate, goats and wind in olive trees",
+    sound: { src: "ambience/cultures/canaanite-city-states-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "bddd54ed10" },
   },
 };
 
