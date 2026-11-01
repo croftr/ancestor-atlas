@@ -351,6 +351,28 @@ export const TOURS: Tour[] = [
     ],
   },
   {
+    id: "first-cities",
+    title: "The first cities",
+    closing: "From a stone tower at Jericho to the walls of Babylon took eight thousand years. Today more than half of all people live in cities.",
+    blurb: "From the first walled town at Jericho to Babylon, the greatest city of the ancient world: how people first came to live together in their thousands, and what they built, wrote and worshipped there.",
+    layers: ["culture", "civilization", "city", "event"],
+    announcement: { src: "narration/tours/first-cities-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "94ba2be449" },
+    closingNarration: { src: "narration/tours/first-cities-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "76ed387ee8" },
+    music: { src: "music/tours/first-cities-v1.mp3", credit: "Music: \"Passage Of Time\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    stops: [
+      { entity: "jericho", year: -8_499 },
+      { entity: "catalhoyuk", year: -6_999 },
+      { entity: "uruk", year: -3_099 },
+      { entity: "memphis", year: -2_999 },
+      { entity: "ur", year: -2_599 },
+      { entity: "mohenjo-daro", year: -2_499 },
+      { entity: "harappa", year: -2_399 },
+      { entity: "knossos", year: -1_699 },
+      { entity: "yinxu", year: -1_199 },
+      { entity: "babylon", year: -599 },
+    ],
+  },
+  {
     id: "kindred",
     title: "Kindred",
     book: {

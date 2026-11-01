@@ -252,6 +252,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   Four Commons pictures each (22 Oct) for the six stops that had none: Zapotec, Epigravettian, Azilian, Maglemosian,
   Capsian, Ertebølle (`public/images/extra/<id>-1..4.webp`). Weak spots: the Capsian ostrich egg and burial are
   drawings, and the Ertebølle 1890s midden photo is filed on Commons as Meilgaard, so its caption names no site.
+- The first cities (`first-cities`, 1 Nov 2026): the ten cities, Jericho to Babylon, every stop already narrated (the
+  cities' own descriptions); title and closing line recorded; music "Passage Of Time" (Scott Buckley, CC BY 4.0;
+  4:31, so it loops on the ~11-minute tour). The first tour with `"city"` in its `layers`: a tour that adds a city
+  stop needs it too.
 - Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,
   blurb, span, stops, running time, narrated/music), Watch, and the stop list to start from any stop
   (`startTour(id, { index })`). The time bar's Tours menu shows a thumbnail and running time, and links to the page.
