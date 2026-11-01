@@ -125,6 +125,7 @@
   lon: 31.250917
   image_url: /images/cities/memphis.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/memphis-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Memphis from a temple roof: a scribe writing on papyrus, sculptors finishing a dark stone statue, the white walls of Ptah's temple, boats on the Nile, and the Step Pyramid and the pyramids of Giza on the desert edge beyond"
   extra_images:
     - { url: /images/extra/memphis-1.webp, credit: "Darer101, CC BY-SA 4.0, via Wikimedia Commons", caption: "Broken blocks and columns among the palms at Mit Rahina, where the ruins of Memphis lie", source: "https://commons.wikimedia.org/wiki/File:Ruins_at_Mit_Rahina.jpg" }
@@ -147,6 +148,7 @@
   lon: 72.866667
   image_url: /images/cities/harappa.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/harappa-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Harappa from its brick walls: craftspeople with beads, weights, seals and painted pots, ox-carts and boats beside the Ravi, and the walled citadel with its great brick halls beyond"
   extra_images:
     - { url: /images/extra/harappa-1.webp, credit: "Muhammad Bin Naveed, CC BY-SA 3.0, via Wikimedia Commons", caption: "Mound F at Harappa, with the brick foundations of the so-called Granary and Great Hall", source: "https://commons.wikimedia.org/wiki/File:Another_view_of_Granary_and_Great_Hall_on_Mound_F.JPG" }
