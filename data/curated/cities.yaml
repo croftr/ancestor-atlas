@@ -20,6 +20,7 @@
   end_year: 1
   date_text: c. 5000 BCE – c. 700 CE
   description: "Uruk, in the south of what is now Iraq, was one of the world's first cities. Two small Ubaid farming villages beside a channel of the Euphrates grew into the twin towns of Unug and Kullaba, which merged into one. By about 3100 BCE Uruk may have held up to 50,000 people, the largest city on Earth at the time. At its heart stood two temple districts, Eanna for the goddess Inanna and the terraced Anu district, ringed by workshops and by houses grouped by trade, and canals ran through its streets to the river and the fields. Thousands of the earliest written clay tablets were found there, from about 3300 to 2900 BCE. Later legend made Gilgamesh its king and the builder of its walls. Uruk lost its lead when the Akkadian Empire rose, but revived again and again, under Ur, the Assyrians, the Babylonians and the Seleucids, and was not abandoned until about 700 CE."
+  narration: { src: narration/cities/uruk-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "1d4a2bdb3c" }
   part_of: sumerian-city-states
   related: [ubaid, akkadian-empire, babylonia, neo-assyrian-empire, neo-babylonian-empire, achaemenid-empire, seleucid-empire, parthian-empire]
   wikipedia_url: https://en.wikipedia.org/wiki/Uruk
@@ -42,6 +43,7 @@
   end_year: -1699
   date_text: c. 2500 – c. 1700 BCE
   description: "Mohenjo-daro, in Sindh in what is now Pakistan, was built around 2500 BCE and became one of the largest cities of the Indus Valley Civilisation, home to perhaps 40,000 people. It was planned: straight streets on a grid, houses of fired brick around inner courtyards, and covered drains along the main streets to carry waste water away. More than 700 wells, about one for every three houses, gave it water. On a raised mud-brick citadel stood its public buildings, among them the Great Bath, a brick pool sealed with bitumen that may have been used for ritual washing. Its people cast copper and bronze, carved stone seals, and made jewellery of gold and jasper. By about 1700 BCE, as the Indus cities declined, it had been abandoned. Its real name is lost: Mohenjo-daro means 'Mound of the Dead Men'. The ruins were rediscovered in the 1920s."
+  narration: { src: narration/cities/mohenjo-daro-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2552534678" }
   part_of: indus-valley-civilization
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
   wikidata: Q5725
@@ -63,6 +65,7 @@
   end_year: -499
   date_text: c. 3800 – after 500 BCE
   description: "Ur, in the south of what is now Iraq, began as an Ubaid village around 3800 BCE beside the Persian Gulf, whose shore has since moved far away, and grew into one of the great Sumerian city-states, the city of the moon god Nanna. Its Royal Tombs, from around 2600 BCE, were filled with gold, silver and precious stones brought from as far as Iran, Afghanistan and India; Queen Puabi was buried there with her golden headdress and many attendants. Sargon of Akkad made his daughter Enheduanna high priestess at Ur, and her hymns may make her the first author in history known by name. Around 2100 BCE King Ur-Nammu built the great ziggurat, and under its Third Dynasty Ur ruled the cities of Sumer until the Elamites captured its last king, about 2000 BCE. Ur lived on as a holy city, its ziggurat rebuilt by Nabonidus, the last king of Babylon, and was abandoned some time after 500 BCE."
+  narration: { src: narration/cities/ur-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0fe7b6b79c" }
   part_of: sumerian-city-states
   related: [ubaid, akkadian-empire, babylonia, neo-babylonian-empire]
   wikipedia_url: https://en.wikipedia.org/wiki/Ur
@@ -85,6 +88,7 @@
   end_year: 1
   date_text: c. 2200 BCE – c. 1000 CE
   description: "Babylon, on the Euphrates south of what is now Baghdad, first appears around 2200 BCE as a small town of the Akkadian Empire. In the 18th century BCE the Amorite king Hammurabi made it the capital of an empire over all southern Mesopotamia and set down his famous code of laws, and from then on the whole region was called Babylonia. Sacked by the Hittites in 1595 BCE and ruled in turn by Kassites, Assyrians and Elamites, it rose again as the capital of the Neo-Babylonian Empire, from 626 to 539 BCE. Nebuchadnezzar II rebuilt it in baked brick; its walls, and its Hanging Gardens, if they ever existed, were counted among the Seven Wonders of the ancient world. Babylon was probably the largest city in the world around 1700 BCE and again from about 600 BCE, perhaps the first to pass 200,000 people. Persians, Alexander the Great, Seleucids and Parthians ruled it after; it dwindled slowly, until only a small village was left by the 11th century CE."
+  narration: { src: narration/cities/babylon-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "86690f8692" }
   part_of: babylonia
   related: [akkadian-empire, assyria, neo-assyrian-empire, neo-babylonian-empire, achaemenid-empire, seleucid-empire, parthian-empire]
   wikipedia_url: https://en.wikipedia.org/wiki/Babylon
@@ -107,6 +111,7 @@
   end_year: 1
   date_text: c. 3100 BCE – 7th century CE
   description: "Memphis, at the head of the Nile Delta just south of modern Cairo, was the capital of Egypt in the Early Dynastic Period and the Old Kingdom. Later legend said King Menes founded it, before 3000 BCE, and the pyramid fields of the kings, Giza among them, stretch for more than 30 kilometres along the desert to its west. Its port was crowded with workshops, factories and warehouses, and its great temple belonged to Ptah, the god of craftsmen. The temple's name, Hut-ka-Ptah, became Aigyptos in Greek, the origin of the word Egypt. Memphis stayed one of Egypt's great cities for three thousand years, until Alexandria on the coast drew away its trade and Christianity replaced its old religion. By the Middle Ages nearby Cairo had taken its place, and today its ruins lie scattered around the village of Mit Rahina."
+  narration: { src: narration/cities/memphis-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "63309112c7" }
   part_of: ancient-egypt
   related: [early-dynastic-period-of-egypt, old-kingdom-of-egypt, new-kingdom-of-egypt]
   wikipedia_url: https://en.wikipedia.org/wiki/Memphis,_Egypt
@@ -126,6 +131,7 @@
   end_year: -1299
   date_text: c. 3300 – c. 1300 BCE
   description: "Harappa, beside an old course of the Ravi River in Punjab, Pakistan, gave its name to the Harappan or Indus Valley Civilisation. Settled around 3300 BCE, it reached its greatest size in the mature phase, from about 2600 to 1900 BCE, when its brick houses covered some 150 hectares and it was home to perhaps 23,500 people. With Mohenjo-daro it was one of the two greatest cities of the Indus. Its people used standard weights and measures and carved seals, perhaps to mark their goods; they grew wheat and rice, wove and dyed cotton, and kept humped cattle. After about 1900 BCE the civilisation slowly broke down, and by around 1300 BCE Harappa was abandoned. Under British rule much of the ruined city was dug up for bricks to lay the railway from Lahore to Multan."
+  narration: { src: narration/cities/harappa-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ead7182caa" }
   part_of: indus-valley-civilization
   wikipedia_url: https://en.wikipedia.org/wiki/Harappa
   wikidata: Q185562
@@ -144,6 +150,7 @@
   end_year: 1
   date_text: c. 7000 BCE – 1st millennium CE
   description: "Knossos, on a hill just south of Heraklion in Crete, is often called Europe's oldest city. Farmers settled there around 7000 BCE, and early in the second millennium BCE the village grew quickly into a town and the greatest centre of the Minoan civilisation. Its palace, first built around 1900 BCE and rebuilt after a destruction around 1700 BCE, gathered halls, storerooms, shrines, stairways and light wells round a central court, with drains and richly painted walls. Later Greeks remembered its tangled plan as the Labyrinth of King Minos and the Minotaur. After damage around 1450 BCE Knossos became a Mycenaean centre, whose scribes kept accounts in Linear B, an early form of Greek. The palace was destroyed around 1350 BCE, but Knossos stayed one of the leading cities of Crete through Greek and Roman times and into the Byzantine period."
+  narration: { src: narration/cities/knossos-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e4f09b6f21" }
   part_of: minoan-civilization
   related: [mycenaean-greece, greek-city-states, roman-empire]
   wikipedia_url: https://en.wikipedia.org/wiki/Knossos
@@ -163,6 +170,7 @@
   end_year: -1045
   date_text: c. 1250 – 1046 BCE
   description: "Yin, whose ruins at Anyang in Henan are called Yinxu, was the last capital of the Shang dynasty, home to twelve Shang kings from about 1250 BCE until the dynasty fell in 1046 BCE. Its palaces and temples stood among royal tombs, workshops for bronze and bone, and pits of sacrificed people, animals and chariots. Its bronze-casters made vessels such as the great Houmuwu ding by a piece-mould method. More than 100,000 oracle bones found there carry the earliest known Chinese writing. The best-preserved royal tomb, never looted, is that of Fu Hao, a military leader and the wife of King Wu Ding, buried around 1250 BCE with dogs, sixteen servants and a wealth of bronzes and jades. The city was then forgotten for three thousand years, until oracle bones turned up for sale nearby in 1899."
+  narration: { src: narration/cities/yinxu-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "18ac83c5df" }
   part_of: shang-dynasty
   wikipedia_url: https://en.wikipedia.org/wiki/Yinxu
   wikidata: Q464904
@@ -183,6 +191,7 @@
   # Tell_es-Sultan's infobox says abandoned c. 900 BCE; its text (Iron Age, Abandonment of the tell) has the town destroyed
   # in 587/586 BCE, rebuilt in the Persian period and abandoned not long after: end_year follows the text (c. 330 BCE).
   description: "Ancient Jericho is the mound of Tell es-Sultan, beside the spring of Ein es-Sultan in the Jordan Valley, in Palestine. Natufian hunter-gatherers began to live there all year round between 10,000 and 9000 BCE, and from about 8500 BCE it became one of the first proto-cities: round houses of sun-dried mud brick, for perhaps a few hundred or a few thousand people. Around 8300 BCE they built a stone wall and a great stone tower, the tallest building in the world until the first pyramid. Later Neolithic villagers modelled faces in plaster on the skulls of their dead. The town was destroyed, abandoned and rebuilt many times; its largest Bronze Age city, a Canaanite one with walls and towers, flourished from about 1700 to 1550 BCE. The Babylonians destroyed Jericho in 587 BCE; it was rebuilt under the Persians, and soon after the mound was left for good."
+  narration: { src: narration/cities/jericho-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "990dd4d874" }
   part_of: pre-pottery-neolithic
   related: [natufian, canaanite-city-states, neo-babylonian-empire, achaemenid-empire]
   wikipedia_url: https://en.wikipedia.org/wiki/Tell_es-Sultan
@@ -203,6 +212,7 @@
   date_text: c. 7100 – c. 5600 BCE
   # The article's lead says c. 7500-5600 BC, its infobox c. 7100-5600 BC: the dates follow the infobox.
   description: "Çatalhöyük, on the Konya Plain in southern Turkey, was one of the largest and best-preserved Neolithic settlements, a proto-city lived in from around 7100 to 5600 BCE. Its mud-brick houses were packed so tightly together, like a honeycomb, that there were no streets: the rooftops served instead, and people climbed down into their homes by ladders through openings in the roof, which also let out the smoke of their hearths and ovens. There were no obvious public buildings, only houses, some with painted walls. Early estimates put its people at 5,000 to 7,000; newer work suggests 600 to 800 at any one time. Genetic studies published in 2025 suggest that households passed from mother to daughter. Among its many figurines is a woman seated between two lionesses, once taken for a mother goddess, a reading most archaeologists now doubt."
+  narration: { src: narration/cities/catalhoyuk-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "79a8fb7990" }
   part_of: pre-pottery-neolithic
   wikipedia_url: https://en.wikipedia.org/wiki/%C3%87atalh%C3%B6y%C3%BCk
   wikidata: Q192522
