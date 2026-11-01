@@ -6,7 +6,7 @@ import type { Entity } from "../types";
 
 const entities: Entity[] = JSON.parse(readFileSync("public/data/entities.json", "utf8"));
 const byId = new Map(entities.map((e) => [e.id, e]));
-const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations" };
+const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities" };
 
 describe.each(Object.entries(AMBIENCE))("ambience %s", (id, entry) => {
   it("belongs to an entity", () => {
