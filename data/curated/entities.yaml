@@ -1933,6 +1933,7 @@
   narration: { src: narration/cultures/canaanite-city-states-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "0d4bd2cb84" }
   image_url: /images/cultures/canaanite-city-states.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/canaanite-city-states-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Walled Canaanite city on its mound above olive groves and fields: standing stones within the walls, a scribe writing on clay, potters and metalworkers, a chariot at the gate"
   wikipedia_url: https://en.wikipedia.org/wiki/Canaan
   wikidata: Q163329
@@ -2994,6 +2995,7 @@
   image_url: /images/civilisations/mycenaean-greece.webp
   image_caption: Bronze Age citadel of Mycenae and the Lion Gate with cyclopean walls, warriors in boar's-tusk helmets with figure-of-eight shields, and a Linear B scribe.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/mycenaean-greece-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/mycenaean-greece-1.webp, credit: "DieBuche, CC BY-SA 3.0, via Wikimedia Commons", caption: "The repoussé gold funerary mask known as the \"Mask of Agamemnon\", from Grave Circle A at Mycenae (National Archaeological Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Funeral_mask_of_Agamemnon-colorcorr.jpg" }
     - { url: /images/extra/mycenaean-greece-2.webp, credit: "Berthold Werner, CC BY-SA 3.0, via Wikimedia Commons", caption: "The megalithic Lion Gate entrance and heraldic relief over the main approach to the citadel of Mycenae", source: "https://commons.wikimedia.org/wiki/File:Mykene_BW_2017-10-10_13-23-40.jpg" }
