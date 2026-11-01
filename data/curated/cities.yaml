@@ -119,6 +119,9 @@
   date_source: wikipedia:Memphis,_Egypt@1380290369
   lat: 29.844667
   lon: 31.250917
+  image_url: /images/cities/memphis.webp
+  image_credit: AI-generated illustration
+  image_caption: "Memphis from a temple roof: a scribe writing on papyrus, sculptors finishing a dark stone statue, the white walls of Ptah's temple, boats on the Nile, and the Step Pyramid and the pyramids of Giza on the desert edge beyond"
   extra_images:
     - { url: /images/extra/memphis-1.webp, credit: "Darer101, CC BY-SA 4.0, via Wikimedia Commons", caption: "Broken blocks and columns among the palms at Mit Rahina, where the ruins of Memphis lie", source: "https://commons.wikimedia.org/wiki/File:Ruins_at_Mit_Rahina.jpg" }
     - { url: /images/extra/memphis-2.webp, credit: "Dennis G. Jarvis, CC BY-SA 2.0, via Wikimedia Commons", caption: "The great calcite ('alabaster') sphinx of Memphis, from the New Kingdom", source: "https://commons.wikimedia.org/wiki/File:Flickr_-_archer10_(Dennis)_-_Egypt-12B-008.jpg" }
@@ -138,6 +141,9 @@
   date_source: wikipedia:Harappa@1382238880
   lat: 30.633333
   lon: 72.866667
+  image_url: /images/cities/harappa.webp
+  image_credit: AI-generated illustration
+  image_caption: "Harappa from its brick walls: craftspeople with beads, weights, seals and painted pots, ox-carts and boats beside the Ravi, and the walled citadel with its great brick halls beyond"
   extra_images:
     - { url: /images/extra/harappa-1.webp, credit: "Muhammad Bin Naveed, CC BY-SA 3.0, via Wikimedia Commons", caption: "Mound F at Harappa, with the brick foundations of the so-called Granary and Great Hall", source: "https://commons.wikimedia.org/wiki/File:Another_view_of_Granary_and_Great_Hall_on_Mound_F.JPG" }
     - { url: /images/extra/harappa-2.webp, credit: "Hassan Nasir, CC BY-SA 3.0, via Wikimedia Commons", caption: "A brick-lined well, perhaps with a bathing place beside it, in the ruins of Harappa", source: "https://commons.wikimedia.org/wiki/File:Harappa_Ruins_-_I.jpg" }
@@ -158,6 +164,9 @@
   date_source: wikipedia:Knossos@1374770779
   lat: 35.297961
   lon: 25.163156
+  image_url: /images/cities/knossos.webp
+  image_credit: AI-generated illustration
+  image_caption: "Knossos from the palace: a scribe writing on clay tablets, a woman with a bull's-head vessel, great storage jars, red columns and dolphin frescoes, and bull-leapers in the central court"
   extra_images:
     - { url: /images/extra/knossos-1.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The north entrance of the palace at Knossos, with a copy of its bull fresco, as rebuilt by Arthur Evans", source: "https://commons.wikimedia.org/wiki/File:Cnossos_5_bull_fresco.jpg" }
     - { url: /images/extra/knossos-2.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The stone throne in the so-called Throne Room at Knossos, among restored wall paintings", source: "https://commons.wikimedia.org/wiki/File:Throne_of_Minos_at_Knossos_Palace.jpg" }
@@ -177,6 +186,9 @@
   date_source: wikipedia:Yinxu@1381922689
   lat: 36.1225
   lon: 114.318611
+  image_url: /images/cities/yinxu.webp
+  image_credit: AI-generated illustration
+  image_caption: "Yinxu from a Shang palace hall: officials beside bronze vessels and jades, a scribe at work, chariots and soldiers, smoking bronze workshops, and the river beyond"
   extra_images:
     - { url: /images/extra/yinxu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A model of a Shang palace hall at Yinxu, in the museum on the site", source: "https://commons.wikimedia.org/wiki/File:Shang_Palace_Model_(44956617235).jpg" }
     - { url: /images/extra/yinxu-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A chariot burial pit at Yinxu; the chariots are original, the skeletons copies", source: "https://commons.wikimedia.org/wiki/File:Shang_Chariot_Sacrificial_Pit_01.jpg" }
@@ -199,6 +211,9 @@
   date_source: wikipedia:Tell_es-Sultan@1373710443
   lat: 31.871719
   lon: 35.444564
+  image_url: /images/cities/jericho.webp
+  image_credit: AI-generated illustration
+  image_caption: "Neolithic Jericho: villagers grinding grain and plastering a skull on a rooftop, the great stone tower behind its wall, round houses, and fields watered by the spring"
   extra_images:
     - { url: /images/extra/jericho-1.webp, credit: "Matson Photo Service, public domain (Library of Congress), via Wikimedia Commons", caption: "The mound of ancient Jericho from the air, with the modern town and the Jordan Valley beyond", source: "https://commons.wikimedia.org/wiki/File:Air_views_of_Palestine._Air_route_following_the_old_Jerusalem-Jericho_Road._Mound_of_ancient_Jericho._Looking_southward,_modern_Jericho_in_distance_LOC_matpc.22117.jpg" }
     - { url: /images/extra/jericho-2.webp, credit: "Diego Delso, CC BY-SA 3.0, via Wikimedia Commons", caption: "Tell es-Sultan, the mound of ancient Jericho, and its excavations", source: "https://commons.wikimedia.org/wiki/File:Tell_es-Sultan,_Jericho,_Palestine1.jpg" }
@@ -219,6 +234,9 @@
   date_source: wikipedia:Çatalhöyük@1379818880
   lat: 37.6675
   lon: 32.828333
+  image_url: /images/cities/catalhoyuk.webp
+  image_credit: AI-generated illustration
+  image_caption: "Çatalhöyük from its rooftops: people working obsidian and sitting on the roofs, a ladder down into a house painted with bulls and hunters, and the packed town spreading towards the mountains"
   extra_images:
     - { url: /images/extra/catalhoyuk-1.webp, credit: "Stipich Béla, CC BY 2.5, via Wikimedia Commons", caption: "Excavated house walls at Çatalhöyük, under the canopy that protects them", source: "https://commons.wikimedia.org/wiki/File:Catal_H%C3%BCy%C3%BCk_5.JPG" }
     - { url: /images/extra/catalhoyuk-2.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "A museum model of Çatalhöyük, its flat-roofed mud-brick houses packed together (Museum for Prehistory, Weimar)", source: "https://commons.wikimedia.org/wiki/File:MUFT_-_Catal_H%C3%B6y%C3%BCk_Modell.jpg" }

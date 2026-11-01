@@ -153,7 +153,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   (Rob makes them), Commons photos and a page, `#/cities` (`src/browse/CitiesPage.tsx`; in the rail and phone tabs).
   Disputed cities count too: any lasting town. Started with Uruk and Mohenjo-daro; batch 2 (1 Nov 2026): Ur, Babylon,
   Memphis, Harappa, Knossos, Yinxu, Jericho (Tell es-Sultan) and Çatalhöyük (the last two `part_of` the Pre-Pottery
-  Neolithic culture). Main pictures from Rob (so far Uruk, Mohenjo-daro, Ur, Babylon). Article conflicts noted in the
+  Neolithic culture). Main pictures and narration done for all ten. Article conflicts noted in the
   yaml: Jericho's end follows the text, not the infobox; Çatalhöyük's start the infobox, not the lead. Next candidates:
   Nineveh, Hattusa, Ugarit, Byblos, Susa, Persepolis, Thebes, Meroë, Carthage, Mycenae, Athens, Rome, Pataliputra,
   Xianyang, Monte Albán, an Olmec centre (Teotihuacan is a civilization already; Caral has no culture to join).
