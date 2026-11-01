@@ -74,9 +74,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Supernovae and comets of the slider's moment (sky/SkyObjects.tsx, sky/sky.ts): fixed places in the upper
    sky, drifting with the stars, faded in and out as the slider passes. */
 .space-sky { position: absolute; inset: 0; pointer-events: none; transform: translate3d(var(--sky-x, 0px), var(--sky-y, 0px), 0); }
-.sky-object { position: absolute; width: 0; height: 0; opacity: 0; transition: opacity 2.4s ease; }
+.sky-object { position: absolute; left: var(--sky-ox); top: var(--sky-oy); width: 0; height: 0; opacity: 0; transition: opacity 2.4s ease; }
 .sky-object.on { opacity: 1; }
-.sky-supernova { left: 69%; top: 11%; }
 .sky-supernova-glow {
   position: absolute; left: -36px; top: -36px; width: 72px; height: 72px; border-radius: 50%;
   background: radial-gradient(circle, #fff 0, #fff 2.5px, rgba(225, 238, 255, 0.85) 4px, rgba(170, 205, 255, 0.32) 11px, rgba(140, 180, 255, 0.1) 22px, transparent 36px);
@@ -92,14 +91,39 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @keyframes sky-pulse { from { transform: scale(0.92); opacity: 0.85; } to { transform: scale(1.06); opacity: 1; } }
 /* Known only to a span of time: flares now and then (about every 40 s), never shining steadily. */
 .sky-supernova.sky-span.on .sky-supernova-glow { animation: sky-flare 40s ease-in-out infinite; }
+.sky-supernova.sky-span.on.open .sky-supernova-glow { animation: sky-pulse 7s ease-in-out infinite alternate; }
 @keyframes sky-flare {
   0% { opacity: 0; transform: scale(0.4); }
   5% { opacity: 1; transform: scale(1.05); }
   18% { opacity: 0.85; transform: scale(0.95); }
   34%, 100% { opacity: 0; transform: scale(0.6); }
 }
-.sky-comet { left: 29%; top: 12%; }
 /* The tail points away from the globe: up and to the left. */
+/* Click targets over the map (sky/SkyObjects.tsx, SkyHits), at the same places (the stars' drift moves
+   them less than the target's radius), and the details panel under them. */
+.sky-hit {
+  position: absolute; left: var(--sky-ox); top: var(--sky-oy); width: 64px; height: 64px; margin: -32px 0 0 -32px;
+  border: 0; border-radius: 50%; background: transparent; cursor: pointer; padding: 0;
+}
+.sky-hit:hover, .sky-hit[aria-expanded="true"] { box-shadow: 0 0 0 1.5px rgba(200, 225, 255, 0.45); }
+.sky-hit:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.sky-panel {
+  position: absolute; z-index: 5; top: calc(var(--sky-oy) + 40px); width: min(330px, calc(100% - 24px));
+  left: clamp(12px, calc(var(--sky-ox) - 165px), calc(100% - min(330px, calc(100% - 24px)) - 12px));
+  padding: 12px 14px 12px; font-size: 0.86rem; line-height: 1.45; color: #e6ebf5;
+}
+.sky-panel p { margin: 6px 0 0; }
+.sky-panel-close {
+  position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%; border: 0;
+  background: rgba(255, 255, 255, 0.08); color: inherit; font-size: 1.1rem; line-height: 1; cursor: pointer;
+}
+.sky-panel-close:hover { background: rgba(255, 255, 255, 0.16); }
+.sky-panel-kind { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #8b95ab; padding-right: 30px; }
+.sky-panel-name { font-family: Georgia, serif; font-size: 1.2rem; margin-top: 2px; }
+.sky-panel-date { color: #c4d4ee; font-size: 0.82rem; }
+.sky-panel-note { font-size: 0.76rem; }
+.sky-panel-source { display: block; margin-top: 8px; font-size: 0.76rem; color: #8ec5ff; }
+.map-wrap.mini .sky-hit, .map-wrap.mini .sky-panel { display: none; }
 /* A fanned, slightly curved dust tail, and a fainter straight blue ion tail, so it never reads as a
    shooting star. */
 .sky-comet-tail {
@@ -142,6 +166,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .space-tint, .sky-object { transition: none; }
   .sky-supernova.on .sky-supernova-glow { animation: none; }
   .sky-supernova.sky-span.on .sky-supernova-glow { animation: none; opacity: 0.7; }
+  .sky-supernova.sky-span.on.open .sky-supernova-glow { animation: none; opacity: 1; }
 }
 .app:not(.view-globe) .space-background {
   display: none;

@@ -136,6 +136,12 @@ export const SKY_EVENTS: SkyEvent[] = [
   },
 ];
 
+/** Where each kind sits on the background, in % of its width and height: upper sky, clear of the globe. */
+export const SKY_PLACE: Record<SkyEvent["kind"], [x: number, y: number]> = {
+  supernova: [69, 11],
+  comet: [29, 12],
+};
+
 /**
  * Whether it shows at the slider's year: inside its window or within one slider step of it, so a
  * one-year comet is still there at the stops either side (10 years apart in the last 3,000 years).

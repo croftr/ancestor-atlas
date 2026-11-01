@@ -9,6 +9,7 @@ import { ARRIVAL_MS, HIGHLIGHT_GLOW, HIGHLIGHT_RINGS, HIGHLIGHT_SOURCE, MAX_WAIT
 import { CATEGORY_PATH } from "../ui/CategoryIcon";
 import { eventTolerance, getData, isActive, loadData, useFeatures } from "./data";
 import SpaceBackground, { SKY_MARGIN } from "./SpaceBackground";
+import { SkyHits } from "../sky/SkyObjects";
 import { navWidth } from "../ui/cardWidth";
 import { loadPaleo, paleoUrl, snapshotAt } from "./paleo";
 import { ROUTES } from "../routes/routes";
@@ -1343,6 +1344,7 @@ export default function MapView() {
     <div className="map-wrap">
       <SpaceBackground />
       <div ref={containerRef} style={{ position: "absolute", inset: 0 }} />
+      <SkyHits />
       {loading !== "done" && (
         <div className="empty-state loading-state" role="status">
           {loading === "loading" ? (

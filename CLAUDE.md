@@ -491,7 +491,9 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   3.2–1.5 Ma, Vela about 11 ka, Halley's recorded returns 240/164/87/12 BCE), drawn with CSS by
   `src/sky/SkyObjects.tsx` at fixed places in the upper sky (the background is not a real sky) while the slider is
   within one step, and named in the climate panel ("In the sky") and the Sources panel. A span (iron-60) flares now
-  and then, never shines steadily. Left out on purpose (sourcing doubts): Caesar's Comet, Hipparchus's nova, Thales'
+  and then, never shines steadily. Clickable: `SkyHits` (over the map in `MapView.tsx`) puts a button on each object
+  showing now and opens a small panel (what, when, source; closes on Escape, a click elsewhere or the slider moving
+  away); places in `SKY_PLACE`. Left out on purpose (sourcing doubts): Caesar's Comet, Hipparchus's nova, Thales'
   eclipse, Laschamp/Miyake auroras, Halley's computed returns before 240 BCE. `sky.test.ts`: one of each kind at once.
 
 ## What Was Here? (`src/region/`)
