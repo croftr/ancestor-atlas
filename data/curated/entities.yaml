@@ -3282,6 +3282,7 @@
   image_url: /images/civilisations/mayan-city-states.webp
   image_caption: Classic Maya city-state of Tikal with jungle pyramid-temples, carved stelae, lords in quetzal feather crests, and a scribe painting a screenfold codex.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/mayan-city-states-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/mayan-city-states-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The mosaic jade funerary mask and collar of K'inich Janaab' Pakal, ruler of Palenque (National Museum of Anthropology, Mexico City)", source: "https://commons.wikimedia.org/wiki/File:Maya_Jade_Mask_%26_Burial_Artifacts_of_Kinich_Hanab_Pakal,_Ruler_of_Palenque,_615-683_AD.jpg" }
     - { url: /images/extra/mayan-city-states-2.webp, credit: "Sailko, CC BY-SA 3.0, via Wikimedia Commons", caption: "Yaxchilan Lintel 24, high-relief limestone carving depicting Lady K'ab'al Xook performing a sacred royal bloodletting ritual in 709 CE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Maya,_lintel_24,_da_yaxchilan,_725.JPG" }
@@ -3354,6 +3355,7 @@
   image_url: /images/civilisations/teotihuacan.webp
   image_caption: Avenue of the Dead toward the Pyramids of the Sun and Moon, workshops knapping green Pachuca obsidian and painting feathered serpent murals.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/teotihuacan-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/teotihuacan-1.webp, credit: "Peachseltzer, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Temple of the Feathered Serpent (Quetzalcoatl) at Teotihuacan, showing alternating high-relief carvings of feathered serpents and rain deities", source: "https://commons.wikimedia.org/wiki/File:Temple_of_Feathered_Serpent_view_from_top_of_Adosada_platform_Teotihuacan.jpg" }
     - { url: /images/extra/teotihuacan-2.webp, credit: "Rama, CC BY-SA 3.0 fr, via Wikimedia Commons", caption: "Carved green serpentine funerary mask from Teotihuacan, characteristic of classic highland Mesoamerican stone lapidary portraiture", source: "https://commons.wikimedia.org/wiki/File:Mask_Teotihuacan_sculpture-70.1999.12.1-DSC00140-black.jpg" }
