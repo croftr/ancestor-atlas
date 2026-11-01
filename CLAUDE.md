@@ -253,8 +253,8 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   Capsian, Ertebølle (`public/images/extra/<id>-1..4.webp`). Weak spots: the Capsian ostrich egg and burial are
   drawings, and the Ertebølle 1890s midden photo is filed on Commons as Meilgaard, so its caption names no site.
 - The first cities (`first-cities`, 1 Nov 2026): the ten cities, Jericho to Babylon, every stop already narrated (the
-  cities' own descriptions); title and closing line recorded; music "Passage Of Time" (Scott Buckley, CC BY 4.0;
-  4:31, so it loops on the ~11-minute tour). The first tour with `"city"` in its `layers`: a tour that adds a city
+  cities' own descriptions); title and closing line recorded; music "Memories Of Stone" (Scott Buckley, CC BY 4.0;
+  5:30; key first-cities-v2, Rob's pick, replacing "Passage Of Time" in v1; the same track as The first Americans). The first tour with `"city"` in its `layers`: a tour that adds a city
   stop needs it too. Cities added to other tours the same day (with `"city"` in their layers): Jericho and Çatalhöyük in
   When the ice melted, Yinxu in Rise and fall of civilizations, Ur and Yinxu in Words, numbers and ideas.
 - Tours page `#/tours` (`ToursPage.tsx`, in the rail and phone tabs): a card per tour (cover of four stop pictures,

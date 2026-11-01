@@ -363,7 +363,7 @@ export const TOURS: Tour[] = [
     layers: ["culture", "civilization", "city", "event"],
     announcement: { src: "narration/tours/first-cities-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "94ba2be449" },
     closingNarration: { src: "narration/tours/first-cities-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "76ed387ee8" },
-    music: { src: "music/tours/first-cities-v1.mp3", credit: "Music: \"Passage Of Time\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
+    music: { src: "music/tours/first-cities-v2.mp3", credit: "Music: \"Memories Of Stone\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
     stops: [
       { entity: "jericho", year: -8_499 },
       { entity: "catalhoyuk", year: -6_999 },
