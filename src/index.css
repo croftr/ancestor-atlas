@@ -139,6 +139,66 @@ button { font: inherit; color: inherit; cursor: pointer; }
   position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%;
   background: radial-gradient(circle, #fff 0, #fff 2px, rgba(210, 232, 255, 0.6) 4px, rgba(160, 200, 255, 0.15) 7px, transparent 9px);
 }
+/* A new star (nova, or a guest star of unknown kind): the supernova's look, smaller, warmer. */
+.sky-nova .sky-supernova-glow { transform: scale(0.62); filter: sepia(0.35); }
+.sky-nova.on .sky-supernova-glow { animation: sky-pulse-small 6s ease-in-out infinite alternate; }
+@keyframes sky-pulse-small { from { transform: scale(0.56); opacity: 0.8; } to { transform: scale(0.66); opacity: 1; } }
+/* An eclipse of the Sun, in the night sky: the Moon's black disc with the corona round it (total), or a
+   thin ring of Sun round it (annular). */
+.sky-eclipse-corona {
+  position: absolute; left: -46px; top: -46px; width: 92px; height: 92px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 250, 235, 0.95) 0, rgba(255, 244, 220, 0.75) 17px, rgba(230, 225, 255, 0.28) 24px, rgba(200, 210, 255, 0.08) 36px, transparent 46px);
+}
+.sky-eclipse-moon {
+  position: absolute; left: -16px; top: -16px; width: 32px; height: 32px; border-radius: 50%;
+  background: #030509; box-shadow: 0 0 2px 1px rgba(255, 245, 225, 0.5);
+}
+.sky-eclipse.on .sky-eclipse-corona { animation: sky-corona 9s ease-in-out infinite alternate; }
+@keyframes sky-corona { from { transform: scale(0.94) rotate(0deg); opacity: 0.85; } to { transform: scale(1.04) rotate(8deg); opacity: 1; } }
+.sky-annular .sky-eclipse-corona {
+  background: radial-gradient(circle, rgba(255, 236, 190, 1) 0, rgba(255, 226, 170, 1) 17.5px, rgba(255, 210, 140, 0.35) 21px, rgba(255, 190, 120, 0.08) 30px, transparent 40px);
+}
+.sky-annular .sky-eclipse-moon { left: -15px; top: -15px; width: 30px; height: 30px; box-shadow: none; }
+/* Auroras: two soft curtains across the top of the sky, green below and red above, slowly swaying. */
+.sky-object.sky-aurora { left: 0; top: 0; width: 100%; height: 34%; }
+.sky-aurora-curtain {
+  position: absolute; left: -10%; width: 120%; top: 0; height: 100%; filter: blur(14px); mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 25%, #000 60%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 25%, #000 60%, transparent);
+}
+.sky-aurora-curtain.a {
+  background:
+    radial-gradient(ellipse 30% 55% at 18% 70%, rgba(80, 255, 160, 0.32), transparent 70%),
+    radial-gradient(ellipse 26% 50% at 52% 62%, rgba(90, 255, 170, 0.26), transparent 70%),
+    radial-gradient(ellipse 30% 55% at 84% 72%, rgba(70, 240, 150, 0.3), transparent 70%);
+}
+.sky-aurora-curtain.b {
+  background:
+    radial-gradient(ellipse 34% 40% at 30% 28%, rgba(255, 70, 110, 0.22), transparent 70%),
+    radial-gradient(ellipse 34% 40% at 72% 24%, rgba(230, 80, 160, 0.18), transparent 70%);
+}
+.sky-aurora.on .sky-aurora-curtain.a { animation: sky-sway 14s ease-in-out infinite alternate; }
+.sky-aurora.on .sky-aurora-curtain.b { animation: sky-sway 19s ease-in-out infinite alternate-reverse; }
+@keyframes sky-sway {
+  from { transform: translateX(-3%) scaleY(0.92); opacity: 0.7; }
+  to { transform: translateX(3%) scaleY(1.06); opacity: 1; }
+}
+/* Two planets almost touching: Venus (brighter, whiter) and Jupiter (creamier), a few pixels apart. */
+.sky-planet { position: absolute; border-radius: 50%; }
+.sky-planet.venus {
+  left: -12px; top: -11px; width: 22px; height: 22px;
+  background: radial-gradient(circle, #fff 0, #fff 2.6px, rgba(255, 252, 240, 0.7) 4.5px, rgba(255, 245, 225, 0.15) 8px, transparent 11px);
+}
+.sky-planet.jupiter {
+  left: -3px; top: -7px; width: 18px; height: 18px;
+  background: radial-gradient(circle, #fff6e2 0, #fff1d6 2px, rgba(255, 235, 200, 0.55) 3.6px, rgba(255, 225, 185, 0.12) 6.5px, transparent 9px);
+}
+/* How sure: a small tag after the date (sky panel and climate panel). */
+.sky-certainty {
+  display: inline-block; margin-left: 8px; padding: 0 7px; border-radius: 999px; font-size: 0.7rem; line-height: 1.6;
+  background: rgba(240, 178, 122, 0.16); color: #f0c9a0; vertical-align: 1px;
+}
+.cp-facts dd .sky-certainty { margin-left: 0; }
 .space-canvas-twinkle-a {
   animation: space-twinkle-a 6s ease-in-out infinite alternate;
 }
@@ -167,6 +227,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .sky-supernova.on .sky-supernova-glow { animation: none; }
   .sky-supernova.sky-span.on .sky-supernova-glow { animation: none; opacity: 0.7; }
   .sky-supernova.sky-span.on.open .sky-supernova-glow { animation: none; opacity: 1; }
+  .sky-nova.on .sky-supernova-glow, .sky-eclipse.on .sky-eclipse-corona, .sky-aurora.on .sky-aurora-curtain { animation: none; }
 }
 .app:not(.view-globe) .space-background {
   display: none;

@@ -1,7 +1,7 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { create } from "zustand";
 import { useStore } from "../store";
-import { SKY_EVENTS, SKY_PLACE, skyShownAt, type SkyEvent } from "./sky";
+import { SKY_EVENTS, SKY_KIND_NAME, SKY_PLACE, skyShownAt, type SkyEvent, type SkyKind } from "./sky";
 
 /** Which sky object's details are open (SkyHits), so the background can hold a flaring one steady meanwhile. */
 const useSkyOpen = create<{ open: string | null; setOpen: (id: string | null) => void }>((set) => ({
@@ -29,22 +29,60 @@ export default function SkyObjects() {
     <div className="space-sky">
       {SKY_EVENTS.map((e) => {
         const on = skyShownAt(e, year);
-        const cls = `sky-object sky-${e.kind}${e.span ? " sky-span" : ""}${on ? " on" : ""}${on && open === e.id ? " open" : ""}`;
+        const cls =
+          `sky-object sky-${e.kind}${e.span ? " sky-span" : ""}${e.annular ? " sky-annular" : ""}` +
+          `${on ? " on" : ""}${on && open === e.id ? " open" : ""}`;
         return (
           <div key={e.id} className={cls} style={placeStyle(e)}>
-            {e.kind === "comet" ? (
-              <>
-                <span className="sky-comet-tail" />
-                <span className="sky-comet-head" />
-              </>
-            ) : (
-              <span className="sky-supernova-glow" />
-            )}
+            <SkyDrawing kind={e.kind} />
           </div>
         );
       })}
     </div>
   );
+}
+
+/** A line on how the drawing relates to what was seen. */
+function panelNote(e: SkyEvent): string {
+  if (e.span) return "Shown flaring now and then: when in this span the star exploded is not known.";
+  if (e.kind === "eclipse") return "It happened by day; the atlas shows it against its night sky.";
+  return "Drawn in the atlas's sky as a sign of the time; the stars behind it are not a map of the real sky.";
+}
+
+/** The parts of each kind's drawing; the look is all CSS (index.css, "sky-"). */
+function SkyDrawing({ kind }: { kind: SkyKind }) {
+  switch (kind) {
+    case "comet":
+      return (
+        <>
+          <span className="sky-comet-tail" />
+          <span className="sky-comet-head" />
+        </>
+      );
+    case "eclipse":
+      return (
+        <>
+          <span className="sky-eclipse-corona" />
+          <span className="sky-eclipse-moon" />
+        </>
+      );
+    case "aurora":
+      return (
+        <>
+          <span className="sky-aurora-curtain a" />
+          <span className="sky-aurora-curtain b" />
+        </>
+      );
+    case "conjunction":
+      return (
+        <>
+          <span className="sky-planet venus" />
+          <span className="sky-planet jupiter" />
+        </>
+      );
+    default:
+      return <span className="sky-supernova-glow" />;
+  }
 }
 
 /**
@@ -101,15 +139,14 @@ export function SkyHits() {
           <button type="button" className="sky-panel-close" aria-label="Close" onClick={() => setOpen(null)}>
             ×
           </button>
-          <div className="sky-panel-kind">{current.kind === "comet" ? "Comet" : "Supernova"} · in the sky</div>
+          <div className="sky-panel-kind">{SKY_KIND_NAME[current.kind]} · in the sky</div>
           <div className="sky-panel-name">{current.name}</div>
-          <div className="sky-panel-date">{current.date_text}</div>
+          <div className="sky-panel-date">
+            {current.date_text}
+            {current.certainty && <span className="sky-certainty">{current.certainty}</span>}
+          </div>
           <p>{current.description}</p>
-          <p className="sky-panel-note muted">
-            {current.span
-              ? "Shown flaring now and then: the date of the explosion within this span is not known."
-              : "Drawn in the atlas's sky as a sign of the time; the stars behind it are not a map of the real sky."}
-          </p>
+          <p className="sky-panel-note muted">{panelNote(current)}</p>
           <a className="sky-panel-source" href={current.source.url} target="_blank" rel="noreferrer">
             Source: {current.source.label}
           </a>

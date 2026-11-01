@@ -487,14 +487,16 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
 - Drift: the star canvases reach 40 px past each edge (`SKY_MARGIN`) and slide a little against the globe's
   turning, then settle back (`--sky-x` / `--sky-y`, set in `MapView.tsx`).
 - Shooting stars and drift are off for reduced motion.
-- In the sky (added 1 Nov 2026): `src/sky/sky.ts` lists dated supernovae and comets (iron-60 waves 8.7–6.5 and
-  3.2–1.5 Ma, Vela about 11 ka, Halley's recorded returns 240/164/87/12 BCE), drawn with CSS by
-  `src/sky/SkyObjects.tsx` at fixed places in the upper sky (the background is not a real sky) while the slider is
-  within one step, and named in the climate panel ("In the sky") and the Sources panel. A span (iron-60) flares now
-  and then, never shines steadily. Clickable: `SkyHits` (over the map in `MapView.tsx`) puts a button on each object
-  showing now and opens a small panel (what, when, source; closes on Escape, a click elsewhere or the slider moving
-  away); places in `SKY_PLACE`. Left out on purpose (sourcing doubts): Caesar's Comet, Hipparchus's nova, Thales'
-  eclipse, Laschamp/Miyake auroras, Halley's computed returns before 240 BCE. `sky.test.ts`: one of each kind at once.
+- In the sky (added 1 Nov 2026): `src/sky/sky.ts` lists 31 sky events of six kinds: supernovae (iron-60 waves,
+  Geminga, Vela), new stars (Hipparchus, Han 5/4 BCE), comets (Halley's returns, Hale–Bopp, Swift–Tuttle, the 371 BCE
+  great comet, Caesar's), solar eclipses (total or annular), auroras (Laschamp, Miyake storms) and the Jupiter–Venus
+  conjunction of 2 BCE. Drawn with CSS by `src/sky/SkyObjects.tsx` at fixed places per kind (`SKY_PLACE`; the
+  background is not a real sky; auroras span the top) while the slider is within one step, and named in the climate
+  panel ("In the sky") and the Sources panel. A span (iron-60) flares now and then, never shines steadily.
+  Clickable: `SkyHits` (over the map in `MapView.tsx`) opens a small panel (what, when, source; Escape, a click
+  elsewhere or the slider moving away closes it). Unlike things on the ground, the sky may carry doubtful dates
+  (Rob's call, 1 Nov 2026) if `certainty` says so ("Disputed", "Legend", "Auroras inferred"...), shown as a tag.
+  `sky.test.ts`: never two things in one place at once.
 
 ## What Was Here? (`src/region/`)
 

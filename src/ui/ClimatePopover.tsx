@@ -163,6 +163,7 @@ export function ClimateFacts({ climate, year, gauged = false }: { climate: Clima
             <dd>
               <strong className="cp-sky-name">{e.name}</strong>
               <span className="muted">{e.date_text}</span>
+              {e.certainty && <span className="sky-certainty">{e.certainty}</span>}
               <span className="cp-note">
                 {e.description}{" "}
                 <a href={e.source.url} target="_blank" rel="noreferrer" title={e.source.label}>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { SKY_EVENTS, skyAt, skyShownAt } from "./sky";
+import { SKY_EVENTS, SKY_PLACE, skyAt, skyShownAt } from "./sky";
 import { MAX_YEAR, MIN_YEAR, snapYear, stepYear } from "../time/scale";
 
 describe("SKY_EVENTS", () => {
@@ -13,16 +13,17 @@ describe("SKY_EVENTS", () => {
       expect(e.start_year).toBeGreaterThanOrEqual(MIN_YEAR);
       expect(e.end_year).toBeLessThanOrEqual(MAX_YEAR);
       expect(e.source.url).toMatch(/^https:\/\//);
+      expect(e.description.length).toBeGreaterThan(40);
       const stops = new Set<number>();
       for (let y = e.start_year - 100_000; y <= e.end_year + 100_000; y += 5) stops.add(snapYear(y));
       expect([...stops].some((y) => skyShownAt(e, y))).toBe(true);
     });
   }
 
-  it("never shows two things of one kind at once (they share a place in the sky)", () => {
+  it("never shows two things in one place at once (kinds can share a place in the sky)", () => {
     for (let y = snapYear(MIN_YEAR); y < MAX_YEAR; y = stepYear(y, 1)) {
-      const now = skyAt(y);
-      for (const kind of ["supernova", "comet"]) expect(now.filter((e) => e.kind === kind).length, `${kind} at ${y}`).toBeLessThanOrEqual(1);
+      const places = skyAt(y).map((e) => SKY_PLACE[e.kind].join(","));
+      expect(new Set(places).size, `at ${y}: ${skyAt(y).map((e) => e.id)}`).toBe(places.length);
     }
   });
 
