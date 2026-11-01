@@ -221,6 +221,7 @@
   lon: 35.444564
   image_url: /images/cities/jericho.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/jericho-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Neolithic Jericho: villagers grinding grain and plastering a skull on a rooftop, the great stone tower behind its wall, round houses, and fields watered by the spring"
   extra_images:
     - { url: /images/extra/jericho-1.webp, credit: "Matson Photo Service, public domain (Library of Congress), via Wikimedia Commons", caption: "The mound of ancient Jericho from the air, with the modern town and the Jordan Valley beyond", source: "https://commons.wikimedia.org/wiki/File:Air_views_of_Palestine._Air_route_following_the_old_Jerusalem-Jericho_Road._Mound_of_ancient_Jericho._Looking_southward,_modern_Jericho_in_distance_LOC_matpc.22117.jpg" }
@@ -244,6 +245,7 @@
   lon: 32.828333
   image_url: /images/cities/catalhoyuk.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/catalhoyuk-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Çatalhöyük from its rooftops: people working obsidian and sitting on the roofs, a ladder down into a house painted with bulls and hunters, and the packed town spreading towards the mountains"
   extra_images:
     - { url: /images/extra/catalhoyuk-1.webp, credit: "Stipich Béla, CC BY 2.5, via Wikimedia Commons", caption: "Excavated house walls at Çatalhöyük, under the canopy that protects them", source: "https://commons.wikimedia.org/wiki/File:Catal_H%C3%BCy%C3%BCk_5.JPG" }
