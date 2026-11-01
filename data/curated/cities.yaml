@@ -7,7 +7,8 @@
 # Wikidata (P625 of `wikidata`) unless `coord_source` says otherwise; `note` marks a place-level point.
 # `part_of`: the civilization or culture the city belongs to (shown on its card and used for its section on the Cities
 # page); `related`: others it grew out of or was ruled by (civilizations, cultures). Events can name a city in their
-# `related`, and the city's page lists them.
+# `related`, and the city's page lists them. The Cities page groups cities by `region`, worked out from the point
+# (scripts/lib/regions.ts) unless set here.
 # Pictures: `image_url` is the main picture, 1200x900 (4:3) WebP in public/images/cities/<id>.webp with a 600x450
 # companion <id>-600.webp, plus `image_credit` and, for an AI-generated one, `image_caption`. `extra_images` as for
 # events and entities ({ url, credit, caption, source }), in public/images/extra/<id>-<n>.webp.
@@ -55,3 +56,161 @@
     - { url: /images/extra/mohenjo-daro-2.webp, credit: "Smn121, CC BY-SA 3.0, via Wikimedia Commons", caption: "One of Mohenjo-daro's round brick wells, among the walls of the houses it served", source: "https://commons.wikimedia.org/wiki/File:Moenjodaro_by_smn121_-12.JPG" }
     - { url: /images/extra/mohenjo-daro-3.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "A steatite seal from Mohenjo-daro with a 'unicorn' and a line of Indus script, above a modern impression of it (Musée Guimet, Paris)", source: "https://commons.wikimedia.org/wiki/File:Sceau_Indus_unicorne_Guimet.jpg" }
     - { url: /images/extra/mohenjo-daro-4.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "A terracotta die from Mohenjo-daro, 2600–1900 BCE; its opposite sides add up to seven, as on dice today (Ashmolean Museum, Oxford)", source: "https://commons.wikimedia.org/wiki/File:Dice_Mohenjodaro_EAMd25.jpg" }
+
+- id: ur
+  name: Ur
+  start_year: -3799
+  end_year: -499
+  date_text: c. 3800 – after 500 BCE
+  description: "Ur, in the south of what is now Iraq, began as an Ubaid village around 3800 BCE beside the Persian Gulf, whose shore has since moved far away, and grew into one of the great Sumerian city-states, the city of the moon god Nanna. Its Royal Tombs, from around 2600 BCE, were filled with gold, silver and precious stones brought from as far as Iran, Afghanistan and India; Queen Puabi was buried there with her golden headdress and many attendants. Sargon of Akkad made his daughter Enheduanna high priestess at Ur, and her hymns may make her the first author in history known by name. Around 2100 BCE King Ur-Nammu built the great ziggurat, and under its Third Dynasty Ur ruled the cities of Sumer until the Elamites captured its last king, about 2000 BCE. Ur lived on as a holy city, its ziggurat rebuilt by Nabonidus, the last king of Babylon, and was abandoned some time after 500 BCE."
+  part_of: sumerian-city-states
+  related: [ubaid, akkadian-empire, babylonia, neo-babylonian-empire]
+  wikipedia_url: https://en.wikipedia.org/wiki/Ur
+  wikidata: Q5699
+  date_source: wikipedia:Ur@1383119969
+  lat: 30.962222
+  lon: 46.104444
+  image_url: /images/cities/ur.webp
+  image_credit: AI-generated illustration
+  image_caption: "Ur from a rooftop: scribes with tablets, a craftsman inlaying a game board, a gold headdress, lyre and bull figure set out for a royal burial, boats on the canal, and the ziggurat in its walled precinct beyond"
+  extra_images:
+    - { url: /images/extra/ur-1.webp, credit: "Alli Khalil, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ziggurat of Ur, built for the moon god Nanna under King Ur-Nammu in the 21st century BCE, with its restored stairways", source: "https://commons.wikimedia.org/wiki/File:Ziggurat_of_Ur_Site_in_Nasiriyah_01.jpg" }
+    - { url: /images/extra/ur-2.webp, credit: "Mary Harrsch, CC BY 2.0, via Wikimedia Commons", caption: "Queen Puabi's headdress of gold leaves, rings and flowers, from the Royal Tombs of Ur, 2550–2450 BCE (Penn Museum, Philadelphia)", source: "https://commons.wikimedia.org/wiki/File:Closeup_of_Queen_Puabi%27s_gold_headdress_recovered_from_the_royal_cemetery_of_Ur,_Iraq_2550-2450_BCE.jpg" }
+    - { url: /images/extra/ur-3.webp, credit: "Benjamin82877, CC BY-SA 4.0, via Wikimedia Commons", caption: "The 'Ram in a Thicket', a goat of gold, lapis lazuli and shell from the Great Death Pit in the Royal Tombs of Ur (Penn Museum, Philadelphia)", source: "https://commons.wikimedia.org/wiki/File:Penn_Museum_-_%22Ram_in_a_Thicket%22_.jpg" }
+    - { url: /images/extra/ur-4.webp, credit: "Mefman00, CC0, via Wikimedia Commons", caption: "The Disk of Enheduanna, Sargon's daughter and high priestess of the moon god at Ur, shown at an offering, about 2300 BCE (Penn Museum, Philadelphia)", source: "https://commons.wikimedia.org/wiki/File:Disk_of_Enheduanna.JPG" }
+
+- id: babylon
+  name: Babylon
+  start_year: -2199
+  end_year: 1
+  date_text: c. 2200 BCE – c. 1000 CE
+  description: "Babylon, on the Euphrates south of what is now Baghdad, first appears around 2200 BCE as a small town of the Akkadian Empire. In the 18th century BCE the Amorite king Hammurabi made it the capital of an empire over all southern Mesopotamia and set down his famous code of laws, and from then on the whole region was called Babylonia. Sacked by the Hittites in 1595 BCE and ruled in turn by Kassites, Assyrians and Elamites, it rose again as the capital of the Neo-Babylonian Empire, from 626 to 539 BCE. Nebuchadnezzar II rebuilt it in baked brick; its walls, and its Hanging Gardens, if they ever existed, were counted among the Seven Wonders of the ancient world. Babylon was probably the largest city in the world around 1700 BCE and again from about 600 BCE, perhaps the first to pass 200,000 people. Persians, Alexander the Great, Seleucids and Parthians ruled it after; it dwindled slowly, until only a small village was left by the 11th century CE."
+  part_of: babylonia
+  related: [akkadian-empire, assyria, neo-assyrian-empire, neo-babylonian-empire, achaemenid-empire, seleucid-empire, parthian-empire]
+  wikipedia_url: https://en.wikipedia.org/wiki/Babylon
+  wikidata: Q5684
+  date_source: wikipedia:Babylon@1381288220
+  lat: 32.5425
+  lon: 44.421111
+  image_url: /images/cities/babylon.webp
+  image_credit: AI-generated illustration
+  image_caption: "Babylon from its blue-glazed walls: officials and a scribe at work, a procession passing through the Ishtar Gate below, terraced gardens, a bridge over the Euphrates, and the great ziggurat beyond"
+  extra_images:
+    - { url: /images/extra/babylon-1.webp, credit: "American Colony Photo Department, public domain (Library of Congress), via Wikimedia Commons", caption: "The excavated ruins of Babylon, photographed in 1932", source: "https://commons.wikimedia.org/wiki/File:Babylon,_1932.jpg" }
+    - { url: /images/extra/babylon-2.webp, credit: "Radomir Vrbovsky, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ishtar Gate of Nebuchadnezzar II's Babylon, its blue glazed bricks set with bulls and dragons, as reconstructed in the Pergamon Museum, Berlin", source: "https://commons.wikimedia.org/wiki/File:Ishtar_gate_in_Pergamon_museum_in_Berlin..jpg" }
+    - { url: /images/extra/babylon-3.webp, credit: "Osama Shukir Muhammed Amin FRCP(Glasg), CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lion of Babylon, a stone statue still standing among the ruins of the city", source: "https://commons.wikimedia.org/wiki/File:The_Lion_of_Babylon_statue_at_Babylon,_Iraq,_6th_century_BC.jpg" }
+    - { url: /images/extra/babylon-4.webp, credit: "Zunkir, CC BY-SA 4.0, via Wikimedia Commons", caption: "A Babylonian astronomical diary for 331–330 BCE that also records Alexander the Great's defeat of Darius III at Gaugamela (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Astronomical_Diary_331_330_BC_BM_36761.jpg" }
+
+- id: memphis
+  name: Memphis
+  start_year: -3099
+  end_year: 1
+  date_text: c. 3100 BCE – 7th century CE
+  description: "Memphis, at the head of the Nile Delta just south of modern Cairo, was the capital of Egypt in the Early Dynastic Period and the Old Kingdom. Later legend said King Menes founded it, before 3000 BCE, and the pyramid fields of the kings, Giza among them, stretch for more than 30 kilometres along the desert to its west. Its port was crowded with workshops, factories and warehouses, and its great temple belonged to Ptah, the god of craftsmen. The temple's name, Hut-ka-Ptah, became Aigyptos in Greek, the origin of the word Egypt. Memphis stayed one of Egypt's great cities for three thousand years, until Alexandria on the coast drew away its trade and Christianity replaced its old religion. By the Middle Ages nearby Cairo had taken its place, and today its ruins lie scattered around the village of Mit Rahina."
+  part_of: ancient-egypt
+  related: [early-dynastic-period-of-egypt, old-kingdom-of-egypt, new-kingdom-of-egypt]
+  wikipedia_url: https://en.wikipedia.org/wiki/Memphis,_Egypt
+  wikidata: Q5715
+  date_source: wikipedia:Memphis,_Egypt@1380290369
+  lat: 29.844667
+  lon: 31.250917
+  extra_images:
+    - { url: /images/extra/memphis-1.webp, credit: "Darer101, CC BY-SA 4.0, via Wikimedia Commons", caption: "Broken blocks and columns among the palms at Mit Rahina, where the ruins of Memphis lie", source: "https://commons.wikimedia.org/wiki/File:Ruins_at_Mit_Rahina.jpg" }
+    - { url: /images/extra/memphis-2.webp, credit: "Dennis G. Jarvis, CC BY-SA 2.0, via Wikimedia Commons", caption: "The great calcite ('alabaster') sphinx of Memphis, from the New Kingdom", source: "https://commons.wikimedia.org/wiki/File:Flickr_-_archer10_(Dennis)_-_Egypt-12B-008.jpg" }
+    - { url: /images/extra/memphis-3.webp, credit: "Vyacheslav Argenberg, CC BY 4.0, via Wikimedia Commons", caption: "A standing statue of Ramesses II in the open-air museum at Memphis", source: "https://commons.wikimedia.org/wiki/File:Memphis,_Ramses_II,_Ancient_Egypt.jpg" }
+    - { url: /images/extra/memphis-4.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "A limestone column capital carved with the face of the goddess Hathor, in the open-air museum at Memphis", source: "https://commons.wikimedia.org/wiki/File:Memphis_Museum_33.jpg" }
+
+- id: harappa
+  name: Harappa
+  start_year: -3299
+  end_year: -1299
+  date_text: c. 3300 – c. 1300 BCE
+  description: "Harappa, beside an old course of the Ravi River in Punjab, Pakistan, gave its name to the Harappan or Indus Valley Civilisation. Settled around 3300 BCE, it reached its greatest size in the mature phase, from about 2600 to 1900 BCE, when its brick houses covered some 150 hectares and it was home to perhaps 23,500 people. With Mohenjo-daro it was one of the two greatest cities of the Indus. Its people used standard weights and measures and carved seals, perhaps to mark their goods; they grew wheat and rice, wove and dyed cotton, and kept humped cattle. After about 1900 BCE the civilisation slowly broke down, and by around 1300 BCE Harappa was abandoned. Under British rule much of the ruined city was dug up for bricks to lay the railway from Lahore to Multan."
+  part_of: indus-valley-civilization
+  wikipedia_url: https://en.wikipedia.org/wiki/Harappa
+  wikidata: Q185562
+  date_source: wikipedia:Harappa@1382238880
+  lat: 30.633333
+  lon: 72.866667
+  extra_images:
+    - { url: /images/extra/harappa-1.webp, credit: "Muhammad Bin Naveed, CC BY-SA 3.0, via Wikimedia Commons", caption: "Mound F at Harappa, with the brick foundations of the so-called Granary and Great Hall", source: "https://commons.wikimedia.org/wiki/File:Another_view_of_Granary_and_Great_Hall_on_Mound_F.JPG" }
+    - { url: /images/extra/harappa-2.webp, credit: "Hassan Nasir, CC BY-SA 3.0, via Wikimedia Commons", caption: "A brick-lined well, perhaps with a bathing place beside it, in the ruins of Harappa", source: "https://commons.wikimedia.org/wiki/File:Harappa_Ruins_-_I.jpg" }
+    - { url: /images/extra/harappa-3.webp, credit: "Muhammad Bin Naveed, CC BY-SA 3.0, via Wikimedia Commons", caption: "A group of round brick platforms in the ruins of Harappa", source: "https://commons.wikimedia.org/wiki/File:Group_of_bathing_platforms_-_Archaeological_site_of_Harappa.jpg" }
+    - { url: /images/extra/harappa-4.webp, credit: "Avantiputra7, CC BY-SA 4.0, via Wikimedia Commons", caption: "Painted pottery urns from Harappa's Cemetery H, 1900–1300 BCE, from the city's last centuries (National Museum, New Delhi)", source: "https://commons.wikimedia.org/wiki/File:Cemetery_H_Pottery.png" }
+
+- id: knossos
+  name: Knossos
+  start_year: -6999
+  end_year: 1
+  date_text: c. 7000 BCE – 1st millennium CE
+  description: "Knossos, on a hill just south of Heraklion in Crete, is often called Europe's oldest city. Farmers settled there around 7000 BCE, and early in the second millennium BCE the village grew quickly into a town and the greatest centre of the Minoan civilisation. Its palace, first built around 1900 BCE and rebuilt after a destruction around 1700 BCE, gathered halls, storerooms, shrines, stairways and light wells round a central court, with drains and richly painted walls. Later Greeks remembered its tangled plan as the Labyrinth of King Minos and the Minotaur. After damage around 1450 BCE Knossos became a Mycenaean centre, whose scribes kept accounts in Linear B, an early form of Greek. The palace was destroyed around 1350 BCE, but Knossos stayed one of the leading cities of Crete through Greek and Roman times and into the Byzantine period."
+  part_of: minoan-civilization
+  related: [mycenaean-greece, greek-city-states, roman-empire]
+  wikipedia_url: https://en.wikipedia.org/wiki/Knossos
+  wikidata: Q173527
+  date_source: wikipedia:Knossos@1374770779
+  lat: 35.297961
+  lon: 25.163156
+  extra_images:
+    - { url: /images/extra/knossos-1.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The north entrance of the palace at Knossos, with a copy of its bull fresco, as rebuilt by Arthur Evans", source: "https://commons.wikimedia.org/wiki/File:Cnossos_5_bull_fresco.jpg" }
+    - { url: /images/extra/knossos-2.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The stone throne in the so-called Throne Room at Knossos, among restored wall paintings", source: "https://commons.wikimedia.org/wiki/File:Throne_of_Minos_at_Knossos_Palace.jpg" }
+    - { url: /images/extra/knossos-3.webp, credit: "Harrieta171, CC BY-SA 3.0, via Wikimedia Commons", caption: "Great storage jars (pithoi) in the palace at Knossos", source: "https://commons.wikimedia.org/wiki/File:Pithoi_storage_jars_at_Knossos.jpg" }
+    - { url: /images/extra/knossos-4.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The 'Snake Goddess' figurine from Knossos, about 1600 BCE, as restored by Arthur Evans (Heraklion Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Snake_goddess_archmus_Heraklion.jpg" }
+
+- id: yinxu
+  name: Yinxu (Yin)
+  start_year: -1249
+  end_year: -1045
+  date_text: c. 1250 – 1046 BCE
+  description: "Yin, whose ruins at Anyang in Henan are called Yinxu, was the last capital of the Shang dynasty, home to twelve Shang kings from about 1250 BCE until the dynasty fell in 1046 BCE. Its palaces and temples stood among royal tombs, workshops for bronze and bone, and pits of sacrificed people, animals and chariots. Its bronze-casters made vessels such as the great Houmuwu ding by a piece-mould method. More than 100,000 oracle bones found there carry the earliest known Chinese writing. The best-preserved royal tomb, never looted, is that of Fu Hao, a military leader and the wife of King Wu Ding, buried around 1250 BCE with dogs, sixteen servants and a wealth of bronzes and jades. The city was then forgotten for three thousand years, until oracle bones turned up for sale nearby in 1899."
+  part_of: shang-dynasty
+  wikipedia_url: https://en.wikipedia.org/wiki/Yinxu
+  wikidata: Q464904
+  date_source: wikipedia:Yinxu@1381922689
+  lat: 36.1225
+  lon: 114.318611
+  extra_images:
+    - { url: /images/extra/yinxu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A model of a Shang palace hall at Yinxu, in the museum on the site", source: "https://commons.wikimedia.org/wiki/File:Shang_Palace_Model_(44956617235).jpg" }
+    - { url: /images/extra/yinxu-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A chariot burial pit at Yinxu; the chariots are original, the skeletons copies", source: "https://commons.wikimedia.org/wiki/File:Shang_Chariot_Sacrificial_Pit_01.jpg" }
+    - { url: /images/extra/yinxu-3.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "A bronze wine vessel (jia) inscribed with Fu Hao's name, from her tomb at Yinxu, late Shang", source: "https://commons.wikimedia.org/wiki/File:20260520_Bronze_Rectangular_Jia_with_Inscriptions_of_Fu_Hao_01.jpg" }
+    - { url: /images/extra/yinxu-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A bronze mirror from the tomb of Fu Hao, wife of King Wu Ding, at Yinxu (National Museum of China, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Shang_Bronze_Mirror,_Fu_Hao_Tomb.jpg" }
+
+- id: jericho
+  name: Jericho
+  start_year: -9999
+  end_year: -331
+  date_text: c. 10,000 – c. 330 BCE, with long gaps
+  # Tell_es-Sultan's infobox says abandoned c. 900 BCE; its text (Iron Age, Abandonment of the tell) has the town destroyed
+  # in 587/586 BCE, rebuilt in the Persian period and abandoned not long after: end_year follows the text (c. 330 BCE).
+  description: "Ancient Jericho is the mound of Tell es-Sultan, beside the spring of Ein es-Sultan in the Jordan Valley, in Palestine. Natufian hunter-gatherers began to live there all year round between 10,000 and 9000 BCE, and from about 8500 BCE it became one of the first proto-cities: round houses of sun-dried mud brick, for perhaps a few hundred or a few thousand people. Around 8300 BCE they built a stone wall and a great stone tower, the tallest building in the world until the first pyramid. Later Neolithic villagers modelled faces in plaster on the skulls of their dead. The town was destroyed, abandoned and rebuilt many times; its largest Bronze Age city, a Canaanite one with walls and towers, flourished from about 1700 to 1550 BCE. The Babylonians destroyed Jericho in 587 BCE; it was rebuilt under the Persians, and soon after the mound was left for good."
+  part_of: pre-pottery-neolithic
+  related: [natufian, canaanite-city-states, neo-babylonian-empire, achaemenid-empire]
+  wikipedia_url: https://en.wikipedia.org/wiki/Tell_es-Sultan
+  wikidata: Q2402267
+  date_source: wikipedia:Tell_es-Sultan@1373710443
+  lat: 31.871719
+  lon: 35.444564
+  extra_images:
+    - { url: /images/extra/jericho-1.webp, credit: "Matson Photo Service, public domain (Library of Congress), via Wikimedia Commons", caption: "The mound of ancient Jericho from the air, with the modern town and the Jordan Valley beyond", source: "https://commons.wikimedia.org/wiki/File:Air_views_of_Palestine._Air_route_following_the_old_Jerusalem-Jericho_Road._Mound_of_ancient_Jericho._Looking_southward,_modern_Jericho_in_distance_LOC_matpc.22117.jpg" }
+    - { url: /images/extra/jericho-2.webp, credit: "Diego Delso, CC BY-SA 3.0, via Wikimedia Commons", caption: "Tell es-Sultan, the mound of ancient Jericho, and its excavations", source: "https://commons.wikimedia.org/wiki/File:Tell_es-Sultan,_Jericho,_Palestine1.jpg" }
+    - { url: /images/extra/jericho-3.webp, credit: "Reinhard Dietrich, public domain, via Wikimedia Commons", caption: "Bronze Age stone walls on Tell es-Sultan, Jericho", source: "https://commons.wikimedia.org/wiki/File:Tell_es-Sultan.jpg" }
+    - { url: /images/extra/jericho-4.webp, credit: "Jan Helebrant, CC0, via Wikimedia Commons", caption: "Excavated mud-brick walls on Tell es-Sultan, Jericho", source: "https://commons.wikimedia.org/wiki/File:2010-06-16_11-13-11_Israel_Jericho_JH_(52791161706).jpg" }
+
+- id: catalhoyuk
+  name: Çatalhöyük
+  start_year: -7099
+  end_year: -5599
+  date_text: c. 7100 – c. 5600 BCE
+  # The article's lead says c. 7500-5600 BC, its infobox c. 7100-5600 BC: the dates follow the infobox.
+  description: "Çatalhöyük, on the Konya Plain in southern Turkey, was one of the largest and best-preserved Neolithic settlements, a proto-city lived in from around 7100 to 5600 BCE. Its mud-brick houses were packed so tightly together, like a honeycomb, that there were no streets: the rooftops served instead, and people climbed down into their homes by ladders through openings in the roof, which also let out the smoke of their hearths and ovens. There were no obvious public buildings, only houses, some with painted walls. Early estimates put its people at 5,000 to 7,000; newer work suggests 600 to 800 at any one time. Genetic studies published in 2025 suggest that households passed from mother to daughter. Among its many figurines is a woman seated between two lionesses, once taken for a mother goddess, a reading most archaeologists now doubt."
+  part_of: pre-pottery-neolithic
+  wikipedia_url: https://en.wikipedia.org/wiki/%C3%87atalh%C3%B6y%C3%BCk
+  wikidata: Q192522
+  date_source: wikipedia:Çatalhöyük@1379818880
+  lat: 37.6675
+  lon: 32.828333
+  extra_images:
+    - { url: /images/extra/catalhoyuk-1.webp, credit: "Stipich Béla, CC BY 2.5, via Wikimedia Commons", caption: "Excavated house walls at Çatalhöyük, under the canopy that protects them", source: "https://commons.wikimedia.org/wiki/File:Catal_H%C3%BCy%C3%BCk_5.JPG" }
+    - { url: /images/extra/catalhoyuk-2.webp, credit: "Wolfgang Sauber, CC BY-SA 4.0, via Wikimedia Commons", caption: "A museum model of Çatalhöyük, its flat-roofed mud-brick houses packed together (Museum for Prehistory, Weimar)", source: "https://commons.wikimedia.org/wiki/File:MUFT_-_Catal_H%C3%B6y%C3%BCk_Modell.jpg" }
+    - { url: /images/extra/catalhoyuk-3.webp, credit: "Firatlal, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Seated Woman of Çatalhöyük, a clay figure of a woman between two big cats (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:%C3%87atalh%C3%B6y%C3%BCk_Ana_Tanr%C4%B1%C3%A7a_Fig%C3%BCrini_soldan_g%C3%B6r%C3%BCn%C3%BCm.jpg" }
+    - { url: /images/extra/catalhoyuk-4.webp, credit: "Zde, CC BY-SA 4.0, via Wikimedia Commons", caption: "A wall painting of a deer hunt from Çatalhöyük (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Hunting_deer,_mural,_6th_millennium_BC,_MACA,_99003.jpg" }

@@ -151,12 +151,17 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
 
 - A fifth category, `city` (Rob's call, 1 Nov 2026): towns and cities as items of their own, with cards, a main picture
   (Rob makes them), Commons photos and a page, `#/cities` (`src/browse/CitiesPage.tsx`; in the rail and phone tabs).
-  Disputed cities count too: any lasting town. Started with two, Uruk and Mohenjo-daro, for Rob to review before more.
+  Disputed cities count too: any lasting town. Started with Uruk and Mohenjo-daro; batch 2 (1 Nov 2026): Ur, Babylon,
+  Memphis, Harappa, Knossos, Yinxu, Jericho (Tell es-Sultan) and Çatalhöyük (the last two `part_of` the Pre-Pottery
+  Neolithic culture). Main pictures from Rob (so far Uruk, Mohenjo-daro, Ur, Babylon). Article conflicts noted in the
+  yaml: Jericho's end follows the text, not the infobox; Çatalhöyük's start the infobox, not the lead. Next candidates:
+  Nineveh, Hattusa, Ugarit, Byblos, Susa, Persepolis, Thebes, Meroë, Carthage, Mycenae, Athens, Rome, Pataliputra,
+  Xianyang, Monte Albán, an Olmec centre (Teotihuacan is a civilization already; Caral has no culture to join).
 - One entity and one point each, built like events (`scripts/build-data.ts`). The span is the city's life as a
   settlement, cut at 1 CE (`end_year: 1`; `date_text` gives the real end, "c. 5000 BCE – c. 700 CE", and the cards
   and page show date_text). Dates from a pinned Wikipedia revision (`date_source`), coordinates from Wikidata.
-- `part_of`: the civilization or culture the city belonged to (card eyebrow "City · Sumerian City-States"; the Cities
-  page groups cities by its region). `related`: others it grew out of or was ruled by. Built into `related_ids`
+- `part_of`: the civilization or culture the city belonged to (card eyebrow "City · Sumerian City-States"). The Cities
+  page groups cities by `region`, worked out from the point (`regionAt` in scripts/lib/regions.ts) unless set in the yaml. `related`: others it grew out of or was ruled by. Built into `related_ids`
   (part_of first). Civilization and culture cards and pages list their cities (`citiesOf` in `src/browse/browse.ts`,
   which counts a group's members). Events may name a city in `related` (writing and the wheel name Uruk; Indus cities
   names Mohenjo-daro); a city may not name an event or another city (validator).

@@ -11,7 +11,7 @@ import { ingestCliopatria, simplifyGeometry } from "./ingest/cliopatria.ts";
 import { readXronosSites, xronosFeatures } from "./ingest/xronos.ts";
 import { readRoadCultureLabels, readRoadSites, roadFeatures, ROAD_CULTURE_SITES, ROAD_SITES } from "./ingest/road.ts";
 import { distanceKm, siteStatus } from "./lib/qa.ts";
-import { addAreas, regionAreas, REGIONS, topRegion } from "./lib/regions.ts";
+import { addAreas, regionAreas, regionAt, REGIONS, topRegion } from "./lib/regions.ts";
 
 const OUT = "public/data";
 const CURATED = "data/curated";
@@ -211,6 +211,8 @@ interface CuratedCity {
   description: string;
   part_of: string;
   related?: string[];
+  /** Region on the Cities page; worked out from the point unless set here (one of REGIONS). */
+  region?: string;
   wikipedia_url?: string;
   wikidata?: string;
   date_source?: string;
@@ -235,6 +237,9 @@ for (const c of curatedCities) {
   if (c.end_year > 1) fail(`cities.yaml: ${c.id}: end_year ${c.end_year} is past 1 CE, where the atlas ends (cut it at 1; date_text says when it ended)`);
   if (!c.part_of) fail(`cities.yaml: ${c.id}: needs part_of (the civilization or culture it belongs to)`);
   if (!Number.isFinite(c.lat) || !Number.isFinite(c.lon)) fail(`cities.yaml: ${c.id}: bad coordinates`);
+  const region = c.region ?? regionAt(c.lon, c.lat) ?? undefined;
+  if (c.region && !REGIONS.includes(c.region)) fail(`cities.yaml: ${c.id}: unknown region "${c.region}" (one of: ${REGIONS.join(", ")})`);
+  if (!region) console.warn(`! cities.yaml: ${c.id}: no region at its point; set region`);
   entities.set(c.id, {
     id: c.id,
     name: c.name,
@@ -244,6 +249,7 @@ for (const c of curatedCities) {
     date_text: c.date_text,
     description: c.description,
     part_of: c.part_of,
+    region,
     related_ids: [...new Set([c.part_of, ...(c.related ?? [])])],
     wikidata: c.wikidata,
     wikipedia_url: c.wikipedia_url,

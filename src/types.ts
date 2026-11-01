@@ -15,7 +15,7 @@ export interface Entity {
   parent_id?: string; // optional group entity
   group?: boolean; // umbrella entity with no geometry of its own
   color?: string; // civilizations: build-time colour
-  region?: string; // civilizations: where most of the territory lay (scripts/lib/regions.ts), or set in entities.yaml
+  region?: string; // civilizations: where most of the territory lay (scripts/lib/regions.ts), or set in entities.yaml; cities: where the city lies
   image_url?: string; // optional WebP image asset URL
   image_credit?: string; // required with image_url: author/licence, or that it is AI-generated (not shown)
   image_caption?: string; // what the picture shows; required for an AI-generated one, shown in place of its credit

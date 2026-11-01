@@ -904,7 +904,7 @@
   year: -2599
   date_text: c. 2600 BCE
   description: Built as the tomb of Pharaoh Khufu during Egypt's Old Kingdom, the Great Pyramid was the tallest human-made structure on Earth for over 3,800 years. Its construction required quarrying, transporting and aligning roughly 2.3 million multi-ton limestone and granite blocks with precise astronomical orientation, reflecting state-level logistics and labour mobilization without iron tools.
-  related: [old-kingdom-of-egypt]
+  related: [old-kingdom-of-egypt, memphis]
   wikipedia_url: https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza
   image_url: /images/events/great-pyramid.webp
   image_credit: AI-generated illustration
@@ -948,7 +948,7 @@
   year: -2499
   date_text: c. 2500 BCE
   description: The Indus Valley Civilization built cities from standardized baked bricks laid along orthogonal grid plans. Mohenjo-daro had some of the world's earliest urban sanitation, including private bathing rooms, covered street drains, terracotta drain chutes, and public reservoirs like the Great Bath, showing centralized civil engineering centuries ahead of its time.
-  related: [indus-valley-civilization, mohenjo-daro]
+  related: [indus-valley-civilization, mohenjo-daro, harappa]
   wikipedia_url: https://en.wikipedia.org/wiki/Mohenjo-daro
   image_url: /images/events/indus-cities.webp
   image_credit: AI-generated illustration
@@ -1020,7 +1020,7 @@
   year: -1749
   date_text: c. 1750 BCE
   description: King Hammurabi of Babylon had 282 legal judgments inscribed on a diorite stele displayed in public. The code set out rules of evidence, contracts, commercial liability and scaled penalties, including "an eye for an eye", formalizing royal justice over local arbitration across an entire empire.
-  related: [babylonia]
+  related: [babylonia, babylon]
   wikipedia_url: https://en.wikipedia.org/wiki/Code_of_Hammurabi
   image_url: /images/events/code-of-hammurabi.webp
   image_credit: AI-generated illustration

@@ -28,10 +28,11 @@ const slug = (s: string) => fold(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g
 const hasSmall = (url: string) => /^\/images\/(cities|cultures|civilisations)\//.test(url) && !url.endsWith("-600.webp");
 
 /**
- * Where a city lay, by the region of the civilization it belonged to (`part_of`), else of the first civilization it
- * was ruled by; a city of a culture alone (before any state) falls under "Other places".
+ * Where a city lay: its own region (worked out at build time from its point), else the region of the civilization it
+ * belonged to, else of the first civilization it was ruled by, else "Other places".
  */
 function regionOf(city: Entity, data: Data): string {
+  if (city.region) return city.region;
   for (const id of city.related_ids ?? []) {
     const e = data.entityById.get(id);
     const region = e?.region ?? (e?.parent_id ? data.entityById.get(e.parent_id)?.region : undefined);
