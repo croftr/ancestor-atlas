@@ -1036,18 +1036,16 @@ export default function MapView() {
       }
     }
 
-    map.on("click", (e) => {
-      if (!loaded) return;
-      if (useStore.getState().placeMode) {
-        const ll = onGlobe(e.point.x, e.point.y);
-        if (ll) useStore.getState().openPlace(ll.lng, ll.lat);
-        return;
-      }
-      // Markers count as hit within a finger's reach of the tap (less with a mouse), nearest
-      // first; markers about equally near keep the layer order (events, cities, species, cultures).
-      // Territories need a direct hit, so a tap near a site never opens the land around it.
+    /**
+     * What a click at a point would open: markers within a finger's reach of the tap (less with a mouse),
+     * nearest first, markers about equally near keeping the layer order (events, cities, species,
+     * cultures); territories only on a direct hit, so a tap near a site never opens the land around it;
+     * an ancient DNA site when it is nearer than any marker; else a route or interbreeding line.
+     * Shared by the click and the hover cursor, so the pointer shows exactly where a click does something.
+     */
+    const hitAt = (point: maplibregl.Point) => {
       const r = window.matchMedia?.("(pointer: coarse)").matches ? TAP_SLOP_TOUCH : TAP_SLOP_MOUSE;
-      const { x, y } = e.point;
+      const { x, y } = point;
       const near = map.queryRenderedFeatures(
         [
           [x - r, y - r],
@@ -1055,7 +1053,7 @@ export default function MapView() {
         ],
         { layers: POINT_LAYERS },
       );
-      const under = map.queryRenderedFeatures(e.point, { layers: INTERACTIVE_LAYERS.filter((l) => !POINT_LAYERS.includes(l)) });
+      const under = map.queryRenderedFeatures(point, { layers: INTERACTIVE_LAYERS.filter((l) => !POINT_LAYERS.includes(l)) });
       const seen = new Map<string, { props: FeatureProps; rank: number; dist: number }>();
       for (const f of [...near, ...under]) {
         // The map carries only what its layers need; the card gets the full record.
@@ -1075,38 +1073,70 @@ export default function MapView() {
       const dnaHit = map
         .queryRenderedFeatures([[x - r, y - r], [x + r, y + r]], { layers: map.getLayer(DNA_LAYER) ? [DNA_LAYER] : [] })
         .map((f) => {
-          const p = map.project(f.geometry.type === "Point" ? (f.geometry.coordinates as [number, number]) : e.lngLat);
+          const p = map.project(f.geometry.type === "Point" ? (f.geometry.coordinates as [number, number]) : map.unproject(point));
           return { id: String(f.properties.id), dist: Math.hypot(p.x - x, p.y - y) };
         })
         .filter((h) => h.dist <= r * 1.5)
         .sort((a, b) => a.dist - b.dist)[0];
-      if (dnaHit && (!ranked.length || Math.round(dnaHit.dist / 6) < Math.round(ranked[0].dist / 6))) {
-        useStore.getState().openDnaSite(dnaHit.id);
+      if (dnaHit && (!ranked.length || Math.round(dnaHit.dist / 6) < Math.round(ranked[0].dist / 6))) return { kind: "dna", dna: dnaHit.id } as const;
+      if (sorted.length) return { kind: "features", features: sorted } as const;
+      const route = map.queryRenderedFeatures(
+        [
+          [x - r, y - r],
+          [x + r, y + r],
+        ],
+        { layers: [...GENE_FLOW_LAYERS, ...ROUTE_LAYERS].filter((l) => map.getLayer(l)) },
+      )[0];
+      const flow = route && GENE_FLOW_LAYERS.includes(route.layer.id) ? GENE_FLOWS.find((g) => g.id === route.properties.id) : undefined;
+      if (flow) return { kind: "flow", flow } as const;
+      const found = route ? ROUTES.find((rt) => rt.id === route.properties.id) : undefined;
+      if (found) return { kind: "route", route: found } as const;
+      return null;
+    };
+
+    map.on("click", (e) => {
+      if (!loaded) return;
+      if (useStore.getState().placeMode) {
+        const ll = onGlobe(e.point.x, e.point.y);
+        if (ll) useStore.getState().openPlace(ll.lng, ll.lat);
         return;
       }
-      if (sorted.length === 0) {
-        // A click on empty globe or sky closes the card, but never during a tour, which owns the card
-        // (Rob's call: touching the globe in a tour changes nothing).
-        if (!useStore.getState().tour) useStore.getState().select(null);
-        const route = map.queryRenderedFeatures(
-          [
-            [x - r, y - r],
-            [x + r, y + r],
-          ],
-          { layers: [...GENE_FLOW_LAYERS, ...ROUTE_LAYERS] },
-        )[0];
-        const flow = route && GENE_FLOW_LAYERS.includes(route.layer.id) && GENE_FLOWS.find((g) => g.id === route.properties.id);
-        const found = route && ROUTES.find((rt) => rt.id === route.properties.id);
-        if (flow) geneFlowPopup(flow).setLngLat(e.lngLat).addTo(map);
-        else if (found) routePopup(found).setLngLat(e.lngLat).addTo(map);
-        else if (useStore.getState().place) useStore.getState().closePlace();
-      } else useStore.getState().select(sorted[0].id, sorted);
+      // A click on nothing does nothing: no card or panel closes (Rob's call, 1 Nov 2026); they
+      // have their own close buttons.
+      const hit = hitAt(e.point);
+      if (!hit) return;
+      if (hit.kind === "dna") useStore.getState().openDnaSite(hit.dna);
+      else if (hit.kind === "features") useStore.getState().select(hit.features[0].id, hit.features);
+      else if (hit.kind === "flow") geneFlowPopup(hit.flow).setLngLat(e.lngLat).addTo(map);
+      else routePopup(hit.route).setLngLat(e.lngLat).addTo(map);
     });
 
-    for (const id of [...INTERACTIVE_LAYERS, "route-line", "gene-flow-line", "gene-flow-ring", DNA_LAYER]) {
-      map.on("mouseenter", id, () => (map.getCanvas().style.cursor = "pointer"));
-      map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
-    }
+    // The cursor says what a click would do: a pointer only where it opens something (hitAt), a
+    // crosshair on the globe while picking a place, MapLibre's grab hand elsewhere on the globe (it
+    // turns), and a plain arrow on the empty sky around it. Checked once a frame at most.
+    let cursorRaf = 0;
+    let cursorAt: maplibregl.Point | null = null;
+    const setCursor = (c: string) => {
+      const style = map.getCanvas().style;
+      if (style.cursor !== c) style.cursor = c;
+    };
+    map.on("mousemove", (e) => {
+      if (e.originalEvent.buttons) return setCursor(""); // dragging: MapLibre's grabbing hand
+      cursorAt = e.point;
+      cursorRaf ||= requestAnimationFrame(() => {
+        cursorRaf = 0;
+        const p = cursorAt;
+        if (!p || !loaded) return;
+        const globe = onGlobe(p.x, p.y);
+        if (useStore.getState().placeMode) setCursor(globe ? "crosshair" : "default");
+        else if (hitAt(p)) setCursor("pointer");
+        else setCursor(globe ? "" : "default");
+      });
+    });
+    map.getCanvas().addEventListener("mouseleave", () => {
+      cursorAt = null;
+      setCursor("");
+    });
 
     // While a tour plays: the path so far, one leg added (drawn as the globe turns) as each stop's card
     // opens. Back / Next and starting from a later stop put it straight in place.

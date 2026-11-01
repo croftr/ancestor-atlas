@@ -197,6 +197,9 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   an event's places stay listed, their coordinate and date references go into Sources. On phones the picture's
   full-screen button moves to its bottom right (the close button has the top right).
 - The DNA-site and What Was Here? cards keep their own heads but share the round close button (`.info-panel > .close`).
+- A click on nothing (empty globe or sky) does nothing: no card or panel closes, in a tour or not (Rob's call,
+  1 Nov 2026). The globe's cursor follows the same hit test as the click (`hitAt` in `MapView.tsx`): a pointer only
+  where a click opens something, MapLibre's grab hand on the rest of the globe, a plain arrow on the empty sky.
 
 ## App-wide UI polish (28 Oct 2026, after the cards)
 
