@@ -30,6 +30,7 @@
   lon: 45.6374
   image_url: /images/cities/uruk.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/uruk-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Uruk from a terrace of cone-mosaic columns: a scribe writing on a clay tablet, grain measured into bowls, a priest with a carved vase beside a marble mask, kilns and a canal with boats, and the White Temple on its high terrace beyond"
   extra_images:
     - { url: /images/extra/uruk-1.webp, credit: "Annemarie Schwarzenbach, public domain (Swiss National Library), via Wikimedia Commons", caption: "A ziggurat mound rising over the ruins of Uruk (Warka), photographed in 1933–34", source: "https://commons.wikimedia.org/wiki/File:CH-NB_-_Irak,_Uruk_(Warka)-_Zikurrat_-_Annemarie_Schwarzenbach_-_SLA-Schwarzenbach-A-5-03-131.jpg" }
@@ -52,6 +53,7 @@
   lon: 68.138889
   image_url: /images/cities/mohenjo-daro.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/mohenjo-daro-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Mohenjo-daro from a brick rooftop: traders with scales, weights and bead necklaces, the Great Bath in its courtyard, a straight street lined with drains, wells and ox-carts, and the Indus beyond the walls"
   extra_images:
     - { url: /images/extra/mohenjo-daro-1.webp, credit: "Ziegler175, CC BY-SA 3.0, via Wikimedia Commons", caption: "The brick houses and streets of Mohenjo-daro, seen from the stupa mound on the citadel", source: "https://commons.wikimedia.org/wiki/File:MoenjoDaroVS.jpg" }
