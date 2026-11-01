@@ -172,6 +172,7 @@
   lon: 25.163156
   image_url: /images/cities/knossos.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/knossos-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Knossos from the palace: a scribe writing on clay tablets, a woman with a bull's-head vessel, great storage jars, red columns and dolphin frescoes, and bull-leapers in the central court"
   extra_images:
     - { url: /images/extra/knossos-1.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The north entrance of the palace at Knossos, with a copy of its bull fresco, as rebuilt by Arthur Evans", source: "https://commons.wikimedia.org/wiki/File:Cnossos_5_bull_fresco.jpg" }
@@ -194,6 +195,7 @@
   lon: 114.318611
   image_url: /images/cities/yinxu.webp
   image_credit: AI-generated illustration
+  video: { src: video/cities/yinxu-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Yinxu from a Shang palace hall: officials beside bronze vessels and jades, a scribe at work, chariots and soldiers, smoking bronze workshops, and the river beyond"
   extra_images:
     - { url: /images/extra/yinxu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "A model of a Shang palace hall at Yinxu, in the museum on the site", source: "https://commons.wikimedia.org/wiki/File:Shang_Palace_Model_(44956617235).jpg" }
