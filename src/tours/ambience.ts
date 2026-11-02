@@ -445,6 +445,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Stone village in the Levant hills: heavy stone pestles pounding grain in stone mortars, a hearth crackling, a dog panting, footsteps on a stone path, dry wind and larks",
     sound: { src: "ambience/cultures/natufian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "01e78c0426" },
   },
+  "pre-pottery-neolithic": {
+    prompt: "Hilltop stone enclosure in the Fertile Crescent: stone hammers pecking and chiselling limestone pillars, a grinding stone rubbing grain back and forth on a quern, dry upland wind, larks singing",
+    sound: { src: "ambience/cultures/pre-pottery-neolithic-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6f85f17c19" },
+  },
+  halaf: {
+    prompt: "Northern Mesopotamian village courtyard: soft brush strokes on clay bowls, grain winnowed and shaken in flat baskets, a small kiln fire crackling, sheep bleating on grassy hills, warm breeze",
+    sound: { src: "ambience/cultures/halaf-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ade5888903" },
+  },
+  ubaid: {
+    prompt: "Southern Mesopotamian canal village: water lapping gently against a wooden canoe, a paddle dipping slowly, a brush painting a clay pot, palm fronds and reeds rustling in a warm breeze, waterbirds",
+    sound: { src: "ambience/cultures/ubaid-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "82d01f04e9" },
+  },
   maglemosian: {
     prompt: "Misty lake at dusk in a northern forest: gentle water lapping, a dugout canoe bumping, a fishing spear splashing, a dog breathing nearby, a crackling fire, frogs and waterbirds",
     sound: { src: "ambience/cultures/maglemosian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7a03242138" },

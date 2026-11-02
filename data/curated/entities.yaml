@@ -946,6 +946,7 @@
   description: Early farming societies of the Levant and southeast Anatolia before pottery, including the monumental site Göbekli Tepe and the walled settlement at Jericho.
   image_url: /images/cultures/pre-pottery-neolithic.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/pre-pottery-neolithic-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Megalithic circular enclosure with carved animal T-pillars and plastered ancestral skulls"
   wikipedia_url: https://en.wikipedia.org/wiki/Pre-Pottery_Neolithic
   source_ids:
@@ -1964,6 +1965,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Halaf_culture
   image_url: /images/cultures/halaf.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/halaf-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Northern Mesopotamian village with circular domed tholoi and artisans painting fine polychrome rosette ceramics"
   wikidata: Q904998
   source_ids: []
@@ -1982,6 +1984,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Ubaid_period
   image_url: /images/cultures/ubaid.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/ubaid-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Southern Mesopotamian marsh settlement: mudbrick architecture, painted greenish-buff pottery, clay sickles, and reed canoes"
   wikidata: Q245156
   source_ids: []
