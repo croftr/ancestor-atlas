@@ -369,6 +369,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Mountaintop ceremonial plaza above a valley: footsteps on stone stairs, clay urns set down, chisels tapping on carved slabs, strong mountain wind, hawks calling far below",
     sound: { src: "ambience/civilizations/zapotec-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "62f13b3350" },
   },
+  lomekwian: {
+    prompt: "Wooded stream near an East African lake: heavy stone cobble thudding down onto a stone anvil, sharp rock flakes cracking and falling on gravel, shallow stream water babbling over stones, warm breeze in acacia leaves, distant birds",
+    sound: { src: "ambience/cultures/lomekwian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "dfc829bd8c" },
+  },
+  oldowan: {
+    prompt: "East African lakeshore: sharp clicks and knocks of a river cobble hammerstone striking flakes from a stone core, stone flake scraping bone, gentle lake waves lapping on pebbles, savanna wind",
+    sound: { src: "ambience/cultures/oldowan-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9da2f96043" },
+  },
+  acheulean: {
+    prompt: "Savanna riverbank camp: rhythmic tapping of a bone soft-hammer shaping a stone handaxe, stone flakes clinking on gravel, a small campfire crackling, river water flowing past reeds, distant zebras",
+    sound: { src: "ambience/cultures/acheulean-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1b27dc2810" },
+  },
   "middle-stone-age": {
     prompt: "Seaside cave in southern Africa: a stone rubbed back and forth grinding ochre on a slab, careful scratching of stone on stone, waves breaking on rocks outside, wind and seabirds",
     sound: { src: "ambience/cultures/middle-stone-age-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8515eb156b" },

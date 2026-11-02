@@ -612,6 +612,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lomekwian
   image_url: /images/cultures/lomekwian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/lomekwian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early hominins using passive anvil percussion to detach sharp flakes from basalt cobbles at Lomekwi, Kenya"
   source_ids:
     - recall
@@ -629,6 +630,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Oldowan
   image_url: /images/cultures/oldowan.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/oldowan-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Homo habilis knapping volcanic cobble choppers and butchering with sharp flakes at Olduvai Gorge"
   source_ids:
     - recall
@@ -650,6 +652,7 @@
   description: Stone tool tradition best known for large, shaped hand axes, associated mainly with Homo erectus and later hominins. It lasted well over a million years across Africa, Europe and South Asia.
   image_url: /images/cultures/acheulean.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/acheulean-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Homo erectus flint knapper shaping symmetrical teardrop handaxes along a Pleistocene savanna river"
   wikipedia_url: https://en.wikipedia.org/wiki/Acheulean
   source_ids:
