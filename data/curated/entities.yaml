@@ -1734,6 +1734,7 @@
   description: "From around the coldest point of the last Ice Age, some 25,000 years ago, until about 11,000 years ago, hunter-gatherers near the coasts of Morocco, Algeria and Tunisia made the Iberomaurusian toolkit: tiny stone bladelets with one edge blunted, many of them crescent-shaped, found in their thousands at sites such as Taforalt and Afalou. The name, coined in 1909, means ‘of Iberia and Mauretania’, from a belief that the same industry reached across the Strait of Gibraltar into Spain. That idea has long been given up, but the name stuck. In Algeria, Tunisia and Libya it was followed by the Capsian; in Morocco, after a long gap, by the first potters."
   image_url: /images/cultures/iberomaurusian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/iberomaurusian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Coastal cave camp near Taforalt showing flintknappers making backed bladelets and Nassarius shell beads beside roasted Barbary sheep"
   wikipedia_url: https://en.wikipedia.org/wiki/Iberomaurusian
   wikidata: Q1470903

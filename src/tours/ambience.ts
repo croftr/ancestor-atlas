@@ -413,6 +413,10 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Snowy Ice Age camp: careful clicks of an antler tool pressure-flaking a long stone point, a bone needle pulling sinew through hide, crackling campfires, a horse snorting, snow crunching",
     sound: { src: "ambience/cultures/solutrean-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "2affc59599" },
   },
+  iberomaurusian: {
+    prompt: "Coastal limestone cave camp in North Africa: sharp clicks of flint bladelets being backed, small sea shells clinking as they are strung on cord, meat sizzling on hot stones over a crackling fire, distant waves and gulls",
+    sound: { src: "ambience/cultures/iberomaurusian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8f93fbae0a" },
+  },
   magdalenian: {
     prompt: "Riverside camp at the end of the Ice Age: a fast river rushing over stones, a salmon splashing, a harpoon striking water, stones grinding ochre by a crackling fire, reindeer hooves in the shallows",
     sound: { src: "ambience/cultures/magdalenian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6a93de475d" },
