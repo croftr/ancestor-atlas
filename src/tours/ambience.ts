@@ -429,6 +429,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Riverside rock shelter: a clear river flowing over pebbles, a flint burin scraping bone, pebbles clicking together, a small fire crackling, footsteps on grass, birds in the trees",
     sound: { src: "ambience/cultures/azilian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5b63568d10" },
   },
+  jomon: {
+    prompt: "Forest village by a river in prehistoric Japan: twisted cord pressed into wet clay pots, chestnuts rattling into a woven basket, wooden canoe paddles dipping in river water, wind in autumn forest leaves, birds",
+    sound: { src: "ambience/cultures/jomon-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e4f89ecdc1" },
+  },
+  oakhurst: {
+    prompt: "Southern African rock shelter above a river valley: heavy hammerstone striking stone scrapers from a boulder core, hides scraped on wooden frames, a small campfire crackling, river water flowing below, cape birds calling",
+    sound: { src: "ambience/cultures/oakhurst-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "9a83bd42ea" },
+  },
+  wilton: {
+    prompt: "Rock shelter in the southern African hills: fine stone drill boring ostrich eggshell beads, a soft brush painting ochre on sandstone rock, small hearth crackling, warm wind over fynbos and grassland, distant antelopes",
+    sound: { src: "ambience/cultures/wilton-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "6dae2a92e1" },
+  },
   natufian: {
     prompt: "Stone village in the Levant hills: heavy stone pestles pounding grain in stone mortars, a hearth crackling, a dog panting, footsteps on a stone path, dry wind and larks",
     sound: { src: "ambience/cultures/natufian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "01e78c0426" },
