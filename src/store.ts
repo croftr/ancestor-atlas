@@ -73,6 +73,11 @@ interface AppState {
   year: number;
   enabled: Record<Category, boolean>;
   selectedId: string | null;
+  /**
+   * A point ringed and pulsed on the globe with no card open (an era chip's event), while the
+   * slider stays at `year` (map/highlight.ts; MapView's focusOf).
+   */
+  spotlight: { id: string; year: number } | null;
   hits: FeatureProps[];
   /** Entity whose group view is open (a group has no feature to select). */
   groupId: string | null;
@@ -182,9 +187,9 @@ interface AppState {
   /**
    * Move the slider to `year` (default: the entity's best year) and turn the globe to the entity's
    * features on the map then (or just `site`, one of them); `open` also opens the card. Used by the era
-   * chips and tours.
+   * chips and tours. `spotlight` (era chips): ring and pulse its point there without opening the card.
    */
-  showEntity(entityId: string, opts?: { year?: number; open?: boolean; site?: string }): void;
+  showEntity(entityId: string, opts?: { year?: number; open?: boolean; site?: string; spotlight?: boolean }): void;
   /** `gate`: wait for a tap before playing (a tour opened from a link). `index`: the stop to start at. */
   startTour(id: string, opts?: { gate?: boolean; index?: number }): void;
   /** The tap on "Start tour". */
@@ -245,6 +250,7 @@ export const useStore = create<AppState>((set, get) => ({
   year: -1_799_999,
   enabled: Object.fromEntries(CATEGORIES.map((c) => [c, true])) as Record<Category, boolean>,
   selectedId: null,
+  spotlight: null,
   hits: [],
   groupId: null,
   playing: false,
@@ -367,6 +373,7 @@ export const useStore = create<AppState>((set, get) => ({
       year,
       enabled: { ...s.enabled, [entity.category]: true },
       ...(opts.open && on.length > 0 && { selectedId: on[0].id, hits: on, groupId: null, place: null, lastPlace: s.place ?? s.lastPlace }),
+      spotlight: opts.spotlight && on.length > 0 ? { id: on[0].id, year } : null,
       flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
   },
@@ -580,3 +587,8 @@ export const useStore = create<AppState>((set, get) => ({
     set({ legendPanel: on });
   },
 }));
+
+// A new selection (a click, a search, a step) takes the highlight from an era chip's spotlight.
+useStore.subscribe((s, prev) => {
+  if (s.spotlight && s.selectedId && s.selectedId !== prev.selectedId) useStore.setState({ spotlight: null });
+});

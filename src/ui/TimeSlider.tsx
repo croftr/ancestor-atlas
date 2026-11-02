@@ -322,7 +322,7 @@ export default function TimeSlider() {
             title={e.title}
             aria-pressed={e.label === activePreset}
             onClick={() => {
-              showEntity(e.event);
+              showEntity(e.event, { spotlight: true });
               setShortcutsOpen(false);
             }}
           >

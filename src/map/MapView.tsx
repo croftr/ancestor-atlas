@@ -621,13 +621,14 @@ export default function MapView() {
       });
     };
 
-    // The item in focus: the open card's point, or the place a book stop has turned to (its note
-    // takes the card's place, so nothing is selected). A civilization's point is its badge's.
+    // The item in focus: the open card's point, the place a book stop has turned to (its note
+    // takes the card's place, so nothing is selected), or an era chip's event while the slider
+    // stays on it (store `spotlight`). A civilization's point is its badge's.
     const focusOf = (): { id: string; at: [number, number] } | null => {
       const data = getData();
       if (!data) return null;
-      const { selectedId, tour, year } = useStore.getState();
-      let id = selectedId;
+      const { selectedId, tour, year, spotlight } = useStore.getState();
+      let id = spotlight && spotlight.year === year ? spotlight.id : selectedId;
       if (!id && tour?.note && tour.phase === "hold") {
         const stop = tourById(tour.id)?.stops[tour.index];
         id = stop ? (stop.site ?? data.featuresOf.get(stop.entity)?.find((f) => isActive(f, year))?.id ?? null) : null;
@@ -1340,7 +1341,8 @@ export default function MapView() {
       if (state.place !== prev.place || state.lastPlace !== prev.lastPlace) applyPlace();
       if (state.enabled !== prev.enabled) applyVisibility();
       if (state.selectedId !== prev.selectedId) applySelection();
-      if (state.selectedId !== prev.selectedId || state.tour !== prev.tour) applyHighlight();
+      if (state.selectedId !== prev.selectedId || state.tour !== prev.tour || state.spotlight !== prev.spotlight || state.year !== prev.year)
+        applyHighlight();
     });
 
     return () => {
