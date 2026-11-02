@@ -389,6 +389,14 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Rock shelter above a river valley: steady knocks of a hammerstone flaking flint, a scraper rasping across hide, embers crackling softly in a hearth, distant horses and wind",
     sound: { src: "ambience/cultures/levallois-mousterian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "8414abb43e" },
   },
+  micoquian: {
+    prompt: "Limestone rock shelter camp in autumn: rhythmic tapping of antler and stone hammers knapping flint knives, stone flakes clinking, a wood campfire crackling, wind rustling birch leaves, distant bison",
+    sound: { src: "ambience/cultures/micoquian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "2706662c8a" },
+  },
+  szeletian: {
+    prompt: "Mountain cave mouth in early winter: careful pressure-flaking clicks shaping a stone spear point, sinew binding a point to a wooden shaft, a stone-ringed campfire crackling, cold mountain wind in pine trees",
+    sound: { src: "ambience/cultures/szeletian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "0492774682" },
+  },
   chatelperronian: {
     prompt: "Cave camp in Ice Age France: gentle pressing and clicking of an antler tool flaking stone, a stone awl drilling, a grinding stone rubbing on a slab, crackling campfires, cold wind outside",
     sound: { src: "ambience/cultures/chatelperronian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "238c5f09e3" },

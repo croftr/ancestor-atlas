@@ -728,6 +728,7 @@
     - road
   image_url: /images/cultures/micoquian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/micoquian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Neanderthal camp below a rock shelter in autumn: knapping flint on a boulder, a red deer brought in, meat drying on racks, bison grazing in the valley below"
   extra_images:
     - { url: /images/extra/micoquian-1.webp, credit: "Thilo Parg, CC BY-SA 4.0, via Wikimedia Commons", caption: "A large Bockstein knife, a backed bifacial knife (Keilmesser), from the Bocksteinschmiede in the Lone valley, Germany", source: "https://commons.wikimedia.org/wiki/File:Bocksteinmesser_Nr_2482.jpg" }
@@ -746,6 +747,7 @@
     - road
   image_url: /images/cultures/szeletian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/szeletian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Camp at a limestone cave mouth with a dusting of snow: knapping leaf-shaped points by a stone hearth, hide shelters behind"
   extra_images:
     - { url: /images/extra/szeletian-1.webp, credit: "Don Hitchcock, CC BY 4.0, via Wikimedia Commons", caption: "Szeletian leaf-shaped points (Moravian Museum, Brno)", source: "https://commons.wikimedia.org/wiki/File:Pointes_foliacées_Brno_Museum.jpg" }
