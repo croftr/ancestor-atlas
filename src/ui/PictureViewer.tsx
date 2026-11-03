@@ -31,6 +31,7 @@ const Chevron = ({ dir }: { dir: -1 | 1 }) => (
  */
 export default function PictureViewer({
   entity,
+  video = entity.video,
   date,
   pictures,
   index,
@@ -39,6 +40,7 @@ export default function PictureViewer({
 }: {
   miniGlobe?: boolean;
   entity: Entity;
+  video?: Entity["video"];
   date: string;
   pictures: Picture[];
   index: number;
@@ -132,12 +134,12 @@ export default function PictureViewer({
       >
         <img
           key={picture.url}
-          className={`pv-img picture-in${touring && !(shownIndex === 0 && entity.video) ? " pv-drift" : ""}`}
+          className={`pv-img picture-in${touring && !(shownIndex === 0 && video) ? " pv-drift" : ""}`}
           src={picture.url}
           alt={label}
           style={touring && tour?.phase === "hold" ? ({ animationPlayState: tour.paused ? "running, paused" : "running, running" } as CSSProperties) : undefined}
         />
-        {shownIndex === 0 && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
+        {shownIndex === 0 && video && <TourVideo key={video.src} src={video.src} />}
       </div>
 
       <header className="pv-head">

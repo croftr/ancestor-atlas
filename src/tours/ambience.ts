@@ -353,6 +353,26 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Imperial Rome: hobnailed boots marching on stone paving, a cart's wheels rattling over cobbles, a fountain splashing in a square, pigeons, distant hammering from a building site",
     sound: { src: "ambience/civilizations/roman-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c2c108f263" },
   },
+  mesopotamia: {
+    prompt: "Ancient Mesopotamian river port below a great ziggurat: wooden oars dipping in the Euphrates, a reed stylus pressing cuneiform into wet clay tablets, donkey hooves on packed earth, date palms rustling in a warm breeze",
+    sound: { src: "ambience/civilizations/mesopotamia-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "a441b610fd" },
+  },
+  "ancient-egypt": {
+    prompt: "Nile riverbank market and fields below a temple pylon: sickles cutting wheat stalks, river water lapping against sailed wooden boats, linen cloth folded, palm fronds rustling in a warm breeze, ibis calls",
+    sound: { src: "ambience/civilizations/ancient-egypt-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "4cc4f4cbf9" },
+  },
+  "ancient-china": {
+    prompt: "Ancient Chinese capital street by a willow-lined canal: a horse-drawn wooden carriage rolling over stone paving, bronze ritual vessels and jade pendants clinking softly on market stalls, gentle water under a stone bridge, breeze in willow leaves",
+    sound: { src: "ambience/civilizations/ancient-china-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c8ab217a38" },
+  },
+  "ancient-greece": {
+    prompt: "Classical Greek agora below the Acropolis: sandals walking on marble paving, painted amphorae set down on wooden stalls, a breeze through cypress and olive trees, cicadas and distant gulls over the sea",
+    sound: { src: "ambience/civilizations/ancient-greece-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ced600f07e" },
+  },
+  persia: {
+    prompt: "Grand stone terrace of Persepolis: slow footsteps ascending carved stone stairways, cavalry horses shifting and harness rings clinking gently, metal tribute bowls carried in procession, upland breeze through cypress trees",
+    sound: { src: "ambience/civilizations/persia-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "931c3cf290" },
+  },
   "olmec-civilization": {
     prompt: "Tropical Gulf lowland ceremonial centre: stone tools pecking and grinding at a huge basalt boulder, jade beads clicking, humid rainforest with frogs, insects and howler monkeys in the distance",
     sound: { src: "ambience/civilizations/olmec-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3b2bf8f849" },

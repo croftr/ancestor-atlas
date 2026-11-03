@@ -252,6 +252,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // one: the tour's (index 0 is the main picture, then the extras) or the one stepped to by hand.
   const viewerPictures = pictures.filter((p) => p.url !== brokenImage);
   const hasMain = viewerPictures.length > (entity.extra_images?.length ?? 0);
+  const mainVideo = entity.video ?? (!entity.image_url ? parent?.video : undefined);
   const viewerIndex = isTouring
     ? Math.max(0, (tourPicture?.entity === entity.id ? tourPicture.index : 0) - (hasMain ? 0 : 1))
     : viewerPictures.length
@@ -261,6 +262,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   const viewer = viewerOpen && canView && (
     <PictureViewer
       entity={entity}
+      video={mainVideo}
       date={dateText ?? formatRange(entity.start_year, entity.end_year)}
       pictures={viewerPictures}
       index={viewerIndex}
@@ -366,7 +368,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
           {showThumb ? (
             <>
               <img key={thumb} className={extra ? "ic-extra picture-in" : undefined} src={cultureThumbSrc(thumb)} alt="" onError={() => setBrokenImage(thumb)} />
-              {!extra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
+              {!extra && mainVideo && <TourVideo key={mainVideo.src} src={mainVideo.src} />}
             </>
           ) : (
             <span className="ic-media-blank">
@@ -640,7 +642,7 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
               loading="lazy"
               onError={() => setBrokenImage(shown.url)} // a stand-in not added yet: show nothing
             />
-            {!extra && entity.video && <TourVideo key={entity.video.src} src={entity.video.src} />}
+            {!extra && mainVideo && <TourVideo key={mainVideo.src} src={mainVideo.src} />}
             {hasMultiplePictures && (
               <PictureNav
                 count={pictures.length}
