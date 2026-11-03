@@ -469,6 +469,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Neolithic stilt-house village over a lush wetland: water lapping gently against wooden pilings, a dugout canoe paddle dipping slowly, a stylus incising clay, water buffalo lowing softly, frogs and wetland birds",
     sound: { src: "ambience/cultures/hemudu-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "4fc2bd9b6f" },
   },
+  yangshao: {
+    prompt: "Neolithic loess terrace village overlooking the Yellow River: a fine brush painting clay bowls, wet clay smoothed by hand, a pottery kiln crackling softly, millet grain raked on mats, gentle river breeze",
+    sound: { src: "ambience/cultures/yangshao-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1b421976e3" },
+  },
+  hongshan: {
+    prompt: "Neolithic ceremonial complex in the hills of northeastern China: fine stone abrasives and leather straps polishing jade, footsteps on stone paving, small hearth fires crackling by a timber temple, upland breeze in birch and pine trees",
+    sound: { src: "ambience/cultures/hongshan-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3cd5755b13" },
+  },
+  liangzhu: {
+    prompt: "Water-gated Neolithic city in the Yangtze delta: bamboo bow drills whirring softly with wet sand abrasive on jade, flat-bottomed boats poled gently through a canal, water lapping against earthworks, wetland birds",
+    sound: { src: "ambience/cultures/liangzhu-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e253ef2e29" },
+  },
   maglemosian: {
     prompt: "Misty lake at dusk in a northern forest: gentle water lapping, a dugout canoe bumping, a fishing spear splashing, a dog breathing nearby, a crackling fire, frogs and waterbirds",
     sound: { src: "ambience/cultures/maglemosian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7a03242138" },
