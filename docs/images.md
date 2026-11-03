@@ -31,6 +31,15 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   20. `twenty-sixth-dynasty-of-egypt` -> `public/images/civilisations/twenty-sixth-dynasty-of-egypt.webp` & `-600.webp`
   21. `thirtieth-dynasty-of-egypt` -> `public/images/civilisations/thirtieth-dynasty-of-egypt.webp` & `-600.webp`
   22. `peloponnesian-league` -> `public/images/civilisations/peloponnesian-league.webp` & `-600.webp`
+  23. `greek-dark-ages` -> `public/images/civilisations/greek-dark-ages.webp` & `-600.webp`
+  *Standalone Regional Kingdoms & Elite Corps (3 Nov 2026)*:
+  24. `nanyue` -> `public/images/civilisations/nanyue.webp` & `-600.webp`
+  25. `gojoseon` -> `public/images/civilisations/gojoseon.webp` & `-600.webp`
+  26. `goguryeo` -> `public/images/civilisations/goguryeo.webp` & `-600.webp`
+  27. `yuezhi` -> `public/images/civilisations/yuezhi.webp` & `-600.webp`
+  28. `hadhramaut` -> `public/images/civilisations/hadhramaut.webp` & `-600.webp`
+  29. `kingdom-of-cappadocia` -> `public/images/civilisations/kingdom-of-cappadocia.webp` & `-600.webp`
+  30. `sacred-band-of-thebes` -> `public/images/civilisations/sacred-band-of-thebes.webp` & `-600.webp`
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
   Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
