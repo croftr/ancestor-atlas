@@ -545,6 +545,22 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Predynastic Nile valley village: a smooth pebble burnishing a rippled black-topped red clay bowl, green malachite ground on a slate palette, wheat harvested with sickles by an irrigation ditch, cattle and sheep, warm desert breeze",
     sound: { src: "ambience/cultures/badarian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b0f42bacc9" },
   },
+  naqada: {
+    prompt: "Predynastic mudbrick town on the Nile: an antler tine pressure-flaked against a flint knife, a fine brush painting red boats and flamingos on a buff clay jar, river waves lapping against sailed wooden boats, warm breeze in date palms",
+    sound: { src: "ambience/cultures/naqada-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b7ed8ce9b6" },
+  },
+  dapenkeng: {
+    prompt: "Tropical coastal village in Taiwan: a green nephrite adze ground back and forth on a wet sandstone slab, a cord-wrapped paddle tapping a clay pot, gentle surf on a sandy beach, outrigger canoes, tropical forest birds",
+    sound: { src: "ambience/cultures/dapenkeng-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "f500acc175" },
+  },
+  baden: {
+    prompt: "Copper Age village in the Carpathian Basin: solid wooden disc wheels of an ox-drawn wagon creaking slowly over a dirt track, cattle lowing, sheep and horses in the meadow, a courtyard fire crackling, autumn breeze",
+    sound: { src: "ambience/cultures/baden-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "82cbfaadb4" },
+  },
+  "globular-amphora": {
+    prompt: "Late Neolithic stone-cist burial ceremony on the northern European plain: wooden spades scraping sandy earth, a pair of oxen breathing softly, village hearth smoke drifting in the distance, wind rustling autumn birch and pine trees",
+    sound: { src: "ambience/cultures/globular-amphora-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "07841f3cfd" },
+  },
   lapita: {
     prompt: "Pacific island lagoon: soft surf on a sandy beach, a canoe hull and pandanus sail creaking in the wind, stamps tapping into soft clay, palm fronds rustling, small pigs grunting",
     sound: { src: "ambience/cultures/lapita-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b7f2ebd92e" },

@@ -1313,6 +1313,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Naqada_culture
   image_url: /images/cultures/naqada.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/naqada-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Predynastic Nile settlement: artisans painting D-ware boat pottery, flaking ripple knives, and sailing boats under desert cliffs"
   wikidata: Q753391
   source_ids: []
@@ -1522,6 +1523,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Globular_Amphora_culture
   image_url: /images/cultures/globular-amphora.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/globular-amphora-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Stone cist ritual cattle burial on the European forest-steppe: globular amphora pottery, banded flint axes, and amber discs"
   wikidata: Q218257
   source_ids: []
@@ -1544,6 +1546,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Baden_culture
   image_url: /images/cultures/baden.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/baden-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Copper Age settlement in the Carpathian Basin: four-wheeled ox wagon, burnished channel-fluted pottery, and miniature wagon model"
   wikidata: Q687230
   source_ids: []
@@ -1668,6 +1671,7 @@
   description: "Between 4000 and 3000 BCE a new way of life appeared on the coasts of northern Taiwan and quickly spread around the island. The Dapenkeng people made thick, cord-marked pottery and polished adzes, fished, gathered shellfish, and later grew rice and millet. They had crossed the Taiwan Strait from mainland China, and most scholars think they spoke early Austronesian languages, the family whose speakers would later sail from Taiwan to Madagascar, Hawaii and New Zealand."
   image_url: /images/cultures/dapenkeng.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/dapenkeng-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early Austronesian coastal settlement on Taiwan with cord-marked pottery, dugout canoes, and millet cultivation"
   wikipedia_url: https://en.wikipedia.org/wiki/Dapenkeng_culture
   wikidata: Q9884947
