@@ -2114,6 +2114,7 @@
   description: Celebrated as the 'Age of the Pyramids', the Old Kingdom (Third to Sixth Dynasties) was an era of dynamic internal security, centralized pharaonic power, and monumental building along the Nile. Governed from Memphis, pharaohs marshaled royal labor to erect the Great Pyramids and the Sphinx at Giza, institutionalizing enduring religious and funerary traditions.
   image_url: /images/civilisations/old-kingdom.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/old-kingdom-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Construction of the Great Pyramid of Giza, showing teams of builders hauling stone on sledges and masons dressing Tura limestone casing beside the Sphinx"
   extra_images:
     - { url: /images/extra/old-kingdom-of-egypt-1.webp, credit: "Jon Bodsworth, Copyrighted free use, via Wikimedia Commons", caption: "Diorite statue of Pharaoh Khafre enthroned, protected from behind by the falcon wings of Horus, 4th Dynasty, from Giza (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Khafre_statue.jpg" }

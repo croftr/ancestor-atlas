@@ -361,6 +361,10 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Nile riverbank market and fields below a temple pylon: sickles cutting wheat stalks, river water lapping against sailed wooden boats, linen cloth folded, palm fronds rustling in a warm breeze, ibis calls",
     sound: { src: "ambience/civilizations/ancient-egypt-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "4cc4f4cbf9" },
   },
+  "old-kingdom-of-egypt": {
+    prompt: "Pyramid construction site at Giza: wooden mallets and copper chisels tapping on limestone blocks, water splashed from a clay jar onto wet sand ahead of a heavy wooden sledge, distant desert wind",
+    sound: { src: "ambience/civilizations/old-kingdom-of-egypt-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "44eeb85f84" },
+  },
   "ancient-china": {
     prompt: "Ancient Chinese capital street by a willow-lined canal: a horse-drawn wooden carriage rolling over stone paving, bronze ritual vessels and jade pendants clinking softly on market stalls, gentle water under a stone bridge, breeze in willow leaves",
     sound: { src: "ambience/civilizations/ancient-china-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "c8ab217a38" },
