@@ -40,6 +40,11 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   28. `hadhramaut` -> `public/images/civilisations/hadhramaut.webp` & `-600.webp`
   29. `kingdom-of-cappadocia` -> `public/images/civilisations/kingdom-of-cappadocia.webp` & `-600.webp`
   30. `sacred-band-of-thebes` -> `public/images/civilisations/sacred-band-of-thebes.webp` & `-600.webp`
+  *Major States of Early China (3 Nov 2026)*:
+  31. `chu` -> `public/images/civilisations/chu.webp` & `-600.webp`
+  32. `qin` -> `public/images/civilisations/qin.webp` & `-600.webp`
+  33. `qi` -> `public/images/civilisations/qi.webp` & `-600.webp`
+  34. `wu` -> `public/images/civilisations/wu.webp` & `-600.webp`
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
   Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:

@@ -4081,6 +4081,9 @@
       credit: Armies of History, YouTube
 - id: chu
   description: A major southern powerhouse along the Yangtze and Han river valleys during the Zhou dynasty, with its capital at Ying in modern Hubei. Developing a rich, distinct culture characterized by elaborate bronze metallurgy, lacquerware, and Daoist poetic traditions, Chu expanded aggressively to become one of the most formidable Seven Warring States.
+  image_url: /images/civilisations/chu.webp
+  image_caption: "Royal pavilion at Ying in the State of Chu overlooking Yangtze lotus waterways, featuring a phoenix-on-turtles lacquer drum stand, Guodian bamboo slips, a lacquered shield, and a bianzhong bell rack."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/chu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze tallies of Lord Qi of E with gold-inlaid inscriptions, travel permits issued by the king of Chu in 323 BCE (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Tallies_(9830808744).jpg" }
     - { url: /images/extra/chu-2.webp, credit: "Sharkman, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Guodian bamboo slips from a Chu tomb, about 300 BCE, among the oldest manuscripts of Daoist and Confucian texts (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:TaiYiShengShui1.jpg" }
@@ -4093,6 +4096,9 @@
       credit: knowl card, YouTube
 - id: qi
   description: A wealthy and powerful maritime state in modern Shandong, founded in the 11th century BCE for the grand strategist Jiang Ziya. Blessed with rich coastal sea salt and silk industries, Qi established early hegemony under Duke Huan and prime minister Guan Zhong, later founding the renowned Jixia Academy of scholarly debate.
+  image_url: /images/civilisations/qi.webp
+  image_caption: "Scholars debating at the Jixia Academy in Linzi, capital of Qi, with bronze knife money, a servant figurine oil lamp, Shandong silk bolts, sea-salt markets, and coastal salt pans."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/qi-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze lamp of a figure holding two dishes, state of Qi, Warring States period, found in Shandong (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Lamp.jpg" }
     - { url: /images/extra/qi-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze knife money of the state of Qi, Warring States period (Xianyang Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Knife_Coin,_Qi_State_(9910610323).jpg" }
@@ -4186,6 +4192,9 @@
       credit: Hui Podcast, YouTube
 - id: qin
   description: A rugged frontier state in the western Wei River valley of modern Shaanxi, traditionally tasked with breeding warhorses and defending Zhou frontiers against nomadic tribes. Implementing radical Legalist reforms under Shang Yang, Qin developed a meritocratic military and centralized bureaucracy that ultimately conquered all rival states to unify China in 221 BCE.
+  image_url: /images/civilisations/qin.webp
+  image_caption: "Qin Legalist officials and military commanders at Xianyang inspecting standardized bronze crossbows, dagger-axes (ge), bamboo tallies, and the Qin Gong Gui vessel before arrayed infantry and war chariots."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/qin-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "The Qin Gong gui, a bronze food vessel cast for a duke of Qin with an inscription on his ancestors, Spring and Autumn period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:-0770_-0403_Qin_Gong_Bronze_Gui_(food_container)_Spring_and_Autumn_Period_National_Museum_of_China_anagoria.jpg" }
     - { url: /images/extra/qin-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze dagger-axe (ge) of the state of Qin, cast in 243 BCE under the chancellor Lü Buwei (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Ge_-_2.jpg" }
@@ -4219,6 +4228,9 @@
       credit: GatesOfKilikien, YouTube
 - id: wu
   description: A dynamic maritime and riverine kingdom in the lower Yangtze delta of modern Jiangsu, centered around modern Suzhou. Expanding rapidly in the late Spring and Autumn period with the strategic advice of Sun Tzu, Wu dominated regional waterways with specialized navies and prized cast-bronze swords before being conquered by neighboring Yue in 473 BCE.
+  image_url: /images/civilisations/wu.webp
+  image_caption: "Master swordsmiths and commanders of Wu at the water-gated capital of Suzhou examining diamond-patterned bronze swords and the spear of King Fuchai beside multi-decked Yangtze warships."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/wu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Hilt of the bronze sword of Fuchai, the last king of Wu, found in Huixian, Henan (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Jian_(Sword)_(9831617575).jpg" }
     - { url: /images/extra/wu-2.webp, credit: "Augusthaiho, CC BY-SA 4.0, via Wikimedia Commons", caption: "Spear of King Fuchai of Wu, inscribed 'made by Fuchai, King of Wu, for his own use', found in a tomb at Jiangling (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:吴王夫差剑05096.jpg" }
