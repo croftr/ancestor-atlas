@@ -1,6 +1,8 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import type { Data } from "../map/data";
 import type { Entity } from "../types";
+import { pictureOf } from "./browse";
 import { buildEntries, byRegion, pack } from "./civLayout";
 import { index, marks, nearMisses, search, type SearchRecord } from "./civSearch";
 
@@ -23,6 +25,15 @@ describe("buildEntries", () => {
       if (e.kind !== "family") continue;
       expect(e.members.length, e.title).toBeGreaterThanOrEqual(2);
       expect(e.picture?.url, e.title).toBeTruthy();
+    }
+  });
+
+  it("has a small copy on disk for every civilization's row thumbnail", () => {
+    const data = { entityById: new Map(entities.map((e) => [e.id, e])) } as unknown as Data;
+    for (const e of civs) {
+      const url = pictureOf(e, data)?.url;
+      expect(url, e.id).toBeTruthy();
+      expect(existsSync(`public${url!.replace(/\.webp$/, "-600.webp")}`), `${e.id}: ${url}`).toBe(true);
     }
   });
 

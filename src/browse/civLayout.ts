@@ -28,8 +28,6 @@ export interface Single {
   kind: "single";
   id: string;
   entity: Entity;
-  /** Its own picture, or one it shares with no other civilization. */
-  picture?: string;
   region: string;
   start: number;
   end: number;
@@ -119,7 +117,6 @@ export function buildEntries(civs: Entity[], childrenOf: Map<string, Entity[]>):
         kind: "single",
         id: e.id,
         entity: e,
-        picture: e.image_url ?? fb?.url,
         region: e.region ?? NO_REGION,
         start: e.start_year,
         end: e.end_year,

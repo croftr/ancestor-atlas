@@ -5,7 +5,7 @@ import { useData } from "../map/data";
 import { navigate, useOpenItem } from "../route";
 import { formatRange, MAX_YEAR } from "../time/scale";
 import type { Entity } from "../types";
-import { barStyle } from "./browse";
+import { barStyle, pictureOf } from "./browse";
 import {
   buildEntries,
   byRegion,
@@ -78,24 +78,25 @@ function SpanBar({ e, axis, color }: { e: { start_year: number; end_year: number
 }
 
 /**
- * One civilization: thumbnail (its own picture) or colour swatch, name, dates, bar, length. `large` for one standing
- * on its own in a region, the size of the group and family cards beside it.
+ * One civilization: thumbnail (the picture its page opens on: its own, else its group's or family's) or colour swatch,
+ * name, dates, bar, length. `large` for one standing on its own in a region, the size of the group and family cards
+ * beside it.
  */
 function Row({
   e,
   axis,
   query = "",
   context,
-  picture = e.image_url,
   large,
 }: {
   e: Entity;
   axis: [number, number];
   query?: string;
   context?: string;
-  picture?: string;
   large?: boolean;
 }) {
+  const data = useData();
+  const picture = data ? pictureOf(e, data)?.url : e.image_url;
   return (
     <button className="cv-row" onClick={() => navigate("civilizations", e.id)}>
       {picture ? <Thumb url={picture} large={large} /> : <span className="cv-thumb"><span className="cv-swatch" style={{ background: e.color ?? CATEGORY_STYLE.civilization.color }} /></span>}
@@ -402,7 +403,7 @@ export default function CivilizationsPage() {
               <ul className="cv-rows cv-entries">
                 {r.entries.map((e) =>
                   e.kind === "single" ? (
-                    <li key={e.id} className="cv-single"><Row e={e.entity} axis={axis} picture={e.picture} large /></li>
+                    <li key={e.id} className="cv-single"><Row e={e.entity} axis={axis} large /></li>
                   ) : (
                     <ClusterItem key={e.id} c={e} axis={axis} open={expanded.has(e.id)} onToggle={() => toggle(e.id)} />
                   ),
