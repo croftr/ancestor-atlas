@@ -701,9 +701,9 @@ About 2,530 points: 32 cultures plus H. sapiens. Rules:
   the culture). AADR: Longshan links 9 genomes at 3 sites; the Yangshao label is mapped but its only genomes
   (Baligang) are PROVISIONAL_PASS, so none show. XRONOS's Chinese dates have no culture labels. Not added: Dawenkou,
   Majiayao, Dadiwan, Cishan, Xinglongwa, Kuahuqiao, Shangshan (candidates). Four Commons pictures each added 31 Oct 2026
-  (Mehrgarh three); main pictures to come from Rob.
+  (Mehrgarh three); main AI illustrations added 3 Nov 2026.
 - Mehrgarh added 30 Oct 2026 (stage "First farmers of South Asia"; description written from Mehrgarh@1382032917,
-  Rob to review; no picture yet): span 5250-2600 BCE (the article's infobox and Mutin and Zazzo's dates on teeth;
+  Rob to review; main AI illustration added 3 Nov 2026): span 5250-2600 BCE (the article's infobox and Mutin and Zazzo's dates on teeth;
   Jarrige's pre-7000 BCE start is mentioned in the description, not used). Sites: Mehrgarh (coordinates from the
   article: Wikidata's are ~18 km off, too far from Nausharo) and Nausharo's first phase (3000-2550 BC, like
   Mehrgarh's later periods). Linked both ways to the Indus civilization (related_ids). No AADR genomes. Indus city

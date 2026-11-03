@@ -16,6 +16,14 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   7. `bantu-farmers` -> `public/images/cultures/bantu-farmers.webp` & `-600.webp` (Domestication tour stop 11)
   8. `lapita` -> `public/images/cultures/lapita.webp` & `-600.webp` (Domestication tour stop 14)
   9. `dapenkeng` -> `public/images/cultures/dapenkeng.webp` & `-600.webp` (Austronesian migration route)
+  *East Asian Neolithic & South Asian Early Farming Cultures (3 Nov 2026)*:
+  10. `peiligang` -> `public/images/cultures/peiligang.webp` & `-600.webp`
+  11. `hemudu` -> `public/images/cultures/hemudu.webp` & `-600.webp`
+  12. `yangshao` -> `public/images/cultures/yangshao.webp` & `-600.webp`
+  13. `hongshan` -> `public/images/cultures/hongshan.webp` & `-600.webp`
+  14. `liangzhu` -> `public/images/cultures/liangzhu.webp` & `-600.webp`
+  15. `longshan` -> `public/images/cultures/longshan.webp` & `-600.webp`
+  16. `mehrgarh` -> `public/images/cultures/mehrgarh.webp` & `-600.webp`
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
   Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
