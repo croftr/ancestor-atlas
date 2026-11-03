@@ -1425,6 +1425,7 @@
   description: Neolithic culture of the central Balkans, c. 5400–4500 BCE, named after the tell of Vinča-Belo Brdo near Belgrade. Known for large settlements, dark burnished pottery, figurines and early copper working.
   image_url: /images/cultures/vinca.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/vinca-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Danube terrace tell settlement with early copper metallurgy, burnished pottery, and incised clay figurines"
   wikipedia_url: https://en.wikipedia.org/wiki/Vinča_culture
   wikidata: Q831336
@@ -1472,6 +1473,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Lengyel_culture
   image_url: /images/cultures/lengyel.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/lengyel-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Late Neolithic settlement and monumental circular ditched enclosure (rondel), with painted pedestaled pottery and craftwork"
   wikidata: Q668742
   source_ids: []
@@ -2033,6 +2035,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Grossgartach_culture
   image_url: /images/cultures/hinkelstein-grossgartach.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/hinkelstein-grossgartach-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Middle Neolithic Rhine terrace settlement: boat-shaped timber longhouses, pointillé-stamped beakers, and greenstone adzes"
   wikidata: Q1549257
   source_ids: []

@@ -509,6 +509,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Early farming village of timber longhouses: a stone adze ground on a wet whetstone, a quern rolling and crushing grain, a small fire, cattle lowing, pigs grunting and sheep in a pasture",
     sound: { src: "ambience/cultures/linear-pottery-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1a48512073" },
   },
+  vinca: {
+    prompt: "Neolithic tell settlement above the Danube: air blown softly through a reed blowpipe into a glowing charcoal copper-smelting bowl, a stylus incising clay figurines, river water lapping against dugout canoes, cattle lowing",
+    sound: { src: "ambience/cultures/vinca-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "0ab77fb41d" },
+  },
+  "hinkelstein-grossgartach": {
+    prompt: "Middle Neolithic longhouse village in the Rhine valley: a polished stone adze chopping a timber log, a bone stylus incising geometric bands into clay pots, a courtyard fire crackling, cattle and sheep in a woodland pasture",
+    sound: { src: "ambience/cultures/hinkelstein-grossgartach-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "efd20610f7" },
+  },
+  lengyel: {
+    prompt: "Neolithic village with a circular timber rondel enclosure: a soft brush painting red and yellow ochre inside a pedestal clay bowl, small village hearths crackling, long-horned cattle lowing in the meadow, gentle breeze in oak trees",
+    sound: { src: "ambience/cultures/lengyel-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "923a986a8e" },
+  },
   lapita: {
     prompt: "Pacific island lagoon: soft surf on a sandy beach, a canoe hull and pandanus sail creaking in the wind, stamps tapping into soft clay, palm fronds rustling, small pigs grunting",
     sound: { src: "ambience/cultures/lapita-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b7f2ebd92e" },
