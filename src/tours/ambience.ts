@@ -521,6 +521,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Neolithic village with a circular timber rondel enclosure: a soft brush painting red and yellow ochre inside a pedestal clay bowl, small village hearths crackling, long-horned cattle lowing in the meadow, gentle breeze in oak trees",
     sound: { src: "ambience/cultures/lengyel-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "923a986a8e" },
   },
+  stichbandkeramik: {
+    prompt: "Neolithic longhouse village surrounded by golden wheat fields: a bone comb pricking tiny rhythmic rows into a dark clay pot, a stone quern grinding grain in the yard, goats bleating softly, breeze in ripe wheat",
+    sound: { src: "ambience/cultures/stichbandkeramik-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "76d5290f9b" },
+  },
+  rossen: {
+    prompt: "Autumnal Neolithic longhouse village by a woodland clearing: a heavy perforated stone axe head rubbed back and forth on a wet sandstone grinding block with sand, white paste pressed into incised pottery, a smoking rack fire crackling, cattle lowing",
+    sound: { src: "ambience/cultures/rossen-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ad44c8e0f1" },
+  },
+  chasseen: {
+    prompt: "Hilltop stone-walled Neolithic enclosure above a river valley: an antler hammer striking honey-coloured flint blades, a bone stylus scratching fine geometric crosshatching into a dark clay bowl, sheep bleating, upland breeze",
+    sound: { src: "ambience/cultures/chasseen-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5ae1f29a29" },
+  },
   lapita: {
     prompt: "Pacific island lagoon: soft surf on a sandy beach, a canoe hull and pandanus sail creaking in the wind, stamps tapping into soft clay, palm fronds rustling, small pigs grunting",
     sound: { src: "ambience/cultures/lapita-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b7f2ebd92e" },
