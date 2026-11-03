@@ -1196,6 +1196,7 @@
   description: Early Neolithic culture of the western Mediterranean, named after pottery decorated by pressing cockle shells (Cardium) into the clay. Cardial communities spread farming rapidly along the coasts from Italy to Portugal.
   image_url: /images/cultures/cardial.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/cardial-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Mediterranean coastal pioneer camp with dugout canoes, Cardium shell pottery stamping, and goat herding"
   wikipedia_url: https://en.wikipedia.org/wiki/Cardium_pottery
   wikidata: Q1035710
@@ -1332,6 +1333,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Starčevo_culture
   image_url: /images/cultures/starcevo-koros-cris.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/starcevo-koros-cris-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early Neolithic farming hamlet along the Danube terrace: wattle-and-daub houses, white-spiral painted pottery, and idol figurines"
   wikidata: Q1483547
   source_ids: []
@@ -1906,6 +1908,7 @@
   description: "From about 3000 to 1900 BCE, along the middle and lower Yellow River, the population of northern China grew fast and many towns were walled with rammed earth, twenty in Shandong alone, a sign of rivalry between small states. Longshan potters used the wheel to throw thin, highly polished black pots, some as fine as eggshell. People grew foxtail millet and also rice and wheat, raised silkworms and practised divination. At Taosi in Shanxi, a walled town of 280 hectares had what may be the oldest observatory in East Asia. One of its local branches gave rise to the Erlitou culture of the early Bronze Age."
   image_url: /images/cultures/longshan.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/longshan-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Walled Longshan town: fast-wheel black pottery masters crafting eggshell-thin cups, stemmed goblets, and tripod cooking pots"
   wikipedia_url: https://en.wikipedia.org/wiki/Longshan_culture
   wikidata: Q1057935

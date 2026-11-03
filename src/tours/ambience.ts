@@ -481,6 +481,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Water-gated Neolithic city in the Yangtze delta: bamboo bow drills whirring softly with wet sand abrasive on jade, flat-bottomed boats poled gently through a canal, water lapping against earthworks, wetland birds",
     sound: { src: "ambience/cultures/liangzhu-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "e253ef2e29" },
   },
+  longshan: {
+    prompt: "Walled town in the Yellow River plain: a wooden fast potter's wheel spinning softly, wooden rammers thumping earth in timber formwork, domed pottery kilns crackling in the courtyard, dry breeze",
+    sound: { src: "ambience/cultures/longshan-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "797e93695d" },
+  },
+  "starcevo-koros-cris": {
+    prompt: "Early Neolithic riverside village in the Balkans: a stone roller grinding wheat grain back and forth on a saddle quern, a fine brush painting clay pottery, sheep and goats bleating, cattle lowing, river water and birds",
+    sound: { src: "ambience/cultures/starcevo-koros-cris-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d7664295d5" },
+  },
+  cardial: {
+    prompt: "Sunny Mediterranean coastal cove: cockle shells gently pressing rhythmic impressions into wet clay pots under a rock shelter, small waves lapping on a pebble beach, a dugout canoe bumping softly, a small beach fire crackling, gulls and cicadas",
+    sound: { src: "ambience/cultures/cardial-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "81c812474f" },
+  },
   maglemosian: {
     prompt: "Misty lake at dusk in a northern forest: gentle water lapping, a dugout canoe bumping, a fishing spear splashing, a dog breathing nearby, a crackling fire, frogs and waterbirds",
     sound: { src: "ambience/cultures/maglemosian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7a03242138" },
