@@ -533,6 +533,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Hilltop stone-walled Neolithic enclosure above a river valley: an antler hammer striking honey-coloured flint blades, a bone stylus scratching fine geometric crosshatching into a dark clay bowl, sheep bleating, upland breeze",
     sound: { src: "ambience/cultures/chasseen-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5ae1f29a29" },
   },
+  michelsberg: {
+    prompt: "Causewayed ditched enclosure in a misty river valley: rawhide lashing pulled tight around a polished flint axe head in a wooden haft, wet clay tulip beakers smoothed by hand, long-horned cattle lowing as they walk across a wooden bridge, morning birds",
+    sound: { src: "ambience/cultures/michelsberg-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "35ff43d8c1" },
+  },
+  funnelbeaker: {
+    prompt: "Northern European coastal clearing by a megalithic dolmen: thick hemp ropes creaking under tension on timber rollers, rawhide lashing bound onto a polished flint axe, oxen pulling a wooden ard plough through soil, coastal breeze and gulls",
+    sound: { src: "ambience/cultures/funnelbeaker-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d5bf1cd673" },
+  },
+  badarian: {
+    prompt: "Predynastic Nile valley village: a smooth pebble burnishing a rippled black-topped red clay bowl, green malachite ground on a slate palette, wheat harvested with sickles by an irrigation ditch, cattle and sheep, warm desert breeze",
+    sound: { src: "ambience/cultures/badarian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b0f42bacc9" },
+  },
   lapita: {
     prompt: "Pacific island lagoon: soft surf on a sandy beach, a canoe hull and pandanus sail creaking in the wind, stamps tapping into soft clay, palm fronds rustling, small pigs grunting",
     sound: { src: "ambience/cultures/lapita-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "b7f2ebd92e" },

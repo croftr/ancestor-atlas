@@ -1220,6 +1220,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Funnelbeaker_culture
   image_url: /images/cultures/funnelbeaker.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/funnelbeaker-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Neolithic community hauling a granite capstone to construct a megalithic passage tomb, with funnel beakers and polished flint axes"
   wikidata: Q875115
   source_ids: []
@@ -1290,6 +1291,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Badarian_culture
   image_url: /images/cultures/badarian.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/badarian-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Predynastic farmers on the desert terrace above the Nile: black-topped rippled pottery, malachite cosmetic palettes, and ivory combs"
   wikidata: Q798844
   source_ids: []
@@ -1356,6 +1358,7 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Michelsberg_culture
   image_url: /images/cultures/michelsberg.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/michelsberg-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Hilltop causewayed enclosure (Erdwerk) overlooking the Rhine: tulip-beakers, baking plates, and hafted polished flint axes"
   wikidata: Q570798
   source_ids: []
