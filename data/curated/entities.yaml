@@ -1811,6 +1811,7 @@
   description: "Some 9,000 years ago, in the valley of the Yi and Luo rivers in today's Henan, villagers began to farm millet and raise pigs. The Peiligang culture, named after a village near Zhengzhou, lasted from about 7000 to 5000 BCE, in more than a hundred small settlements close together along the river. They hunted deer and wild boar, fished for carp with nets of hemp, cut grain with stone sickles and made some of the oldest pottery in China. Homes and graves lay apart, and nothing suggests chiefs or rich and poor. At Jiahu, to the south, people also grew rice, played flutes carved from the wing bones of cranes, and cut signs into tortoise shells."
   image_url: /images/cultures/peiligang.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/peiligang-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Neolithic Yellow River settlement: Jiahu bone flute music, saddle quern grinding millet, red pottery, and incised tortoise shells"
   wikipedia_url: https://en.wikipedia.org/wiki/Peiligang_culture
   wikidata: Q1193609
@@ -1829,6 +1830,7 @@
   description: "On the coast south of Hangzhou Bay, between about 5500 and 3300 BCE, the people of the Hemudu culture were among the first anywhere to grow rice. They lived in long houses raised on stilts above the wet ground, worked their fields with hoes made from the shoulder blades of animals, and gathered water caltrop, lotus, acorns and wild kiwifruit. They kept pigs, hunted deer and water buffalo, and fished for carp with bone harpoons. A red lacquered wooden bowl from Hemudu is thought to be the oldest lacquerware in the world. In the end, floods turned the soil salty and the villages were abandoned."
   image_url: /images/cultures/hemudu.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/hemudu-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Lower Yangtze wetland settlement: pile-built stilt village, scapula bone spades, rice cultivation, and carved ivory birds"
   wikipedia_url: https://en.wikipedia.org/wiki/Hemudu_culture
   wikidata: Q948642
@@ -1921,6 +1923,7 @@
   description: "At the foot of the Bolan Pass in Balochistan, on the western edge of the Indus plain, Mehrgarh is one of the earliest farming villages in South Asia. Its first farmers grew barley and einkorn and emmer wheat, herded sheep, goats and cattle, lived in mud-brick houses and stored their grain in granaries. The excavators dated the first village to before 7000 BCE; newer radiocarbon dates on teeth put it nearer 5250 BCE. The dead were buried with shells from distant coasts and lapis lazuli from Badakhshan, and some had had their teeth drilled while alive, the earliest known evidence of dentistry. Over the next two thousand years the village took up pottery, copper and the potter's wheel, until around 2600 BCE it was abandoned for the town of Nausharo nearby, as the Indus civilization grew."
   image_url: /images/cultures/mehrgarh.webp
   image_credit: AI-generated illustration
+  video: { src: video/cultures/mehrgarh-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Early farming village at the Bolan Pass: compartmentalized mud-brick granaries, terracotta mother goddess figurines, and barley harvests"
   wikipedia_url: https://en.wikipedia.org/wiki/Mehrgarh
   wikidata: Q242148

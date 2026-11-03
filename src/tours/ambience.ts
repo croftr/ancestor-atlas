@@ -457,6 +457,18 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Southern Mesopotamian canal village: water lapping gently against a wooden canoe, a paddle dipping slowly, a brush painting a clay pot, palm fronds and reeds rustling in a warm breeze, waterbirds",
     sound: { src: "ambience/cultures/ubaid-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "82d01f04e9" },
   },
+  mehrgarh: {
+    prompt: "Neolithic mudbrick village in Balochistan: a wooden bow drill whirring softly as it bores stone beads, grain poured from baskets into brick storage bins, zebu cattle lowing and goats bleating, warm dry breeze",
+    sound: { src: "ambience/cultures/mehrgarh-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "1fe229f919" },
+  },
+  peiligang: {
+    prompt: "Early Neolithic village in the Yellow River valley: a stone roller grinding millet grain back and forth on a stone quern, gentle high notes of a bone flute, pigs grunting softly, river water lapping and cranes calling",
+    sound: { src: "ambience/cultures/peiligang-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "32ac54b0ee" },
+  },
+  hemudu: {
+    prompt: "Neolithic stilt-house village over a lush wetland: water lapping gently against wooden pilings, a dugout canoe paddle dipping slowly, a stylus incising clay, water buffalo lowing softly, frogs and wetland birds",
+    sound: { src: "ambience/cultures/hemudu-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "4fc2bd9b6f" },
+  },
   maglemosian: {
     prompt: "Misty lake at dusk in a northern forest: gentle water lapping, a dugout canoe bumping, a fishing spear splashing, a dog breathing nearby, a crackling fire, frogs and waterbirds",
     sound: { src: "ambience/cultures/maglemosian-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "7a03242138" },
