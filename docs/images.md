@@ -24,6 +24,13 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   14. `liangzhu` -> `public/images/cultures/liangzhu.webp` & `-600.webp`
   15. `longshan` -> `public/images/cultures/longshan.webp` & `-600.webp`
   16. `mehrgarh` -> `public/images/cultures/mehrgarh.webp` & `-600.webp`
+  *Egyptian Eras & Greek Confederations (3 Nov 2026)*:
+  17. `fifteenth-dynasty-of-egypt` -> `public/images/civilisations/fifteenth-dynasty-of-egypt.webp` & `-600.webp`
+  18. `lower-egypt` -> `public/images/civilisations/lower-egypt.webp` & `-600.webp`
+  19. `upper-egypt` -> `public/images/civilisations/upper-egypt.webp` & `-600.webp`
+  20. `twenty-sixth-dynasty-of-egypt` -> `public/images/civilisations/twenty-sixth-dynasty-of-egypt.webp` & `-600.webp`
+  21. `thirtieth-dynasty-of-egypt` -> `public/images/civilisations/thirtieth-dynasty-of-egypt.webp` & `-600.webp`
+  22. `peloponnesian-league` -> `public/images/civilisations/peloponnesian-league.webp` & `-600.webp`
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
   Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:

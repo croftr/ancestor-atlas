@@ -3153,6 +3153,9 @@
     - { url: /images/extra/achaemenid-empire-4.webp, credit: "Public domain, via Wikimedia Commons", caption: "Glazed brick frieze of royal archers from the palace of Darius I at Susa (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Archers_frieze_Darius_1st_Palace_Suse_Louvre_AOD_488_a.jpg" }
 - id: peloponnesian-league
   description: A major military confederation of Greek city-states in the Peloponnese, founded and led by Sparta from the 6th to 4th centuries BCE. Formed to ensure mutual security and check rival Argive power, the league formed the core of the Hellenic alliance against Persia and ultimately defeated the Athenian Empire in the Peloponnesian War.
+  image_url: /images/civilisations/peloponnesian-league.webp
+  image_credit: AI-generated illustration
+  image_caption: "Spartan and Peloponnesian League commanders with Lambda-blazoned hoplon shields before the marble 'Leonidas' statue, Artemis Orthia votives, and Mount Taygetus"
   extra_images:
     - { url: /images/extra/peloponnesian-league-1.webp, credit: "Mary Harrsch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Marble hoplite known as 'Leonidas', from the sanctuary of Athena Chalkioikos on the acropolis of Sparta, 480–470 BCE (Archaeological Museum of Sparta)", source: "https://commons.wikimedia.org/wiki/File:Statue_of_a_hoplite_known_as_Leonidas_480-470_BCE_Sparta_Acropolis_Sanctuary_of_Athena_Chalkioikos_01.jpg" }
     - { url: /images/extra/peloponnesian-league-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Lead figurine of a winged goddess, perhaps Artemis Orthia, a votive of the kind offered by thousands at her sanctuary in Sparta (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Lead_figure_of_a_winged_goddess,_perhaps_Artemis_Orthia_MET_DP120853.jpg" }
@@ -3405,6 +3408,9 @@
 # Batch 4A: Egypt Dynasties and Kingdoms
 - id: lower-egypt
   description: The northern delta region of ancient Egypt where the Nile fans out into the Mediterranean Sea, characterized by lush papyrus marshes, maritime trade, and fertile agriculture. Historically symbolized by the red crown (Deshret) and the cobra goddess Wadjet, Lower Egypt united with Upper Egypt to form the dual pharaonic monarchy.
+  image_url: /images/civilisations/lower-egypt.webp
+  image_credit: AI-generated illustration
+  image_caption: "Herakleopolitan court in the Nile Delta: northern king, scribe with wooden palette, Meryibre Khety openwork copper vessel, and herdsmen leading cattle and an oryx"
   extra_images:
     - { url: /images/extra/lower-egypt-1.webp, credit: "Guillaume Blanchard, CC BY-SA 2.0, via Wikimedia Commons", caption: "Openwork copper-alloy vessel inscribed with the name of King Meryibre Khety, founder of the Herakleopolitan 9th–10th Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Egypte_louvre_246_panier.jpg" }
     - { url: /images/extra/lower-egypt-2.webp, credit: "Guillaume Blanchard, CC BY-SA 3.0, via Wikimedia Commons", caption: "Wooden scribe's palette of the chancellor Ourkaoukhety, bearing the cartouche of the Herakleopolitan king Merikare, 10th Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Egypte_louvre_249_palette.jpg" }
@@ -3417,6 +3423,9 @@
       credit: Legacy African History, YouTube
 - id: upper-egypt
   description: The southern riverine expanse of ancient Egypt stretching along the narrow Nile Valley from the First Cataract at Aswan to Memphis. Represented by the white crown (Hedjet) and the vulture goddess Nekhbet, Upper Egypt was the heartland of early state formation, renowned for spiritual centers at Abydos, Thebes, and Hierakonpolis.
+  image_url: /images/civilisations/upper-egypt.webp
+  image_credit: AI-generated illustration
+  image_caption: "Western Thebes below the cliffs of Deir el-Bahari: sculptors painting the statue of Mentuhotep II in the White Crown, Intef stelae, and Nubian archers with a tesem hound"
   extra_images:
     - { url: /images/extra/upper-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Stela of the Theban king Intef II Wahankh, who fought the Herakleopolitan kings for Middle Egypt, 11th Dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Stela_of_King_Intef_II_Wahankh_MET_DP156516.jpg" }
     - { url: /images/extra/upper-egypt-2.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Tomb stela of Intef with three women and servants bringing offerings, from el-Tarif in western Thebes, about 2041 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Tomb_stela_of_Intef,_2041_BCE,_11th_Dynasty,_Western_Thebes,_el-Tarif,_British_Museum.jpg" }
@@ -3429,6 +3438,9 @@
       credit: Legacy African History, YouTube
 - id: fifteenth-dynasty-of-egypt
   description: The ruling house of the Hyksos during the Second Intermediate Period, established by Levantine leaders who governed northern Egypt from their fortified delta capital of Avaris. Introducing bronze weaponry, composite bows, and horse-drawn chariots into the Nile Valley, the dynasty maintained commercial networks until driven out by native Theban pharaohs.
+  image_url: /images/civilisations/fifteenth-dynasty-of-egypt.webp
+  image_credit: AI-generated illustration
+  image_caption: "Hyksos capital of Avaris in the eastern Nile Delta: Levantine warriors with bronze khopesh swords and composite bows, granite lion and alabaster jar of King Khyan, and horse-drawn chariots"
   extra_images:
     - { url: /images/extra/fifteenth-dynasty-of-egypt-1.webp, credit: "Juan R. Lazaro, CC BY 2.0, via Wikimedia Commons", caption: "Granite lion inscribed for the Hyksos king Khyan, found at Baghdad (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Khyan.jpg" }
     - { url: /images/extra/fifteenth-dynasty-of-egypt-2.webp, credit: "Schuppi, CC BY-SA 3.0, via Wikimedia Commons", caption: "Alabaster lid with the cartouche of the Hyksos king Khyan, found in the palace of Knossos, Crete (Heraklion Archaeological Museum)", source: "https://commons.wikimedia.org/wiki/File:Lid_of_Khyan.png" }
@@ -3481,6 +3493,9 @@
       credit: Made In History, YouTube
 - id: twenty-sixth-dynasty-of-egypt
   description: Known as the Saite Renaissance, the Twenty-Sixth Dynasty was the final native dynasty to govern an independent Egypt before the Achaemenid Persian conquest. Ruling from Sais in the western delta, the Saite pharaohs expelled Assyrian garrisons, reopened Mediterranean trade, hired Greek mercenaries, and revived Old and Middle Kingdom artistic and literary styles.
+  image_url: /images/civilisations/twenty-sixth-dynasty-of-egypt.webp
+  image_credit: AI-generated illustration
+  image_caption: "Saite Renaissance at Sais and Naukratis: sculptors polishing green greywacke royal busts and Ankhnesneferibre's black siltstone sarcophagus beside Greek hoplite mercenaries and traders"
   extra_images:
     - { url: /images/extra/twenty-sixth-dynasty-of-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Bust from a statue of Psamtik I, who freed Egypt from the Assyrians and founded the Saite dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Bust_from_Statue_of_a_King_MET_267761.jpg" }
     - { url: /images/extra/twenty-sixth-dynasty-of-egypt-2.webp, credit: "SpeakingArch, CC BY-SA 4.0, via Wikimedia Commons", caption: "Head of King Apries, about 589–570 BCE (Museo Civico Archeologico, Bologna)", source: "https://commons.wikimedia.org/wiki/File:Head_of_Apries,_Dynasty_26,_circa_589-570_BCE,_Museo_Civico_Archeologico,_Bologna,_Italy.jpg" }
@@ -3493,6 +3508,9 @@
       credit: History with Cy, YouTube
 - id: thirtieth-dynasty-of-egypt
   description: The last dynasty of native Egyptian pharaohs, ruling from Sebennytos in the Nile Delta from 380 to 343 BCE. Founded by Nectanebo I, the dynasty vigorously defended Egyptian independence against repeated Persian invasions and initiated extensive temple construction projects across Egypt before Nectanebo II was ousted by Artaxerxes III.
+  image_url: /images/civilisations/thirtieth-dynasty-of-egypt.webp
+  image_credit: AI-generated illustration
+  image_caption: "Temple precinct of the Thirtieth Dynasty: Horus falcon statue protecting Nectanebo II, green siltstone sarcophagus, avenue of human-headed sphinxes, and the riverside Kiosk of Nectanebo I"
   extra_images:
     - { url: /images/extra/thirtieth-dynasty-of-egypt-1.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Limestone falcon of Horus protecting King Nectanebo II (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Horus_as_a_falcon_protecting_King_Nectanebo_II_(7463601262).jpg" }
     - { url: /images/extra/thirtieth-dynasty-of-egypt-2.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The kiosk of Nectanebo I at the temple of Isis, Philae, about 370 BCE", source: "https://commons.wikimedia.org/wiki/File:The_Kiosk_of_Nectanebo_I,_Philae,_Egypt_(49812293013).jpg" }
