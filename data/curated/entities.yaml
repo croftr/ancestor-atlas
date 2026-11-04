@@ -757,6 +757,7 @@
     - { url: /images/extra/szeletian-1.webp, credit: "Don Hitchcock, CC BY 4.0, via Wikimedia Commons", caption: "Szeletian leaf-shaped points (Moravian Museum, Brno)", source: "https://commons.wikimedia.org/wiki/File:Pointes_foliacées_Brno_Museum.jpg" }
     - { url: /images/extra/szeletian-2.webp, credit: "Jenő Hillebrand, public domain, via Wikimedia Commons", caption: "A leaf-shaped point from Szeleta Cave, drawn in Jenő Hillebrand's excavation report", source: "https://commons.wikimedia.org/wiki/File:Szeleta-barlang,_babérlevél_alakú_hegy.jpg" }
     - { url: /images/extra/szeletian-3.webp, credit: "Szenti Tamás, CC BY-SA 4.0, via Wikimedia Commons", caption: "The entrance of Szeleta Cave in the Bükk Mountains near Miskolc, Hungary", source: "https://commons.wikimedia.org/wiki/File:Szeleta-barlang2022(03).jpg" }
+    - { url: /images/extra/szeletian-4.webp, credit: "Albin L, public domain, via Wikimedia Commons", caption: "The heart of the Szeletian's range, in central Europe", source: "https://commons.wikimedia.org/wiki/File:Kultura_szelecka_zasięg.jpg" }
 - id: chatelperronian
   name: Châtelperronian
   category: culture
@@ -1313,6 +1314,7 @@
     - { url: /images/extra/badarian-1.webp, credit: "State Museums of Berlin, Egyptian Museum and Papyrus Collection, CC BY-SA 4.0, via Wikimedia Commons", caption: "A polished bowl with a rippled surface, the Badarian hallmark, from grave 2110 at Matmar (Egyptian Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Polished_bowl_with_rippled_surface._Matmar,_grave_2110._Badarian_culture.jpg" }
     - { url: /images/extra/badarian-2.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Badarian female figurines from Badari and Mostagedda (British Museum)", source: "https://commons.wikimedia.org/wiki/File:At_the_British_Museum_2024_351.jpg" }
     - { url: /images/extra/badarian-3.webp, credit: "ALFGRN, CC BY-SA 4.0, via Wikimedia Commons", caption: "Pots, tools and ornaments of the Badarian culture (Ashmolean Museum, Oxford)", source: "https://commons.wikimedia.org/wiki/File:Display_box_\"The_Badarian_culture\"._Ashmolean_Museum.jpg" }
+    - { url: /images/extra/badarian-4.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Black-topped Badarian bowl from tomb 3107 at Matmar, about 4400–3800 BCE (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Bowl_MET_32.2.40_EGDP011321.jpg" }
 - id: naqada
   name: Naqada culture
   category: culture
@@ -1687,6 +1689,9 @@
   source_ids: []
   extra_images:
     - { url: /images/extra/dapenkeng-1.webp, credit: "Ismoon, CC BY-SA 4.0, via Wikimedia Commons", caption: "Dapenkeng in northern Taiwan and other early Neolithic sites on both sides of the Taiwan Strait", source: "https://commons.wikimedia.org/wiki/File:Taiwan_Neolithic_and_mainland_previous_sites.jpg" }
+    - { url: /images/extra/dapenkeng-2.webp, credit: "Pbdragonwang, CC BY-SA 3.0, via Wikimedia Commons", caption: "The burial of a dog at Nanguanli, a late Dapenkeng site in southern Taiwan: the earliest domestic dog found on the island", source: "https://commons.wikimedia.org/wiki/File:南關里遺址出土的狗遺骸.JPG" }
+    - { url: /images/extra/dapenkeng-3.webp, credit: "Pbdragonwang, CC BY-SA 3.0, via Wikimedia Commons", caption: "Polished stone tools from Nanguanli (Xingangshe local museum, Taiwan)", source: "https://commons.wikimedia.org/wiki/File:南關里遺址的石器.JPG" }
+    - { url: /images/extra/dapenkeng-4.webp, credit: "lienyuan lee, CC BY 3.0, via Wikimedia Commons", caption: "The Fengbitou archaeological site in Kaohsiung, whose lowest layer is Dapenkeng", source: "https://commons.wikimedia.org/wiki/File:Fengbitou_Archaeological_Site_鳳鼻頭考古遗址_-_panoramio.jpg" }
 # Span from English Wikipedia: Lapita_culture@1374201618.
 - id: lapita
   name: Lapita culture
