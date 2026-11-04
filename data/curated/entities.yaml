@@ -2815,6 +2815,9 @@
       credit: Our Ancient World, YouTube
 - id: kingdom-of-lysimachus
   description: The Hellenistic realm carved out by Lysimachus, a companion general of Alexander the Great who ruled Thrace, northwestern Anatolia, and Macedonia following the Battle of Ipsus. Built around strategic strongholds like Lysimachia, his short-lived kingdom collapsed when Lysimachus was defeated and killed by Seleucus I at the Battle of Corupedium in 281 BCE.
+  image_url: /images/civilisations/kingdom-of-lysimachus.webp
+  image_caption: "Citadel of Lysimachia on the Hellespont: King Lysimachus and architects reviewing blueprints beside silver tetradrachms with Alexander's horned portrait and Thracian rhytons, above war galleys."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/kingdom-of-lysimachus-1.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Lysimachus with the deified Alexander wearing the ram's horn of Ammon, 305–281 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Thrace_-_king_Lysimachos_-_305-281_BC_-_siver_tetradrachm_-_head_of_Alexander_III_-_Athena_Nikephoros_-_London_BM_1919-0820-1.jpg" }
   media:
@@ -3271,6 +3274,9 @@
       credit: Costas Melas, YouTube
 - id: thebans
   description: The ancient Greek citizens and military power of Thebes, the preeminent city of the Boeotian confederacy in central Greece. Reaching its geopolitical zenith under Epaminondas in the 4th century BCE, Thebes broke Spartan hegemony and liberated the Messenian helots before being destroyed by Alexander the Great following an uprising in 335 BCE.
+  image_url: /images/civilisations/thebans.webp
+  image_caption: "Epaminondas and Boeotarchs outside Thebes planning battle tactics with Boeotian notched shields and staters, beside the deep oblique phalanx marching before the Cadmea citadel and Mount Cithaeron."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/thebans-1.webp, credit: "Exekias, CC BY 2.0, via Wikimedia Commons", caption: "Silver stater of Thebes with the Boeotian shield and the head of Dionysos, about 405–395 BCE", source: "https://commons.wikimedia.org/wiki/File:Greek_Silver_Stater_of_Thebes_(Boeotia),_a_Stunning_Depiction_of_Dionysos.jpg" }
   media:
@@ -3280,6 +3286,9 @@
       credit: TRUE HAPPENED, YouTube
 - id: athenian-coalition
   description: The alliance of Aegean and Ionian maritime city-states led by democratic Athens—originating from the Delian League—during the protracted Peloponnesian War against Sparta (431–404 BCE). Powered by Athenian naval supremacy (triremes) and funded by tributary wealth, the coalition defended maritime commerce across the Aegean until its catastrophic defeat at Aegospotami.
+  image_url: /images/civilisations/athenian-coalition.webp
+  image_caption: "Athenian generals (strategoi) and allied ambassadors at Piraeus inspecting tribute chests of silver owl tetradrachms on a marble terrace, beside bustling trireme ship-sheds and the Acropolis Parthenon."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/athenian-coalition-1.webp, credit: "Ad Meskens, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Lenormant relief of an Athenian trireme with its rowers, late 5th century BCE (Acropolis Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Athens_Acropolis_museum_dedication_trireme.jpg" }
     - { url: /images/extra/athenian-coalition-2.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "Silver tetradrachm of Athens with Athena's owl, the coin that paid for the Athenian fleet, 5th century BCE (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Greece,_Athens,_5th_century_BC_-_Tetradrachm-_Owl_(reverse)_-_1941.296.b_-_Cleveland_Museum_of_Art.jpg" }
