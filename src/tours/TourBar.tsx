@@ -4,7 +4,7 @@ import { useData } from "../map/data";
 import { navigate } from "../route";
 import { TOURS, tourById } from "./tours";
 import { beginTour } from "./TourPlayer";
-import { coverPictures, minutes, stopName, stopsOf } from "./summary";
+import { coverPictures, minutes, stopName, stopsOf, stopYear } from "./summary";
 import { setMusicMuted, useMusicMuted } from "../audio/music";
 
 const Icon = ({ d }: { d: string }) => (
@@ -116,9 +116,23 @@ export default function TourBar() {
   // Next goes on from the last stop to the epilogue (index = the number of stops).
   const end = t.stops.length;
 
+  // Back to the card the tour is on, from whatever the viewer has opened or wherever they have moved
+  // the globe and slider. The tour itself carries on untouched.
+  const backToStop = () => {
+    const s = useStore.getState();
+    s.select(null); // also closes a DNA, sky or place card
+    if (tour.phase !== "hold" || !stop || !data) return; // on its way: the stop's card opens on arrival
+    const year = stopYear(stop, data) ?? undefined;
+    if (stop.note) {
+      useStore.setState((x) => (x.tour ? { tour: { ...x.tour, note: true } } : {}));
+      s.showEntity(stop.entity, { year, site: stop.site });
+    } else s.showEntity(stop.entity, { year, open: true, site: stop.site });
+  };
+
   return (
     <div className="tour-bar">
-      <div className="tour-bar-text">
+      {/* No stop's card to go back to on the title card or at journey's end. */}
+      <button className="tour-bar-text" onClick={backToStop} disabled={tour.intro || tour.epilogue} title="Show this stop's card">
         <span className="tour-bar-title">{t.title}</span>
         <span className="tour-bar-stop" aria-live="polite">
           {tour.intro ? "Introduction" : tour.epilogue ? "Journey's end" : `${tour.index + 1} of ${t.stops.length}: ${name}`}
@@ -127,7 +141,7 @@ export default function TourBar() {
         <span className="tour-bar-compact">
           {tour.intro ? "Intro" : tour.epilogue ? "The end" : `${tour.index + 1}/${t.stops.length}`} · {t.title}
         </span>
-      </div>
+      </button>
       <div className="controls tour-controls">
         <button onClick={() => tourGo(tour.index - 1)} disabled={tour.index === 0 || tour.intro} title="Previous stop" aria-label="Previous stop">
           <Icon d={ICON.prev} />

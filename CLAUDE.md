@@ -238,6 +238,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   turn mode), open the card, hold (default from description length, 8–22 s), next. Only the tour bar's pause
   button (or Space) pauses; touching the globe, card or slider does not (Rob's call). Play ends the tour. Keys: arrows step stops, Space pauses, Escape ends.
 - `TourBar.tsx`: the Tours button and menu, and the bar that replaces the transport buttons. Link: `#/tour/<id>`.
+  Desktop, in a tour only (4 Nov 2026): the tour's name (large serif) and stop on the left, the year on the right above
+  the buttons. The name and stop are a button (on phones, the "1/20 · name" line) that goes back to the card the tour
+  is on: it closes whatever the viewer opened, reopens the stop's card or book note, and puts the slider and globe
+  back; the tour plays on. Between stops it only clears the way for the coming card; off on the title card and at the end.
 - Music: `music: { src, credit }` on a tour; `npm run audio:music -- <track> <tour id> "<credit>"` encodes (stereo
   128 kbps, -16 LUFS), sets it in tours.ts and prints the upload command (key `music/tours/<id>-v<n>.mp3`).
   `src/audio/music.ts` loops it through Web Audio (needs the bucket's CORS, which allows `*`), fades, and dips it under

@@ -30,9 +30,19 @@
 }
 
 .tour-bar { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; margin: 6px 0; }
-.tour-bar-text { display: grid; min-width: 0; }
-.tour-bar-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8ec5ff; }
-.tour-bar-stop { font-size: 0.95rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* The tour's name and stop: a button that goes back to the stop's card (TourBar.tsx). */
+.tour-bar-text {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; min-width: 0;
+  padding: 0; border: none; border-radius: 6px; background: none; text-align: left;
+}
+.tour-bar-text:disabled { cursor: default; }
+.tour-bar-text:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 3px; }
+.tour-bar-title {
+  font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; font-weight: normal; line-height: 1.15;
+  color: #f6e7c8; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.tour-bar-text:not(:disabled):hover .tour-bar-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.tour-bar-stop { font-size: 0.9rem; font-weight: 600; color: #8ec5ff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tour-bar .tour-controls { margin: 0; }
 .time-slider .controls button:disabled { opacity: 0.4; cursor: default; }
 .tour-progress { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
@@ -70,6 +80,17 @@
 .app.touring .time-slider .span-track,
 .app.touring .time-slider .ticks { display: none; }
 .app.touring .time-slider .range-wrap { margin-bottom: 2px; }
+/* Desktop: the tour's name and stop lead on the left; the year sits on the right, above the buttons.
+   (Small screens have their own layout, below; outside a tour the year stays on the left.) */
+@media (min-width: 901px) {
+  .app.touring .time-slider { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 20px; }
+  .app.touring .time-slider .tour-bar { display: contents; }
+  .app.touring .time-slider .tour-bar-text { grid-column: 1; grid-row: 1 / span 2; }
+  .app.touring .time-slider .year-readout { grid-column: 2; grid-row: 1; justify-self: end; font-size: 1.3rem; line-height: 1.2; white-space: nowrap; }
+  .app.touring .time-slider .tour-controls { grid-column: 2; grid-row: 2; justify-self: end; margin: 4px 0 0; }
+  .app.touring .time-slider .tour-progress { grid-column: 1 / -1; grid-row: 3; margin-top: 8px; }
+  .app.touring .time-slider .range-wrap { grid-column: 1 / -1; grid-row: 4; }
+}
 
 /* The title card before the first stop: over the globe, fading in and out across its hold. */
 .tour-title-wrap {
@@ -172,7 +193,8 @@
   .app.view-globe.touring .year-readout { grid-column: 1; grid-row: 1; align-self: end; font-size: 1rem; }
   .app.view-globe.touring .year-readout:has(.year-short) .year-full { display: none; }
   .app.view-globe.touring .year-readout .year-short { display: inline; }
-  .app.view-globe.touring .tour-bar-text { grid-column: 1; grid-row: 2; align-self: start; }
+  /* The extra padding gives the tap more room without making the bar taller. */
+  .app.view-globe.touring .tour-bar-text { grid-column: 1; grid-row: 2; align-self: start; padding: 6px 0; margin: -6px 0; }
   .app.view-globe.touring .tour-bar-compact {
     display: block;
     font-size: 0.74rem;
