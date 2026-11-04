@@ -31,7 +31,7 @@ const Chevron = ({ dir }: { dir: -1 | 1 }) => (
  */
 export default function PictureViewer({
   entity,
-  video = entity.video,
+  video = entity.video ?? (!entity.image_url ? entity.fallback_image?.video : undefined),
   date,
   pictures,
   index,

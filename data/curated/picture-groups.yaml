@@ -88,6 +88,8 @@
   label: the Mahajanapadas and early Vedic kingdoms in general
   image_url: /images/civilisations/ancient-india.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ancient-india-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/ancient-india-v1.mp3, credit: "AI-generated sound (ElevenLabs)" }
   image_caption: "A riverside city of the Ganges plain: market stalls, an elephant in procession, monks in saffron, boats at the steps, a stupa and palaces"
   members:
     [mahajanapadas, janapada-of-anga, janapada-of-asmaka, janapada-of-avanti, janapada-of-cedi,
@@ -99,6 +101,8 @@
   label: Imperial Magadha and the Maurya dynasty in general
   image_url: /images/civilisations/imperial-magadha.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/imperial-magadha-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/imperial-magadha-v1.mp3, credit: "AI-generated sound (ElevenLabs)" }
   image_caption: "Workers carve a polished stone pillar beside a timber-walled city on the Ganges, a ruler and Buddhist monks looking on, war elephants and river boats"
   members:
     [magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
@@ -173,6 +177,8 @@
   label: Hellenistic and Roman-era Anatolian kingdoms in general
   image_url: /images/civilisations/hellenistic-anatolia.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/hellenistic-anatolia-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/hellenistic-anatolia-v1.mp3, credit: "AI-generated sound (ElevenLabs)" }
   image_caption: "A Hellenistic city below rock-cut royal tombs: temples, towers and a river gorge, horsemen and townspeople in the streets"
   members:
     [kingdom-of-pontus, kingdom-of-cappadocia, kingdom-of-commagene, kingdom-of-sophene,
@@ -190,6 +196,8 @@
   label: the Macedonian Empire and Aegean Hellenistic kingdoms in general
   image_url: /images/civilisations/hellenistic-world.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/hellenistic-world-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/hellenistic-world-v1.mp3, credit: "AI-generated sound (ElevenLabs)" }
   image_caption: "A Hellenistic harbour city: statues and philosophers on a terrace, soldiers, merchants with jars, ships and a lighthouse in the bay"
   members:
     [macedonian-empire, antigonid-macedonia, antigonid-dynasty, kingdom-of-pergamon,
@@ -214,6 +222,8 @@
   label: Ancient Korea in general
   image_url: /images/civilisations/ancient-korea.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ancient-korea-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/ancient-korea-v1.mp3, credit: "AI-generated sound (ElevenLabs)" }
   image_caption: "A walled village in a misty mountain valley, dolmens and rice paddies below, craftsmen showing bronze daggers, mirrors and red pottery"
   members:
     [gojoseon, korean-jin, byeonhan, jinhan, mahan, dongye, dong-okjeo, goguryeo]

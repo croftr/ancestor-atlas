@@ -23,7 +23,7 @@ export default function ListenButton({ entity }: { entity: Entity }) {
   const started = useRef(false);
   const mine = narration !== undefined && n.src === narration.src;
   const touring = useStore((s) => s.tour !== null);
-  const sound = (AMBIENCE[entity.id] ?? (entity.parent_id ? AMBIENCE[entity.parent_id] : undefined))?.sound;
+  const sound = (AMBIENCE[entity.id] ?? (entity.parent_id ? AMBIENCE[entity.parent_id] : undefined))?.sound ?? entity.fallback_image?.sound;
 
   // Leaving the card stops a clip this button started (a tour stops its own), and its sound.
   useEffect(

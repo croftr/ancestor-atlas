@@ -25,7 +25,14 @@ export interface Entity {
    */
   extra_images?: ExtraImage[];
   /** Shared stand-in picture (picture-groups.yaml), shown until the entity has its own. */
-  fallback_image?: { url: string; credit: string; label: string; caption?: string };
+  fallback_image?: {
+    url: string;
+    credit: string;
+    label: string;
+    caption?: string;
+    video?: { src: string; credit: string };
+    sound?: { src: string; credit: string };
+  };
   // Events (cities use date_text and related_ids too)
   year?: number; // best date (start_year..end_year is the stated range, or equal to it)
   date_text?: string; // the date as written, e.g. "c. 3.3 million years ago"
