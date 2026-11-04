@@ -48,6 +48,13 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   35. `yue` -> `public/images/civilisations/yue.webp` & `-600.webp`
   36. `lu` -> `public/images/civilisations/lu.webp` & `-600.webp`
   37. `yan` -> `public/images/civilisations/yan.webp` & `-600.webp`
+  *Egyptian Dynasties & Eras Completion (4 Nov 2026)*:
+  38. `sixteenth-dynasty-of-egypt` -> `public/images/civilisations/sixteenth-dynasty-of-egypt.webp` & `-600.webp`
+  39. `seventeenth-dynasty-of-egypt` -> `public/images/civilisations/seventeenth-dynasty-of-egypt.webp` & `-600.webp`
+  40. `twenty-second-dynasty-of-egypt` -> `public/images/civilisations/twenty-second-dynasty-of-egypt.webp` & `-600.webp`
+  41. `twenty-third-dynasty-of-egypt` -> `public/images/civilisations/twenty-third-dynasty-of-egypt.webp` & `-600.webp`
+  42. `assyrian-egypt` -> `public/images/civilisations/assyrian-egypt.webp` & `-600.webp`
+  43. `ankhwennefer` -> `public/images/civilisations/ankhwennefer.webp` & `-600.webp`
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
   Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
