@@ -1070,6 +1070,8 @@
   extra_images:
     - { url: /images/extra/ancient-china-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze mask from Sanxingdui in Sichuan, from a bronze-casting culture contemporary with the Shang (Sanxingdui Museum)", source: "https://commons.wikimedia.org/wiki/File:Ancient_Bronze_Mask_from_Sanxingdui_8.jpg" }
     - { url: /images/extra/ancient-china-2.webp, credit: "星星, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Dujiangyan irrigation system on the Min River, Sichuan, built by the state of Qin about 256 BCE and still in use", source: "https://commons.wikimedia.org/wiki/File:Dujiang_Weir.jpg" }
+    - { url: /images/extra/ancient-china-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Shang oracle bones from Yinxu, Anyang, carved with some of the earliest Chinese writing", source: "https://commons.wikimedia.org/wiki/File:Shang_Ox_Scapula_Oracle_Bones_1.jpg" }
+    - { url: /images/extra/ancient-china-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Horses and soldiers of the Terracotta Army in pit 1, buried with Qin Shi Huang, the first emperor of China", source: "https://commons.wikimedia.org/wiki/File:Qin_Terracotta_Warriors,_Pit_1_Horses_&_Soldiers.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=FwEkp4I75OA
@@ -2175,6 +2177,8 @@
   extra_images:
     - { url: /images/extra/hyksos-1.webp, credit: "Didia, CC BY-SA 3.0, via Wikimedia Commons", caption: "Tell el-Dab'a in the eastern Nile Delta, the site of Avaris, the Hyksos capital", source: "https://commons.wikimedia.org/wiki/File:Tell_el-daba04.jpg" }
     - { url: /images/extra/hyksos-2.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Scarab with the name of the Hyksos king Sheshi (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Scarabs_with_the_Name_of_the_Hyksos_King_Sheshi_MET_30.8.462_bottom.jpg" }
+    - { url: /images/extra/hyksos-3.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Gold-mounted scarab with the name of the Hyksos king Khayan (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Scarab_with_the_Name_of_the_Hyksos_King_Khayan_MET_D_457_bottom.jpg" }
+    - { url: /images/extra/hyksos-4.webp, credit: "Los Angeles County Museum of Art, public domain, via Wikimedia Commons", caption: "Steatite scarab of the Hyksos period, 1664–1600 BCE (Los Angeles County Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Scarab_of_the_Hyksos_Period_LACMA_M.86.313.14_(2_of_2).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=9K-ionaiu1s
@@ -2300,6 +2304,7 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/antigonid-dynasty-1.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "Silver tetradrachm of Demetrius Poliorcetes with Nike on the prow of a warship, celebrating his naval victory at Salamis in Cyprus (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Greece,_reign_of_Demetrius_Poliorcetes_(\"The_Beseiger\"),_late_4th_century_B_-_Tetradrachm-_Nike_Blowing_Trumpet,_standing_on_war_galley_prow_(obverse)_-_1929.911.a_-_Cleveland_Museum_of_Art.jpg" }
+    - { url: /images/extra/antigonid-dynasty-2.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Marble bust of Demetrius Poliorcetes, a Roman copy from Herculaneum (National Archaeological Museum, Naples)", source: "https://commons.wikimedia.org/wiki/File:Demetrios_Poliorketes_MAN_Napoli_Inv6149.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=hwWwGAqi-94
@@ -2579,6 +2584,7 @@
     - { url: /images/extra/mitanni-1.webp, credit: "CaptMondo, CC BY 2.5, via Wikimedia Commons", caption: "Amarna letter from King Tushratta of Mitanni to Amenhotep III of Egypt, negotiating a royal marriage, 14th century BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:AmarnaLetterOfMarriageNegotiation-BritishMuseum-August19-08.jpg" }
     - { url: /images/extra/mitanni-2.webp, credit: "Daderot, CC0, via Wikimedia Commons", caption: "Painted Nuzi ware, the fine pottery of the Mitanni kingdom (Oriental Institute Museum, Chicago)", source: "https://commons.wikimedia.org/wiki/File:Mitanni_or_Nuzi_ware_-_Oriental_Institute_Museum,_University_of_Chicago_-_DSC07021.JPG" }
     - { url: /images/extra/mitanni-3.webp, credit: "Bertramz, CC BY 3.0, via Wikimedia Commons", caption: "Excavated Mitanni palace at Tell Brak in northeastern Syria", source: "https://commons.wikimedia.org/wiki/File:TellBrakMitanni.jpg" }
+    - { url: /images/extra/mitanni-4.webp, credit: "Jononmac46, CC BY-SA 3.0, via Wikimedia Commons", caption: "Statue of Idrimi, king of Alalakh and a vassal of Mitanni (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Idrimi-BM.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=0PGOZPbOBG4
@@ -2609,6 +2615,7 @@
     - { url: /images/extra/philistia-1.webp, credit: "Oren Rozen, CC BY-SA 4.0, via Wikimedia Commons", caption: "Royal dedication of Ekron, naming Achish, king of the Philistine city, 7th century BCE (Israel Museum, Jerusalem)", source: "https://commons.wikimedia.org/wiki/File:JRSLM_300116_Ekron_inscription.jpg" }
     - { url: /images/extra/philistia-2.webp, credit: "Hanay, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine bichrome pottery: jugs, a bottle and a krater painted in red and black, 12th–11th century BCE", source: "https://commons.wikimedia.org/wiki/File:Philistine_pottery.JPG" }
     - { url: /images/extra/philistia-3.webp, credit: "Peter Hagyo-Kovacs, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine bichrome bowl painted with spirals, in the tradition of Mycenaean pottery", source: "https://commons.wikimedia.org/wiki/File:Bichrome_pottery.jpg" }
+    - { url: /images/extra/philistia-4.webp, credit: "Hanay, CC BY-SA 3.0, via Wikimedia Commons", caption: "Philistine beer jug painted with birds, fish and geometric patterns, from Tel Eton, 12th century BCE", source: "https://commons.wikimedia.org/wiki/File:Philistine_pottery_beer_Jug.JPG" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=S3eLWgy2jus
@@ -2657,6 +2664,7 @@
     - { url: /images/extra/kingdom-of-judah-1.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "Hezekiah's Tunnel, cut through the bedrock of Jerusalem to bring the Gihon spring inside the walls, late 8th century BCE", source: "https://commons.wikimedia.org/wiki/File:Inside_Hezekiah's_Tunnel-A_(3782613123).jpg" }
     - { url: /images/extra/kingdom-of-judah-2.webp, credit: "Ian Scott, CC BY-SA 2.0, via Wikimedia Commons", caption: "Foundations of the Broad Wall of Jerusalem, built in the late 8th century BCE as the city grew, with later structures against it", source: "https://commons.wikimedia.org/wiki/File:Urban_structures_abutting_the_broad_wall_in_Jerusalem_(7007570939).jpg" }
     - { url: /images/extra/kingdom-of-judah-3.webp, credit: "Bukvoed, CC BY 4.0, via Wikimedia Commons", caption: "Remains of the Judahite fortress at Tel Arad in the Negev, which held a small temple and the Arad ostraca", source: "https://commons.wikimedia.org/wiki/File:Tel-Arad-663.jpg" }
+    - { url: /images/extra/kingdom-of-judah-4.webp, credit: "oncenawhile, CC0, via Wikimedia Commons", caption: "The Siloam inscription, which records the cutting of Hezekiah's Tunnel (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Siloam_inscription.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=ZybFYikBMLg
@@ -2768,6 +2776,7 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/assyrian-egypt-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Victory stele of Esarhaddon from Sam'al (Zincirli), 671 BCE, raised after his conquest of Egypt: the kneeling captive is thought to be Taharqa's son Ushankhuru (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Sam'al_stele_of_Esarhaddon,_671_BCE,_Pergamon_Museum.jpg" }
+    - { url: /images/extra/assyrian-egypt-2.webp, credit: "Rebecca Partington, CC BY-SA 2.0, via Wikimedia Commons", caption: "Relief of Mentuemhat, the Theban official who held power through the Assyrian conquest, approaching Anubis, 665–650 BCE", source: "https://commons.wikimedia.org/wiki/File:Relief_of_Mentuemhat_approaching_Anubis.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=hPoEtxTwYh4
@@ -2792,6 +2801,7 @@
   description: An ancient South Arabian trading kingdom located in the desert valley of modern northern Yemen, centered at Yathill and Qarnawu. The Minaeans specialized in managing overland caravan commerce across Arabia to Egypt and the Levant, leaving merchant inscriptions across the ancient Mediterranean world.
   extra_images:
     - { url: /images/extra/minaeans-1.webp, credit: "txago, CC BY 2.0, via Wikimedia Commons", caption: "The walled mound of Baraqish (ancient Yathill), a city of the Minaean kingdom in the Jawf of Yemen, with later houses on top", source: "https://commons.wikimedia.org/wiki/File:Barakisk_flickr01.jpg" }
+    - { url: /images/extra/minaeans-2.webp, credit: "Paul Hudson, CC BY 2.0, via Wikimedia Commons", caption: "Fragment of a Minaean inscription, 200–100 BCE (Fitzwilliam Museum, Cambridge)", source: "https://commons.wikimedia.org/wiki/File:Fitzwilliam_Museum_-_Fragment_of_Minaean_inscription_(16917474269).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=K2yQ1J7JpFo
@@ -2961,6 +2971,7 @@
   extra_images:
     - { url: /images/extra/rhodes-1.webp, credit: "Saffron Blaze, CC BY-SA 3.0, via Wikimedia Commons", caption: "Relief of a Rhodian warship cut into the rock below the acropolis of Lindos, about 180 BCE", source: "https://commons.wikimedia.org/wiki/File:Lindos_Rhodian_trireme_relief.jpg" }
     - { url: /images/extra/rhodes-2.webp, credit: "ArchaiOptix, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Rhodes with the sun god Helios, patron of the island, 304–189 BCE (Münzkabinett, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Rhodos_-_304-189_BC_-_silver_tetradrachm_-_head_of_Helios_-_rose_-_Berlin_MK_AM_18203977.jpg" }
+    - { url: /images/extra/rhodes-3.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "Restored columns of the temple of Apollo on the acropolis of Rhodes", source: "https://commons.wikimedia.org/wiki/File:Apollon_temple_acropolis_Rhodes.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=GPqxeNQWFHk
@@ -2990,6 +3001,7 @@
     - { url: /images/extra/judea-1.webp, credit: "Atzmonit, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze prutah of the Hasmonean king Alexander Jannaeus (103–76 BCE), inscribed 'Jonathan the High Priest' in paleo-Hebrew", source: "https://commons.wikimedia.org/wiki/File:Alexander_Jannaeus_coin.JPG" }
     - { url: /images/extra/judea-2.webp, credit: "Bukvoed, CC BY 4.0, via Wikimedia Commons", caption: "Herodium, the fortress-palace Herod the Great built near Bethlehem and where he was buried", source: "https://commons.wikimedia.org/wiki/File:Herodium-091.jpg" }
     - { url: /images/extra/judea-3.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "The lower terrace of Herod's Northern Palace on the cliffs of Masada", source: "https://commons.wikimedia.org/wiki/File:The_lower_terrage_of_Herod's_Northern_Palace,_Masada,_Israel_(15024089754).jpg" }
+    - { url: /images/extra/judea-4.webp, credit: "Ardon Bar Hama, public domain, via Wikimedia Commons", caption: "Part of the Great Isaiah Scroll, found at Qumran and copied about 125 BCE", source: "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll_Ch53.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=OXVBwwpMjts
@@ -3121,6 +3133,7 @@
     - { url: /images/extra/greek-dark-ages-1.webp, credit: "Jebulon, CC0, via Wikimedia Commons", caption: "The Lefkandi centaur, a painted clay figure buried in two graves, 10th century BCE (Archaeological Museum of Eretria)", source: "https://commons.wikimedia.org/wiki/File:Centaur_Chiron_of_Lefkandi,_Archaeological_museum_of_Eretria,_Greece.jpg" }
     - { url: /images/extra/greek-dark-ages-2.webp, credit: "Mark Landon, CC0, via Wikimedia Commons", caption: "Excavation of the 'Heroon' at Toumba, Lefkandi, a great apsidal hall built over a warrior's and a woman's burials about 950 BCE (photographed 1991)", source: "https://commons.wikimedia.org/wiki/File:Lefkandi_Heroon_from_E.jpg" }
     - { url: /images/extra/greek-dark-ages-3.webp, credit: "Dorieo, CC BY-SA 4.0, via Wikimedia Commons", caption: "Attic cinerary amphora painted with wavy lines and the earliest horse in Attic vase painting (Kerameikos Museum, Athens)", source: "https://commons.wikimedia.org/wiki/File:Ancient_greek_cinerary_amphora_-_KAMA.jpg" }
+    - { url: /images/extra/greek-dark-ages-4.webp, credit: "Furius, CC0, via Wikimedia Commons", caption: "Protogeometric amphora, 950–900 BCE (Archaeological Museum of Aegina)", source: "https://commons.wikimedia.org/wiki/File:Aegina_Arch_Mus_1326_-_Protogeometric_Amphora_(950-900_BC).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=C5rIbTq9txY
@@ -3799,6 +3812,7 @@
   description: The powerful pan-Gangetic empire established in the 4th century BCE by Mahapadma Nanda, who overthrew the Shaishunagas and conquered numerous northern Indian kingdoms. Governed from Pataliputra, the Nandas accumulated immense treasury wealth and commanded a vast standing army of 200,000 infantry and 3,000 war elephants that discouraged Alexander the Great from advancing into India.
   extra_images:
     - { url: /images/extra/nanda-empire-1.webp, credit: "PHG, public domain, via Wikimedia Commons", caption: "Punch-marked silver coin of the Nanda Empire with the sun, the six-armed symbol of Magadha, a bull on a hill and an elephant", source: "https://commons.wikimedia.org/wiki/File:MauryanCoin.JPG" }
+    - { url: /images/extra/nanda-empire-2.webp, credit: "Quezerque, CC BY-SA 4.0, via Wikimedia Commons", caption: "Two silver punch-marked karshapana of the Nanda Empire", source: "https://commons.wikimedia.org/wiki/File:Nanda_empire_karshapana.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=07IUrCT3OwQ
@@ -3806,6 +3820,10 @@
       credit: Ancestors Civilization, YouTube
 - id: kalinga
   description: An ancient coastal realm stretching between the Mahanadi and Godavari rivers in modern Odisha and northern Andhra Pradesh. Renowned for maritime trade with Southeast Asia, naval prowess, and fierce independence, Kalinga was conquered by Ashoka the Great in a devastating war around 261 BCE that prompted Ashoka's famous conversion to Buddhist non-violence.
+  extra_images:
+    - { url: /images/extra/kalinga-1.webp, credit: "AmlanTheTramp, CC BY-SA 4.0, via Wikimedia Commons", caption: "The rock-cut elephant at Dhauli in Odisha, above the edicts Ashoka had carved in Kalinga after conquering it", source: "https://commons.wikimedia.org/wiki/File:Dhauli_Elephant_Statue.jpg" }
+    - { url: /images/extra/kalinga-2.webp, credit: "Rohit Agarwal, CC BY-SA 4.0, via Wikimedia Commons", caption: "The ramparts of Sisupalgarh near Bhubaneswar, an ancient fortified city of Kalinga", source: "https://commons.wikimedia.org/wiki/File:Ramparts_of_the_Sisupalgarh_Fort.jpg" }
+    - { url: /images/extra/kalinga-3.webp, credit: "Rohit Agarwal, CC BY-SA 4.0, via Wikimedia Commons", caption: "Laterite pillars inside the old city at Sisupalgarh", source: "https://commons.wikimedia.org/wiki/File:Pillars_at_Sisupalgarh.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=txQVjNWZx9I
@@ -3836,6 +3854,7 @@
   extra_images:
     - { url: /images/extra/anuradhapura-1.webp, credit: "Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons", caption: "The Thuparamaya, the first stupa of Sri Lanka, built at Anuradhapura in the 3rd century BCE (restored), with the pillars of its former roof", source: "https://commons.wikimedia.org/wiki/File:Thuparamaya_dagaba.jpg" }
     - { url: /images/extra/anuradhapura-2.webp, credit: "KennyOMG, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Ruwanweli Saya, the great stupa built at Anuradhapura by King Dutugemunu in the 2nd century BCE (restored)", source: "https://commons.wikimedia.org/wiki/File:Ruwanweli_Saya_1.jpg" }
+    - { url: /images/extra/anuradhapura-3.webp, credit: "Dennis Sylvester Hurd, CC0, via Wikimedia Commons", caption: "Mihintale near Anuradhapura, where tradition says the monk Mahinda brought Buddhism to Sri Lanka", source: "https://commons.wikimedia.org/wiki/File:Mihintale_Rock.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vLDTBFcqKdA
@@ -3843,6 +3862,8 @@
       credit: CNA Insider, YouTube
 - id: early-cheras
   description: An ancient Tamil seafaring dynasty of the Sangam period that ruled the Malabar Coast and western Tamil Nadu (modern Kerala and Kongu Nadu). Operating from port capitals like Muziris, the Cheras conducted lucrative direct spice, beryl, and pepper trade with the Roman Empire and neighboring Mediterranean merchants.
+  extra_images:
+    - { url: /images/extra/early-cheras-1.webp, credit: "Rajesh of Raigad, CC BY-SA 4.0, via Wikimedia Commons", caption: "Early Chera coin with a portrait and the Brahmi legend 'Makkotai'", source: "https://commons.wikimedia.org/wiki/File:Chera_coin_(ancient_south_India)_(cropped).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=n_ByNtfuLbw
@@ -3857,6 +3878,8 @@
       credit: Crazy Color Facts, YouTube
 - id: early-pandyas
   description: An ancient Sangam-era Tamil dynasty centered at the cultural capital of Madurai and the pearl-fishing port of Korkai in southern Tamil Nadu. Renowned as the historic patrons of the literary Tamil Sangam assemblies, the Pandyas exported exquisite natural pearls and gemstones across the ancient Mediterranean and Indian Ocean worlds.
+  extra_images:
+    - { url: /images/extra/early-pandyas-1.webp, credit: "R.K.Lakshmi, CC BY-SA 4.0, via Wikimedia Commons", caption: "The rock at Mangulam near Madurai, whose Tamil Brahmi inscriptions name the Pandya king Nedunchezhiyan", source: "https://commons.wikimedia.org/wiki/File:S-TN-36_Ovamalai_Kallvettu_Hill_Mangulam_Madurai.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=On8ylx_veFk
@@ -3882,6 +3905,7 @@
   extra_images:
     - { url: /images/extra/mahameghavahana-dynasty-1.webp, credit: "Alexander E. Caddy, public domain, via Wikimedia Commons", caption: "The two-storey Rani Gumpha at Udayagiri near Bhubaneswar, a Jain monastery cut under the Mahameghavahana kings, photographed in 1895", source: "https://commons.wikimedia.org/wiki/File:*General_view_of_the_facade_of_the_Rani_Gumpha,_Udayagiri,_a_photo_by_Alexander_E._Caddy,_1895.jpg" }
     - { url: /images/extra/mahameghavahana-dynasty-2.webp, credit: "Kevin Standage, CC BY-SA 2.0, via Wikimedia Commons", caption: "Guardian figure in foreign (Yavana) dress carved at the Udayagiri caves, Odisha", source: "https://commons.wikimedia.org/wiki/File:Yavana_warrior,_Udayagiri_and_Khandagiri_Caves.jpg" }
+    - { url: /images/extra/mahameghavahana-dynasty-3.webp, credit: "Kevin Standage, CC BY-SA 2.0, via Wikimedia Commons", caption: "The Hathigumpha inscription of King Kharavela, cut into the rock at Udayagiri, Odisha", source: "https://commons.wikimedia.org/wiki/File:Hathigumpha_inscription_(2020).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=5WWrhbaQyLY
@@ -4114,6 +4138,8 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/yuezhi-1.webp, credit: "zbig58, CC BY-SA 2.0, via Wikimedia Commons", caption: "Painted clay portrait from the palace at Khalchayan, Uzbekistan, 1st century BCE, thought to show a Yuezhi noble", source: "https://commons.wikimedia.org/wiki/File:Khalchayan_portrait,_1st_century_BCE.jpg" }
+    - { url: /images/extra/yuezhi-2.webp, credit: "ALFGRN, CC BY 2.5, via Wikimedia Commons", caption: "Clay head of a prince from Khalchayan, Uzbekistan", source: "https://commons.wikimedia.org/wiki/File:Khalchayan_Prince_profile.jpg" }
+    - { url: /images/extra/yuezhi-3.webp, credit: "zbig58, CC BY-SA 2.0, via Wikimedia Commons", caption: "Painted clay statuette from Khalchayan, 1st century BCE", source: "https://commons.wikimedia.org/wiki/File:Khalchayan_statuette,_1st_century_BCE.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=2KdM6AlyLUY
@@ -4133,6 +4159,9 @@
   image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/nanyue-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The silk-and-jade burial suit of Zhao Mo, second king of Nanyue, from his tomb in Guangzhou, 2nd century BCE (Museum of the Mausoleum of the Nanyue King)", source: "https://commons.wikimedia.org/wiki/File:Jade_Burial_Suit_of_Zhao_Mo,_King_of_Nanyue.jpg" }
+    - { url: /images/extra/nanyue-2.webp, credit: "Shujianyang, CC BY-SA 4.0, via Wikimedia Commons", caption: "Reconstruction of the coffin of Zhao Mo, second king of Nanyue (Nanyue King Museum, Guangzhou)", source: "https://commons.wikimedia.org/wiki/File:Zhao_Mo's_coffin_reconstruction_at_Nanyue_King_Museum.jpg" }
+    - { url: /images/extra/nanyue-3.webp, credit: "Shujianyang, CC BY-SA 4.0, via Wikimedia Commons", caption: "Iron armour (Nanyue King Museum, Guangzhou)", source: "https://commons.wikimedia.org/wiki/File:Iron_Armor_at_Nanyue_King_Museum.jpg" }
+    - { url: /images/extra/nanyue-4.webp, credit: "Shujianyang, CC BY-SA 4.0, via Wikimedia Commons", caption: "Flat pieces of blue glass (Nanyue King Museum, Guangzhou)", source: "https://commons.wikimedia.org/wiki/File:Flat_blue_glass_at_Nanyue_King_Museum.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=a8FT2cBLaYs
@@ -4168,6 +4197,8 @@
   extra_images:
     - { url: /images/extra/qi-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze lamp of a figure holding two dishes, state of Qi, Warring States period, found in Shandong (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Lamp.jpg" }
     - { url: /images/extra/qi-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze knife money of the state of Qi, Warring States period (Xianyang Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Knife_Coin,_Qi_State_(9910610323).jpg" }
+    - { url: /images/extra/qi-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The Zi Hezi bronze fu, a measuring vessel of the state of Qi, found in Shandong (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Fu_(9831103173).jpg" }
+    - { url: /images/extra/qi-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze seal of the state of Qi, Warring States period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Seal_(9831641116).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=fn3wTsVbllg
@@ -4178,6 +4209,8 @@
   extra_images:
     - { url: /images/extra/jin-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze ding with a tiger head and a lid, state of Jin, Spring and Autumn period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Yi-shaped_Ding_with_Tiger_Head,_Jin_State_1a.jpg" }
     - { url: /images/extra/jin-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze hu wine jar with chain handle, state of Jin, Spring and Autumn period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Hu,_Jin_State.jpg" }
+    - { url: /images/extra/jin-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Decorated bronze ding on human-figure legs, state of Jin, Spring and Autumn period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Decorated_Ding,_Jin_State_1a.jpg" }
+    - { url: /images/extra/jin-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Inlaid bronze hu, state of Jin, Spring and Autumn period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Inlaid_Hu,_Jin_State.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=aKtXjLbqWBM
@@ -4191,6 +4224,8 @@
   extra_images:
     - { url: /images/extra/yan-1.webp, credit: "Baomi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze knife money of the state of Yan (Capital Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Knife-shaped_Money_of_the_Yan_State.jpg" }
     - { url: /images/extra/yan-2.webp, credit: "BabelStone, CC BY-SA 3.0, via Wikimedia Commons", caption: "Roof tile end with an animal mask from Yan Xiadu, the lower capital of the state of Yan, Warring States period", source: "https://commons.wikimedia.org/wiki/File:Warring_states_roof_tile_end_2.jpg" }
+    - { url: /images/extra/yan-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze hu of the state of Yan, Warring States period (Capital Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Hu,_Yan_State.jpg" }
+    - { url: /images/extra/yan-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze dou of the state of Yan, Warring States period (Capital Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Dou,_Yan_State.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=uQt3k9QfLBs
@@ -4209,6 +4244,7 @@
   description: One of the Seven Warring States created from the partition of Jin, occupying the fertile central Yellow River plains of modern Shanxi and Henan. Under Marquis Wen and the Legalist reforms of Li Kui, Wei became the premier military and economic superpower of the early Warring States before facing defeats against Qin and Qi.
   extra_images:
     - { url: /images/extra/wei-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze spade money of the state of Wei, Warring States period (Henan Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Spade-shaped_Coins_of_Wei_State.jpg" }
+    - { url: /images/extra/wei-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze ding of the state of Wei, Warring States period (Palace Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Ding,_Wei_State,_Forbidden_City_Palace_Museum_(9862472243).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Gp0b316IdD4
@@ -4218,6 +4254,8 @@
   description: One of the Seven Warring States, established in 403 BCE when three noble families partitioned the great state of Jin in modern Henan and Shanxi. Positioned strategically in the central plains, Han was an advanced center of iron weaponry and crossbow manufacture, but its small size left it vulnerable to conquest by neighboring Qin in 230 BCE.
   extra_images:
     - { url: /images/extra/han-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze spade money of the state of Han, Warring States period (Shanxi Museum)", source: "https://commons.wikimedia.org/wiki/File:Han_State_Spade_Coin_(10110029956).jpg" }
+    - { url: /images/extra/han-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze vessel inlaid with gold, state of Han, found in Shanxi (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_He_(9831659936).jpg" }
+    - { url: /images/extra/han-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze hu of Linghu Jun Sizi, state of Han, from Luoyang (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Hu_(9831650496).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=iq7pUMqxSAY
@@ -4270,6 +4308,7 @@
   extra_images:
     - { url: /images/extra/qin-1.webp, credit: "Anagoria, CC BY 3.0, via Wikimedia Commons", caption: "The Qin Gong gui, a bronze food vessel cast for a duke of Qin with an inscription on his ancestors, Spring and Autumn period (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:-0770_-0403_Qin_Gong_Bronze_Gui_(food_container)_Spring_and_Autumn_Period_National_Museum_of_China_anagoria.jpg" }
     - { url: /images/extra/qin-2.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze dagger-axe (ge) of the state of Qin, cast in 243 BCE under the chancellor Lü Buwei (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Ge_-_2.jpg" }
+    - { url: /images/extra/qin-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze pot of the state of Qin, Warring States period (Qin gallery, Shaanxi Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Qin_State_Warring_States_Bronze_Pot_(9932045655).jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Vmiv4zAeeAA
@@ -4355,6 +4394,8 @@
   extra_images:
     - { url: /images/extra/zhongshan-1.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver-inlaid bronze winged beasts from the tomb of King Cuo of Zhongshan at Pingshan, 4th century BCE (Hebei Museum)", source: "https://commons.wikimedia.org/wiki/File:20250118_Bronze_Mythical_Winged_Beasts_Inlaid_with_Silver_01.jpg" }
     - { url: /images/extra/zhongshan-2.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "Gold- and silver-inlaid bronze stand in the form of a tiger devouring a deer, from the tomb of King Cuo of Zhongshan (Hebei Museum)", source: "https://commons.wikimedia.org/wiki/File:20250118_Bronze_Stand_in_the_Form_of_a_Tiger_Devouring_a_Deer.jpg" }
+    - { url: /images/extra/zhongshan-3.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze square hu with dragon handles, Warring States period (Zhongshan gallery, Hebei Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Fang_Hu.jpg" }
+    - { url: /images/extra/zhongshan-4.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze yue axe, Warring States period (Zhongshan gallery, Hebei Museum)", source: "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Yue_Axe.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=Op7G8Y6Y9Pk
