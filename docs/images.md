@@ -55,6 +55,11 @@ Item-by-item record of pictures added, moved out of CLAUDE.md (29 Oct 2026) to k
   41. `twenty-third-dynasty-of-egypt` -> `public/images/civilisations/twenty-third-dynasty-of-egypt.webp` & `-600.webp`
   42. `assyrian-egypt` -> `public/images/civilisations/assyrian-egypt.webp` & `-600.webp`
   43. `ankhwennefer` -> `public/images/civilisations/ankhwennefer.webp` & `-600.webp`
+  *Classical & Hellenistic Greek Leagues (4 Nov 2026)*:
+  44. `second-athenian-league` -> `public/images/civilisations/second-athenian-league.webp` & `-600.webp`
+  45. `achaean-league` -> `public/images/civilisations/achaean-league.webp` & `-600.webp`
+  46. `aetolian-league` -> `public/images/civilisations/aetolian-league.webp` & `-600.webp`
+  47. `antigonid-dynasty` -> `public/images/civilisations/antigonid-dynasty.webp` & `-600.webp`
   Prompts and specifications are preserved in [`docs/civilization-placeholders.md`](docs/civilization-placeholders.md).
 - **Authentic Museum Galleries Added (18 Oct 2026)**:
   Curated and wired 124 high-resolution CC/PD museum artifact photos (`extra_images`) in `public/images/extra/`:
