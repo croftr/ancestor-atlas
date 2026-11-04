@@ -616,6 +616,10 @@
   image_caption: "Early hominins using passive anvil percussion to detach sharp flakes from basalt cobbles at Lomekwi, Kenya"
   source_ids:
     - recall
+  extra_images:
+    - { url: /images/extra/lomekwian-1.webp, credit: "Chartep, CC BY-SA 4.0, via Wikimedia Commons", caption: "Lomekwi, on the western side of Lake Turkana in northern Kenya", source: "https://commons.wikimedia.org/wiki/File:Kenyanthropus-Lomekwi.jpg" }
+    - { url: /images/extra/lomekwian-2.webp, credit: "MODIS Land Rapid Response Team, NASA GSFC, public domain, via Wikimedia Commons", caption: "Lake Turkana from space; Lomekwi lies on its western side", source: "https://commons.wikimedia.org/wiki/File:Lake_Turkana_(MODIS_2020-12-13).jpg" }
+    - { url: /images/extra/lomekwian-3.webp, credit: "Mike Peel, CC BY-SA 4.0, via Wikimedia Commons", caption: "Skull of Kenyanthropus platyops from Lomekwi, about 3.5 million years old: a hominin from the area, though the toolmakers themselves are unknown (Nairobi National Museum)", source: "https://commons.wikimedia.org/wiki/File:At_Nairobi_National_Museum_2025_083.jpg" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=NhM-2P93hoI
@@ -1757,6 +1761,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Iberomaurusian
   wikidata: Q1470903
   source_ids: []
+  extra_images:
+    - { url: /images/extra/iberomaurusian-1.webp, credit: "Velatrix, CC0, via Wikimedia Commons", caption: "The excavated cave mouth at Taforalt, Morocco, one of the great Iberomaurusian sites", source: "https://commons.wikimedia.org/wiki/File:Taforalt.jpg" }
+    - { url: /images/extra/iberomaurusian-2.webp, credit: "Velatrix, CC0, via Wikimedia Commons", caption: "The excavated deposits at Taforalt, with the grey and yellow series labelled", source: "https://commons.wikimedia.org/wiki/File:Taforalt_stratigraphy.jpg" }
+    - { url: /images/extra/iberomaurusian-3.webp, credit: "Velatrix, CC0, via Wikimedia Commons", caption: "The cave of Taforalt seen from below, in the hills of north-eastern Morocco", source: "https://commons.wikimedia.org/wiki/File:Taforalt_landscape.jpg" }
+    - { url: /images/extra/iberomaurusian-4.webp, credit: "Takruri, CC0, via Wikimedia Commons", caption: "Where the Iberomaurusian is found, along the coasts and hills of the Maghreb", source: "https://commons.wikimedia.org/wiki/File:Iberomaurusian-distribution.jpg" }
 # Span from English Wikipedia: Capsian_culture@1371764415.
 - id: capsian
   name: Capsian culture
@@ -1789,6 +1798,9 @@
   video: { src: video/cultures/oakhurst-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Southern Cape rock shelter with hunter-gatherers flaking heavy quartzite scrapers and stretching large game hides above a river valley"
   source_ids: []
+  extra_images:
+    - { url: /images/extra/oakhurst-1.webp, credit: "Bakkesc, CC0, via Wikimedia Commons", caption: "Boomplaas Cave, in the cliffs of South Africa's Western Cape, a site with dated Oakhurst layers", source: "https://commons.wikimedia.org/wiki/File:Boomplaas_Cave.jpg" }
+    - { url: /images/extra/oakhurst-2.webp, credit: "Sara Watson, CC0, via Wikimedia Commons", caption: "The layers of Nelson Bay Cave, South Africa, on display; layer 3, 8,000–12,000 years ago, is from the Oakhurst's time", source: "https://commons.wikimedia.org/wiki/File:Profile_of_Nelson_Bay_Cave.jpg" }
 # Span from English Wikipedia: Wilton_culture@1378611874 (middle Holocene, ~8,000-4,000 years ago, after Deacon).
 - id: wilton
   name: Wilton culture
@@ -1803,6 +1815,10 @@
   wikipedia_url: https://en.wikipedia.org/wiki/Wilton_culture
   wikidata: Q2986725
   source_ids: []
+  extra_images:
+    - { url: /images/extra/wilton-1.webp, credit: "Jurgennizer, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Atlantic seen from Elands Bay Cave, South Africa, a site with dated Wilton layers", source: "https://commons.wikimedia.org/wiki/File:Photograph_showing_the_view_from_Elands_Bay_Cave.jpg" }
+    - { url: /images/extra/wilton-2.webp, credit: "Tammy Hodgskiss and Lyn Wadley, CC BY 4.0, via Wikimedia Commons", caption: "Excavations at Rose Cottage Cave, Free State, South Africa; the Later Stone Age deposits, which include Wilton layers, are marked LSA", source: "https://commons.wikimedia.org/wiki/File:Rose_Cottage_Cave_(1).tif" }
+    - { url: /images/extra/wilton-3.webp, credit: "Sara Watson, CC0, via Wikimedia Commons", caption: "The structure protecting the excavated section at Nelson Bay Cave, South Africa, another site with Wilton layers", source: "https://commons.wikimedia.org/wiki/File:Protective_structure_at_Nelson_Bay_Cave.jpg" }
 # Span from English Wikipedia: Jōmon_period@1380542509 (lead: c. 14,000-300 BC; its pottery section: the oldest
 # known ceramics around 14,500 BCE, so the span starts there, taking in Ōdai Yamamoto I). Not the Ryukyus (the
 # article: the Jōmon period does not apply there).
@@ -1819,6 +1835,11 @@
   wikipedia_url: https://en.wikipedia.org/wiki/J%C5%8Dmon_period
   wikidata: Q52824
   source_ids: []
+  extra_images:
+    - { url: /images/extra/jomon-1.webp, credit: "Cleveland Museum of Art, CC0, via Wikimedia Commons", caption: "A fire-flame cooking vessel, the most elaborate style of Jōmon pottery (Cleveland Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Japan,_Jōmon_period_-_Fire-flame_Cooking_Vessel_-_1984.68_-_Cleveland_Museum_of_Art.tif" }
+    - { url: /images/extra/jomon-2.webp, credit: "Daderot, public domain, via Wikimedia Commons", caption: "Dogū clay figurine with goggle-shaped eyes from Kamegaoka, Aomori, 1000–400 BCE (Tokyo National Museum)", source: "https://commons.wikimedia.org/wiki/File:Dogu_with_goggle-shaped_eyes,_excavated_at_Kamegaoka,_Kizukuri,_Tsugaru-shi,_Aomori,_Jomon_period,_1,000-400_BC,_ceramic_-_Tokyo_National_Museum_-_Ueno_Park,_Tokyo,_Japan_-_DSC09105.jpg" }
+    - { url: /images/extra/jomon-3.webp, credit: "663highland, CC BY 2.5, via Wikimedia Commons", caption: "Reconstructed six-pillar structure and longhouse at Sannai-Maruyama, Aomori", source: "https://commons.wikimedia.org/wiki/File:140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg" }
+    - { url: /images/extra/jomon-4.webp, credit: "Fred Cherrygarden, CC BY-SA 4.0, via Wikimedia Commons", caption: "A preserved section of the Isarago shell mound, kept in Mitadai Park, Tokyo", source: "https://commons.wikimedia.org/wiki/File:Mitadai_Park_Isarago_Shell_Mound.jpg" }
 # Span from English Wikipedia: Peiligang_culture@1355461674 (about 7000 to 5000 BC).
 - id: peiligang
   name: Peiligang culture
