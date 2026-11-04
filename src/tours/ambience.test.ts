@@ -1,11 +1,22 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { parse as parseYaml } from "yaml";
 import { AMBIENCE } from "./ambience";
 import { textHash } from "../../scripts/lib/text-hash";
 import type { Entity } from "../types";
 
 const entities: Entity[] = JSON.parse(readFileSync("public/data/entities.json", "utf8"));
-const byId = new Map(entities.map((e) => [e.id, e]));
+const pictureGroups = existsSync("data/curated/picture-groups.yaml")
+  ? ((parseYaml(readFileSync("data/curated/picture-groups.yaml", "utf8")) as any[]) ?? [])
+  : [];
+const pictureGroupEntities: { id: string; category: string }[] = pictureGroups.map((g) => ({
+  id: g.image_url.match(/\/([a-z0-9-]+)\.webp$/)?.[1] ?? g.id,
+  category: "civilization",
+}));
+const byId = new Map([
+  ...pictureGroupEntities.map((g) => [g.id, g as unknown as Entity]),
+  ...entities.map((e) => [e.id, e]),
+]);
 const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities" };
 
 describe.each(Object.entries(AMBIENCE))("ambience %s", (id, entry) => {

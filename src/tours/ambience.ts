@@ -377,6 +377,26 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Grand stone terrace of Persepolis: slow footsteps ascending carved stone stairways, cavalry horses shifting and harness rings clinking gently, metal tribute bowls carried in procession, upland breeze through cypress trees",
     sound: { src: "ambience/civilizations/persia-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "931c3cf290" },
   },
+  "ancient-india": {
+    prompt: "Riverside city on the Ganges: wooden boats rocking at stone ghats, temple bells and chanting in the distance, gentle river ripples, murmuring market crowd, peasant chatter, peepal leaves rustling",
+    sound: { src: "ambience/civilizations/ancient-india-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "ca8b734b54" },
+  },
+  "ancient-korea": {
+    prompt: "Misty mountain valley settlement: hammer rhythmically tapping bronze tools, smoke rising from timber hearths, mountain wind through pine trees and rice paddies, distant birdsong, gentle stream water",
+    sound: { src: "ambience/civilizations/ancient-korea-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "d335195eaf" },
+  },
+  "hellenistic-anatolia": {
+    prompt: "Hellenistic mountain gorge citadel: river rushing through canyon depths below, mountain breeze fluttering banners on stone parapets, horse hooves on cobblestones, distant blacksmith hammer, chattering townspeople",
+    sound: { src: "ambience/civilizations/hellenistic-anatolia-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "99dde4db73" },
+  },
+  "hellenistic-world": {
+    prompt: "Hellenistic Mediterranean port city: gentle waves lapping stone quays, creaking ship timbers and rigging, murmuring scholars and merchants conversing, seagulls calling, warm coastal breeze",
+    sound: { src: "ambience/civilizations/hellenistic-world-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "359a9d6d4d" },
+  },
+  "imperial-magadha": {
+    prompt: "Grand royal capital of Pataliputra: rhythmic chisel strikes against sandstone pillar, stone dust in the breeze, monks chanting softly, majestic war elephants low rumble and footfalls, distant Ganges river barge traffic",
+    sound: { src: "ambience/civilizations/imperial-magadha-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "444a0c9003" },
+  },
   "olmec-civilization": {
     prompt: "Tropical Gulf lowland ceremonial centre: stone tools pecking and grinding at a huge basalt boulder, jade beads clicking, humid rainforest with frogs, insects and howler monkeys in the distance",
     sound: { src: "ambience/civilizations/olmec-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3b2bf8f849" },

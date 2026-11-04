@@ -11,6 +11,7 @@
 // with the Sound Effects permission.
 import { execFileSync, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { parse as parseYaml } from "yaml";
 import { textHash } from "../lib/text-hash.ts";
 import { AMBIENCE } from "../../src/tours/ambience.ts";
 import { BUCKET, REGION, encode, uploadArgs, uploadCommand } from "./encode.ts";
@@ -45,6 +46,13 @@ const category = new Map<string, string>(
     .map((l) => JSON.parse(l.replace(/,$/, "")) as { id: string; category: string })
     .map((e) => [e.id, e.category]),
 );
+if (existsSync("data/curated/picture-groups.yaml")) {
+  const groups = (parseYaml(readFileSync("data/curated/picture-groups.yaml", "utf8")) as any[]) ?? [];
+  for (const g of groups) {
+    const imgId = g.image_url?.match(/\/([a-z0-9-]+)\.webp$/)?.[1] ?? g.id;
+    category.set(imgId, "civilization");
+  }
+}
 for (const id of [...ids, ...Object.keys(AMBIENCE)]) if (!category.has(id)) fail(`no entity ${id} in ${ENTITIES}`);
 for (const id of ids) if (!AMBIENCE[id]) fail(`${id} has no entry in ${FILE}: add its prompt first`);
 
