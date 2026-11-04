@@ -13,9 +13,9 @@ const pictureGroupEntities: { id: string; category: string }[] = pictureGroups.m
   id: g.image_url.match(/\/([a-z0-9-]+)\.webp$/)?.[1] ?? g.id,
   category: "civilization",
 }));
-const byId = new Map([
-  ...pictureGroupEntities.map((g) => [g.id, g as unknown as Entity]),
-  ...entities.map((e) => [e.id, e]),
+const byId = new Map<string, { category: string }>([
+  ...pictureGroupEntities.map((g) => [g.id, g] as [string, { category: string }]),
+  ...entities.map((e) => [e.id, e] as [string, { category: string }]),
 ]);
 const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities" };
 

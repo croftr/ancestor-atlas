@@ -394,8 +394,8 @@ export const AMBIENCE: Record<string, Ambience> = {
     sound: { src: "ambience/civilizations/hellenistic-world-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "359a9d6d4d" },
   },
   "imperial-magadha": {
-    prompt: "Grand royal capital of Pataliputra: rhythmic chisel strikes against sandstone pillar, stone dust in the breeze, monks chanting softly, majestic war elephants low rumble and footfalls, distant Ganges river barge traffic",
-    sound: { src: "ambience/civilizations/imperial-magadha-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "444a0c9003" },
+    prompt: "Grand royal capital of Pataliputra: rhythmic chisel strikes against sandstone pillar, stone dust in the breeze, monks chanting softly, majestic war elephants low rumble and footfalls, distant Ganges river barge traffic, ending with a loud resonant elephant trumpeting roar",
+    sound: { src: "ambience/civilizations/imperial-magadha-v2.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "0e3152c23e" },
   },
   "olmec-civilization": {
     prompt: "Tropical Gulf lowland ceremonial centre: stone tools pecking and grinding at a huge basalt boulder, jade beads clicking, humid rainforest with frogs, insects and howler monkeys in the distance",

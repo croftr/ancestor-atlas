@@ -102,7 +102,7 @@
   image_url: /images/civilisations/imperial-magadha.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/imperial-magadha-v1.mp4, credit: "AI-generated video (Google Veo)" }
-  sound: { src: ambience/civilizations/imperial-magadha-v1.mp3, credit: "AI-generated sound (ElevenLabs)" }
+  sound: { src: ambience/civilizations/imperial-magadha-v2.mp3, credit: "AI-generated sound (ElevenLabs)" }
   image_caption: "Workers carve a polished stone pillar beside a timber-walled city on the Ganges, a ruler and Buddhist monks looking on, war elephants and river boats"
   members:
     [magadha-haryanka-dynasty, magadha-shaishunaga-dynasty, nanda-empire, maurya-empire,
