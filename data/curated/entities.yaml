@@ -4120,6 +4120,9 @@
       credit: knowl card, YouTube
 - id: yan
   description: A major northeastern frontier kingdom centered at modern Beijing, established at the start of the Western Zhou dynasty by the Duke of Shao. Guarding the northern borders against Steppe nomads and trading with Manchuria and Korea, Yan constructed extensive early walls and endured as one of the Seven Warring States until Qin conquest.
+  image_url: /images/civilisations/yan.webp
+  image_caption: "Yan statesmen and frontier commanders on the Golden Terrace at Yan Xiadu examining Mingdao bronze knife money, taotie-embossed roof tile ends, and a ritual cauldron below the Yanshan frontier wall."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/yan-1.webp, credit: "Baomi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Bronze knife money of the state of Yan (Capital Museum, Beijing)", source: "https://commons.wikimedia.org/wiki/File:Knife-shaped_Money_of_the_Yan_State.jpg" }
     - { url: /images/extra/yan-2.webp, credit: "BabelStone, CC BY-SA 3.0, via Wikimedia Commons", caption: "Roof tile end with an animal mask from Yan Xiadu, the lower capital of the state of Yan, Warring States period", source: "https://commons.wikimedia.org/wiki/File:Warring_states_roof_tile_end_2.jpg" }
@@ -4157,6 +4160,9 @@
       credit: Bedtime history of ancient China, YouTube
 - id: lu
   description: An influential Zhou vassal state in modern Shandong, founded by Boqin, the son of the revered Duke of Zhou. Celebrated as the cultural heartland of classical ritual, historical chronicle keeping, and moral philosophy, Lu was the birthplace of Confucius, preserving ancient Zhou rites long after other states had abandoned them.
+  image_url: /images/civilisations/lu.webp
+  image_caption: "Classical ritual masters and scholars at Qufu in the State of Lu conducting Zhou ancestral rites with a bronze Lu Gui vessel, ding tripods, jade bi discs, bamboo chronicles, and stone and bell chimes."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/lu-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Bronze gui made by an official of Lu as a dowry gift, state of Lu, Spring and Autumn period, found in Shandong", source: "https://commons.wikimedia.org/wiki/File:Spring_&_Autumn_Bronze_Gui_(9831260353).jpg" }
   media:
@@ -4268,6 +4274,9 @@
       credit: knowl card, YouTube
 - id: yue
   description: An ancient indigenous kingdom centered south of the Yangtze River around modern Zhejiang and northern Fujian, famed for seafaring, aquaculture, and peerless bronze sword metallurgy. Under King Goujian, Yue rebounded from near destruction to conquer its bitter northern rival Wu in 473 BCE, briefly achieving hegemony before succumbing to Chu.
+  image_url: /images/civilisations/yue.webp
+  image_caption: "Yue retainers and master metallurgists at Kuaiji presenting the diamond-patterned bronze Sword of Goujian, a kneeling tattooed bronze figure, and proto-celadon vessels above river warships."
+  image_credit: AI-generated illustration
   extra_images:
     - { url: /images/extra/yue-1.webp, credit: "Siyuwj, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Sword of Goujian, king of Yue, still sharp and untarnished when found in a Chu tomb in 1965 (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:Sword_of_Goujian,_Hubei_Provincial_Museum,_2015-04-06_01.jpg" }
     - { url: /images/extra/yue-2.webp, credit: "Discott, CC BY-SA 3.0, via Wikimedia Commons", caption: "Kneeling figure with tattoos from the state of Yue (Zhejiang Provincial Museum, Hangzhou)", source: "https://commons.wikimedia.org/wiki/File:Yue_statue.jpg" }
