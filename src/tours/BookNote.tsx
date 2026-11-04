@@ -20,9 +20,11 @@ import type { Tour } from "./tours";
  */
 export default function BookNote({ tour }: { tour: Tour }) {
   const shown = useStore((s) => s.tour?.note === true);
+  // A card the viewer opens goes in the note's place, and the note comes back when that card closes.
+  const otherCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.skyId !== null || s.place !== null);
   const index = useStore((s) => s.tour?.index ?? 0);
   const stop = tour.stops[index];
-  if (!shown || !stop?.note || !tour.book) return null;
+  if (!shown || otherCard || !stop?.note || !tour.book) return null;
   return <NoteCard key={index} tour={tour} index={index} />;
 }
 
