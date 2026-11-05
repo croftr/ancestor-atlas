@@ -12,7 +12,7 @@
   height: var(--tabs-h);
   box-sizing: border-box;
   padding: 8px 8px 8px 56px; /* the menu button's 40px plus gaps */
-  background: rgba(10, 15, 28, 0.96);
+  background: rgba(16, 18, 20, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -30,14 +30,14 @@
   min-width: 0;
   padding: 0 8px;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   background: none;
   color: #8e99ae;
   white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.page-tab:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
+.page-tab:focus-visible { outline: 2px solid #a9bccf; outline-offset: 1px; }
 .page-tab[aria-current="page"] {
   padding: 0 12px 0 10px;
   color: #fff;

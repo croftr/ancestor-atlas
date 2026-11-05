@@ -13,7 +13,7 @@ import { NEWS_TOPICS, type NewsStory, type NewsTopic } from "./types";
 /** The browse page each entity category opens on. */
 const PAGE_OF: Record<string, BrowseView> = { species: "species", culture: "cultures", civilization: "civilizations", city: "cities", event: "events" };
 
-const ACCENT = "#f0b86e";
+const ACCENT = "#c9ab7c";
 
 /** Marks on the deep-time strip, on the time slider's own scale. */
 const STRIP_TICKS = [-999_999, -99_999, -9_999, -2_999, 1];

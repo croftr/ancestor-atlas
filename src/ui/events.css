@@ -1,8 +1,8 @@
 /* Chips led by a category badge (Related, Also here, Events). */
 .chip:has(> .cat-badge) { display: inline-flex; align-items: center; gap: 6px; padding-left: 4px; }
 .chip > .cat-badge { margin-top: 0; }
-.card-section.tour-stop-links .tour-chip { padding-left: 9px; border-color: rgba(195, 155, 255, 0.35); background: rgba(195, 155, 255, 0.1); }
-.card-section.tour-stop-links .tour-chip:hover { background: rgba(195, 155, 255, 0.22); border-color: rgba(195, 155, 255, 0.6); }
-.tour-chip-icon { flex: none; color: #c39bff; }
+.card-section.tour-stop-links .tour-chip { padding-left: 9px; border-color: rgba(201, 196, 182, 0.35); background: rgba(201, 196, 182, 0.1); }
+.card-section.tour-stop-links .tour-chip:hover { background: rgba(201, 196, 182, 0.22); border-color: rgba(201, 196, 182, 0.6); }
+.tour-chip-icon { flex: none; color: #c9c4b6; }
 .tour-chip-stop { font-size: 0.72rem; color: #d6c4ff; font-variant-numeric: tabular-nums; }
 

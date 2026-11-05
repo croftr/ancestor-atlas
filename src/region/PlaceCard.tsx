@@ -355,7 +355,7 @@ export default function PlaceCard() {
                             ? entry.entity.date_text
                             : shortRange(entry.localStart, entry.localEnd)}
                         </span>
-                        {isActiveNow && <span style={{ color: "#f0bd78" }}>Active at slider year</span>}
+                        {isActiveNow && <span style={{ color: "#cdb084" }}>Active at slider year</span>}
                       </div>
                       <div
                         className="place-bar-track"
@@ -422,7 +422,7 @@ export default function PlaceCard() {
                         </div>
                         <div className="place-item-meta">
                           <span>{shortRange(s.start, s.end)}</span>
-                          {isActiveNow && <span style={{ color: "#f0bd78" }}>Active at slider year</span>}
+                          {isActiveNow && <span style={{ color: "#cdb084" }}>Active at slider year</span>}
                         </div>
                         <div
                           className="place-bar-track"
@@ -434,7 +434,7 @@ export default function PlaceCard() {
                             style={{
                               left: `${leftPct}%`,
                               width: `${widthPct}%`,
-                              background: "#f2a65a",
+                              background: "#c6a47c",
                             }}
                           />
                           <div className="place-bar-now" style={{ left: `${nowPos}%` }} />

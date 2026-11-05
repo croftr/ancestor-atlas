@@ -58,7 +58,7 @@ export const LAYER_DEFS: LayerDef[] = [
       id: "civ-fill",
       type: "fill",
       source: SOURCE_ID,
-      paint: { "fill-color": ["coalesce", ["get", "color"], "#ef476f"], "fill-opacity": ["case", selected, 0.6, 0.3] },
+      paint: { "fill-color": ["coalesce", ["get", "color"], "#b5615c"], "fill-opacity": ["case", selected, 0.6, 0.3] },
     },
   },
   {
@@ -67,7 +67,7 @@ export const LAYER_DEFS: LayerDef[] = [
       id: "civ-line",
       type: "line",
       source: SOURCE_ID,
-      paint: { "line-color": ["coalesce", ["get", "line_color"], "#ef476f"], "line-width": 1.5 },
+      paint: { "line-color": ["coalesce", ["get", "line_color"], "#b5615c"], "line-width": 1.5 },
     },
   },
   // The selected civilization: a temple badge inside its territory, above the territories but
@@ -78,7 +78,7 @@ export const LAYER_DEFS: LayerDef[] = [
       id: "civ-badge",
       type: "circle",
       source: ANCHOR_SOURCE_ID,
-      paint: { "circle-radius": 13, "circle-color": "#ef476f", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3 },
+      paint: { "circle-radius": 13, "circle-color": "#b5615c", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3 },
     },
   },
   { category: "civilization", spec: iconLayer("civ-badge-icon", ICON_IMAGE.civilization, undefined, ANCHOR_SOURCE_ID) },
@@ -102,7 +102,7 @@ export const LAYER_DEFS: LayerDef[] = [
           0.2,
           "rgba(6,214,160,0.2)",
           0.6,
-          "#06d6a0",
+          "#6f9f8b",
           1,
           "#e0fff4",
         ],
@@ -118,7 +118,7 @@ export const LAYER_DEFS: LayerDef[] = [
       paint: {
         // Small dots zoomed out; badge-sized discs (carrying the pot icon) zoomed in or selected.
         "circle-radius": ["step", ["zoom"], ["case", selected, 13, 4], CULTURE_ICON_ZOOM, ["case", selected, 13, 11]],
-        "circle-color": "#06d6a0",
+        "circle-color": "#6f9f8b",
         "circle-stroke-color": ["step", ["zoom"], "#ffffff", CULTURE_ICON_ZOOM, ["case", selected, "#ffffff", CATEGORY_STYLE.culture.ink]],
         "circle-stroke-width": ["step", ["zoom"], ["case", selected, 3, 1], CULTURE_ICON_ZOOM, ["case", selected, 3, 2]],
         "circle-opacity": ["case", selected, 1, 0.9],
@@ -138,7 +138,7 @@ export const LAYER_DEFS: LayerDef[] = [
       paint: {
         // Big enough to carry the species icon (the badge before a name, as a marker).
         "circle-radius": ["case", selected, 13, 11],
-        "circle-color": "#ffd166",
+        "circle-color": "#c8a96a",
         "circle-stroke-color": ["case", selected, "#ffffff", CATEGORY_STYLE.species.ink],
         "circle-stroke-width": ["case", selected, 3, 2],
       },
@@ -170,7 +170,7 @@ export const LAYER_DEFS: LayerDef[] = [
       source: SOURCE_ID,
       paint: {
         "circle-radius": ["case", selected, 26, 20],
-        "circle-color": "#c39bff",
+        "circle-color": "#a897b4",
         "circle-opacity": 0.22,
         "circle-blur": 0.6,
       },
@@ -184,7 +184,7 @@ export const LAYER_DEFS: LayerDef[] = [
       source: SOURCE_ID,
       paint: {
         "circle-radius": ["case", selected, 13, 11],
-        "circle-color": "#c39bff",
+        "circle-color": "#a897b4",
         "circle-stroke-color": ["case", selected, "#ffffff", CATEGORY_STYLE.event.ink],
         "circle-stroke-width": ["case", selected, 3, 2.5],
       },

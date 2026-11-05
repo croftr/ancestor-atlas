@@ -246,7 +246,7 @@ function CompareGlobe({ cmp }: { cmp: SpeciesComparison }) {
     // 6. Atmosphere rim
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(142, 197, 255, 0.28)";
+    ctx.strokeStyle = "rgba(169, 188, 207, 0.28)";
     ctx.lineWidth = 1.5;
     ctx.stroke();
 

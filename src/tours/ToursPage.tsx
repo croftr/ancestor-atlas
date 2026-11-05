@@ -147,7 +147,7 @@ export default function ToursPage() {
   const totalMins = tours.reduce((n, t) => n + t.mins, 0);
 
   return (
-    <div className="events-page br-page tp-page" style={{ "--accent": "#c39bff" } as CSSProperties}>
+    <div className="events-page br-page tp-page" style={{ "--accent": "#c9c4b6" } as CSSProperties}>
       <header className="ev-header br-intro">
         <div className="ev-title">
           <h1 className="cat-title">

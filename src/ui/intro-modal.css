@@ -6,7 +6,7 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgba(5, 8, 18, 0.82);
+  background: rgba(8, 9, 11, 0.82);
   backdrop-filter: blur(6px);
   animation: intro-fade-in 0.2s ease-out;
 }
@@ -23,8 +23,8 @@
   max-height: calc(100vh - 48px);
   overflow-y: auto;
   padding: 24px;
-  background: #0f1528;
-  border-radius: 16px;
+  background: #15171a;
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
 }
@@ -42,18 +42,18 @@
   padding: 0;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(11, 16, 32, 0.85);
+  background: rgba(17, 19, 22, 0.85);
   backdrop-filter: blur(6px);
-  color: #e8ecf4;
+  color: #e8e6e1;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.12s ease;
 }
 .intro-close:hover {
-  background: rgba(40, 52, 84, 0.9);
+  background: rgba(40, 42, 46, 0.9);
   color: #fff;
 }
-.intro-close:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
+.intro-close:focus-visible { outline: 2px solid #a9bccf; outline-offset: 2px; }
 
 /* Video player container: 16:9 ratio */
 /* Short of the full width on short windows, so the text and the Start button fit under it. */
@@ -63,7 +63,7 @@
   min-width: min(100%, 420px);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
   background: #000;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
@@ -85,10 +85,10 @@
 }
 .intro-video-btn {
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.04);
-  color: #e8ecf4;
+  color: #e8e6e1;
   font: inherit;
   font-size: 0.85rem;
   cursor: pointer;
@@ -99,8 +99,8 @@
 }
 /* As the events page's video buttons (.ev-media-btn) */
 .intro-video-btn[aria-pressed="true"] {
-  border-color: #c39bff;
-  background: rgba(195, 155, 255, 0.35);
+  border-color: #c9c4b6;
+  background: rgba(201, 196, 182, 0.35);
 }
 .intro-video-btn .muted {
   margin-left: 4px;
@@ -122,7 +122,7 @@
   margin: 0 0 18px;
   font-size: 0.95rem;
   line-height: 1.45;
-  color: #cbd3e6;
+  color: #cfd1d4;
 }
 
 /* Feature grid */
@@ -140,7 +140,7 @@
   padding: 10px 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 0.88rem;
   line-height: 1.35;
 }
@@ -149,14 +149,14 @@
 
 .intro-feat strong {
   display: block;
-  color: #e8ecf4;
+  color: #e8e6e1;
   margin-bottom: 2px;
 }
 
 .intro-feat span {
   display: block;
   font-size: 0.83rem;
-  color: #b8c1d6;
+  color: #bcbec2;
 }
 
 /* Footer with actions */
@@ -171,7 +171,7 @@
   margin: 0 -24px -24px;
   padding: 14px 24px 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0f1528;
+  background: #15171a;
 }
 
 .intro-start-btn {
@@ -180,9 +180,9 @@
   justify-content: center;
   min-height: 38px;
   padding: 8px 20px;
-  border-radius: 8px;
+  border-radius: 4px;
   border: none;
-  background: #3d7bff;
+  background: #7d8fa3;
   color: #fff;
   font-weight: 600;
   font-size: 0.92rem;
@@ -191,17 +191,17 @@
 }
 
 .intro-start-btn:hover {
-  background: #5a8fff;
+  background: #8496a8;
 }
 
 .intro-start-btn:focus-visible {
-  outline: 2px solid #8ec5ff;
+  outline: 2px solid #a9bccf;
   outline-offset: 2px;
 }
 
 .intro-free-tag {
   font-size: 0.85rem;
-  color: #8ec5ff;
+  color: #a9bccf;
 }
 
 @media (max-width: 640px) {

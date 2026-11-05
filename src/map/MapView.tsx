@@ -65,7 +65,7 @@ function arrowImage(): { data: ImageData; pixelRatio: number } | null {
 }
 
 /** A tour's epilogue: the journey drawn again as a thread of light (tours/epilogue.ts), over the markers. */
-const TRAIL_GOLD = "#ffd98a";
+const TRAIL_GOLD = "#d8c08c";
 /** A stop's ripple as the thread reaches it: grows and fades over this long (ms). */
 const RIPPLE_MS = 1_600;
 /** While a tour plays, each new leg of its path is drawn over this long (ms), as the globe turns to the stop. */
@@ -128,7 +128,7 @@ const ROUTE_LAYERS = ["route-casing", "route-line", "route-head"];
 
 /** Interbreeding layers (geneflow/), over the routes, under the markers. */
 const GENE_FLOW_LAYERS = ["gene-flow-casing", "gene-flow-line", "gene-flow-head", "gene-flow-ring"];
-const GENE_FLOW_COLOR = "#ff7eb6";
+const GENE_FLOW_COLOR = "#b98a9f";
 
 /**
  * Large screens: the height the time slider covers at the bottom of the map. Kept as the map's
@@ -757,7 +757,7 @@ export default function MapView() {
         source: "routes",
         filter: ["!=", ["get", "head"], true],
         layout: { "line-cap": "round", "line-join": "round" },
-        paint: { "line-color": "rgba(10, 14, 26, 0.7)", "line-width": 6.5 },
+        paint: { "line-color": "rgba(16, 18, 20, 0.7)", "line-width": 6.5 },
       });
       map.addLayer({
         id: "route-line",
@@ -780,7 +780,7 @@ export default function MapView() {
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
         },
-        paint: { "icon-color": ["get", "color"], "icon-halo-color": "rgba(10, 14, 26, 0.8)", "icon-halo-width": 2 },
+        paint: { "icon-color": ["get", "color"], "icon-halo-color": "rgba(16, 18, 20, 0.8)", "icon-halo-width": 2 },
       });
       map.addSource("gene-flow", { type: "geojson", data: EMPTY });
       map.addLayer({
@@ -789,7 +789,7 @@ export default function MapView() {
         source: "gene-flow",
         filter: ["==", ["geometry-type"], "MultiLineString"],
         layout: { "line-cap": "round", "line-join": "round" },
-        paint: { "line-color": "rgba(10, 14, 26, 0.7)", "line-width": 5.5 },
+        paint: { "line-color": "rgba(16, 18, 20, 0.7)", "line-width": 5.5 },
       });
       map.addLayer({
         id: "gene-flow-line",
@@ -812,7 +812,7 @@ export default function MapView() {
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
         },
-        paint: { "icon-color": GENE_FLOW_COLOR, "icon-halo-color": "rgba(10, 14, 26, 0.8)", "icon-halo-width": 2 },
+        paint: { "icon-color": GENE_FLOW_COLOR, "icon-halo-color": "rgba(16, 18, 20, 0.8)", "icon-halo-width": 2 },
       });
       map.addLayer({
         id: "gene-flow-ring",
@@ -848,7 +848,7 @@ export default function MapView() {
             "circle-color": ["get", "color"],
             "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, dnaRadius(0.7), 6, dnaRadius(1.3)],
             // Hollow (nothing called): a pale ring instead of the dark one.
-            "circle-stroke-color": ["case", ["==", ["get", "color"], NONE_COLOR], "#c9c6bd", "rgba(10, 14, 26, 0.75)"],
+            "circle-stroke-color": ["case", ["==", ["get", "color"], NONE_COLOR], "#c9c6bd", "rgba(16, 18, 20, 0.75)"],
             "circle-stroke-width": ["case", ["==", ["get", "color"], NONE_COLOR], 1.5, 1.2],
             "circle-opacity": 0.9,
           },
@@ -896,7 +896,7 @@ export default function MapView() {
         source: "tour-path",
         filter: ["==", ["get", "kind"], "line"],
         layout: { "line-cap": "round", "line-join": "round" },
-        paint: { "line-color": "rgba(10, 14, 26, 0.55)", "line-width": 4.5 },
+        paint: { "line-color": "rgba(16, 18, 20, 0.55)", "line-width": 4.5 },
       });
       map.addLayer({
         id: "path-line",
@@ -911,7 +911,7 @@ export default function MapView() {
         type: "circle",
         source: "tour-path",
         filter: ["==", ["get", "kind"], "stop"],
-        paint: { "circle-color": TRAIL_GOLD, "circle-radius": 3.5, "circle-opacity": 0.85, "circle-stroke-color": "rgba(10, 14, 26, 0.7)", "circle-stroke-width": 1 },
+        paint: { "circle-color": TRAIL_GOLD, "circle-radius": 3.5, "circle-opacity": 0.85, "circle-stroke-color": "rgba(16, 18, 20, 0.7)", "circle-stroke-width": 1 },
       });
       map.addLayer({
         id: "path-head",
@@ -981,7 +981,7 @@ export default function MapView() {
         filter: ["==", ["get", "kind"], "circle"],
         // A country or continent lies over land, where 0.1 barely shows.
         paint: {
-          "fill-color": ["case", ["has", "area"], "#d9822b", "#f0bd78"],
+          "fill-color": ["case", ["has", "area"], "#b58a5a", "#cdb084"],
           "fill-opacity": ["case", ["has", "area"], 0.3, 0.1],
         },
       });
@@ -990,7 +990,7 @@ export default function MapView() {
         type: "line",
         source: "place-circle",
         filter: ["==", ["get", "kind"], "circle"],
-        paint: { "line-color": "#f0bd78", "line-width": 2, "line-opacity": 0.85, "line-dasharray": [3, 2] },
+        paint: { "line-color": "#cdb084", "line-width": 2, "line-opacity": 0.85, "line-dasharray": [3, 2] },
       });
       map.addLayer({
         id: "place-circle-center",

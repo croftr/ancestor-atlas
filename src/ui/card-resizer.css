@@ -8,11 +8,11 @@
 /* A thin line along the edge, showing on hover, focus and while dragging. */
 .card-resize::before {
   content: ""; position: absolute; top: 12px; bottom: 12px; left: 5px; width: 2px; border-radius: 1px;
-  background: #8ec5ff; opacity: 0; transition: opacity 0.15s ease;
+  background: #a9bccf; opacity: 0; transition: opacity 0.15s ease;
 }
 .card-resize-grip {
   position: relative; width: 6px; height: 36px; border-radius: 3px;
-  background: rgba(14, 19, 36, 0.9); border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(19, 21, 24, 0.9); border: 1px solid rgba(255, 255, 255, 0.28);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   opacity: 0; transition: opacity 0.15s ease;
 }

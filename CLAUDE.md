@@ -165,7 +165,7 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   (part_of first). Civilization and culture cards and pages list their cities (`citiesOf` in `src/browse/browse.ts`,
   which counts a group's members). Events may name a city in `related` (writing and the wheel name Uruk; Indus cities
   names Mohenjo-daro); a city may not name an event or another city (validator).
-- Globe: a sky-blue disc (`#74c0fc`, ink `#0b3a5e`) with a walled-city icon (drawn by hand in `CategoryIcon.tsx`, not
+- Globe: a slate-blue disc (`#86a3bb`, ink `#14283a`) with a walled-city icon (drawn by hand in `CategoryIcon.tsx`, not
   traced from design/icons), above species sites and under events (`city-dots`, `city-icons` in `src/map/layers.ts`).
   Timeline: a Cities lane after Civilizations. Legend layer toggle, What Was Here? and search come from
   `CATEGORIES`. The intro dialog still shows four highlights (no Cities line yet).
@@ -174,6 +174,10 @@ current state that the README does not cover. Data state as of 12 Oct 2026.
   `public/images/extra/<id>-<n>.webp` (same rules as the other extras). Narration (`npm run audio:narrate -- <id>`,
   key `narration/cities/`), videos (`npm run video:species -- <id>`, `video/cities/`) and ambience
   (`ambience/cities/`) all know about cities. Descriptions written by Claude from the pinned articles (Rob to review).
+
+## Sober theme (5 Nov 2026)
+
+- Rob asked for a more serious, less fun look: graphite surfaces (`#111316`), muted category colours (`CATEGORY_STYLE` in `src/config.ts`), steel links, a bone primary button, 4-6 px corners instead of pills, regular-weight Georgia names, flat controls, no hover lifts or zooms; plain stars with no nebula or shooting stars; one tone for the era chips; a duller default basemap. Unchanged: the DNA colours (colour-blind checked), the sky objects, the pictures, and the civilization colours (`scripts/lib/colors.ts`, part of the data build).
 
 ## Cards (redone 28 Oct 2026)
 
@@ -491,15 +495,13 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   from recall: check them against the papers. `phylogeny.test.ts` checks every species is placed exactly once.
   A new species must be added to the tree (the test fails until it is).
 
-## Star background (`src/map/SpaceBackground.tsx`, added to 17 Oct 2026)
+## Star background (`src/map/SpaceBackground.tsx`, added to 17 Oct 2026; made plainer 5 Nov 2026)
 
-- Shooting stars: one every 25–60 s (50–100 s in a tour; `METEOR_GAP`), under a second, across an upper corner heading
-  away from the globe; one in five brighter with a fading trail. Own canvas, nothing runs between them.
 - Climate tint: two glow layers (`.space-tint.cold` / `.warm` in index.css) faded in by the LR04 δ18O of the slider's
   year (`useSkyTint`): icy blue in glacials, rose-amber in warm spells, neutral today and before the record.
 - Drift: the star canvases reach 40 px past each edge (`SKY_MARGIN`) and slide a little against the globe's
   turning, then settle back (`--sky-x` / `--sky-y`, set in `MapView.tsx`).
-- Shooting stars and drift are off for reduced motion.
+- Drift is off for reduced motion.
 - In the sky (added 1 Nov 2026): `src/sky/sky.ts` lists 31 sky events of six kinds: supernovae (iron-60 waves,
   Geminga, Vela), new stars (Hipparchus, Han 5/4 BCE), comets (Halley's returns, Hale–Bopp, Swift–Tuttle, the 371 BCE
   great comet, Caesar's), solar eclipses (total or annular), auroras (Laschamp, Miyake storms) and the Jupiter–Venus

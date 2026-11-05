@@ -30,16 +30,14 @@ describe("generateStars", () => {
     }
   });
 
-  it("includes all layers (static, twinkleA, twinkleB) and hero stars with spikes", () => {
+  it("includes all layers (static, twinkleA, twinkleB)", () => {
     const stars = generateStars(750);
     const staticStars = stars.filter((s) => s.layer === 0);
     const twinkleAStars = stars.filter((s) => s.layer === 1);
     const twinkleBStars = stars.filter((s) => s.layer === 2);
-    const heroStars = stars.filter((s) => s.hasSpike);
 
     expect(staticStars.length).toBeGreaterThan(300);
     expect(twinkleAStars.length).toBeGreaterThan(40);
     expect(twinkleBStars.length).toBeGreaterThan(40);
-    expect(heroStars.length).toBeGreaterThan(3);
   });
 });

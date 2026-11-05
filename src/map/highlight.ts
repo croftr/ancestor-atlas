@@ -7,7 +7,7 @@
 import type { ExpressionSpecification, FilterSpecification, LayerSpecification } from "maplibre-gl";
 
 export const HIGHLIGHT_SOURCE = "highlight";
-export const HIGHLIGHT_GOLD = "#ffd98a";
+export const HIGHLIGHT_GOLD = "#d8c08c";
 const RING = "#fff4d6";
 
 /** Ripples on arrival: each starts this far after the one before, and lasts `RIPPLE`. */
@@ -81,7 +81,7 @@ export const HIGHLIGHT_RINGS: LayerSpecification[] = [
     paint: {
       "circle-color": "rgba(0, 0, 0, 0)",
       "circle-radius": 18,
-      "circle-stroke-color": "rgba(10, 14, 26, 0.7)",
+      "circle-stroke-color": "rgba(16, 18, 20, 0.7)",
       "circle-stroke-width": boost(6, 8),
     },
   },
