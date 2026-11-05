@@ -25,14 +25,14 @@ interface Tab {
 }
 
 export const TABS: Tab[] = [
-  { view: "timeline", label: "Timeline", icon: TimelineIcon, accent: "#a9bccf" },
+  { view: "timeline", label: "Timeline", icon: TimelineIcon, accent: "#8ec5ff" },
   { view: "events", label: "Events", icon: <CategoryIcon category="event" />, accent: CATEGORY_STYLE.event.color },
   { view: "species", label: "Species", icon: <CategoryIcon category="species" />, accent: CATEGORY_STYLE.species.color },
   { view: "cultures", label: "Cultures", icon: <CategoryIcon category="culture" />, accent: CATEGORY_STYLE.culture.color },
   { view: "civilizations", label: "Civilizations", icon: <CategoryIcon category="civilization" />, accent: CATEGORY_STYLE.civilization.color },
   { view: "cities", label: "Cities", icon: <CategoryIcon category="city" />, accent: CATEGORY_STYLE.city.color },
   { view: "sky", label: "Sky", icon: <SkyIcon />, accent: SKY_STYLE.color },
-  { view: "tours", label: "Tours", icon: ToursIcon, accent: "#c9c4b6" },
+  { view: "tours", label: "Tours", icon: ToursIcon, accent: "#c39bff" },
 ];
 
 export const isTabView = (v: View) => TABS.some((t) => t.view === v);

@@ -57,7 +57,7 @@ export const ROUTES: Route[] = [
     name: "Out of Africa: the southern route",
     description:
       "Modern humans crossed the Red Sea at Bab-el-Mandeb, when the sea was low, and followed the coasts of Arabia and Persia to South Asia, then on to Southeast Asia and across the sea gaps of Wallacea to Sahul (Australia and New Guinea) by 65,000 to 50,000 years ago.",
-    color: "#c99a5b",
+    color: "#ff9f1c",
     until: ICE_AGE_END,
     source: EARLY_MIGRATIONS,
     waypoints: [
@@ -80,7 +80,7 @@ export const ROUTES: Route[] = [
     name: "Out of Africa: through the Levant into Europe",
     description:
       "A second way out ran down the Nile and across Sinai into the Levant. From there modern humans reached Europe by about 45,000 years ago and spread across it over the next 15,000 to 20,000 years, as the Neanderthals disappeared.",
-    color: "#bd7277",
+    color: "#ff5d73",
     until: ICE_AGE_END,
     source: EARLY_MIGRATIONS,
     waypoints: [
@@ -101,7 +101,7 @@ export const ROUTES: Route[] = [
     name: "Into northern Asia",
     description:
       "From the Near East, modern humans moved through the Zagros and out onto the steppes of Central Asia and Siberia, reaching western Siberia by 45,000 years ago and the Arctic coast of eastern Siberia by about 32,000 years ago.",
-    color: "#a58cb8",
+    color: "#c77dff",
     until: ICE_AGE_END,
     source: EARLY_MIGRATIONS,
     waypoints: [
@@ -118,7 +118,7 @@ export const ROUTES: Route[] = [
     name: "Into East Asia",
     description:
       "The ancestors of today's East Asians spread north from mainland Southeast Asia in several waves. One of them reached northern China, where Tianyuan Cave near Beijing holds a modern human skeleton about 40,000 years old.",
-    color: "#74a88f",
+    color: "#3ddc97",
     until: ICE_AGE_END,
     source: EARLY_MIGRATIONS,
     waypoints: [
@@ -133,7 +133,7 @@ export const ROUTES: Route[] = [
     name: "Into the Americas",
     description:
       "People from northeast Asia crossed Beringia, the land bridge exposed between Siberia and Alaska while sea levels were low. Footprints at White Sands show they were in North America by about 22,000 years ago, and by 14,500 years ago they had reached Monte Verde in southern Chile. Both an inland route, between the ice sheets once they parted, and a route down the Pacific coast have been proposed; the line follows the coast.",
-    color: "#7ba9ba",
+    color: "#4cc9f0",
     until: ICE_AGE_END,
     source: EARLY_MIGRATIONS,
     waypoints: [
@@ -156,7 +156,7 @@ export const ROUTES: Route[] = [
     name: "Farming into Europe: the Danube route",
     description:
       "Farming reached Europe from Anatolia. Early farmers were in Greece by about 6500 BCE and soon afterwards in the Balkans (the Starčevo–Körös–Criș culture). Their descendants, the Linear Pottery farmers, then carried it up the Danube and across central Europe as far as the Paris Basin by about 5300 BCE. Farming spread about a kilometre a year, carried mostly by the farmers themselves rather than taken up by the hunter-gatherers already there.",
-    color: "#c9ab74",
+    color: "#f6bd60",
     until: FARMING_DONE,
     source: NEOLITHIC_EUROPE,
     waypoints: [
@@ -175,7 +175,7 @@ export const ROUTES: Route[] = [
     name: "Farming into Europe: along the Mediterranean",
     description:
       "A second wave of farmers travelled by boat along the northern shores of the Mediterranean, from the Aegean round Italy to southern France, Spain and Portugal. They are known for Cardial pottery, decorated by pressing the edge of a cockle shell into the wet clay. Ancient DNA traces them, like the Danube farmers, back to the first farmers of Anatolia.",
-    color: "#c9ab74",
+    color: "#f6bd60",
     until: FARMING_DONE,
     source: NEOLITHIC_EUROPE,
     waypoints: [
@@ -199,7 +199,7 @@ export const ROUTES: Route[] = [
     name: "The Austronesian expansion: out of Taiwan",
     description:
       "From Taiwan, farmers and fishers speaking Austronesian languages sailed south to the Batanes Islands and Luzon by about 2200 BCE. Their descendants crossed to the Mariana Islands and the Bismarck Archipelago, where the Lapita culture appears around 1350 BCE, then sailed out past the last inhabited islands to Vanuatu, Fiji and, by about 900 BCE, Tonga and Samoa. Another branch, not drawn here, went west as far as Madagascar.",
-    color: "#7cacb3",
+    color: "#56cfe1",
     until: MAX_YEAR,
     source: LAPITA,
     waypoints: [
@@ -219,7 +219,7 @@ export const ROUTES: Route[] = [
     name: "The Bantu expansion: the eastern stream",
     description:
       "Bantu-speaking farmers spread out from the highlands between Cameroon and Nigeria. One stream went east around the northern edge of the rainforest and reached the lands west of Lake Victoria by about 500 BCE, where they were smelting iron. From there farmers went on south through Malawi and Zimbabwe, reaching South Africa by around 300 CE, after the globe's timeline ends. A western stream, not drawn here for want of a dated site on the globe, went south through the rainforest and along the Atlantic coast to central Angola by about 500 BCE.",
-    color: "#b87a66",
+    color: "#e76f51",
     until: MAX_YEAR,
     source: BANTU,
     waypoints: [

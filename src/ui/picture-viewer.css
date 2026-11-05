@@ -1,7 +1,7 @@
 /* Full-screen picture viewer (PictureViewer.tsx), opened from the info card's picture. */
 .pv {
   position: fixed; inset: 0; z-index: 55;
-  background: #04060c; color: #f0efeb;
+  background: #04060c; color: #f0f4fc;
   overflow: hidden;
   animation: pv-in 0.28s ease both;
   /* Room for the header above and the caption below the picture. */
@@ -19,7 +19,7 @@
 /* Darker towards the top and bottom, where the text sits. */
 .pv-ambient::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(6, 7, 9, 0.7), transparent 22%, transparent 70%, rgba(6, 7, 9, 0.85));
+  background: linear-gradient(to bottom, rgba(4, 6, 12, 0.7), transparent 22%, transparent 70%, rgba(4, 6, 12, 0.85));
 }
 
 .pv-stage {
@@ -53,14 +53,14 @@
 
 .pv-close, .pv-arrow, .pv-tour button {
   display: grid; place-items: center; padding: 0; cursor: pointer;
-  color: #f0efeb;
-  background: rgba(19, 21, 24, 0.6);
+  color: #f0f4fc;
+  background: rgba(14, 19, 36, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 .pv-close:hover, .pv-arrow:hover, .pv-tour button:hover:not(:disabled) { background: rgba(24, 32, 60, 0.92); border-color: rgba(255, 255, 255, 0.45); }
-.pv-close:focus-visible, .pv-arrow:focus-visible, .pv-tour button:focus-visible, .pv-dot:focus-visible { outline: 2px solid #a9bccf; outline-offset: 2px; }
+.pv-close:focus-visible, .pv-arrow:focus-visible, .pv-tour button:focus-visible, .pv-dot:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 2px; }
 .pv-close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; }
 .pv-arrow {
   position: absolute; top: calc((var(--pv-top) + 100% - var(--pv-bottom)) / 2); translate: 0 -50%;
@@ -92,17 +92,17 @@ button.pv-dot { cursor: pointer; }
 .pv-tour {
   display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
   width: min(440px, 100%);
-  padding: 8px 12px 6px; border-radius: 6px;
+  padding: 8px 12px 6px; border-radius: 12px;
   background: rgba(10, 14, 28, 0.6); border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
 .pv-tour button { width: 34px; height: 34px; border-radius: 50%; }
 .pv-tour button:disabled { opacity: 0.35; cursor: default; }
-.pv-tour .pv-tour-play { width: 40px; height: 40px; background: rgba(201, 196, 182, 0.25); border-color: rgba(201, 196, 182, 0.55); }
+.pv-tour .pv-tour-play { width: 40px; height: 40px; background: rgba(195, 155, 255, 0.25); border-color: rgba(195, 155, 255, 0.55); }
 .pv-tour-text { flex: 1; min-width: 0; font-size: 0.8rem; color: #c8d2e8; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pv-tour-progress { flex: 0 0 100%; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
 .pv-tour-progress span {
-  display: block; height: 100%; background: #c9c4b6; transform-origin: left;
+  display: block; height: 100%; background: #c39bff; transform-origin: left;
   animation: tour-hold linear forwards;
 }
 
@@ -130,14 +130,14 @@ button.pv-dot { cursor: pointer; }
   position: absolute; top: 8px; right: 8px; z-index: 2;
   width: 30px; height: 30px; border-radius: 50%;
   display: grid; place-items: center; padding: 0;
-  color: #f0efeb; background: rgba(19, 21, 24, 0.66);
+  color: #f0f4fc; background: rgba(14, 19, 36, 0.66);
   border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
   opacity: 0; transition: opacity 0.18s ease, background 0.15s ease;
   cursor: pointer;
 }
 .pv-open:hover .pv-open-hint, .pv-open-hint:focus-visible { opacity: 1; }
-.pv-open-hint:focus-visible { outline: 2px solid #a9bccf; outline-offset: 1px; }
+.pv-open-hint:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
 /* No hover on touch screens, and during a tour: always show it. */
 @media (hover: none) { .pv-open-hint { opacity: 1; } }
 .app.touring .pv-open-hint { opacity: 1; }
@@ -148,9 +148,9 @@ button.pv-dot { cursor: pointer; }
 .pv-mini {
   position: fixed; z-index: 61; padding: 0; border-radius: 50%; cursor: pointer;
   background: none; border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 0 0 4px rgba(6, 7, 9, 0.35), 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 4px rgba(4, 6, 12, 0.35), 0 10px 30px rgba(0, 0, 0, 0.5);
   animation: pv-in 0.4s 0.3s ease both;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.pv-mini:hover { border-color: rgba(169, 188, 207, 0.8); box-shadow: 0 0 0 4px rgba(169, 188, 207, 0.18), 0 10px 30px rgba(0, 0, 0, 0.5); }
-.pv-mini:focus-visible { outline: 2px solid #a9bccf; outline-offset: 3px; }
+.pv-mini:hover { border-color: rgba(142, 197, 255, 0.8); box-shadow: 0 0 0 4px rgba(142, 197, 255, 0.18), 0 10px 30px rgba(0, 0, 0, 0.5); }
+.pv-mini:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 3px; }

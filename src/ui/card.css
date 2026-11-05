@@ -3,16 +3,16 @@
  * (EntityDetail.tsx, EventsPage.tsx) share these (pieces in CardParts.tsx).
  *
  * Text colours, on the card's near-opaque navy (contrast against #0e1422):
- *   --card-text #e8e6e1 (15:1), --card-text-2 #c6c7ca (11:1), --card-muted #9b9ea3 (6.6:1),
- *   --card-link #a9bccf (9.8:1). Category tints are mixed with white for the eyebrow (5.5:1 or more).
+ *   --card-text #e8ecf4 (15:1), --card-text-2 #c3cbdc (11:1), --card-muted #929db3 (6.6:1),
+ *   --card-link #8ec5ff (9.8:1). Category tints are mixed with white for the eyebrow (5.5:1 or more).
  */
 .info-panel,
 .ev-detail {
-  --card-text: #e8e6e1;
-  --card-text-2: #c6c7ca;
-  --card-muted: #9b9ea3;
+  --card-text: #e8ecf4;
+  --card-text-2: #c3cbdc;
+  --card-muted: #929db3;
   --card-line: rgba(255, 255, 255, 0.08);
-  --card-link: #a9bccf;
+  --card-link: #8ec5ff;
   --card-well: rgba(255, 255, 255, 0.045);
 }
 
@@ -80,7 +80,7 @@
 }
 .card-sub-pill {
   padding: 1px 8px;
-  border-radius: 4px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.74rem;
@@ -126,7 +126,7 @@
   min-width: 0;
   padding: 2px 2px 4px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background: none;
   color: var(--card-text-2);
   touch-action: manipulation;
@@ -138,12 +138,12 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(169, 188, 207, 0.1);
-  border: 1px solid rgba(169, 188, 207, 0.22);
-  color: #b8c7d4;
+  background: rgba(142, 197, 255, 0.1);
+  border: 1px solid rgba(142, 197, 255, 0.22);
+  color: #a6d2ff;
   transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.08s ease;
 }
-.card-action:hover .card-action-icon { background: rgba(169, 188, 207, 0.2); border-color: rgba(169, 188, 207, 0.5); color: #fff; }
+.card-action:hover .card-action-icon { background: rgba(142, 197, 255, 0.2); border-color: rgba(142, 197, 255, 0.5); color: #fff; }
 .card-action:active .card-action-icon { transform: scale(0.94); }
 .card-action:focus-visible { outline: none; }
 .card-action:focus-visible .card-action-icon { outline: 2px solid var(--card-link); outline-offset: 2px; }
@@ -159,8 +159,8 @@
   gap: 2px;
   height: 17px;
   padding: 0 5px;
-  border-radius: 5px;
-  background: #c9c4b6;
+  border-radius: 9px;
+  background: #c39bff;
   color: #1f0f40;
   font-size: 0.62rem;
   font-weight: 700;
@@ -200,7 +200,7 @@
 }
 .card-count {
   padding: 0 6px;
-  border-radius: 4px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--card-text-2);
   font-size: 0.66rem;
@@ -243,7 +243,7 @@
   min-height: 32px;
   padding: 6px 8px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   background: none;
   color: var(--card-text);
   text-align: left;
@@ -260,7 +260,7 @@
 .card-site {
   margin-top: 16px;
   padding: 11px 13px 12px;
-  border-radius: 6px;
+  border-radius: 12px;
   background: var(--card-well);
   border: 1px solid var(--card-line);
 }
@@ -276,7 +276,7 @@
   align-items: center;
   gap: 5px;
   padding: 1px 8px 1px 7px;
-  border-radius: 4px;
+  border-radius: 999px;
   font-size: 0.74rem;
   font-weight: 600;
   color: var(--conf);
@@ -284,9 +284,9 @@
   border: 1px solid color-mix(in srgb, var(--conf) 32%, transparent);
 }
 .card-conf::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.card-conf.conf-high { --conf: #8db8a0; }
-.card-conf.conf-medium { --conf: #c6b070; }
-.card-conf.conf-low { --conf: #c58f85; }
+.card-conf.conf-high { --conf: #6ee09c; }
+.card-conf.conf-medium { --conf: #e8c95c; }
+.card-conf.conf-low { --conf: #ff8e7e; }
 
 /* ---- Sources: folded under one line at the foot of the card ---- */
 .card-sources { margin-top: 18px; border-top: 1px solid var(--card-line); }
@@ -297,7 +297,7 @@
   min-height: 44px;
   margin: 0 -6px;
   padding: 0 6px;
-  border-radius: 4px;
+  border-radius: 8px;
   list-style: none;
   cursor: pointer;
   color: var(--card-text-2);
@@ -350,13 +350,13 @@
   gap: 6px;
   margin: -2px 0 10px;
   padding: 3px;
-  border-radius: 4px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
   font-size: 0.76rem;
   color: #aab4c8;
 }
 .now-count { flex: 1; min-width: 0; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.now-count strong { color: #e8e6e1; font-weight: 650; font-variant-numeric: tabular-nums; }
+.now-count strong { color: #e8ecf4; font-weight: 650; font-variant-numeric: tabular-nums; }
 .now-step {
   flex: none;
   width: 30px;
@@ -364,11 +364,11 @@
   display: grid;
   place-items: center;
   border: 0;
-  border-radius: 4px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.07);
   color: #dfe6f3;
   cursor: pointer;
 }
 .now-step:hover { background: rgba(255, 255, 255, 0.15); }
-.now-step:focus-visible { outline: 2px solid #a9bccf; outline-offset: 1px; }
+.now-step:focus-visible { outline: 2px solid #8ec5ff; outline-offset: 1px; }
 

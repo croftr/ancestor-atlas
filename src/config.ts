@@ -3,27 +3,27 @@ import type { EraIconName } from "./ui/EraIcon";
 // `ink`: a dark shade of `color` for the icon and outline on a category badge or map marker
 // (softer than black; each at least 4:1 contrast against `color`).
 export const CATEGORY_STYLE = {
-  species: { label: "Species", color: "#c8a96a", ink: "#3a2a0c", shape: "Point sites" },
-  culture: { label: "Cultures", color: "#6f9f8b", ink: "#102e25", shape: "Fuzzy zones" },
-  civilization: { label: "Civilizations", color: "#b5615c", ink: "#2c0d0c", shape: "Territories" },
-  city: { label: "Cities", color: "#86a3bb", ink: "#14283a", shape: "Towns and cities" },
-  event: { label: "Events", color: "#a897b4", ink: "#2b2036", shape: "Moments" },
+  species: { label: "Species", color: "#ffd166", ink: "#5a3a0c", shape: "Point sites" },
+  culture: { label: "Cultures", color: "#06d6a0", ink: "#0a4535", shape: "Fuzzy zones" },
+  civilization: { label: "Civilizations", color: "#ef476f", ink: "#4a0b1d", shape: "Territories" },
+  city: { label: "Cities", color: "#74c0fc", ink: "#0b3a5e", shape: "Towns and cities" },
+  event: { label: "Events", color: "#c39bff", ink: "#3a1a6b", shape: "Moments" },
 } as const;
 
 // Era jump chips under the time slider, each tied to an event in events.yaml: the chip jumps to the event's year
 // (snapped to the slider), so the event is always on the globe when you land. Oldest first. `icon` names a pictogram
-// in ui/EraIcon.tsx and `tint` colours it (one quiet bone tone for all).
+// in ui/EraIcon.tsx and `tint` colours it (earthy tones: bone, flint, ochre, wheat, bronze, marble).
 export const ERA_PRESETS: { label: string; event: string; icon: EraIconName; tint: string }[] = [
-  { label: "First hominins", event: "hominin-divergence", icon: "skull", tint: "#bdb7a8" },
-  { label: "First tools", event: "lomekwian-tools", icon: "handaxe", tint: "#bdb7a8" },
-  { label: "Out of Africa", event: "out-of-africa-dmanisi", icon: "migration", tint: "#bdb7a8" },
-  { label: "Fire", event: "control-of-fire", icon: "fire", tint: "#bdb7a8" },
-  { label: "Modern humans", event: "modern-humans-emerge", icon: "footprints", tint: "#bdb7a8" },
-  { label: "Cave art", event: "figurative-cave-art", icon: "cave-animal", tint: "#bdb7a8" },
-  { label: "First farmers", event: "birth-of-agriculture", icon: "wheat", tint: "#bdb7a8" },
-  { label: "Bronze Age", event: "bronze-age", icon: "dagger", tint: "#bdb7a8" },
-  { label: "Pyramids", event: "great-pyramid", icon: "pyramid", tint: "#bdb7a8" },
-  { label: "Coinage", event: "minted-coinage", icon: "coin", tint: "#bdb7a8" },
+  { label: "First hominins", event: "hominin-divergence", icon: "skull", tint: "#e6dcc4" },
+  { label: "First tools", event: "lomekwian-tools", icon: "handaxe", tint: "#b9c1cc" },
+  { label: "Out of Africa", event: "out-of-africa-dmanisi", icon: "migration", tint: "#e8a865" },
+  { label: "Fire", event: "control-of-fire", icon: "fire", tint: "#ff9a4d" },
+  { label: "Modern humans", event: "modern-humans-emerge", icon: "footprints", tint: "#d9b48a" },
+  { label: "Cave art", event: "figurative-cave-art", icon: "cave-animal", tint: "#e0794f" },
+  { label: "First farmers", event: "birth-of-agriculture", icon: "wheat", tint: "#f0c85a" },
+  { label: "Bronze Age", event: "bronze-age", icon: "dagger", tint: "#d39a5b" },
+  { label: "Pyramids", event: "great-pyramid", icon: "pyramid", tint: "#e9e2d2" },
+  { label: "Coinage", event: "minted-coinage", icon: "coin", tint: "#e0b94f" },
 ];
 
 // Timeline eras: the chunks the timeline's Earlier / Later buttons step through, oldest first.
@@ -54,7 +54,7 @@ export const BASEMAP_THEMES: Record<string, BasemapTheme> = {
   slate: { label: "Slate", bg: "#3b4f66", fill: "#8d9bab", line: "#c3ccd6", ice: "#e8eff6" },
   atlas: { label: "Atlas", bg: "#a9c6d9", fill: "#ece3c8", line: "#9c8f69", ice: "#ffffff" },
   natural: { label: "Natural", bg: "#8fb3c4", fill: "#b9c79a", line: "#6f8a5c", ice: "#f2f7fa" },
-  dusk: { label: "Dusk", bg: "#1b2a38", fill: "#a9a48f", line: "#6b6754", ice: "#d9dfe3" },
+  dusk: { label: "Dusk", bg: "#1f3a54", fill: "#d9c9a3", line: "#8a7b57", ice: "#eef3f8" },
   night: { label: "Night", bg: "#0a1424", fill: "#2a3652", line: "#5b6f96", ice: "#9fb2d1" },
 };
 

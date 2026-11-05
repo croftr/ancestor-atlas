@@ -14,7 +14,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 14px 16px;
-  border-radius: 6px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -42,7 +42,7 @@
 
 .sc-dot.a {
   background: var(--color-a);
-  box-shadow: 0 0 8px rgba(200, 169, 106, 0.55);
+  box-shadow: 0 0 8px rgba(246, 185, 91, 0.55);
 }
 
 .sc-dot.b {
@@ -54,10 +54,10 @@
   flex: 1;
   min-width: 0;
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #131a2e;
-  color: #eeede9;
+  color: #eef2fa;
   font: inherit;
   font-size: 0.95rem;
   font-weight: 600;
@@ -73,16 +73,16 @@
 }
 
 .sc-select:focus-visible {
-  outline: 2px solid #a9bccf;
+  outline: 2px solid #8ec5ff;
   outline-offset: 1px;
 }
 
 .sc-swap-btn {
   padding: 6px 11px;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(255, 255, 255, 0.06);
-  color: #cfd1d4;
+  color: #cbd3e6;
   font-size: 0.85rem;
   font-weight: 600;
   transition: background 0.14s ease, color 0.14s ease;
@@ -102,14 +102,14 @@
 
 .sc-presets-label {
   font-size: 0.78rem;
-  color: #979a9f;
+  color: #8b95ab;
   margin-right: 4px;
 }
 
 /* Shared Timeline & Overlap Section */
 .sc-timeline-card {
   padding: 16px 18px;
-  border-radius: 6px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -135,21 +135,21 @@
   align-items: center;
   gap: 6px;
   padding: 3px 10px;
-  border-radius: 4px;
+  border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
 }
 
 .sc-overlap-badge.overlapped {
-  background: rgba(125, 165, 145, 0.16);
-  border: 1px solid rgba(125, 165, 145, 0.45);
-  color: #aecdb9;
+  background: rgba(110, 220, 155, 0.16);
+  border: 1px solid rgba(110, 220, 155, 0.45);
+  color: #9fe8bc;
 }
 
 .sc-overlap-badge.separated {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #bcbec2;
+  color: #b8c1d6;
 }
 
 .sc-bars {
@@ -185,7 +185,7 @@
 .sc-bar-track {
   position: relative;
   height: 14px;
-  border-radius: 4px;
+  border-radius: 7px;
   background: rgba(255, 255, 255, 0.07);
   overflow: hidden;
 }
@@ -195,7 +195,7 @@
   top: 0;
   bottom: 0;
   min-width: 6px;
-  border-radius: 4px;
+  border-radius: 7px;
 }
 
 .sc-bar-fill.a {
@@ -212,8 +212,8 @@
   bottom: 0;
   background: repeating-linear-gradient(
     45deg,
-    rgba(200, 169, 106, 0.45),
-    rgba(200, 169, 106, 0.45) 5px,
+    rgba(246, 185, 91, 0.45),
+    rgba(246, 185, 91, 0.45) 5px,
     rgba(91, 200, 246, 0.45) 5px,
     rgba(91, 200, 246, 0.45) 10px
   );
@@ -256,7 +256,7 @@
 .sc-globe-card,
 .sc-lineage-card {
   padding: 16px 18px;
-  border-radius: 6px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -289,11 +289,11 @@
   left: 50%;
   transform: translateX(-50%);
   padding: 5px 10px;
-  border-radius: 4px;
-  background: rgba(16, 18, 20, 0.92);
+  border-radius: 8px;
+  background: rgba(10, 15, 28, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.16);
   font-size: 0.78rem;
-  color: #eeede9;
+  color: #eef2fa;
   white-space: nowrap;
   pointer-events: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -305,7 +305,7 @@
   gap: 12px;
   justify-content: center;
   font-size: 0.8rem;
-  color: #cfd1d4;
+  color: #cbd3e6;
 }
 
 .sc-globe-legend-item {
@@ -316,9 +316,9 @@
 
 .sc-closest-note {
   font-size: 0.82rem;
-  color: #cfd1d4;
+  color: #cbd3e6;
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 8px 10px;
   line-height: 1.4;
 }
@@ -326,7 +326,7 @@
 /* Lineage & Gene Flow */
 .sc-clade-box {
   padding: 12px 14px;
-  border-radius: 5px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
@@ -355,7 +355,7 @@
 
 .sc-geneflow-item {
   padding: 10px 12px;
-  border-radius: 4px;
+  border-radius: 8px;
   background: rgba(214, 160, 92, 0.08);
   border: 1px solid rgba(214, 160, 92, 0.28);
   font-size: 0.84rem;
@@ -376,7 +376,7 @@
 
 .sc-col {
   padding: 16px 18px;
-  border-radius: 6px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -401,10 +401,10 @@
 .sc-col-img {
   width: 88px;
   height: 88px;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   flex: none;
-  background: #1a1c20;
+  background: #141a33;
 }
 
 .sc-col-img img {
@@ -421,7 +421,7 @@
 
 .sc-col-date {
   font-size: 0.84rem;
-  color: #dfd0a8;
+  color: #ffe7a8;
   font-variant-numeric: tabular-nums;
 }
 
@@ -434,7 +434,7 @@
 
 .sc-stats-grid > div {
   padding: 8px 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -443,7 +443,7 @@
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #979a9f;
+  color: #8b95ab;
 }
 
 .sc-stats-grid dd {
@@ -462,12 +462,12 @@
 
 .sc-sites-summary {
   font-size: 0.82rem;
-  color: #a5a8ad;
+  color: #9aa8c4;
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 8px 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -493,13 +493,13 @@
   align-items: center;
   gap: 5px;
   padding: 3px 9px;
-  border-radius: 4px;
+  border-radius: 999px;
   font-size: 0.74rem;
   font-weight: 600;
-  background: rgba(12, 13, 15, 0.72);
+  background: rgba(8, 12, 26, 0.72);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #e8e6e1;
+  color: #e8ecf4;
   transition: opacity 0.14s ease, background 0.14s ease, color 0.14s ease;
 }
 
@@ -512,8 +512,8 @@
 }
 
 .sp-compare-quick:hover {
-  background: rgba(200, 169, 106, 0.3);
-  border-color: rgba(200, 169, 106, 0.65);
+  background: rgba(246, 185, 91, 0.3);
+  border-color: rgba(246, 185, 91, 0.65);
   color: #fff;
 }
 
