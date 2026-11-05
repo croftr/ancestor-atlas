@@ -2206,6 +2206,7 @@
   description: A major Bronze Age urban civilization spanning modern Pakistan and northwestern India, centered along the Indus and Ghaggar-Hakra river basins. Renowned for sophisticated urban grid planning, baked-brick architecture, advanced hydraulic sanitation systems, and standardized weights at metropolises like Harappa and Mohenjo-daro, the civilization maintained extensive maritime trade with ancient Mesopotamia.
   image_url: /images/civilisations/indus-valley.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/indus-valley-civilization-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Planned Bronze Age city of Mohenjo-daro with baked-brick streets, covered drainage, ox carts, and the Citadel mound overlooking the Indus River"
   related_ids: [mehrgarh]
   extra_images:
@@ -2239,6 +2240,7 @@
   description: A sophisticated pre-Roman civilization that flourished in Etruria (modern Tuscany, western Umbria, and northern Lazio) in central Italy. Organized into a wealthy confederation of independent city-states like Tarquinia and Veii, the Etruscans possessed advanced metalworking, terracotta sculpture, and divination traditions, deeply influencing early Roman culture, religion, and urban design.
   image_url: /images/civilisations/etruscans.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/etruscans-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Etruscan hilltop city with an aristocratic banquet, musicians playing aulos flutes, a terracotta-adorned temple, and rock-cut chamber tombs"
   extra_images:
     - { url: /images/extra/etruscans-1.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "The Sarcophagus of the Spouses from Cerveteri, monumental painted terracotta funerary monument depicting a banquet couple (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Sarcophage_des_%C3%A9poux_-_Mus%C3%A9e_du_Louvre_AGER_Cp_5194.1.jpg" }
@@ -2415,6 +2417,7 @@
   image_url: /images/civilisations/kingdom-of-kush.webp
   image_caption: Royal city of Meroë in Nubia with steep-sided sandstone pyramids, ironworking smiths, date palms, and caravan trade along the Upper Nile.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/kingdom-of-kush-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/kingdom-of-kush-1.webp, credit: "Prioryman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Granite sphinx of King Taharqa, Twenty-Fifth Dynasty Kushite pharaoh of Egypt and Nubia (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Sphinx_of_Taharqo.jpg" }
     - { url: /images/extra/kingdom-of-kush-2.webp, credit: "Hans Birger Nilsen, CC BY-SA 2.0, via Wikimedia Commons", caption: "Steep-sided sandstone royal burial pyramids of the Kushite rulers across the desert dunes at Meroë, Sudan", source: "https://commons.wikimedia.org/wiki/File:Among_the_pyramids_(34988567951).jpg" }
@@ -3341,6 +3344,7 @@
   image_url: /images/civilisations/seleucid-empire.webp
   image_caption: Seleucia on the Tigris in the Seleucid Empire, blending Greek colonnades and Babylonian glazed-brick gates with armored war elephants, the Antiochus Cylinder, and Cybele plate.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/seleucid-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/seleucid-empire-1.webp, credit: "Münzkabinett Berlin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Silver tetradrachm of Seleucus I Nicator (minted c. 300 BCE) showing Zeus Nikephoros and Athena fighting in a horned elephant biga (Münzkabinett Berlin)", source: "https://commons.wikimedia.org/wiki/File:Seleukiden-_Seleukos_I._-_M%C3%BCnzkabinett,_Berlin_-_5501386.jpg" }
     - { url: /images/extra/seleucid-empire-2.webp, credit: "Public domain, via Wikimedia Commons", caption: "Gilded silver votive plate depicting the goddess Cybele in a lion-drawn chariot, from the Hellenistic city of Ai-Khanoum, 3rd century BCE (National Museum of Afghanistan)", source: "https://commons.wikimedia.org/wiki/File:AiKhanoumPlateSharp.jpg" }
@@ -3440,6 +3444,7 @@
   image_url: /images/civilisations/parthian-empire.webp
   image_caption: Ctesiphon and Hatra in the Parthian Empire, featuring the bronze Shami nobleman statue, Nisa ivory rhytons, armored cataphract lancers, and horse archers firing the Parthian shot.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/parthian-empire-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/parthian-empire-1.webp, credit: "Nasser-sadeghi, CC BY-SA 4.0, via Wikimedia Commons", caption: "Monumental bronze statue of a Parthian prince or nobleman in aristocratic belted tunic from the sanctuary at Shami (National Museum of Iran, Tehran)", source: "https://commons.wikimedia.org/wiki/File:Parthian_man_statue.jpg" }
     - { url: /images/extra/parthian-empire-2.webp, credit: "Hans Birger Nilsen, CC BY 2.0, via Wikimedia Commons", caption: "Carved ivory drinking rhytons terminating in mythical horned lion-griffins and centaurs, from royal Old Nisa, 2nd century BCE (Turkmenistan)", source: "https://commons.wikimedia.org/wiki/File:Parthian_ivory_rhytons_from_Old_Nisa_(1)_(45282255565).jpg" }

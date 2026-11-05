@@ -397,6 +397,26 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Grand royal capital of Pataliputra: rhythmic chisel strikes against sandstone pillar, stone dust in the breeze, monks chanting softly, majestic war elephants low rumble and footfalls, distant Ganges river barge traffic, ending with a loud resonant elephant trumpeting roar",
     sound: { src: "ambience/civilizations/imperial-magadha-v2.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "0e3152c23e" },
   },
+  "indus-valley-civilization": {
+    prompt: "Planned Bronze Age brick city of Mohenjo-daro: ox cart wooden wheels creaking over brick paving, water trickling steadily through covered brick drains, clay pots clinking at a pottery stall, gentle river breeze from the Indus, murmuring voices",
+    sound: { src: "ambience/civilizations/indus-valley-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "721e0cfc4b" },
+  },
+  etruscans: {
+    prompt: "Etruscan open-air banquet: soft melodious double-flute aulos and plucking lyre, bronze wine pitchers pouring into terracotta cups, banqueters conversing and laughing gently, evening breeze rustling cypress trees, cicadas",
+    sound: { src: "ambience/civilizations/etruscans-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "5ef5472910" },
+  },
+  "parthian-empire": {
+    prompt: "Parthian desert citadel of Hatra: armored cataphract horses shifting and snorting, iron scale armor and bridle chains clinking, fluttering silk banners in the desert wind, distant camel calls, soft footsteps on stone paving",
+    sound: { src: "ambience/civilizations/parthian-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "70278c57f9" },
+  },
+  "kingdom-of-kush": {
+    prompt: "Meroë royal necropolis and town: steady rhythmic hammer blows from an iron-smelting furnace, donkey and camel hooves in sand, date palm leaves rustling in a warm desert breeze, distant Nile water, market traders murmuring",
+    sound: { src: "ambience/civilizations/kingdom-of-kush-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "674eb7005b" },
+  },
+  "seleucid-empire": {
+    prompt: "Seleucia on the Tigris: grand war elephant low rumble and heavy footfalls, bronze helmets and spear shafts clattering softly, scholars and merchants conversing in Greek and Aramaic, breeze through colonnades, river traffic",
+    sound: { src: "ambience/civilizations/seleucid-empire-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "bf8d64001f" },
+  },
   "olmec-civilization": {
     prompt: "Tropical Gulf lowland ceremonial centre: stone tools pecking and grinding at a huge basalt boulder, jade beads clicking, humid rainforest with frogs, insects and howler monkeys in the distance",
     sound: { src: "ambience/civilizations/olmec-civilization-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "3b2bf8f849" },
