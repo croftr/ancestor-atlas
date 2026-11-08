@@ -23,12 +23,29 @@ export default function BookNote({ tour }: { tour: Tour }) {
   // A card the viewer opens goes in the note's place, and the note comes back when that card closes.
   const otherCard = useStore((s) => s.selectedId !== null || s.groupId !== null || s.dnaSite !== null || s.skyId !== null || s.place !== null);
   const index = useStore((s) => s.tour?.index ?? 0);
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const [panelEl, setPanelEl] = useState<HTMLElement | null>(null);
   const stop = tour.stops[index];
   if (!shown || otherCard || !stop?.note || !tour.book) return null;
-  return <NoteCard key={index} tour={tour} index={index} />;
+  return (
+    <>
+      {!stacked && <CardResizer panel={panelEl} />}
+      <NoteCard key={index} tour={tour} index={index} stacked={stacked} setPanelEl={setPanelEl} />
+    </>
+  );
 }
 
-function NoteCard({ tour, index }: { tour: Tour; index: number }) {
+function NoteCard({
+  tour,
+  index,
+  stacked,
+  setPanelEl,
+}: {
+  tour: Tour;
+  index: number;
+  stacked: boolean;
+  setPanelEl: (el: HTMLElement | null) => void;
+}) {
   const data = useData();
   const skipNote = useStore((s) => s.skipNote);
   const timed = useStore((s) => s.tour?.notePicture ?? 0);
@@ -36,8 +53,6 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
   const [manual, setManual] = useState<number | null>(null);
   const viewerOpen = useStore((s) => s.pictureViewer);
   const setViewerOpen = useStore((s) => s.setPictureViewer);
-  const stacked = useMediaQuery(STACKED_QUERY);
-  const [panelEl, setPanelEl] = useState<HTMLElement | null>(null);
   const stop = tour.stops[index];
   const book = tour.book!;
   const note = stop.note!;
@@ -67,7 +82,6 @@ function NoteCard({ tour, index }: { tour: Tour; index: number }) {
   return (
     <>
     {viewer}
-    {!stacked && <CardResizer panel={panelEl} />}
     <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`From the book: ${title}`}>
       <div className="info-head">
         <div className="card-head">

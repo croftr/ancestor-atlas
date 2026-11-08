@@ -303,6 +303,7 @@ export const useStore = create<AppState>((set, get) => ({
       hits: [],
       groupId: entityId,
       dnaSite: null,
+      skyId: null,
       place: null,
       lastPlace: s.place ?? s.lastPlace,
       pictureViewer: s.tour ? s.pictureViewer : false,
@@ -317,6 +318,8 @@ export const useStore = create<AppState>((set, get) => ({
       enabled: { ...s.enabled, [f.category]: true },
       selectedId: f.id,
       groupId: null,
+      dnaSite: null,
+      skyId: null,
       place: null,
       lastPlace: s.place ?? s.lastPlace,
       hits: [f],
@@ -341,6 +344,8 @@ export const useStore = create<AppState>((set, get) => ({
     const bbox = unionBBox(boxes);
     set((s) => ({
       playing: false,
+      dnaSite: null,
+      skyId: null,
       place: null,
       lastPlace: s.place ?? s.lastPlace,
       ...(best && {
@@ -372,7 +377,7 @@ export const useStore = create<AppState>((set, get) => ({
       playing: false,
       year,
       enabled: { ...s.enabled, [entity.category]: true },
-      ...(opts.open && on.length > 0 && { selectedId: on[0].id, hits: on, groupId: null, place: null, lastPlace: s.place ?? s.lastPlace }),
+      ...(opts.open && on.length > 0 && { selectedId: on[0].id, hits: on, groupId: null, dnaSite: null, skyId: null, place: null, lastPlace: s.place ?? s.lastPlace }),
       spotlight: opts.spotlight && on.length > 0 ? { id: on[0].id, year } : null,
       flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
@@ -533,7 +538,7 @@ export const useStore = create<AppState>((set, get) => ({
       dnaSite: id,
       place: null,
       lastPlace: id ? (s.place ?? s.lastPlace) : null,
-      ...(id && { selectedId: null, hits: [], groupId: null, pictureViewer: s.tour ? s.pictureViewer : false }),
+      ...(id && { selectedId: null, hits: [], groupId: null, skyId: null, pictureViewer: s.tour ? s.pictureViewer : false }),
     })),
   openPlace: (lon, lat, opts) =>
     set((s) => {
@@ -550,6 +555,7 @@ export const useStore = create<AppState>((set, get) => ({
         hits: [],
         groupId: null,
         dnaSite: null,
+        skyId: null,
         pictureViewer: false,
         ...(opts?.fly && { flyTo: area ? { bbox: area.bbox } : { bbox: circleBBox(lon, lat, radiusKm), gentle: true } }),
       };
@@ -566,6 +572,7 @@ export const useStore = create<AppState>((set, get) => ({
         hits: [],
         groupId: null,
         dnaSite: null,
+        skyId: null,
         pictureViewer: false,
       };
     }),

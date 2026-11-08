@@ -1,10 +1,13 @@
-import { useEffect, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { useStore } from "../store";
+import { STACKED_QUERY } from "../config";
 import ListenButton from "../audio/ListenButton";
 import NowStepper from "../now/NowStepper";
 import TourStopLinks from "../tours/TourStopLinks";
 import { CardAction, CardIcon, SourcesDisclosure } from "../ui/CardParts";
+import CardResizer from "../ui/CardResizer";
 import TourVideo from "../ui/TourVideo";
+import { useMediaQuery } from "../ui/useMediaQuery";
 import { SkyDrawing } from "./SkyObjects";
 import { SKY_KIND_NAME, SKY_STYLE, skyById, skyShownAt, type SkyEvent, type SkyKind } from "./sky";
 
@@ -64,6 +67,8 @@ export default function SkyCard() {
   const year = useStore((s) => s.year);
   const isTouring = useStore((s) => s.tour !== null);
   const openSky = useStore((s) => s.openSky);
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const [panelEl, setPanelEl] = useState<HTMLDivElement | null>(null);
   const e = skyById(id);
   const shown = !!e && skyShownAt(e, year);
 
@@ -81,7 +86,9 @@ export default function SkyCard() {
 
   if (!e || covered || !shown) return null;
   return (
-    <div className="panel info-panel sky-card" role="dialog" aria-labelledby="sky-card-title">
+    <>
+    {!stacked && <CardResizer panel={panelEl} />}
+    <div ref={setPanelEl} className="panel info-panel sky-card" role="dialog" aria-labelledby="sky-card-title">
       <div className="info-head">
         <NowStepper />
         <div className="card-head" style={{ "--cat": SKY_STYLE.color } as CSSProperties}>
@@ -129,5 +136,6 @@ export default function SkyCard() {
         </div>
       </SourcesDisclosure>
     </div>
+    </>
   );
 }

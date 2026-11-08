@@ -1,10 +1,13 @@
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import { useStore } from "../store";
+import { STACKED_QUERY } from "../config";
 import { useData } from "../map/data";
 import { navigate } from "../route";
 import { formatYear } from "../time/scale";
 import { SkyPicture } from "../sky/SkyCard";
 import { stopMusic } from "../audio/music";
+import CardResizer from "../ui/CardResizer";
+import { useMediaQuery } from "../ui/useMediaQuery";
 import { minutes, stopsOf } from "./summary";
 import { closingAt, reachedAt, spanWords } from "./epilogue";
 import { beginTour } from "./TourPlayer";
@@ -34,6 +37,8 @@ export default function EndCard({ tour }: { tour: Tour }) {
   const data = useData();
   const paused = useStore((s) => s.tour?.paused ?? false);
   const tourGo = useStore((s) => s.tourGo);
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const [panelEl, setPanelEl] = useState<HTMLElement | null>(null);
   if (!data) return null;
   const stops = stopsOf(tour, data);
   const years = stops.flatMap((s) => (s.year === null ? [] : [s.year]));
@@ -42,7 +47,9 @@ export default function EndCard({ tour }: { tour: Tour }) {
   const end = () => useStore.getState().stopTour();
 
   return (
-    <section className={`tour-end${paused ? " paused" : ""}`} aria-label={`End of the tour: ${tour.title}`}>
+    <>
+    {!stacked && <CardResizer panel={panelEl} />}
+    <section ref={setPanelEl} className={`tour-end${paused ? " paused" : ""}`} aria-label={`End of the tour: ${tour.title}`}>
       <div className="tour-end-kicker">Journey's end</div>
       {tour.book?.cover && <img className="tour-end-cover" src={tour.book.cover.url} alt={`Cover of ${tour.book.title}`} title={tour.book.cover.credit} />}
       <h2 className="tour-end-title">{tour.title}</h2>
@@ -109,5 +116,6 @@ export default function EndCard({ tour }: { tour: Tour }) {
       )}
       {tour.music && <div className="tour-end-credit">{tour.music.credit}</div>}
     </section>
+    </>
   );
 }

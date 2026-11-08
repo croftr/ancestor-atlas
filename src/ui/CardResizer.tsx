@@ -1,6 +1,6 @@
-import { useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useStore } from "../store";
-import { CARD_MIN, clampCardWidth, maxCardWidth } from "./cardWidth";
+import { CARD_MIN, cardWidthPx, clampCardWidth, maxCardWidth } from "./cardWidth";
 
 const STEP = 24;
 const clamp = clampCardWidth;
@@ -27,7 +27,9 @@ export default function CardResizer({ panel }: { panel: HTMLElement | null }) {
     return () => ro.disconnect();
   }, [panel]);
 
-  const current = () => panel?.getBoundingClientRect().width ?? cardWidth ?? 352;
+  useEffect(() => () => document.body.classList.remove("card-resizing"), []);
+
+  const current = () => panel?.getBoundingClientRect().width || cardWidthPx(cardWidth);
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if (e.button !== 0) return;
     e.preventDefault();

@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStore } from "../store";
+import { STACKED_QUERY } from "../config";
 import { navigate } from "../route";
 import { formatRange, formatYear } from "../time/scale";
 import { useData } from "../map/data";
@@ -8,6 +9,8 @@ import { classOf, classesFor, OTHER_COLOR } from "./haplogroups";
 import { AADR_CITATION, AADR_DATASET_URL, type DnaData, type DnaPerson } from "./types";
 import { DnaIcon } from "./DnaIcon";
 import { CardIcon } from "../ui/CardParts";
+import CardResizer from "../ui/CardResizer";
+import { useMediaQuery } from "../ui/useMediaQuery";
 
 const SEX: Record<string, string> = { M: "Male", F: "Female", U: "Sex unknown" };
 
@@ -76,6 +79,8 @@ export default function DnaCard() {
   const lastPlace = useStore((s) => s.lastPlace);
   const reopenPlace = useStore((s) => s.reopenPlace);
   const openPlace = useStore((s) => s.openPlace);
+  const stacked = useMediaQuery(STACKED_QUERY);
+  const [panelEl, setPanelEl] = useState<HTMLDivElement | null>(null);
   const close = () => useStore.getState().openDnaSite(null);
   const d = useDna(site !== null);
   const s = dnaSiteById(d, site);
@@ -94,7 +99,9 @@ export default function DnaCard() {
   const rest = s.people.filter((p) => !aliveAt(p, year));
 
   return (
-    <div className="panel info-panel dna-card" role="dialog" aria-label={`Ancient DNA: ${s.name}`}>
+    <>
+    {!stacked && <CardResizer panel={panelEl} />}
+    <div ref={setPanelEl} className="panel info-panel dna-card" role="dialog" aria-label={`Ancient DNA: ${s.name}`}>
       <button className="close" onClick={close} aria-label="Close" title="Close (Esc)">
         <CardIcon name="close" size={16} />
       </button>
@@ -155,5 +162,6 @@ export default function DnaCard() {
         (CC0), with each person's original publication. {AADR_CITATION}
       </div>
     </div>
+    </>
   );
 }
