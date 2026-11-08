@@ -18,6 +18,8 @@ const byId = new Map<string, { category: string }>([
   ["nova", { category: "sky" }],
   ["comet", { category: "sky" }],
   ["eclipse", { category: "sky" }],
+  ["aurora", { category: "sky" }],
+  ["conjunction", { category: "sky" }],
   ...pictureGroupEntities.map((g) => [g.id, g] as [string, { category: string }]),
   ...entities.map((e) => [e.id, e] as [string, { category: string }]),
 ]);

@@ -681,5 +681,13 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Hushed awe-inspiring low resonant shadow drone and a soft warm solar corona hum that swells gently and fades into deep twilight silence",
     sound: { src: "ambience/sky/eclipse-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "8fe018f7b5" },
   },
+  aurora: {
+    prompt: "Soft ethereal geomagnetic shimmer and a gentle airy high-altitude arctic wind with faint crystalline crackles that swell quietly and fade into calm night-sky silence",
+    sound: { src: "ambience/sky/aurora-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "5ec1fb1759" },
+  },
+  conjunction: {
+    prompt: "Two pure warm consonant harmonic chimes that blend into a gentle peaceful celestial resonance and fade into quiet night-sky stillness",
+    sound: { src: "ambience/sky/conjunction-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "32bd9e21e1" },
+  },
 };
 
