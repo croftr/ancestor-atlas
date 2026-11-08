@@ -54,6 +54,9 @@ if (existsSync("data/curated/picture-groups.yaml")) {
   }
 }
 category.set("supernova", "sky");
+category.set("nova", "sky");
+category.set("comet", "sky");
+category.set("eclipse", "sky");
 for (const id of [...ids, ...Object.keys(AMBIENCE)]) if (!category.has(id)) fail(`no entity ${id} in ${ENTITIES}`);
 for (const id of ids) if (!AMBIENCE[id]) fail(`${id} has no entry in ${FILE}: add its prompt first`);
 

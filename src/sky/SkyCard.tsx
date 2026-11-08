@@ -8,6 +8,9 @@ import { SKY_KIND_NAME, SKY_STYLE, skyById, skyShownAt, type SkyEvent, type SkyK
 
 const SKY_VIDEO: Partial<Record<SkyKind, string>> = {
   supernova: "video/sky/supernova-v1.mp4",
+  nova: "video/sky/nova-v1.mp4",
+  comet: "video/sky/comet-v1.mp4",
+  eclipse: "video/sky/eclipse-v1.mp4",
 };
 
 /** A line on how the drawing relates to what was seen. */

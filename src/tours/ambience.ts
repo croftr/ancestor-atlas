@@ -669,5 +669,17 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Subtle deep cosmic detonation: a soft low-frequency resonant boom and gentle ethereal stellar shockwave whoosh that swells quietly as the star flares and fades into calm night-sky silence",
     sound: { src: "ambience/sky/supernova-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "9e51a6bd6d" },
   },
+  nova: {
+    prompt: "Soft warm crystalline harmonic swell and a gentle low celestial shimmer as the new star brightens, fading into quiet night-sky stillness",
+    sound: { src: "ambience/sky/nova-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "f20e89d122" },
+  },
+  comet: {
+    prompt: "Delicate airy high-altitude cosmic wind and a soft crystalline icy shimmer that breathes quietly along the comet's tail and fades into calm night-sky silence",
+    sound: { src: "ambience/sky/comet-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "7095cffbf3" },
+  },
+  eclipse: {
+    prompt: "Hushed awe-inspiring low resonant shadow drone and a soft warm solar corona hum that swells gently and fades into deep twilight silence",
+    sound: { src: "ambience/sky/eclipse-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "8fe018f7b5" },
+  },
 };
 
