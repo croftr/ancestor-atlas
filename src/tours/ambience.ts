@@ -689,5 +689,29 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Two pure warm consonant harmonic chimes that blend into a gentle peaceful celestial resonance and fade into quiet night-sky stillness",
     sound: { src: "ambience/sky/conjunction-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "32bd9e21e1" },
   },
+  "urartu-and-caucasus": {
+    prompt: "Ringing taps of small hammers shaping bronze, a gentle charcoal fire hiss, mountain breeze rustling across the stone terrace, and distant lake water",
+    sound: { src: "ambience/civilizations/urartu-and-caucasus-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "aa2f04510c" },
+  },
+  "ancient-south-arabia": {
+    prompt: "Slow camel footsteps on dry sand, soft harness creaks, water rushing and trickling through stone channels, and warm wind through palm fronds",
+    sound: { src: "ambience/civilizations/ancient-south-arabia-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "d827d6c43f" },
+  },
+  "hittite-anatolia": {
+    prompt: "Clacking wooden chariot wheels on paving stones, horses snorting and hooves tapping stone, faint anvil hammer taps, and an upland Anatolian breeze",
+    sound: { src: "ambience/civilizations/hittite-anatolia-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "b17490ea3a" },
+  },
+  "ancient-israel-judah": {
+    prompt: "Footsteps and soft murmurs near stone gates, clay jars set down on packed earth, distant sheep or goat bleating, and a warm breeze rustling dry olive trees",
+    sound: { src: "ambience/civilizations/ancient-israel-judah-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "f41fea973b" },
+  },
+  "steppe-nomads": {
+    prompt: "Steady steppe wind hissing through tall grass, horses snorting and stomping on turf, leather harness creaking, and distant birds",
+    sound: { src: "ambience/civilizations/steppe-nomads-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "621af971f9" },
+  },
+  "tamil-sangam": {
+    prompt: "Gentle harbor waves lapping wooden ship hulls, creaking rigging and ropes, busy harbour footsteps, and warm coastal breeze in coconut palms",
+    sound: { src: "ambience/civilizations/tamil-sangam-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "1164abf337" },
+  },
 };
 

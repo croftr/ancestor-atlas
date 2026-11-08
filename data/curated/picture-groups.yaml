@@ -119,6 +119,8 @@
   label: the Tamil Sangam and early South Indian kingdoms in general
   image_url: /images/civilisations/tamil-sangam.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/tamil-sangam-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/tamil-sangam-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "A Tamil port on a palm-fringed coast: dockers carrying sacks and jars, foreign merchants trading, sailing ships in the bay"
   members: [early-cheras, early-cholas, early-pandyas, anuradhapura]
 
@@ -140,6 +142,8 @@
   label: ancient Israel and Judah in general
   image_url: /images/civilisations/ancient-israel-judah.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ancient-israel-judah-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/ancient-israel-judah-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "A walled hill town of stone houses, terraced olive groves and vineyards, soldiers at the gate and jars of oil"
   members: [kingdom-of-israel, kingdom-of-judah, judea, philistia]
 
@@ -154,6 +158,8 @@
   label: ancient South Arabia and the incense kingdoms in general
   image_url: /images/civilisations/ancient-south-arabia.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ancient-south-arabia-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/ancient-south-arabia-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "Camel caravans laden with incense pass the sluice gates of the great Marib dam, a mud-brick city among palm groves behind"
   members: [sabaeans, hadhramaut, minaeans, qataban, himyarite-kingdom]
 
@@ -161,6 +167,8 @@
   label: Ancient Anatolian kingdoms in general
   image_url: /images/civilisations/hittite-anatolia.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/hittite-anatolia-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/hittite-anatolia-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "The Lion Gate of a Hittite citadel: a chariot and soldiers, a smith at his forge and townspeople on the stone-paved road"
   members: [hittites, neo-hittite-states, phrygia, lydia, tabal-kingdom]
 
@@ -168,6 +176,8 @@
   label: Ancient Armenia, Urartu and the Caucasus in general
   image_url: /images/civilisations/urartu-and-caucasus.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/urartu-and-caucasus-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/urartu-and-caucasus-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "Smiths cast great bronze cauldrons below a fortress on a cliff above Lake Van, an inscription carved into the rock, terraced vineyards and canals"
   members:
     [kingdom-of-urartu, kingdom-of-armenia, colchis, lazica, caucasian-albania,
@@ -189,6 +199,8 @@
   label: Eurasian Steppe Nomads in general
   image_url: /images/civilisations/steppe-nomads.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/steppe-nomads-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/steppe-nomads-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "Mounted steppe archers with bows and quivers, felt yurts, wagons and a horse herd on the golden grassland, mountains behind"
   members: [scythia, yuezhi, wusun, indo-scythians]
 
