@@ -22,6 +22,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { parse as parseYaml } from "yaml";
 import { NARRATION_FOLDER, textHash } from "../lib/text-hash.ts";
+import { SKY_EVENTS } from "../../src/sky/sky.ts";
 import { TOURS, announcementText } from "../../src/tours/tours.ts";
 import { fingerprint, META_PATH } from "../lib/fingerprint.ts";
 import { BUCKET, REGION, encode, uploadArgs, uploadCommand } from "./encode.ts";
@@ -90,7 +91,10 @@ const built = new Map(
 const yamlFiles: Record<string, string> = Object.fromEntries([EVENTS, CURATED_ENTITIES, CITIES].filter((f) => existsSync(f)).map((f) => [f, readFileSync(f, "utf8")]));
 const curatedIn = new Map<string, string>();
 for (const f of Object.keys(yamlFiles)) for (const e of (parseYaml(yamlFiles[f]) ?? []) as { id: string }[]) curatedIn.set(e.id, f);
+const SKY_FILE = "src/sky/sky.ts";
 const target = (id: string): Target => {
+  const sky = SKY_EVENTS.find((s) => s.id === id);
+  if (sky) return { id: sky.id, category: "sky", description: sky.description, narration: sky.narration, file: SKY_FILE };
   const e = built.get(id) ?? fail(`no entity ${id} in ${ENTITIES}`);
   const file = curatedIn.get(id) ?? fail(`${id} has no entry in ${CURATED_ENTITIES}: add one (id, category) first`);
   if (!e.description) fail(`${id} has no description`);
@@ -159,6 +163,7 @@ const targets: Target[] = bookTour
     : flag("--stale")
       ? [
           ...[...built.values()].filter((e) => e.narration && e.narration.text_hash !== textHash(e.description)).map((e) => target(e.id)),
+          ...SKY_EVENTS.filter((s) => s.narration && s.narration.text_hash !== textHash(s.description)).map((s) => target(s.id)),
           ...TOURS.filter((t) => t.announcement && staleAnnouncement(t)).map(announcement),
           ...TOURS.filter((t) => t.closingNarration && staleClosing(t)).map(closing),
           ...TOURS.flatMap(bookParts).filter((b) => b.narration && staleBook(b)),
@@ -321,10 +326,26 @@ function setTour(text: string, id: string, line: string): string {
   return lines.join("\n");
 }
 
+/** Set a sky object's narration line in src/sky/sky.ts (before its source). */
+function setSky(text: string, id: string, line: string): string {
+  const lines = text.split("\n");
+  const start = lines.indexOf(`    id: "${id}",`);
+  if (start < 0) fail(`no sky event ${id} in ${SKY_FILE}`);
+  const end = lines.findIndex((l, i) => i > start && l === "  },");
+  const at = lines.slice(start, end).findIndex((l) => l.startsWith("    narration:"));
+  if (at >= 0) lines[start + at] = line;
+  else {
+    const src = lines.slice(start, end).findIndex((l) => l.startsWith("    source:"));
+    lines.splice(src >= 0 ? start + src : end, 0, line);
+  }
+  return lines.join("\n");
+}
+
 const META = JSON.parse(readFileSync(META_PATH, "utf8"));
 const wasFresh = META.inputs_hash === fingerprint().hash;
 let entities = readFileSync(ENTITIES, "utf8");
 let toursFile = readFileSync(TOURS_FILE, "utf8");
+let skyFile = readFileSync(SKY_FILE, "utf8");
 const pending: string[] = [];
 
 for (const e of targets) {
@@ -364,15 +385,23 @@ for (const e of targets) {
     toursFile = setTour(toursFile, e.id, `    ${field}: { src: "${key}", credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" },`);
     continue;
   }
+  if (e.category === "sky") {
+    skyFile = setSky(skyFile, e.id, `    narration: { src: "${key}", credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" },`);
+    continue;
+  }
   yamlFiles[e.file] = setYaml(yamlFiles[e.file], e.id, `  narration: { src: ${key}, credit: ${JSON.stringify(credit)}, text_hash: "${narration.text_hash}" }`, e.category === "event");
   entities = setEntity(entities, e.id, narration);
 }
 
-const changed = [...new Set(targets.filter((t) => !t.category.startsWith("tour") && t.category !== "book").map((t) => t.file))];
+const changed = [...new Set(targets.filter((t) => !t.category.startsWith("tour") && t.category !== "book" && t.category !== "sky").map((t) => t.file))];
 for (const f of changed) writeFileSync(f, yamlFiles[f]);
 if (changed.length) {
   writeFileSync(ENTITIES, entities);
   changed.push(ENTITIES);
+}
+if (targets.some((t) => t.category === "sky")) {
+  writeFileSync(SKY_FILE, skyFile);
+  changed.push(SKY_FILE);
 }
 if (targets.some((t) => t.category.startsWith("tour") || t.category === "book")) {
   writeFileSync(TOURS_FILE, toursFile);

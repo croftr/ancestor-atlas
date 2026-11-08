@@ -4,6 +4,7 @@ import { TOURS, announcementText, toursOfEntity } from "./tours";
 import { textHash } from "../../scripts/lib/text-hash";
 import { isActive } from "../map/data";
 import { readTourHash, tourHash } from "../globeLink";
+import { skyById, skyShownAt, skyYear } from "../sky/sky";
 import { snapYear } from "../time/scale";
 import type { Entity, FeatureProps } from "../types";
 
@@ -20,6 +21,18 @@ describe.each(TOURS)("tour $id", (tour) => {
   });
 
   it.each(tour.stops)("$entity is on the globe when the tour stops there", (stop) => {
+    const sky = skyById(stop.entity);
+    if (sky) {
+      const year = stop.year !== undefined ? snapYear(stop.year) : skyYear(sky);
+      expect(skyShownAt(sky, year)).toBe(true);
+      if (sky.narration) {
+        expect(sky.narration.src).toMatch(new RegExp(`^narration/sky/${sky.id}-v\\d+\\.mp3$`));
+        expect(sky.narration.credit).toBeTruthy();
+        if (sky.narration.text_hash !== textHash(sky.description))
+          console.warn(`sky ${sky.id}: the narration no longer matches its description`);
+      }
+      return;
+    }
     const e = byId.get(stop.entity);
     expect(e).toBeDefined();
     expect(tour.layers ?? [e!.category]).toContain(e!.category);
@@ -76,7 +89,10 @@ describe.each(TOURS)("tour $id", (tour) => {
   });
 
   it("runs oldest first", () => {
-    const years = tour.stops.map((s) => s.year ?? byId.get(s.entity)?.year ?? 0);
+    const years = tour.stops.map((s) => {
+      const sky = skyById(s.entity);
+      return s.year ?? (sky ? skyYear(sky) : byId.get(s.entity)?.year ?? 0);
+    });
     expect(years).toEqual([...years].sort((a, b) => a - b));
   });
 });

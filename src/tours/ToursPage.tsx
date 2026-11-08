@@ -3,6 +3,8 @@ import { useMemo, useState, type CSSProperties } from "react";
 import { useData } from "../map/data";
 import { formatYear } from "../time/scale";
 import { CATEGORY_STYLE } from "../config";
+import { SkyPicture } from "../sky/SkyCard";
+import { SKY_STYLE } from "../sky/sky";
 import { CategoryBadge } from "../ui/CategoryIcon";
 import Totals from "../browse/Totals";
 import { TOURS, type Tour } from "./tours";
@@ -11,15 +13,23 @@ import { coverPictures, minutes, narrated, stopsOf, type StopSummary } from "./s
 import { ToursIcon } from "../ui/SideNav";
 import { shareLink, tourShareUrl } from "../share";
 
-/** A stop's picture, or its category's badge on a tinted tile. */
+/** A stop's picture, its sky drawing, or its category's badge on a tinted tile. */
 function StopPicture({ stop, className }: { stop: StopSummary; className: string }) {
-  const tint = CATEGORY_STYLE[stop.entity.category].color;
+  if (stop.sky) {
+    return (
+      <span className={`${className} sky-thumb`} style={{ "--tint": SKY_STYLE.color } as CSSProperties}>
+        <SkyPicture e={stop.sky} />
+      </span>
+    );
+  }
+  const cat = stop.entity!.category;
+  const tint = CATEGORY_STYLE[cat].color;
   return (
-    <span className={`${className}${stop.entity.category === "event" ? " is-event" : ""}`} style={{ "--tint": tint } as CSSProperties}>
+    <span className={`${className}${cat === "event" ? " is-event" : ""}`} style={{ "--tint": tint } as CSSProperties}>
       {stop.picture ? (
         <img src={stop.picture.url} alt="" loading="lazy" onError={(e) => (e.currentTarget.style.display = "none")} />
       ) : (
-        <CategoryBadge category={stop.entity.category} decorative />
+        <CategoryBadge category={cat} decorative />
       )}
     </span>
   );

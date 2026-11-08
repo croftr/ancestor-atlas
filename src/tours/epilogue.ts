@@ -1,4 +1,5 @@
 import { isActive, unionBBox, type BBox, type Data } from "../map/data";
+import { skyById } from "../sky/sky";
 import { stopYear } from "./summary";
 import type { Tour } from "./tours";
 
@@ -42,6 +43,11 @@ export function trailPoints(tour: Tour, d: Data): LngLat[] {
   // rules out, would take the one before it).
   let prev: LngLat = [0, 0];
   return tour.stops.map((stop) => {
+    const sky = skyById(stop.entity);
+    if (sky?.place) {
+      prev = sky.place;
+      return prev;
+    }
     const year = stopYear(stop, d);
     const all = d.featuresOf.get(stop.entity) ?? [];
     const on = all.filter((f) => (stop.site ? f.id === stop.site : year !== null && isActive(f, year)));

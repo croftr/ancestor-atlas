@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useStore } from "../store";
 import { useData } from "../map/data";
 import { navigate } from "../route";
+import { skyById } from "../sky/sky";
+import { SkyPicture } from "../sky/SkyCard";
 import { TOURS, tourById } from "./tours";
 import { beginTour } from "./TourPlayer";
 import { coverPictures, minutes, stopName, stopsOf, stopYear } from "./summary";
@@ -62,7 +64,8 @@ export function TourPicker() {
         <div className="tour-menu" role="menu">
           <div className="tour-menu-head">Sit back and watch</div>
           {TOURS.map((t) => {
-            const cover = t.book?.cover ?? (data && coverPictures(stopsOf(t, data), 1)[0]?.picture);
+            const first = data && coverPictures(stopsOf(t, data), 1)[0];
+            const cover = t.book?.cover ?? first?.picture;
             return (
               <button
                 key={t.id}
@@ -74,7 +77,9 @@ export function TourPicker() {
                   beginTour(() => startTour(t.id));
                 }}
               >
-                <span className={`tour-item-thumb${t.book?.cover ? " is-book" : ""}`}>{cover && <img src={cover.url} alt="" loading="lazy" />}</span>
+                <span className={`tour-item-thumb${t.book?.cover ? " is-book" : ""}${!cover && first?.sky ? " sky-thumb" : ""}`}>
+                  {cover ? <img src={cover.url} alt="" loading="lazy" /> : first?.sky && <SkyPicture e={first.sky} />}
+                </span>
                 <span className="tour-item-text">
                   <span className="tour-item-title">{t.title}</span>
                   <span className="tour-item-meta">
@@ -123,7 +128,9 @@ export default function TourBar() {
     s.select(null); // also closes a DNA, sky or place card
     if (tour.phase !== "hold" || !stop || !data) return; // on its way: the stop's card opens on arrival
     const year = stopYear(stop, data) ?? undefined;
-    if (stop.note) {
+    if (skyById(stop.entity)) {
+      s.showSky(stop.entity, year);
+    } else if (stop.note) {
       useStore.setState((x) => (x.tour ? { tour: { ...x.tour, note: true } } : {}));
       s.showEntity(stop.entity, { year, site: stop.site });
     } else s.showEntity(stop.entity, { year, open: true, site: stop.site });

@@ -3,6 +3,7 @@ import { useStore } from "../store";
 import { useData } from "../map/data";
 import { navigate } from "../route";
 import { formatYear } from "../time/scale";
+import { SkyPicture } from "../sky/SkyCard";
 import { stopMusic } from "../audio/music";
 import { minutes, stopsOf } from "./summary";
 import { closingAt, reachedAt, spanWords } from "./epilogue";
@@ -54,10 +55,17 @@ export default function EndCard({ tour }: { tour: Tour }) {
           <li key={s.index} style={{ "--at": `${reachedAt(s.index, n)}ms` } as CSSProperties}>
             <button
               onClick={() => tourGo(s.index)}
+              className={!s.picture && s.sky ? "sky-thumb" : undefined}
               title={`${i + 1}. ${s.name}${s.book ? " (from the book)" : ""}${s.year === null ? "" : ` · ${formatYear(s.year)}`}: watch from here`}
               aria-label={`Back to stop ${i + 1}, ${s.name}`}
             >
-              {s.picture ? <img src={s.picture.url} alt="" loading="lazy" /> : <span className="tour-end-blank" />}
+              {s.picture ? (
+                <img src={s.picture.url} alt="" loading="lazy" />
+              ) : s.sky ? (
+                <SkyPicture e={s.sky} />
+              ) : (
+                <span className="tour-end-blank" />
+              )}
               <span className="tour-end-num">{i + 1}</span>
             </button>
           </li>

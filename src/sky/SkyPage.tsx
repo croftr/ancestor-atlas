@@ -2,8 +2,10 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import { useHash } from "../route";
 import { useStore } from "../store";
 import { firstSentence } from "../timeline/layout";
+import ListenButton from "../audio/ListenButton";
 import Totals from "../browse/Totals";
 import { useSectionNav } from "../browse/useSectionNav";
+import TourStopLinks from "../tours/TourStopLinks";
 import { CardIcon } from "../ui/CardParts";
 import { SKY_EVENTS, SKY_KIND_NAME, SKY_KIND_PLURAL, SKY_STYLE, skyById, type SkyEvent, type SkyKind } from "./sky";
 import { SkyBadge, SkyPicture, skyNote } from "./SkyCard";
@@ -216,8 +218,10 @@ function SkyDetail({ e, order }: { e: SkyEvent; order: SkyEvent[] }) {
               Show in the sky
             </button>
           </div>
+          <ListenButton entity={e} />
           <p className="card-desc">{e.description}</p>
           <p className="muted sky-detail-note">{skyNote(e)}</p>
+          <TourStopLinks entityId={e.id} />
           <p className="sky-detail-source">
             Source:{" "}
             <a href={e.source.url} target="_blank" rel="noreferrer">

@@ -1,6 +1,8 @@
 import { useEffect, type CSSProperties } from "react";
 import { useStore } from "../store";
+import ListenButton from "../audio/ListenButton";
 import NowStepper from "../now/NowStepper";
+import TourStopLinks from "../tours/TourStopLinks";
 import { CardAction, CardIcon, SourcesDisclosure } from "../ui/CardParts";
 import TourVideo from "../ui/TourVideo";
 import { SkyDrawing } from "./SkyObjects";
@@ -60,6 +62,7 @@ export default function SkyCard() {
   const id = useStore((s) => s.skyId);
   const covered = useStore((s) => s.selectedId !== null || s.groupId !== null || s.place !== null || s.dnaSite !== null);
   const year = useStore((s) => s.year);
+  const isTouring = useStore((s) => s.tour !== null);
   const openSky = useStore((s) => s.openSky);
   const e = skyById(id);
   const shown = !!e && skyShownAt(e, year);
@@ -108,11 +111,13 @@ export default function SkyCard() {
         <CardAction icon="page" label="Sky page" title="Everything in the sky, on its own page" onClick={() => (window.location.hash = `#/sky/${encodeURIComponent(e.id)}`)} />
       </div>
       <SkyPicture e={e} animated />
+      <ListenButton entity={e} />
       <p className="card-desc">{e.description}</p>
       <section className="card-site" aria-label="How it is shown">
         <h3 className="card-section-title">In the atlas</h3>
         <div className="card-site-note">{skyNote(e)}</div>
       </section>
+      {!isTouring && <TourStopLinks entityId={e.id} />}
       <SourcesDisclosure>
         <div className="card-ref-group">
           <div className="card-ref-title">{e.name}</div>

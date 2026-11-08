@@ -223,8 +223,8 @@ interface AppState {
   openDnaSite(id: string | null): void;
   /** Open a sky object's card (null closes it), closing any other card. */
   openSky(id: string | null): void;
-  /** Move the slider to when a sky object shows and open its card ("Show in the sky"). */
-  showSky(id: string): void;
+  /** Move the slider to when a sky object shows (or `year`) and open its card ("Show in the sky"). */
+  showSky(id: string, year?: number): void;
   /** Regional Explorer ("What Was Here?"): query all 7 million years around a point on the globe. */
   place: PlaceQuery | null;
   /** Kept when drilling into an entity or DNA card from `PlaceCard` so "← Back to region" can return. */
@@ -395,6 +395,7 @@ export const useStore = create<AppState>((set, get) => ({
       ...(t.dna && { dna: true, dnaColour: t.dna }),
       ...(t.paleo && { paleo: true }),
       dnaSite: null,
+      skyId: null,
       tour: {
         id,
         index: Math.min(Math.max(0, opts.index ?? 0), t.stops.length - 1),
@@ -517,10 +518,14 @@ export const useStore = create<AppState>((set, get) => ({
         ? { skyId: null }
         : { skyId: id, selectedId: null, hits: [], groupId: null, dnaSite: null, place: null, lastPlace: null, playing: false, pictureViewer: s.tour ? s.pictureViewer : false },
     ),
-  showSky: (id) => {
+  showSky: (id, year) => {
     const e = skyById(id);
     if (!e) return;
-    set({ year: skyYear(e) });
+    const p = e.place;
+    set((s) => ({
+      year: year !== undefined ? snapYear(year) : skyYear(e),
+      flyTo: p ? { bbox: [p[0] - 30, Math.max(-60, p[1] - 20), p[0] + 30, Math.min(60, p[1] + 20)], turn: true } : s.flyTo,
+    }));
     get().openSky(id);
   },
   openDnaSite: (id) =>

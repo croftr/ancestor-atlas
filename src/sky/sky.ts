@@ -40,6 +40,9 @@ export interface SkyEvent {
    * star that flares now and then, never as one shining for a million years.
    */
   span?: boolean;
+  /** Where on Earth the sighting or its story belongs (lon, lat), so a tour turns the globe there. */
+  place?: [lon: number, lat: number];
+  narration?: { src: string; credit: string; text_hash: string };
   source: { label: string; url: string };
 }
 
@@ -104,6 +107,8 @@ export const SKY_EVENTS: SkyEvent[] = [
     start_year: -7_999_999,
     end_year: ka(6500),
     span: true,
+    place: [18.5, 16.2],
+    narration: { src: "narration/sky/supernovae-late-miocene-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "6185e851d7" },
     source: WALLNER,
   },
   {
@@ -116,6 +121,8 @@ export const SKY_EVENTS: SkyEvent[] = [
     start_year: ka(3200),
     end_year: ka(1500),
     span: true,
+    place: [35.9, -1.8],
+    narration: { src: "narration/sky/supernovae-pliocene-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "9736f35390" },
     source: BREITSCHWERDT,
   },
   {
@@ -127,6 +134,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "A star about 900 light years away, in the southern constellation Vela, exploded about 11,000 years ago, as the Ice Age ended and the first farmers settled in the Near East. For months it would have been a dazzling new star in the southern sky. Its expanding remains, the Vela supernova remnant, still glow there today.",
     start_year: ka(11.5),
     end_year: ka(10.5),
+    place: [38.9, 37.2],
+    narration: { src: "narration/sky/vela-supernova-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "6545a47d0c" },
     source: VELA,
   },
   {
@@ -138,6 +147,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The first certain record of Halley's Comet: China's Records of the Grand Historian (Shiji) describe a comet that appeared in the east and moved north. It comes back about every 76 years.",
     start_year: bce(240),
     end_year: bce(240),
+    place: [108.9, 34.3],
+    narration: { src: "narration/sky/halley-240-bce-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c393c4a455" },
     source: HALLEY,
   },
   {
@@ -149,6 +160,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Halley's Comet back again. The only surviving record of this return is on two broken Babylonian clay tablets, recognised in the British Museum in 1984.",
     start_year: bce(164),
     end_year: bce(164),
+    place: [44.4, 32.5],
     source: HALLEY,
   },
   {
@@ -160,6 +172,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Halley's Comet again. Babylonian astronomers wrote on their tablets that it was seen \"day beyond day\" for a month.",
     start_year: bce(87),
     end_year: bce(87),
+    place: [44.4, 32.5],
     source: HALLEY,
   },
   {
@@ -171,6 +184,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Han dynasty astronomers followed Halley's Comet from August to October as it passed within 24 million km of Earth. In Rome, Cassius Dio later wrote of a comet that foretold the death of Agrippa.",
     start_year: bce(12),
     end_year: bce(12),
+    place: [108.9, 34.3],
     source: HALLEY,
   },
   // Added 1 Nov 2026, when doubtful dates became welcome in the sky (with `certainty`).
@@ -184,6 +198,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "A massive star about 800 light years away exploded about 300,000 years ago (some estimates say 340,000), around the time the earliest Homo sapiens lived in Africa. Its collapsed core, the Geminga pulsar, still spins today. It was once thought to have blown the hot, thin bubble of gas the Sun sits in; other supernovae now look more likely.",
     start_year: ka(345),
     end_year: ka(295),
+    place: [-8.9, 31.9],
+    narration: { src: "narration/sky/geminga-supernova-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e0e72b5e4a" },
     source: GEMINGA,
   },
   {
@@ -196,6 +212,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Pliny the Elder wrote that the Greek astronomer Hipparchus saw \"a new star that was produced in his own age\", and that it moved him to count and map the stars, so that later generations could tell whether any appeared or vanished. His catalogue, of about 850 stars, dates from about 135 BCE; Pliny gives no year for the star itself.",
     start_year: bce(140),
     end_year: bce(130),
+    place: [28.2, 36.4],
+    narration: { src: "narration/sky/hipparchus-nova-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "90e6690672" },
     source: HIPPARCHUS,
   },
   {
@@ -208,6 +226,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The Book of Han records a new object in about 5 BCE that was watched for over seventy days, perhaps without moving, and another in April 4 BCE. Whether they were comets or novae is not known. Both have been put forward as the Star of Bethlehem.",
     start_year: bce(5),
     end_year: bce(4),
+    place: [108.9, 34.3],
     source: BETHLEHEM,
   },
   {
@@ -220,6 +239,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The great comet of 1997 last came round about 4,200 years earlier, in roughly 2215 BCE, worked out from its orbit. It may have been seen in Egypt under Pepi II: a text in his pyramid names a \"long-haired\" star as the pharaoh's companion in the sky, though nothing ties it to this comet for certain.",
     start_year: bce(2215),
     end_year: bce(2215),
+    place: [31.2, 29.8],
+    narration: { src: "narration/sky/hale-bopp-2215-bce-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c33c2ee055" },
     source: HALE_BOPP,
   },
   {
@@ -232,6 +253,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Halley's Comet came round in 466 BCE, and some think the Greeks saw it: ancient writers tell of a comet in the year a meteorite fell at Aegospotami, which one study matched to Halley's return. A Chinese record of 467 BCE may be it too. There is too little to be sure.",
     start_year: bce(466),
     end_year: bce(466),
+    place: [26.6, 40.4],
     source: GRAHAM_HINTZ,
   },
   {
@@ -243,6 +265,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Aristotle and the historian Ephorus both saw this great comet. Ephorus said he watched it break in two, which later writers doubted. It may be the parent of the Kreutz sungrazers, the family of comets that skim the Sun, among them the great comet of 1106.",
     start_year: bce(371),
     end_year: bce(371),
+    place: [22.1, 38.2],
     source: KREUTZ,
   },
   {
@@ -255,6 +278,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The comet whose dust gives us the Perseid meteors each August was probably bright enough to see with the naked eye when it came round in 322 BCE.",
     start_year: bce(322),
     end_year: bce(322),
+    place: [23.7, 38.0],
     source: SWIFT_TUTTLE,
   },
   {
@@ -266,6 +290,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Chinese astronomers recorded the comet whose dust gives us the Perseid meteors: the earliest known sighting of it. It comes back about every 133 years.",
     start_year: bce(69),
     end_year: bce(69),
+    place: [108.9, 34.3],
     source: SWIFT_TUTTLE,
   },
   {
@@ -278,6 +303,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Four months after Julius Caesar was murdered, a comet shone for seven days during the games held in his honour, and Romans took it for his soul rising to join the gods. Augustus made it an emblem of his rule. Chinese astronomers saw a comet that May. Some historians doubt it was ever there, since the Roman account rests on one late writer.",
     start_year: bce(44),
     end_year: bce(44),
+    place: [12.5, 41.9],
+    narration: { src: "narration/sky/caesars-comet-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "9dbf7c53f9" },
     source: CAESAR,
   },
   {
@@ -291,6 +318,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Chinese tradition tells of two court astronomers, Hsi and Ho, put to death for failing to predict an eclipse of the Sun. An annular eclipse of 22 October 2137 BCE has been matched to the story.",
     start_year: bce(2137),
     end_year: bce(2137),
+    place: [112.5, 35.6],
     source: ECLIPSES,
   },
   {
@@ -303,6 +331,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "A Hittite oracle text speaks of a sign from the Sun god in the reign of King Mursili II. If it was the total eclipse of 24 June 1312 BCE, it would fix Hittite history to the year.",
     start_year: bce(1312),
     end_year: bce(1312),
+    place: [34.6, 40.0],
+    narration: { src: "narration/sky/eclipse-mursili-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "48756fae74" },
     source: ECLIPSES,
   },
   {
@@ -316,6 +346,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The Bamboo Annals say that at Zheng the Sun rose twice. An eclipse just after sunrise would do it: day breaks, darkens, and breaks again. An annular eclipse of 21 April 899 BCE fits.",
     start_year: bce(899),
     end_year: bce(899),
+    place: [109.2, 34.5],
     source: ECLIPSES,
   },
   {
@@ -327,6 +358,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The Assyrian list of yearly officials notes, for the year of Bur-Sagale: \"In the month Simanu an eclipse of the Sun took place.\" It was the total eclipse of 15 June 763 BCE, seen in northern Assyria, and it pins the dates of the ancient Near East for centuries around it.",
     start_year: bce(763),
     end_year: bce(763),
+    place: [43.1, 36.4],
+    narration: { src: "narration/sky/eclipse-assyrian-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "0258c17394" },
     source: ASSYRIAN,
   },
   {
@@ -338,6 +371,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The Greek poet Archilochus wrote of Zeus making night out of noon and hiding the light of the Sun: the total eclipse of 6 April 648 BCE, the earliest eclipse in Greek writing.",
     start_year: bce(648),
     end_year: bce(648),
+    place: [25.2, 37.1],
     source: ECLIPSES,
   },
   {
@@ -350,6 +384,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Herodotus tells how day turned suddenly to night in the middle of a battle between the Lydians and the Medes, who made peace; Thales was said to have foretold it. It is usually matched to the total eclipse of 28 May 585 BCE, but the date, the place, and whether anyone could have predicted it are all argued over.",
     start_year: bce(585),
     end_year: bce(585),
+    place: [34.0, 39.0],
+    narration: { src: "narration/sky/eclipse-thales-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "6ea36d183c" },
     source: THALES,
   },
   {
@@ -363,6 +399,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Herodotus says the Sun vanished as Xerxes set out to invade Greece. No eclipse was visible there in the year he gives; annular eclipses of 2 October 480 and 17 February 478 BCE are the candidates.",
     start_year: bce(480),
     end_year: bce(478),
+    place: [28.0, 38.5],
     source: ECLIPSES,
   },
   {
@@ -375,6 +412,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "In the first summer of the Peloponnesian War the Sun was eclipsed, and Thucydides wrote it down. Pericles is said to have calmed his frightened men with it.",
     start_year: bce(431),
     end_year: bce(431),
+    place: [23.7, 38.0],
     source: ECLIPSES,
   },
   {
@@ -387,6 +425,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Earth's magnetic field flipped over and fell to a fraction of its strength. With the shield down, the study that dated it says, people all over the world would have seen auroras shimmering across the sky. Its authors also suggested harsher sunlight drove people into caves, perhaps prompting cave art, but that is much doubted.",
     start_year: ka(42.2),
     end_year: ka(41.5),
+    place: [4.4, 44.4],
+    narration: { src: "narration/sky/aurora-laschamp-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "6d5f1af8b7" },
     source: COOPER,
   },
   {
@@ -399,6 +439,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Tree rings from the French Alps record a burst of radiation from the Sun far bigger than any storm of modern times. Storms like it light auroras far from the poles, so people in the Ice Age world would likely have seen the sky glow red and green. It has not yet been found in wood from other regions.",
     start_year: bce(12350),
     end_year: bce(12350),
+    place: [5.9, 44.6],
     source: MIYAKE,
   },
   {
@@ -411,6 +452,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "A spike of radiocarbon in tree rings marks a storm from the Sun in 7176 BCE, far stronger than anything seen in the age of telescopes. It would very likely have lit auroras far from the poles, over the first farming villages.",
     start_year: bce(7176),
     end_year: bce(7176),
+    place: [32.8, 37.7],
+    narration: { src: "narration/sky/miyake-7176-bce-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e6ef6a2b04" },
     source: MIYAKE,
   },
   {
@@ -423,6 +466,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Tree rings may record a great storm from the Sun in 5410 BCE, which would have lit auroras far from the poles. It still needs confirming.",
     start_year: bce(5410),
     end_year: bce(5410),
+    place: [24.0, 46.0],
     source: MIYAKE,
   },
   {
@@ -435,6 +479,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Tree rings record a burst of radiation from the Sun in 5259 BCE. A storm that size would very likely have lit auroras far from the poles.",
     start_year: bce(5259),
     end_year: bce(5259),
+    place: [11.0, 47.0],
     source: MIYAKE,
   },
   {
@@ -447,6 +492,7 @@ export const SKY_EVENTS: SkyEvent[] = [
       "Tree rings record a great storm from the Sun in 664–663 BCE, in the last century of the Assyrian empire. A storm that size would very likely have lit auroras far from the poles.",
     start_year: bce(664),
     end_year: bce(663),
+    place: [43.1, 36.4],
     source: MIYAKE,
   },
   {
@@ -458,6 +504,8 @@ export const SKY_EVENTS: SkyEvent[] = [
       "The two brightest planets passed so close, near the star Regulus, that they would have looked almost like a single star in the evening sky. It came at the end of a run of conjunctions in 3–2 BCE, and is one of the explanations offered for the Star of Bethlehem.",
     start_year: bce(2),
     end_year: bce(2),
+    place: [35.2, 31.7],
+    narration: { src: "narration/sky/jupiter-venus-2-bce-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "bfac3f6daa" },
     source: BETHLEHEM,
   },
 ];

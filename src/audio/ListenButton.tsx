@@ -3,6 +3,7 @@ import { pauseNarration, playNarration, resumeNarration, stopNarration, useNarra
 import { pauseAmbience, startAmbience, stopAmbience } from "./ambience";
 import { primeMusic } from "./music";
 import { AMBIENCE } from "../tours/ambience";
+import type { SkyKind } from "../sky/sky";
 import type { Entity } from "../types";
 import { useStore } from "../store";
 
@@ -12,18 +13,23 @@ const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).p
 const AMBIENCE_AFTER_MS = 1_500;
 const AMBIENCE_FADE_S = 3;
 
+export type Narratable = Pick<Entity, "id" | "name" | "narration"> &
+  Partial<Pick<Entity, "parent_id" | "fallback_image">> & { kind?: SkyKind };
+
 /**
  * "Listen": plays the entity's narration (pause and resume on the same button), with its ambient sound
  * under it if it has one (tours/ambience.ts), as in a tour. Nothing loads until pressed. Hidden while a
  * tour plays: the tour reads each stop itself.
  */
-export default function ListenButton({ entity }: { entity: Entity }) {
+export default function ListenButton({ entity }: { entity: Narratable }) {
   const n = useNarration();
   const narration = entity.narration;
   const started = useRef(false);
   const mine = narration !== undefined && n.src === narration.src;
   const touring = useStore((s) => s.tour !== null);
-  const sound = (AMBIENCE[entity.id] ?? (entity.parent_id ? AMBIENCE[entity.parent_id] : undefined))?.sound ?? entity.fallback_image?.sound;
+  const sound =
+    (AMBIENCE[entity.id] ?? (entity.kind ? AMBIENCE[entity.kind] : undefined) ?? (entity.parent_id ? AMBIENCE[entity.parent_id] : undefined))
+      ?.sound ?? entity.fallback_image?.sound;
 
   // Leaving the card stops a clip this button started (a tour stops its own), and its sound.
   useEffect(

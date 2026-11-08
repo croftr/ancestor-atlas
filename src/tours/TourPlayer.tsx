@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useStore } from "../store";
-import { isActive, unionBBox, useData } from "../map/data";
+import { isActive, unionBBox, useData, type BBox } from "../map/data";
+import { skyById } from "../sky/sky";
 import { posToYear, yearToPos } from "../time/scale";
 import { OUTRO, tourById } from "./tours";
 import { holdSeconds, readingSeconds, stopYear } from "./summary";
@@ -103,20 +104,23 @@ export default function TourPlayer() {
     const failed = new Set<number>();
     const patchTour = (p: { phase?: "hold"; holdMs?: number; musicIn?: boolean }) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
+    const firstSky = skyById(stop.entity);
     const on = (data.featuresOf.get(stop.entity) ?? []).filter((f) => isActive(f, target) && (!stop.site || f.id === stop.site));
-    const bbox = unionBBox(
-      on.flatMap((f) => {
-        const b = data.bboxOf.get(f.id);
-        return b ? [b] : [];
-      }),
-    );
+    const bbox: BBox | null = firstSky?.place
+      ? [firstSky.place[0] - 30, Math.max(-60, firstSky.place[1] - 20), firstSky.place[0] + 30, Math.min(60, firstSky.place[1] + 20)]
+      : unionBBox(
+          on.flatMap((f) => {
+            const b = data.bboxOf.get(f.id);
+            return b ? [b] : [];
+          }),
+        );
     useStore.getState().select(null);
     useStore.setState((s) => ({
       year: posToYear(Math.max(0, yearToPos(target) - PRE_ROLL)),
       flyTo: bbox ? { bbox, turn: true } : s.flyTo,
     }));
     patchTour({ phase: "hold", holdMs });
-    const first = data.entityById.get(stop.entity);
+    const first = firstSky ?? data.entityById.get(stop.entity);
     if (first?.narration) preloadNarration(first.narration.src);
     const announce = (i: number, startedAt: number) =>
       playNarration(clips[i].src)
@@ -178,37 +182,44 @@ export default function TourPlayer() {
       useStore.getState().stopTour();
       return;
     }
-    const entity = data.entityById.get(stop.entity)!;
+    const sky = skyById(stop.entity);
+    const entity = data.entityById.get(stop.entity);
+    const item = sky ?? entity;
+    if (!item) {
+      useStore.getState().stopTour();
+      return;
+    }
     // A book tour's note is a stop of its own (BookNote.tsx): the globe turns to its place and the note
     // is shown in the card's place and read, with its pictures, instead of the entity's card.
     const note = stop.note;
-    const voice = note ? note.narration : entity.narration;
+    const voice = note ? note.narration : item.narration;
     // Held for the narration if there is one (set once it starts), else for reading time.
-    let holdMs = (note ? readingSeconds(note.text) : holdSeconds(stop, entity.description)) * 1000;
+    let holdMs = (note ? readingSeconds(note.text) : holdSeconds(stop, item.description)) * 1000;
     let cancelled = false;
     const nextStop = tour.stops[index + 1];
+    const nextSky = nextStop && skyById(nextStop.entity);
     const nextEntity = nextStop && data.entityById.get(nextStop.entity);
-    const nextVoice = nextStop?.note ? nextStop.note.narration : nextEntity?.narration;
+    const nextVoice = nextStop?.note ? nextStop.note.narration : (nextSky ?? nextEntity)?.narration;
     const after = !tour.book
       ? AFTER_NARRATION_MS
       : BOOK_AFTER_NARRATION_MS + (nextStop && !!nextStop.note !== !!note ? VOICE_CHANGE_MS : 0);
     if (voice) preloadNarration(voice.src);
     if (nextVoice) preloadNarration(nextVoice.src);
-    if (!note) preloadPictures(entity);
+    if (!note && entity) preloadPictures(entity);
     if (nextEntity && !nextStop.note) preloadPictures(nextEntity);
     for (const x of [...(note?.images ?? []), ...(nextStop?.note?.images ?? [])]) new Image().src = x.url;
     // The stop's ambient sound, if it has one (tours/ambience.ts), comes in as its card opens.
-    const sound = note ? undefined : AMBIENCE[entity.id]?.sound;
-    const nextSound = nextEntity && !nextStop.note ? AMBIENCE[nextEntity.id]?.sound : undefined;
+    const sound = note ? undefined : AMBIENCE[sky ? sky.kind : entity!.id]?.sound;
+    const nextSound = nextStop && !nextStop.note && (nextSky || nextEntity) ? AMBIENCE[nextSky ? nextSky.kind : nextEntity!.id]?.sound : undefined;
     if (sound) preloadAmbience(sound.src);
     if (nextSound) preloadAmbience(nextSound.src);
     const patchTour = (p: Partial<NonNullable<ReturnType<typeof useStore.getState>["tour"]>>) =>
       useStore.setState((s) => (s.tour ? { tour: { ...s.tour, ...p } } : {}));
     // Extra pictures take turns on the card (or the note's on the note) during the hold (tourPicture.ts); never stepping back.
     // A note's first picture leads (the book's cover is the card's badge, not in the rotation); the rest follow.
-    const extras = note ? note.images?.slice(1) : entity.extra_images;
+    const extras = note ? note.images?.slice(1) : entity?.extra_images;
     let picture = 0;
-    patchTour(note ? { notePicture: 0 } : { picture: { entity: entity.id, index: 0 } });
+    patchTour(note ? { notePicture: 0 } : entity ? { picture: { entity: entity.id, index: 0 } } : { picture: undefined });
 
     let from = yearToPos(useStore.getState().year);
     const to = yearToPos(target);
@@ -219,13 +230,15 @@ export default function TourPlayer() {
     const travelMs = travel && to > from ? Math.min(MAX_TRAVEL_MS, Math.max(MIN_TRAVEL_MS, (to - from) * TRAVEL_MS_PER_TRACK)) : 0;
 
     const arrive = () => {
-      if (note) {
+      if (sky) {
+        useStore.getState().showSky(sky.id, target);
+      } else if (note) {
         // Turn to the place with no card open; the note takes the card's place.
         useStore.getState().select(null);
         useStore.getState().showEntity(stop.entity, { year: target, site: stop.site });
       } else useStore.getState().showEntity(stop.entity, { year: target, open: true, site: stop.site });
       patchTour({ phase: "hold", holdMs, gap: undefined, note: note ? true : undefined });
-      if (sound) startAmbience(sound.src);
+      if (sound) startAmbience(sound.src, { fromStart: sound.credit.includes("Veo") });
       if (voice && !stop.hold)
         playNarration(voice.src)
           .then((seconds) => {
@@ -261,7 +274,7 @@ export default function TourPlayer() {
         } else if (!s.tour.paused) {
           useStore.setState({ year: posToYear(from + (to - from) * ease(elapsed / travelMs)) });
         }
-      } else if (extras?.length) {
+      } else if (extras?.length && entity) {
         const videoEndMs = !note && entity.video ? (entity.category === "species" ? 5_500 : 9_500) : 0;
         if (elapsed >= videoEndMs && pictureIndexAt(extras, elapsed, holdMs) > picture) {
           picture = pictureIndexAt(extras, elapsed, holdMs);
