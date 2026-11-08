@@ -14,10 +14,11 @@ const pictureGroupEntities: { id: string; category: string }[] = pictureGroups.m
   category: "civilization",
 }));
 const byId = new Map<string, { category: string }>([
+  ["supernova", { category: "sky" }],
   ...pictureGroupEntities.map((g) => [g.id, g] as [string, { category: string }]),
   ...entities.map((e) => [e.id, e] as [string, { category: string }]),
 ]);
-const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities" };
+const FOLDER: Record<string, string> = { event: "events", species: "species", culture: "cultures", civilization: "civilizations", city: "cities", sky: "sky" };
 
 describe.each(Object.entries(AMBIENCE))("ambience %s", (id, entry) => {
   it("belongs to an entity", () => {

@@ -665,5 +665,9 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Walled hill town above olive groves: a stylus pressing into clay, a potter's wheel turning, a hammer tapping metal, chariot wheels creaking at the gate, goats and wind in olive trees",
     sound: { src: "ambience/cultures/canaanite-city-states-v1.mp3", credit: "AI-generated sound (ElevenLabs)", prompt_hash: "bddd54ed10" },
   },
+  supernova: {
+    prompt: "Subtle deep cosmic detonation: a soft low-frequency resonant boom and gentle ethereal stellar shockwave whoosh that swells quietly as the star flares and fades into calm night-sky silence",
+    sound: { src: "ambience/sky/supernova-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "9e51a6bd6d" },
+  },
 };
 

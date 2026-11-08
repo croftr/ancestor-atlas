@@ -75,7 +75,7 @@ export default function TourVideo({ src }: { src: string }) {
   useEffect(() => {
     if (!started || failed || touring || !sound) return;
     pauseAmbience(false);
-    startAmbience(sound.src, { muteable: false, delay: 0, hold: 6 });
+    startAmbience(sound.src, { muteable: false, delay: 0, hold: 6, fromStart: sound.credit.includes("Veo") });
   }, [started, failed, touring, sound]);
 
   if (failed) return null;

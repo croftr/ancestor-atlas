@@ -184,7 +184,7 @@ function SkyDetail({ e, order }: { e: SkyEvent; order: SkyEvent[] }) {
           <CardIcon name="close" size={16} />
         </button>
         <div className="ev-detail-media">
-          <SkyPicture e={e} />
+          <SkyPicture e={e} animated />
         </div>
         <div className="ev-detail-body">
           <div className="card-head" style={{ "--cat": SKY_STYLE.color } as CSSProperties}>

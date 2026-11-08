@@ -2,8 +2,13 @@ import { useEffect, type CSSProperties } from "react";
 import { useStore } from "../store";
 import NowStepper from "../now/NowStepper";
 import { CardAction, CardIcon, SourcesDisclosure } from "../ui/CardParts";
+import TourVideo from "../ui/TourVideo";
 import { SkyDrawing } from "./SkyObjects";
-import { SKY_KIND_NAME, SKY_STYLE, skyById, skyShownAt, type SkyEvent } from "./sky";
+import { SKY_KIND_NAME, SKY_STYLE, skyById, skyShownAt, type SkyEvent, type SkyKind } from "./sky";
+
+const SKY_VIDEO: Partial<Record<SkyKind, string>> = {
+  supernova: "video/sky/supernova-v1.mp4",
+};
 
 /** A line on how the drawing relates to what was seen. */
 export function skyNote(e: SkyEvent): string {
@@ -29,12 +34,14 @@ export const SkyIcon = ({ size = 22 }: { size?: number }) => (
 );
 
 /** The drawing from the sky, large, on a patch of night: the card's picture. */
-export function SkyPicture({ e }: { e: SkyEvent }) {
+export function SkyPicture({ e, animated = false }: { e: SkyEvent; animated?: boolean }) {
+  const video = animated ? SKY_VIDEO[e.kind] : undefined;
   return (
     <div className={`sky-picture sky-${e.kind}${e.annular ? " sky-annular" : ""}`} role="img" aria-label={`${SKY_KIND_NAME[e.kind]}, as drawn in the atlas's sky`}>
       <div className={`sky-object sky-${e.kind}${e.annular ? " sky-annular" : ""} on`} style={{ "--sky-ox": "50%", "--sky-oy": "50%" } as CSSProperties}>
         <SkyDrawing kind={e.kind} />
       </div>
+      {video && <TourVideo key={`${e.id}:${video}`} src={video} />}
     </div>
   );
 }
@@ -95,7 +102,7 @@ export default function SkyCard() {
       <div className="card-actions">
         <CardAction icon="page" label="Sky page" title="Everything in the sky, on its own page" onClick={() => (window.location.hash = `#/sky/${encodeURIComponent(e.id)}`)} />
       </div>
-      <SkyPicture e={e} />
+      <SkyPicture e={e} animated />
       <p className="card-desc">{e.description}</p>
       <section className="card-site" aria-label="How it is shown">
         <h3 className="card-section-title">In the atlas</h3>

@@ -68,10 +68,10 @@ export function preloadAmbience(key: string) {
  * Start a stop's sound burst (fading out any other); the same one again carries on. `muteable`: the
  * tour's music button mutes it (in a tour; not under a Listen button, which has no such button).
  */
-export function startAmbience(key: string, { muteable = true, delay = DELAY, hold = HOLD } = {}) {
+export function startAmbience(key: string, { muteable = true, delay = DELAY, hold = HOLD, fromStart = false } = {}) {
   primeMusic();
   const ctx = audioContext();
-  if (!ctx || current?.key === key) return;
+  if (!ctx || (!fromStart && current?.key === key)) return;
   stopAmbience();
   ctx.resume().catch(() => {});
   const gain = ctx.createGain();
@@ -92,10 +92,10 @@ export function startAmbience(key: string, { muteable = true, delay = DELAY, hol
       if (playing.source || !buffer || elapsed < delay) return;
       const source = ctx.createBufferSource();
       source.buffer = buffer;
-      source.loop = true;
+      source.loop = !fromStart;
       source.connect(gain);
       // Start somewhere along the loop, so a sound heard twice in a tour doesn't open the same way.
-      source.start(0, Math.random() * buffer.duration);
+      source.start(0, fromStart ? 0 : Math.random() * buffer.duration);
       playing.source = source;
       ramp(gain, target(), FADE_IN);
     }, TICK_MS),
