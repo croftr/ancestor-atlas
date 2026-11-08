@@ -117,6 +117,8 @@
 .tp-stops li button:focus-visible { outline: 2px solid #c39bff; outline-offset: 1px; }
 .tp-thumb { flex: none; width: 48px; height: 48px; border-radius: 7px; }
 .tp-thumb .cat-badge { transform: scale(0.85); }
+.tp-thumb .sky-picture > .sky-object { transform: scale(0.75); }
+.tp-thumb .sky-picture > .sky-object.sky-aurora { transform: none; }
 .tp-stop-text { display: grid; min-width: 0; }
 .tp-stop-name { font-size: 0.88rem; font-weight: 550; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tp-stop-n { display: inline-block; min-width: 1.4em; color: #c39bff; font-variant-numeric: tabular-nums; }

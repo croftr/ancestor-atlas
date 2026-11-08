@@ -203,6 +203,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* A span's supernova flares on the globe; in a picture it shines steadily. */
 .sky-picture .sky-supernova.sky-span.on .sky-supernova-glow { animation: sky-pulse 7s ease-in-out infinite alternate; }
 .sky-card .sky-picture { margin: 4px 0 12px; }
+.sky-thumb { position: relative; background: #03050c; }
+.sky-thumb .sky-picture { position: absolute; inset: 0; height: 100%; border-radius: 0; aspect-ratio: auto; }
 .space-canvas-twinkle-a {
   animation: space-twinkle-a 6s ease-in-out infinite alternate;
 }
