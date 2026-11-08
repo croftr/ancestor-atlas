@@ -713,5 +713,25 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Gentle harbor waves lapping wooden ship hulls, creaking rigging and ropes, busy harbour footsteps, and warm coastal breeze in coconut palms",
     sound: { src: "ambience/civilizations/tamil-sangam-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "1164abf337" },
   },
+  "ancient-rome": {
+    prompt: "Leather sandals on basalt paving stones, distant marketplace chatter and vendor calls, muffled clinking of Roman armor, and a light Mediterranean breeze",
+    sound: { src: "ambience/civilizations/ancient-rome-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "c8859d6fe6" },
+  },
+  "deccan-kingdoms": {
+    prompt: "Rhythmic stone chisels tapping rock, creaking wooden bullock cart wheels, wooden ox bells clinking, donkey footsteps on dry earth, and a warm dry plateau breeze",
+    sound: { src: "ambience/civilizations/deccan-kingdoms-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "920124d0d0" },
+  },
+  "eastern-hellenistic": {
+    prompt: "Heavy elephant footsteps shifting softly on packed earth, distant horse snort, creak of leather saddle, gentle rustling of silk fabric in a breeze, and quiet mountain wind",
+    sound: { src: "ambience/civilizations/eastern-hellenistic-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "4e23c56003" },
+  },
+  "ptolemaic-egypt": {
+    prompt: "Soft rustle of papyrus sheets, quiet footsteps on polished marble, gentle sea breeze through tall porticos, and distant harbour waves lapping against stone docks",
+    sound: { src: "ambience/civilizations/ptolemaic-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "07a68df9eb" },
+  },
+  "nabataean-kingdom": {
+    prompt: "Soft camel grunts and padded footsteps on sand and gravel, harness leather creaking, faint whispers echoing in the sandstone canyon, and a desert breeze funneling through the gorge",
+    sound: { src: "ambience/civilizations/nabataean-kingdom-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "464e10a308" },
+  },
 };
 

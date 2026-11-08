@@ -81,6 +81,8 @@
   label: Ancient Rome in general
   image_url: /images/civilisations/ancient-rome.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ancient-rome-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/ancient-rome-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "A busy street in Rome: market stalls, citizens in togas and legionaries before temples, a triumphal arch and an aqueduct"
   members: [roman-kingdom, roman-republic, roman-empire, italian-city-states]
 
@@ -112,6 +114,8 @@
   label: ancient Deccan and Kalinga kingdoms in general
   image_url: /images/civilisations/deccan-kingdoms.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/deccan-kingdoms-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/deccan-kingdoms-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "Monks and masons at a rock-cut cave temple in the Deccan, a merchant caravan of bullock carts and donkeys passing on the road"
   members: [satavahana-dynasty, kalinga, mahameghavahana-dynasty]
 
@@ -151,6 +155,8 @@
   label: the Nabataean kingdom in general
   image_url: /images/civilisations/nabataean-kingdom.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/nabataean-kingdom-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/nabataean-kingdom-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "Petra's Treasury carved into the rose-red cliff, camel caravans and market stalls in the gorge before it"
   members: [nabataeans]
 
@@ -220,6 +226,8 @@
   label: the Ptolemaic Kingdom of Egypt in general
   image_url: /images/civilisations/ptolemaic-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ptolemaic-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/ptolemaic-egypt-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "Alexandria: scholars among the columns of the Library, an Egyptian temple beside Greek colonnades, the Pharos lighthouse over the harbour"
   members: [ptolemaic-kingdom]
 
@@ -227,6 +235,8 @@
   label: the Seleucid Empire and Greco-Bactrian kingdoms in general
   image_url: /images/civilisations/eastern-hellenistic.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/eastern-hellenistic-v1.mp4, credit: "AI-generated video (Google Veo)" }
+  sound: { src: ambience/civilizations/eastern-hellenistic-v1.mp3, credit: "AI-generated sound (Google Veo)" }
   image_caption: "A Hellenistic city in the east: colonnaded courts and a theatre, a war elephant, horsemen and merchants with silks"
   members: [seleucid-empire, greco-bactrian-kingdom, indo-greeks]
 
