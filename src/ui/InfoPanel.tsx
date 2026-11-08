@@ -252,7 +252,11 @@ export default function InfoPanel({ view = "globe" }: { view?: View }) {
   // one: the tour's (index 0 is the main picture, then the extras) or the one stepped to by hand.
   const viewerPictures = pictures.filter((p) => p.url !== brokenImage);
   const hasMain = viewerPictures.length > (entity.extra_images?.length ?? 0);
-  const mainVideo = entity.video ?? (!entity.image_url ? (parent?.video ?? entity.fallback_image?.video) : undefined);
+  const mainVideo =
+    entity.video ??
+    (!entity.image_url || entity.image_url === entity.fallback_image?.url
+      ? (parent?.video ?? entity.fallback_image?.video)
+      : undefined);
   const viewerIndex = isTouring
     ? Math.max(0, (tourPicture?.entity === entity.id ? tourPicture.index : 0) - (hasMain ? 0 : 1))
     : viewerPictures.length

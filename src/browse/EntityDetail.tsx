@@ -57,7 +57,11 @@ export default function EntityDetail({
   const prev = i > 0 ? order[i - 1] : undefined;
   const next = i >= 0 && i < order.length - 1 ? order[i + 1] : undefined;
   const parent = entity.parent_id ? data.entityById.get(entity.parent_id) : undefined;
-  const mainVideo = entity.video ?? (!entity.image_url ? (parent?.video ?? entity.fallback_image?.video) : undefined);
+  const mainVideo =
+    entity.video ??
+    (!entity.image_url || entity.image_url === entity.fallback_image?.url
+      ? (parent?.video ?? entity.fallback_image?.video)
+      : undefined);
   // A civilization the atlas cuts off at its end (1 CE) carried on after it.
   const cutOff = entity.category === "civilization" && runsOn(entity);
   const members = entity.group ? (data.childrenOf.get(entity.id) ?? []) : [];
