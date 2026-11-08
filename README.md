@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://ancestor-atlas-lilac.vercel.app/"><strong>🚀 Launch Ancestor Atlas</strong></a>
+  <a href="https://ancestoratlas.org/"><strong>🚀 Launch Ancestor Atlas</strong></a>
 </p>
 
 ---
@@ -57,7 +57,7 @@ While the app is designed to be accessible and fun to browse, accuracy matters. 
 ## 🚀 Running the Project Locally
 
 > **Want to explore immediately without installing anything?**  
-> Simply visit the live version at [**ancestor-atlas-lilac.vercel.app**](https://ancestor-atlas-lilac.vercel.app/).
+> Simply visit the live version at [**ancestoratlas.org**](https://ancestoratlas.org/).
 
 If you'd like to run or contribute to the project on your own computer:
 

@@ -35,7 +35,7 @@ const REPORT = `${OUT_DIR}/report.md`;
 const BATCH = 12;
 /** How far back the stories offered for joining reach. */
 const KNOWN_DAYS = 45;
-const USER_AGENT = "AncestorAtlasNews/1.0 (+https://ancestor-atlas-lilac.vercel.app/; reads each feed once a day at most)";
+const USER_AGENT = "AncestorAtlasNews/1.0 (+https://ancestoratlas.org/; reads each feed once a day at most)";
 
 const args = process.argv.slice(2);
 const flag = (name: string) => args.includes(name);

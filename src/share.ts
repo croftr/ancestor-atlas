@@ -1,6 +1,6 @@
 import { useStore } from "./store";
 import { getData } from "./map/data";
-import { globeHash, globeUrl } from "./globeLink";
+import { globeHash, globeUrl, tourHash } from "./globeLink";
 
 /**
  * Share links go through the entity's or tour's share page (/s/<id>, written by scripts/share-pages.ts
@@ -17,7 +17,7 @@ export function globeShareUrl(): string {
   return entity ? sharePage(encodeURIComponent(entity), globeHash(s)) : globeUrl();
 }
 
-export const tourShareUrl = (id: string) => sharePage(`tour/${encodeURIComponent(id)}`, "");
+export const tourShareUrl = (id: string) => sharePage(`tour/${encodeURIComponent(id)}`, tourHash(id));
 
 /** The phone's share sheet where there is one, else copy the link. True when the link was copied. */
 export async function shareLink(title: string, url: string): Promise<boolean> {
