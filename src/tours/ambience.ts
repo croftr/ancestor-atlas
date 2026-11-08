@@ -733,5 +733,29 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Soft camel grunts and padded footsteps on sand and gravel, harness leather creaking, faint whispers echoing in the sandstone canyon, and a desert breeze funneling through the gorge",
     sound: { src: "ambience/civilizations/nabataean-kingdom-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "464e10a308" },
   },
+  "elam": {
+    prompt: "Gentle reed stylus pressing into wet clay, sandals walking on sun-baked brick steps, distant murmurs in an ancient courtyard, and warm dry wind blowing across the desert terrace",
+    sound: { src: "ambience/civilizations/elam-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "ab2d53a11b" },
+  },
+  "assyria": {
+    prompt: "Clinking bronze scale armour, hooves and harness of pack donkeys shifting on stone, river water lapping against stone quay walls, and a gusty northern Mesopotamian river breeze",
+    sound: { src: "ambience/civilizations/assyria-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "ee3a60c9a9" },
+  },
+  "babylonia": {
+    prompt: "Quiet footsteps on stone flagstones, gentle wooden boat oar dipping in slow river water, distant temple bells or gong, and palm fronds whispering in a warm Euphrates wind",
+    sound: { src: "ambience/civilizations/babylonia-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "3ded3e4fea" },
+  },
+  "shang-dynasty": {
+    prompt: "Soft crackle and hiss of foundry charcoal embers, a bronze tool tapped against stone, gentle rustling of silk garments and flags, and wind across millet fields",
+    sound: { src: "ambience/civilizations/shang-dynasty-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "e7e580fc02" },
+  },
+  "zhou-dynasty": {
+    prompt: "Resonant, pure, sonorous deep chimes of heavy bronze ritual bells ringing slowly, soft rustle of silk robes on polished wooden floors, distant horse breathing, and a gentle courtyard breeze",
+    sound: { src: "ambience/civilizations/zhou-dynasty-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "12c5f4def5" },
+  },
+  "xiongnu": {
+    prompt: "Persistent mountain steppe wind whistling through dry grass, horses snorting and shifting hooves on turf, leather quiver and saddle creaking, and faint distant neighing",
+    sound: { src: "ambience/civilizations/xiongnu-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "29d8a69c4a" },
+  },
 };
 

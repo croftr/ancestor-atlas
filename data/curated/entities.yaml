@@ -2525,6 +2525,7 @@
   image_url: /images/civilisations/assyria.webp
   image_caption: Sacred city of Assur on the Tigris, with the double Temple of Anu and Adad, cuneiform merchant tablets and cylinder seals, tin-laden donkey caravans, and scale-armored charioteers.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/assyria-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/assyria-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Old Assyrian clay tablet and its sealed envelope, a silver debt note from the merchant colony at Kanesh (Kültepe), 19th century BCE (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Clay_tablet_and_its_stamped_envelop._Legal_debt-note_on_silver._Old_Assyrian_dialect._Assyrian_Colony_Period,_19th_century_BCE._Ancient_Orient_Museum,_Istanbul.jpg" }
     - { url: /images/extra/assyria-2.webp, credit: "Marie-Lan Nguyen, public domain, via Wikimedia Commons", caption: "Cult altar of King Tukulti-Ninurta I, showing the king twice before the god Nusku, from Assur, 13th century BCE (Istanbul Archaeology Museums)", source: "https://commons.wikimedia.org/wiki/File:Altar_Tukulti-Ninurta_I_Assur_IAM.jpg" }
@@ -2540,6 +2541,7 @@
   image_url: /images/civilisations/babylonia.webp
   image_caption: Babylon along the Euphrates featuring the blue-glazed Ishtar Gate, the Etemenanki ziggurat, the Stele of Hammurabi's Code, and Babylonian astronomer-scribes.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/babylonia-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/babylonia-1.webp, credit: "Mbzt, CC BY 3.0, via Wikimedia Commons", caption: "Hammurabi of Babylon before the sun god Shamash, on top of the stele of his law code, about 1750 BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:P1050771_Louvre_code_Hammurabi_bas_relief_rwk.JPG" }
     - { url: /images/extra/babylonia-2.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Queen of the Night (Burney Relief), a fired clay plaque of a winged goddess, Old Babylonian period, 1800–1750 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Queen_of_the_Night_relief_(also_Burney_relief),_1800-1750_BC,_from_Iraq._The_British_Museum,_London.jpg" }
@@ -3092,6 +3094,7 @@
   image_url: /images/civilisations/elam.webp
   image_caption: Monumental baked-brick ziggurat of Chogha Zanbil with multi-tiered staircases, blue glazed bricks, and scribes holding cuneiform tablets.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/elam-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/elam-1.webp, credit: "Atsed, CC BY-SA 4.0, via Wikimedia Commons", caption: "The ziggurat of Chogha Zanbil (Dur Untash), built by the Elamite king Untash-Napirisha in the 13th century BCE, Khuzestan, Iran", source: "https://commons.wikimedia.org/wiki/File:Zigorat_Chogha_Zanbil_Temple.jpg" }
     - { url: /images/extra/elam-2.webp, credit: "Shonagon, CC0, via Wikimedia Commons", caption: "Bronze statue of Queen Napirasu, wife of Untash-Napirisha, cast in solid metal and weighing 1,750 kg, from Susa, 14th century BCE (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Statue_de_Napir-Asu_-_Musée_du_Louvre_-_Antiquités_orientales_SB_2731.jpg" }
@@ -3986,6 +3989,7 @@
   image_url: /images/civilisations/shang-dynasty.webp
   image_caption: Yinxu (Anyang) during the Shang Dynasty, featuring a monumental rectangular bronze ding cauldron, owl wine vessel, jade dragon, inscribed turtle oracle bones, and piece-mold bronze foundries.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/shang-dynasty-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/shang-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "Inscribed Shang dynasty divination oracle bone on ox scapula from Yinxu, Anyang", source: "https://commons.wikimedia.org/wiki/File:Ancient_Chinese_Writing_on_Ox_Scapula,_Shang_Dynasty_Oracle_Bone,_Yinxu,_Anyang.jpg" }
     - { url: /images/extra/shang-dynasty-2.webp, credit: "Mlogic, CC BY-SA 3.0, via Wikimedia Commons", caption: "The monumental Houmuwu Ding (c. 1200 BCE, 832 kg), the largest ancient Chinese sacrificial bronze vessel ever discovered (National Museum of China)", source: "https://commons.wikimedia.org/wiki/File:HouMuWuDingFullView.jpg" }
@@ -4001,6 +4005,7 @@
   image_url: /images/civilisations/zhou-dynasty.webp
   image_caption: Fenghao and Luoyang during the Zhou Dynasty, with court musicians playing graduated bronze bianzhong chime bells, ritual bronze vessels, jade bi discs, and four-horse war chariots.
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/zhou-dynasty-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/zhou-dynasty-1.webp, credit: "Gary Todd, CC0, via Wikimedia Commons", caption: "The Mao Gong Ding (Duke Mao Tripod), late Western Zhou Dynasty bronze ritual vessel carrying a 500-character commemorative inscription, the longest bronze inscription from antiquity (National Palace Museum, Taipei)", source: "https://commons.wikimedia.org/wiki/File:Bronze_Mao_Gong_Ding%2C_Late_Western_Zhou.jpg" }
     - { url: /images/extra/zhou-dynasty-2.webp, credit: "Windmemories, CC BY-SA 4.0, via Wikimedia Commons", caption: "The Bianzhong of Marquis Yi of Zeng (c. 433 BCE), monumental ritual set of 65 two-tone tuned bronze bells mounted on lacquered timber racks (Hubei Provincial Museum)", source: "https://commons.wikimedia.org/wiki/File:20230208_Chime_bells_of_Marquis_Yi_of_Zeng.jpg" }
@@ -4125,6 +4130,7 @@
   description: A formidable pastoral nomadic confederation that unified the Mongolian steppe under Modu Chanyu in the late 3rd century BCE. Fielding hundreds of thousands of horse archers, the Xiongnu built the first great nomadic empire in Inner Asia, extracting trade and tribute from Han China and prompting the construction of the Great Wall.
   image_url: /images/civilisations/xiongnu.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/xiongnu-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Xiongnu seasonal encampment on the Mongolian steppe with felt yurts, four-wheeled wagons, horse archers, a bronze ritual cauldron, and grazing livestock"
   extra_images:
     - { url: /images/extra/xiongnu-1.webp, credit: "Public domain, via Wikimedia Commons", caption: "Masterpiece Xiongnu embroidered wool and silk textile from Noin-Ula kurgan 6, depicting a winged griffin attacking an elk, 1st century BCE (Hermitage Museum)", source: "https://commons.wikimedia.org/wiki/File:Noin-Ula_carpet.jpg" }
