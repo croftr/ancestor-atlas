@@ -383,7 +383,7 @@ export const TOURS: Tour[] = [
     closing: "Languages, empires and even coastlines have changed beyond recognition, yet we still look up at the same sky, and wonder at the same lights in the dark.",
     blurb: "From exploding stars that dusted the ocean floor to comets, eclipses and northern lights written down in clay and stone: what our ancestors saw when they looked up.",
     music: { src: "music/tours/in-the-sky-v1.mp3", credit: "Music: \"Adrift Among Infinite Stars\" by Scott Buckley (scottbuckley.com.au), CC BY 4.0" },
-    announcement: { src: "narration/tours/in-the-sky-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "704509048a" },
+    announcement: { src: "narration/tours/in-the-sky-v2.mp3", credit: "AI-generated narration", text_hash: "704509048a" },
     closingNarration: { src: "narration/tours/in-the-sky-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "78cc3972b0" },
     stops: [
       { entity: "supernovae-late-miocene" },
