@@ -652,7 +652,10 @@ export const TOURS: Tour[] = [
     blurb: "Three thousand years on the Nile, one civilization at a time: unification, the pyramid age, collapse and recovery, foreign kings, empire, and the slow end of the pharaohs.",
     deepDive: true,
     draft: true,
-    layers: ["civilization", "event"],
+    closing: "Egypt was never one thing. It split, healed, was conquered and conquered others, and through all of it the Nile kept rising. Its long story survives because its people wrote it down.",
+    layers: ["civilization", "event", "city"],
+    closingNarration: { src: "narration/tours/ancient-egypt-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "7352becf52" },
+    announcement: { src: "narration/tours/ancient-egypt-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c183ca882c" },
     stops: [
       { entity: "early-dynastic-period-of-egypt", year: -2_899 },
       {
@@ -661,6 +664,11 @@ export const TOURS: Tour[] = [
         note: { text: "The Great Pyramid, built for King Khufu around 2600 BCE, was the tallest human-made structure on Earth for nearly four thousand years. What it shows best is the state behind it: one that could gather food, stone and labour on that scale. Excavated workers' towns beside the plateau suggest the builders were fed and housed by the crown.", narration: { src: "narration/books/ancient-egypt/stop-2-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8ee1be13a0" }, kind: "Place", title: "Giza" },
       },
       { entity: "old-kingdom-of-egypt", year: -2_449 },
+      {
+        entity: "old-kingdom-of-egypt",
+        year: -2_249,
+        note: { text: "Egypt lived by the Nile's yearly flood, and a few poor floods could mean hunger. Around 2200 BCE the Old Kingdom broke up, and many researchers link it to a spell of drought across the region. Others stress weaker kings and provincial governors who stopped answering to the crown. Most likely it was both: a river that failed and a state that could no longer cope.", narration: { src: "narration/books/ancient-egypt/stop-4-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "cf50cd7a68" }, kind: "Thread", title: "The Nile and the end of the Old Kingdom" },
+      },
       { entity: "lower-egypt", year: -2_149 },
       { entity: "upper-egypt", year: -2_049 },
       { entity: "middle-kingdom-of-egypt", year: -1_949 },
@@ -673,6 +681,16 @@ export const TOURS: Tour[] = [
       { entity: "fifteenth-dynasty-of-egypt", year: -1_549 },
       { entity: "sixteenth-dynasty-of-egypt", year: -1_549 },
       { entity: "seventeenth-dynasty-of-egypt", year: -1_549 },
+      {
+        entity: "hyksos",
+        year: -1_549,
+        note: { text: "The Hyksos are often credited with bringing the horse-drawn chariot, the composite bow and better bronze weapons to Egypt. Whoever introduced them, the Thebans learned fast. The rulers who drove the Hyksos out, around 1550 BCE, used the same weapons, and within a few generations they were turning them on Nubia and the Levant to build an empire.", narration: { src: "narration/books/ancient-egypt/stop-13-v2.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "db1896cf87" }, kind: "Thread", title: "Chariots and bronze" },
+      },
+      {
+        entity: "amarna-letters",
+        year: -1_349,
+        note: { text: "Clay tablets found at Amarna are the diplomatic mail of Egypt's great age. Kings of Babylon, Mitanni and Hatti write to the pharaoh as brothers, haggle over gold and marriages, and complain of being short-changed. Egypt was no longer alone on the Nile but one of a small club of great powers, tied together by gifts, treaties and envoys.", narration: { src: "narration/books/ancient-egypt/stop-14-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "1e2676eafc" }, kind: "Compare", title: "Egypt among the great powers" },
+      },
       { entity: "new-kingdom-of-egypt", year: -1_279 },
       {
         entity: "sea-peoples",
@@ -682,10 +700,30 @@ export const TOURS: Tour[] = [
       },
       { entity: "twenty-second-dynasty-of-egypt", year: -799 },
       { entity: "twenty-third-dynasty-of-egypt", year: -749 },
+      {
+        entity: "kingdom-of-kush",
+        year: -719,
+        note: { text: "Egypt's southern neighbour had long been its rival, partner and subject. With the country split among rival rulers, the Kushite king Piye marched north from Napata around 744 BCE. His successors ruled the whole of Egypt as the Twenty-fifth Dynasty, restoring old temples and even building pyramids. Kush was an equal that had learned from Egypt, not a copy of it.", narration: { src: "narration/books/ancient-egypt/stop-19-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "5745b89c7a" }, kind: "Compare", title: "Egypt and Kush" },
+      },
       { entity: "assyrian-egypt", year: -649 },
+      {
+        entity: "twenty-sixth-dynasty-of-egypt",
+        year: -604,
+        note: { text: "Psamtik I began as an Assyrian vassal in the Delta. While Assyria was distracted elsewhere, he united Egypt under his own rule, around 656 BCE. To hold it he hired Greek and Carian soldiers and let Greek merchants settle at Naukratis. It was a revival that looked back to the Old Kingdom for its art, and outward to the Mediterranean for its strength.", narration: { src: "narration/books/ancient-egypt/stop-21-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "3964401146" }, kind: "Transition", title: "Psamtik and the Saite revival" },
+      },
       { entity: "twenty-sixth-dynasty-of-egypt", year: -579 },
       { entity: "thirtieth-dynasty-of-egypt", year: -359 },
+      {
+        entity: "macedonian-empire",
+        year: -331,
+        note: { text: "The Thirtieth Dynasty fell when Persia took Egypt back around 343 BCE. A decade later Alexander of Macedon arrived and was welcomed by many Egyptians as a liberator. After his death his general Ptolemy kept Egypt and founded a Greek-speaking dynasty. It ruled from Alexandria for three centuries, and its last ruler was Cleopatra.", narration: { src: "narration/books/ancient-egypt/stop-24-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "efe516e906" }, kind: "Transition", title: "Persians, Alexander and the Ptolemies" },
+      },
       { entity: "ankhwennefer", year: -189 },
+      {
+        entity: "memphis",
+        year: -169,
+        note: { text: "In 196 BCE the priests of Egypt met at Memphis and issued a decree honouring the young Ptolemy the Fifth, just as his armies were crushing rebels like Ankhwennefer. It was cut in stone in hieroglyphs, in demotic and in Greek. Found by French soldiers in 1799, the Rosetta Stone let Champollion read hieroglyphs by 1822, and Egypt's own voice was heard again.", narration: { src: "narration/books/ancient-egypt/stop-26-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "2301b3ef5a" }, kind: "Object", title: "The Rosetta Stone" },
+      },
     ],
   },
 ];
