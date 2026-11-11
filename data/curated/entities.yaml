@@ -2782,6 +2782,7 @@
   image_url: /images/civilisations/assyrian-egypt.webp
   image_caption: "Neo-Assyrian commanders receiving tribute and oaths from Egyptian Delta princes beside an Esarhaddon victory stele outside the White Wall of Memphis, with gold vessels, war chariots, and Saqqara pyramids."
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/assyrian-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/assyrian-egypt-1.webp, credit: "Osama Shukir Muhammed Amin, CC BY-SA 4.0, via Wikimedia Commons", caption: "Victory stele of Esarhaddon from Sam'al (Zincirli), 671 BCE, raised after his conquest of Egypt: the kneeling captive is thought to be Taharqa's son Ushankhuru (Pergamon Museum, Berlin)", source: "https://commons.wikimedia.org/wiki/File:Sam'al_stele_of_Esarhaddon,_671_BCE,_Pergamon_Museum.jpg" }
     - { url: /images/extra/assyrian-egypt-2.webp, credit: "Rebecca Partington, CC BY-SA 2.0, via Wikimedia Commons", caption: "Relief of Mentuemhat, the Theban official who held power through the Assyrian conquest, approaching Anubis, 665–650 BCE", source: "https://commons.wikimedia.org/wiki/File:Relief_of_Mentuemhat_approaching_Anubis.jpg" }
@@ -3556,6 +3557,7 @@
   description: The ruling house of the Hyksos during the Second Intermediate Period, established by Levantine leaders who governed northern Egypt from their fortified delta capital of Avaris. Introducing bronze weaponry, composite bows, and horse-drawn chariots into the Nile Valley, the dynasty maintained commercial networks until driven out by native Theban pharaohs.
   image_url: /images/civilisations/fifteenth-dynasty-of-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/fifteenth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Hyksos capital of Avaris in the eastern Nile Delta: Levantine warriors with bronze khopesh swords and composite bows, granite lion and alabaster jar of King Khyan, and horse-drawn chariots"
   extra_images:
     - { url: /images/extra/fifteenth-dynasty-of-egypt-1.webp, credit: "Juan R. Lazaro, CC BY 2.0, via Wikimedia Commons", caption: "Granite lion inscribed for the Hyksos king Khyan, found at Baghdad (British Museum)", source: "https://commons.wikimedia.org/wiki/File:Khyan.jpg" }
@@ -3570,6 +3572,7 @@
   image_url: /images/civilisations/sixteenth-dynasty-of-egypt.webp
   image_caption: "Theban scribes and officials rationing grain baskets from a domed riverbank granary during lean harvest years, watched over by Theban warriors on a mud-brick bastion overlooking the Nile and Western Theban cliffs."
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/sixteenth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=vPU_KAI-LI4
@@ -3580,6 +3583,7 @@
   image_url: /images/civilisations/seventeenth-dynasty-of-egypt.webp
   image_caption: "Theban commanders and artisans at Dra Abu el-Naga with Kamose's war stela, Seqenenre Tao's bronze battle-axe, a gilded rishi coffin, and Medjay warriors mustering Nile war galleys."
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/seventeenth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/seventeenth-dynasty-of-egypt-1.webp, credit: "CaptMondo, CC BY-SA 3.0, via Wikimedia Commons", caption: "Gilded 'rishi' (feathered) coffin of King Nubkheperre Intef, from Dra Abu el-Naga, Thebes, about 1600 BCE (British Museum)", source: "https://commons.wikimedia.org/wiki/File:WoodenCoffinOfIntef-BritishMuseum-August21-08.jpg" }
     - { url: /images/extra/seventeenth-dynasty-of-egypt-2.webp, credit: "Andrzej Kośka, CC BY-SA 3.0, via Wikimedia Commons", caption: "Stela of King Kamose recording his war against the Hyksos king Apepi, from Karnak (Luxor Museum)", source: "https://commons.wikimedia.org/wiki/File:Stela_kamose.jpg" }
@@ -3594,6 +3598,7 @@
   image_url: /images/civilisations/twenty-second-dynasty-of-egypt.webp
   image_caption: "Royal court at Tanis showing Meshwesh Libyan chieftains in feather headbands conferring with Egyptian priests over the gold mask of Shoshenq II, the Osorkon II triad, and the bronze statue of Karomama."
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/twenty-second-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/twenty-second-dynasty-of-egypt-1.webp, credit: "Olaf Tausch, CC BY 3.0, via Wikimedia Commons", caption: "The Bubastite Portal at Karnak, built by Shoshenq I and carved with his campaign into Canaan", source: "https://commons.wikimedia.org/wiki/File:Karnak_Tempel_Bubastis-Portal_01.JPG" }
     - { url: /images/extra/twenty-second-dynasty-of-egypt-2.webp, credit: "Tangopaso, public domain, via Wikimedia Commons", caption: "Gold funerary mask of King Shoshenq II, from the royal tombs at Tanis (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Masque_en_or_de_Sheshonq_II_(la_Villette,_2023).jpg" }
@@ -3609,6 +3614,7 @@
   image_url: /images/civilisations/twenty-third-dynasty-of-egypt.webp
   image_caption: "Karnak Temple Osiris festival with Pharaoh Osorkon III and God's Wife of Amun Shepenupet I escorting the sacred bark of Sokar outside the Chapel of Osiris Heka-Djet beside a bronze statue of Pedubast I."
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/twenty-third-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   extra_images:
     - { url: /images/extra/twenty-third-dynasty-of-egypt-1.webp, credit: "VivaFox, CC BY-SA 2.0, via Wikimedia Commons", caption: "Limestone statue of King Osorkon III pushing the bark of Sokar, from the Karnak Cachette (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Limestone_statue_of_Osorkon_III.jpg" }
     - { url: /images/extra/twenty-third-dynasty-of-egypt-2.webp, credit: "Michael Martin, CC BY 2.0, via Wikimedia Commons", caption: "Torso of a large bronze statue of King Pedubast I, inlaid with gold and electrum (Calouste Gulbenkian Museum, Lisbon)", source: "https://commons.wikimedia.org/wiki/File:Torso_of_Pedubast_I_by_Michael_Martin.jpg" }
@@ -3623,6 +3629,7 @@
   description: Known as the Saite Renaissance, the Twenty-Sixth Dynasty was the final native dynasty to govern an independent Egypt before the Achaemenid Persian conquest. Ruling from Sais in the western delta, the Saite pharaohs expelled Assyrian garrisons, reopened Mediterranean trade, hired Greek mercenaries, and revived Old and Middle Kingdom artistic and literary styles.
   image_url: /images/civilisations/twenty-sixth-dynasty-of-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/twenty-sixth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Saite Renaissance at Sais and Naukratis: sculptors polishing green greywacke royal busts and Ankhnesneferibre's black siltstone sarcophagus beside Greek hoplite mercenaries and traders"
   extra_images:
     - { url: /images/extra/twenty-sixth-dynasty-of-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Bust from a statue of Psamtik I, who freed Egypt from the Assyrians and founded the Saite dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Bust_from_Statue_of_a_King_MET_267761.jpg" }
@@ -3638,6 +3645,7 @@
   description: The last dynasty of native Egyptian pharaohs, ruling from Sebennytos in the Nile Delta from 380 to 343 BCE. Founded by Nectanebo I, the dynasty vigorously defended Egyptian independence against repeated Persian invasions and initiated extensive temple construction projects across Egypt before Nectanebo II was ousted by Artaxerxes III.
   image_url: /images/civilisations/thirtieth-dynasty-of-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/thirtieth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Temple precinct of the Thirtieth Dynasty: Horus falcon statue protecting Nectanebo II, green siltstone sarcophagus, avenue of human-headed sphinxes, and the riverside Kiosk of Nectanebo I"
   extra_images:
     - { url: /images/extra/thirtieth-dynasty-of-egypt-1.webp, credit: "Carole Raddato, CC BY-SA 2.0, via Wikimedia Commons", caption: "Limestone falcon of Horus protecting King Nectanebo II (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Horus_as_a_falcon_protecting_King_Nectanebo_II_(7463601262).jpg" }
@@ -3654,6 +3662,7 @@
   image_url: /images/civilisations/ankhwennefer.webp
   image_caption: "Coronation of rebel pharaoh Ankhwennefer with the White Crown of Upper Egypt by High Priests of Amun at Karnak Temple, surrounded by cheering native Egyptian warriors with khopesh swords."
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/ankhwennefer-v1.mp4, credit: "AI-generated video (Google Veo)" }
   media:
     - kind: video
       src: https://www.youtube.com/watch?v=D2m9Tk8pgpo

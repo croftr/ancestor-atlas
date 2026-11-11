@@ -777,5 +777,41 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Rhythmic hammering of bronze on an anvil, horse snorts and harness leather shifting, crackle of charcoal hearth embers, and slow marsh water lapping against wooden docks",
     sound: { src: "ambience/civilizations/hyksos-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "596a99ffc6" },
   },
+  "fifteenth-dynasty-of-egypt": {
+    prompt: "Clinking bronze blades, horses shifting hooves on paved court stones, creak of tight bowstrings and chariot wood, and a warm delta breeze fluttering fabric awnings",
+    sound: { src: "ambience/civilizations/fifteenth-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "1f767518df" },
+  },
+  "sixteenth-dynasty-of-egypt": {
+    prompt: "Dry grain trickling into woven wicker baskets, low quiet murmurs of rationing officials, sandals scuffing on sun-dried earth, and muddy Nile river current lapping reed banks",
+    sound: { src: "ambience/civilizations/sixteenth-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "3ac8ca9a70" },
+  },
+  "seventeenth-dynasty-of-egypt": {
+    prompt: "Rhythmic wooden oars dipping into river water, bronze battleaxes tapping leather shields, brisk flapping of linen war banners in the river wind, and distant rhythmic marching cadences",
+    sound: { src: "ambience/civilizations/seventeenth-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "31ff94201d" },
+  },
+  "twenty-second-dynasty-of-egypt": {
+    prompt: "Soft clinking of gold and bronze ritual vessels, muffled footsteps on stone temple flagstones, gentle hiss of burning temple incense, and a warm breeze whistling through granite colonnades",
+    sound: { src: "ambience/civilizations/twenty-second-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "20d3ab68ba" },
+  },
+  "twenty-third-dynasty-of-egypt": {
+    prompt: "Delicate metallic rustle and chime of bronze sistrums, bare footsteps padding slowly across warm stone temple pavements, crackling myrrh incense coals, and a quiet temple breeze",
+    sound: { src: "ambience/civilizations/twenty-third-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "114c66f43c" },
+  },
+  "assyrian-egypt": {
+    prompt: "Clinking iron scale armor and spear butts striking stone paving, horses blowing through nostrils and stamping hooves, creaking chariot wood, and dry desert wind blowing against high limestone fortress walls",
+    sound: { src: "ambience/civilizations/assyrian-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "642a75979a" },
+  },
+  "twenty-sixth-dynasty-of-egypt": {
+    prompt: "Rhythmic scraping and polishing of stone with abrasive quartz sand, clinking bronze greaves and pottery jars set on stone docks, gentle river water slapping timber boats, and a fresh coastal breeze",
+    sound: { src: "ambience/civilizations/twenty-sixth-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "9ea4a5b5b5" },
+  },
+  "thirtieth-dynasty-of-egypt": {
+    prompt: "Gentle lapping of Nile water against stone river steps, quiet footsteps on smooth limestone flagstones, soft rustle of lotus leaves in slow canal water, and a warm afternoon desert breeze",
+    sound: { src: "ambience/civilizations/thirtieth-dynasty-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "027f5eca98" },
+  },
+  "ankhwennefer": {
+    prompt: "Muffled resonant clinking of bronze khopesh swords and spear shafts, crackle of flickering oil torches and braziers, bare feet shifting on ancient stone flagstones, and echoes of deep ceremonial breathing within the cavernous stone hall",
+    sound: { src: "ambience/civilizations/ankhwennefer-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "331cf151ac" },
+  },
 };
 
