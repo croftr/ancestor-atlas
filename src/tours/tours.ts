@@ -656,6 +656,7 @@ export const TOURS: Tour[] = [
     layers: ["civilization", "event", "city"],
     closingNarration: { src: "narration/tours/ancient-egypt-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "7352becf52" },
     announcement: { src: "narration/tours/ancient-egypt-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c183ca882c" },
+    music: { src: "music/tours/ancient-egypt-v1.mp3", credit: "Music: Ancient Egypt backing track (credit to be confirmed)" },
     stops: [
       { entity: "early-dynastic-period-of-egypt", year: -2_899 },
       {
