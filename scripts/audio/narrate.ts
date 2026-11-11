@@ -203,7 +203,7 @@ const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-gene
 async function speak(e: Target): Promise<string> {
   const text = e.spoken ?? e.description;
   const model = e.model ?? (process.env.ELEVENLABS_MODEL || MODEL_DEFAULT);
-  const hash = e.spoken ? textHash(`${model}:${text}`) : e.speed ? textHash(`speed${e.speed}:${text}`) : textHash(text);
+  const hash = e.spoken ? textHash(`${model}:${text}`) : e.speed ? textHash(`${voice}:speed${e.speed}:${text}`) : textHash(text);
   const path = `data/build/audio/tts/${e.category.startsWith("tour") || e.category === "book" ? `${e.category}-` : ""}${e.id}-${e.part ?? ""}${hash}.mp3`;
   if (existsSync(path)) return path;
   const res = await api(`/text-to-speech/${voice}?output_format=mp3_44100_128`, {
