@@ -661,7 +661,7 @@ export const TOURS: Tour[] = [
       {
         entity: "great-pyramid",
         year: -2_599,
-        note: { text: "The Great Pyramid, built for King Khufu around 2600 BCE, was the tallest human-made structure on Earth for nearly four thousand years. What it shows best is the state behind it: one that could gather food, stone and labour on that scale. Excavated workers' towns beside the plateau suggest the builders were fed and housed by the crown.", narration: { src: "narration/books/ancient-egypt/stop-2-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8ee1be13a0" }, kind: "Place", title: "Giza" },
+        note: { text: "The Great Pyramid, built for King Khufu around 2600 BCE, was the tallest human-made structure on Earth for nearly four thousand years. What it shows best is the state behind it: one that could gather food, stone and labour on that scale. Excavated workers' towns beside the plateau suggest the builders were fed and housed by the crown.", narration: { src: "narration/books/ancient-egypt/stop-2-v2.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8ee1be13a0" }, kind: "Place", title: "Giza" },
       },
       { entity: "old-kingdom-of-egypt", year: -2_449 },
       {

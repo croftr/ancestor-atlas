@@ -36,6 +36,11 @@ const MODEL_DEFAULT = "eleven_multilingual_v2";
 /** Announcements are read slowly, as a title: ElevenLabs v3 with its [slowly] tag (Rob's choice, Oct 2026). */
 const ANNOUNCE_MODEL = "eleven_v3";
 const announceSpoken = (title: string) => `${title} [slowly]`;
+/**
+ * A deep dive's interludes are read slower than the voice's natural pace (Rob found it too fast, 11 Nov 2026):
+ * ElevenLabs voice_settings.speed (0.7 to 1.2, default 1). ELEVENLABS_INTERLUDE_SPEED overrides.
+ */
+const INTERLUDE_SPEED = Number(process.env.ELEVENLABS_INTERLUDE_SPEED) || 0.85;
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");
 const args = process.argv.slice(2);
@@ -78,6 +83,8 @@ interface Target {
   /** What is sent to ElevenLabs, if not the description (announcements), and with which model. */
   spoken?: string;
   model?: string;
+  /** voice_settings.speed, if not the voice's own (deep-dive interludes). */
+  speed?: number;
   /** A book tour's part: "synopsis", or the stop's 0-based index (its note). */
   part?: "synopsis" | number;
 }
@@ -131,6 +138,7 @@ const bookPart = (t: (typeof TOURS)[number], part: "synopsis" | number): Target 
         description: t.stops[part]?.note?.text ?? fail(`tour ${t.id} has no note on stop ${part + 1}`),
         narration: t.stops[part].note!.narration,
         file: TOURS_FILE,
+        ...(t.deepDive ? { speed: INTERLUDE_SPEED } : {}),
       };
 const bookParts = (t: (typeof TOURS)[number]): Target[] => [
   ...(t.synopsis ? [bookPart(t, "synopsis")] : []),
@@ -195,13 +203,13 @@ const credit = option("--credit") ?? (file ? "AI-generated narration" : "AI-gene
 async function speak(e: Target): Promise<string> {
   const text = e.spoken ?? e.description;
   const model = e.model ?? (process.env.ELEVENLABS_MODEL || MODEL_DEFAULT);
-  const hash = e.spoken ? textHash(`${model}:${text}`) : textHash(text);
+  const hash = e.spoken ? textHash(`${model}:${text}`) : e.speed ? textHash(`speed${e.speed}:${text}`) : textHash(text);
   const path = `data/build/audio/tts/${e.category.startsWith("tour") || e.category === "book" ? `${e.category}-` : ""}${e.id}-${e.part ?? ""}${hash}.mp3`;
   if (existsSync(path)) return path;
   const res = await api(`/text-to-speech/${voice}?output_format=mp3_44100_128`, {
     method: "POST",
     headers: { "content-type": "application/json", accept: "audio/mpeg" },
-    body: JSON.stringify({ text, model_id: model }),
+    body: JSON.stringify({ text, model_id: model, ...(e.speed ? { voice_settings: { speed: e.speed } } : {}) }),
   });
   mkdirSync("data/build/audio/tts", { recursive: true });
   writeFileSync(path, Buffer.from(await res.arrayBuffer()));
