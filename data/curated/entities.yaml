@@ -2177,6 +2177,7 @@
       credit: Professor Dave Explains, YouTube
 - id: hyksos
   description: Rulers of Levantine origin who established Egypt's Fifteenth Dynasty during the Second Intermediate Period, ruling from their fortified capital of Avaris in the eastern Nile Delta. Their presence introduced horse-drawn chariots, composite bows, and improved bronze metallurgy into Egypt before their expulsion by native Theban pharaohs.
+  narration: { src: narration/civilizations/hyksos-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "d9d8615e2a" }
   image_url: /images/civilisations/hyksos.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/hyksos-v1.mp4, credit: "AI-generated video (Google Veo)" }
