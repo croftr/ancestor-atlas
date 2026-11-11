@@ -38,9 +38,9 @@ const ANNOUNCE_MODEL = "eleven_v3";
 const announceSpoken = (title: string) => `${title} [slowly]`;
 /**
  * A deep dive's interludes are read slower than the voice's natural pace (Rob found it too fast, 11 Nov 2026):
- * ElevenLabs voice_settings.speed (0.7 to 1.2, default 1). ELEVENLABS_INTERLUDE_SPEED overrides.
+ * ElevenLabs voice_settings.speed (0.7 to 1.2); 1 is the voice natural pace, right for the current author voice. ELEVENLABS_INTERLUDE_SPEED overrides.
  */
-const INTERLUDE_SPEED = Number(process.env.ELEVENLABS_INTERLUDE_SPEED) || 0.85;
+const INTERLUDE_SPEED = Number(process.env.ELEVENLABS_INTERLUDE_SPEED) || 1;
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");
 const args = process.argv.slice(2);
