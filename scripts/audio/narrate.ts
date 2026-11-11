@@ -6,7 +6,7 @@
 //   npm run audio:narrate -- --announce <tour id>|all   a tour's title-card announcement, read slowly (all: missing or stale)
 //   npm run audio:narrate -- --closing <tour id>|all    a tour's closing line, read in its epilogue (all: missing or stale)
 //   npm run audio:narrate -- --book <tour id> [--part synopsis|<stop n>] [--yes]
-//                                                       a book tour's synopsis and stop notes (no --part: missing or stale);
+//                                                       a book tour's or deep dive's synopsis and stop notes (no --part: missing or stale);
 //                                                       stops count from 1; the author voice, ELEVENLABS_AUTHOR_VOICE_ID (or ELEVENLABS_BOOK_VOICE_ID) if set
 //   npm run audio:narrate -- <id> --file <mp3>          use a recording you made instead (with --book: needs --part)
 //   npm run audio:narrate -- --voices                   list your ElevenLabs voices (to pick ELEVENLABS_VOICE_ID)
@@ -139,7 +139,7 @@ const bookParts = (t: (typeof TOURS)[number]): Target[] => [
 const staleBook = (b: Target) => !b.narration || b.narration.text_hash !== textHash(b.description);
 const bookId = option("--book");
 const partArg = option("--part");
-const bookTour = bookId ? (TOURS.find((t) => t.id === bookId && t.book) ?? fail(`no book tour ${bookId}`)) : undefined;
+const bookTour = bookId ? (TOURS.find((t) => t.id === bookId && (t.book || t.deepDive)) ?? fail(`no book or deep dive tour ${bookId}`)) : undefined;
 const announceId = option("--announce");
 const closingId = option("--closing");
 const tourId = option("--tour");

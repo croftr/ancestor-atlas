@@ -658,11 +658,7 @@ export const TOURS: Tour[] = [
       {
         entity: "great-pyramid",
         year: -2_599,
-        note: {
-          kind: "Place",
-          title: "Giza",
-          text: "The Great Pyramid, built for King Khufu around 2600 BCE, was the tallest human-made structure on Earth for nearly four thousand years. What it shows best is the state behind it: one that could gather food, stone and labour on that scale. Excavated workers' towns beside the plateau suggest the builders were fed and housed by the crown.",
-        },
+        note: { text: "The Great Pyramid, built for King Khufu around 2600 BCE, was the tallest human-made structure on Earth for nearly four thousand years. What it shows best is the state behind it: one that could gather food, stone and labour on that scale. Excavated workers' towns beside the plateau suggest the builders were fed and housed by the crown.", narration: { src: "narration/books/ancient-egypt/stop-2-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8ee1be13a0" }, kind: "Place", title: "Giza" },
       },
       { entity: "old-kingdom-of-egypt", year: -2_449 },
       { entity: "lower-egypt", year: -2_149 },
@@ -671,11 +667,7 @@ export const TOURS: Tour[] = [
       {
         entity: "alphabetic-script",
         year: -1_799,
-        note: {
-          kind: "Object",
-          title: "Letters from hieroglyphs",
-          text: "At the Egyptian turquoise mines of Serabit el-Khadim in Sinai, workers who spoke a Semitic language scratched short inscriptions around 1800 BCE. Many scholars think they borrowed the shapes of Egyptian hieroglyphs to write their own sounds, an early step toward the alphabet. Egypt gave the world its letters indirectly, through the people it employed.",
-        },
+        note: { text: "At the Egyptian turquoise mines of Serabit el-Khadim in Sinai, workers who spoke a Semitic language scratched short inscriptions around 1800 BCE. Many scholars think they borrowed the shapes of Egyptian hieroglyphs to write their own sounds, an early step toward the alphabet. Egypt gave the world its letters indirectly, through the people it employed.", narration: { src: "narration/books/ancient-egypt/stop-7-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "8dfa45ae5e" }, kind: "Object", title: "Letters from hieroglyphs" },
       },
       { entity: "hyksos", year: -1_749 },
       { entity: "fifteenth-dynasty-of-egypt", year: -1_549 },
@@ -686,11 +678,7 @@ export const TOURS: Tour[] = [
         entity: "sea-peoples",
         year: -1_174,
         site: "sea-peoples@1",
-        note: {
-          kind: "Transition",
-          title: "Medinet Habu",
-          text: "Around 1177 BCE Ramesses III fought off the Sea Peoples at the edge of the Delta and recorded it on his temple at Medinet Habu. Egypt survived when many neighbours fell, but the cost was high. Its empire in Canaan faded, the treasury weakened, and over the next century the power of the pharaohs slowly gave way to rival rulers.",
-        },
+        note: { text: "Around 1177 BCE Ramesses III fought off the Sea Peoples at the edge of the Delta and recorded it on his temple at Medinet Habu. Egypt survived when many neighbours fell, but the cost was high. Its empire in Canaan faded, the treasury weakened, and over the next century the power of the pharaohs slowly gave way to rival rulers.", narration: { src: "narration/books/ancient-egypt/stop-13-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e6a578c1d6" }, kind: "Transition", title: "Medinet Habu" },
       },
       { entity: "twenty-second-dynasty-of-egypt", year: -799 },
       { entity: "twenty-third-dynasty-of-egypt", year: -749 },
