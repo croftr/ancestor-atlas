@@ -650,12 +650,14 @@ export const TOURS: Tour[] = [
     id: "ancient-egypt",
     title: "Ancient Egypt",
     blurb: "Three thousand years on the Nile, one civilization at a time: unification, the pyramid age, collapse and recovery, foreign kings, empire, and the slow end of the pharaohs.",
+    synopsis: "Three thousand years on the Nile, one civilization at a time: unification, the pyramid age, collapse and recovery, foreign kings, empire, and the slow end of the pharaohs.",
     deepDive: true,
     closing: "Egypt was never one thing. It split, healed, was conquered and conquered others, and through all of it the Nile kept rising. Its long story survives because its people wrote it down.",
     layers: ["civilization", "event", "city"],
     closingNarration: { src: "narration/tours/ancient-egypt-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "7352becf52" },
     announcement: { src: "narration/tours/ancient-egypt-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "c183ca882c" },
     music: { src: "music/tours/ancient-egypt-v1.mp3", credit: "Music: Ancient Egypt backing track (credit to be confirmed)" },
+    synopsisNarration: { src: "narration/books/ancient-egypt/synopsis-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "b05e50b367" },
     stops: [
       { entity: "early-dynastic-period-of-egypt", year: -2_899 },
       {
