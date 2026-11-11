@@ -995,6 +995,7 @@
   category: civilization
   group: true
   description: Pharaonic civilisation along the Nile, from the unification of Upper and Lower Egypt through the Old, Middle and New Kingdoms and the intermediate periods between them, with foreign rule by Hyksos and Assyrians in places.
+  narration: { src: narration/civilizations/ancient-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "6d136031d5" }
   wikipedia_url: https://en.wikipedia.org/wiki/Ancient_Egypt
   image_url: /images/civilisations/ancient-egypt.webp
   image_credit: AI-generated illustration
@@ -2125,6 +2126,7 @@
     - { url: /images/extra/rossen-4.webp, credit: "Einsamer Schütze, CC BY-SA 3.0, via Wikimedia Commons", caption: "A Rössen pot from Losse (left) beside later Funnelbeaker pottery (Danneil-Museum, Salzwedel)", source: "https://commons.wikimedia.org/wiki/File:Danneil-Museum_036.JPG" }
 - id: early-dynastic-period-of-egypt
   description: The formative era of unified Egyptian civilization (First and Second Dynasties) following the unification of Upper and Lower Egypt under Narmer. Governing from the royal seat of Thinis and Memphis, this period consolidated divine kingship, codified hieroglyphic writing, established mortuary complexes at Abydos, and laid the foundations of pharaonic statecraft.
+  narration: { src: narration/civilizations/early-dynastic-period-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "ea87840a35" }
   image_url: /images/civilisations/early-dynastic-egypt.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/early-dynastic-period-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -2141,6 +2143,7 @@
       credit: Made In History, YouTube
 - id: old-kingdom-of-egypt
   description: Celebrated as the 'Age of the Pyramids', the Old Kingdom (Third to Sixth Dynasties) was an era of dynamic internal security, centralized pharaonic power, and monumental building along the Nile. Governed from Memphis, pharaohs marshaled royal labor to erect the Great Pyramids and the Sphinx at Giza, institutionalizing enduring religious and funerary traditions.
+  narration: { src: narration/civilizations/old-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e04840dc1a" }
   image_url: /images/civilisations/old-kingdom.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/old-kingdom-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -2157,6 +2160,7 @@
       credit: Made In History, YouTube
 - id: middle-kingdom-of-egypt
   description: The golden age of classical Egyptian civilization (Eleventh to Thirteenth Dynasties), reunified by Mentuhotep II following the First Intermediate Period. Ruled from Thebes and Itjtawy, this era is revered for classical Egyptian literature, monumental irrigation projects in the Faiyum oasis, fortress architecture in Nubia, and an expressive, reflective royal art style.
+  narration: { src: narration/civilizations/middle-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "e923be2326" }
   image_url: /images/civilisations/middle-kingdom.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/middle-kingdom-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -2189,7 +2193,7 @@
       credit: History with Cy, YouTube
 - id: new-kingdom-of-egypt
   description: "After driving out the Hyksos rulers of the north around 1550 BCE, the pharaohs of the New Kingdom made Egypt an imperial power reaching from Nubia to Syria. It was the age of Hatshepsut, Thutmose the Third, Akhenaten, Tutankhamun and Ramesses the Second, of the temples of Karnak and Luxor and the royal tombs in the Valley of the Kings. After about 1100 BCE, worn down by the Sea Peoples, by drought and by rivalry between priests and kings, the kingdom split apart."
-  narration: { src: narration/civilizations/new-kingdom-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
+  narration: { src: narration/civilizations/new-kingdom-of-egypt-v2.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "2f9f0da219" }
   related_ids: [late-bronze-age-cyprus, canaanite-city-states]
   image_url: /images/civilisations/new-kingdom.webp
   image_credit: AI-generated illustration
@@ -2779,6 +2783,7 @@
       credit: The Histories, YouTube
 - id: assyrian-egypt
   description: The period in the 7th century BCE when the Neo-Assyrian Empire conquered Lower and Upper Egypt, driving out the Kushite Twenty-Fifth Dynasty. Sacking Thebes and Memphis, the Assyrians installed local delta princes as tributary vassals, paving the way for the rise of Egypt's native Twenty-Sixth (Saite) Dynasty.
+  narration: { src: narration/civilizations/assyrian-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "9830597b9d" }
   image_url: /images/civilisations/assyrian-egypt.webp
   image_caption: "Neo-Assyrian commanders receiving tribute and oaths from Egyptian Delta princes beside an Esarhaddon victory stele outside the White Wall of Memphis, with gold vessels, war chariots, and Saqqara pyramids."
   image_credit: AI-generated illustration
@@ -3523,6 +3528,7 @@
 # Batch 4A: Egypt Dynasties and Kingdoms
 - id: lower-egypt
   description: The northern delta region of ancient Egypt where the Nile fans out into the Mediterranean Sea, characterized by lush papyrus marshes, maritime trade, and fertile agriculture. Historically symbolized by the red crown (Deshret) and the cobra goddess Wadjet, Lower Egypt united with Upper Egypt to form the dual pharaonic monarchy.
+  narration: { src: narration/civilizations/lower-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4da8b7338e" }
   image_url: /images/civilisations/lower-egypt.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/lower-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -3539,6 +3545,7 @@
       credit: Legacy African History, YouTube
 - id: upper-egypt
   description: The southern riverine expanse of ancient Egypt stretching along the narrow Nile Valley from the First Cataract at Aswan to Memphis. Represented by the white crown (Hedjet) and the vulture goddess Nekhbet, Upper Egypt was the heartland of early state formation, renowned for spiritual centers at Abydos, Thebes, and Hierakonpolis.
+  narration: { src: narration/civilizations/upper-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "5503b1fc0a" }
   image_url: /images/civilisations/upper-egypt.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/upper-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -3555,6 +3562,7 @@
       credit: Legacy African History, YouTube
 - id: fifteenth-dynasty-of-egypt
   description: The ruling house of the Hyksos during the Second Intermediate Period, established by Levantine leaders who governed northern Egypt from their fortified delta capital of Avaris. Introducing bronze weaponry, composite bows, and horse-drawn chariots into the Nile Valley, the dynasty maintained commercial networks until driven out by native Theban pharaohs.
+  narration: { src: narration/civilizations/fifteenth-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "3098165c0a" }
   image_url: /images/civilisations/fifteenth-dynasty-of-egypt.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/fifteenth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -3569,6 +3577,7 @@
       credit: Genetic Journeys, YouTube
 - id: sixteenth-dynasty-of-egypt
   description: A regional Theban dynasty of Upper Egypt that governed the Nile Valley between Thebes and Elephantine during the turbulent Second Intermediate Period. Besieged by devastating local famines, northern pressure from the Hyksos, and southern attacks from Kush, this resilient kingdom maintained native pharaonic traditions until succeeded by the Seventeenth Dynasty.
+  narration: { src: narration/civilizations/sixteenth-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "fd7aeb1149" }
   image_url: /images/civilisations/sixteenth-dynasty-of-egypt.webp
   image_caption: "Theban scribes and officials rationing grain baskets from a domed riverbank granary during lean harvest years, watched over by Theban warriors on a mud-brick bastion overlooking the Nile and Western Theban cliffs."
   image_credit: AI-generated illustration
@@ -3580,6 +3589,7 @@
       credit: Made In History, YouTube
 - id: seventeenth-dynasty-of-egypt
   description: The native Theban dynasty of Upper Egypt during the late Second Intermediate Period that mounted a national war of liberation against the northern Hyksos occupiers. Under martial rulers like Seqenenre Tao, Kamose, and Ahmose I, Theban armies pushed northward, capturing Avaris and ushering in the glorious New Kingdom.
+  narration: { src: narration/civilizations/seventeenth-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "94787823bb" }
   image_url: /images/civilisations/seventeenth-dynasty-of-egypt.webp
   image_caption: "Theban commanders and artisans at Dra Abu el-Naga with Kamose's war stela, Seqenenre Tao's bronze battle-axe, a gilded rishi coffin, and Medjay warriors mustering Nile war galleys."
   image_credit: AI-generated illustration
@@ -3595,6 +3605,7 @@
       credit: DW World History, YouTube
 - id: twenty-second-dynasty-of-egypt
   description: An influential Third Intermediate Period dynasty of Meshwesh Libyan origin, founded around 945 BCE by Pharaoh Shoshenq I (biblical Shishak) from his capital at Tanis. Known for revitalizing royal authority, mounting campaigns into the southern Levant, and installing royal princes as high priests of Amun in Thebes, the dynasty eventually fractured into rival delta principalities.
+  narration: { src: narration/civilizations/twenty-second-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "86aead843c" }
   image_url: /images/civilisations/twenty-second-dynasty-of-egypt.webp
   image_caption: "Royal court at Tanis showing Meshwesh Libyan chieftains in feather headbands conferring with Egyptian priests over the gold mask of Shoshenq II, the Osorkon II triad, and the bronze statue of Karomama."
   image_credit: AI-generated illustration
@@ -3611,6 +3622,7 @@
       credit: History with Cy, YouTube
 - id: twenty-third-dynasty-of-egypt
   description: A contemporary branch of Libyan pharaohs that governed Upper and Middle Egypt from Leontopolis and Herakleopolis during the fragmented Third Intermediate Period. Coexisting and competing with the Twenty-Second Dynasty in Tanis, this regional line maintained local administrative and religious control until eclipsed by the Nubian conquest of Piye.
+  narration: { src: narration/civilizations/twenty-third-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "48f2e98127" }
   image_url: /images/civilisations/twenty-third-dynasty-of-egypt.webp
   image_caption: "Karnak Temple Osiris festival with Pharaoh Osorkon III and God's Wife of Amun Shepenupet I escorting the sacred bark of Sokar outside the Chapel of Osiris Heka-Djet beside a bronze statue of Pedubast I."
   image_credit: AI-generated illustration
@@ -3627,6 +3639,7 @@
       credit: Made In History, YouTube
 - id: twenty-sixth-dynasty-of-egypt
   description: Known as the Saite Renaissance, the Twenty-Sixth Dynasty was the final native dynasty to govern an independent Egypt before the Achaemenid Persian conquest. Ruling from Sais in the western delta, the Saite pharaohs expelled Assyrian garrisons, reopened Mediterranean trade, hired Greek mercenaries, and revived Old and Middle Kingdom artistic and literary styles.
+  narration: { src: narration/civilizations/twenty-sixth-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "b0e0275654" }
   image_url: /images/civilisations/twenty-sixth-dynasty-of-egypt.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/twenty-sixth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -3643,6 +3656,7 @@
       credit: History with Cy, YouTube
 - id: thirtieth-dynasty-of-egypt
   description: The last dynasty of native Egyptian pharaohs, ruling from Sebennytos in the Nile Delta from 380 to 343 BCE. Founded by Nectanebo I, the dynasty vigorously defended Egyptian independence against repeated Persian invasions and initiated extensive temple construction projects across Egypt before Nectanebo II was ousted by Artaxerxes III.
+  narration: { src: narration/civilizations/thirtieth-dynasty-of-egypt-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "bf8cca07d5" }
   image_url: /images/civilisations/thirtieth-dynasty-of-egypt.webp
   image_credit: AI-generated illustration
   video: { src: video/civilizations/thirtieth-dynasty-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
@@ -3659,6 +3673,7 @@
       credit: DW World History, YouTube
 - id: ankhwennefer
   description: A native Egyptian rebel pharaoh who, along with his predecessor Horwennefer, led a major nationalist uprising that liberated Upper Egypt from Ptolemaic rule between 205 and 186 BCE. Governing Thebes and surrounding nomes with the support of the Amun priesthood, his rebellion was ultimately crushed by Ptolemy V Epiphanes.
+  narration: { src: narration/civilizations/ankhwennefer-v1.mp3, credit: "AI-generated narration (ElevenLabs)", text_hash: "4a29ea5cba" }
   image_url: /images/civilisations/ankhwennefer.webp
   image_caption: "Coronation of rebel pharaoh Ankhwennefer with the White Crown of Upper Egypt by High Priests of Amun at Karnak Temple, surrounded by cheering native Egyptian warriors with khopesh swords."
   image_credit: AI-generated illustration
