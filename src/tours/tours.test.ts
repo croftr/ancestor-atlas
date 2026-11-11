@@ -72,6 +72,10 @@ describe.each(TOURS)("tour $id", (tour) => {
 
   it("as a book tour, has a synopsis and book stops with their text", () => {
     if (!tour.book) {
+      if (tour.deepDive) {
+        for (const stop of tour.stops) if (stop.note) expect(stop.note.text, stop.entity).toBeTruthy();
+        return;
+      }
       expect(tour.synopsis ?? tour.stops.find((s) => s.note)).toBeUndefined();
       return;
     }

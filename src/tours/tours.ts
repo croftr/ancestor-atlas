@@ -38,6 +38,8 @@ export interface BookNote {
   title?: string;
   /** Where the book says it, e.g. "Chapter 7"; left out until checked against the book. */
   chapter?: string;
+  /** A deep dive's interlude: what sort it is (Thread, Transition, Place, Object, Compare), shown as its eyebrow. */
+  kind?: string;
   narration?: { src: string; credit: string; text_hash: string };
   /**
    * Pictures of the place, after the book's cover, taking turns while the note is read (`at` as for
@@ -73,6 +75,12 @@ export interface Tour {
   book?: Book;
   synopsis?: string;
   synopsisNarration?: { src: string; credit: string; text_hash: string };
+  /**
+   * A deep dive (docs/deep-dives.md): one topic told stop by stop (e.g. Ancient Egypt, one stop per
+   * civilization), with our own interludes between the cards. Interludes are stops with a `note`, as in
+   * a book tour, but written by us (`note.kind` says what sort) and read in their own voice.
+   */
+  deepDive?: true;
   draft?: true;
   stops: TourStop[];
 }
@@ -634,6 +642,62 @@ export const TOURS: Tour[] = [
         note: { text: "Not everyone lost. In the centuries that followed, Cline shows, Phoenician cities such as Byblos, Tyre and Sidon rose to carry trade and their alphabet across the Mediterranean, Neo-Hittite kingdoms ruled from cities like Carchemish, and Philistines and Israelites settled in Canaan. Greece took centuries to recover and learn to write again, but from the wreckage the Iron Age world was born.", narration: { src: "narration/books/1177-bc/stop-25-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "e4482af2a3" }, title: "Out of the ashes", images: [{ url: "/images/books/1177-bc/25-1.webp", credit: "O.Mustafin, Public domain, via Wikimedia Commons", caption: "Sarcophagus of Ahiram, king of Byblos (National Museum of Beirut)", source: "https://commons.wikimedia.org/wiki/File:Ahiram_Sarcophagus_1.JPG" }, { url: "/images/books/1177-bc/25-2.webp", credit: "Onceinawhile, CC BY-SA 4.0, via Wikimedia Commons", caption: "The inscription on Ahiram's sarcophagus, one of the earliest in the Phoenician alphabet (National Museum of Beirut)", source: "https://commons.wikimedia.org/wiki/File:National_Museum_of_Beirut_–_Ahiram_sarcophagus_inscription_2.jpg" }, { url: "/images/books/1177-bc/25-3.webp", credit: "Dosseman, CC BY-SA 4.0, via Wikimedia Commons", caption: "Warriors carved at Carchemish, capital of a Neo-Hittite kingdom, 10th–9th century BCE (Museum of Anatolian Civilizations, Ankara)", source: "https://commons.wikimedia.org/wiki/File:Ankara_Anatolian_Civilizations_Carchemish_orthostats_Long_Wall_Warriors_in_2011_01.jpg" }] },
       },
       { entity: "phoenicia", year: -1_099 },
+    ],
+  },
+  {
+    // The first deep dive (docs/deep-dives.md): the 16 civilizations under Ancient Egypt in date order, with
+    // interludes between. Draft: interludes are text only (their voice is still to be chosen).
+    id: "ancient-egypt",
+    title: "Ancient Egypt",
+    blurb: "Three thousand years on the Nile, one civilization at a time: unification, the pyramid age, collapse and recovery, foreign kings, empire, and the slow end of the pharaohs.",
+    deepDive: true,
+    draft: true,
+    layers: ["civilization", "event"],
+    stops: [
+      { entity: "early-dynastic-period-of-egypt", year: -2_899 },
+      {
+        entity: "great-pyramid",
+        year: -2_599,
+        note: {
+          kind: "Place",
+          title: "Giza",
+          text: "The Great Pyramid, built for King Khufu around 2600 BCE, was the tallest human-made structure on Earth for nearly four thousand years. What it shows best is the state behind it: one that could gather food, stone and labour on that scale. Excavated workers' towns beside the plateau suggest the builders were fed and housed by the crown.",
+        },
+      },
+      { entity: "old-kingdom-of-egypt", year: -2_449 },
+      { entity: "lower-egypt", year: -2_149 },
+      { entity: "upper-egypt", year: -2_049 },
+      { entity: "middle-kingdom-of-egypt", year: -1_949 },
+      {
+        entity: "alphabetic-script",
+        year: -1_799,
+        note: {
+          kind: "Object",
+          title: "Letters from hieroglyphs",
+          text: "At the Egyptian turquoise mines of Serabit el-Khadim in Sinai, workers who spoke a Semitic language scratched short inscriptions around 1800 BCE. Many scholars think they borrowed the shapes of Egyptian hieroglyphs to write their own sounds, an early step toward the alphabet. Egypt gave the world its letters indirectly, through the people it employed.",
+        },
+      },
+      { entity: "hyksos", year: -1_749 },
+      { entity: "fifteenth-dynasty-of-egypt", year: -1_549 },
+      { entity: "sixteenth-dynasty-of-egypt", year: -1_549 },
+      { entity: "seventeenth-dynasty-of-egypt", year: -1_549 },
+      { entity: "new-kingdom-of-egypt", year: -1_279 },
+      {
+        entity: "sea-peoples",
+        year: -1_174,
+        site: "sea-peoples@1",
+        note: {
+          kind: "Transition",
+          title: "Medinet Habu",
+          text: "Around 1177 BCE Ramesses III fought off the Sea Peoples at the edge of the Delta and recorded it on his temple at Medinet Habu. Egypt survived when many neighbours fell, but the cost was high. Its empire in Canaan faded, the treasury weakened, and over the next century the power of the pharaohs slowly gave way to rival rulers.",
+        },
+      },
+      { entity: "twenty-second-dynasty-of-egypt", year: -799 },
+      { entity: "twenty-third-dynasty-of-egypt", year: -749 },
+      { entity: "assyrian-egypt", year: -649 },
+      { entity: "twenty-sixth-dynasty-of-egypt", year: -579 },
+      { entity: "thirtieth-dynasty-of-egypt", year: -359 },
+      { entity: "ankhwennefer", year: -189 },
     ],
   },
 ];

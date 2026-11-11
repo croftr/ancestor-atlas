@@ -117,7 +117,7 @@ export default function TourBar() {
   const t = tour && tourById(tour.id);
   if (!tour || !t) return null;
   const stop = t.stops[tour.index];
-  const name = stop && data ? `${stopName(stop, data)}${stop.note ? " (from the book)" : ""}` : "";
+  const name = stop && data ? `${stopName(stop, data)}${stop.note ? (t.deepDive ? " (interlude)" : " (from the book)") : ""}` : "";
   // Next goes on from the last stop to the epilogue (index = the number of stops).
   const end = t.stops.length;
 

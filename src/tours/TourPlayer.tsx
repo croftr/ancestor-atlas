@@ -97,7 +97,7 @@ export default function TourPlayer() {
     const readMs = tour.synopsis && !tour.synopsisNarration ? introMs : 0; // the least the card stays, read
     let holdMs = clips.length ? ANNOUNCE_DELAY_MS + introMs : introMs;
     // Music comes in as the last clip ends; a book tour starts with it (Rob's call, 29 Oct 2026), under the readings.
-    let musicAt = tour.book ? 0 : clips.length ? Infinity : MUSIC_DELAY_MS;
+    let musicAt = tour.book || tour.deepDive ? 0 : clips.length ? Infinity : MUSIC_DELAY_MS;
     let playing = -1; // the clip started last
     let ended = -1; // the clip finished (or failed) last
     let nextAt = ANNOUNCE_DELAY_MS;
@@ -200,7 +200,7 @@ export default function TourPlayer() {
     const nextSky = nextStop && skyById(nextStop.entity);
     const nextEntity = nextStop && data.entityById.get(nextStop.entity);
     const nextVoice = nextStop?.note ? nextStop.note.narration : (nextSky ?? nextEntity)?.narration;
-    const after = !tour.book
+    const after = !tour.book && !tour.deepDive
       ? AFTER_NARRATION_MS
       : BOOK_AFTER_NARRATION_MS + (nextStop && !!nextStop.note !== !!note ? VOICE_CHANGE_MS : 0);
     if (voice) preloadNarration(voice.src);
@@ -432,7 +432,7 @@ export default function TourPlayer() {
     ) : (
       <>
         <TimeGap />
-        {tour.book && <BookNote tour={tour} />}
+        {(tour.book || tour.deepDive) && <BookNote tour={tour} />}
       </>
     );
   // A tour opened from a link waits for a tap: browsers only play sound after one.

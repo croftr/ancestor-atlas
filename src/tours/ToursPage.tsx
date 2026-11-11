@@ -83,7 +83,7 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
       <div className="tp-body">
         <h2 id={`tp-${tour.id}`}>
           {tour.title}
-          {tour.draft && <span className="book-draft" title="Draft: the notes are not yet checked against the book">Draft</span>}
+          {tour.draft && <span className="book-draft" title="Draft: not yet checked">Draft</span>}
         </h2>
         {tour.book && (
           <div className="tp-book">
@@ -102,8 +102,9 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
         <div className="tp-meta">
           <span>{stops.length} stops</span>
           <span>about {mins} min</span>
-          {narrated(stops) && (!tour.book || tour.stops.every((s) => s.note?.narration)) && <span>narrated</span>}
+          {narrated(stops) && (!(tour.book || tour.deepDive) || tour.stops.every((s) => !s.note || s.note.narration)) && <span>narrated</span>}
           {tour.book && <span>notes from the book</span>}
+          {tour.deepDive && <span>with interludes</span>}
           {tour.music && <span>with music</span>}
         </div>
         <div className="tp-actions">
@@ -127,7 +128,7 @@ function TourCard({ tour, stops, mins }: { tour: Tour; stops: StopSummary[]; min
                   <span className="tp-stop-name">
                     <span className="tp-stop-n">{s.index + 1}</span> {s.name}
                   </span>
-                  {s.book && <span className="tp-stop-book">From the book</span>}
+                  {s.book && <span className="tp-stop-book">{tour.deepDive ? "Interlude" : "From the book"}</span>}
                   {s.year != null && <span className="tp-stop-year muted">{formatYear(s.year)}</span>}
                 </span>
               </button>
@@ -175,9 +176,23 @@ export default function ToursPage() {
         />
       </header>
       <main className="ev-main tp-main">
-        {tours.filter((t) => !t.tour.book).map(({ tour, stops, mins }) => (
+        {tours.filter((t) => !t.tour.book && !t.tour.deepDive).map(({ tour, stops, mins }) => (
           <TourCard key={tour.id} tour={tour} stops={stops} mins={mins} />
         ))}
+        {tours.some((t) => t.tour.deepDive) && (
+          <>
+            <div className="tp-section">
+              <h2>Deep dives</h2>
+              <p className="muted">
+                One topic, stop by stop, with interludes between the cards on what links them: the threads, the turning
+                points and the places that outlast any one period.
+              </p>
+            </div>
+            {tours.filter((t) => t.tour.deepDive).map(({ tour, stops, mins }) => (
+              <TourCard key={tour.id} tour={tour} stops={stops} mins={mins} />
+            ))}
+          </>
+        )}
         {tours.some((t) => t.tour.book) && (
           <>
             <div className="tp-section">

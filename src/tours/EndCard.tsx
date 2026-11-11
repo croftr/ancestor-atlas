@@ -63,7 +63,7 @@ export default function EndCard({ tour }: { tour: Tour }) {
             <button
               onClick={() => tourGo(s.index)}
               className={!s.picture && s.sky ? "sky-thumb" : undefined}
-              title={`${i + 1}. ${s.name}${s.book ? " (from the book)" : ""}${s.year === null ? "" : ` · ${formatYear(s.year)}`}: watch from here`}
+              title={`${i + 1}. ${s.name}${s.book ? (tour.deepDive ? " (interlude)" : " (from the book)") : ""}${s.year === null ? "" : ` · ${formatYear(s.year)}`}: watch from here`}
               aria-label={`Back to stop ${i + 1}, ${s.name}`}
             >
               {s.picture ? (

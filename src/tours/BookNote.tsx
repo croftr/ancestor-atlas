@@ -26,7 +26,7 @@ export default function BookNote({ tour }: { tour: Tour }) {
   const stacked = useMediaQuery(STACKED_QUERY);
   const [panelEl, setPanelEl] = useState<HTMLElement | null>(null);
   const stop = tour.stops[index];
-  if (!shown || otherCard || !stop?.note || !tour.book) return null;
+  if (!shown || otherCard || !stop?.note || !(tour.book || tour.deepDive)) return null;
   return (
     <>
       {!stacked && <CardResizer panel={panelEl} />}
@@ -54,16 +54,16 @@ function NoteCard({
   const viewerOpen = useStore((s) => s.pictureViewer);
   const setViewerOpen = useStore((s) => s.setPictureViewer);
   const stop = tour.stops[index];
-  const book = tour.book!;
+  const book = tour.book;
   const note = stop.note!;
   const pictures: Picture[] = note.images?.length
     ? note.images
-    : book.cover
+    : book?.cover
       ? [{ url: book.cover.url, credit: book.cover.credit, caption: `Cover of ${book.title}` }]
       : [];
   const current = Math.min(manual ?? timed, pictures.length - 1);
   const picture = pictures[current];
-  const isCover = !note.images?.length;
+  const isCover = !note.images?.length && !!book?.cover;
   const entity = data?.entityById.get(stop.entity);
   const feature = stop.site ? data?.featureById.get(stop.site) : undefined;
   const site = feature?.label;
@@ -82,11 +82,11 @@ function NoteCard({
   return (
     <>
     {viewer}
-    <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`From the book: ${title}`}>
+    <aside ref={setPanelEl} className="panel info-panel book-note-card" aria-label={`${book ? "From the book" : "Interlude"}: ${title}`}>
       <div className="info-head">
         <div className="card-head">
           {/* The book's cover in the badge's place: a tall rectangle beside the eyebrow, name and date. */}
-          {book.cover ? (
+          {book?.cover ? (
             <img className="book-badge-cover" src={book.cover.url} alt="" aria-hidden="true" />
           ) : (
             <span className="book-badge" aria-hidden="true">
@@ -96,15 +96,15 @@ function NoteCard({
           <div className="card-head-text">
             <div className="card-eyebrow-row">
               <div className="card-eyebrow book-eyebrow">
-                <span>From the book</span>
-                {note.chapter && (
+                <span>{book ? "From the book" : "Interlude"}</span>
+                {(book ? note.chapter : note.kind) && (
                   <>
                     <span className="card-eyebrow-sep" aria-hidden="true">·</span>
-                    <span>{note.chapter}</span>
+                    <span>{book ? note.chapter : note.kind}</span>
                   </>
                 )}
                 {tour.draft && (
-                  <span className="book-draft" title="Draft: not yet checked against the book">
+                  <span className="book-draft" title={book ? "Draft: not yet checked against the book" : "Draft: not yet checked"}>
                     Draft
                   </span>
                 )}
@@ -153,13 +153,17 @@ function NoteCard({
         </>
       )}
       <blockquote className="card-desc book-note-text">{note.text}</blockquote>
-      <div className="book-note-source">
-        <cite>{book.title}</cite> by {book.author} ({book.publisher}, {book.year})
-      </div>
-      <a className="card-readmore" href={book.link} target="_blank" rel="noreferrer">
-        About the book
-        <CardIcon name="external" size={14} />
-      </a>
+      {book && (
+        <>
+          <div className="book-note-source">
+            <cite>{book.title}</cite> by {book.author} ({book.publisher}, {book.year})
+          </div>
+          <a className="card-readmore" href={book.link} target="_blank" rel="noreferrer">
+            About the book
+            <CardIcon name="external" size={14} />
+          </a>
+        </>
+      )}
     </aside>
     </>
   );

@@ -24,7 +24,7 @@ export default function TitleCard({ tour }: { tour: Tour }) {
         style={{ animationDuration: `${holdMs}ms`, animationPlayState: paused ? "paused" : "running" } as CSSProperties}
       >
         <div className="tour-title-kicker">
-          {tour.book ? "Book tour" : "Guided tour"}
+          {tour.book ? "Book tour" : tour.deepDive ? "Deep dive" : "Guided tour"}
           {tour.draft && <span className="book-draft" title="Draft: the notes are not yet checked against the book">Draft</span>}
         </div>
         {tour.book?.cover && (
