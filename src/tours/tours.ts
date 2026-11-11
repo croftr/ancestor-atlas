@@ -651,7 +651,6 @@ export const TOURS: Tour[] = [
     title: "Ancient Egypt",
     blurb: "Three thousand years on the Nile, one civilization at a time: unification, the pyramid age, collapse and recovery, foreign kings, empire, and the slow end of the pharaohs.",
     deepDive: true,
-    draft: true,
     closing: "Egypt was never one thing. It split, healed, was conquered and conquered others, and through all of it the Nile kept rising. Its long story survives because its people wrote it down.",
     layers: ["civilization", "event", "city"],
     closingNarration: { src: "narration/tours/ancient-egypt-closing-v1.mp3", credit: "AI-generated narration (ElevenLabs)", text_hash: "7352becf52" },
