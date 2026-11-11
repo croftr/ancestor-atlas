@@ -757,5 +757,25 @@ export const AMBIENCE: Record<string, Ambience> = {
     prompt: "Persistent mountain steppe wind whistling through dry grass, horses snorting and shifting hooves on turf, leather quiver and saddle creaking, and faint distant neighing",
     sound: { src: "ambience/civilizations/xiongnu-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "29d8a69c4a" },
   },
+  "early-dynastic-period-of-egypt": {
+    prompt: "Soft scratching of reed pens on wooden boards, gentle rustle of linen garments and palm-leaf fans, distant lowing of cattle, and a light desert breeze rustling across dry mud-brick walls",
+    sound: { src: "ambience/civilizations/early-dynastic-period-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "b80c0b8b29" },
+  },
+  "lower-egypt": {
+    prompt: "Soft splashing of Nile canal water against mudbanks, cattle hooves treading damp soil, light rustle of tall green papyrus stalks, and a gentle humid Delta breeze",
+    sound: { src: "ambience/civilizations/lower-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "829f810066" },
+  },
+  "upper-egypt": {
+    prompt: "Delicate taps of a chisel and soft brush strokes on sandstone, dog panting softly, leather quiver creaking in the dry heat, and mountain desert wind whistling against high rock cliffs",
+    sound: { src: "ambience/civilizations/upper-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "4f6fa6a29d" },
+  },
+  "middle-kingdom-of-egypt": {
+    prompt: "Wooden baskets of dry grain pouring with a soft rustle, wooden scoops scraping damp Nile silt, light scratching of a reed pen on papyrus, and a warm river breeze rustling through date palm fronds",
+    sound: { src: "ambience/civilizations/middle-kingdom-of-egypt-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "26c1cd042d" },
+  },
+  "hyksos": {
+    prompt: "Rhythmic hammering of bronze on an anvil, horse snorts and harness leather shifting, crackle of charcoal hearth embers, and slow marsh water lapping against wooden docks",
+    sound: { src: "ambience/civilizations/hyksos-v1.mp3", credit: "AI-generated sound (Google Veo)", prompt_hash: "596a99ffc6" },
+  },
 };
 

@@ -2127,6 +2127,7 @@
   description: The formative era of unified Egyptian civilization (First and Second Dynasties) following the unification of Upper and Lower Egypt under Narmer. Governing from the royal seat of Thinis and Memphis, this period consolidated divine kingship, codified hieroglyphic writing, established mortuary complexes at Abydos, and laid the foundations of pharaonic statecraft.
   image_url: /images/civilisations/early-dynastic-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/early-dynastic-period-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "An early pharaoh before the whitewashed serekh palace facade at Memphis, with scribes recording cattle counts and mastaba tombs on the plateau"
   extra_images:
     - { url: /images/extra/early-dynastic-period-of-egypt-1.webp, credit: "Djehouty, CC BY-SA 4.0, via Wikimedia Commons", caption: "King Narmer in the white crown of Upper Egypt, followed by his sandal-bearer, on the Narmer Palette from Hierakonpolis, about 3100 BCE (Egyptian Museum, Cairo)", source: "https://commons.wikimedia.org/wiki/File:Ägyptisches_Museum_Kairo_2019-11-09_Narmer-Palette_05.jpg" }
@@ -2158,6 +2159,7 @@
   description: The golden age of classical Egyptian civilization (Eleventh to Thirteenth Dynasties), reunified by Mentuhotep II following the First Intermediate Period. Ruled from Thebes and Itjtawy, this era is revered for classical Egyptian literature, monumental irrigation projects in the Faiyum oasis, fortress architecture in Nubia, and an expressive, reflective royal art style.
   image_url: /images/civilisations/middle-kingdom.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/middle-kingdom-of-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Middle Kingdom Nile estate with domed granaries, canal excavation, scribes recording agricultural yields, and rock-cut tombs at Beni Hasan"
   extra_images:
     - { url: /images/extra/middle-kingdom-of-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Red granite portrait head of Pharaoh Senusret III (c. 1878–1840 BCE), 12th Dynasty, portraying the somber, reflective royal countenance characteristic of Middle Kingdom sculpture (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Face_of_Senwosret_III_MET_LC-26_7_1394_EGDP026357.jpg" }
@@ -2173,6 +2175,7 @@
   description: Rulers of Levantine origin who established Egypt's Fifteenth Dynasty during the Second Intermediate Period, ruling from their fortified capital of Avaris in the eastern Nile Delta. Their presence introduced horse-drawn chariots, composite bows, and improved bronze metallurgy into Egypt before their expulsion by native Theban pharaohs.
   image_url: /images/civilisations/hyksos.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/hyksos-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "The Delta capital of Avaris blending Canaanite and Egyptian culture, with horse-drawn chariots, bronze weapon smiths, and Syrian-style timber dwellings"
   extra_images:
     - { url: /images/extra/hyksos-1.webp, credit: "Didia, CC BY-SA 3.0, via Wikimedia Commons", caption: "Tell el-Dab'a in the eastern Nile Delta, the site of Avaris, the Hyksos capital", source: "https://commons.wikimedia.org/wiki/File:Tell_el-daba04.jpg" }
@@ -3521,6 +3524,7 @@
   description: The northern delta region of ancient Egypt where the Nile fans out into the Mediterranean Sea, characterized by lush papyrus marshes, maritime trade, and fertile agriculture. Historically symbolized by the red crown (Deshret) and the cobra goddess Wadjet, Lower Egypt united with Upper Egypt to form the dual pharaonic monarchy.
   image_url: /images/civilisations/lower-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/lower-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Herakleopolitan court in the Nile Delta: northern king, scribe with wooden palette, Meryibre Khety openwork copper vessel, and herdsmen leading cattle and an oryx"
   extra_images:
     - { url: /images/extra/lower-egypt-1.webp, credit: "Guillaume Blanchard, CC BY-SA 2.0, via Wikimedia Commons", caption: "Openwork copper-alloy vessel inscribed with the name of King Meryibre Khety, founder of the Herakleopolitan 9th–10th Dynasty (Louvre)", source: "https://commons.wikimedia.org/wiki/File:Egypte_louvre_246_panier.jpg" }
@@ -3536,6 +3540,7 @@
   description: The southern riverine expanse of ancient Egypt stretching along the narrow Nile Valley from the First Cataract at Aswan to Memphis. Represented by the white crown (Hedjet) and the vulture goddess Nekhbet, Upper Egypt was the heartland of early state formation, renowned for spiritual centers at Abydos, Thebes, and Hierakonpolis.
   image_url: /images/civilisations/upper-egypt.webp
   image_credit: AI-generated illustration
+  video: { src: video/civilizations/upper-egypt-v1.mp4, credit: "AI-generated video (Google Veo)" }
   image_caption: "Western Thebes below the cliffs of Deir el-Bahari: sculptors painting the statue of Mentuhotep II in the White Crown, Intef stelae, and Nubian archers with a tesem hound"
   extra_images:
     - { url: /images/extra/upper-egypt-1.webp, credit: "Metropolitan Museum of Art, CC0, via Wikimedia Commons", caption: "Stela of the Theban king Intef II Wahankh, who fought the Herakleopolitan kings for Middle Egypt, 11th Dynasty (Metropolitan Museum of Art)", source: "https://commons.wikimedia.org/wiki/File:Stela_of_King_Intef_II_Wahankh_MET_DP156516.jpg" }
