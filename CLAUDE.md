@@ -384,6 +384,11 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   letters and Late Bronze Age collapse events. Notes, synopsis and closing written by Claude (Rob to check against
   the book); notes and synopsis in the author voice (`ELEVENLABS_AUTHOR_VOICE_ID`), title, closing and cards in the
   usual one. Music "Hiraeth" under its own key. Details in docs/book-tours.md.
+- Third: *Against the Grain* (James C. Scott, 2017; tour `against-the-grain`, 15 Nov 2026): 26 stops, 16 book stops
+  and 10 cards, from hominin fire use and Natufian Abu Hureyra through the Neolithic *domus*, Ubaid marshes, Uruk,
+  Ur and Hammurabi's Babylon to the early Chinese frontier. Notes, synopsis and closing written by Claude (Rob to
+  check against the book); notes and synopsis in the author voice (`ELEVENLABS_AUTHOR_VOICE_ID`), title and closing
+  in the usual one. Music "Hiraeth" under its own key. Details in docs/book-tours.md.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
 

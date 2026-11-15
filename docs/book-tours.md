@@ -295,3 +295,33 @@ Age collapse (with points at Hattusa, Pylos and Mycenae), so the stops can land 
   articles on each site, Cline's own published arguments): Rob checks each against the book and adds chapters.
   Points to check in particular: the Ugarit "kiln" correction (revised edition), the embargo wording (Assyria),
   the Rekhmire kilts (Keftiu), and the Aegean List reading as an embassy.
+
+## Third book: *Against the Grain* (James C. Scott, 2017)
+
+Built 15 Nov 2026 (tour id `against-the-grain`). *Against the Grain: A Deep History of the Earliest States*, Yale
+University Press, 2017. Uses the atlas's existing items, which already cover the book's arc from hominin fire use
+through the Neolithic *domus* to the Mesopotamian alluvium and the early Chinese frontier.
+
+- **26 stops, 16 book stops and 10 cards**, oldest first, following the book's seven chapters in chronological order:
+  fire (`control-of-fire`), sedentism before farming at Abu Hureyra (`natufian` at `natufian@3`), monuments before
+  farming (`gobekli-tepe`), the *domus* and the drudgery of grain (`birth-of-agriculture`), animal and human
+  self-domestication at Çayönü (`cattle-and-pigs`), the multispecies camp and zoonotic crowds (`jericho`), the
+  four-millennium gap between villages and states (`catalhoyuk`), tuber "escape crops" (`new-guinea-farming`), the
+  grain hypothesis (`rice-and-millet`), the Ubaid wetland economy (`ubaid` at `ubaid@x:warka`), Uruk's state module
+  and bevelled-rim ration bowls (`uruk`), cuneiform as fiscal bookkeeping (`development-of-writing`), bondage, walls
+  and textile workshops under Ur III (`ur`), state collapse as disassembly (`akkadian-empire`), laws against flight
+  and debt bondage (`code-of-hammurabi`), and "the Golden Age of the Barbarians" along the early Great Wall
+  (`unification-of-china`). Cards: Control of fire, the Natufian (at Abu Hureyra), Göbekli Tepe, Birth of
+  agriculture, Jericho, Çatalhöyük, Rice and millet in China, Uruk, Development of writing, and Ur.
+- **Voices:** title and closing line in the main narrator voice (`ELEVENLABS_VOICE_ID`); synopsis and all 16 notes
+  in the author voice (`ELEVENLABS_AUTHOR_VOICE_ID`). All 10 cards already had narration.
+- **Pictures:** 28 Commons photos (free licences) in `public/images/books/against-the-grain/<stop n>-<k>.webp`,
+  verified on a contact sheet, none repeating the cards' own pictures. Cover from Rob
+  (`public/images/books/against-the-grain.webp`, credited to Yale University Press).
+- **Music:** "Hiraeth" (Scott Buckley, CC BY 4.0), under its own key `music/tours/against-the-grain-v1.mp3`.
+- **Notes are drafts** written from the book's published summaries and chapters: Rob checks each against the book
+  and adds chapters. Points to check in particular: whether Scott names Qesem Cave specifically in Chapter 1 on fire
+  (the image caption mentions Qesem, while the note text stays general), how much weight he gives Göbekli Tepe and
+  Çatalhöyük alongside Abu Hureyra and Jericho, and the exact phrasing around Ur III textile workshops and the
+  Code of Hammurabi's runaway-slave clauses.
+
