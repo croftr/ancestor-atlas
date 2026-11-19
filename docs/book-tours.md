@@ -325,3 +325,38 @@ through the Neolithic *domus* to the Mesopotamian alluvium and the early Chinese
   Çatalhöyük alongside Abu Hureyra and Jericho, and the exact phrasing around Ur III textile workshops and the
   Code of Hammurabi's runaway-slave clauses.
 
+## Fourth book: *The Horse, the Wheel, and Language* (David W. Anthony, 2007)
+
+Built 19 Nov 2026 (tour id `horse-wheel-language`). *The Horse, the Wheel, and Language: How Bronze-Age Riders from
+the Eurasian Steppes Shaped the Modern World*, Princeton University Press, 2007. Uses the atlas's existing items,
+which already cover the book's full arc from the Neolithic Criș frontier and Old Europe's copper towns to the Yamnaya
+steppe, Afanasievo, Corded Ware, Bell Beaker, Sintashta chariots, Andronovo, Hittites, Mitanni, Mycenaean Greece and
+Iron Age Scythia. Turns `dna: "y"` on for the tour so viewers can watch the ancient Y-DNA wave unfold across Eurasia.
+
+- **34 stops, 20 book stops and 14 cards**, oldest first, interweaving Part One's linguistic detective work with
+  Part Two's chronological sweep: the Criș–steppe frontier (`starcevo-koros-cris` at `parta-2`), Balkan copper and
+  Varna (`copper-smelting`), Cucuteni–Trypillia mega-towns (`cucuteni-trypillia` at `talianki`), Botai bit-wear
+  (`horse-domestication@2`), the Bronocice wagon pot and wool/wheel word-clock (`funnelbeaker` at `bronocice`), the
+  wheel at Uruk (`invention-of-the-wheel`), guest-host oaths and bronze feasts (`bronze-age`), Usatovo's steppe
+  patrons and village potters (`cucuteni-trypillia` at `usatovo`), Yamnaya wagon dwellers in the Samara Valley
+  (`yamnaya` at `lopatino`), Afanasievo and the Tocharians (`afanasievo` at `river-kuyum`), Yamnaya kurgans on the
+  Danube (`yamnaya` at `ketegyhaza`), Corded Ware (`corded-ware` at `esperstedt`), Bell Beaker (`bell-beaker` at
+  `amesbury`), the Volga–Don steppe horse postscript (`horse-domestication@1`), Sintashta spoked-wheel chariots
+  (`sintashta` at `stepnoe`), Andronovo and the Eurasian bridge (`andronovo` at `kytmanovo`), the Hittites as the
+  oldest written Indo-European (`hittites`), Mitanni's Vedic gods and Kikkuli (`mitanni`), Mycenaean chariots and
+  Linear B (`mycenaean-greece`), and Iron Age Scythian cavalry (`scythia`). Cards (all already narrated): The first
+  milk, Extractive metallurgy and smelting, Cucuteni–Trypillia culture, Invention of the wheel, The Bronze Age and
+  bronze metallurgy, Yamnaya culture, Afanasievo culture, Corded Ware culture, Bell Beaker culture, Domestication of
+  the horse, Sintashta culture, Andronovo culture, Hittites, and Mycenaean Greece.
+- **Voices:** title and closing line in the main narrator voice (`ELEVENLABS_VOICE_ID`); synopsis and all 20 notes
+  in the author voice (`ELEVENLABS_AUTHOR_VOICE_ID`). All 14 cards already had narration.
+- **Pictures:** 35 Commons photos (free licences) in `public/images/books/horse-wheel-language/<stop n>-<k>.webp`,
+  verified on contact sheets, none repeating the cards' own pictures. Cover from Rob
+  (`public/images/books/horse-wheel-language.webp`, credited to Princeton University Press).
+- **Music:** "Path Through The Mountains" (Scott Buckley, CC BY 4.0, 5:21), under its own key
+  `music/tours/horse-wheel-language-v1.mp3`.
+- **Notes are drafts** written from the book's published summaries and chapters: Rob checks each against the book
+  and adds chapters. Points to check in particular: whether to keep the post-2007 ancient DNA updates in the Corded
+  Ware (stop 19) and Volga–Don steppe horse (stop 23) notes, and how much weight Anthony gives Bell Beaker (stop 21)
+  versus Danube Yamnaya and Corded Ware for the spread of Celtic and Italic.
+

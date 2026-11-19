@@ -389,6 +389,13 @@ every stop narrated. Rob chose to polish next. Backlog, roughly in his order of 
   Ur and Hammurabi's Babylon to the early Chinese frontier. Notes, synopsis and closing written by Claude (Rob to
   check against the book); notes and synopsis in the author voice (`ELEVENLABS_AUTHOR_VOICE_ID`), title and closing
   in the usual one. Music "Hiraeth" under its own key. Details in docs/book-tours.md.
+- Fourth: *The Horse, the Wheel, and Language* (David W. Anthony, 2007; tour `horse-wheel-language`, 19 Nov 2026):
+  34 stops, 20 book stops and 14 cards, from the Neolithic Criș–steppe frontier and Old Europe's copper towns through
+  Botai bit-wear, Bronocice's wagon pot, Yamnaya kurgans, Afanasievo, Corded Ware, Bell Beaker, Sintashta chariots,
+  Andronovo, Hittites, Mitanni and Mycenaean Greece to Iron Age Scythia (`dna: "y"` on for the tour). Notes, synopsis
+  and closing written by Claude (Rob to check against the book); notes and synopsis in the author voice
+  (`ELEVENLABS_AUTHOR_VOICE_ID`), title and closing in the usual one. Music "Path Through The Mountains" (Scott
+  Buckley, CC BY 4.0) under its own key. Details in docs/book-tours.md.
 
 ## Ice Age geography, climate strip, routes, contemporaries (added 15 Oct 2026)
 
