@@ -91,13 +91,15 @@ export default function TourPlayer() {
     if (gate || trackedStart.current === id) return;
     trackedStart.current = id;
     const t = tourById(id);
-    trackEvent("tour_start", { tour: id, ...(t ? { title: t.title } : {}) });
+    const label = t?.title ?? id;
+    trackEvent(`Tour: ${label}`.slice(0, 50), { tour: id, title: label });
   }, [id, gate]);
   useEffect(() => {
     if (!id || !epilogue || trackedComplete.current === id) return;
     trackedComplete.current = id;
     const t = tourById(id);
-    trackEvent("tour_complete", { tour: id, ...(t ? { title: t.title } : {}) });
+    const label = t?.title ?? id;
+    trackEvent(`Tour done: ${label}`.slice(0, 50), { tour: id, title: label });
   }, [id, epilogue]);
 
   // The title card: set the slider just before the first stop and turn the globe towards it, while
