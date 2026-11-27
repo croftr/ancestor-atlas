@@ -18,6 +18,7 @@ import { useHash, useView } from "./route";
 import { useStore } from "./store";
 import { readTourHash, useGlobeLink } from "./globeLink";
 import { usePageTitle } from "./pageTitle";
+import { useAnalytics } from "./analytics";
 
 // The pages and the intro dialog load when first opened, so a visit to the globe downloads only the
 // globe (their stylesheets are in styles.ts with the rest).
@@ -37,6 +38,7 @@ export default function App() {
   const hash = useHash();
   useGlobeLink(view);
   usePageTitle();
+  useAnalytics();
   const introOpen = useStore((s) => s.introOpen);
   const setIntroOpen = useStore((s) => s.setIntroOpen);
 

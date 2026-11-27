@@ -6,6 +6,7 @@ import { AMBIENCE } from "../tours/ambience";
 import type { SkyKind } from "../sky/sky";
 import type { Entity } from "../types";
 import { useStore } from "../store";
+import { trackEvent } from "../analytics";
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
@@ -57,6 +58,7 @@ export default function ListenButton({ entity }: { entity: Narratable }) {
     if (playing) return pauseNarration();
     started.current = true;
     if (mine && n.time > 0 && !n.ended) return resumeNarration(); // the sound (if still to come) resumes with it
+    trackEvent("narration_play", { entity: entity.id, name: entity.name });
     if (sound) {
       primeMusic(); // the sound plays through Web Audio, which needs this tap to start
       stopAmbience(0.3); // a replay starts the burst again

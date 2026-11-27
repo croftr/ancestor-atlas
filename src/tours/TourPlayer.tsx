@@ -24,6 +24,7 @@ import {
 import { pauseMusic, primeMusic, startMusic, stopMusic } from "../audio/music";
 import { pauseAmbience, preloadAmbience, startAmbience, stopAmbience } from "../audio/ambience";
 import { AMBIENCE } from "./ambience";
+import { trackEvent } from "../analytics";
 
 /** From a tap: lets the tour's sound play (narration and music), then starts the tour. */
 export function beginTour(start: () => void) {
@@ -77,6 +78,27 @@ export default function TourPlayer() {
   const intro = useStore((s) => s.tour?.intro);
   const gate = useStore((s) => s.tour?.gate);
   const epilogue = useStore((s) => s.tour?.epilogue);
+
+  // Analytics: record when a tour actually starts playing (past any link gate) and when it reaches the end card.
+  const trackedStart = useRef<string | null>(null);
+  const trackedComplete = useRef<string | null>(null);
+  useEffect(() => {
+    if (!id) {
+      trackedStart.current = null;
+      trackedComplete.current = null;
+      return;
+    }
+    if (gate || trackedStart.current === id) return;
+    trackedStart.current = id;
+    const t = tourById(id);
+    trackEvent("tour_start", { tour: id, ...(t ? { title: t.title } : {}) });
+  }, [id, gate]);
+  useEffect(() => {
+    if (!id || !epilogue || trackedComplete.current === id) return;
+    trackedComplete.current = id;
+    const t = tourById(id);
+    trackEvent("tour_complete", { tour: id, ...(t ? { title: t.title } : {}) });
+  }, [id, epilogue]);
 
   // The title card: set the slider just before the first stop and turn the globe towards it, while
   // the announcement plays (or for INTRO_MS); then on to the first stop. Waits behind the gate.

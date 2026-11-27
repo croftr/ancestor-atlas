@@ -214,6 +214,7 @@ ${s.items
 <link rel="icon" type="image/webp" href="/favicon.webp">
 <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>
 <script>if (location.hash.length > 2) location.replace("/" + location.hash);</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3c0a7573-e048-4cc0-ad2d-fdbd4c6314e4" data-domains="ancestoratlas.org"></script>
 <style>
 body{margin:0;background:#0b1020;color:#e8ecf4;font:16px/1.6 system-ui,sans-serif}
 main{max-width:680px;margin:0 auto;padding:28px 16px 56px}
