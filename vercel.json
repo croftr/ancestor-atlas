@@ -2,10 +2,6 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/a/script.js",
-      "destination": "https://cloud.umami.is/script.js"
-    },
-    {
       "source": "/a/api/send",
       "destination": "https://gateway.umami.is/api/send"
     }

@@ -214,7 +214,7 @@ ${s.items
 <link rel="icon" type="image/webp" href="/favicon.webp">
 <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>
 <script>if (location.hash.length > 2) location.replace("/" + location.hash);</script>
-<script defer src="/a/script.js" data-host-url="/a" data-website-id="3c0a7573-e048-4cc0-ad2d-fdbd4c6314e4" data-domains="ancestoratlas.org"></script>
+<script>(function(){if(location.hash.length>2||location.hostname!=="ancestoratlas.org")return;var w="3c0a7573-e048-4cc0-ad2d-fdbd4c6314e4",k="umami.cache",c;try{if(localStorage.getItem("umami.disabled"))return;c=localStorage.getItem(k)}catch(e){}var h={"Content-Type":"application/json","x-umami-website-id":w,"x-umami-hostname":location.hostname};if(c)h["x-umami-cache"]=c;var r=document.referrer||"",o=location.origin;if(r===o||r.indexOf(o+"/")===0)r=r.slice(o.length)||"/";fetch("/a/api/send",{method:"POST",keepalive:true,credentials:"omit",headers:h,body:JSON.stringify({type:"event",payload:{website:w,hostname:location.hostname,screen:screen.width+"x"+screen.height,language:navigator.language,title:document.title,url:location.pathname,referrer:r}})}).then(function(x){return x.ok?x.json():null}).then(function(d){if(d&&d.cache)try{localStorage.setItem(k,d.cache)}catch(e){}}).catch(function(){})})();</script>
 <style>
 body{margin:0;background:#0b1020;color:#e8ecf4;font:16px/1.6 system-ui,sans-serif}
 main{max-width:680px;margin:0 auto;padding:28px 16px 56px}
